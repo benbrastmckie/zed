@@ -1,12 +1,22 @@
 {
-  "status": "in_progress",
+  "status": "implemented",
   "session_id": "sess_1744316400_imp008",
   "agent_type": "general-implementation-agent",
   "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
   "task_number": 8,
-  "artifacts": [],
+  "artifacts": [
+    {
+      "path": "specs/008_split_workflows_into_directory/summaries/01_split-workflows-directory-summary.md",
+      "type": "summary",
+      "summary": "Split docs/office-workflows.md into docs/workflows/ with 6 files (README, agent-lifecycle, edit-word-documents, edit-spreadsheets, convert-documents, tips-and-troubleshooting); moved and renamed agent-system/workflow.md; repaired 17 inbound links across 9 files; deleted source files."
+    }
+  ],
   "metadata": {
-    "phases_completed": 0,
+    "phases_completed": 10,
     "phases_total": 10
+  },
+  "completion_data": {
+    "completion_summary": "Converted docs/office-workflows.md and docs/agent-system/workflow.md into a new docs/workflows/ directory with 6 goal-clustered files, repaired all 17 inbound links across the repo, and deleted both source files.",
+    "roadmap_items": []
   }
 }
