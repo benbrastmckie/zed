@@ -4,10 +4,13 @@
     {
       "project_number": 13,
       "project_name": "update_docs_for_agent_system_reload",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-10T22:49:12Z",
-      "last_updated": "2026-04-10T22:49:12Z"
+      "last_updated": "2026-04-10T22:55:46Z",
+      "session_id": "sess_1775861393_616308",
+      "researched": "2026-04-10T22:55:46Z",
+      "next_artifact_number": 2
     },
     {
       "project_number": 12,
