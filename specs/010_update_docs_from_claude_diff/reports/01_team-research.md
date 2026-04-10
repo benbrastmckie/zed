@@ -3,9 +3,11 @@
 **Task**: 10 - Update docs/ based on .claude/ diff
 **Started**: 2026-04-10
 **Completed**: 2026-04-10
-**Team Size**: 2 teammates returned findings (C, D); A and B did not produce reports
+**Team Size**: 4 teammates (A: primary catalog, B: docs mapper, C: critic, D: horizons)
 **Sources/Inputs**: `git diff HEAD -- .claude/`, `git status`, docs/ tree, .claude/ tree, task 9 plan, CLAUDE.md, scripts/check-extension-docs.sh
 **Artifacts**:
+- `specs/010_update_docs_from_claude_diff/reports/01_teammate-a-findings.md` (Primary — full diff catalog, 296 lines)
+- `specs/010_update_docs_from_claude_diff/reports/01_teammate-b-findings.md` (Docs Mapper — 16-file docs/ map with cross-refs, 374 lines)
 - `specs/010_update_docs_from_claude_diff/reports/01_teammate-c-findings.md` (Critic)
 - `specs/010_update_docs_from_claude_diff/reports/01_teammate-d-findings.md` (Horizons)
 - `specs/010_update_docs_from_claude_diff/reports/01_team-research.md` (this synthesis)
@@ -170,9 +172,9 @@ Plus grep searches over `docs/` for: `\.claude/`, `/talk`, `/slides`, `/convert`
 
 ### Teammate Participation
 
-- **Teammate A (Cataloger)**: No report produced. Expected to enumerate raw diff.
-- **Teammate B (Docs mapper)**: No report produced. Expected to map `docs/` tree to `.claude/` referents.
-- **Teammate C (Critic)**: `01_teammate-c-findings.md` — scope ambiguities, hidden coupling, blind spots, stress-test of the primary approach.
-- **Teammate D (Horizons)**: `01_teammate-d-findings.md` — long-term alignment, strategic opportunities, tiered scope recommendation, drift catalog.
+- **Teammate A (Primary / Cataloger)**: `01_teammate-a-findings.md` — exhaustive change inventory of the `.claude/` diff across 49 files / 17,879 diff lines. Confirms `/talk` -> `/slides` repurpose, ROAD_MAP -> ROADMAP global rename, agent-template simplification to minimal frontmatter, `.claude/context/standards/documentation.md` consolidation into `documentation-standards.md`, new `reviser-agent`, new `check-extension-docs.sh` doc-lint script, team-skill count-aware artifact-linking blocks, and `/review`/`/todo` auto-create of default `ROADMAP.md`. Confidence: high.
+- **Teammate B (Docs Mapper)**: `01_teammate-b-findings.md` — mapped all 16 `docs/` files (1,969 lines) against the current `.claude/` tree. Independently verified the same 13 drift items. Key added insight: **8 of 16 docs files need zero changes** (`docs/README.md`, all of `docs/general/*`, `docs/workflows/edit-word-documents.md`, `edit-spreadsheets.md`, `tips-and-troubleshooting.md`, `docs/agent-system/context-and-memory.md`). Prior-art pattern from task 8: plan one phase per file + a final "repair inbound links" phase for anchor drift.
+- **Teammate C (Critic)**: `01_teammate-c-findings.md` — scope ambiguities, hidden coupling, blind spots, stress-test of the primary approach. Resolved master-vs-main branch question, flagged `.claude/docs/` out of scope, flagged `.claude/CLAUDE.md.backup` WIP risk, confirmed backup/temp files as noise.
+- **Teammate D (Horizons)**: `01_teammate-d-findings.md` — long-term alignment, strategic opportunities, tiered scope recommendation (Tier 1/2/3), drift catalog. Raised task 9 / task 10 collision as highest-leverage strategic finding.
 
-The synthesis above is based on C and D findings. The drift catalog is consolidated from D with scope validation from C. If the planner believes a raw diff catalog from A and B is necessary before planning, run `/research 10` again; otherwise the consolidated view above is sufficient for `/plan 10`.
+**Convergence**: A, B, C, D independently surfaced the same core drift set (13 items). This gives high confidence the catalog is complete. A and B add full source material (exhaustive diff + exhaustive docs map) for the planner to reference beyond the consolidated table above.
