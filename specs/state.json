@@ -1,6 +1,14 @@
 {
-  "next_project_number": 6,
+  "next_project_number": 7,
   "active_projects": [
+    {
+      "project_number": 6,
+      "project_name": "expand_agent_system_docs",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-10T19:10:31Z",
+      "last_updated": "2026-04-10T19:10:31Z"
+    },
     {
       "project_number": 5,
       "project_name": "update_agent_system_docs",
