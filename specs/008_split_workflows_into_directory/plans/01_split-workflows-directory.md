@@ -99,7 +99,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Move and rename agent-system/workflow.md [NOT STARTED]
+### Phase 2: Move and rename agent-system/workflow.md [COMPLETED]
 
 **Goal**: Move `docs/agent-system/workflow.md` to `docs/workflows/agent-lifecycle.md` with internal relative links still resolving.
 
