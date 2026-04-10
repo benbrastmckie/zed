@@ -1,10 +1,17 @@
 ---
-next_project_number: 13
+next_project_number: 14
 ---
 
 # Task List
 
 ## Tasks
+
+### 13. Update docs/ documentation to reflect reloaded .claude/ agent system changes
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Study the git diff of the reloaded .claude/ agent system and systematically update all relevant documentation throughout /home/benjamin/.config/zed/docs/ to reflect the changes.
 
 ### 12. Expand docs/agent-system/commands.md to include brief examples and explanations for each command
 - **Effort**: small

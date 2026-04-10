@@ -1,6 +1,14 @@
 {
-  "next_project_number": 13,
+  "next_project_number": 14,
   "active_projects": [
+    {
+      "project_number": 13,
+      "project_name": "update_docs_for_agent_system_reload",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-10T22:49:12Z",
+      "last_updated": "2026-04-10T22:49:12Z"
+    },
     {
       "project_number": 12,
       "project_name": "expand_commands_docs_examples",
