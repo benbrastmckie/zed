@@ -1,6 +1,14 @@
 {
-  "next_project_number": 8,
+  "next_project_number": 9,
   "active_projects": [
+    {
+      "project_number": 8,
+      "project_name": "split_workflows_into_directory",
+      "status": "not_started",
+      "task_type": "markdown",
+      "created": "2026-04-10T20:14:30Z",
+      "last_updated": "2026-04-10T20:14:30Z"
+    },
     {
       "project_number": 7,
       "project_name": "revise_installation_md_macos",
@@ -8,9 +16,9 @@
       "task_type": "markdown",
       "description": "Revise docs/installation.md to target macOS users only (remove NixOS references). Include installation steps for Homebrew, Node, Claude Code, and any other dependencies, assuming only WezTerm (or default macOS Terminal) is installed. Order sections so dependencies come first, and each section should check whether the dependency is already installed so users can skip to the next step.",
       "created": "2026-04-10T20:07:47Z",
-      "last_updated": "2026-04-10T20:15:00Z",
+      "last_updated": "2026-04-10T20:14:18Z",
       "session_id": "sess_1775851753_218c6d",
-      "researched": "2026-04-10T20:15:00Z",
+      "researched": "2026-04-10T20:14:18Z",
       "next_artifact_number": 2,
       "artifacts": [
         {
