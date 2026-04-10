@@ -1,6 +1,15 @@
 {
-  "next_project_number": 9,
+  "next_project_number": 10,
   "active_projects": [
+    {
+      "project_number": 9,
+      "project_name": "workflow_docs_for_commands",
+      "status": "not_started",
+      "task_type": "markdown",
+      "description": "Populate docs/workflows/ with workflows covering all commands in .claude/commands/, grouping related commands together as appropriate",
+      "created": "2026-04-10T20:45:15Z",
+      "last_updated": "2026-04-10T20:45:15Z"
+    },
     {
       "project_number": 8,
       "project_name": "split_workflows_into_directory",

@@ -1,10 +1,18 @@
 ---
-next_project_number: 9
+next_project_number: 10
 ---
 
 # Task List
 
 ## Tasks
+
+### 9. Populate docs/workflows/ with command workflow guides
+
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: markdown
+
+**Description**: Populate docs/workflows/ with workflows covering all commands in .claude/commands/, grouping related commands together as appropriate.
 
 ### 8. Split office-workflows.md into workflows/ directory
 
