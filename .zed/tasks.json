@@ -1,0 +1,13 @@
+[
+  {
+    // Full Claude Code CLI via terminal for complete feature parity
+    // (subagents, --team mode, skills, hooks). Use this instead of the
+    // agent panel when you need the full CLI experience.
+    "label": "Claude Code",
+    "command": "/home/benjamin/.nix-profile/bin/claude",
+    "args": ["--dangerously-skip-permissions"],
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]

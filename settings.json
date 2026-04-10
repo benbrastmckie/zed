@@ -149,7 +149,11 @@
       "type": "custom",
       "command": "/home/benjamin/.nix-profile/bin/npx",
       "args": ["@agentclientprotocol/claude-agent-acp", "--serve"],
-      "env": {}
+      "env": {
+        "CLAUDE_CODE_EXECUTABLE": "/home/benjamin/.nix-profile/bin/claude",
+        "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+        "HOME": "/home/benjamin"
+      }
     }
   },
 

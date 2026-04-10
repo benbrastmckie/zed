@@ -1,7 +1,7 @@
 # Implementation Plan: Zed CLI Parity Configuration
 
 - **Task**: 11 - Fix Zed ACP subagent invocation to match Neovim Claude Code plugin behavior
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 1.5 hours
 - **Dependencies**: None
 - **Research Inputs**: reports/01_team-research.md
@@ -68,7 +68,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: Verify Environment and Create Terminal Task [NOT STARTED]
+### Phase 1: Verify Environment and Create Terminal Task [COMPLETED]
 
 **Goal**: Confirm the claude binary works and create `.zed/tasks.json` with a terminal task configured to open as a right sidebar.
 
@@ -97,7 +97,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Update Agent Server Configuration [NOT STARTED]
+### Phase 2: Update Agent Server Configuration [COMPLETED]
 
 **Goal**: Add `CLAUDE_CODE_EXECUTABLE` and related env vars to the existing `agent_servers` config so the ACP panel works better for simple tasks.
 
@@ -123,7 +123,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Test and Document Configuration [NOT STARTED]
+### Phase 3: Test and Document Configuration [COMPLETED]
 
 **Goal**: Verify both configurations work and document usage for the user.
 

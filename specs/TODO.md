@@ -8,7 +8,7 @@ next_project_number: 13
 
 ### 12. Expand docs/agent-system/commands.md to include brief examples and explanations for each command
 - **Effort**: small
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: meta
 - **Research**: [01_team-research.md](012_expand_commands_docs_examples/reports/01_team-research.md)
 - **Plan**: [01_expand-commands-docs.md](012_expand_commands_docs_examples/plans/01_expand-commands-docs.md)
@@ -18,10 +18,13 @@ next_project_number: 13
 ### 11. Fix Zed ACP subagent invocation to match Neovim Claude Code plugin behavior
 
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
+- **Completed**: 2026-04-10
 - **Research**: [01_team-research.md](011_fix_zed_acp_subagent_invocation/reports/01_team-research.md)
 - **Plan**: [01_zed-cli-parity.md](011_fix_zed_acp_subagent_invocation/plans/01_zed-cli-parity.md)
+- **Summary**: [01_zed-cli-parity-summary.md](011_fix_zed_acp_subagent_invocation/summaries/01_zed-cli-parity-summary.md)
+- **Summary**: Configured Zed for Claude Code CLI parity: created .zed/tasks.json terminal task for full feature parity (subagents, --team, skills), and added CLAUDE_CODE_EXECUTABLE env var to agent_servers config for improved ACP panel behavior.
 
 **Description**: Running `/implement 9` in the Zed agent sidebar via Agent ACP produced /home/benjamin/.config/zed/output/test.md, showing the command did not invoke subagents as expected. The same command run via the Claude Code plugin in Neovim correctly delegates to subagents. Investigate the discrepancy between Zed ACP and Neovim Claude Code plugin environments, and determine how to configure Zed so that all Claude Code commands, skills, and agents behave identically to their Neovim counterparts.
 
