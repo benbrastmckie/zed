@@ -1,6 +1,14 @@
 {
-  "next_project_number": 14,
+  "next_project_number": 15,
   "active_projects": [
+    {
+      "project_number": 14,
+      "project_name": "standardize_docs_and_root_readme",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-10T23:39:14Z",
+      "last_updated": "2026-04-10T23:39:14Z"
+    },
     {
       "project_number": 13,
       "project_name": "update_docs_for_agent_system_reload",

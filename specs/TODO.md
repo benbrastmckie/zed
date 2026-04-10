@@ -1,10 +1,17 @@
 ---
-next_project_number: 14
+next_project_number: 15
 ---
 
 # Task List
 
 ## Tasks
+
+### 14. Standardize docs/ README files and improve root README for Zed + Claude Code epi/medical research config
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Standardize and cross-link all docs/ README.md files for consistency, then improve the root README.md to clearly present the repo as a Zed + Claude Code configuration for epidemiology and medical research with accurate links to docs/, .memory/README.md, and .claude/README.md.
 
 ### 13. Update docs/ documentation to reflect reloaded .claude/ agent system changes
 - **Effort**: medium
