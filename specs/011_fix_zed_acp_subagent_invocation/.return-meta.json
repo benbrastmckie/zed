@@ -1,0 +1,34 @@
+{
+  "status": "planned",
+  "artifacts": [
+    {
+      "type": "plan",
+      "path": "specs/011_fix_zed_acp_subagent_invocation/plans/01_zed-cli-parity.md",
+      "summary": "3-phase implementation plan for Zed CLI parity via terminal task and ACP env var configuration"
+    }
+  ],
+  "next_steps": "Run /implement 11 to execute the plan",
+  "metadata": {
+    "session_id": "sess_1775858188_0be4f1",
+    "agent_type": "planner-agent",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "plan", "planner-agent"],
+    "phase_count": 3,
+    "estimated_hours": 1.5
+  },
+  "plan_metadata": {
+    "phases": 3,
+    "total_effort_hours": 1.5,
+    "complexity": "simple",
+    "research_integrated": true,
+    "plan_version": 1,
+    "dependency_waves": [[1], [2], [3]],
+    "reports_integrated": [
+      {
+        "path": "reports/01_team-research.md",
+        "integrated_in_plan_version": 1,
+        "integrated_date": "2026-04-10"
+      }
+    ]
+  }
+}

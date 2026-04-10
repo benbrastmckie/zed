@@ -4,19 +4,20 @@
     {
       "project_number": 12,
       "project_name": "expand_commands_docs_examples",
-      "status": "not_started",
+      "status": "researching",
       "task_type": "meta",
       "created": "2026-04-10T21:55:30Z",
-      "last_updated": "2026-04-10T21:55:30Z"
+      "last_updated": "2026-04-10T21:57:13Z",
+      "session_id": "sess_1775858218_5b4b7f"
     },
     {
       "project_number": 11,
       "project_name": "fix_zed_acp_subagent_invocation",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-10T21:32:00Z",
-      "last_updated": "2026-04-10T21:50:00Z",
-      "session_id": "sess_1775856824_ed8b3b",
+      "last_updated": "2026-04-10T22:00:16Z",
+      "session_id": "sess_1775858188_0be4f1",
       "researched": "2026-04-10T21:50:00Z",
       "next_artifact_number": 2,
       "artifacts": [
@@ -24,8 +25,38 @@
           "path": "specs/011_fix_zed_acp_subagent_invocation/reports/01_team-research.md",
           "type": "research",
           "summary": "Team research with 4 teammates"
+        },
+        {
+          "path": "specs/011_fix_zed_acp_subagent_invocation/plans/01_zed-cli-parity.md",
+          "type": "plan",
+          "summary": "3-phase plan for Zed CLI parity via terminal task and ACP env var configuration"
         }
-      ]
+      ],
+      "plan_metadata": {
+        "phases": 3,
+        "total_effort_hours": 1.5,
+        "complexity": "simple",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_team-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-10"
+          }
+        ]
+      }
     },
     {
       "project_number": 10,
