@@ -154,7 +154,9 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Create edit-spreadsheets.md [NOT STARTED]
+### Phase 4: Create edit-spreadsheets.md [COMPLETED]
+
+**Decision**: Kept as a separate file (content expanded past 25-line threshold with Tips and See also; symmetry with edit-word-documents.md and standalone constraint about save-and-close justify a standalone file).
 
 **Goal**: Split the openpyxl "Direct Spreadsheet Editing" section into its own file (threshold check: if under 25 lines, merge into edit-word-documents.md instead).
 
