@@ -4,20 +4,21 @@
     {
       "project_number": 10,
       "project_name": "update_docs_from_claude_diff",
-      "status": "not_started",
+      "status": "researching",
       "task_type": "meta",
       "description": "Review the diff for .claude/ to see what has changed in order to update the documentation in /home/benjamin/.config/zed/docs/ appropriately.",
       "created": "2026-04-10T21:14:05Z",
-      "last_updated": "2026-04-10T21:14:05Z"
+      "last_updated": "2026-04-10T21:23:44Z",
+      "session_id": "sess_research_10"
     },
     {
       "project_number": 9,
       "project_name": "workflow_docs_for_commands",
-      "status": "planned",
+      "status": "completed",
       "task_type": "markdown",
       "description": "Populate docs/workflows/ with workflows covering all commands in .claude/commands/, grouping related commands together as appropriate",
       "created": "2026-04-10T20:45:15Z",
-      "last_updated": "2026-04-10T21:11:02Z",
+      "last_updated": "2026-04-10T21:18:00Z",
       "session_id": "sess_1775855268_e9e51d",
       "researched": "2026-04-10T21:04:40Z",
       "next_artifact_number": 2,
@@ -31,6 +32,11 @@
           "path": "specs/009_workflow_docs_for_commands/plans/01_workflow-docs-plan.md",
           "type": "plan",
           "summary": "Implementation plan for workflow documentation covering maintenance, grant, and memory command clusters"
+        },
+        {
+          "path": "specs/009_workflow_docs_for_commands/summaries/01_workflow-docs-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for workflow documentation"
         }
       ],
       "plan_metadata": {
@@ -57,7 +63,8 @@
             "integrated_date": "2026-04-10"
           }
         ]
-      }
+      },
+      "completion_summary": "Created 3 new workflow docs (maintenance-and-meta.md, grant-development.md, memory-and-learning.md), extended agent-lifecycle.md with /revise and /spawn sections, and updated README.md. All 24 commands now covered."
     },
     {
       "project_number": 8,

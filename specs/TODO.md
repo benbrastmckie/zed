@@ -9,7 +9,7 @@ next_project_number: 11
 ### 10. Update docs/ based on .claude/ diff
 
 - **Effort**: small
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHING]
 - **Task Type**: meta
 
 **Description**: Review the diff for .claude/ to see what has changed in order to update the documentation in /home/benjamin/.config/zed/docs/ appropriately.
@@ -17,10 +17,12 @@ next_project_number: 11
 ### 9. Populate docs/workflows/ with command workflow guides
 
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
 - **Task Type**: markdown
 - **Research**: [01_team-research.md](009_workflow_docs_for_commands/reports/01_team-research.md)
 - **Plan**: [01_workflow-docs-plan.md](009_workflow_docs_for_commands/plans/01_workflow-docs-plan.md)
+- **Summary**: [01_workflow-docs-summary.md](009_workflow_docs_for_commands/summaries/01_workflow-docs-summary.md)
+- **Completed**: 2026-04-10
 
 **Description**: Populate docs/workflows/ with workflows covering all commands in .claude/commands/, grouping related commands together as appropriate.
 

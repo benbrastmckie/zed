@@ -1,6 +1,8 @@
 # Workflows
 
-End-to-end usage narratives for working with this Zed configuration on macOS. The agent-system workflow explains how Claude Code tasks move through their lifecycle; the office workflows explain how to use `/edit`, `/convert`, and related commands to work with Word, Excel, PowerPoint, and PDF files. For flag-level command reference, see [`../agent-system/commands.md`](../agent-system/commands.md).
+End-to-end usage narratives for working with this Zed configuration on macOS. Each guide covers "when and why" to use a group of commands — for flag-level reference, see [`../agent-system/commands.md`](../agent-system/commands.md).
+
+> **Note**: These docs are narrative guides. When something looks out of date, check [`../agent-system/commands.md`](../agent-system/commands.md) for the authoritative flag reference.
 
 ## Contents
 
@@ -8,7 +10,20 @@ End-to-end usage narratives for working with this Zed configuration on macOS. Th
 
 | File | Description |
 |---|---|
-| [agent-lifecycle.md](agent-lifecycle.md) | Claude Code task lifecycle state machine and the seven main-workflow commands (`/task`, `/research`, `/plan`, `/implement`, `/todo`) |
+| [agent-lifecycle.md](agent-lifecycle.md) | Task lifecycle: `/task`, `/research`, `/plan`, `/implement`, `/todo`, `/revise`, `/spawn` |
+| [maintenance-and-meta.md](maintenance-and-meta.md) | Code quality, error tracking, cleanup, system building, shipping: `/review`, `/errors`, `/fix-it`, `/refresh`, `/meta`, `/merge`, `/tag` |
+
+### Grant development
+
+| File | Description |
+|---|---|
+| [grant-development.md](grant-development.md) | Research proposals, budgets, timelines, funding analysis, talks: `/grant`, `/budget`, `/timeline`, `/funds`, `/slides` *(requires `present` extension)* |
+
+### Memory
+
+| File | Description |
+|---|---|
+| [memory-and-learning.md](memory-and-learning.md) | Persistent knowledge across sessions: `/learn`, `--remember` flag *(requires `memory` extension)* |
 
 ### Office documents
 
@@ -24,6 +39,16 @@ End-to-end usage narratives for working with this Zed configuration on macOS. Th
 | I want to... | See |
 |---|---|
 | Understand how `/task` / `/research` / `/plan` / `/implement` fit together | [agent-lifecycle.md](agent-lifecycle.md) |
+| Revise a plan or unblock a task | [agent-lifecycle.md](agent-lifecycle.md#revising-a-plan) |
+| Investigate code quality or errors | [maintenance-and-meta.md](maintenance-and-meta.md#reviewing-code-quality) |
+| Scan for FIX/TODO tags and create tasks | [maintenance-and-meta.md](maintenance-and-meta.md#finding-and-fixing-errors) |
+| Build or modify the agent system | [maintenance-and-meta.md](maintenance-and-meta.md#changing-the-agent-system) |
+| Create a pull request | [maintenance-and-meta.md](maintenance-and-meta.md#shipping-changes) |
+| Develop a grant proposal or budget | [grant-development.md](grant-development.md#starting-a-grant-proposal) |
+| Plan a research timeline | [grant-development.md](grant-development.md#planning-a-research-timeline) |
+| Explore funding sources | [grant-development.md](grant-development.md#exploring-funding-sources) |
+| Prepare a research talk | [grant-development.md](grant-development.md#preparing-a-research-talk) |
+| Save or recall knowledge across sessions | [memory-and-learning.md](memory-and-learning.md) |
 | Edit a Word document with tracked changes | [edit-word-documents.md](edit-word-documents.md#edit-in-place-with-tracked-changes) |
 | Update many Word files at once | [edit-word-documents.md](edit-word-documents.md#batch-edit-a-folder) |
 | Create a new Word document from scratch | [edit-word-documents.md](edit-word-documents.md#create-new-documents) |
@@ -36,6 +61,20 @@ End-to-end usage narratives for working with this Zed configuration on macOS. Th
 | Grant Zed permission to control Word | [tips-and-troubleshooting.md](tips-and-troubleshooting.md#first-time-macos-permissions-for-word-automation) |
 
 ## Common scenarios
+
+### Developing a grant proposal
+
+1. Run `/grant "NIH R01 on neural mechanisms of decision-making"` to create the task (see [grant-development.md](grant-development.md#starting-a-grant-proposal))
+2. Use `/research N` and `/plan N` to investigate and design the proposal
+3. Run `/grant N --draft` to draft narrative sections, `/grant N --budget` for the budget
+4. Use `/learn --task N` to save key findings for future proposals (see [memory-and-learning.md](memory-and-learning.md#harvesting-task-artifacts))
+
+### Investigating and fixing codebase issues
+
+1. Run `/review` for a broad code quality assessment (see [maintenance-and-meta.md](maintenance-and-meta.md#reviewing-code-quality))
+2. Run `/fix-it src/` to scan for inline tags and create tasks (see [maintenance-and-meta.md](maintenance-and-meta.md#finding-and-fixing-errors))
+3. Work through the created tasks with `/research` -> `/plan` -> `/implement`
+4. Run `/merge` to ship the fixes
 
 ### Reviewing a PDF paper
 

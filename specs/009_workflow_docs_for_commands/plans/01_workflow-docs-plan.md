@@ -1,7 +1,8 @@
 # Implementation Plan: Workflow Docs for Commands
 
 - **Task**: 9 - workflow_docs_for_commands
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
+- **Completed**: 2026-04-10
 - **Effort**: 3 hours
 - **Dependencies**: None
 - **Research Inputs**: reports/01_team-research.md
@@ -66,7 +67,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: Extend agent-lifecycle.md with /revise and /spawn [NOT STARTED]
+### Phase 1: Extend agent-lifecycle.md with /revise and /spawn [COMPLETED]
 
 **Goal**: Add dedicated sections for `/revise` and `/spawn` to the existing lifecycle doc, completing partial coverage.
 
@@ -89,7 +90,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Create maintenance-and-meta.md [NOT STARTED]
+### Phase 2: Create maintenance-and-meta.md [COMPLETED]
 
 **Goal**: Document the maintenance and system-building command cluster: `/review`, `/errors`, `/fix-it`, `/refresh`, `/meta`, `/merge`, `/tag`.
 
@@ -117,7 +118,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Create grant-development.md [NOT STARTED]
+### Phase 3: Create grant-development.md [COMPLETED]
 
 **Goal**: Document the grant/presentation development command cluster: `/grant`, `/budget`, `/timeline`, `/funds`, `/talk`.
 
@@ -146,7 +147,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Create memory-and-learning.md [NOT STARTED]
+### Phase 4: Create memory-and-learning.md [COMPLETED]
 
 **Goal**: Document the memory command: `/learn` in all four modes, plus the `--remember` flag on `/research`.
 
@@ -174,7 +175,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: Update README.md [NOT STARTED]
+### Phase 5: Update README.md [COMPLETED]
 
 **Goal**: Register new files in the Contents table, add decision-guide rows, and add common-scenario entries to the README.
 

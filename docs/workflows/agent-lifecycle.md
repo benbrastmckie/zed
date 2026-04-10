@@ -65,7 +65,7 @@ Investigates a task. Routes by the task's `task_type` to the matching research s
 
 Delegates to `skill-planner` -> `planner-agent` (model: `opus`), which reads the research report and writes a phased plan at `plans/MM_{short-slug}.md`. See the [agent frontmatter standard](../../.claude/docs/reference/standards/agent-frontmatter-standard.md) for how agents declare models. Transitions `[RESEARCHED]` -> `[PLANNING]` -> `[PLANNED]`.
 
-Need to redo a plan? Use `/revise N` to create a new plan version (e.g., `plans/02_{short-slug}.md`).
+Need to redo a plan? See [Revising a plan](#revising-a-plan) below.
 
 ## Implementing
 
@@ -106,6 +106,23 @@ Passing `--team` to `/research`, `/plan`, or `/implement` spawns multiple parall
 
 Only on `/research`. Searches the [`.memory/`](../agent-system/context-and-memory.md) vault for relevant prior knowledge and injects matches into the research context.
 
+## Revising a plan
+
+```
+/revise 1
+```
+
+When a plan is outdated — new research surfaced, requirements shifted, or early phases revealed a better approach — use `/revise` to create a new plan version (e.g., `plans/02_{short-slug}.md`). The original plan is preserved for history. The reviser agent reads the existing plan and any new research, then produces an updated plan that accounts for what changed. The task stays `[PLANNED]` and you can `/implement` from the revised plan.
+
+## Unblocking a blocked task
+
+```
+/spawn 3
+/spawn 3 "the Lean LSP MCP server is not returning goal state"
+```
+
+When a task is `[BLOCKED]`, `/spawn` researches the blocker and creates one or more new tasks to overcome it. You can optionally describe the blocker in words. The new tasks are added to `specs/TODO.md` with dependency links back to the blocked parent. Once the spawned tasks are completed, the original task can resume.
+
 ## Exception states
 
 - **[BLOCKED]** — hard failure or external dependency. Use `/spawn N` to research the blocker and create unblocking tasks.
@@ -113,7 +130,7 @@ Only on `/research`. Searches the [`.memory/`](../agent-system/context-and-memor
 - **[EXPANDED]** — the task was split into subtasks via `/task --expand N`.
 - **[ABANDONED]** — terminal non-completion. `/todo` archives these alongside `[COMPLETED]` tasks.
 
-For the rest of the command catalog (maintenance, memory, document conversion, grants, talks), see [commands.md](../agent-system/commands.md).
+For the rest of the command catalog (maintenance, memory, document conversion, grants, talks), see the [workflows index](README.md) and [commands.md](../agent-system/commands.md).
 
 ## See also
 
