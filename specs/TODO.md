@@ -1,10 +1,18 @@
 ---
-next_project_number: 11
+next_project_number: 12
 ---
 
 # Task List
 
 ## Tasks
+
+### 11. Fix Zed ACP subagent invocation to match Neovim Claude Code plugin behavior
+
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Running `/implement 9` in the Zed agent sidebar via Agent ACP produced /home/benjamin/.config/zed/output/test.md, showing the command did not invoke subagents as expected. The same command run via the Claude Code plugin in Neovim correctly delegates to subagents. Investigate the discrepancy between Zed ACP and Neovim Claude Code plugin environments, and determine how to configure Zed so that all Claude Code commands, skills, and agents behave identically to their Neovim counterparts.
 
 ### 10. Update docs/ based on .claude/ diff
 

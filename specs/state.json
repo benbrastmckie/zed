@@ -1,6 +1,14 @@
 {
-  "next_project_number": 11,
+  "next_project_number": 12,
   "active_projects": [
+    {
+      "project_number": 11,
+      "project_name": "fix_zed_acp_subagent_invocation",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-10T21:32:00Z",
+      "last_updated": "2026-04-10T21:32:00Z"
+    },
     {
       "project_number": 10,
       "project_name": "update_docs_from_claude_diff",
