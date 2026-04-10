@@ -13,9 +13,9 @@
       "next_artifact_number": 2,
       "artifacts": [
         {
-          "path": "specs/008_split_workflows_into_directory/reports/01_teammate-a-findings.md",
+          "path": "specs/008_split_workflows_into_directory/reports/01_team-research.md",
           "type": "research",
-          "summary": "Content analysis of office-workflows.md and agent-system/workflow.md; concrete decomposition into 7 workflow files + README.md with content mapping, cross-link opportunities, and TOC proposal"
+          "summary": "Team research synthesis (4 teammates) - recommends 5 workflow files + README, identifies 16 inbound links for repair, resolves granularity and naming conflicts"
         }
       ]
     },

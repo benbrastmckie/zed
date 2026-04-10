@@ -11,7 +11,7 @@ next_project_number: 9
 - **Effort**: small
 - **Status**: [RESEARCHED]
 - **Task Type**: markdown
-- **Research**: [01_teammate-a-findings.md](008_split_workflows_into_directory/reports/01_teammate-a-findings.md)
+- **Research**: [01_team-research.md](008_split_workflows_into_directory/reports/01_team-research.md)
 
 **Description**: Turn docs/office-workflows.md into a docs/workflows/ directory with separate documents for each type of workflow, moving docs/agent-system/workflow.md into this folder for agent workflows. Documents in workflows/ should be non-redundant but divided into distinct workflows where possible or natural, with appropriate cross-linking. Include a workflows/README.md with a table of contents linking to all files with brief descriptions.
 
