@@ -4,13 +4,20 @@
     {
       "project_number": 14,
       "project_name": "standardize_docs_and_root_readme",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-10T23:39:14Z",
-      "last_updated": "2026-04-10T23:50:08Z",
-      "session_id": "sess_1775864474_7b78eb",
+      "last_updated": "2026-04-10T23:58:16Z",
+      "session_id": "sess_1775865276_9718ae",
       "researched": "2026-04-10T23:50:08Z",
-      "next_artifact_number": 2
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/014_standardize_docs_and_root_readme/plans/01_standardize-docs-readme.md",
+          "type": "plan",
+          "summary": "5-phase plan to rewrite root README with epi/medical research identity, expand docs/README.md, fix shortcuts and Neovim references across 17 files"
+        }
+      ]
     },
     {
       "project_number": 13,
