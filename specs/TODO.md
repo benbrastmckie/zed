@@ -9,8 +9,9 @@ next_project_number: 7
 ### 6. Expand docs/agent-system.md into a docs/ directory and extract installation guide
 
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_team-research.md](006_expand_agent_system_docs/reports/01_team-research.md)
 
 **Description**: `docs/agent-system.md` currently contains installation information that should be moved to an independent `docs/installation.md` focused on installing Zed via Homebrew on macOS. The file also does not cover `claude-acp`, which is what the user actually runs in Zed and which successfully loads all agent system commands, skills, and context. The existing agent-system.md file is long and densely compressed; it should be expanded into a directory containing multiple clear, educational documents — one file per natural grouping of components in the `.claude/` agent system. Each command should be presented with a brief explanation of what it does, a clear and concise usage example, and then more advanced details (flags, task workflow integration, etc.) afterward. The documentation should be accessible to new users and cover all commands as well as the relationships between commands, skills, agents, context files, and the `.memory/` system.
 
