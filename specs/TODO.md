@@ -1,10 +1,17 @@
 ---
-next_project_number: 2
+next_project_number: 3
 ---
 
 # Task List
 
 ## Tasks
+
+### 2. Add Claude ACP keybindings to Zed documentation
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: general
+
+**Description**: Add all relevant keybindings for using Claude ACP in the agent sidebar in Zed to the zed/docs/ guides wherever most relevant. For example, ctrl+n opens a new session is an important detail to include.
 
 ### 1. Configure Zed with Claude agent system documentation
 - **Effort**: medium

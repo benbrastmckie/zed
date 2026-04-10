@@ -1,6 +1,14 @@
 {
-  "next_project_number": 2,
+  "next_project_number": 3,
   "active_projects": [
+    {
+      "project_number": 2,
+      "project_name": "add_claude_acp_keybindings_docs",
+      "status": "not_started",
+      "task_type": "general",
+      "created": "2026-04-10T17:21:36Z",
+      "last_updated": "2026-04-10T17:21:36Z"
+    },
     {
       "project_number": 1,
       "project_name": "configure_zed_with_claude_agent_docs",
