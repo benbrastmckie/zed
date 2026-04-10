@@ -2,29 +2,29 @@
 
 This guide assumes macOS. The Cmd key is used where other platforms use Ctrl.
 
-A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked with * are custom (defined in `keymap.json`); everything else is a Zed default.
+A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked with \* are custom (defined in `keymap.json`); everything else is a Zed default.
 
 ## Quick Reference
 
-| Shortcut | What it does |
-|----------|-------------|
-| Cmd+P | Open a file by name |
-| Cmd+S | Save the current file |
-| Cmd+Z | Undo |
-| Cmd+Shift+Z or Cmd+Y | Redo |
-| Cmd+C | Copy selected text |
-| Cmd+X | Cut selected text |
-| Cmd+V | Paste |
-| Cmd+F | Find text in current file |
-| Cmd+Shift+F | Search across all files in the project |
-| Cmd+W | Close the current tab |
-| Cmd+Tab | Switch to the next tab |
-| Cmd+` | Open or close the terminal |
-| Cmd+? * | Toggle the right sidebar (agent panel) |
-| Cmd+B | Show or hide the left sidebar |
-| Cmd+Shift+C * | Copy full path of the active file to clipboard |
-| Alt+J * | Move the current line down |
-| Alt+K * | Move the current line up |
+| Shortcut             | What it does                                   |
+| -------------------- | ---------------------------------------------- |
+| Cmd+P                | Open a file by name                            |
+| Cmd+S                | Save the current file                          |
+| Cmd+Z                | Undo                                           |
+| Cmd+Shift+Z or Cmd+Y | Redo                                           |
+| Cmd+C                | Copy selected text                             |
+| Cmd+X                | Cut selected text                              |
+| Cmd+V                | Paste                                          |
+| Cmd+F                | Find text in current file                      |
+| Cmd+Shift+F          | Search across all files in the project         |
+| Cmd+W                | Close the current tab                          |
+| Cmd+Tab              | Switch to the next tab                         |
+| Cmd+`                | Open or close the terminal                     |
+| Cmd+? \*             | Toggle the right sidebar (agent panel)         |
+| Cmd+B                | Show or hide the left sidebar                  |
+| Cmd+Shift+C \*       | Copy full path of the active file to clipboard |
+| Alt+J \*             | Move the current line down                     |
+| Alt+K \*             | Move the current line up                       |
 
 ## How do I open a file?
 
@@ -32,7 +32,7 @@ A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked
 
 **From the file explorer**: Press **Cmd+Shift+E** to open the project panel on the left. Click any file to open it. Press **Cmd+B** to toggle the sidebar if you want more screen space.
 
-**Copy file path**: Press **Cmd+Shift+C** * to copy the full path of the active file to your clipboard.
+**Copy file path**: Press **Cmd+Shift+C** \* to copy the full path of the active file to your clipboard.
 
 **Save**: Press **Cmd+S** to save the current file. **Cmd+Shift+S** saves all open files.
 
@@ -45,8 +45,8 @@ A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked
 
 If you have split panes (two files side by side), use these custom shortcuts to move between them:
 
-- **Cmd+H** * -- Focus the pane to the left
-- **Cmd+L** * -- Focus the pane to the right
+- **Cmd+H** \* -- Focus the pane to the left
+- **Cmd+L** \* -- Focus the pane to the right
 
 To create a split: **Cmd+\\** splits the current view to the right. **Cmd+Shift+\\** splits it downward.
 
@@ -62,8 +62,8 @@ All the standard shortcuts work:
 
 ### Moving lines
 
-- **Alt+J** * -- Move the current line down
-- **Alt+K** * -- Move the current line up
+- **Alt+J** \* -- Move the current line down
+- **Alt+K** \* -- Move the current line up
 
 These are handy for reordering items in a list or moving a paragraph.
 
@@ -89,7 +89,7 @@ Zed has a built-in AI agent panel, inline assist, edit predictions, and integrat
 
 ### Agent panel -- Opening and focus
 
-- **Cmd+Shift+?** * -- Toggle the right sidebar (agent panel lives here; custom override of `agent::ToggleFocus` to `workspace::ToggleRightDock`)
+- **Cmd+Shift+?** \* -- Toggle the right sidebar (agent panel lives here; custom override of `agent::ToggleFocus` to `workspace::ToggleRightDock`)
 - **Cmd+Shift+A** -- Open agent panel (alternative)
 
 ### Agent panel -- Thread management
@@ -147,7 +147,10 @@ Claude ACP has no default keybinding. To add one, put this in `keymap.json`:
 ```json
 {
   "bindings": {
-    "cmd-alt-c": ["agent::NewExternalAgentThread", { "agent_name": "claude-acp" }]
+    "cmd-alt-c": [
+      "agent::NewExternalAgentThread",
+      { "agent_name": "claude-acp" }
+    ]
   }
 }
 ```
@@ -165,7 +168,7 @@ Claude Code runs in the terminal (Cmd+` to open). It has deeper project manageme
 
 ## How do I use the terminal?
 
-Press **Cmd+`** (backtick, the key below Escape) to toggle the terminal panel at the bottom of the screen. You can run any command here, including `git` commands and Claude Code.
+Press ``Cmd+` `` (backtick, the key below Escape) to toggle the terminal panel at the bottom of the screen. You can run any command here, including `git` commands and Claude Code.
 
 ## How do I preview Markdown files?
 

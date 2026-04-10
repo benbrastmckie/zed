@@ -2,6 +2,7 @@
   // Zed Editor Settings
   // Platform: NixOS Linux (binary: zeditor)
   // No vim mode -- standard keybindings for all users
+  "auto_reload_on_disk_change": true,
 
   "theme": "One Dark",
   "base_keymap": "VSCode",
@@ -137,9 +138,17 @@
   // Claude Code agent server (ACP)
   "agent_servers": {
     "claude-acp": {
+      "favorite_config_option_values": {
+        "mode": [
+          "bypassPermissions"
+        ]
+      },
+      "default_config_options": {
+        "mode": "bypassPermissions"
+      },
       "type": "custom",
       "command": "/home/benjamin/.nix-profile/bin/npx",
-      "args": ["@zed-industries/claude-agent-acp", "--serve"],
+      "args": ["@agentclientprotocol/claude-agent-acp", "--serve"],
       "env": {}
     }
   },

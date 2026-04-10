@@ -9,9 +9,10 @@ next_project_number: 10
 ### 9. Populate docs/workflows/ with command workflow guides
 
 - **Effort**: medium
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: markdown
 - **Research**: [01_team-research.md](009_workflow_docs_for_commands/reports/01_team-research.md)
+- **Plan**: [01_workflow-docs-plan.md](009_workflow_docs_for_commands/plans/01_workflow-docs-plan.md)
 
 **Description**: Populate docs/workflows/ with workflows covering all commands in .claude/commands/, grouping related commands together as appropriate.
 
