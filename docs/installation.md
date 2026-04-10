@@ -22,6 +22,36 @@ Then open Zed, confirm the Claude Code thread is available in the Agent Panel (C
 - About 20-30 minutes for initial setup
 - An Anthropic account for the Claude Code CLI
 
+Every dependency section below follows the same three-step pattern: **Check if already installed** -> **Install** -> **Verify**. Run the detection command first; if it succeeds, skip to the next section.
+
+## Install Xcode Command Line Tools
+
+Provides `git` and the compiler toolchain Homebrew needs. Most Macs already have these installed.
+
+### Check if already installed
+
+```
+xcode-select -p >/dev/null 2>&1 && git --version
+```
+
+If this prints a `git version ...` line and exits cleanly, skip to [Install Homebrew](#install-homebrew).
+
+### Install
+
+```
+xcode-select --install
+```
+
+A GUI installer window appears; click through it. Installation takes several minutes.
+
+### Verify
+
+```
+git --version
+```
+
+Expected output: a line like `git version 2.xx.x`.
+
 ## Install Homebrew
 
 Open **WezTerm** (or any terminal) and paste:
@@ -35,6 +65,34 @@ Follow the on-screen instructions (you may need your Mac password). Close and re
 ```
 brew --version
 ```
+
+## Install Node.js
+
+Provides `npx`, required by the SuperDoc and openpyxl MCP tools installed later in this guide.
+
+### Check if already installed
+
+```
+command -v node >/dev/null && node --version && command -v npx >/dev/null
+```
+
+If this prints a Node version (e.g. `v20.17.0`) and exits cleanly, skip to [Install Zed](#install-zed).
+
+### Install
+
+```
+brew install node
+```
+
+Homebrew installs the current LTS. Node 18 or newer is required by the MCP tools; the default Homebrew release is well above that.
+
+### Verify
+
+```
+node --version && npx --version
+```
+
+Expected output: a Node version on one line and an npx version on the next.
 
 ## Install Zed
 

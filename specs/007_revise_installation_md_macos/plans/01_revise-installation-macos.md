@@ -99,7 +99,7 @@ Phases are strictly sequential because they all edit the same file in layered pa
 
 ---
 
-### Phase 2: Insert Xcode Command Line Tools and Node.js sections [IN PROGRESS]
+### Phase 2: Insert Xcode Command Line Tools and Node.js sections [COMPLETED]
 
 **Goal**: Add the two missing dependency sections in their correct positions so the document lists every dependency a user needs.
 
@@ -122,7 +122,7 @@ Phases are strictly sequential because they all edit the same file in layered pa
 
 ---
 
-### Phase 3: Apply detect/install/verify template to existing sections [NOT STARTED]
+### Phase 3: Apply detect/install/verify template to existing sections [IN PROGRESS]
 
 **Goal**: Normalize every existing dependency section so it has the same three-step structure as the new ones, letting users skip anything already installed.
 
