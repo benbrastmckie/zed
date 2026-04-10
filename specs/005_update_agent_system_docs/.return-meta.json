@@ -1,13 +1,20 @@
 {
   "task_id": 5,
-  "session_id": "sess_1775846086_2d88cd",
-  "agent_type": "general-research-agent",
-  "delegation_path": ["orchestrator", "research", "general-research-agent"],
-  "status": "researched",
+  "session_id": "sess_1775846087_planner",
+  "agent_type": "planner-agent",
+  "delegation_path": ["orchestrator", "plan", "planner-agent"],
+  "status": "planned",
   "artifacts": [
-    "specs/005_update_agent_system_docs/reports/01_agent-system-docs.md"
+    "specs/005_update_agent_system_docs/plans/01_implementation-plan.md"
   ],
-  "findings_count": 7,
-  "summary": "Inventoried the full .claude/ agent system (24 commands, 32 skills, 25 agents, 7 rules) and diffed against the current docs/agent-system.md. Proposed topic-based command groupings, a dedicated memory section distinguishing .memory/ vault from auto-memory, 22 cross-reference links, and 8 structural improvements.",
-  "next_steps": "Run /plan 5 to create implementation plan"
+  "phase_count": 6,
+  "estimated_hours": 4,
+  "dependency_waves": [
+    {"wave": 1, "phases": [1]},
+    {"wave": 2, "phases": [2, 3, 4]},
+    {"wave": 3, "phases": [5]},
+    {"wave": 4, "phases": [6]}
+  ],
+  "summary": "Six-phase plan for rewriting docs/agent-system.md: preparation and target verification, then three parallel drafting phases (main workflow, topic-grouped catalog, memory system), then assembly with cross-links, then verification pass.",
+  "next_steps": "Run /implement 5 to execute the plan"
 }
