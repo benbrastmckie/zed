@@ -237,7 +237,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 7: Populate workflows/README.md [NOT STARTED]
+### Phase 7: Populate workflows/README.md [COMPLETED]
 
 **Goal**: Turn the placeholder README into the authoritative TOC + decision guide + common scenarios section.
 
