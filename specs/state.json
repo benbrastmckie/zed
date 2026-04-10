@@ -28,11 +28,11 @@
     {
       "project_number": 7,
       "project_name": "revise_installation_md_macos",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "markdown",
       "description": "Revise docs/installation.md to target macOS users only (remove NixOS references). Include installation steps for Homebrew, Node, Claude Code, and any other dependencies, assuming only WezTerm (or default macOS Terminal) is installed. Order sections so dependencies come first, and each section should check whether the dependency is already installed so users can skip to the next step.",
       "created": "2026-04-10T20:07:47Z",
-      "last_updated": "2026-04-10T20:24:09Z",
+      "last_updated": "2026-04-10T20:29:42Z",
       "session_id": "sess_1775852640_0175a5",
       "researched": "2026-04-10T20:14:18Z",
       "next_artifact_number": 2,
@@ -46,8 +46,14 @@
           "path": "specs/007_revise_installation_md_macos/plans/01_revise-installation-macos.md",
           "type": "plan",
           "summary": "Six-phase sequential plan to rewrite docs/installation.md as a macOS-only guide with detect/install/verify per section, remove NixOS content, add Xcode CLT and Node.js sections, fix the Claude Code brew cask and first-run auth, and repair one broken inbound link."
+        },
+        {
+          "path": "specs/007_revise_installation_md_macos/summaries/01_revise-installation-macos-summary.md",
+          "type": "summary",
+          "summary": "Rewrote docs/installation.md as a macOS-only, skippable detect/install/verify guide and repaired the one broken inbound link in docs/agent-system/zed-agent-panel.md."
         }
-      ]
+      ],
+      "completion_summary": "Revised docs/installation.md to be macOS-only: removed all NixOS content, added Xcode CLT and Node.js sections, and normalized every dependency section (Homebrew, Node, Zed, Claude Code, MCP tools) to a uniform detect/install/verify template so users can skip anything already installed. Corrected the outdated `brew install anthropics/claude/claude-code` command to `brew install --cask claude-code` and replaced `claude auth login` with the current first-run `claude` flow. Repaired the broken `#platform-notes` inbound link in docs/agent-system/zed-agent-panel.md."
     },
     {
       "project_number": 6,
