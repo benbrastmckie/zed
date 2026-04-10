@@ -1,7 +1,7 @@
 # Implementation Plan: Expand commands.md with examples and explanations
 
 - **Task**: 12 - Expand docs/agent-system/commands.md to include brief examples and explanations for each command
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 1.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/012_expand_commands_docs_examples/reports/01_team-research.md
@@ -50,7 +50,7 @@ The current `docs/agent-system/commands.md` is a terse quick-reference catalog w
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Restructure file skeleton and add orientation [NOT STARTED]
+### Phase 1: Restructure file skeleton and add orientation [COMPLETED]
 
 **Goal:** Replace the current intro paragraph and group headings with the new structure, without changing individual command entries yet.
 
@@ -68,7 +68,7 @@ Phases within the same wave can execute in parallel.
 **Timing:** 20 minutes
 **Depends on:** none
 
-### Phase 2: Expand Lifecycle and Review & Recovery entries [NOT STARTED]
+### Phase 2: Expand Lifecycle and Review & Recovery entries [COMPLETED]
 
 **Goal:** Apply the standardized entry template to the 10 commands in Lifecycle (6) and Review & Recovery (4).
 
@@ -87,7 +87,7 @@ Phases within the same wave can execute in parallel.
 **Timing:** 30 minutes
 **Depends on:** 1
 
-### Phase 3: Expand System & Housekeeping, Memory, and Documents entries [NOT STARTED]
+### Phase 3: Expand System & Housekeeping, Memory, and Documents entries [COMPLETED]
 
 **Goal:** Apply the standardized entry template to the 9 commands in System & Housekeeping (4), Memory (1), and Documents (4).
 
@@ -105,7 +105,7 @@ Phases within the same wave can execute in parallel.
 **Timing:** 25 minutes
 **Depends on:** 2
 
-### Phase 4: Expand Research & Grants entries and final review [NOT STARTED]
+### Phase 4: Expand Research & Grants entries and final review [COMPLETED]
 
 **Goal:** Apply the standardized entry template to the 6 commands in Research & Grants, then do a final consistency pass over the entire file.
 

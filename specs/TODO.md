@@ -8,10 +8,12 @@ next_project_number: 13
 
 ### 12. Expand docs/agent-system/commands.md to include brief examples and explanations for each command
 - **Effort**: small
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
+- **Completed**: 2026-04-10
 - **Research**: [01_team-research.md](012_expand_commands_docs_examples/reports/01_team-research.md)
 - **Plan**: [01_expand-commands-docs.md](012_expand_commands_docs_examples/plans/01_expand-commands-docs.md)
+- **Summary**: Expanded and reorganized commands.md: regrouped 24 commands into 6 sections, added 2-sentence explanations and standardized entry template, documented missing flags, added orientation paragraph and forcing-question pattern note.
 
 **Description**: Expand docs/agent-system/commands.md to include brief examples and explanations for each command.
 

@@ -4,10 +4,10 @@
     {
       "project_number": 12,
       "project_name": "expand_commands_docs_examples",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "meta",
       "created": "2026-04-10T21:55:30Z",
-      "last_updated": "2026-04-10T22:14:51Z",
+      "last_updated": "2026-04-10T22:15:30Z",
       "session_id": "sess_1775858649_c0aa8c",
       "researched": "2026-04-10T22:03:19Z",
       "next_artifact_number": 2,
@@ -50,7 +50,8 @@
             "integrated_date": "2026-04-10"
           }
         ]
-      }
+      },
+      "completion_summary": "Expanded and reorganized commands.md: regrouped 24 commands into 6 sections (Lifecycle, Review & Recovery, System & Housekeeping, Memory, Documents, Research & Grants), added 2-sentence explanations and standardized entry template to all entries, documented missing flags (--sheet, --fix-it, file-path input), added orientation paragraph and forcing-question pattern note."
     },
     {
       "project_number": 11,
