@@ -1,0 +1,17 @@
+{
+  "next_project_number": 2,
+  "active_projects": [
+    {
+      "project_number": 1,
+      "project_name": "configure_zed_with_claude_agent_docs",
+      "status": "not_started",
+      "language": "general",
+      "created": "2026-04-09T00:00:00Z",
+      "last_updated": "2026-04-09T00:00:00Z"
+    }
+  ],
+  "repository_health": {
+    "last_assessed": "2026-04-09T00:00:00Z",
+    "status": "healthy"
+  }
+}
