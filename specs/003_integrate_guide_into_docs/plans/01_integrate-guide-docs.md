@@ -144,7 +144,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Expand docs/office-workflows.md [NOT STARTED]
+### Phase 3: Expand docs/office-workflows.md [COMPLETED]
 
 **Goal**: Add the missing workflow recipes, prompt examples, and troubleshooting section from the guide. Replace all Linux/LibreOffice references with macOS/Word/Excel.
 
@@ -204,7 +204,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Update docs/README.md and README.md [NOT STARTED]
+### Phase 4: Update docs/README.md and README.md [COMPLETED]
 
 **Goal**: Ensure documentation indexes reflect the new macOS-focused content and all cross-references are correct.
 
@@ -232,7 +232,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: Delete Guide and Final Verification [NOT STARTED]
+### Phase 5: Delete Guide and Final Verification [COMPLETED]
 
 **Goal**: Remove the original guide file after confirming all content is integrated.
 

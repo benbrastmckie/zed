@@ -4,11 +4,11 @@
     {
       "project_number": 3,
       "project_name": "integrate_guide_into_docs",
-      "status": "planned",
+      "status": "completed",
       "task_type": "general",
       "created": "2026-04-10T17:43:24Z",
-      "last_updated": "2026-04-10T17:53:22Z",
-      "session_id": "sess_1775843431_b14319",
+      "last_updated": "2026-04-10T18:30:00Z",
+      "session_id": "sess_1775844026_e3165f",
       "next_artifact_number": 2,
       "artifacts": [
         {
@@ -20,8 +20,14 @@
           "path": "specs/003_integrate_guide_into_docs/plans/01_integrate-guide-docs.md",
           "type": "plan",
           "summary": "Revised implementation plan - assume macOS throughout"
+        },
+        {
+          "path": "specs/003_integrate_guide_into_docs/summaries/01_integrate-guide-docs-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for guide integration"
         }
-      ]
+      ],
+      "completion_summary": "Integrated zed-claude-office-guide.md content into docs/ (macOS-focused, Cmd-based, Word/Excel) and deleted the original guide. Updated docs/README.md, top-level README.md, docs/settings.md, and config-report.md to reflect the macOS platform."
     },
     {
       "project_number": 2,

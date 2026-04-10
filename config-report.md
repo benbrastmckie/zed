@@ -1,9 +1,8 @@
 # Zed Configuration Setup Report
 
 **Generated**: 2026-04-09
-**Zed Version**: 0.230.1 (installed via NixOS configuration.nix as `zed-editor`)
-**Binary**: `zeditor` (not `zed` -- nixpkgs naming to avoid conflict)
-**Platform**: NixOS Linux (keybindings use Ctrl, not Cmd)
+**Zed Version**: 0.230.1
+**Platform**: macOS (installed via Homebrew: `brew install --cask zed`)
 
 ---
 

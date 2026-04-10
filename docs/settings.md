@@ -1,6 +1,6 @@
 # Configuration Reference
 
-This document explains each section of the Zed configuration files. For keyboard shortcuts, see [guides/keybindings.md](guides/keybindings.md).
+This document explains each section of the Zed configuration files (macOS). For keyboard shortcuts, see [keybindings.md](keybindings.md).
 
 ## Configuration Files
 
@@ -25,7 +25,7 @@ All files support JSONC format (JSON with `//` comments). Changes take effect im
 "ui_font_size": 15,
 ```
 
-The `themes/` directory can hold custom theme files. To switch themes, change the `"theme"` value or use the command palette (Ctrl+Shift+P, then "theme").
+The `themes/` directory can hold custom theme files. To switch themes, change the `"theme"` value or use the command palette (Cmd+Shift+P, then "theme").
 
 ### Base Keymap
 
@@ -33,7 +33,7 @@ The `themes/` directory can hold custom theme files. To switch themes, change th
 "base_keymap": "VSCode",
 ```
 
-This sets the default keybinding scheme to VSCode-style (Ctrl-based). No vim mode is configured.
+This sets the default keybinding scheme to VSCode-style. On macOS this means Cmd-based shortcuts. No vim mode is configured.
 
 ### Editor Behavior
 
@@ -156,18 +156,20 @@ We use a minimal set of 6 custom bindings:
 | Alt+J | Move line down | Editor |
 | Alt+K | Move line up | Editor |
 
+The pane-navigation bindings intentionally use Ctrl (not Cmd) so they do not collide with macOS system-wide shortcuts. On macOS keyboards, Alt is labeled Option.
+
 ### Adding More Bindings
 
-1. Open `keymap.json` (Ctrl+P, type "keymap")
+1. Open `keymap.json` (Cmd+P, type "keymap")
 2. Add a new object inside the array with `context` and `bindings`
 3. Check the default reference comments at the bottom of the file to avoid conflicts
 4. Save -- changes apply immediately
 
-To find action names, open the command palette (Ctrl+Shift+P) and note the action name shown next to each command.
+To find action names, open the command palette (Cmd+Shift+P) and note the action name shown next to each command.
 
 ### Context Scoping
 
-Bindings are scoped by context. For example, Ctrl+H means "focus pane left" in the Workspace context but "find and replace" in the Editor context (Zed default). This avoids conflicts.
+Bindings are scoped by context. For example, Ctrl+H means "focus pane left" in the Workspace context but has a different meaning in the Editor context (Zed default). This avoids conflicts.
 
 Common contexts:
 - `Workspace` -- applies everywhere in Zed
@@ -177,15 +179,15 @@ Common contexts:
 
 ## tasks.json Structure
 
-The tasks file defines commands available from the task runner (Ctrl+Shift+P, then "task: spawn").
+The tasks file defines commands available from the task runner (Cmd+Shift+P, then "task: spawn").
 
 ```json
 [
   {
-    "label": "Open in LibreOffice",
-    "command": "libreoffice",
-    "args": ["$ZED_FILE"],
-    "tags": ["office"]
+    "label": "Git Status",
+    "command": "git",
+    "args": ["status", "--short"],
+    "tags": ["git"]
   }
 ]
 ```
@@ -197,13 +199,13 @@ The tasks file defines commands available from the task runner (Ctrl+Shift+P, th
 
 ## Platform Notes
 
-- **Binary name**: On NixOS, the Zed binary is `zeditor` (not `zed`)
+- **Install**: `brew install --cask zed` (Homebrew)
 - **Config location**: `~/.config/zed/`
-- **Keyboard**: All shortcuts use Ctrl (not Cmd) on Linux
+- **Keyboard**: All shortcuts use Cmd by default on macOS; the custom pane-navigation bindings use Ctrl to avoid macOS system shortcut collisions
 
 ## Related Documentation
 
-- [Keybindings guide](guides/keybindings.md) -- Everyday shortcuts
+- [Keybindings guide](keybindings.md) -- Everyday shortcuts
 - [Agent system](agent-system.md) -- AI integration
 - [Office workflows](office-workflows.md) -- Working with Office files
 - [README](../README.md) -- Navigation hub

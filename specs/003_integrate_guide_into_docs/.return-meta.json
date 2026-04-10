@@ -1,6 +1,22 @@
 {
-  "status": "in_progress",
+  "status": "implemented",
+  "summary": "Integrated all content from zed-claude-office-guide.md into docs/ (macOS-focused) across agent-system.md, office-workflows.md, keybindings.md, settings.md, README.md; deleted the guide.",
   "agent_type": "general-implementation-agent",
   "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
-  "session_id": "sess_1775844026_e3165f"
+  "artifacts": [
+    {
+      "path": "specs/003_integrate_guide_into_docs/summaries/01_integrate-guide-docs-summary.md",
+      "type": "summary",
+      "summary": "Implementation summary for guide integration"
+    }
+  ],
+  "metadata": {
+    "phases_completed": 5,
+    "phases_total": 5
+  },
+  "completion_data": {
+    "completion_summary": "Integrated zed-claude-office-guide.md content into docs/ (macOS-focused, Cmd-based, Word/Excel) and deleted the original guide. Updated docs/README.md, top-level README.md, docs/settings.md, and config-report.md to reflect the macOS platform.",
+    "roadmap_items": [],
+    "claudemd_suggestions": ""
+  }
 }

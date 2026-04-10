@@ -1,28 +1,31 @@
 # Zed Configuration
 
-Zed editor configuration for a shared NixOS workstation. Standard keybindings (no vim mode), minimal custom shortcuts, and full AI integration via Claude Code.
+Zed editor configuration for macOS. Standard keybindings (no vim mode), minimal custom shortcuts, and full AI integration via Claude Code.
 
-**Platform**: NixOS Linux -- the Zed binary is `zeditor` (not `zed`).
+**Platform**: macOS 11 (Big Sur) or newer.
 
 ## Quick Start
 
-1. Open this project: `zeditor ~/.config/zed`
-2. Extensions install automatically on first launch (Markdown, Nix, Claude Code, and more)
-3. Theme is One Dark; font is JetBrains Mono
+1. Install [Homebrew](https://brew.sh), then `brew install --cask zed`
+2. Open Zed from Applications or Spotlight (Cmd+Space, type "Zed")
+3. Extensions install automatically on first launch (Markdown, Claude Code, and more)
+4. Theme is One Dark; font is JetBrains Mono
+
+For the full installation walkthrough, including MCP tool setup for Office file editing, see [docs/agent-system.md](docs/agent-system.md).
 
 **Essential shortcuts to know right away**:
 
 | Shortcut | What it does |
 |----------|-------------|
-| Ctrl+P | Open any file by name |
-| Ctrl+S | Save |
-| Ctrl+Z | Undo |
-| Ctrl+Shift+F | Search across all files |
-| Ctrl+` | Toggle terminal |
-| Ctrl+? | Toggle AI agent panel |
-| Ctrl+Shift+P | Command palette (search for any command) |
+| Cmd+P | Open any file by name |
+| Cmd+S | Save |
+| Cmd+Z | Undo |
+| Cmd+Shift+F | Search across all files |
+| Cmd+` | Toggle terminal |
+| Cmd+Shift+? | Toggle AI agent panel |
+| Cmd+Shift+P | Command palette (search for any command) |
 
-For the full shortcuts guide, see [docs/guides/keybindings.md](docs/guides/keybindings.md).
+For the full shortcuts guide, see [docs/keybindings.md](docs/keybindings.md).
 
 ## Directory Layout
 
@@ -30,14 +33,13 @@ For the full shortcuts guide, see [docs/guides/keybindings.md](docs/guides/keybi
 ~/.config/zed/
 ├── settings.json           # Editor settings (theme, fonts, extensions, AI)
 ├── keymap.json             # Custom shortcuts + default reference
-├── tasks.json              # Task runner (LibreOffice, git, export)
+├── tasks.json              # Task runner (git, export)
 ├── themes/                 # Custom color themes
 ├── docs/                   # Documentation
+│   ├── keybindings.md      # Keyboard shortcuts guide
 │   ├── settings.md         # Configuration reference
-│   ├── agent-system.md     # AI systems overview
-│   ├── office-workflows.md # Working with Office files
-│   └── guides/
-│       └── keybindings.md  # Keyboard shortcuts guide
+│   ├── agent-system.md     # AI systems overview + installation + MCP setup
+│   └── office-workflows.md # Working with Office files on macOS
 ├── specs/                  # Claude Code task management
 ├── .claude/                # Claude Code agent system config
 └── .memory/                # AI memory vault
@@ -47,24 +49,26 @@ For the full shortcuts guide, see [docs/guides/keybindings.md](docs/guides/keybi
 
 | Document | Description |
 |----------|-------------|
-| [Keybindings Guide](docs/guides/keybindings.md) | Everyday keyboard shortcuts, organized by task |
+| [Keybindings Guide](docs/keybindings.md) | Everyday keyboard shortcuts (Cmd-based), organized by task |
 | [Settings Reference](docs/settings.md) | What each config option does and how to change it |
-| [Agent System](docs/agent-system.md) | How to use the two AI systems (Zed agent + Claude Code) |
-| [Office Workflows](docs/office-workflows.md) | Working with Word, Excel, PowerPoint, and PDF files |
+| [Agent System](docs/agent-system.md) | Zed agent + Claude Code overview, macOS installation, MCP tool setup, grant/research commands |
+| [Office Workflows](docs/office-workflows.md) | Word, Excel, PowerPoint, and PDF workflows on macOS, including tracked changes, batch edits, OneDrive tips, and troubleshooting |
 | [Agent System Config](.claude/CLAUDE.md) | Full Claude Code system reference (commands, skills, agents) |
 
 ## Custom Keybindings
 
-This setup uses **Scheme A** -- a minimal set of 6 custom shortcuts. Everything else uses Zed defaults.
+This setup uses **Scheme A** -- a minimal set of custom shortcuts. Everything else uses Zed defaults.
 
 | Shortcut | Action |
 |----------|--------|
 | Ctrl+H/J/K/L | Move focus between split panes |
 | Alt+J/K | Move current line down/up |
 
+(The pane-navigation bindings intentionally use Ctrl so they do not collide with macOS system shortcuts.)
+
 ### Adding More Keybindings
 
-Open `keymap.json` (press Ctrl+P and type "keymap"). The file has two sections:
+Open `keymap.json` (press Cmd+P and type "keymap"). The file has two sections:
 
 1. **Custom bindings** at the top -- your additions go here
 2. **Default reference** in comments at the bottom -- check this before adding to avoid conflicts
@@ -73,16 +77,17 @@ See [docs/settings.md](docs/settings.md) for the keymap file format and context 
 
 ## AI Integration
 
-**Zed Agent Panel** (Ctrl+?): Built-in AI for quick questions and edits. See [docs/agent-system.md](docs/agent-system.md).
+**Zed Agent Panel** (Cmd+Shift+?): Built-in AI for quick questions and edits. See [docs/agent-system.md](docs/agent-system.md).
 
-**Claude Code** (terminal): Full project management with `/research`, `/plan`, `/implement`, and document conversion commands. Start it in the terminal (Ctrl+`).
+**Claude Code** (terminal): Full project management with `/research`, `/plan`, `/implement`, grant/research commands (`/grant`, `/budget`, `/funds`, `/timeline`, `/talk`), and Office document editing (`/edit`, `/convert`). Start it in the terminal (Cmd+`).
 
 ## Platform Notes
 
-- **NixOS**: The binary is `zeditor`, not `zed`. Installed via the NixOS package manager.
-- **Linux keybindings**: All shortcuts use Ctrl (not Cmd).
-- **Config location**: `~/.config/zed/` -- this is standard for Linux.
+- **macOS**: Install via Homebrew (`brew install --cask zed`). Open from Applications or Spotlight.
+- **macOS keybindings**: All shortcuts use Cmd (shown as in menus). The Option key corresponds to Alt in custom bindings.
+- **Config location**: `~/.config/zed/` -- standard for Zed on macOS.
 - **Extensions**: Auto-installed on launch via `auto_install_extensions` in settings.json.
+- **Office editing**: Requires SuperDoc and openpyxl MCP tools. See [docs/agent-system.md](docs/agent-system.md) for setup and [docs/office-workflows.md](docs/office-workflows.md) for workflows.
 
 ## Related
 

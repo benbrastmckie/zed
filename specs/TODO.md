@@ -5,17 +5,20 @@ next_project_number: 4
 # Task List
 
 ## Tasks
-
 ### 3. Integrate zed-claude-office-guide.md into docs/ directory
+
 - **Effort**: small
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
+- **Completed**: 2026-04-10
 - **Task Type**: general
 - **Research**: [01_integrate-guide-docs.md](003_integrate_guide_into_docs/reports/01_integrate-guide-docs.md)
 - **Plan**: [01_integrate-guide-docs.md](003_integrate_guide_into_docs/plans/01_integrate-guide-docs.md)
+- **Summary**: [01_integrate-guide-docs-summary.md](003_integrate_guide_into_docs/summaries/01_integrate-guide-docs-summary.md)
 
 **Description**: Integrate zed-claude-office-guide.md into docs/ so that there is no overlap between files. If all information in zed-claude-office-guide.md is already covered by what is in docs/ then the guide file can be deleted. Otherwise, carefully organize all information in docs/ for clarity and completeness.
 
 ### 2. Add Claude ACP keybindings to Zed documentation
+
 - **Effort**: small
 - **Status**: [COMPLETED]
 - **Completed**: 2026-04-10
@@ -27,6 +30,7 @@ next_project_number: 4
 **Description**: Add all relevant keybindings for using Claude ACP in the agent sidebar in Zed to the zed/docs/ guides wherever most relevant. For example, ctrl+n opens a new session is an important detail to include.
 
 ### 1. Configure Zed with Claude agent system documentation
+
 - **Effort**: medium
 - **Status**: [COMPLETED]
 - **Completed**: 2026-04-10
