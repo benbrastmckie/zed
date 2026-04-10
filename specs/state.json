@@ -4,10 +4,13 @@
     {
       "project_number": 1,
       "project_name": "configure_zed_with_claude_agent_docs",
-      "status": "not_started",
+      "status": "researched",
       "language": "general",
       "created": "2026-04-09T00:00:00Z",
-      "last_updated": "2026-04-09T00:00:00Z"
+      "last_updated": "2026-04-10T06:56:20Z",
+      "session_id": "sess_1775803761_23a3c1",
+      "researched": "2026-04-10T06:56:20Z",
+      "next_artifact_number": 2
     }
   ],
   "repository_health": {
