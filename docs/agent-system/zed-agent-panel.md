@@ -1,41 +1,124 @@
 # Zed Agent Panel
 
-Zed ships with an AI agent panel that can read and edit files in your project. It hosts two distinct threads: the **built-in agent** (Zed's own AI) and the **Claude Code thread** (connected via the `claude-acp` bridge). This page covers opening the panel, switching between threads, authentication, and troubleshooting.
+Zed provides two ways to use Claude Code: the **agent panel** (ACP adapter) for quick inline tasks, and a **terminal task** that launches the full CLI for complete feature parity. This page covers both modes, their trade-offs, keybindings, configuration, and troubleshooting.
 
 ## Summary
 
-Press **Cmd+Shift+?** to open the panel, pick a thread type, type, and press Enter. For Claude Code specifically, the panel talks to your local `claude` CLI through the `@zed-industries/claude-agent-acp` bridge — so the same Claude Code environment is available whether you run `claude` in the terminal or use the panel thread.
+- **Ctrl+Shift+A** — launch Claude Code CLI in a terminal panel (full parity)
+- **Ctrl+?** — toggle the agent panel (ACP adapter, limited capabilities)
 
-## Opening the panel
+The terminal task is the primary path for anything that needs subagents, skills, `--team` mode, or hooks. The agent panel is convenient for quick questions and simple edits.
 
-Press **Cmd+Shift+?** (also bound to **Cmd+Shift+A**) to toggle the right sidebar where the agent panel lives.
+## Two modes of Claude Code in Zed
 
-Once the panel is open:
+### Terminal task (full CLI)
 
-1. **Cmd+N** — start a new thread
-2. Type a question or instruction
-3. **Enter** — send (or **Cmd+Enter** if `agent.use_modifier_to_send` is enabled in [settings.json](../general/settings.md))
+A Zed terminal task (`.zed/tasks.json`) launches the `claude` binary directly. This gives you the exact same experience as running `claude` in a standalone terminal — all commands, skills, agents, and team mode work.
 
-The built-in agent can see your open files and make edits directly. It is good for quick questions and simple edits.
+**When to use**: Multi-step workflows (`/research`, `/plan`, `/implement`), `--team` mode, anything that spawns subagents.
 
-## Built-in agent vs Claude Code thread
+### Agent panel (ACP adapter)
 
-The panel offers two kinds of threads:
+The agent panel uses the `claude-acp` bridge to connect Zed's UI to Claude Code. However, the ACP adapter runs in **SDK isolation mode**, which means:
 
-| Feature | Built-in agent | Claude Code thread |
-|---------|----------------|--------------------|
-| Backend | Zed's own AI integration | Local `claude` CLI via `claude-acp` bridge |
-| Model selection | Set in `settings.json` `"agent"` block | Managed by Claude Code |
-| Slash commands | Zed's built-ins | All 24 `.claude/commands/*` |
-| Task lifecycle | No | Yes (`/task`, `/research`, `/plan`, `/implement`) |
-| Artifacts | No | `specs/{NNN}_{slug}/` |
-| Best for | Quick questions, inline edits | Multi-step work, anything worth tracking |
+- No `Skill` or `Agent` tools are available
+- Subagent spawning does not work
+- `--team` mode is unavailable
+- Slash commands that delegate to skills/agents will not function as expected
 
-They do not share conversation history. For anything worth committing, use the Claude Code thread.
+The `CLAUDE_CODE_EXECUTABLE` environment variable is configured to point the adapter to the installed `claude` binary, which improves basic functionality but does not overcome SDK isolation constraints.
+
+**When to use**: Quick questions, simple file edits, inline assist.
+
+### Feature comparison
+
+| Feature | Terminal task | Agent panel (ACP) |
+|---------|-------------|-------------------|
+| Keybinding | Ctrl+Shift+A | Ctrl+? |
+| Subagent spawning | Yes | No (SDK isolation) |
+| `--team` mode | Yes | No |
+| All slash commands | Yes | Limited |
+| Skills and hooks | Yes | No |
+| Inline diff review | No (terminal UI) | Yes |
+| File context awareness | Manual | Automatic (open files) |
+| Best for | Multi-step work, full CLI parity | Quick questions, simple edits |
+
+## Configuration
+
+### Terminal task (`.zed/tasks.json`)
+
+```jsonc
+[
+  {
+    // Full Claude Code CLI via terminal for complete feature parity
+    "label": "Claude Code",
+    "command": "/home/benjamin/.nix-profile/bin/claude",
+    "args": ["--dangerously-skip-permissions"],
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "reveal_target": "dock"
+  }
+]
+```
+
+The terminal opens in the dock panel. To control which side the dock appears on, set `terminal.dock` in `settings.json`:
+
+```jsonc
+"terminal": {
+    "dock": "right",  // "bottom" (default), "left", or "right"
+    ...
+}
+```
+
+Note: `terminal.dock` is a global setting that affects all terminal panels, not just the Claude Code task.
+
+### Agent panel (`settings.json`)
+
+```jsonc
+"agent_servers": {
+    "claude-acp": {
+        "type": "custom",
+        "command": "/home/benjamin/.nix-profile/bin/npx",
+        "args": ["@agentclientprotocol/claude-agent-acp", "--serve"],
+        "env": {
+            "CLAUDE_CODE_EXECUTABLE": "/home/benjamin/.nix-profile/bin/claude",
+            "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+            "HOME": "/home/benjamin"
+        }
+    }
+}
+```
+
+**Environment variables**:
+- `CLAUDE_CODE_EXECUTABLE` — tells the ACP adapter where to find the `claude` binary (required for the adapter to use the installed CLI rather than its bundled SDK)
+- `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` — enables team mode support (though SDK isolation still prevents it from working in the panel)
+- `HOME` — ensures settings and configuration files are discoverable by the adapter process
+
+### Keybindings (`keymap.json`)
+
+```jsonc
+// Workspace context
+{
+    "context": "Workspace",
+    "bindings": {
+        "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }]
+    }
+},
+// Terminal context (so Ctrl+Shift+A works from within a terminal too)
+{
+    "context": "Terminal",
+    "bindings": {
+        "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }]
+    }
+}
+```
+
+The binding uses `task::Spawn` with a `task_name` parameter that matches the `label` in `.zed/tasks.json`. Both `Workspace` and `Terminal` contexts are needed so the shortcut works regardless of which pane has focus.
 
 ## How claude-acp works under the hood
 
-`claude-acp` is the package `@zed-industries/claude-agent-acp`. It is an **ACP bridge** — ACP stands for Agent Client Protocol — that Zed spawns according to the `agent_servers` block in your `settings.json`. The bridge process then launches the local `claude` binary and proxies messages between Zed's panel UI and the CLI.
+`claude-acp` is the package `@agentclientprotocol/claude-agent-acp`. It is an **ACP bridge** (Agent Client Protocol) that Zed spawns according to the `agent_servers` block in `settings.json`. The bridge process launches the local `claude` binary and proxies messages between Zed's panel UI and the CLI.
 
 ```
 Zed Agent Panel
@@ -44,22 +127,17 @@ Zed Agent Panel
 agent_servers.claude-acp  (config in settings.json)
      |
      v
-@zed-industries/claude-agent-acp  (spawned ACP bridge)
+@agentclientprotocol/claude-agent-acp  (spawned ACP bridge)
      |
      v
-claude  (the CLI binary installed by `brew install anthropics/claude/claude-code`)
+claude  (the CLI binary at ~/.nix-profile/bin/claude)
 ```
 
-Two things follow from this architecture:
-
-1. The **CLI and the panel share the same Claude Code framework**: commands, tasks, memory, and artifacts live on disk and are visible to both.
-2. **Two authentication steps are required**: `claude auth login` in the terminal (for the CLI binary) and `/login` inside the panel thread (for the bridge). See [installation.md](../general/installation.md#authenticate-in-zed).
-
-For registry vs custom `agent_servers` configuration, see [../general/settings.md](../general/settings.md#agent_servers). For non-standard setups, see the upstream bridge project at [zed-industries/claude-code-acp](https://github.com/zed-industries/claude-code-acp).
+**SDK isolation**: The ACP adapter runs Claude Code in a restricted SDK mode. This means the `Skill` and `Agent` tools are not available to the adapter, and commands that rely on subagent spawning will not work. This is a fundamental constraint of the ACP architecture, not a configuration issue.
 
 ## Authenticating with /login
 
-Inside a Claude Code thread in the panel, run:
+Inside a Claude Code thread in the agent panel, run:
 
 ```
 /login
@@ -71,53 +149,44 @@ and follow the prompts. This is distinct from `claude auth login` in the termina
 
 | Shortcut | What it does | Context |
 |----------|-------------|---------|
-| Cmd+Shift+? | Toggle agent panel | Global |
-| Cmd+Shift+A | Toggle agent panel (alternate) | Global |
-| Cmd+N | New thread | Agent panel focused |
+| Ctrl+Shift+A | Launch Claude Code CLI (terminal task) | Global + Terminal |
+| Ctrl+? | Toggle agent panel (right dock) | Global |
+| Ctrl+N | New thread | Agent panel focused |
 | Enter | Send message | Message editor |
-| Shift+Alt+J | Recent threads menu | Agent panel |
-| Cmd+Shift+H | Full thread history | Agent panel |
-| Cmd+Shift+R | Review agent changes (diff) | Agent panel |
-| Cmd+Alt+/ | Toggle model selector | Agent panel |
-| Alt+L | Cycle favorite models | Agent panel |
-| Cmd+Enter | Inline assist | Text selected in editor |
-| Tab / Alt+L | Accept edit prediction | Editor |
+| Ctrl+Shift+R | Review agent changes (diff) | Agent panel |
+| Ctrl+; | Inline assist | Text selected in editor |
+| Tab | Accept edit prediction | Editor |
 | Alt+] / Alt+[ | Next/previous edit prediction | Editor |
 
-For the full keymap including profile management and external agent setup, see [../general/keybindings.md](../general/keybindings.md#how-do-i-use-the-ai-agent).
-
-## Inline Assist
-
-Select some text in the editor, then press **Cmd+Enter** to open the inline assistant. It edits the selected text in place rather than opening a full thread. Useful for rewording a paragraph, renaming a variable, or fixing an obvious bug.
-
-Older Zed versions used **Cmd+;**; if **Cmd+Enter** does not work, check your keymap with **Cmd+K Cmd+S** or see [../general/keybindings.md](../general/keybindings.md).
-
-## Edit Predictions
-
-Zed's edit-prediction feature suggests continuations as you type. Accept with **Tab** (or **Alt+L**); cycle with **Alt+]** / **Alt+[**. Configure model and aggressiveness under the `"agent"` block in [settings.json](../general/settings.md).
+For the full keymap, see [../general/keybindings.md](../general/keybindings.md).
 
 ## Troubleshooting
 
-**Claude Code thread is missing from the thread picker.**
-The `agent_servers.claude-acp` block in `settings.json` is missing or malformed. See [../general/installation.md](../general/installation.md#configure-claude-acp) for the registry config and [../general/settings.md](../general/settings.md#agent_servers) for the full reference. Restart Zed after editing.
+**Terminal task does not appear in task picker.**
+Check that `.zed/tasks.json` exists in the project root and contains valid JSONC. Restart Zed after creating the file.
+
+**Terminal opens on the bottom instead of the right.**
+Add `"dock": "right"` to the `"terminal"` block in `settings.json`. This is a global setting affecting all terminals.
+
+**Claude Code thread is missing from the agent panel thread picker.**
+The `agent_servers.claude-acp` block in `settings.json` is missing or malformed. See configuration section above. Restart Zed after editing.
 
 **Claude Code thread opens but errors immediately.**
-Open the ACP log viewer from the command palette (**Cmd+Shift+P**, type `dev: open acp logs`). The log usually shows whether the bridge failed to spawn, the `claude` binary is missing from PATH, or authentication is stale.
+Open the ACP log viewer from the command palette (Ctrl+Shift+P, type `dev: open acp logs`). The log usually shows whether the bridge failed to spawn, the `claude` binary is missing from PATH, or authentication is stale.
+
+**Slash commands don't spawn subagents in the agent panel.**
+This is expected. The ACP adapter runs in SDK isolation mode — subagent spawning is not available. Use the terminal task (Ctrl+Shift+A) instead for commands that need full CLI capabilities.
 
 **`/login` loops forever.**
 Usually means the terminal CLI side is not authenticated. Run `claude auth login` in a terminal first, then retry `/login` in the panel thread.
 
 **MCP tools don't work inside the panel thread.**
-MCP scope matters: the tools must be installed with `--scope user` (see [../general/installation.md](../general/installation.md#install-mcp-tools)). Re-run `claude mcp add --scope user ...` and then `claude mcp list` to verify.
-
-**Panel is slow or unresponsive.**
-Go to **Settings > Extensions** and confirm "Claude Code" is listed. If not, search for it and install it. Restart Zed.
+MCP scope matters: the tools must be installed with `--scope user`. Re-run `claude mcp add --scope user ...` and then `claude mcp list` to verify.
 
 ## See also
 
 - [../general/installation.md](../general/installation.md) — Installing Zed, Claude Code CLI, and `claude-acp`
 - [../general/settings.md](../general/settings.md#agent_servers) — `agent_servers` configuration reference
-- [../general/keybindings.md](../general/keybindings.md#how-do-i-use-the-ai-agent) — Full keymap for the panel
+- [../general/keybindings.md](../general/keybindings.md) — Full keymap reference
 - [agent-lifecycle.md](../workflows/agent-lifecycle.md) — Task lifecycle once you are inside a Claude Code thread
 - [`.claude/docs/guides/user-guide.md`](../../.claude/docs/guides/user-guide.md) — Comprehensive Claude Code command reference
-- [`.claude/docs/architecture/system-overview.md`](../../.claude/docs/architecture/system-overview.md) — Detailed architecture walkthrough

@@ -5,10 +5,34 @@ The Claude Code framework in this workspace is a three-layer execution pipeline 
 ## Summary
 
 ```
-USER -> /command args
-     -> COMMANDS (.claude/commands/*.md)       [parse, route by task_type, checkpoint]
-     -> SKILLS   (.claude/skills/*/SKILL.md)   [validate, prepare context, invoke agents]
-     -> AGENTS   (.claude/agents/*.md)         [execute, create artifacts, return metadata]
+                 ┌─────────────────┐
+                 │      USER       │
+                 │ /{command} args │
+                 └────────┬────────┘
+                          │
+                          ▼
+          ┌───────────────────────────────┐
+          │  COMMANDS                     │
+          │  .claude/commands/*.md        │
+          │  parse, route by task_type,   │
+          │  checkpoint                   │
+          └───────────────┬───────────────┘
+                          │
+                          ▼
+          ┌───────────────────────────────┐
+          │  SKILLS                       │
+          │  .claude/skills/*/SKILL.md    │
+          │  validate, prepare context,   │
+          │  invoke agents                │
+          └───────────────┬───────────────┘
+                          │
+                          ▼
+          ┌───────────────────────────────┐
+          │  AGENTS                       │
+          │  .claude/agents/*.md          │
+          │  execute, create artifacts,   │
+          │  return metadata              │
+          └───────────────────────────────┘
 ```
 
 Commands are thin routers; skills handle validation and context loading; agents do the actual work and write artifacts. See [`.claude/README.md`](../../.claude/README.md) for the full architecture diagram and component specifications, and [`.claude/docs/architecture/system-overview.md`](../../.claude/docs/architecture/system-overview.md) for the detailed walkthrough.

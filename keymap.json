@@ -2,7 +2,7 @@
   // =====================================================
   // CUSTOM BINDINGS (Scheme A -- Minimal)
   // =====================================================
-  // 7 custom bindings: 4 pane navigation + 2 line movers + 1 utility
+  // 8 custom bindings: 4 pane navigation + 2 line movers + 1 utility + 1 Claude Code
   //
   // Note: Ctrl+K is also Zed's chord prefix. If Ctrl+K
   // as pane-up causes issues, remap to Ctrl+Alt+Up.
@@ -13,7 +13,16 @@
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-?": "workspace::ToggleRightDock"
+      "ctrl-?": "workspace::ToggleRightDock",
+      "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }]
+    }
+  },
+
+  // Claude Code from terminal context
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }]
     }
   },
 
@@ -66,6 +75,7 @@
   // Ctrl+Shift+H     Replace across all files
   //
   // --- Agent / AI ---
+  // Ctrl+Shift+A     Launch Claude Code CLI (terminal task)
   // Ctrl+?           Toggle agent panel
   // Ctrl+N           New conversation (in agent panel)
   // Ctrl+Enter       Send message (in agent panel)

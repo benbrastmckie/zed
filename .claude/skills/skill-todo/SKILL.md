@@ -116,12 +116,24 @@ Direct execution skill for archiving tasks, updating CHANGE_LOG.md, and suggesti
   <stage id="5" name="ScanRoadmap">
     <action>Scan for roadmap references</action>
     <process>
-      1. Read specs/ROAD_MAP.md
+      0. Ensure specs/ROADMAP.md exists. If the file does not exist, create it with the default template:
+         ```markdown
+         # Project Roadmap
+
+         ## Phase 1: Current Priorities (High Priority)
+
+         - [ ] (No items yet -- add roadmap items here)
+
+         ## Success Metrics
+
+         - (Define success metrics here)
+         ```
+      1. Read specs/ROADMAP.md
       2. For each completed task, extract:
          - completion_summary from completion_data
          - roadmap_items if present
          - Task N references from summaries
-      3. Match against ROAD_MAP.md items
+      3. Match against ROADMAP.md items
       4. Track roadmap_matches array with confidence levels
     </process>
   </stage>
@@ -599,7 +611,7 @@ ${transition_comment}
   </stage>
 
   <stage id="11" name="UpdateRoadmap">
-    <action>Update ROAD_MAP.md with completion annotations</action>
+    <action>Update ROADMAP.md with completion annotations</action>
     <process>
       For each roadmap match:
       1. Skip if already annotated

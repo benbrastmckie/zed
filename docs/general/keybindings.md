@@ -21,6 +21,7 @@ A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked
 | Cmd+Tab              | Switch to the next tab                         |
 | Cmd+`                | Open or close the terminal                     |
 | Cmd+? \*             | Toggle the right sidebar (agent panel)         |
+| Cmd+Shift+A \*       | Launch Claude Code CLI (terminal task)          |
 | Cmd+B                | Show or hide the left sidebar                  |
 | Cmd+Shift+C \*       | Copy full path of the active file to clipboard |
 | Alt+J \*             | Move the current line down                     |
@@ -87,10 +88,13 @@ Zed has a built-in AI agent panel, inline assist, edit predictions, and integrat
 
 > **Verify shortcuts**: Zed updates frequently. Press **Cmd+K Cmd+S** to open the keybinding editor and confirm any shortcut listed here.
 
+### Claude Code CLI (terminal task)
+
+- **Cmd+Shift+A** \* -- Launch Claude Code in a terminal panel (full CLI with subagents, `--team` mode, skills, and hooks). Works from any context including inside a terminal. See [../agent-system/zed-agent-panel.md](../agent-system/zed-agent-panel.md) for details on the dual-mode setup.
+
 ### Agent panel -- Opening and focus
 
 - **Cmd+Shift+?** \* -- Toggle the right sidebar (agent panel lives here; custom override of `agent::ToggleFocus` to `workspace::ToggleRightDock`)
-- **Cmd+Shift+A** -- Open agent panel (alternative)
 
 ### Agent panel -- Thread management
 
@@ -142,29 +146,20 @@ Zed has a built-in AI agent panel, inline assist, edit predictions, and integrat
 
 ### External agents (Claude ACP)
 
-Claude ACP has no default keybinding. To add one, put this in `keymap.json`:
-
-```json
-{
-  "bindings": {
-    "cmd-alt-c": [
-      "agent::NewExternalAgentThread",
-      { "agent_name": "claude-acp" }
-    ]
-  }
-}
-```
+The agent panel (Cmd+? to toggle) connects to Claude Code via the `claude-acp` bridge. It runs in SDK isolation mode, so subagent spawning and `--team` mode are not available. Use it for quick questions and simple edits.
 
 Debug ACP communication via the command palette: search for `dev: open acp logs`.
 
-### Claude Code (terminal-based)
+### Claude Code (terminal task)
 
-Claude Code runs in the terminal (Cmd+` to open). It has deeper project management features. Common commands:
+**Cmd+Shift+A** \* launches the full Claude Code CLI as a terminal task. This is the primary path for multi-step work:
 
 - `/research` -- Investigate a topic
 - `/plan` -- Create an implementation plan
 - `/implement` -- Execute a plan
 - `/convert` -- Convert document formats
+
+The keybinding is configured in `keymap.json` using `task::Spawn` with `task_name: "Claude Code"`, and works from both Workspace and Terminal contexts. The terminal opens in the dock panel (position controlled by `terminal.dock` in `settings.json`).
 
 ## How do I use the terminal?
 

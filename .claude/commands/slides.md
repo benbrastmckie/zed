@@ -1,307 +1,479 @@
 ---
-description: Convert presentations to Beamer, Polylux, or Touying slides
-allowed-tools: Skill, Bash(jq:*), Bash(test:*), Bash(dirname:*), Bash(basename:*), Read
-argument-hint: SOURCE_PATH [OUTPUT_PATH] [--format beamer|polylux|touying]
+description: Create research talk tasks with pre-task forcing questions for academic presentations
+allowed-tools: Skill, Bash(jq:*), Bash(git:*), Bash(date:*), Bash(sed:*), Read, Edit, AskUserQuestion
+argument-hint: "description" | TASK_NUMBER | /path/to/file.md
+model: opus
 ---
 
 # /slides Command
 
-Convert PowerPoint presentations to academic slide formats (Beamer, Polylux, Touying).
+Research presentation creation command with material synthesis and task system integration.
 
-## Arguments
+## Overview
 
-- `$1` - Source file path (required): PPTX file
-- `$2` - Output file path (optional, inferred from source if not provided)
-- `--format` - Output format: `beamer` (default), `polylux`, or `touying`
-- `--theme` - Theme name (optional)
+This command initiates research talk creation through structured material gathering. It asks essential questions BEFORE creating the task, storing gathered data in task metadata. After task creation, the user runs `/research`, `/plan`, and `/implement` to complete the workflow. The command focuses on collecting source materials and presentation context for synthesis into Slidev-based research talks.
 
-## Usage Examples
+## Syntax
+
+- `/slides "Conference talk on survival analysis methods"` - Ask questions, create task with gathered data
+- `/slides 500` - Resume research on existing task
+- `/slides /path/to/manuscript.md` - Use file as primary source material, create task
+- `/slides 500 --design` - Design confirmation after research (themes, ordering, emphasis)
+
+**Note**: This command was previously named `/talk`. For PPTX slide file conversion (not research talk creation), use `/convert --format beamer|polylux|touying` in the `filetypes` extension.
+
+## Input Types
+
+| Input | Behavior |
+|-------|----------|
+| Description string | Ask forcing questions, create task with forcing_data, stop at [NOT STARTED] |
+| Task number | Load existing task, run research, stop at [RESEARCHED] |
+| Task number `--design` | Read research report, confirm design choices, store as design_decisions |
+| File path | Read file as primary source material, ask questions, create task |
+
+## Modes
+
+| Mode | Duration | Slides | Focus |
+|------|----------|--------|-------|
+| **CONFERENCE** | 15-20 min | 12-18 | Research findings, methods, impact |
+| **SEMINAR** | 45-60 min | 30-45 | Deep methodology, background, discussion |
+| **DEFENSE** | 30-60 min | 25-40 | Research justification, rigor, future work |
+| **POSTER** | N/A | 1 large | Visual summary, methods, results |
+| **JOURNAL_CLUB** | 15-30 min | 10-15 | Paper critique, key findings, discussion |
+
+---
+
+## STAGE 0: PRE-TASK FORCING QUESTIONS
+
+**This stage runs BEFORE task creation for new tasks (description or file path input).**
+
+**Skip this stage if**: task number input.
+
+### Step 0.1: Talk Type
+
+Use AskUserQuestion to present talk type options:
+
+```
+What type of talk is this?
+
+- CONFERENCE: Research talk (15-20 min) for conference presentation
+- SEMINAR: Departmental seminar (45-60 min)
+- DEFENSE: Grant defense or thesis defense
+- POSTER: Poster session presentation
+- JOURNAL_CLUB: Paper review for journal club
+```
+
+Store response as `forcing_data.talk_type`.
+
+### Step 0.2: Source Materials
+
+Use AskUserQuestion:
+
+```
+What materials should inform the talk?
+
+Provide any combination of:
+- Task references (e.g., "task:500" to pull grant research)
+- File paths to papers, manuscripts, data (e.g., "/path/to/manuscript.md")
+- "none" if you will describe the content
+
+Separate multiple entries with commas.
+```
+
+Store response as `forcing_data.source_materials` (parse into array).
+
+### Step 0.3: Audience Context
+
+Use AskUserQuestion:
+
+```
+Describe the presentation context:
+- What is the research topic?
+- Who is the audience? (clinicians, basic scientists, mixed)
+- What is the time limit?
+- Any specific emphasis? (methods, clinical implications, translational)
+```
+
+Store response as `forcing_data.audience_context`.
+
+### Step 0.4: Store Forcing Data
+
+Capture all responses in a forcing_data object:
+```json
+{
+  "talk_type": "{selected_type}",
+  "source_materials": ["{material_1}", "{material_2}"],
+  "audience_context": "{audience description}",
+  "gathered_at": "{ISO timestamp}"
+}
+```
+
+---
+
+## CHECKPOINT 1: GATE IN
+
+**Display header**:
+```
+[Talk] Research Presentation Creation
+```
+
+### Step 1: Generate Session ID
 
 ```bash
-# PPTX to Beamer (default)
-/slides presentation.pptx                # -> presentation.tex
-
-# PPTX to Polylux (Typst)
-/slides deck.pptx slides.typ --format polylux
-
-# PPTX to Touying (Typst)
-/slides talk.pptx talk.typ --format touying
-
-# With theme
-/slides conference.pptx conf.tex --format beamer --theme metropolis
-
-# Absolute paths
-/slides /path/to/file.pptx /output/dir/result.tex
+session_id="sess_$(date +%s)_$(od -An -N3 -tx1 /dev/urandom | tr -d ' ')"
 ```
 
-## Supported Conversions
-
-| Source | Target | Notes |
-|--------|--------|-------|
-| PPTX | Beamer | Uses python-pptx + pandoc |
-| PPTX | Polylux | Uses python-pptx, generates Typst |
-| PPTX | Touying | Uses python-pptx, generates Typst |
-| PPTX | Markdown | Uses python-pptx or markitdown |
-| Markdown | PPTX | Uses pandoc |
-
-## Output Formats
-
-### Beamer (LaTeX)
-- Traditional academic presentation format
-- Wide theme support (metropolis, Madrid, etc.)
-- Supports overlays and animations
-- Speaker notes via `\note{}` command
-
-### Polylux (Typst)
-- Typst-native slide package
-- Simple, clean syntax
-- Easy customization
-- Good for quick slides
-
-### Touying (Typst)
-- Feature-rich Typst slide framework
-- Multiple themes (simple, dewdrop, university)
-- Advanced animations
-- Better for complex presentations
-
-## Execution
-
-### CHECKPOINT 1: GATE IN
-
-1. **Generate Session ID**
-   ```bash
-   session_id="sess_$(date +%s)_$(od -An -N3 -tx1 /dev/urandom | tr -d ' ')"
-   ```
-
-2. **Parse Arguments**
-   ```bash
-   source_path="$1"
-   output_path=""
-   output_format="beamer"
-   theme=""
-
-   # Parse remaining arguments
-   shift
-   while [[ $# -gt 0 ]]; do
-     case "$1" in
-       --format)
-         output_format="$2"
-         shift 2
-         ;;
-       --theme)
-         theme="$2"
-         shift 2
-         ;;
-       *)
-         if [ -z "$output_path" ]; then
-           output_path="$1"
-         fi
-         shift
-         ;;
-     esac
-   done
-
-   # Validate source path provided
-   if [ -z "$source_path" ]; then
-     echo "Error: Source path required"
-     echo "Usage: /slides SOURCE_PATH [OUTPUT_PATH] [--format beamer|polylux|touying] [--theme NAME]"
-     exit 1
-   fi
-
-   # Convert to absolute path if relative
-   if [[ "$source_path" != /* ]]; then
-     source_path="$(pwd)/$source_path"
-   fi
-   ```
-
-3. **Validate Source File Exists**
-   ```bash
-   if [ ! -f "$source_path" ]; then
-     echo "Error: Source file not found: $source_path"
-     exit 1
-   fi
-   ```
-
-4. **Validate Source Format**
-   ```bash
-   source_ext="${source_path##*.}"
-   case "$source_ext" in
-     pptx|ppt|md)
-       ;; # Valid presentation format
-     *)
-       echo "Error: Not a presentation format: .$source_ext"
-       echo "Supported formats: pptx, ppt, md"
-       exit 1
-       ;;
-   esac
-   ```
-
-5. **Determine Output Path** (if not provided)
-   ```bash
-   if [ -z "$output_path" ]; then
-     source_dir=$(dirname "$source_path")
-     source_base=$(basename "$source_path" | sed 's/\.[^.]*$//')
-
-     case "$output_format" in
-       beamer|latex|tex) output_path="${source_dir}/${source_base}.tex" ;;
-       polylux|touying|typst|typ) output_path="${source_dir}/${source_base}.typ" ;;
-       pptx) output_path="${source_dir}/${source_base}_generated.pptx" ;;
-       *) output_path="${source_dir}/${source_base}.tex" ;;
-     esac
-   fi
-
-   # Convert output to absolute path if relative
-   if [[ "$output_path" != /* ]]; then
-     output_path="$(pwd)/$output_path"
-   fi
-   ```
-
-6. **Validate Output Format**
-   ```bash
-   case "$output_format" in
-     beamer|latex|polylux|touying|typst|pptx)
-       ;; # Valid
-     *)
-       echo "Error: Unknown output format: $output_format"
-       echo "Supported formats: beamer, polylux, touying"
-       exit 1
-       ;;
-   esac
-   ```
-
-**ABORT** if source file does not exist or format is unsupported.
-
-**On GATE IN success**: Arguments validated. **IMMEDIATELY CONTINUE** to STAGE 2 below.
-
-### STAGE 2: DELEGATE
-
-**EXECUTE NOW**: After CHECKPOINT 1 passes, immediately invoke the Skill tool.
-
-**Invoke the Skill tool NOW** with:
-```
-skill: "skill-presentation"
-args: "source_path={source_path} output_path={output_path} output_format={output_format} theme={theme} session_id={session_id}"
-```
-
-The skill will spawn the presentation-agent to perform the conversion.
-
-**On DELEGATE success**: Conversion attempted. **IMMEDIATELY CONTINUE** to CHECKPOINT 2 below.
-
-### CHECKPOINT 2: GATE OUT
-
-1. **Validate Return**
-   Required fields: status, summary, artifacts, metadata (with slide_count)
-
-2. **Verify Output File Exists**
-   ```bash
-   if [ ! -f "$output_path" ]; then
-     echo "Warning: Output file not created"
-   fi
-   ```
-
-3. **Verify Output Non-Empty**
-   ```bash
-   if [ ! -s "$output_path" ]; then
-     echo "Warning: Output file is empty"
-   fi
-   ```
-
-**On GATE OUT success**: Output verified.
-
-### CHECKPOINT 3: COMMIT
-
-Git commit is **optional** for standalone conversions.
-
-Only commit if:
-- User explicitly requests it
-- Conversion is part of a task workflow
+### Step 2: Detect Input Type
 
 ```bash
-# Only if commit requested
-git add "$output_path"
-git commit -m "$(cat <<'EOF'
-slides: convert {source_filename} to {output_format}
+# Check for --design flag with task number
+if echo "$ARGUMENTS" | grep -qE '^[0-9]+.*--design'; then
+  input_type="design"
+  task_number=$(echo "$ARGUMENTS" | grep -oE '^[0-9]+')
+
+# Check for task number (no flags)
+elif echo "$ARGUMENTS" | grep -qE '^[0-9]+$'; then
+  input_type="task_number"
+  task_number="$ARGUMENTS"
+
+# Check for file path
+elif echo "$ARGUMENTS" | grep -qE '^\.|^/|^~|\.md$|\.txt$|\.tex$|\.pdf$'; then
+  input_type="file_path"
+  file_path="$ARGUMENTS"
+
+# Default: treat as description for new task
+else
+  input_type="description"
+  description="$ARGUMENTS"
+fi
+```
+
+### Step 3: Handle Input Type
+
+**If task number**:
+Load existing task, validate language is "present" and task_type is "talk", then delegate to skill-talk for research.
+
+**If --design**:
+Load existing task, validate status is "researched" or later, then proceed to STAGE 3: DESIGN CONFIRMATION.
+
+**If file path**:
+Read the file as primary source material. Run Stage 0 forcing questions (Steps 0.1-0.3) with the file content as context. Then proceed to task creation.
+
+**If description**:
+Run Stage 0 forcing questions (Steps 0.1-0.3), then proceed to task creation.
+
+---
+
+## STAGE 1: TASK CREATION
+
+**This stage runs for new tasks only (description or file path input).**
+
+### Step 1: Read next_project_number
+
+```bash
+next_num=$(jq -r '.next_project_number' specs/state.json)
+```
+
+### Step 2: Create slug from description
+
+- Lowercase, replace spaces with underscores
+- Remove special characters
+- Max 50 characters
+
+### Step 3: Update state.json
+
+```bash
+jq --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+  --arg desc "$description" \
+  --argjson forcing "$forcing_data_json" \
+  '.next_project_number = ($next_num + 1) |
+   .active_projects = [{
+     "project_number": $next_num,
+     "project_name": "slug",
+     "status": "not_started",
+     "task_type": "present",
+     "task_type": "talk",
+     "description": $desc,
+     "forcing_data": $forcing,
+     "created": $ts,
+     "last_updated": $ts
+   }] + .active_projects' \
+  specs/state.json > specs/tmp/state.json && \
+  mv specs/tmp/state.json specs/state.json
+```
+
+### Step 4: Update TODO.md
+
+**Part A - Update frontmatter**:
+```bash
+sed -i 's/^next_project_number: [0-9]*/next_project_number: {NEW_NUMBER}/' \
+  specs/TODO.md
+```
+
+**Part B - Add task entry** by prepending to `## Tasks` section:
+```markdown
+### {N}. {Title}
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: present
+
+**Description**: {description}
+```
+
+### Step 5: Git commit
+
+```bash
+git add specs/
+git commit -m "task {N}: create {title}
 
 Session: {session_id}
 
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
-EOF
-)"
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 ```
 
-Commit failure is non-blocking (log and continue).
+### Step 6: Output
 
-## Output
-
-**Success**:
 ```
-Slide conversion complete!
+Talk task #{N} created: {TITLE}
+Status: [NOT STARTED]
+Language: present
+Talk Type: {talk_type}
+Artifacts path: specs/{NNN}_{SLUG}/ (created on first artifact)
 
-Source: {source_path}
-Output: {output_path}
-Format: {output_format}
-Slides: {slide_count}
-Notes:  {has_speaker_notes ? "Included" : "None"}
-
-Tool used: {tool from metadata}
-
-Status: converted
+Recommended workflow:
+1. /research {N} - Synthesize source materials into slide-mapped report
+2. /plan {N} - Create implementation plan
+3. /implement {N} - Generate Slidev presentation to talks/{N}_{slug}/
 ```
 
-**Failed**:
-```
-Slide conversion failed.
+---
 
-Source: {source_path}
-Error: {error_message}
+## STAGE 2: RESEARCH DELEGATION (task number input only)
 
-Recommendation: {recommendation from error}
+When input is a task number, delegate to skill-talk for research.
+
+### Step 1: Validate Task
+
+```bash
+task_data=$(jq -r --argjson num "$task_number" \
+  '.active_projects[] | select(.project_number == $num)' \
+  specs/state.json)
+
+# Validate exists
+# Validate language is "present"
+# Validate task_type is "talk"
+# Validate status allows research (not_started or researched for re-research)
 ```
+
+### Step 2: Delegate
+
+**Invoke Skill tool**:
+```
+skill: "skill-talk"
+args: "task_number={N} session_id={session_id}"
+```
+
+### Step 3: Gate Out
+
+Verify research completed:
+- Check status updated to "researched" in state.json
+- Check for report artifact in specs/{NNN}_{SLUG}/reports/
+
+**On success, output**:
+```
+Talk research completed for Task #{N}
+Status: [RESEARCHED]
+Report: specs/{NNN}_{SLUG}/reports/{MM}_talk-research.md
+
+Next: /slides {N} --design (optional: confirm design choices before planning)
+      /plan {N} (skip design, go directly to planning)
+```
+
+---
+
+## STAGE 3: DESIGN CONFIRMATION (--design flag)
+
+**Only reached when input_type is "design".**
+
+This stage runs after research is complete. It reads the research report, presents design choices
+to the user, and stores their decisions in task metadata for the planner to use.
+
+### Step 1: Validate Task
+
+```bash
+task_data=$(jq -r --argjson num "$task_number" \
+  '.active_projects[] | select(.project_number == $num)' \
+  specs/state.json)
+
+# Validate exists, language is "present", task_type is "talk"
+# Validate status is "researched" or "planned"
+status=$(echo "$task_data" | jq -r '.status')
+if [ "$status" != "researched" ] && [ "$status" != "planned" ]; then
+  echo "Error: Task must be researched before design confirmation. Current status: [$status]"
+  echo "Run /slides $task_number first to complete research."
+  exit 1
+fi
+```
+
+### Step 2: Read Research Report
+
+```bash
+padded_num=$(printf "%03d" "$task_number")
+project_name=$(echo "$task_data" | jq -r '.project_name')
+report_path=$(ls specs/${padded_num}_${project_name}/reports/*_talk-research.md 2>/dev/null | tail -1)
+```
+
+Read the research report to extract key messages, suggested structure, and themes.
+
+### Step 3: Design Questions
+
+**D1: Visual Theme**
+
+Use AskUserQuestion:
+
+```
+Based on the research report, which visual theme fits best?
+
+A) Academic Clean - Minimal, high-contrast, serif headings (department seminars)
+B) Clinical Teal - Medical/clinical palette, clean data presentation (clinical audiences)
+C) Conference Bold - Strong colors, large type, designed for projection (conference talks)
+D) Minimal Dark - Dark background, high contrast, code-friendly (technical audiences)
+```
+
+Store response as `design_decisions.theme`.
+
+**D2: Key Message Ordering**
+
+Present the 3 key messages identified in the research report and ask:
+
+```
+The research identified these key messages. Confirm or reorder:
+
+1. {key_message_1}
+2. {key_message_2}
+3. {key_message_3}
+
+Enter the preferred order (e.g., "2, 1, 3") or "confirm" to keep as-is.
+Add any messages to emphasize or de-emphasize.
+```
+
+Store response as `design_decisions.message_order`.
+
+**D3: Section Emphasis**
+
+```
+Which sections should receive extra slides or depth?
+
+Select all that apply:
+- Methods/approach (show technical detail)
+- Results/data (more data slides)
+- Background/motivation (broader context)
+- Clinical implications (translational focus)
+- Future directions (forward-looking)
+
+Which sections to expand?
+```
+
+Store response as `design_decisions.section_emphasis`.
+
+### Step 4: Store Design Decisions
+
+Update task metadata in state.json:
+
+```bash
+jq --arg theme "$theme" \
+   --arg order "$message_order" \
+   --arg emphasis "$section_emphasis" \
+   --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+  '(.active_projects[] | select(.project_number == '$task_number')).design_decisions = {
+    "theme": $theme,
+    "message_order": $order,
+    "section_emphasis": $emphasis,
+    "confirmed_at": $ts
+  }' specs/state.json > specs/tmp/state.json && mv specs/tmp/state.json specs/state.json
+```
+
+### Step 5: Git Commit
+
+```bash
+git add specs/state.json
+git commit -m "task ${task_number}: confirm talk design
+
+Session: ${session_id}"
+```
+
+### Step 6: Output
+
+```
+Talk design confirmed for Task #{N}
+
+Design Decisions:
+- Theme: {theme}
+- Message Order: {message_order}
+- Section Emphasis: {section_emphasis}
+
+Status: [RESEARCHED] (unchanged)
+
+Next: /plan {N} - Create implementation plan (will use design_decisions)
+```
+
+---
+
+## Core Command Integration
+
+Tasks with language="present" and task_type="talk" route through core commands:
+
+| Command | Routes To | Purpose |
+|---------|-----------|---------|
+| `/research N` | skill-talk | Synthesize materials into slide-mapped report |
+| `/plan N` | skill-planner | Create implementation plan |
+| `/implement N` | skill-talk (assemble) | Generate Slidev presentation |
+
+---
 
 ## Error Handling
 
-### GATE IN Failure
+### Task Creation Errors
+- Invalid description: Return guidance on expected format
+- State update failure: Log error, do not commit partial state
 
-**Source not found**:
+### Research Errors
+- Task not found: Return error with guidance to create task first
+- Wrong language/task_type: Return error suggesting /slides for talk tasks
+- Invalid status: Return error with current status and valid transitions
+
+### Git Commit Failure
+- Non-blocking: Log failure but continue with success response
+- Report to user that manual commit may be needed
+
+---
+
+## Output Formats
+
+### Task Creation Success
 ```
-Error: Source file not found: {path}
+Talk task #{N} created: {TITLE}
+Status: [NOT STARTED]
+Language: present
+Talk Type: {talk_type}
 
-Please verify the file path and try again.
-```
-
-**Not a presentation**:
-```
-Error: Not a presentation format: .{ext}
-
-Supported formats: pptx, ppt, md
-```
-
-**Invalid output format**:
-```
-Error: Unknown output format: {format}
-
-Supported formats: beamer, polylux, touying
-```
-
-### DELEGATE Failure
-
-**Tool not available**:
-```
-Error: Required tools not available for presentation conversion.
-
-Install with:
-  pip install python-pptx
-
-For Beamer output, also install:
-  apt install pandoc  (or brew install pandoc)
-
-Then retry: /slides {source_path}
+Recommended workflow:
+1. /research {N} - Synthesize source materials
+2. /plan {N} - Create implementation plan
+3. /implement {N} - Generate Slidev presentation
 ```
 
-**Corrupted file**:
+### Research Success
 ```
-Error: Failed to open PPTX file.
+Talk research completed for Task #{N}
+Report: specs/{NNN}_{SLUG}/reports/{MM}_talk-research.md
+Status: [RESEARCHED]
+Next: /plan {N}
+```
 
-The file may be corrupted or not a valid PowerPoint file.
-Try re-saving the file from PowerPoint.
+### Error Output
+```
+Talk command error:
+- {error description}
+- {recovery guidance}
 ```

@@ -103,6 +103,7 @@ All commands use checkpoint-based execution: GATE IN (preflight) -> DELEGATE (sk
 ### Utility Scripts
 
 - `.claude/scripts/export-to-markdown.sh` - Export .claude/ directory to consolidated markdown file
+- `.claude/scripts/check-extension-docs.sh` - Doc-lint: validate extension READMEs, manifests, and cross-references (exits non-zero on failures)
 
 ## State Synchronization
 
@@ -128,7 +129,7 @@ TODO.md and state.json must stay synchronized. Update state.json first (machine 
 ```
 
 ### Completion Workflow
-- Non-meta tasks: `completion_summary` + optional `roadmap_items` -> /todo annotates ROAD_MAP.md
+- Non-meta tasks: `completion_summary` + optional `roadmap_items` -> /todo annotates ROADMAP.md
 - Meta tasks: `completion_summary` + `claudemd_suggestions` -> /todo displays for user review
 
 ### Vault Operation (Task Number Reset)
@@ -154,11 +155,11 @@ Format: `task {N}: {action}` with session ID in body.
 task 1: complete research
 
 Session: sess_1736700000_abc123
-
-Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 ```
 
 Standard actions: `create`, `complete research`, `create implementation plan`, `phase {P}: {name}`, `complete implementation`.
+
+**Note**: Per user preference (see `~/.claude/projects/.../feedback_no_coauthored_by.md`), omit `Co-Authored-By` trailers from all commits.
 
 ## Skill-to-Agent Mapping
 
@@ -216,6 +217,7 @@ Core rules (auto-applied by file path):
 - @.claude/rules/error-handling.md - Error recovery (.claude/**)
 - @.claude/rules/artifact-formats.md - Report/plan formats (specs/**)
 - @.claude/rules/workflows.md - Command lifecycle (.claude/**)
+- @.claude/rules/plan-format-enforcement.md - Plan format checklist (specs/**)
 
 **Extension Rules**: When extensions are loaded, additional rules are added (e.g., neovim-lua.md for Lua development).
 
@@ -403,9 +405,8 @@ File format conversion and manipulation: documents, spreadsheets, presentations,
 
 | Command | Usage | Description |
 |---------|-------|-------------|
-| `/convert` | `/convert file.pdf` | Convert between document formats |
+| `/convert` | `/convert file.pdf` | Convert between document formats; `/convert deck.pptx --format beamer` for slide output |
 | `/table` | `/table data.xlsx` | Convert spreadsheets to LaTeX/Typst tables |
-| `/slides` | `/slides deck.pptx` | Convert presentations to Beamer/Polylux/Touying |
 | `/scrape` | `/scrape paper.pdf` | Extract PDF annotations to Markdown/JSON |
 | `/edit` | `/edit file.docx "instruction"` | Edit Office documents in-place |
 
@@ -503,9 +504,9 @@ Structured proposal development (grants) and research presentation creation (tal
 | `/timeline` | `/timeline N` | Resume timeline planning for existing task |
 | `/funds` | `/funds "Description"` | Create funding analysis task with forcing questions |
 | `/funds` | `/funds N` | Resume funding analysis for existing task |
-| `/talk` | `/talk "Description"` | Create research talk task with forcing questions |
-| `/talk` | `/talk N` | Resume research on existing talk task |
-| `/talk` | `/talk /path/to/file` | Use file as primary source material for talk |
+| `/slides` | `/slides "Description"` | Create research talk task with forcing questions |
+| `/slides` | `/slides N` | Resume research on existing talk task |
+| `/slides` | `/slides /path/to/file` | Use file as primary source material for talk |
 
 ### Language Routing
 

@@ -204,7 +204,7 @@ Create teammate prompts and spawn wave. Pass `artifact_number` and `teammate_let
   "artifact_number": "{run_padded}",
   "teammate_letter": "a",
   "artifact_pattern": "{NN}_teammate-{letter}-findings.md",
-  "roadmap_path": "specs/ROAD_MAP.md"
+  "roadmap_path": "specs/ROADMAP.md"
 }
 ```
 
@@ -468,6 +468,31 @@ jq --arg path "specs/${padded_num}_${project_name}/reports/${run_padded}_team-re
   '(.active_projects[] | select(.project_number == '$task_number')).artifacts += [{"path": $path, "type": $type, "summary": $summary}]' \
   specs/state.json > specs/tmp/state.json && mv specs/tmp/state.json specs/state.json
 ```
+
+**Update TODO.md**: Add research artifact link using count-aware format.
+
+See `.claude/rules/state-management.md` "Artifact Linking Format" for canonical rules. Use Edit tool:
+
+1. **Read existing task entry** to detect current research links
+2. **If no `- **Research**:` line exists**: Insert inline format:
+   ```markdown
+   - **Research**: [{NN}_team-research.md]({artifact_path})
+   ```
+3. **If existing inline (single link)**: Convert to multi-line:
+   ```markdown
+   old_string: - **Research**: [existing.md](existing/path)
+   new_string: - **Research**:
+     - [existing.md](existing/path)
+     - [{NN}_team-research.md]({artifact_path})
+   ```
+4. **If existing multi-line**: Append new item before next field:
+   ```markdown
+   old_string:   - [last-item.md](last/path)
+   - **Plan**:
+   new_string:   - [last-item.md](last/path)
+     - [{NN}_team-research.md]({artifact_path})
+   - **Plan**:
+   ```
 
 ---
 
