@@ -4,20 +4,30 @@
     {
       "project_number": 8,
       "project_name": "split_workflows_into_directory",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "markdown",
       "created": "2026-04-10T20:14:30Z",
-      "last_updated": "2026-04-10T20:14:30Z"
+      "last_updated": "2026-04-10T20:20:00Z",
+      "session_id": "sess_1744315000_res008",
+      "researched": "2026-04-10T20:20:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/008_split_workflows_into_directory/reports/01_teammate-a-findings.md",
+          "type": "research",
+          "summary": "Content analysis of office-workflows.md and agent-system/workflow.md; concrete decomposition into 7 workflow files + README.md with content mapping, cross-link opportunities, and TOC proposal"
+        }
+      ]
     },
     {
       "project_number": 7,
       "project_name": "revise_installation_md_macos",
-      "status": "researched",
+      "status": "planned",
       "task_type": "markdown",
       "description": "Revise docs/installation.md to target macOS users only (remove NixOS references). Include installation steps for Homebrew, Node, Claude Code, and any other dependencies, assuming only WezTerm (or default macOS Terminal) is installed. Order sections so dependencies come first, and each section should check whether the dependency is already installed so users can skip to the next step.",
       "created": "2026-04-10T20:07:47Z",
-      "last_updated": "2026-04-10T20:14:18Z",
-      "session_id": "sess_1775851753_218c6d",
+      "last_updated": "2026-04-10T20:18:25Z",
+      "session_id": "sess_1775852110_007a62",
       "researched": "2026-04-10T20:14:18Z",
       "next_artifact_number": 2,
       "artifacts": [
@@ -25,6 +35,11 @@
           "path": "specs/007_revise_installation_md_macos/reports/01_installation-macos-research.md",
           "type": "research",
           "summary": "Audit of NixOS references to remove, 8 dependencies with detection/install/verify commands, recommended section order, and per-section template for macOS-only installation guide"
+        },
+        {
+          "path": "specs/007_revise_installation_md_macos/plans/01_revise-installation-macos.md",
+          "type": "plan",
+          "summary": "Six-phase sequential plan to rewrite docs/installation.md as a macOS-only guide with detect/install/verify per section, remove NixOS content, add Xcode CLT and Node.js sections, fix the Claude Code brew cask and first-run auth, and repair one broken inbound link."
         }
       ]
     },
