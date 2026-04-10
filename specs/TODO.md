@@ -1,10 +1,18 @@
 ---
-next_project_number: 4
+next_project_number: 5
 ---
 
 # Task List
 
 ## Tasks
+
+### 4. Integrate config-report.md into docs/ and delete
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: general
+
+**Description**: Extract unique content from config-report.md into docs/: (1) external Zed documentation URLs table (https://zed.dev/docs/*) into docs/README.md as a "Reference" section; (2) runtime data paths (~/.local/share/zed/extensions, logs, db) into docs/settings.md; (3) optionally the Neovim comparison table. Then delete config-report.md. The stale "Current State" snapshot table and already-covered setup steps should NOT be copied.
+
 ### 3. Integrate zed-claude-office-guide.md into docs/ directory
 
 - **Effort**: small
