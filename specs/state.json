@@ -4,11 +4,20 @@
     {
       "project_number": 11,
       "project_name": "fix_zed_acp_subagent_invocation",
-      "status": "researching",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-10T21:32:00Z",
-      "last_updated": "2026-04-10T21:34:03Z",
-      "session_id": "sess_1775856824_ed8b3b"
+      "last_updated": "2026-04-10T21:50:00Z",
+      "session_id": "sess_1775856824_ed8b3b",
+      "researched": "2026-04-10T21:50:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/011_fix_zed_acp_subagent_invocation/reports/01_teammate-a-findings.md",
+          "type": "research",
+          "summary": "Root cause analysis: @agentclientprotocol/claude-agent-acp uses SDK in isolation mode (no settingSources, no Skill/Agent in allowedTools). Fix: switch to type:registry."
+        }
+      ]
     },
     {
       "project_number": 10,

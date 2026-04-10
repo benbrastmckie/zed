@@ -1,12 +1,17 @@
 {
+  "status": "researched",
   "agent_type": "general-research-agent",
-  "status": "in_progress",
-  "task_number": 11,
-  "artifact_number": "01",
-  "teammate_letter": "b",
   "delegation_path": ["orchestrator", "research", "general-research-agent"],
-  "session_id": "sess_1775900000_teammate_b",
-  "report_path": "specs/011_fix_zed_acp_subagent_invocation/reports/01_teammate-b-findings.md",
-  "partial_progress": "Stage 1 complete: scanned failure output. Proceeding to web research.",
-  "created": "2026-04-10T00:00:00Z"
+  "task_number": 11,
+  "task_slug": "fix_zed_acp_subagent_invocation",
+  "session_id": "sess_1744300000_research11a",
+  "artifact_number": "01",
+  "teammate_letter": "a",
+  "started_at": "2026-04-10T00:00:00Z",
+  "completed_at": "2026-04-10T00:30:00Z",
+  "findings_count": 6,
+  "artifacts": [
+    "specs/011_fix_zed_acp_subagent_invocation/reports/01_teammate-a-findings.md"
+  ],
+  "next_steps": "Run /plan 11 to create implementation plan"
 }
