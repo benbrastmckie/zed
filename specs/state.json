@@ -4,10 +4,19 @@
     {
       "project_number": 2,
       "project_name": "add_claude_acp_keybindings_docs",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "general",
       "created": "2026-04-10T17:21:36Z",
-      "last_updated": "2026-04-10T17:21:36Z"
+      "last_updated": "2026-04-10T17:30:53Z",
+      "session_id": "sess_1775841789_2322f6",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/002_add_claude_acp_keybindings_docs/reports/01_claude-acp-keybindings.md",
+          "type": "research",
+          "summary": "Comprehensive inventory of 20+ Zed agent panel keybindings across 9 categories"
+        }
+      ]
     },
     {
       "project_number": 1,
