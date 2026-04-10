@@ -3,7 +3,7 @@
 - **Task**: 7 - revise_installation_md_macos
 - **Date**: 2026-04-10
 - **Session**: sess_1775852110_007a62
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 1.5 hours
 - **Dependencies**: None
 - **Research Inputs**: [specs/007_revise_installation_md_macos/reports/01_installation-macos-research.md](../reports/01_installation-macos-research.md)
@@ -73,7 +73,7 @@ Phases are strictly sequential because they all edit the same file in layered pa
 
 ---
 
-### Phase 1: Strip NixOS content and fix outdated commands [NOT STARTED]
+### Phase 1: Strip NixOS content and fix outdated commands [COMPLETED]
 
 **Goal**: Produce a clean, NixOS-free baseline of `docs/installation.md` with the two command bugs corrected, before restructuring.
 
@@ -99,7 +99,7 @@ Phases are strictly sequential because they all edit the same file in layered pa
 
 ---
 
-### Phase 2: Insert Xcode Command Line Tools and Node.js sections [NOT STARTED]
+### Phase 2: Insert Xcode Command Line Tools and Node.js sections [IN PROGRESS]
 
 **Goal**: Add the two missing dependency sections in their correct positions so the document lists every dependency a user needs.
 
