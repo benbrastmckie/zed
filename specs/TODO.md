@@ -9,16 +9,17 @@ next_project_number: 9
 ### 8. Split office-workflows.md into workflows/ directory
 
 - **Effort**: small
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: markdown
 - **Research**: [01_team-research.md](008_split_workflows_into_directory/reports/01_team-research.md)
+- **Plan**: [01_split-workflows-directory.md](008_split_workflows_into_directory/plans/01_split-workflows-directory.md)
 
 **Description**: Turn docs/office-workflows.md into a docs/workflows/ directory with separate documents for each type of workflow, moving docs/agent-system/workflow.md into this folder for agent workflows. Documents in workflows/ should be non-redundant but divided into distinct workflows where possible or natural, with appropriate cross-linking. Include a workflows/README.md with a table of contents linking to all files with brief descriptions.
 
 ### 7. Revise installation.md for macOS (drop NixOS)
 
 - **Effort**: small
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: markdown
 - **Research**: [01_installation-macos-research.md](007_revise_installation_md_macos/reports/01_installation-macos-research.md)
 - **Plan**: [01_revise-installation-macos.md](007_revise_installation_md_macos/plans/01_revise-installation-macos.md)

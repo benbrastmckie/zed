@@ -4,11 +4,11 @@
     {
       "project_number": 8,
       "project_name": "split_workflows_into_directory",
-      "status": "researched",
+      "status": "planned",
       "task_type": "markdown",
       "created": "2026-04-10T20:14:30Z",
-      "last_updated": "2026-04-10T20:20:00Z",
-      "session_id": "sess_1744315000_res008",
+      "last_updated": "2026-04-10T20:29:10Z",
+      "session_id": "sess_1744315800_pln008",
       "researched": "2026-04-10T20:20:00Z",
       "next_artifact_number": 2,
       "artifacts": [
@@ -16,18 +16,24 @@
           "path": "specs/008_split_workflows_into_directory/reports/01_team-research.md",
           "type": "research",
           "summary": "Team research synthesis (4 teammates) - recommends 5 workflow files + README, identifies 16 inbound links for repair, resolves granularity and naming conflicts"
+        },
+        {
+          "path": "specs/008_split_workflows_into_directory/plans/01_split-workflows-directory.md",
+          "type": "plan",
+          "summary": "10-phase plan to split docs/office-workflows.md into docs/workflows/ with 5 goal-clustered files + README, move agent-system/workflow.md to workflows/agent-lifecycle.md, and repair 16 inbound links across 9 files."
         }
-      ]
+      ],
+      "planned": "2026-04-10T20:29:10Z"
     },
     {
       "project_number": 7,
       "project_name": "revise_installation_md_macos",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "markdown",
       "description": "Revise docs/installation.md to target macOS users only (remove NixOS references). Include installation steps for Homebrew, Node, Claude Code, and any other dependencies, assuming only WezTerm (or default macOS Terminal) is installed. Order sections so dependencies come first, and each section should check whether the dependency is already installed so users can skip to the next step.",
       "created": "2026-04-10T20:07:47Z",
-      "last_updated": "2026-04-10T20:18:25Z",
-      "session_id": "sess_1775852110_007a62",
+      "last_updated": "2026-04-10T20:24:09Z",
+      "session_id": "sess_1775852640_0175a5",
       "researched": "2026-04-10T20:14:18Z",
       "next_artifact_number": 2,
       "artifacts": [
