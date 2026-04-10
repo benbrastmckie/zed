@@ -55,7 +55,7 @@ Two things follow from this architecture:
 1. The **CLI and the panel share the same Claude Code framework**: commands, tasks, memory, and artifacts live on disk and are visible to both.
 2. **Two authentication steps are required**: `claude auth login` in the terminal (for the CLI binary) and `/login` inside the panel thread (for the bridge). See [installation.md](../installation.md#authenticate-in-zed).
 
-For registry vs custom `agent_servers` configuration, see [../settings.md](../settings.md#agent_servers) and the NixOS notes in [../installation.md](../installation.md#platform-notes).
+For registry vs custom `agent_servers` configuration, see [../settings.md](../settings.md#agent_servers). For non-standard setups, see the upstream bridge project at [zed-industries/claude-code-acp](https://github.com/zed-industries/claude-code-acp).
 
 ## Authenticating with /login
 

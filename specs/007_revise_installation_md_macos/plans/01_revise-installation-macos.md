@@ -170,7 +170,7 @@ Phases are strictly sequential because they all edit the same file in layered pa
 
 ---
 
-### Phase 5: Fix broken inbound link in zed-agent-panel.md [IN PROGRESS]
+### Phase 5: Fix broken inbound link in zed-agent-panel.md [COMPLETED]
 
 **Goal**: Repair the one dangling inbound link the research report flagged, so no file in the repo references the deleted `#platform-notes` anchor.
 
@@ -193,7 +193,7 @@ Phases are strictly sequential because they all edit the same file in layered pa
 
 ---
 
-### Phase 6: Repo-wide link and anchor sweep [NOT STARTED]
+### Phase 6: Repo-wide link and anchor sweep [IN PROGRESS]
 
 **Goal**: Confirm the rewrite did not silently break any other inbound links from sibling docs.
 
