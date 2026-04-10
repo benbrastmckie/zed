@@ -1,7 +1,7 @@
 # Implementation Plan: Split office-workflows.md into workflows/ directory
 
 - **Task**: 8 - Split office-workflows.md into workflows/ directory
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 4 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/008_split_workflows_into_directory/reports/01_team-research.md
@@ -74,7 +74,7 @@ This task advances the docs reorganization arc (tasks 6/7/8) that extracts flat 
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Create directory scaffold and content inventory [NOT STARTED]
+### Phase 1: Create directory scaffold and content inventory [COMPLETED]
 
 **Goal**: Establish `docs/workflows/` directory with a placeholder README and a shared content inventory used by subsequent phases.
 
