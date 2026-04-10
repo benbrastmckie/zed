@@ -13,6 +13,12 @@ End-to-end usage narratives for working with this Zed configuration on macOS. Ea
 | [agent-lifecycle.md](agent-lifecycle.md) | Task lifecycle: `/task`, `/research`, `/plan`, `/implement`, `/todo`, `/revise`, `/spawn` |
 | [maintenance-and-meta.md](maintenance-and-meta.md) | Code quality, error tracking, cleanup, system building, shipping: `/review`, `/errors`, `/fix-it`, `/refresh`, `/meta`, `/merge`, `/tag` |
 
+### Epidemiology
+
+| File | Description |
+|---|---|
+| [epidemiology-analysis.md](epidemiology-analysis.md) | Epidemiological study design and R-based analysis: `/epi` *(requires `epidemiology` extension)* |
+
 ### Grant development
 
 | File | Description |
@@ -44,6 +50,7 @@ End-to-end usage narratives for working with this Zed configuration on macOS. Ea
 | Scan for FIX/TODO tags and create tasks | [maintenance-and-meta.md](maintenance-and-meta.md#finding-and-fixing-errors) |
 | Build or modify the agent system | [maintenance-and-meta.md](maintenance-and-meta.md#changing-the-agent-system) |
 | Create a pull request | [maintenance-and-meta.md](maintenance-and-meta.md#shipping-changes) |
+| Design and run an epidemiology study in R | [epidemiology-analysis.md](epidemiology-analysis.md) |
 | Develop a grant proposal or budget | [grant-development.md](grant-development.md#starting-a-grant-proposal) |
 | Plan a research timeline | [grant-development.md](grant-development.md#planning-a-research-timeline) |
 | Explore funding sources | [grant-development.md](grant-development.md#exploring-funding-sources) |

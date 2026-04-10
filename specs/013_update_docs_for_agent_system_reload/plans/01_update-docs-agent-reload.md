@@ -88,7 +88,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Create Epidemiology Workflow Doc and Update Index [NOT STARTED]
+### Phase 2: Create Epidemiology Workflow Doc and Update Index [COMPLETED]
 
 **Goal**: Create the new narrative workflow guide and register it in the workflows README.
 
