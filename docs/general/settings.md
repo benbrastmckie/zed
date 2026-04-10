@@ -247,5 +247,5 @@ The tasks file defines commands available from the task runner (Cmd+Shift+P, the
 
 - [Keybindings guide](keybindings.md) -- Everyday shortcuts
 - [Agent system](../agent-system/README.md) -- AI integration
-- [Office workflows](../office-workflows.md) -- Working with Office files
+- [Workflows](../workflows/README.md) -- Agent task lifecycle and Office file workflows
 - [docs README](../README.md) -- Navigation hub

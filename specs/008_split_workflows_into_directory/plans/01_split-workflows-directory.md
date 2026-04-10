@@ -300,7 +300,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 9: Repair inbound links to office-workflows.md [NOT STARTED]
+### Phase 9: Repair inbound links to office-workflows.md [COMPLETED]
 
 **Goal**: Update all 7 references in 4 live files to point at the appropriate workflow file in `docs/workflows/`.
 

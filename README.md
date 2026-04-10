@@ -37,8 +37,8 @@ For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/key
 ├── themes/                 # Custom color themes
 ├── docs/                   # Documentation
 │   ├── general/            # Installation, keybindings, settings reference
-│   ├── agent-system/       # AI systems overview, workflows, commands, architecture
-│   └── office-workflows.md # Working with Office files on macOS
+│   ├── agent-system/       # AI systems overview, commands, architecture
+│   └── workflows/          # Agent lifecycle and Office file workflows on macOS
 ├── specs/                  # Claude Code task management
 ├── .claude/                # Claude Code agent system config
 └── .memory/                # AI memory vault
@@ -50,7 +50,7 @@ For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/key
 |----------|-------------|
 | [General](docs/general/README.md) | Installation, keybindings, and settings reference for this Zed configuration on macOS |
 | [Agent System](docs/agent-system/README.md) | Zed agent + Claude Code overview, workflows, command catalog, memory, and architecture |
-| [Office Workflows](docs/office-workflows.md) | Word, Excel, PowerPoint, and PDF workflows on macOS, including tracked changes, batch edits, OneDrive tips, and troubleshooting |
+| [Workflows](docs/workflows/README.md) | Agent task lifecycle plus Word/Excel/PowerPoint/PDF workflows on macOS -- tracked changes, batch edits, conversions, OneDrive tips, and troubleshooting |
 | [Agent System Config](.claude/CLAUDE.md) | Full Claude Code system reference (commands, skills, agents) |
 
 ## Custom Keybindings
@@ -85,7 +85,7 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 - **macOS keybindings**: All shortcuts use Cmd (shown as in menus). The Option key corresponds to Alt in custom bindings.
 - **Config location**: `~/.config/zed/` -- standard for Zed on macOS.
 - **Extensions**: Auto-installed on launch via `auto_install_extensions` in settings.json.
-- **Office editing**: Requires SuperDoc and openpyxl MCP tools. See [docs/general/installation.md](docs/general/installation.md#install-mcp-tools) for setup and [docs/office-workflows.md](docs/office-workflows.md) for workflows.
+- **Office editing**: Requires SuperDoc and openpyxl MCP tools. See [docs/general/installation.md](docs/general/installation.md#install-mcp-tools) for setup and [docs/workflows/](docs/workflows/README.md) for workflows.
 
 ## Related
 

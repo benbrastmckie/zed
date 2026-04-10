@@ -22,5 +22,5 @@ New to this setup? Read them in this order:
 
 - [../README.md](../README.md) — Top-level documentation index
 - [../agent-system/README.md](../agent-system/README.md) — Claude Code and Zed AI integration overview
-- [../office-workflows.md](../office-workflows.md) — Working with Word, Excel, PowerPoint, and PDF files
+- [../workflows/README.md](../workflows/README.md) — Agent task lifecycle and Office file workflows (Word, Excel, PowerPoint, PDF)
 - [../../README.md](../../README.md) — Repository README with high-level navigation

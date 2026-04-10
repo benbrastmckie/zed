@@ -5,5 +5,5 @@ Documentation for this Zed configuration on macOS. See the [main README](../READ
 ## Contents
 
 - [General](general/README.md) -- Installation, keybindings, and settings reference for this Zed configuration on macOS
-- [Agent System](agent-system/README.md) -- Claude Code and Zed AI integration: the Agent Panel, workflows, command catalog, memory, and architecture
-- [Office Workflows](office-workflows.md) -- Working with Word, Excel, PowerPoint, and PDF files on macOS, including tracked-changes editing, batch edits, spreadsheet updates, OneDrive tips, and troubleshooting
+- [Agent System](agent-system/README.md) -- Claude Code and Zed AI integration: the Agent Panel, command catalog, memory, and architecture
+- [Workflows](workflows/README.md) -- Agent task lifecycle plus Word, Excel, PowerPoint, and PDF workflows on macOS: tracked-changes editing, batch edits, spreadsheet updates, conversions, OneDrive tips, and troubleshooting

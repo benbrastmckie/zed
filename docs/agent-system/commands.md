@@ -199,7 +199,7 @@ Convert between PDF, DOCX, and Markdown.
 /convert draft.md
 ```
 
-See [`.claude/commands/convert.md`](../../.claude/commands/convert.md) · [office workflows](../office-workflows.md).
+See [`.claude/commands/convert.md`](../../.claude/commands/convert.md) · [convert-documents workflow](../workflows/convert-documents.md).
 
 ### /table
 
@@ -251,7 +251,7 @@ In-place DOCX editing with tracked changes via the SuperDoc MCP. Supports batch 
 
 **Flags**: `--new`
 
-See [`.claude/commands/edit.md`](../../.claude/commands/edit.md) · [office workflows](../office-workflows.md).
+See [`.claude/commands/edit.md`](../../.claude/commands/edit.md) · [edit-word-documents workflow](../workflows/edit-word-documents.md).
 
 ## Research & Grants
 
