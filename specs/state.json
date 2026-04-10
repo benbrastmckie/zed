@@ -4,17 +4,22 @@
     {
       "project_number": 2,
       "project_name": "add_claude_acp_keybindings_docs",
-      "status": "researched",
+      "status": "planned",
       "task_type": "general",
       "created": "2026-04-10T17:21:36Z",
-      "last_updated": "2026-04-10T17:30:53Z",
-      "session_id": "sess_1775841789_2322f6",
+      "last_updated": "2026-04-10T17:34:52Z",
+      "session_id": "sess_1775842339_28bdb7",
       "next_artifact_number": 2,
       "artifacts": [
         {
           "path": "specs/002_add_claude_acp_keybindings_docs/reports/01_claude-acp-keybindings.md",
           "type": "research",
           "summary": "Comprehensive inventory of 20+ Zed agent panel keybindings across 9 categories"
+        },
+        {
+          "path": "specs/002_add_claude_acp_keybindings_docs/plans/01_add-keybindings-docs.md",
+          "type": "plan",
+          "summary": "2-phase plan to add comprehensive agent keybindings to docs/keybindings.md and docs/agent-system.md"
         }
       ]
     },
