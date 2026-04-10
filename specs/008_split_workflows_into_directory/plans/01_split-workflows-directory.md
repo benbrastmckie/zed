@@ -270,7 +270,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 8: Repair inbound links to agent-system/workflow.md [NOT STARTED]
+### Phase 8: Repair inbound links to agent-system/workflow.md [COMPLETED]
 
 **Goal**: Update all 9 references in 5 files to point at `../workflows/agent-lifecycle.md` (from `docs/agent-system/*`) or the equivalent from other locations.
 

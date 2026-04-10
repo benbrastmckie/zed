@@ -16,7 +16,7 @@ Both run on Claude models. They do **not** share conversation history. Use the p
 Files in this directory (`docs/agent-system/`):
 
 - **[zed-agent-panel.md](zed-agent-panel.md)** — Opening the panel, the built-in agent vs the Claude Code thread, how the `claude-acp` bridge works under the hood, authentication, inline assist, edit predictions, troubleshooting.
-- **[workflow.md](workflow.md)** — Task lifecycle state machine and the seven main-workflow commands that drive it.
+- **[agent-lifecycle.md](../workflows/agent-lifecycle.md)** — Task lifecycle state machine and the seven main-workflow commands that drive it.
 - **[commands.md](commands.md)** — Full catalog of all 24 Claude Code commands grouped by topic, each with a one-line summary, example, and link into `.claude/docs/`.
 - **[context-and-memory.md](context-and-memory.md)** — The two memory layers (`.memory/` vault vs auto-memory), the five context layers, and where new content belongs.
 - **[architecture.md](architecture.md)** — Three-layer execution pipeline, checkpoint execution, session IDs, state files, and routing.
@@ -49,7 +49,7 @@ Assuming [installation](../general/installation.md) is complete and the Claude C
    /implement 1
    ```
 
-Each command produces a structured artifact under `specs/001_add_dark_mode_toggle/` and commits its work. You can stop between any two steps and resume later — the task state machine tracks where you are. See [workflow.md](workflow.md) for the full state machine and [commands.md](commands.md) for the rest of the command catalog.
+Each command produces a structured artifact under `specs/001_add_dark_mode_toggle/` and commits its work. You can stop between any two steps and resume later — the task state machine tracks where you are. See [agent-lifecycle.md](../workflows/agent-lifecycle.md) for the full state machine and [commands.md](commands.md) for the rest of the command catalog.
 
 ## See also
 

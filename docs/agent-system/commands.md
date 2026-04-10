@@ -1,12 +1,12 @@
 # Command Catalog
 
-All 24 slash commands in this workspace, grouped by topic. The **Lifecycle** group covers the seven commands from [workflow.md](workflow.md); the other groups are specialty commands layered on top. For full command specifications, see [`.claude/docs/guides/user-guide.md`](../../.claude/docs/guides/user-guide.md) and the individual files in `.claude/commands/`.
+All 24 slash commands in this workspace, grouped by topic. The **Lifecycle** group covers the seven commands from [agent-lifecycle.md](../workflows/agent-lifecycle.md); the other groups are specialty commands layered on top. For full command specifications, see [`.claude/docs/guides/user-guide.md`](../../.claude/docs/guides/user-guide.md) and the individual files in `.claude/commands/`.
 
 Each entry is intentionally terse: one-sentence summary, minimal example, flag list, and link into `.claude/`. For examples and edge cases, follow the links.
 
 ## Lifecycle
 
-The seven main-workflow commands. See [workflow.md](workflow.md) for the state machine.
+The seven main-workflow commands. See [agent-lifecycle.md](../workflows/agent-lifecycle.md) for the state machine.
 
 ### /task
 
@@ -331,7 +331,7 @@ See [`.claude/commands/talk.md`](../../.claude/commands/talk.md).
 
 ## See also
 
-- [workflow.md](workflow.md) — State machine and the seven lifecycle commands in narrative form
+- [agent-lifecycle.md](../workflows/agent-lifecycle.md) — State machine and the seven lifecycle commands in narrative form
 - [architecture.md](architecture.md) — How commands, skills, and agents fit together
 - [`.claude/docs/guides/user-guide.md`](../../.claude/docs/guides/user-guide.md) — Comprehensive command reference with examples
 - [`.claude/commands/`](../../.claude/commands/) — Individual command source files

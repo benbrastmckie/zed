@@ -1,6 +1,6 @@
 # Architecture
 
-The Claude Code framework in this workspace is a three-layer execution pipeline with checkpoint-based command lifecycle, session-ID-linked git history, and task-type routing. This page is the advanced reference; for day-to-day usage, see [workflow.md](workflow.md) and [commands.md](commands.md).
+The Claude Code framework in this workspace is a three-layer execution pipeline with checkpoint-based command lifecycle, session-ID-linked git history, and task-type routing. This page is the advanced reference; for day-to-day usage, see [agent-lifecycle.md](../workflows/agent-lifecycle.md) and [commands.md](commands.md).
 
 ## Summary
 
@@ -114,5 +114,5 @@ Specialty task types (for grants, talks, LaTeX, Typst, epidemiology, etc.) route
 - [`.claude/docs/architecture/system-overview.md`](../../.claude/docs/architecture/system-overview.md) — Detailed architecture walkthrough
 - [`.claude/docs/architecture/extension-system.md`](../../.claude/docs/architecture/extension-system.md) — Extension loader pattern (portability reference)
 - [`.claude/docs/guides/component-selection.md`](../../.claude/docs/guides/component-selection.md) — Command vs skill vs agent decision tree
-- [workflow.md](workflow.md) — Lifecycle from a user's perspective
+- [agent-lifecycle.md](../workflows/agent-lifecycle.md) — Lifecycle from a user's perspective
 - [context-and-memory.md](context-and-memory.md) — How context and memory flow into agents

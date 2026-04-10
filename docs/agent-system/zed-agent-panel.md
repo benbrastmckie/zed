@@ -118,6 +118,6 @@ Go to **Settings > Extensions** and confirm "Claude Code" is listed. If not, sea
 - [../general/installation.md](../general/installation.md) — Installing Zed, Claude Code CLI, and `claude-acp`
 - [../general/settings.md](../general/settings.md#agent_servers) — `agent_servers` configuration reference
 - [../general/keybindings.md](../general/keybindings.md#how-do-i-use-the-ai-agent) — Full keymap for the panel
-- [workflow.md](workflow.md) — Task lifecycle once you are inside a Claude Code thread
+- [agent-lifecycle.md](../workflows/agent-lifecycle.md) — Task lifecycle once you are inside a Claude Code thread
 - [`.claude/docs/guides/user-guide.md`](../../.claude/docs/guides/user-guide.md) — Comprehensive Claude Code command reference
 - [`.claude/docs/architecture/system-overview.md`](../../.claude/docs/architecture/system-overview.md) — Detailed architecture walkthrough

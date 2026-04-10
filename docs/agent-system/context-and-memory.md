@@ -106,5 +106,5 @@ Full architectural details: [`.claude/context/architecture/context-layers.md`](.
 - [`.memory/README.md`](../../.memory/README.md) — Vault structure, sharing protocol, MCP server details
 - [`.claude/context/architecture/context-layers.md`](../../.claude/context/architecture/context-layers.md) — Full five-layer architecture
 - [`.claude/commands/learn.md`](../../.claude/commands/learn.md) — `/learn` command reference
-- [workflow.md](workflow.md) — Where `--remember` fits in the research flow
+- [agent-lifecycle.md](../workflows/agent-lifecycle.md) — Where `--remember` fits in the research flow
 - [architecture.md](architecture.md) — How these layers are loaded and delivered to agents
