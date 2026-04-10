@@ -100,7 +100,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Expand docs/agent-system.md [NOT STARTED]
+### Phase 2: Expand docs/agent-system.md [COMPLETED]
 
 **Goal**: Add MCP setup instructions and grant/research commands, convert all shortcuts to macOS, and add installation guidance.
 
