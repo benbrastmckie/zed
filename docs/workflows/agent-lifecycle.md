@@ -84,7 +84,7 @@ Executes the plan. Routes to `skill-implementer` -> `general-implementation-agen
 /todo --dry-run
 ```
 
-Archives `[COMPLETED]` and `[ABANDONED]` tasks from `specs/TODO.md` to `specs/archive/`, updates `state.json`, appends to `CHANGE_LOG.md`, and annotates `ROAD_MAP.md` with non-meta task completion summaries. Triggers a **vault operation** (task renumbering) when `next_project_number > 1000`; see [`.claude/rules/state-management.md`](../../.claude/rules/state-management.md) for the vault schema.
+Archives `[COMPLETED]` and `[ABANDONED]` tasks from `specs/TODO.md` to `specs/archive/`, updates `state.json`, appends to `CHANGE_LOG.md`, and annotates `ROADMAP.md` with non-meta task completion summaries. Triggers a **vault operation** (task renumbering) when `next_project_number > 1000`; see [`.claude/rules/state-management.md`](../../.claude/rules/state-management.md) for the vault schema.
 
 ## Advanced flags
 
@@ -134,7 +134,7 @@ For the rest of the command catalog (maintenance, memory, document conversion, g
 
 ## See also
 
-- [commands.md](../agent-system/commands.md) — Full catalog of all 24 commands
+- [commands.md](../agent-system/commands.md) — Full command catalog
 - [architecture.md](../agent-system/architecture.md) — How commands, skills, and agents fit together
 - [`.claude/docs/guides/user-guide.md`](../../.claude/docs/guides/user-guide.md) — Comprehensive reference with examples
 - [`.claude/docs/examples/research-flow-example.md`](../../.claude/docs/examples/research-flow-example.md) — End-to-end research-to-implementation walkthrough

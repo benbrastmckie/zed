@@ -9,7 +9,7 @@ Extract, convert, and reformat documents between PDF, DOCX, Markdown, spreadshee
 | Turn a PDF or Word file into Markdown | `/convert` |
 | Turn Markdown into a PDF | `/convert` |
 | Pull a table out of a spreadsheet into LaTeX/Typst | `/table` |
-| Turn a PowerPoint deck into Beamer/Polylux/Touying source | `/slides` |
+| Turn a PowerPoint deck into Beamer/Polylux/Touying source | `/convert --format` |
 | Pull highlights and notes out of a PDF | `/scrape` |
 | Edit an existing .docx in place | See [edit-word-documents.md](edit-word-documents.md) |
 
@@ -32,13 +32,17 @@ The `/convert` command detects the input format and converts to a useful output 
 
 This reads the spreadsheet and produces a clean table in LaTeX or Typst format, ready to paste into a document. If you want to modify the underlying .xlsx instead, see [edit-spreadsheets.md](edit-spreadsheets.md).
 
-## /slides — presentations to source-based slides
+## /slides — research talk creation
+
+`/slides` now creates research talk tasks with forcing questions. For PPTX-to-slide conversion, use `/convert` with the `--format` flag:
 
 ```
-/slides deck.pptx            # PowerPoint to Beamer/Polylux/Touying slides
+/convert deck.pptx --format beamer     # PowerPoint to Beamer
+/convert deck.pptx --format polylux    # PowerPoint to Polylux
+/convert deck.pptx --format touying    # PowerPoint to Touying
 ```
 
-Extracts slide content and converts to a source-based presentation format you can maintain in version control.
+See [commands.md](../agent-system/commands.md#slides) for talk modes and examples.
 
 ## /scrape — PDF annotations to Markdown or JSON
 

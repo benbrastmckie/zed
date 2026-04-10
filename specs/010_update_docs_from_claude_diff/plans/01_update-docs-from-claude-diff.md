@@ -1,7 +1,7 @@
 # Implementation Plan: Task 10 - Update docs/ from .claude/ diff
 
 - **Task**: 10 - Update docs/ based on .claude/ diff
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 2 hours
 - **Dependencies**: None (task 9 plan edit is folded into Phase 6 atomically)
 - **Research Inputs**: specs/010_update_docs_from_claude_diff/reports/01_team-research.md
@@ -156,7 +156,7 @@ Note: Phases 1-5 each touch a distinct file with no cross-file coupling, so they
 
 ---
 
-### Phase 4: Update docs/workflows/agent-lifecycle.md and docs/workflows/convert-documents.md [NOT STARTED]
+### Phase 4: Update docs/workflows/agent-lifecycle.md and docs/workflows/convert-documents.md [COMPLETED]
 
 **Goal**: Eliminate drift items #8, #9, #11 -- the last numeric "24 commands" instance, the ROAD_MAP rename, and the `/slides` -> `/convert --format` semantic shift in the convert-documents workflow doc.
 
@@ -181,7 +181,7 @@ Note: Phases 1-5 each touch a distinct file with no cross-file coupling, so they
 
 ---
 
-### Phase 5: Resolve task 9 collision and update docs/agent-system/context-and-memory.md [NOT STARTED]
+### Phase 5: Resolve task 9 collision and update docs/agent-system/context-and-memory.md [COMPLETED]
 
 **Goal**: Eliminate drift items #12 and #13. Item #12 fixes the stale `.claude/extensions/*/context/` reference in the context-and-memory doc. Item #13 atomically revises the task 9 plan to remove `/talk` references before task 9 is re-implemented.
 
@@ -205,7 +205,7 @@ Note: Phases 1-5 each touch a distinct file with no cross-file coupling, so they
 
 ---
 
-### Phase 6: Repair inbound links and final verification [NOT STARTED]
+### Phase 6: Repair inbound links and final verification [COMPLETED]
 
 **Goal**: Sweep the entire `docs/` tree for any remaining stale tokens or inbound links that point to removed sections/files. This phase catches anything the per-file phases missed and acts as the task's final validation gate.
 

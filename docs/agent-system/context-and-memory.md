@@ -75,7 +75,7 @@ Claude Code agents pull context from five distinct layers. Each has a different 
 | Layer | Location | Owner | Purpose |
 |-------|----------|-------|---------|
 | Agent context | `.claude/context/` | Extension loader | Core agent patterns, formats, workflows |
-| Extensions | `.claude/extensions/*/context/` | Extension loader | Language-specific standards (not populated in this workspace) |
+| Extensions | `.claude/extensions.json` | Configuration file | Language-specific standards (flat file; no `.claude/extensions/` directory in this workspace) |
 | Project context | `.context/` | User (via `index.json`) | Project conventions not covered by extensions |
 | Project memory | `.memory/` | Agents (via `/learn`) | Learned facts, discoveries, decisions |
 | Auto-memory | `~/.claude/projects/` | Claude Code harness | User preferences, behavioral corrections |
@@ -84,7 +84,7 @@ Claude Code agents pull context from five distinct layers. Each has a different 
 
 ```
 Language-specific standard, pattern, or tool reference?
-  yes -> extension context (.claude/extensions/*/context/)
+  yes -> extension context (via .claude/extensions.json; see Zed adaptations)
 
 Agent system pattern (orchestration, format, workflow)?
   yes -> .claude/context/

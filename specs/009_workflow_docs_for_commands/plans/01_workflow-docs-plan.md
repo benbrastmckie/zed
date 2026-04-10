@@ -1,3 +1,5 @@
+> **Updated 2026-04-10**: Task 10 replaced /talk references with /slides after /talk was deleted and /slides absorbed its role.
+
 # Implementation Plan: Workflow Docs for Commands
 
 - **Task**: 9 - workflow_docs_for_commands
@@ -120,13 +122,13 @@ Phases within the same wave can execute in parallel.
 
 ### Phase 3: Create grant-development.md [COMPLETED]
 
-**Goal**: Document the grant/presentation development command cluster: `/grant`, `/budget`, `/timeline`, `/funds`, `/talk`.
+**Goal**: Document the grant/presentation development command cluster: `/grant`, `/budget`, `/timeline`, `/funds`, `/slides`.
 
 **Tasks**:
 - [ ] Create `docs/workflows/grant-development.md`
 - [ ] Add "Requires the `present` extension" callout at top
-- [ ] Write decision-guide table mapping grant/budget/timeline/funds/talk intents
-- [ ] Write per-command sections with scenario-driven headings: "Starting a grant proposal" (`/grant`), "Building a budget" (`/budget`), "Planning a research timeline" (`/timeline`), "Exploring funding sources" (`/funds`), "Preparing a research talk" (`/talk`)
+- [ ] Write decision-guide table mapping grant/budget/timeline/funds/slides intents
+- [ ] Write per-command sections with scenario-driven headings: "Starting a grant proposal" (`/grant`), "Building a budget" (`/budget`), "Planning a research timeline" (`/timeline`), "Exploring funding sources" (`/funds`), "Preparing a research talk" (`/slides`)
 - [ ] Explain the forcing-questions pattern (commands ask clarifying questions before creating the task)
 - [ ] Each section: 1-3 sentence intro, 1-2 minimal examples, cross-link to commands.md
 - [ ] Add "See also" section
@@ -140,7 +142,7 @@ Phases within the same wave can execute in parallel.
 - `docs/workflows/grant-development.md` - New file
 
 **Verification**:
-- All 5 commands covered: /grant, /budget, /timeline, /funds, /talk
+- All 5 commands covered: /grant, /budget, /timeline, /funds, /slides
 - Extension callout present
 - Decision table present; See also section present
 - Line count in 100-170 range
