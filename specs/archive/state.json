@@ -1,3 +1,27 @@
 {
-  "completed_projects": []
+  "completed_projects": [
+    {
+      "project_number": 4,
+      "project_name": "integrate_config_report_into_docs",
+      "status": "abandoned",
+      "task_type": "general",
+      "created": "2026-04-10T18:16:09Z",
+      "last_updated": "2026-04-10T18:26:20Z",
+      "session_id": "sess_plan4",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/004_integrate_config_report_into_docs/reports/01_integrate-config-report.md",
+          "type": "research",
+          "summary": "Section-by-section comparison of config-report.md and docs/"
+        },
+        {
+          "path": "specs/004_integrate_config_report_into_docs/plans/01_integrate-config-report.md",
+          "type": "plan",
+          "summary": "Two-phase minimal plan: verify no references, delete stale config-report.md. Scope collapsed after excluding docs/ updates per user guidance."
+        }
+      ],
+      "abandoned": "2026-04-10T18:28:22Z"
+    }
+  ]
 }
