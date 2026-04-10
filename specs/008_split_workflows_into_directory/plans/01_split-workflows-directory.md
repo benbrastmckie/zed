@@ -1,7 +1,7 @@
 # Implementation Plan: Split office-workflows.md into workflows/ directory
 
 - **Task**: 8 - Split office-workflows.md into workflows/ directory
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 4 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/008_split_workflows_into_directory/reports/01_team-research.md
