@@ -102,7 +102,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Write docs/installation.md [NOT STARTED]
+### Phase 2: Write docs/installation.md [COMPLETED]
 
 **Goal**: Produce the new macOS-focused installation guide with claude-acp registry config as the recommended default and a Platform Notes section for NixOS.
 
