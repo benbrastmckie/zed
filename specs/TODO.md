@@ -1,10 +1,18 @@
 ---
-next_project_number: 10
+next_project_number: 11
 ---
 
 # Task List
 
 ## Tasks
+
+### 10. Update docs/ based on .claude/ diff
+
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Review the diff for .claude/ to see what has changed in order to update the documentation in /home/benjamin/.config/zed/docs/ appropriately.
 
 ### 9. Populate docs/workflows/ with command workflow guides
 

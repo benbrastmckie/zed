@@ -1,6 +1,15 @@
 {
-  "next_project_number": 10,
+  "next_project_number": 11,
   "active_projects": [
+    {
+      "project_number": 10,
+      "project_name": "update_docs_from_claude_diff",
+      "status": "not_started",
+      "task_type": "meta",
+      "description": "Review the diff for .claude/ to see what has changed in order to update the documentation in /home/benjamin/.config/zed/docs/ appropriately.",
+      "created": "2026-04-10T21:14:05Z",
+      "last_updated": "2026-04-10T21:14:05Z"
+    },
     {
       "project_number": 9,
       "project_name": "workflow_docs_for_commands",
