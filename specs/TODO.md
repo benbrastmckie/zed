@@ -8,7 +8,7 @@ next_project_number: 2
 
 ### 1. Configure Zed with Claude agent system documentation
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [RESEARCHED]
 - **Language**: general
 - **Plan**: [02_implementation-plan.md](001_configure_zed_with_claude_agent_docs/plans/02_implementation-plan.md)
 
