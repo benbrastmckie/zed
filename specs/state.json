@@ -4,11 +4,11 @@
     {
       "project_number": 2,
       "project_name": "add_claude_acp_keybindings_docs",
-      "status": "planned",
+      "status": "completed",
       "task_type": "general",
       "created": "2026-04-10T17:21:36Z",
-      "last_updated": "2026-04-10T17:34:52Z",
-      "session_id": "sess_1775842339_28bdb7",
+      "last_updated": "2026-04-10T17:39:24Z",
+      "session_id": "sess_1744310100_a2b3c4",
       "next_artifact_number": 2,
       "artifacts": [
         {
@@ -20,8 +20,14 @@
           "path": "specs/002_add_claude_acp_keybindings_docs/plans/01_add-keybindings-docs.md",
           "type": "plan",
           "summary": "2-phase plan to add comprehensive agent keybindings to docs/keybindings.md and docs/agent-system.md"
+        },
+        {
+          "path": "specs/002_add_claude_acp_keybindings_docs/summaries/01_add-keybindings-docs-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for keybinding documentation expansion"
         }
-      ]
+      ],
+      "completion_summary": "Expanded docs/keybindings.md with 20+ agent shortcuts across 9 categories (panel, threads, navigation, models, inline assist, edit predictions, Claude ACP). Added quick reference table to docs/agent-system.md. Fixed broken keybindings link."
     },
     {
       "project_number": 1,

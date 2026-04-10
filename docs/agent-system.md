@@ -8,17 +8,35 @@ This project has two AI systems available. This document explains what each one 
 
 Zed ships with an AI agent panel that can read and edit files in your project.
 
-**Open it**: Press **Ctrl+?**
+**Open it**: Press **Ctrl+?** (toggles the right sidebar where the agent panel lives).
 
 **How to use it**:
-1. Press Ctrl+? to open the panel
-2. Press Ctrl+N to start a new conversation
+1. Press **Ctrl+?** to open the panel (or **Ctrl+Shift+A**)
+2. Press **Ctrl+N** to start a new thread (when panel is focused)
 3. Type a question or instruction
-4. Press Ctrl+Enter to send
+4. Press **Enter** to send (or **Ctrl+Enter** if `agent.use_modifier_to_send` is enabled)
 
 The agent can see your open files and make edits directly. It is good for quick questions and simple edits.
 
-**Inline assist**: Select some text, then press **Ctrl+;** to ask the AI to modify just that selection.
+**Inline assist**: Select some text, then press **Ctrl+Enter** to open the inline assistant. (Older versions used **Ctrl+;** -- verify with **Ctrl+K Ctrl+S**.)
+
+### Keybindings Quick Reference
+
+| Shortcut | What it does | Context |
+|----------|-------------|---------|
+| Ctrl+? * | Toggle right sidebar (agent panel) | Global |
+| Ctrl+N | New thread | Agent panel focused |
+| Enter | Send message | Message editor |
+| Shift+Alt+J | Recent threads menu | Agent panel |
+| Ctrl+Shift+H | Full thread history | Agent panel |
+| Ctrl+Shift+R | Review agent changes (diff) | Agent panel |
+| Ctrl+Alt+/ | Toggle model selector | Agent panel |
+| Alt+L | Cycle favorite models | Agent panel |
+| Ctrl+Enter | Inline assist | Text selected in editor |
+| Tab / Alt+L | Accept edit prediction | Editor |
+| Alt+] / Alt+[ | Next/previous edit prediction | Editor |
+
+For the full list including thread navigation, profile management, and external agent setup, see [keybindings.md](keybindings.md#how-do-i-use-the-ai-agent).
 
 ### 2. Claude Code (Terminal-based)
 
@@ -84,6 +102,6 @@ For the complete system documentation, see [.claude/CLAUDE.md](../.claude/CLAUDE
 ## Related Documentation
 
 - [Settings reference](settings.md) -- Agent block in settings.json
-- [Keybindings guide](guides/keybindings.md) -- Agent panel shortcuts
+- [Keybindings guide](keybindings.md) -- Agent panel shortcuts
 - [Office workflows](office-workflows.md) -- Document conversion commands
 - [README](../README.md) -- Navigation hub

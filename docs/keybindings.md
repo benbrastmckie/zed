@@ -78,18 +78,76 @@ These are handy for reordering items in a list or moving a paragraph.
 
 ## How do I use the AI agent?
 
-Zed has a built-in AI agent panel, plus integration with Claude Code.
+Zed has a built-in AI agent panel, inline assist, edit predictions, and integration with Claude Code.
 
-### Agent panel (built-in)
+> **Verify shortcuts**: Zed updates frequently. Press **Ctrl+K Ctrl+S** to open the keybinding editor and confirm any shortcut listed here.
 
-- **Ctrl+?** toggles the right sidebar (where the agent panel lives)
-- **Ctrl+N** starts a new conversation (when the agent panel is focused)
-- **Ctrl+Enter** sends your message
-- Type a question or instruction and the agent can read and edit your files
+### Agent panel -- Opening and focus
+
+- **Ctrl+?** * -- Toggle the right sidebar (agent panel lives here; custom override of `agent::ToggleFocus` to `workspace::ToggleRightDock`)
+- **Ctrl+Shift+A** -- Open agent panel (alternative)
+
+### Agent panel -- Thread management
+
+- **Ctrl+N** -- Start a new thread (when agent panel is focused; may be context-dependent -- verify with Ctrl+K Ctrl+S)
+- **Shift+Alt+J** -- Recent threads menu (jump to a past conversation)
+- **Ctrl+Shift+H** -- View all thread history
+- **Ctrl+Shift+R** -- Review changes (diff view of agent edits)
+- **Double-Enter** -- Send queued message immediately (interrupts current generation)
+
+### Agent panel -- Message editor
+
+- **Enter** -- Send message (default; changes to **Ctrl+Enter** if `agent.use_modifier_to_send` is enabled in settings)
+- **Shift+Alt+Escape** -- Expand message editor (full-size editor for longer prompts)
+- **Ctrl+>** -- Add selection to thread (select text in a buffer first)
+- **Ctrl+Shift+V** -- Paste raw text (without formatting)
+
+### Agent panel -- Thread navigation (thread pane focused)
+
+- **Arrow keys** -- Scroll thread
+- **Page Up / Page Down** -- Scroll by page
+- **Home / End** -- Jump to top/bottom
+- **Shift+Page Up / Shift+Page Down** -- Jump between messages
+
+### Agent panel -- Thread navigation (message editor focused)
+
+- **Ctrl+Alt+Home / End** -- Jump to thread top/bottom
+- **Ctrl+Alt+Page Up / Page Down** -- Jump to previous/next message
+- **Ctrl+Alt+Shift+Page Up / Page Down** -- Jump to previous/next prompt
+- **Ctrl+Alt+Up / Down** -- Scroll thread up/down
+
+### Model and profile management
+
+- **Ctrl+Alt+/** -- Toggle model selector (switch between language models)
+- **Alt+L** -- Cycle favorite models (quick-cycle without opening selector)
+- **Ctrl+Alt+P** -- Manage profiles
+- **Shift+Tab** -- Cycle profiles (when agent panel is focused)
 
 ### Inline assist
 
-- **Ctrl+;** toggles inline assist -- select some text first, then press Ctrl+; to ask the AI to modify just that section
+- **Ctrl+Enter** -- Open inline assistant (select text first; works in editors, terminal, and rules library)
+- **Ctrl+;** -- May also trigger inline assist (older default; verify with Ctrl+K Ctrl+S as this may have changed)
+
+### Edit predictions (AI code completion)
+
+- **Tab** -- Accept edit prediction (when no completions menu is visible and indentation is unambiguous)
+- **Alt+L** -- Accept edit prediction (use when Tab conflicts, e.g. completions menu is open)
+- **Alt+]** -- Next edit prediction (cycle through alternatives)
+- **Alt+[** -- Previous edit prediction
+
+### External agents (Claude ACP)
+
+Claude ACP has no default keybinding. To add one, put this in `keymap.json`:
+
+```json
+{
+  "bindings": {
+    "ctrl-alt-c": ["agent::NewExternalAgentThread", { "agent_name": "claude-acp" }]
+  }
+}
+```
+
+Debug ACP communication via the command palette: search for `dev: open acp logs`.
 
 ### Claude Code (terminal-based)
 

@@ -1,7 +1,7 @@
 # Implementation Plan: Add Claude ACP Keybindings Docs
 
 - **Task**: 2 - Add Claude ACP keybindings docs
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 1.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/002_add_claude_acp_keybindings_docs/reports/01_claude-acp-keybindings.md
@@ -63,7 +63,7 @@ No ROAD_MAP.md found.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Expand keybindings.md with full agent shortcuts [NOT STARTED]
+### Phase 1: Expand keybindings.md with full agent shortcuts [COMPLETED]
 
 **Goal**: Replace the minimal 4-shortcut agent section with a comprehensive reference covering all 9 categories from research.
 
@@ -91,7 +91,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Update agent-system.md with keybindings reference [NOT STARTED]
+### Phase 2: Update agent-system.md with keybindings reference [COMPLETED]
 
 **Goal**: Add a keybindings quick reference to the agent system documentation and update the existing shortcut mentions.
 

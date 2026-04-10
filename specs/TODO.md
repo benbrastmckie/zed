@@ -8,10 +8,12 @@ next_project_number: 3
 
 ### 2. Add Claude ACP keybindings to Zed documentation
 - **Effort**: small
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
+- **Completed**: 2026-04-10
 - **Task Type**: general
 - **Research**: [01_claude-acp-keybindings.md](002_add_claude_acp_keybindings_docs/reports/01_claude-acp-keybindings.md)
 - **Plan**: [01_add-keybindings-docs.md](002_add_claude_acp_keybindings_docs/plans/01_add-keybindings-docs.md)
+- **Summary**: [01_add-keybindings-docs-summary.md](002_add_claude_acp_keybindings_docs/summaries/01_add-keybindings-docs-summary.md)
 
 **Description**: Add all relevant keybindings for using Claude ACP in the agent sidebar in Zed to the zed/docs/ guides wherever most relevant. For example, ctrl+n opens a new session is an important detail to include.
 
