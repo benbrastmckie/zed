@@ -209,7 +209,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 6: Create tips-and-troubleshooting.md [NOT STARTED]
+### Phase 6: Create tips-and-troubleshooting.md [COMPLETED]
 
 **Goal**: Centralize cross-cutting content (OneDrive sync pauses, macOS permissions, Agent Panel invocation, common errors) so the command-workflow files can link here instead of repeating.
 
