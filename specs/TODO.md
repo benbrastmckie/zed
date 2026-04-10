@@ -9,8 +9,9 @@ next_project_number: 11
 ### 10. Update docs/ based on .claude/ diff
 
 - **Effort**: small
-- **Status**: [RESEARCHING]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_team-research.md](010_update_docs_from_claude_diff/reports/01_team-research.md)
 
 **Description**: Review the diff for .claude/ to see what has changed in order to update the documentation in /home/benjamin/.config/zed/docs/ appropriately.
 
