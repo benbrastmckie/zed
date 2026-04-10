@@ -4,10 +4,10 @@
     {
       "project_number": 6,
       "project_name": "expand_agent_system_docs",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "meta",
       "created": "2026-04-10T19:10:31Z",
-      "last_updated": "2026-04-10T19:26:51Z",
+      "last_updated": "2026-04-10T19:55:00Z",
       "session_id": "sess_1775849200_b921b2",
       "researched": "2026-04-10T19:18:06Z",
       "planned": "2026-04-10T19:30:00Z",
@@ -22,8 +22,15 @@
           "path": "specs/006_expand_agent_system_docs/plans/01_expand-docs-directory.md",
           "type": "plan",
           "summary": "8-phase plan (~7.5h) to split docs/agent-system.md into docs/agent-system/ subdirectory, extract docs/installation.md with claude-acp setup, and repair 9 inbound links"
+        },
+        {
+          "path": "specs/006_expand_agent_system_docs/summaries/01_expand-docs-directory-summary.md",
+          "type": "summary",
+          "summary": "Split agent-system.md into 7 new focused files, repaired 9 inbound links, added agent_servers section, deleted old file"
         }
-      ]
+      ],
+      "completion_summary": "Split docs/agent-system.md (378 lines) into docs/agent-system/ subdirectory (README, zed-agent-panel, workflow, commands, context-and-memory, architecture) plus new docs/installation.md with first-class claude-acp coverage. Repaired 9 inbound links across README.md, docs/README.md, docs/settings.md, and docs/office-workflows.md, added agent_servers reference section to docs/settings.md, and deleted the old monolithic file.",
+      "claudemd_suggestions": "none"
     },
     {
       "project_number": 5,

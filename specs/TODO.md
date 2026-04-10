@@ -9,10 +9,12 @@ next_project_number: 7
 ### 6. Expand agent-system.md into docs/ directory
 
 - **Effort**: medium
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
+- **Completed**: 2026-04-10
 - **Task Type**: meta
 - **Research**: [01_team-research.md](006_expand_agent_system_docs/reports/01_team-research.md)
 - **Plan**: [01_expand-docs-directory.md](006_expand_agent_system_docs/plans/01_expand-docs-directory.md)
+- **Summary**: [01_expand-docs-directory-summary.md](006_expand_agent_system_docs/summaries/01_expand-docs-directory-summary.md)
 
 **Description**: Expand docs/agent-system.md into a docs/ directory with multiple clear, educational documents (one file per natural grouping) and extract installation content into an independent docs/installation.md focused on macOS Homebrew + claude-acp setup. The new docs must cover claude-acp (currently absent), use progressive disclosure (brief explanation -> example -> advanced details), explain relationships between commands/skills/agents/context/.memory/, and link rather than duplicate .claude/ internal docs.
 
