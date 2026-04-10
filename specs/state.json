@@ -13,9 +13,9 @@
       "next_artifact_number": 2,
       "artifacts": [
         {
-          "path": "specs/011_fix_zed_acp_subagent_invocation/reports/01_teammate-a-findings.md",
+          "path": "specs/011_fix_zed_acp_subagent_invocation/reports/01_team-research.md",
           "type": "research",
-          "summary": "Root cause analysis: @agentclientprotocol/claude-agent-acp uses SDK in isolation mode (no settingSources, no Skill/Agent in allowedTools). Fix: switch to type:registry."
+          "summary": "Team research with 4 teammates"
         }
       ]
     },
