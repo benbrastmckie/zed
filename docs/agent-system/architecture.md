@@ -54,9 +54,9 @@ Generated at GATE IN, passed through the skill-to-agent delegation, included in 
 task 12 phase 2: implement modal semantics evaluator
 
 Session: sess_1736701234_d4e5f6
-
-Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 ```
+
+This workspace omits the `Co-Authored-By` trailer per user preference; see [Zed adaptations](README.md#zed-adaptations).
 
 Any commit, error log entry, or artifact can be traced back to the command invocation that produced it.
 
@@ -81,7 +81,7 @@ TODO.md and state.json must stay synchronized; both are updated atomically. See 
 └── .claude/
     ├── CLAUDE.md            # Always-loaded quick reference
     ├── README.md            # Architecture navigation hub
-    ├── commands/            # 24 slash command definitions
+    ├── commands/            # slash command definitions
     ├── skills/              # 32 skill routers
     ├── agents/              # 25 agent specifications
     ├── rules/               # Auto-applied behavioral rules
@@ -92,7 +92,7 @@ TODO.md and state.json must stay synchronized; both are updated atomically. See 
 
 ## Extensions
 
-The `.claude/CLAUDE.md` file describes an extension loader — a pattern for merging language-specific task types, skills, and rules into the core framework on demand. **That loader does not apply in this Zed workspace.** All 24 commands are always available; there is no `<leader>ac` or equivalent extension-loading keybinding (that is a neovim-specific pattern).
+The `.claude/CLAUDE.md` file describes an extension loader — a pattern for merging language-specific task types, skills, and rules into the core framework on demand. **That loader does not apply in this Zed workspace.** All commands are always available; there is no `<leader>ac` or equivalent extension-loading keybinding (that is a neovim-specific pattern).
 
 Every extension entry in `.claude/CLAUDE.md` (epidemiology, filetypes, latex, memory, present, typst) is pre-merged into the active configuration in this workspace. You do not need to load anything; just run the command.
 

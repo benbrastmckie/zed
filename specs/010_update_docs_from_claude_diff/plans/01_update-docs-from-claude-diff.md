@@ -108,7 +108,7 @@ Note: Phases 1-5 each touch a distinct file with no cross-file coupling, so they
 
 ---
 
-### Phase 2: Update docs/agent-system/README.md [NOT STARTED]
+### Phase 2: Update docs/agent-system/README.md [COMPLETED]
 
 **Goal**: Eliminate drift item #4 and add the "Zed adaptations" callout box (Tier 2 addition).
 
@@ -134,7 +134,7 @@ Note: Phases 1-5 each touch a distinct file with no cross-file coupling, so they
 
 ---
 
-### Phase 3: Update docs/agent-system/architecture.md [NOT STARTED]
+### Phase 3: Update docs/agent-system/architecture.md [COMPLETED]
 
 **Goal**: Eliminate drift items #5, #6, #7 -- the `Co-Authored-By` trailer leak and two "24 commands" references.
 
