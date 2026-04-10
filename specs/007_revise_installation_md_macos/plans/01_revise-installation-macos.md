@@ -3,7 +3,7 @@
 - **Task**: 7 - revise_installation_md_macos
 - **Date**: 2026-04-10
 - **Session**: sess_1775852110_007a62
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 1.5 hours
 - **Dependencies**: None
 - **Research Inputs**: [specs/007_revise_installation_md_macos/reports/01_installation-macos-research.md](../reports/01_installation-macos-research.md)
@@ -193,7 +193,7 @@ Phases are strictly sequential because they all edit the same file in layered pa
 
 ---
 
-### Phase 6: Repo-wide link and anchor sweep [IN PROGRESS]
+### Phase 6: Repo-wide link and anchor sweep [COMPLETED]
 
 **Goal**: Confirm the rewrite did not silently break any other inbound links from sibling docs.
 
