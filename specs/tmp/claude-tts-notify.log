@@ -175,3 +175,17 @@
 [2026-04-10T14:32:17-07:00] Notification sent: Tab 5 (worktree=false)
 [2026-04-10T14:36:17-07:00] Notification sent: Tab 5 (worktree=false)
 [2026-04-10T14:37:14-07:00] Notification sent: Tab 4 (worktree=false)
+[2026-04-10T14:43:46-07:00] Notification sent: Tab 4 (worktree=false)
+[2026-04-10T14:45:55-07:00] Notification sent: Tab 4 (worktree=false)
+[2026-04-10T14:46:48-07:00] Notification sent: Tab 4 (worktree=false)
+[2026-04-10T14:47:50-07:00] Notification sent: Tab 4 (worktree=false)
+[2026-04-10T14:48:32-07:00] Notification sent: Tab 4 (worktree=false)
+[2026-04-10T14:49:34-07:00] Notification sent: Tab 4 (worktree=false)
+[2026-04-10T14:50:23-07:00] Notification sent: Tab 4 (worktree=false)
+[2026-04-10T14:50:36-07:00] Notification sent: Tab 4 (worktree=false)
+[2026-04-10T14:51:58-07:00] Notification sent: Tab 4 (worktree=false)
+[2026-04-10T14:52:06-07:00] Cooldown active: 8s < 10s - skipping notification
+[2026-04-10T14:53:00-07:00] Notification sent: Tab 4 (worktree=false)
+[2026-04-10T14:53:06-07:00] Cooldown active: 6s < 10s - skipping notification
+[2026-04-10T14:54:07-07:00] Notification sent: Tab 5 (worktree=false)
+[2026-04-10T14:55:09-07:00] Notification sent: Tab 5 (worktree=false)

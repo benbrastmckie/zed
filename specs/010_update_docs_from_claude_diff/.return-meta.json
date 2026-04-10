@@ -1,7 +1,0 @@
-{
-  "status": "planned",
-  "task_id": 10,
-  "artifacts": [{"path": "specs/010_update_docs_from_claude_diff/plans/01_update-docs-from-claude-diff.md", "type": "plan", "summary": "6-phase plan (Tier 2): surgical drift fixes across 6 docs/ files + task 9 collision + Zed adaptations note + verification sweep"}],
-  "metadata": {"phase_count": 6, "estimated_hours": 2},
-  "session_id": "sess_plan_10"
-}

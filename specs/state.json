@@ -1,6 +1,14 @@
 {
-  "next_project_number": 12,
+  "next_project_number": 13,
   "active_projects": [
+    {
+      "project_number": 12,
+      "project_name": "expand_commands_docs_examples",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-10T21:55:30Z",
+      "last_updated": "2026-04-10T21:55:30Z"
+    },
     {
       "project_number": 11,
       "project_name": "fix_zed_acp_subagent_invocation",

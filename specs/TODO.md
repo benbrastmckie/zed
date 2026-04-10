@@ -1,10 +1,17 @@
 ---
-next_project_number: 12
+next_project_number: 13
 ---
 
 # Task List
 
 ## Tasks
+
+### 12. Expand docs/agent-system/commands.md to include brief examples and explanations for each command
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Expand docs/agent-system/commands.md to include brief examples and explanations for each command.
 
 ### 11. Fix Zed ACP subagent invocation to match Neovim Claude Code plugin behavior
 
