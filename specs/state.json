@@ -4,10 +4,19 @@
     {
       "project_number": 4,
       "project_name": "integrate_config_report_into_docs",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "general",
       "created": "2026-04-10T18:16:09Z",
-      "last_updated": "2026-04-10T18:16:09Z"
+      "last_updated": "2026-04-10T18:21:37Z",
+      "session_id": "sess_1775845126_5fe7c4",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/004_integrate_config_report_into_docs/reports/01_integrate-config-report.md",
+          "type": "research",
+          "summary": "Section-by-section comparison of config-report.md and docs/"
+        }
+      ]
     },
     {
       "project_number": 3,
