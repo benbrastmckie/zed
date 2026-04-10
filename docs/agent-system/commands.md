@@ -155,7 +155,7 @@ Create a semantic version tag (user-only command; cannot be invoked by agents).
 /tag --major
 ```
 
-See [`.claude/commands/tag.md`](../../.claude/commands/tag.md).
+See [`.claude/CLAUDE.md`](../../.claude/CLAUDE.md) for the full routing table.
 
 ### /merge
 

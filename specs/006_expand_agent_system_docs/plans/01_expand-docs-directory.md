@@ -241,7 +241,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 7: Link and content validation [NOT STARTED]
+### Phase 7: Link and content validation [COMPLETED]
 
 **Goal**: Manually validate every new file resolves its links, the fragment link from `office-workflows.md` targets a real anchor, and each file reads as a coherent standalone document.
 
