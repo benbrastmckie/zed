@@ -267,7 +267,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 8: Delete docs/agent-system.md and final sweep [NOT STARTED]
+### Phase 8: Delete docs/agent-system.md and final sweep [COMPLETED]
 
 **Goal**: Remove the now-obsolete monolithic file only after all inbound links have been repaired and validated.
 
