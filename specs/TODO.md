@@ -9,8 +9,9 @@ next_project_number: 10
 ### 9. Populate docs/workflows/ with command workflow guides
 
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: markdown
+- **Research**: [01_team-research.md](009_workflow_docs_for_commands/reports/01_team-research.md)
 
 **Description**: Populate docs/workflows/ with workflows covering all commands in .claude/commands/, grouping related commands together as appropriate.
 
@@ -47,16 +48,6 @@ next_project_number: 10
 - **Summary**: [01_expand-docs-directory-summary.md](006_expand_agent_system_docs/summaries/01_expand-docs-directory-summary.md)
 
 **Description**: Expand docs/agent-system.md into a docs/ directory with multiple clear, educational documents (one file per natural grouping) and extract installation content into an independent docs/installation.md focused on macOS Homebrew + claude-acp setup. The new docs must cover claude-acp (currently absent), use progressive disclosure (brief explanation -> example -> advanced details), explain relationships between commands/skills/agents/context/.memory/, and link rather than duplicate .claude/ internal docs.
-
-### 4. Integrate config-report.md into docs/ and delete
-
-- **Effort**: small
-- **Status**: [PLANNED]
-- **Task Type**: general
-- **Research**: [01_integrate-config-report.md](004_integrate_config_report_into_docs/reports/01_integrate-config-report.md)
-- **Plan**: [01_integrate-config-report.md](004_integrate_config_report_into_docs/plans/01_integrate-config-report.md)
-
-**Description**: Extract unique content from config-report.md into docs/: (1) external Zed documentation URLs table (https://zed.dev/docs/*) into docs/README.md as a "Reference" section; (2) runtime data paths (~/.local/share/zed/extensions, logs, db) into docs/settings.md; (3) optionally the Neovim comparison table. Then delete config-report.md. The stale "Current State" snapshot table and already-covered setup steps should NOT be copied.
 
 ### 3. Integrate zed-claude-office-guide.md into docs/ directory
 

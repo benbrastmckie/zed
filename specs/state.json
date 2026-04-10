@@ -4,11 +4,21 @@
     {
       "project_number": 9,
       "project_name": "workflow_docs_for_commands",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "markdown",
       "description": "Populate docs/workflows/ with workflows covering all commands in .claude/commands/, grouping related commands together as appropriate",
       "created": "2026-04-10T20:45:15Z",
-      "last_updated": "2026-04-10T20:45:15Z"
+      "last_updated": "2026-04-10T21:04:40Z",
+      "session_id": "sess_1775854733_93c456",
+      "researched": "2026-04-10T21:04:40Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/009_workflow_docs_for_commands/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research with 4 teammates"
+        }
+      ]
     },
     {
       "project_number": 8,
