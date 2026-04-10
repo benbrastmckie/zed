@@ -1,16 +1,7 @@
 {
-  "status": "researched",
+  "status": "planned",
   "task_id": 10,
-  "task_title": "Update docs/ based on .claude/ diff",
-  "agent_type": "general-research-agent",
-  "delegation_path": ["orchestrator", "research", "skill-team-research", "general-research-agent"],
-  "teammate_letter": "B",
-  "artifacts": [
-    "specs/010_update_docs_from_claude_diff/reports/01_teammate-b-findings.md"
-  ],
-  "session_id": "team-research-task-10",
-  "started_at": "2026-04-10T00:00:00Z",
-  "completed_at": "2026-04-10T00:00:00Z",
-  "findings_count": 6,
-  "next_steps": "Run /plan 10 to create implementation plan after team synthesis"
+  "artifacts": [{"path": "specs/010_update_docs_from_claude_diff/plans/01_update-docs-from-claude-diff.md", "type": "plan", "summary": "6-phase plan (Tier 2): surgical drift fixes across 6 docs/ files + task 9 collision + Zed adaptations note + verification sweep"}],
+  "metadata": {"phase_count": 6, "estimated_hours": 2},
+  "session_id": "sess_plan_10"
 }

@@ -1,0 +1,12 @@
+{
+  "agent_type": "general-research-agent",
+  "status": "in_progress",
+  "task_number": 11,
+  "artifact_number": "01",
+  "teammate_letter": "b",
+  "delegation_path": ["orchestrator", "research", "general-research-agent"],
+  "session_id": "sess_1775900000_teammate_b",
+  "report_path": "specs/011_fix_zed_acp_subagent_invocation/reports/01_teammate-b-findings.md",
+  "partial_progress": "Stage 1 complete: scanned failure output. Proceeding to web research.",
+  "created": "2026-04-10T00:00:00Z"
+}

@@ -4,26 +4,32 @@
     {
       "project_number": 11,
       "project_name": "fix_zed_acp_subagent_invocation",
-      "status": "not_started",
+      "status": "researching",
       "task_type": "meta",
       "created": "2026-04-10T21:32:00Z",
-      "last_updated": "2026-04-10T21:32:00Z"
+      "last_updated": "2026-04-10T21:34:03Z",
+      "session_id": "sess_1775856824_ed8b3b"
     },
     {
       "project_number": 10,
       "project_name": "update_docs_from_claude_diff",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "description": "Review the diff for .claude/ to see what has changed in order to update the documentation in /home/benjamin/.config/zed/docs/ appropriately.",
       "created": "2026-04-10T21:14:05Z",
-      "last_updated": "2026-04-10T21:30:19Z",
-      "session_id": "sess_research_10",
+      "last_updated": "2026-04-10T21:43:16Z",
+      "session_id": "sess_plan_10",
       "researched": "2026-04-10T21:30:19Z",
       "artifacts": [
         {
           "path": "specs/010_update_docs_from_claude_diff/reports/01_team-research.md",
           "type": "research",
           "summary": "Team research synthesis (4 teammates: A-primary, B-docs-mapper, C-critic, D-horizons) with consolidated 13-item drift catalog"
+        },
+        {
+          "path": "specs/010_update_docs_from_claude_diff/plans/01_update-docs-from-claude-diff.md",
+          "type": "plan",
+          "summary": "6-phase plan (Tier 2): surgical drift fixes across 6 docs/ files + task 9 collision + Zed adaptations note + verification sweep"
         }
       ]
     },
