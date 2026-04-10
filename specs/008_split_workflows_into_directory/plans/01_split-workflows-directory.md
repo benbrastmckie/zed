@@ -182,7 +182,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: Create convert-documents.md [NOT STARTED]
+### Phase 5: Create convert-documents.md [COMPLETED]
 
 **Goal**: Consolidate `/convert`, `/table`, `/slides`, and `/scrape` into a single conversion-workflows file with each command as a subsection.
 
