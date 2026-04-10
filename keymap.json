@@ -2,11 +2,10 @@
   // =====================================================
   // CUSTOM BINDINGS (Scheme A -- Minimal)
   // =====================================================
-  // 5 unique bindings: 2 pane nav + 1 sidebar toggle + 2 line movers
+  // 7 custom bindings: 4 pane navigation + 2 line movers + 1 utility
   //
-  // Overrides: Ctrl+H replaces find-and-replace (use Ctrl+Shift+H
-  // for project-wide replace, or Ctrl+Shift+P to find it).
-  // Ctrl+? replaces agent-panel focus toggle with right dock toggle.
+  // Note: Ctrl+K is also Zed's chord prefix. If Ctrl+K
+  // as pane-up causes issues, remap to Ctrl+Alt+Up.
 
   // Pane navigation (move focus between split panes)
   {
@@ -25,7 +24,8 @@
       "alt-j": "editor::MoveLineDown",
       "alt-k": "editor::MoveLineUp",
       "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight"
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-shift-c": "editor::CopyPath"
     }
   }
 
@@ -61,12 +61,12 @@
   //
   // --- Search ---
   // Ctrl+F           Find in file
-  // Ctrl+H           Find and replace in file (overridden -> pane left)
+  // Ctrl+H           Find and replace in file
   // Ctrl+Shift+F     Search across all files
   // Ctrl+Shift+H     Replace across all files
   //
   // --- Agent / AI ---
-  // Ctrl+?           Toggle agent panel (overridden -> toggle right dock)
+  // Ctrl+?           Toggle agent panel
   // Ctrl+N           New conversation (in agent panel)
   // Ctrl+Enter       Send message (in agent panel)
   // Ctrl+;           Toggle inline assist

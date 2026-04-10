@@ -1,130 +1,144 @@
-# Zed Editor Configuration
+# Neovim Configuration Project
 
 ## Project Overview
 
-This repository contains the Zed editor configuration for a shared workstation on NixOS Linux. The configuration prioritizes standard keybindings (no vim mode) and accessibility for both technical and non-technical users. Claude Code integration via ACP (Agent Communication Protocol) provides AI-assisted editing and project management.
+This is a Neovim configuration project using Lua and lazy.nvim for plugin management. The configuration provides a modern, efficient development environment with LSP support, treesitter integration, and extensive customization.
 
-**Purpose**: Maintain a clean, well-documented Zed configuration that works for all collaborators on this machine.
+**Purpose**: Maintain a productive Neovim development environment with organized, modular configuration.
 
 ## Technology Stack
 
-**Editor**: Zed (binary: `zeditor` on NixOS)
-**Configuration Format**: JSON / JSONC (JSON with comments)
-**Platform**: NixOS Linux
-**Version**: 0.230.x
-**AI Integration**: Claude Code (via ACP extension), Zed built-in agent panel
+**Primary Language:** Lua
+**Plugin Manager:** lazy.nvim
+**LSP:** nvim-lspconfig + mason.nvim
+**Treesitter:** nvim-treesitter
+**Version:** Neovim 0.9+
 
 ## Project Structure
 
 ```
-~/.config/zed/
-├── settings.json           # Editor settings (theme, fonts, languages, agent, extensions)
-├── keymap.json             # Custom keybindings + default reference comments
-├── tasks.json              # Task runner definitions (LibreOffice, git, export)
-├── themes/                 # Custom color themes
-├── README.md               # Navigation hub and quick start
-├── docs/                   # User-facing documentation
-│   ├── settings.md         # Configuration reference
-│   ├── agent-system.md     # AI systems overview
-│   ├── office-workflows.md # Linux Office file workflows
-│   └── guides/
-│       └── keybindings.md  # Keyboard shortcuts guide
-├── specs/                  # Task management artifacts
-│   ├── TODO.md             # Task list
-│   ├── state.json          # Task state
-│   └── {NNN}_{SLUG}/      # Task directories
-├── .claude/                # Claude Code agent system
-│   ├── CLAUDE.md           # Agent system reference
-│   ├── commands/           # Slash commands
-│   ├── skills/             # Skill definitions
-│   ├── agents/             # Agent definitions
-│   ├── rules/              # Auto-applied rules
-│   └── context/            # Domain knowledge
-└── .memory/                # Learned facts and decisions
+nvim/
+├── init.lua                 # Entry point
+├── lua/
+│   ├── config/             # Core configuration
+│   │   ├── options.lua     # vim.opt settings
+│   │   ├── keymaps.lua     # Key bindings
+│   │   ├── autocmds.lua    # Autocommands
+│   │   └── lazy.lua        # Plugin manager setup
+│   ├── plugins/            # Plugin specifications
+│   │   ├── init.lua        # Main plugin list
+│   │   ├── ui.lua          # UI plugins
+│   │   ├── editor.lua      # Editor enhancements
+│   │   ├── lsp.lua         # LSP configuration
+│   │   ├── treesitter.lua  # Treesitter setup
+│   │   └── git.lua         # Git integration
+│   └── utils/              # Utility functions
+│       └── init.lua
+├── after/
+│   └── ftplugin/           # Filetype-specific settings
+│       ├── lua.lua
+│       ├── python.lua
+│       └── markdown.lua
+├── plugin/                  # Auto-loaded plugins
+└── lazy-lock.json          # Plugin lockfile
+
+specs/                       # Task management
+├── TODO.md                 # Task list
+├── state.json              # Task state
+└── {NNN}_{SLUG}/             # Task artifacts
+    ├── reports/
+    ├── plans/
+    └── summaries/
+
+.claude/                     # Claude Code configuration
+├── CLAUDE.md               # Main reference
+├── commands/               # Slash commands
+├── skills/                 # Skill definitions
+├── agents/                 # Agent definitions
+├── rules/                  # Auto-applied rules
+└── context/                # Domain knowledge
 ```
 
-## Configuration Overview
+## Core Configuration
 
-### Settings (settings.json)
+### Plugin Manager: lazy.nvim
 
-- **Theme**: One Dark
-- **Font**: JetBrains Mono, size 14
-- **Keybinding base**: VSCode (standard Ctrl-based shortcuts)
-- **No vim mode** -- standard keybindings only
-- **Auto-installed extensions**: markdown-oxide, markdownlint, codebook, csv, claude-code-extension, nix, toml, git-firefly
-- **Agent**: Anthropic Claude models for built-in AI
+The configuration uses lazy.nvim for plugin management with:
+- Automatic lazy loading by event, command, or filetype
+- Lockfile for reproducibility
+- Built-in profiler for performance analysis
 
-### Custom Keybindings (keymap.json)
+### LSP Integration
 
-Scheme A (minimal) -- only 6 custom bindings:
-- **Pane navigation**: Ctrl+H/J/K/L to move between split panes
-- **Line movers**: Alt+J/K to move lines up/down
+Language Server Protocol support via:
+- nvim-lspconfig for server configuration
+- mason.nvim for automatic server installation
+- Built-in vim.lsp.* API
 
-All other shortcuts are Zed defaults. The keymap.json file includes commented reference sections listing important defaults by category.
+### Treesitter
 
-### Tasks (tasks.json)
-
-- **Open in LibreOffice**: Opens current file in LibreOffice
-- **Export Agent System**: Runs .claude/ export script
-- **Git Status**: Shows short git status
+Native tree-sitter support providing:
+- Syntax highlighting
+- Code folding
+- Incremental selection
+- Text objects
 
 ## Development Workflow
 
 ### Standard Workflow
 
-1. Open project: `zeditor ~/.config/zed`
-2. Find files: Ctrl+P
-3. Edit with standard shortcuts (Ctrl+C/V/Z, etc.)
-4. Use terminal: Ctrl+`
-5. Search project: Ctrl+Shift+F
-6. Save: Ctrl+S
+1. **Identify Need**: Plugin to add, keymap to change, feature to implement
+2. **Research**: Look up plugin docs, check existing patterns
+3. **Implement**: Create/modify Lua files
+4. **Test**: Restart Neovim, verify behavior
+5. **Commit**: Track changes
 
 ### AI-Assisted Workflow
 
-Two AI systems are available:
-
-1. **Zed Agent Panel** (Ctrl+?): Built-in AI for quick edits and questions
-2. **Claude Code** (via ACP): Full agent system with research, planning, and implementation commands (`/research`, `/plan`, `/implement`)
+1. **Research**: `/research` - Gather plugin docs, patterns
+2. **Planning**: `/plan` - Create implementation plan
+3. **Implementation**: `/implement` - Execute the plan
+4. **Review**: `/review` - Analyze configuration
 
 ## Common Tasks
 
-### Editing Configuration
+### Adding a Plugin
 
-1. Open settings: Ctrl+, (or edit `settings.json` directly)
-2. Open keymap: Command palette (Ctrl+Shift+P) then "Open Keymap"
-3. Changes take effect immediately on save
+1. Create spec file in `lua/plugins/` or add to existing
+2. Define lazy loading conditions (event, cmd, ft, keys)
+3. Configure plugin options
+4. Add keymaps if needed
 
-### Adding Keybindings
+### Modifying Keymaps
 
-1. Open `keymap.json`
-2. Add a new binding object with context and bindings
-3. Reference the default list in comments before overriding
+1. Edit `lua/config/keymaps.lua` for global mappings
+2. Use buffer-local mappings for filetype-specific
+3. Always include descriptions for which-key
 
-### Working with Office Files
+### Adding Filetype Settings
 
-1. Use task runner: "Open in LibreOffice" task
-2. Use Claude Code: `/convert`, `/table`, `/slides`, `/scrape` commands
-3. See `docs/office-workflows.md` for detailed workflows
+1. Create `after/ftplugin/{filetype}.lua`
+2. Use `vim.opt_local` for buffer settings
+3. Add buffer-local keymaps as needed
 
 ## Verification Commands
 
 ```bash
-# Verify Zed is installed
-zeditor --version
+# Test Neovim starts without errors
+nvim --headless -c "echo 'OK'" -c "q"
 
-# Open this project
-zeditor ~/.config/zed
+# Test module loading
+nvim --headless -c "lua require('plugins')" -c "q"
 
-# Validate JSON config files
-python3 -m json.tool settings.json > /dev/null
-python3 -c "import json, re; json.loads(re.sub(r',\s*([}\]])', r'\1', re.sub(r'//.*', '', open('keymap.json').read())))"
-python3 -m json.tool tasks.json > /dev/null
+# Check plugin health
+nvim --headless -c "checkhealth" -c "q"
+
+# Profile startup
+nvim --startuptime specs/tmp/startup.log
 ```
 
 ## Related Documentation
 
-- `docs/guides/keybindings.md` -- Keyboard shortcuts guide for everyday use
-- `docs/settings.md` -- Configuration reference
-- `docs/agent-system.md` -- AI systems overview
-- `docs/office-workflows.md` -- Linux Office file workflows
-- `.claude/CLAUDE.md` -- Agent system reference
+- `.claude/context/project/neovim/` - Neovim domain knowledge
+- `.claude/rules/neovim-lua.md` - Lua coding standards
+- `nvim/CLAUDE.md` - Configuration-specific guidelines

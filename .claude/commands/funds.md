@@ -2,7 +2,7 @@
 description: Funding landscape analysis with funder portfolio mapping, budget justification, and gap analysis
 allowed-tools: Skill, Bash(jq:*), Bash(git:*), Bash(date:*), Read, Edit, AskUserQuestion
 argument-hint: "[description]" | TASK_NUMBER | --quick [topic]
-model: claude-opus-4-5-20251101
+model: opus
 ---
 
 # /funds Command
@@ -218,7 +218,7 @@ jq --argjson num "$next_num" \
       project_number: $num,
       project_name: $name,
       status: "not_started",
-      language: "present",
+      task_type: "present",
       task_type: $task_type,
       description: $desc,
       created: $ts,
@@ -238,7 +238,7 @@ Add task entry to TODO.md (if new task):
 ### {task_number}. Funding analysis: {description}
 - **Effort**: 2-4 hours
 - **Status**: [NOT STARTED]
-- **Language**: present
+- **Task Type**: present
 - **Type**: funds
 - **Dependencies**: None
 - **Started**: {ISO timestamp}

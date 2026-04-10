@@ -47,6 +47,11 @@ This skill routes to talk-agent with one of two workflow types:
 | talk_research | researching | researched | [RESEARCHING] -> [RESEARCHED] |
 | assemble | implementing | completed | [IMPLEMENTING] -> [COMPLETED] |
 
+**Note**: The `--design` workflow is handled entirely at the command level (`talk.md`), not by this
+skill. Design confirmation stores `design_decisions` in task metadata. When `/plan N` runs for a talk
+task, the planner should check for and use `design_decisions` (theme, message_order, section_emphasis)
+from state.json metadata.
+
 ---
 
 ## Input Parameters
@@ -87,8 +92,8 @@ project_name=$(echo "$task_data" | jq -r '.project_name')
 description=$(echo "$task_data" | jq -r '.description // ""')
 
 # Validate language and task_type
-if [ "$language" != "present" ] || [ "$task_type" != "talk" ]; then
-  return error "Task $task_number is not a talk task (language=$language, task_type=$task_type)"
+if [ "$task_type" != "present" ] || [ "$task_type" != "talk" ]; then
+  return error "Task $task_number is not a talk task (language=$task_type, task_type=$task_type)"
 fi
 ```
 
@@ -163,7 +168,7 @@ EOF
     "task_number": N,
     "task_name": "{project_name}",
     "description": "{description}",
-    "language": "present",
+    "task_type": "present",
     "task_type": "talk"
   },
   "workflow_type": "talk_research|assemble",

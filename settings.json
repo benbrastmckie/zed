@@ -65,12 +65,29 @@
     "copy_on_select": true
   },
 
+  // LSP settings
+  "lsp": {
+    "markdownlint": {
+      "settings": {
+        "MD013": false
+      }
+    }
+  },
+
   // Language-specific settings
   "languages": {
     "Markdown": {
       "soft_wrap": "preferred_line_length",
       "preferred_line_length": 80,
-      "tab_size": 2
+      "tab_size": 2,
+      "show_inline_diagnostics": false,
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--parser", "markdown", "--prose-wrap", "never"]
+        }
+      }
     },
     "JSON": {
       "tab_size": 2
@@ -113,7 +130,7 @@
   },
 
   // Formatter
-  "format_on_save": "off",
+  "format_on_save": "on",
 
   // Claude Code agent server (ACP)
   "agent_servers": {

@@ -60,19 +60,19 @@ specs/{NNN}_{SLUG}/
 
 This distinction enables identification of which system created each task.
 
-### Language-Based Routing
+### Task-Type-Based Routing
 
-**Core Languages** (always available):
+**Core Task Types** (always available):
 
-| Language | Research Skill | Implementation Skill | Tools |
-|----------|----------------|---------------------|-------|
+| Task Type | Research Skill | Implementation Skill | Tools |
+|-----------|----------------|---------------------|-------|
 | `general` | `skill-researcher` | `skill-implementer` | WebSearch, WebFetch, Read, Write, Edit, Bash |
 | `meta` | `skill-researcher` | `skill-implementer` | Read, Grep, Glob, Write, Edit |
 | `markdown` | `skill-researcher` | `skill-implementer` | Read, Write, Edit |
 
-**Extension Languages** (available when extensions are loaded via `<leader>ac`):
+**Extension Task Types** (available when extensions are loaded via `<leader>ac`):
 
-Extensions provide additional language support (neovim, lean4, latex, typst, python, nix, web, z3, epidemiology, formal, founder, present, etc.). See `.claude/extensions/*/manifest.json` for available extensions and their capabilities.
+Extensions provide additional task type support (neovim, lean4, latex, typst, python, nix, web, z3, epidemiology, formal, founder, present, etc.). See `.claude/extensions/*/manifest.json` for available extensions and their capabilities.
 
 When an extension is loaded, its routing entries are merged into the command tables and context index.
 
@@ -84,7 +84,7 @@ All commands use checkpoint-based execution: GATE IN (preflight) -> DELEGATE (sk
 |---------|-------|-------------|
 | `/task` | `/task "Description"` | Create task |
 | `/task` | `/task --recover N`, `--expand N`, `--sync`, `--abandon N` | Manage tasks |
-| `/research` | `/research N[,N-N] [focus] [--team]` | Research task(s), route by language |
+| `/research` | `/research N[,N-N] [focus] [--team]` | Research task(s), route by task type |
 | `/plan` | `/plan N[,N-N] [--team]` | Create implementation plan(s) |
 | `/implement` | `/implement N[,N-N] [--team] [--force]` | Execute plan(s), resume from incomplete phase |
 | `/revise` | `/revise N` | Create new plan version |
@@ -116,7 +116,7 @@ TODO.md and state.json must stay synchronized. Update state.json first (machine 
     "project_number": 1,
     "project_name": "task_slug",
     "status": "planned",
-    "language": "neovim",
+    "task_type": "neovim",
     "completion_summary": "Required when status=completed",
     "roadmap_items": ["Optional explicit roadmap items"]
   }],
@@ -196,7 +196,7 @@ Standard actions: `create`, `complete research`, `create implementation plan`, `
 
 **User-Only Skills**: Skills marked as "user-only" cannot be invoked by agents. These are for human-controlled operations like deployment (`skill-tag`).
 
-**Extension Skills**: When extensions are loaded, additional skill-to-agent mappings are added (e.g., skill-neovim-research -> neovim-research-agent).
+**Extension Skills**: When extensions are loaded, additional skill-to-agent mappings are added (e.g., skill-neovim-research -> neovim-research-agent). Extension task types use bare values (e.g., `neovim`) or compound values (e.g., `present:grant`) for sub-routing.
 
 **Team Mode Skills**: When `--team` flag is passed to `/research`, `/plan`, or `/implement`, routing overrides to team skills which spawn multiple parallel teammates. Requires `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` environment variable. Gracefully degrades to single-agent if unavailable.
 
@@ -231,11 +231,11 @@ Context is discovered from three independent layers, loaded in parallel:
 
 ```bash
 # Combined adaptive query (recommended) - loads matching context from all dimensions
-jq -r --arg agent "planner-agent" --arg lang "meta" --arg cmd "/plan" '
+jq -r --arg agent "planner-agent" --arg task_type "meta" --arg cmd "/plan" '
   .entries[] | select(
     (.load_when.always == true) or
     any(.load_when.agents[]?; . == $agent) or
-    any(.load_when.languages[]?; . == $lang) or
+    any(.load_when.task_types[]?; . == $task_type) or
     any(.load_when.commands[]?; . == $cmd)
   ) | .path' .claude/context/index.json
 
@@ -344,6 +344,106 @@ Full documentation: @.claude/context/patterns/jq-escaping-workarounds.md
 - All skills use lazy context loading via @-references
 - Session ID format: `sess_{timestamp}_{random}` - generated at GATE IN, included in commits
 
+<!-- SECTION: extension_epidemiology -->
+## Epidemiology Extension
+
+Epidemiology research and implementation support using R and related tooling.
+
+### Language Routing
+
+| Language | Research Tools | Implementation Tools |
+|----------|----------------|---------------------|
+| `epidemiology` | skill-epidemiology-research | skill-epidemiology-implementation |
+| `r` | rmcp, WebSearch | Rscript, Read, Write |
+
+### Skill-to-Agent Mapping
+
+| Skill | Agent | Purpose |
+|-------|-------|---------|
+| skill-epidemiology-research | epidemiology-research-agent | Study design, analysis planning, and literature review |
+| skill-epidemiology-implementation | epidemiology-implementation-agent | R code implementation, statistical modeling, and data analysis |
+
+### Domain Routing
+
+**Epidemiology Domain** (triggers epidemiology-research-agent):
+- Infectious disease modeling (SIR, SEIR)
+- Survival analysis (Cox models, Kaplan-Meier)
+- Bayesian inference (Stan, epidemia)
+- Time-varying reproduction number (EpiEstim, EpiNow2)
+
+### Context Import References
+
+Load context files on-demand:
+
+```
+Epidemiology domain:
+@.claude/context/project/epidemiology/README.md
+@.claude/context/project/epidemiology/tools/r-packages.md
+```
+
+<!-- END_SECTION: extension_epidemiology -->
+
+<!-- SECTION: extension_filetypes -->
+## Filetypes Extension
+
+File format conversion and manipulation: documents, spreadsheets, presentations, PDF annotations.
+
+### Skill-Agent Mapping
+
+| Skill | Agent | Purpose |
+|-------|-------|---------|
+| skill-filetypes | filetypes-router-agent | Format detection and routing |
+| skill-filetypes | document-agent | Document format conversion (PDF/DOCX/Markdown) |
+| skill-spreadsheet | spreadsheet-agent | Spreadsheet to LaTeX/Typst table conversion |
+| skill-presentation | presentation-agent | Presentation extraction and slide generation |
+| skill-scrape | scrape-agent | PDF annotation extraction |
+| skill-docx-edit | docx-edit-agent | In-place DOCX editing with tracked changes (SuperDoc MCP) |
+
+### Commands
+
+| Command | Usage | Description |
+|---------|-------|-------------|
+| `/convert` | `/convert file.pdf` | Convert between document formats |
+| `/table` | `/table data.xlsx` | Convert spreadsheets to LaTeX/Typst tables |
+| `/slides` | `/slides deck.pptx` | Convert presentations to Beamer/Polylux/Touying |
+| `/scrape` | `/scrape paper.pdf` | Extract PDF annotations to Markdown/JSON |
+| `/edit` | `/edit file.docx "instruction"` | Edit Office documents in-place |
+
+<!-- END_SECTION: extension_filetypes -->
+
+<!-- SECTION: extension_latex -->
+## LaTeX Extension
+
+This project includes LaTeX document development support via the latex extension.
+
+### Language Routing
+
+| Language | Research Tools | Implementation Tools |
+|----------|----------------|---------------------|
+| `latex` | WebSearch, WebFetch, Read | Read, Write, Edit, Bash (pdflatex, latexmk) |
+
+### Skill-Agent Mapping
+
+| Skill | Agent | Purpose |
+|-------|-------|---------|
+| skill-latex-implementation | latex-implementation-agent | LaTeX document implementation |
+
+### VimTeX Integration
+
+- Compile: `:VimtexCompile` (`<leader>lc`)
+- View PDF: `:VimtexView` (`<leader>lv`)
+- Clean: `:VimtexClean` (`<leader>lk`)
+- TOC: `:VimtexTocOpen` (`<leader>li`)
+
+### Document Structure
+
+- Use `\documentclass` appropriate for document type
+- Organize with `\input{}` for modular documents
+- Use `build/` directory for output files
+- Keep `.bib` files organized by project
+
+<!-- END_SECTION: extension_latex -->
+
 <!-- SECTION: extension_memory -->
 ## Memory Extension
 
@@ -411,7 +511,7 @@ Structured proposal development (grants) and research presentation creation (tal
 
 | Language | Task Type | Research Skill | Implementation Skill | Tools |
 |----------|-----------|----------------|---------------------|-------|
-| `grant` | - | `skill-grant` | `skill-grant` | WebSearch, WebFetch, Read, Write, Edit |
+| `present` | `grant` | `skill-grant` | `skill-grant` | WebSearch, WebFetch, Read, Write, Edit |
 | `present` | `budget` | `skill-budget` | `skill-budget` | WebSearch, WebFetch, Read, Write, Edit, Bash |
 | `present` | `timeline` | `skill-timeline` | `skill-timeline` | WebSearch, WebFetch, Read, Write, Edit |
 | `present` | `funds` | `skill-funds` | `skill-funds` | WebSearch, WebFetch, Read, Write, Edit, Bash |
@@ -436,98 +536,3 @@ The talk library at `context/project/present/talk/` contains:
 - **Themes**: Academic-clean and clinical-teal visual themes
 
 <!-- END_SECTION: extension_present -->
-
-<!-- SECTION: extension_typst -->
-## Typst Extension
-
-This project includes Typst document development support via the typst extension.
-
-### Language Routing
-
-| Language | Research Tools | Implementation Tools |
-|----------|----------------|---------------------|
-| `typst` | WebSearch, WebFetch, Read | Read, Write, Edit, Bash (typst compile) |
-
-### Skill-Agent Mapping
-
-| Skill | Agent | Purpose |
-|-------|-------|---------|
-| skill-typst-research | typst-research-agent | Typst documentation research |
-| skill-typst-implementation | typst-implementation-agent | Typst document implementation |
-
-### Typst vs LaTeX
-
-- Typst uses single-pass compilation (faster)
-- Modern scripting syntax with `#` prefix
-- Built-in bibliography management
-- Simpler package import with `#import`
-
-### Common Operations
-
-- Compile: `typst compile main.typ`
-- Watch: `typst watch main.typ`
-- Format: Use consistent indentation for readability
-- Diagrams: Use `fletcher` package for commutative diagrams
-
-<!-- END_SECTION: extension_typst -->
-
-<!-- SECTION: extension_latex -->
-## LaTeX Extension
-
-This project includes LaTeX document development support via the latex extension.
-
-### Language Routing
-
-| Language | Research Tools | Implementation Tools |
-|----------|----------------|---------------------|
-| `latex` | WebSearch, WebFetch, Read | Read, Write, Edit, Bash (pdflatex, latexmk) |
-
-### Skill-Agent Mapping
-
-| Skill | Agent | Purpose |
-|-------|-------|---------|
-| skill-latex-implementation | latex-implementation-agent | LaTeX document implementation |
-
-### VimTeX Integration
-
-- Compile: `:VimtexCompile` (`<leader>lc`)
-- View PDF: `:VimtexView` (`<leader>lv`)
-- Clean: `:VimtexClean` (`<leader>lk`)
-- TOC: `:VimtexTocOpen` (`<leader>li`)
-
-### Document Structure
-
-- Use `\documentclass` appropriate for document type
-- Organize with `\input{}` for modular documents
-- Use `build/` directory for output files
-- Keep `.bib` files organized by project
-
-<!-- END_SECTION: extension_latex -->
-
-<!-- SECTION: extension_filetypes -->
-## Filetypes Extension
-
-File format conversion and manipulation: documents, spreadsheets, presentations, PDF annotations.
-
-### Skill-Agent Mapping
-
-| Skill | Agent | Purpose |
-|-------|-------|---------|
-| skill-filetypes | filetypes-router-agent | Format detection and routing |
-| skill-filetypes | document-agent | Document format conversion (PDF/DOCX/Markdown) |
-| skill-spreadsheet | spreadsheet-agent | Spreadsheet to LaTeX/Typst table conversion |
-| skill-presentation | presentation-agent | Presentation extraction and slide generation |
-| skill-scrape | scrape-agent | PDF annotation extraction |
-| skill-docx-edit | docx-edit-agent | In-place DOCX editing with tracked changes (SuperDoc MCP) |
-
-### Commands
-
-| Command | Usage | Description |
-|---------|-------|-------------|
-| `/convert` | `/convert file.pdf` | Convert between document formats |
-| `/table` | `/table data.xlsx` | Convert spreadsheets to LaTeX/Typst tables |
-| `/slides` | `/slides deck.pptx` | Convert presentations to Beamer/Polylux/Touying |
-| `/scrape` | `/scrape paper.pdf` | Extract PDF annotations to Markdown/JSON |
-| `/edit` | `/edit file.docx "instruction"` | Edit Office documents in-place |
-
-<!-- END_SECTION: extension_filetypes -->

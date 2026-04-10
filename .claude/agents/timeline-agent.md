@@ -83,7 +83,8 @@ Extract from input:
     "task_number": N,
     "task_name": "{project_name}",
     "description": "...",
-    "language": "timeline"
+    "task_type": "present",
+    "task_type": "timeline"
   },
   "workflow_type": "timeline_research",
   "forcing_data": { "...pre-gathered responses if available..." },
@@ -92,6 +93,14 @@ Extract from input:
 ```
 
 If `forcing_data` is provided and contains responses, skip corresponding questions in Stages 2-4.
+
+**Forcing data field mapping** (pre-gathered -> agent question):
+- `forcing_data.mechanism` -> Skip Q1 (Grant Mechanism)
+- `forcing_data.period` -> Skip Q1 follow-up (Project Period)
+- `forcing_data.aims_count` -> Informs Q4 (Specific Aims Overview: know aim count in advance)
+- `forcing_data.milestones` -> Skip Q2 (Completion Criteria)
+- `forcing_data.regulatory` -> Skip Q8 (Regulatory Requirements Checklist)
+- `forcing_data.aims_path` -> Read file as input for Q4 (Specific Aims Overview)
 
 ### Stage 2: Project Definition (Q1-Q3)
 
