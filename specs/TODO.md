@@ -6,26 +6,25 @@ next_project_number: 7
 
 ## Tasks
 
-### 6. Expand docs/agent-system.md into a docs/ directory and extract installation guide
+### 6. Expand agent-system.md into docs/ directory
 
 - **Effort**: medium
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: meta
 - **Research**: [01_team-research.md](006_expand_agent_system_docs/reports/01_team-research.md)
+- **Plan**: [01_expand-docs-directory.md](006_expand_agent_system_docs/plans/01_expand-docs-directory.md)
 
-**Description**: `docs/agent-system.md` currently contains installation information that should be moved to an independent `docs/installation.md` focused on installing Zed via Homebrew on macOS. The file also does not cover `claude-acp`, which is what the user actually runs in Zed and which successfully loads all agent system commands, skills, and context. The existing agent-system.md file is long and densely compressed; it should be expanded into a directory containing multiple clear, educational documents — one file per natural grouping of components in the `.claude/` agent system. Each command should be presented with a brief explanation of what it does, a clear and concise usage example, and then more advanced details (flags, task workflow integration, etc.) afterward. The documentation should be accessible to new users and cover all commands as well as the relationships between commands, skills, agents, context files, and the `.memory/` system.
+**Description**: Expand docs/agent-system.md into a docs/ directory with multiple clear, educational documents (one file per natural grouping) and extract installation content into an independent docs/installation.md focused on macOS Homebrew + claude-acp setup. The new docs must cover claude-acp (currently absent), use progressive disclosure (brief explanation -> example -> advanced details), explain relationships between commands/skills/agents/context/.memory/, and link rather than duplicate .claude/ internal docs.
 
-### 5. Update docs/agent-system.md to accurately represent the .claude/ agent system
+### 4. Integrate config-report.md into docs/ and delete
 
-- **Effort**: medium
-- **Status**: [COMPLETED]
-- **Completed**: 2026-04-10
-- **Task Type**: meta
-- **Research**: [01_agent-system-docs.md](005_update_agent_system_docs/reports/01_agent-system-docs.md)
-- **Plan**: [01_implementation-plan.md](005_update_agent_system_docs/plans/01_implementation-plan.md)
-- **Summary**: Rewrote docs/agent-system.md (185 -> 378 lines) with Main Workflow section, topic-grouped Command Catalog, dedicated Memory System section, and 22 verified cross-references into .claude/ docs.
+- **Effort**: small
+- **Status**: [PLANNED]
+- **Task Type**: general
+- **Research**: [01_integrate-config-report.md](004_integrate_config_report_into_docs/reports/01_integrate-config-report.md)
+- **Plan**: [01_integrate-config-report.md](004_integrate_config_report_into_docs/plans/01_integrate-config-report.md)
 
-**Description**: Update `/home/benjamin/.config/zed/docs/agent-system.md` to accurately represent the `/home/benjamin/.config/zed/.claude/` agent system. Clarify the main workflow commands `/task`, `/research`, `/plan`, `/revise`, and `/implement` that help the user progress through tasks, along with clean-up commands `/todo` and `/review`. Explain all other commands in topic-based groups. Devote a dedicated section to the `.memory/` system. Make any other necessary improvements, including adding appropriate links to relevant content in `/home/benjamin/.config/zed/.claude/docs/` or `/home/benjamin/.config/zed/.claude/README.md` as appropriate.
+**Description**: Extract unique content from config-report.md into docs/: (1) external Zed documentation URLs table (https://zed.dev/docs/*) into docs/README.md as a "Reference" section; (2) runtime data paths (~/.local/share/zed/extensions, logs, db) into docs/settings.md; (3) optionally the Neovim comparison table. Then delete config-report.md. The stale "Current State" snapshot table and already-covered setup steps should NOT be copied.
 
 ### 3. Integrate zed-claude-office-guide.md into docs/ directory
 

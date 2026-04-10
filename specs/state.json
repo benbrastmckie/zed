@@ -4,18 +4,24 @@
     {
       "project_number": 6,
       "project_name": "expand_agent_system_docs",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-10T19:10:31Z",
-      "last_updated": "2026-04-10T19:18:06Z",
-      "session_id": "sess_1775848282_0a1943",
+      "last_updated": "2026-04-10T19:30:00Z",
+      "session_id": "sess_1775848729_22c4ad",
       "researched": "2026-04-10T19:18:06Z",
+      "planned": "2026-04-10T19:30:00Z",
       "next_artifact_number": 2,
       "artifacts": [
         {
           "path": "specs/006_expand_agent_system_docs/reports/01_team-research.md",
           "type": "research",
           "summary": "Team research with 4 teammates (Primary, Alternatives, Critic, Horizons)"
+        },
+        {
+          "path": "specs/006_expand_agent_system_docs/plans/01_expand-docs-directory.md",
+          "type": "plan",
+          "summary": "8-phase plan (~7.5h) to split docs/agent-system.md into docs/agent-system/ subdirectory, extract docs/installation.md with claude-acp setup, and repair 9 inbound links"
         }
       ]
     },
