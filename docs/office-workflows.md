@@ -186,7 +186,7 @@ If your documents sync with OneDrive or SharePoint:
 Close WezTerm completely (Cmd+Q) and reopen it. Homebrew needs a fresh terminal session.
 
 **"superdoc" or "openpyxl" not showing in `claude mcp list`**
-Re-run the `claude mcp add` command with `--scope user`. See [Install MCP Tools](installation.md#install-mcp-tools) for the exact commands.
+Re-run the `claude mcp add` command with `--scope user`. See [Install MCP Tools](general/installation.md#install-mcp-tools) for the exact commands.
 
 **Agent panel not responding**
 In Zed, go to **Settings > Extensions** and confirm "Claude Code" is listed. If not, search for it and install it.
@@ -203,8 +203,8 @@ Click **OK** when macOS asks to grant Zed or WezTerm permission to control Micro
 
 ## Related Documentation
 
-- [Settings reference](settings.md) -- Task runner configuration
-- [Installation](installation.md#install-mcp-tools) -- Install the MCP tools used by these workflows
+- [Settings reference](general/settings.md) -- Task runner configuration
+- [Installation](general/installation.md#install-mcp-tools) -- Install the MCP tools used by these workflows
 - [Agent system](agent-system/README.md) -- Claude Code commands and AI integration overview
-- [Keybindings guide](keybindings.md) -- Terminal and editor shortcuts
+- [Keybindings guide](general/keybindings.md) -- Terminal and editor shortcuts
 - [README](../README.md) -- Navigation hub

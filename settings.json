@@ -116,7 +116,7 @@
     "markdownlint": true,
     "codebook": true,
     "csv": true,
-    "claude-code-extension": true,
+    "claude-code-extension": false,
     "nix": true,
     "toml": true,
     "git-firefly": true,

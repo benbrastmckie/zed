@@ -187,7 +187,7 @@ Deduplicates against existing memories and classifies automatically. See [`.clau
 
 ## Documents
 
-Document and spreadsheet manipulation commands. Require MCP tools; see [../installation.md](../installation.md#install-mcp-tools).
+Document and spreadsheet manipulation commands. Require MCP tools; see [../general/installation.md](../general/installation.md#install-mcp-tools).
 
 ### /convert
 

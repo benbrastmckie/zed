@@ -11,7 +11,7 @@ Zed editor configuration for macOS. Standard keybindings (no vim mode), minimal 
 3. Extensions install automatically on first launch (Markdown, Claude Code, and more)
 4. Theme is One Dark; font is JetBrains Mono
 
-For the full installation walkthrough, including MCP tool setup for Office file editing, see [docs/installation.md](docs/installation.md).
+For the full installation walkthrough, including MCP tool setup for Office file editing, see [docs/general/installation.md](docs/general/installation.md).
 
 **Essential shortcuts to know right away**:
 
@@ -25,7 +25,7 @@ For the full installation walkthrough, including MCP tool setup for Office file 
 | Cmd+Shift+? | Toggle AI agent panel |
 | Cmd+Shift+P | Command palette (search for any command) |
 
-For the full shortcuts guide, see [docs/keybindings.md](docs/keybindings.md).
+For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/keybindings.md).
 
 ## Directory Layout
 
@@ -36,9 +36,7 @@ For the full shortcuts guide, see [docs/keybindings.md](docs/keybindings.md).
 ├── tasks.json              # Task runner (git, export)
 ├── themes/                 # Custom color themes
 ├── docs/                   # Documentation
-│   ├── keybindings.md      # Keyboard shortcuts guide
-│   ├── settings.md         # Configuration reference
-│   ├── installation.md     # Installation: Zed, Claude Code CLI, claude-acp, MCP tools
+│   ├── general/            # Installation, keybindings, settings reference
 │   ├── agent-system/       # AI systems overview, workflows, commands, architecture
 │   └── office-workflows.md # Working with Office files on macOS
 ├── specs/                  # Claude Code task management
@@ -50,9 +48,7 @@ For the full shortcuts guide, see [docs/keybindings.md](docs/keybindings.md).
 
 | Document | Description |
 |----------|-------------|
-| [Keybindings Guide](docs/keybindings.md) | Everyday keyboard shortcuts (Cmd-based), organized by task |
-| [Settings Reference](docs/settings.md) | What each config option does and how to change it |
-| [Installation](docs/installation.md) | Install Zed, the Claude Code CLI, the `claude-acp` bridge, and the MCP tools for Office editing |
+| [General](docs/general/README.md) | Installation, keybindings, and settings reference for this Zed configuration on macOS |
 | [Agent System](docs/agent-system/README.md) | Zed agent + Claude Code overview, workflows, command catalog, memory, and architecture |
 | [Office Workflows](docs/office-workflows.md) | Word, Excel, PowerPoint, and PDF workflows on macOS, including tracked changes, batch edits, OneDrive tips, and troubleshooting |
 | [Agent System Config](.claude/CLAUDE.md) | Full Claude Code system reference (commands, skills, agents) |
@@ -75,7 +71,7 @@ Open `keymap.json` (press Cmd+P and type "keymap"). The file has two sections:
 1. **Custom bindings** at the top -- your additions go here
 2. **Default reference** in comments at the bottom -- check this before adding to avoid conflicts
 
-See [docs/settings.md](docs/settings.md) for the keymap file format and context scoping.
+See [docs/general/settings.md](docs/general/settings.md) for the keymap file format and context scoping.
 
 ## AI Integration
 
@@ -89,7 +85,7 @@ See [docs/settings.md](docs/settings.md) for the keymap file format and context 
 - **macOS keybindings**: All shortcuts use Cmd (shown as in menus). The Option key corresponds to Alt in custom bindings.
 - **Config location**: `~/.config/zed/` -- standard for Zed on macOS.
 - **Extensions**: Auto-installed on launch via `auto_install_extensions` in settings.json.
-- **Office editing**: Requires SuperDoc and openpyxl MCP tools. See [docs/installation.md](docs/installation.md#install-mcp-tools) for setup and [docs/office-workflows.md](docs/office-workflows.md) for workflows.
+- **Office editing**: Requires SuperDoc and openpyxl MCP tools. See [docs/general/installation.md](docs/general/installation.md#install-mcp-tools) for setup and [docs/office-workflows.md](docs/office-workflows.md) for workflows.
 
 ## Related
 

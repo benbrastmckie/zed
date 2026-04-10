@@ -23,13 +23,13 @@ Files in this directory (`docs/agent-system/`):
 
 Companion files outside this directory:
 
-- [../installation.md](../installation.md) — Installing Zed, Claude Code CLI, `claude-acp`, and MCP tools
-- [../settings.md](../settings.md#agent_servers) — `agent_servers` configuration reference
-- [../keybindings.md](../keybindings.md#how-do-i-use-the-ai-agent) — Agent Panel keybindings
+- [../general/installation.md](../general/installation.md) — Installing Zed, Claude Code CLI, `claude-acp`, and MCP tools
+- [../general/settings.md](../general/settings.md#agent_servers) — `agent_servers` configuration reference
+- [../general/keybindings.md](../general/keybindings.md#how-do-i-use-the-ai-agent) — Agent Panel keybindings
 
 ## Quick start: your first task
 
-Assuming [installation](../installation.md) is complete and the Claude Code thread is authenticated:
+Assuming [installation](../general/installation.md) is complete and the Claude Code thread is authenticated:
 
 1. In the Agent Panel (Cmd+Shift+?), open a Claude Code thread.
 2. Create a task:

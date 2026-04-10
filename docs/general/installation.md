@@ -207,7 +207,7 @@ Zed talks to the Claude Code CLI through `@zed-industries/claude-agent-acp`, an 
 
 Paste that into your `settings.json` (Cmd+, in Zed). Restart Zed to pick up the change.
 
-See [docs/settings.md](settings.md#agent_servers) for the full `agent_servers` reference, including environment variables.
+See [settings.md](settings.md#agent_servers) for the full `agent_servers` reference, including environment variables.
 
 ## Authenticate in Zed
 
@@ -292,10 +292,10 @@ Run through this checklist end-to-end. Every entry corresponds to one of the dep
 - [ ] Inside the Claude Code thread, `/login` completes without error
 - [ ] Running `/task "test"` from the Claude Code thread creates a task entry
 
-If any step fails, see [Troubleshooting in the agent panel doc](agent-system/zed-agent-panel.md#troubleshooting).
+If any step fails, see [Troubleshooting in the agent panel doc](../agent-system/zed-agent-panel.md#troubleshooting).
 
 ## See also
 
-- [docs/settings.md](settings.md#agent_servers) — `agent_servers` configuration reference
-- [docs/agent-system/zed-agent-panel.md](agent-system/zed-agent-panel.md) — How the Agent Panel and claude-acp bridge work at runtime
-- [.claude/docs/guides/user-installation.md](../.claude/docs/guides/user-installation.md) — Quick-start reference for the Claude Code framework itself
+- [settings.md](settings.md#agent_servers) — `agent_servers` configuration reference
+- [../agent-system/zed-agent-panel.md](../agent-system/zed-agent-panel.md) — How the Agent Panel and claude-acp bridge work at runtime
+- [../../.claude/docs/guides/user-installation.md](../../.claude/docs/guides/user-installation.md) — Quick-start reference for the Claude Code framework itself

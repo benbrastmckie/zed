@@ -201,4 +201,4 @@ Press **Cmd+,** to open the settings file. Changes take effect when you save.
 
 ## Adding more shortcuts
 
-Open `keymap.json` (search for it with Cmd+P). The file contains custom bindings at the top and a commented reference of Zed defaults at the bottom. To add a new shortcut, add a new entry in the custom bindings section following the existing pattern. On macOS, use `cmd` as the modifier key (e.g., `"cmd-shift-n"` for Cmd+Shift+N). See [docs/settings.md](../settings.md) for details on the keymap format.
+Open `keymap.json` (search for it with Cmd+P). The file contains custom bindings at the top and a commented reference of Zed defaults at the bottom. To add a new shortcut, add a new entry in the custom bindings section following the existing pattern. On macOS, use `cmd` as the modifier key (e.g., `"cmd-shift-n"` for Cmd+Shift+N). See [settings.md](settings.md) for details on the keymap format.

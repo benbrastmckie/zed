@@ -9,7 +9,7 @@ next_project_number: 9
 ### 8. Split office-workflows.md into workflows/ directory
 
 - **Effort**: small
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: markdown
 - **Research**: [01_team-research.md](008_split_workflows_into_directory/reports/01_team-research.md)
 - **Plan**: [01_split-workflows-directory.md](008_split_workflows_into_directory/plans/01_split-workflows-directory.md)

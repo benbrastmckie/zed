@@ -4,11 +4,11 @@
     {
       "project_number": 8,
       "project_name": "split_workflows_into_directory",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "markdown",
       "created": "2026-04-10T20:14:30Z",
-      "last_updated": "2026-04-10T20:29:10Z",
-      "session_id": "sess_1744315800_pln008",
+      "last_updated": "2026-04-10T20:35:04Z",
+      "session_id": "sess_1744316400_imp008",
       "researched": "2026-04-10T20:20:00Z",
       "next_artifact_number": 2,
       "artifacts": [
