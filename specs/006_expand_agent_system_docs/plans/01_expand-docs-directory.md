@@ -129,7 +129,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Write docs/agent-system/README.md and zed-agent-panel.md [NOT STARTED]
+### Phase 3: Write docs/agent-system/README.md and zed-agent-panel.md [COMPLETED]
 
 **Goal**: Produce the orientation entry point and the claude-acp usage + mechanism doc. These are the two files most directly tied to the "claude-acp coverage" requirement.
 
