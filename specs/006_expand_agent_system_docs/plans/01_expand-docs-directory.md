@@ -213,7 +213,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 6: Repair inbound links [NOT STARTED]
+### Phase 6: Repair inbound links [COMPLETED]
 
 **Goal**: Update every inbound reference to `docs/agent-system.md` so links point to the new files. This MUST happen after Phases 2-5 so that no intermediate state has dangling links.
 
