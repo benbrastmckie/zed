@@ -54,17 +54,33 @@ Expected output: a line like `git version 2.xx.x`.
 
 ## Install Homebrew
 
-Open **WezTerm** (or any terminal) and paste:
+macOS package manager used for everything else below.
+
+### Check if already installed
+
+```
+command -v brew >/dev/null 2>&1 && brew --version
+```
+
+If this prints `Homebrew X.Y.Z`, skip to [Install Node.js](#install-nodejs).
+
+### Install
+
+Open **WezTerm** (or the default macOS Terminal) and paste:
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Follow the on-screen instructions (you may need your Mac password). Close and reopen the terminal when it finishes, then verify:
+Follow the on-screen instructions (you may need your Mac password). When the installer finishes, it prints a `eval "$(/opt/homebrew/bin/brew shellenv)"` line; run that in your current shell (or close and reopen the terminal) so `brew` is on your `PATH`.
+
+### Verify
 
 ```
 brew --version
 ```
+
+Expected output: `Homebrew X.Y.Z`.
 
 ## Install Node.js
 
@@ -96,34 +112,85 @@ Expected output: a Node version on one line and an npx version on the next.
 
 ## Install Zed
 
+The editor this repository configures.
+
+### Check if already installed
+
+```
+ls /Applications/Zed.app >/dev/null 2>&1 || command -v zed >/dev/null 2>&1
+```
+
+If either check succeeds, skip to [Install the Claude Code CLI](#install-the-claude-code-cli).
+
+### Install
+
 ```
 brew install --cask zed
 ```
 
-Open Zed from Applications or Spotlight (Cmd+Space, type "Zed") to confirm it launches. To track the preview channel (nightly-ish builds with newer features), install `zed@preview` instead:
+Optional: to track the preview channel (nightly-ish builds with newer features), install `zed@preview` alongside (or instead of) stable:
 
 ```
 brew install --cask zed@preview
 ```
 
-You can have both channels installed simultaneously; they use separate config directories.
+Both channels can be installed simultaneously; they use separate config directories.
+
+### Verify
+
+Open Zed from Applications or Spotlight (Cmd+Space, type "Zed") to confirm it launches. If the optional `zed` CLI helper is installed, you can also run:
+
+```
+zed --version
+```
 
 ## Install the Claude Code CLI
 
+The `claude` binary; powers both terminal usage and the Zed Agent Panel bridge.
+
+### Check if already installed
+
+```
+command -v claude >/dev/null 2>&1 && claude --version
+```
+
+If this prints a version, skip the install command below and go directly to the first-run authentication.
+
+### Install
+
 ```
 brew install --cask claude-code
+```
+
+The `claude-code` cask tracks the stable channel (recommended). If you prefer the latest channel, use `brew install --cask claude-code@latest` instead; the two casks cannot usually be installed simultaneously.
+
+### First-run authentication
+
+Run `claude` in any directory:
+
+```
 claude
 ```
 
-Run `claude` in any directory; it opens a browser to sign into your Anthropic Pro/Max/Team/Enterprise/Console account (free claude.ai accounts are not supported). Verify with:
+It opens a browser to sign into your Anthropic Pro/Max/Team/Enterprise/Console account (free claude.ai accounts are not supported). Authoritative upstream docs: https://code.claude.com/docs/en/setup.
+
+### Verify
 
 ```
 claude --version
 ```
 
-Note: this authenticates the terminal CLI. Authenticating the Claude Code thread inside Zed is a separate step (see [Authenticate in Zed](#authenticate-in-zed) below). Authoritative upstream docs: https://code.claude.com/docs/en/setup.
+Optional deeper health check:
+
+```
+claude doctor
+```
+
+Note: this authenticates the terminal CLI. Authenticating the Claude Code thread inside Zed is a separate step (see [Authenticate in Zed](#authenticate-in-zed) below).
 
 ## Configure claude-acp
+
+**Already configured?** Open `~/.config/zed/settings.json` (or Cmd+, inside Zed) and look for an `agent_servers.claude-acp` block. If it already contains `"type": "registry"`, you can skip straight to [Authenticate in Zed](#authenticate-in-zed).
 
 Zed talks to the Claude Code CLI through `@zed-industries/claude-agent-acp`, an ACP (Agent Client Protocol) bridge. Zed spawns this bridge per the `agent_servers` block in `settings.json`, and the bridge in turn launches the `claude` binary. The recommended default on macOS is the **registry** config, which lets Zed manage the bridge version for you:
 
@@ -142,6 +209,8 @@ See [docs/settings.md](settings.md#agent_servers) for the full `agent_servers` r
 
 ## Authenticate in Zed
 
+**Already authenticated?** Open the Agent Panel (Cmd+Shift+?); if a Claude Code thread is already listed and opens without asking you to log in, you can skip to [Install MCP Tools](#install-mcp-tools).
+
 Once `claude-acp` is configured, the Claude Code thread becomes available in Zed's Agent Panel.
 
 1. Open the Agent Panel with **Cmd+Shift+?**
@@ -152,31 +221,59 @@ Once `claude-acp` is configured, the Claude Code thread becomes available in Zed
 
 ## Install MCP Tools
 
-MCP (Model Context Protocol) tools give Claude the ability to edit Word and Excel files properly, preserving formatting and tracked changes. You never interact with these tools directly — they work behind the scenes when Claude needs them.
+MCP (Model Context Protocol) tools give Claude the ability to edit Word and Excel files properly, preserving formatting and tracked changes. You never interact with these tools directly -- they work behind the scenes when Claude needs them. Both tools below require Node.js to be on your `PATH` (see [Install Node.js](#install-nodejs) above); `npx` is what launches each MCP server.
 
-### SuperDoc — Word document editing
+### SuperDoc -- Word document editing
 
-SuperDoc lets Claude edit .docx files with full formatting and tracked-changes support. Install it by running this in the terminal:
+SuperDoc lets Claude edit `.docx` files with full formatting and tracked-changes support.
+
+#### Check if already installed
+
+```
+claude mcp list 2>/dev/null | grep -q '^superdoc' && echo "superdoc present"
+```
+
+If this prints `superdoc present`, skip to the openpyxl section.
+
+#### Install
 
 ```
 claude mcp add --scope user superdoc -- npx @superdoc-dev/mcp
 ```
 
-### openpyxl — Spreadsheet editing
-
-The openpyxl tool lets Claude read and edit .xlsx files (values, formulas, rows). Install it:
-
-```
-claude mcp add --scope user openpyxl -- npx @jonemo/openpyxl-mcp
-```
-
-### Verify both tools
+#### Verify
 
 ```
 claude mcp list
 ```
 
-You should see `superdoc` and `openpyxl` in the output. If either is missing, re-run the `claude mcp add` command with `--scope user`.
+You should see a `superdoc` entry.
+
+### openpyxl -- Spreadsheet editing
+
+The openpyxl tool lets Claude read and edit `.xlsx` files (values, formulas, rows).
+
+#### Check if already installed
+
+```
+claude mcp list 2>/dev/null | grep -q '^openpyxl' && echo "openpyxl present"
+```
+
+If this prints `openpyxl present`, skip to the [Verify](#verify) checklist below.
+
+#### Install
+
+```
+claude mcp add --scope user openpyxl -- npx @jonemo/openpyxl-mcp
+```
+
+#### Verify
+
+```
+claude mcp list
+```
+
+You should see an `openpyxl` entry alongside `superdoc`. If either is missing, re-run the corresponding `claude mcp add` command with `--scope user`.
 
 ## Verify
 

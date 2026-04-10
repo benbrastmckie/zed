@@ -122,7 +122,7 @@ Phases are strictly sequential because they all edit the same file in layered pa
 
 ---
 
-### Phase 3: Apply detect/install/verify template to existing sections [IN PROGRESS]
+### Phase 3: Apply detect/install/verify template to existing sections [COMPLETED]
 
 **Goal**: Normalize every existing dependency section so it has the same three-step structure as the new ones, letting users skip anything already installed.
 
@@ -147,7 +147,7 @@ Phases are strictly sequential because they all edit the same file in layered pa
 
 ---
 
-### Phase 4: Update Summary quickstart and Verify checklist [NOT STARTED]
+### Phase 4: Update Summary quickstart and Verify checklist [IN PROGRESS]
 
 **Goal**: Bring the top-of-file quickstart and the bottom-of-file verification checklist in line with the new content so users arriving at either end see correct, complete commands.
 
