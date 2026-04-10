@@ -1,6 +1,14 @@
 {
-  "next_project_number": 3,
+  "next_project_number": 4,
   "active_projects": [
+    {
+      "project_number": 3,
+      "project_name": "integrate_guide_into_docs",
+      "status": "not_started",
+      "task_type": "general",
+      "created": "2026-04-10T17:43:24Z",
+      "last_updated": "2026-04-10T17:43:24Z"
+    },
     {
       "project_number": 2,
       "project_name": "add_claude_acp_keybindings_docs",

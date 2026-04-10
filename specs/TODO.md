@@ -1,10 +1,17 @@
 ---
-next_project_number: 3
+next_project_number: 4
 ---
 
 # Task List
 
 ## Tasks
+
+### 3. Integrate zed-claude-office-guide.md into docs/ directory
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: general
+
+**Description**: Integrate zed-claude-office-guide.md into docs/ so that there is no overlap between files. If all information in zed-claude-office-guide.md is already covered by what is in docs/ then the guide file can be deleted. Otherwise, carefully organize all information in docs/ for clarity and completeness.
 
 ### 2. Add Claude ACP keybindings to Zed documentation
 - **Effort**: small
