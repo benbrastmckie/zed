@@ -19,7 +19,7 @@
         {
           "path": "specs/003_integrate_guide_into_docs/plans/01_integrate-guide-docs.md",
           "type": "plan",
-          "summary": "Implementation plan for integrating guide content into docs/"
+          "summary": "Revised implementation plan - assume macOS throughout"
         }
       ]
     },
