@@ -184,7 +184,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: Write docs/agent-system/context-and-memory.md and architecture.md [NOT STARTED]
+### Phase 5: Write docs/agent-system/context-and-memory.md and architecture.md [COMPLETED]
 
 **Goal**: Produce the memory/context explanation and the advanced architecture reference.
 
