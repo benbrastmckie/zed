@@ -4,11 +4,20 @@
     {
       "project_number": 12,
       "project_name": "expand_commands_docs_examples",
-      "status": "researching",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-10T21:55:30Z",
-      "last_updated": "2026-04-10T21:57:13Z",
-      "session_id": "sess_1775858218_5b4b7f"
+      "last_updated": "2026-04-10T22:03:19Z",
+      "session_id": "sess_1775858218_5b4b7f",
+      "researched": "2026-04-10T22:03:19Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/012_expand_commands_docs_examples/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research with 4 teammates"
+        }
+      ]
     },
     {
       "project_number": 11,

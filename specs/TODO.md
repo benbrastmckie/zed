@@ -8,8 +8,9 @@ next_project_number: 13
 
 ### 12. Expand docs/agent-system/commands.md to include brief examples and explanations for each command
 - **Effort**: small
-- **Status**: [RESEARCHING]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_team-research.md](012_expand_commands_docs_examples/reports/01_team-research.md)
 
 **Description**: Expand docs/agent-system/commands.md to include brief examples and explanations for each command.
 
