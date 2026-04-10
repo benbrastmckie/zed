@@ -8,10 +8,11 @@ next_project_number: 14
 
 ### 13. Update docs/ documentation to reflect reloaded .claude/ agent system changes
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
 - **Research**: [01_team-research.md](013_update_docs_for_agent_system_reload/reports/01_team-research.md)
 - **Plan**: [01_update-docs-agent-reload.md](013_update_docs_for_agent_system_reload/plans/01_update-docs-agent-reload.md)
+- **Summary**: Updated 9 documentation files to reflect epidemiology extension v2.0.0 reload: fixed broken routing.md skill names, added /epi command to catalog, created epidemiology workflow guide, corrected stale keybindings and Neovim-specific references.
 
 **Description**: Study the git diff of the reloaded .claude/ agent system and systematically update all relevant documentation throughout /home/benjamin/.config/zed/docs/ to reflect the changes.
 
