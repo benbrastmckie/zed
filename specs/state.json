@@ -1,6 +1,14 @@
 {
-  "next_project_number": 5,
+  "next_project_number": 6,
   "active_projects": [
+    {
+      "project_number": 5,
+      "project_name": "update_agent_system_docs",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-10T18:33:26Z",
+      "last_updated": "2026-04-10T18:33:26Z"
+    },
     {
       "project_number": 3,
       "project_name": "integrate_guide_into_docs",
