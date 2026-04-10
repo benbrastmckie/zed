@@ -1,6 +1,6 @@
 # Command Catalog
 
-All 24 slash commands in this workspace, grouped by topic. The **Lifecycle** group covers the seven commands from [agent-lifecycle.md](../workflows/agent-lifecycle.md); the other groups are specialty commands layered on top. For full command specifications, see [`.claude/docs/guides/user-guide.md`](../../.claude/docs/guides/user-guide.md) and the individual files in `.claude/commands/`.
+All slash commands in this workspace, grouped by topic. The **Lifecycle** group covers the seven commands from [agent-lifecycle.md](../workflows/agent-lifecycle.md); the other groups are specialty commands layered on top. For full command specifications, see [`.claude/docs/guides/user-guide.md`](../../.claude/docs/guides/user-guide.md) and the individual files in `.claude/commands/`.
 
 Each entry is intentionally terse: one-sentence summary, minimal example, flag list, and link into `.claude/`. For examples and edge cases, follow the links.
 
@@ -79,7 +79,7 @@ See [`.claude/commands/review.md`](../../.claude/commands/review.md) · [user gu
 
 ### /todo
 
-Archive completed/abandoned tasks; update CHANGE_LOG and ROAD_MAP.
+Archive completed/abandoned tasks; update CHANGE_LOG and ROADMAP.
 
 ```
 /todo
@@ -216,13 +216,15 @@ See [`.claude/commands/table.md`](../../.claude/commands/table.md).
 
 ### /slides
 
-Convert presentations to Beamer, Polylux, or Touying source.
+Create a research talk task with forcing questions.
 
 ```
-/slides deck.pptx --format beamer
+/slides "Conference talk on survival analysis methods"
+/slides 12
+/slides ~/papers/my-paper.pdf
 ```
 
-**Flags**: `--format beamer|polylux|touying`
+Five talk modes: CONFERENCE, SEMINAR, DEFENSE, POSTER, JOURNAL_CLUB. PPTX-to-slide conversion has moved to `/convert --format beamer|polylux|touying`; see [convert-documents workflow](../workflows/convert-documents.md).
 
 See [`.claude/commands/slides.md`](../../.claude/commands/slides.md).
 
@@ -308,26 +310,6 @@ Survey funding opportunities with eligibility and deadlines.
 **Flags**: `--quick [topic]`
 
 See [`.claude/commands/funds.md`](../../.claude/commands/funds.md).
-
-### /talk
-
-Build a research talk. Five modes:
-
-```
-/talk "job talk on epidemic modeling"
-/talk 12
-/talk ~/papers/my-paper.pdf
-```
-
-| Mode | Duration | Slides | Use case |
-|------|----------|--------|----------|
-| CONFERENCE | 15-20 min | 12-18 | Conference platform presentations |
-| SEMINAR | 45-60 min | 30-45 | Departmental seminars, job talks |
-| DEFENSE | 30-60 min | 25-40 | Grant defense, thesis defense |
-| POSTER | N/A | 1 | Poster session presentations |
-| JOURNAL_CLUB | 15-30 min | 10-15 | Paper review for journal club |
-
-See [`.claude/commands/talk.md`](../../.claude/commands/talk.md).
 
 ## See also
 

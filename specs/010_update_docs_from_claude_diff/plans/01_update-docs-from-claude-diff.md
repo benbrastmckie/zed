@@ -83,7 +83,7 @@ Note: Phases 1-5 each touch a distinct file with no cross-file coupling, so they
 
 ---
 
-### Phase 1: Update docs/agent-system/commands.md [NOT STARTED]
+### Phase 1: Update docs/agent-system/commands.md [COMPLETED]
 
 **Goal**: Eliminate drift items #1, #2, #3, #10 from the main command catalog file. This is the highest-volume phase: it removes the `### /talk` section entirely, rewrites the `### /slides` section to cover its new research-talk role, and fixes two rename tokens.
 
