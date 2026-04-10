@@ -1,0 +1,23 @@
+{
+  "status": "planned",
+  "summary": "Plan created: 8 phases, ~7.5 hours",
+  "artifacts": [
+    {
+      "type": "plan",
+      "path": "specs/006_expand_agent_system_docs/plans/01_expand-docs-directory.md",
+      "summary": "Phased plan to split agent-system.md into docs/agent-system/ subdirectory, extract docs/installation.md, and repair broken links"
+    }
+  ],
+  "reports_integrated": [
+    "specs/006_expand_agent_system_docs/reports/01_team-research.md"
+  ],
+  "metadata": {
+    "session_id": "sess_1775848729_22c4ad",
+    "agent_type": "planner-agent",
+    "delegation_path": ["orchestrator", "plan", "planner-agent"],
+    "phase_count": 8,
+    "estimated_hours": 7.5,
+    "dependency_waves": 6
+  },
+  "next_steps": "Run /implement 6 to execute the plan"
+}

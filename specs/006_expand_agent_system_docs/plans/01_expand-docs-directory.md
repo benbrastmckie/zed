@@ -1,7 +1,7 @@
 # Implementation Plan: Expand agent-system.md into docs/ directory
 
 - **Task**: 6 - Expand agent-system.md into docs/ directory
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 7.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/006_expand_agent_system_docs/reports/01_team-research.md
@@ -79,7 +79,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: Scaffold directory and stage source [NOT STARTED]
+### Phase 1: Scaffold directory and stage source [COMPLETED]
 
 **Goal**: Create the new directory structure and capture the current `docs/agent-system.md` content as a working reference so subsequent extract phases can copy from a stable source.
 

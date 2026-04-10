@@ -9,7 +9,7 @@ next_project_number: 7
 ### 6. Expand agent-system.md into docs/ directory
 
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: meta
 - **Research**: [01_team-research.md](006_expand_agent_system_docs/reports/01_team-research.md)
 - **Plan**: [01_expand-docs-directory.md](006_expand_agent_system_docs/plans/01_expand-docs-directory.md)

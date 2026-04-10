@@ -7,12 +7,12 @@
   "base_keymap": "VSCode",
   "buffer_font_size": 14,
   "ui_font_size": 15,
-  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_family": "Fira Code",
 
   "tab_size": 2,
   "soft_wrap": "preferred_line_length",
   "preferred_line_length": 100,
-  "show_whitespaces": "boundary",
+  "show_whitespaces": "none",
   "relative_line_numbers": "disabled",
   "cursor_blink": true,
   "scrollbar": {
@@ -82,9 +82,6 @@
       "soft_wrap": "preferred_line_length",
       "preferred_line_length": 80,
       "tab_size": 2,
-      "inline_diagnostics": {
-        "enabled": false
-      },
       "format_on_save": "on",
       "formatter": {
         "external": {
@@ -122,7 +119,8 @@
     "claude-code-extension": true,
     "nix": true,
     "toml": true,
-    "git-firefly": true
+    "git-firefly": true,
+    "r": true
   },
 
   // Git integration
