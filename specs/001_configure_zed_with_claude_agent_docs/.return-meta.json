@@ -1,0 +1,19 @@
+{
+  "status": "planned",
+  "artifacts": [
+    {
+      "type": "plan",
+      "path": "specs/001_configure_zed_with_claude_agent_docs/plans/02_implementation-plan.md",
+      "summary": "5-phase implementation plan for configure_zed_with_claude_agent_docs"
+    }
+  ],
+  "next_steps": "Run /implement 1 to execute the plan",
+  "metadata": {
+    "session_id": "sess_1775805092_0d8c50",
+    "agent_type": "planner-agent",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "plan", "planner-agent"],
+    "phase_count": 5,
+    "estimated_hours": 3.5
+  }
+}

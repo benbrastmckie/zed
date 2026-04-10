@@ -4,13 +4,20 @@
     {
       "project_number": 1,
       "project_name": "configure_zed_with_claude_agent_docs",
-      "status": "researched",
+      "status": "planned",
       "language": "general",
       "created": "2026-04-09T00:00:00Z",
-      "last_updated": "2026-04-10T07:08:45Z",
-      "session_id": "sess_1775804420_763b7b",
+      "last_updated": "2026-04-10T07:14:36Z",
+      "session_id": "sess_1775805092_0d8c50",
       "researched": "2026-04-10T07:08:45Z",
-      "next_artifact_number": 3
+      "next_artifact_number": 3,
+      "artifacts": [
+        {
+          "path": "specs/001_configure_zed_with_claude_agent_docs/plans/02_implementation-plan.md",
+          "type": "plan",
+          "summary": "5-phase implementation plan for configure_zed_with_claude_agent_docs"
+        }
+      ]
     }
   ],
   "repository_health": {
