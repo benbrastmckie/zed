@@ -8,8 +8,9 @@ next_project_number: 15
 
 ### 14. Standardize docs/ README files and improve root README for Zed + Claude Code epi/medical research config
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_team-research.md](014_standardize_docs_and_root_readme/reports/01_team-research.md)
 
 **Description**: Standardize and cross-link all docs/ README.md files for consistency, then improve the root README.md to clearly present the repo as a Zed + Claude Code configuration for epidemiology and medical research with accurate links to docs/, .memory/README.md, and .claude/README.md.
 
