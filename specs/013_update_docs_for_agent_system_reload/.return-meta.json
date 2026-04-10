@@ -1,20 +1,10 @@
 {
-  "status": "planned",
-  "artifacts": [
-    {
-      "type": "plan",
-      "path": "specs/013_update_docs_for_agent_system_reload/plans/01_update-docs-agent-reload.md",
-      "summary": "3-phase implementation plan for updating docs/ to reflect epidemiology extension v2.0.0 reload"
-    }
-  ],
-  "next_steps": "Run /implement 13 to execute the plan",
-  "metadata": {
-    "session_id": "sess_1775863503_7b3365",
-    "agent_type": "planner-agent",
-    "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "plan", "planner-agent"],
-    "phase_count": 3,
-    "estimated_hours": 2,
-    "dependency_waves": [[1], [2, 3]]
-  }
+  "status": "in_progress",
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+  "session_id": "sess_1775863769_a34e25",
+  "task_number": 13,
+  "task_name": "update_docs_for_agent_system_reload",
+  "phases_completed": 0,
+  "phases_total": 3
 }

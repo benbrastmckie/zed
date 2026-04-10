@@ -1,6 +1,6 @@
 # Command Catalog
 
-Quick-reference catalog of all 24 slash commands. For a workflow tutorial, see [agent-lifecycle.md](../workflows/agent-lifecycle.md). For full command reference with examples and edge cases, see [user-guide.md](../../.claude/docs/guides/user-guide.md). For how commands, skills, and agents connect, see [architecture.md](architecture.md).
+Quick-reference catalog of all 25 slash commands. For a workflow tutorial, see [agent-lifecycle.md](../workflows/agent-lifecycle.md). For full command reference with examples and edge cases, see [user-guide.md](../../.claude/docs/guides/user-guide.md). For how commands, skills, and agents connect, see [architecture.md](architecture.md).
 
 Each entry follows a standard template: 2-sentence explanation, up to 2 examples, flags, and source link.
 
@@ -312,6 +312,21 @@ Create a research talk task with three input modes: a description string, an exi
 Five talk modes: CONFERENCE, SEMINAR, DEFENSE, POSTER, JOURNAL_CLUB. PPTX-to-slide conversion has moved to `/convert --format beamer|polylux|touying`.
 
 See [`.claude/commands/slides.md`](../../.claude/commands/slides.md).
+
+## Epidemiology
+
+### /epi
+
+Create epidemiology study tasks with structured forcing questions that scope study design, data sources, and R analysis preferences before task creation. Accepts a description string, an existing task number, or a file path as study protocol input.
+
+```
+/epi "Cohort study of vaccine effectiveness in elderly populations"
+/epi 12
+```
+
+Three input modes: description string (runs 10 forcing questions, creates task at `[NOT STARTED]`), task number (delegates to research), or file path (reads as study protocol, then scopes). Task types: `epi`, `epi:study`, `epidemiology`.
+
+See [`.claude/commands/epi.md`](../../.claude/commands/epi.md) · [epidemiology workflow](../workflows/epidemiology-analysis.md).
 
 ## See also
 

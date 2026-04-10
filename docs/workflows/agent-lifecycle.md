@@ -1,6 +1,6 @@
 # Agent Task Lifecycle
 
-Seven commands drive the Claude Code task lifecycle: five lifecycle drivers and two clean-up commands. Learn these first; the remaining 17 commands in [commands.md](../agent-system/commands.md) layer on top.
+Seven commands drive the Claude Code task lifecycle: five lifecycle drivers and two clean-up commands. Learn these first; the remaining 18 commands in [commands.md](../agent-system/commands.md) layer on top.
 
 ## Summary
 
