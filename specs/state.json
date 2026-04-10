@@ -4,11 +4,11 @@
     {
       "project_number": 12,
       "project_name": "expand_commands_docs_examples",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-10T21:55:30Z",
-      "last_updated": "2026-04-10T22:03:19Z",
-      "session_id": "sess_1775858218_5b4b7f",
+      "last_updated": "2026-04-10T22:10:00Z",
+      "session_id": "sess_1775858649_c0aa8c",
       "researched": "2026-04-10T22:03:19Z",
       "next_artifact_number": 2,
       "artifacts": [
@@ -16,8 +16,28 @@
           "path": "specs/012_expand_commands_docs_examples/reports/01_team-research.md",
           "type": "research",
           "summary": "Team research with 4 teammates"
+        },
+        {
+          "path": "specs/012_expand_commands_docs_examples/plans/01_expand-commands-docs.md",
+          "type": "plan",
+          "summary": "4-phase plan to expand and reorganize commands.md with standardized entry template"
         }
-      ]
+      ],
+      "plan_metadata": {
+        "phases": 4,
+        "total_effort_hours": 1.5,
+        "complexity": "simple",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [[1], [2], [3], [4]],
+        "reports_integrated": [
+          {
+            "path": "reports/01_team-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-10"
+          }
+        ]
+      }
     },
     {
       "project_number": 11,
