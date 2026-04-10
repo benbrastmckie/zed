@@ -156,7 +156,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Write docs/agent-system/workflow.md and commands.md [NOT STARTED]
+### Phase 4: Write docs/agent-system/workflow.md and commands.md [COMPLETED]
 
 **Goal**: Extract and restructure the Main Workflow narrative and Command Catalog reference (Task 5 content) into two audience-distinct files.
 
