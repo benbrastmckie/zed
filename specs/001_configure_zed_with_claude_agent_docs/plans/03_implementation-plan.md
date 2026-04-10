@@ -34,7 +34,6 @@ Round 3 research confirmed: (1) markdown preview EXISTS in Zed (Ctrl+K V), corre
 **Non-Goals**:
 - Vim mode, vim keybindings, or space-leader patterns
 - Coding-focused documentation (LSP, debugging, refactoring)
-- Priority 2 extensions (Context7, MarkItDown, Brave Search)
 - Scheme B or Scheme C bindings (start minimal, add later)
 
 ## Risks & Mitigations
@@ -45,6 +44,8 @@ Round 3 research confirmed: (1) markdown preview EXISTS in Zed (Ctrl+K V), corre
 | Ctrl+H conflicts with find-replace in Editor context | L | L | Context scoping resolves: Workspace=pane nav, Editor=find-replace |
 | JSONC comments not supported in Zed config | M | L | Use separate comment blocks or // if supported; fall back to docs-only reference |
 | Keybindings guide too technical for collaborator | M | M | Review language for jargon; use task-oriented headings ("How to open a file") |
+| MCP servers (SuperDoc, openpyxl) not activating | M | L | Document as "requires npx"; test after settings.json creation; note in docs |
+| One Dark theme not built-in in this Zed version | L | L | Verify at launch; fall back to "One Dark Pro" extension if needed |
 
 ## Implementation Phases
 
@@ -64,7 +65,8 @@ Phases within the same wave can execute in parallel.
 **Goal**: Create settings.json, keymap.json (with default reference comments), and tasks.json.
 
 **Tasks**:
-- [ ] Create `settings.json` with: theme (One Dark), font settings, agent block (not assistant), languages block, context_servers (SuperDoc, openpyxl), auto_install_extensions, vim_mode: false
+- [ ] Create `settings.json` with: theme (One Dark), font settings, agent block (not assistant), languages block, context_servers (SuperDoc, openpyxl), auto_install_extensions (including Claude Code-relevant extensions), no vim_mode
+- [ ] Include in auto_install_extensions: markdown-oxide, markdownlint, codebook, csv, context7-mcp (live library docs for Claude Code), markitdown-mcp (Office-to-Markdown for Claude Code)
 - [ ] Create `keymap.json` with Scheme A bindings (6 custom) in proper context blocks
 - [ ] Add comment sections in keymap.json showing important Zed default keybindings organized by category (File Ops, Navigation, Panels, Search, Agent/AI, Editing, Git, Markdown)
 - [ ] Create `tasks.json` with LibreOffice open, Export Agent System, Git Status tasks
@@ -82,6 +84,8 @@ Phases within the same wave can execute in parallel.
 **Verification**:
 - All three files parse as valid JSON/JSONC
 - settings.json contains no vim_mode: true, no vim block, no relative_line_numbers
+- auto_install_extensions includes context7-mcp and markitdown-mcp alongside markdown/editing extensions
+- Verify One Dark theme loads (check Zed appearance after launch)
 - keymap.json has exactly 2 context blocks (Workspace with 4 bindings, Editor with 2 bindings)
 - keymap.json contains reference comments for defaults
 
