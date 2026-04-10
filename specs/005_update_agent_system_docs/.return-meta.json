@@ -1,20 +1,18 @@
 {
   "task_id": 5,
-  "session_id": "sess_1775846087_planner",
-  "agent_type": "planner-agent",
-  "delegation_path": ["orchestrator", "plan", "planner-agent"],
-  "status": "planned",
+  "session_id": "sess_1775846088_impl",
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+  "status": "implemented",
   "artifacts": [
+    "docs/agent-system.md",
+    "specs/005_update_agent_system_docs/summaries/01_agent-system-docs-summary.md",
     "specs/005_update_agent_system_docs/plans/01_implementation-plan.md"
   ],
-  "phase_count": 6,
-  "estimated_hours": 4,
-  "dependency_waves": [
-    {"wave": 1, "phases": [1]},
-    {"wave": 2, "phases": [2, 3, 4]},
-    {"wave": 3, "phases": [5]},
-    {"wave": 4, "phases": [6]}
-  ],
-  "summary": "Six-phase plan for rewriting docs/agent-system.md: preparation and target verification, then three parallel drafting phases (main workflow, topic-grouped catalog, memory system), then assembly with cross-links, then verification pass.",
-  "next_steps": "Run /implement 5 to execute the plan"
+  "phases_completed": 6,
+  "phases_total": 6,
+  "completion_data": {
+    "completion_summary": "Rewrote docs/agent-system.md (185 to 378 lines) into a topic-organized orientation document with Main Workflow, Command Catalog by Topic, dedicated Memory System section distinguishing project vault from auto-memory, and 22 verified cross-references. All 24 commands present, /tag reference removed, preserved sections intact.",
+    "claudemd_suggestions": "none"
+  }
 }

@@ -13,7 +13,7 @@
   "soft_wrap": "preferred_line_length",
   "preferred_line_length": 100,
   "show_whitespaces": "boundary",
-  "relative_line_numbers": "disabled",
+  "relative_line_numbers": false,
   "cursor_blink": true,
   "scrollbar": {
     "show": "auto"
@@ -82,9 +82,7 @@
       "soft_wrap": "preferred_line_length",
       "preferred_line_length": 80,
       "tab_size": 2,
-      "inline_diagnostics": {
-        "enabled": false
-      },
+      "show_inline_diagnostics": false,
       "format_on_save": "on",
       "formatter": {
         "external": {

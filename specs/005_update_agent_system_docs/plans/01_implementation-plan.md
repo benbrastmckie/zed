@@ -1,7 +1,7 @@
 # Implementation Plan: Task #5
 
 - **Task**: 5 - Update docs/agent-system.md to accurately represent the .claude/ agent system
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 4 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/005_update_agent_system_docs/reports/01_agent-system-docs.md
@@ -74,7 +74,7 @@ No ROAD_MAP.md consulted for this task.
 
 Phases 2, 3, and 4 edit disjoint sections of the new doc and can run in parallel once Phase 1 has produced the outline and preservation list. Phase 5 integrates and cross-links; Phase 6 verifies.
 
-### Phase 1: Preparation, Outline, and Target Verification [NOT STARTED]
+### Phase 1: Preparation, Outline, and Target Verification [COMPLETED]
 
 **Goal**: Produce a concrete section outline for the new `docs/agent-system.md`, verify every cross-reference target exists, and extract the verbatim blocks to preserve from the current file.
 
@@ -118,7 +118,7 @@ Phases 2, 3, and 4 edit disjoint sections of the new doc and can run in parallel
 
 ---
 
-### Phase 2: Main Workflow Section [NOT STARTED]
+### Phase 2: Main Workflow Section [COMPLETED]
 
 **Goal**: Draft the "Claude Code: Main Workflow" section covering `/task`, `/research`, `/plan`, `/revise`, `/implement`, `/review`, `/todo` with the task lifecycle state machine.
 
@@ -158,7 +158,7 @@ Phases 2, 3, and 4 edit disjoint sections of the new doc and can run in parallel
 
 ---
 
-### Phase 3: Topic-Grouped Command Reference [NOT STARTED]
+### Phase 3: Topic-Grouped Command Reference [COMPLETED]
 
 **Goal**: Draft the "Command Catalog by Topic" section covering all 17 non-main-workflow commands organized into five topic groups.
 
@@ -187,7 +187,7 @@ Phases 2, 3, and 4 edit disjoint sections of the new doc and can run in parallel
 
 ---
 
-### Phase 4: Memory System Section [NOT STARTED]
+### Phase 4: Memory System Section [COMPLETED]
 
 **Goal**: Draft a dedicated "Memory System" section with two sub-sections distinguishing the project memory vault from Claude Code auto-memory.
 
@@ -226,7 +226,7 @@ Phases 2, 3, and 4 edit disjoint sections of the new doc and can run in parallel
 
 ---
 
-### Phase 5: Assemble, Cross-Link, and Polish [NOT STARTED]
+### Phase 5: Assemble, Cross-Link, and Polish [COMPLETED]
 
 **Goal**: Merge the Phase 2/3/4 drafts into the new `docs/agent-system.md` in the order established by Phase 1, insert all 22 cross-references, reinsert the preserved sections verbatim, and add the remaining structural elements.
 
@@ -263,7 +263,7 @@ Phases 2, 3, and 4 edit disjoint sections of the new doc and can run in parallel
 
 ---
 
-### Phase 6: Verification Pass [NOT STARTED]
+### Phase 6: Verification Pass [COMPLETED]
 
 **Goal**: Systematically verify the rewritten doc matches the research report inventory and has no regressions.
 
