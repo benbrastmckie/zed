@@ -43,7 +43,7 @@
         "provider": "anthropic",
         "model": "claude-opus-4-20250514"
       }
-    ]
+    ],
   },
 
   // File and project settings
@@ -114,6 +114,16 @@
 
   // Formatter
   "format_on_save": "off",
+
+  // Claude Code agent server (ACP)
+  "agent_servers": {
+    "claude-acp": {
+      "type": "custom",
+      "command": "/home/benjamin/.nix-profile/bin/npx",
+      "args": ["@zed-industries/claude-agent-acp", "--serve"],
+      "env": {}
+    }
+  },
 
   // Collaboration
   "collaboration_panel": {

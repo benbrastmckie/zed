@@ -18,7 +18,7 @@ A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked
 | Ctrl+W | Close the current tab |
 | Ctrl+Tab | Switch to the next tab |
 | Ctrl+` | Open or close the terminal |
-| Ctrl+? | Open or close the AI agent panel |
+| Ctrl+? * | Toggle the right sidebar (agent panel) |
 | Ctrl+B | Show or hide the left sidebar |
 | Alt+J * | Move the current line down |
 | Alt+K * | Move the current line up |
@@ -42,8 +42,6 @@ If you have split panes (two files side by side), use these custom shortcuts to 
 
 - **Ctrl+H** * -- Focus the pane to the left
 - **Ctrl+L** * -- Focus the pane to the right
-- **Ctrl+K** * -- Focus the pane above (may conflict with some Zed chord shortcuts)
-- **Ctrl+J** * -- Focus the pane below
 
 To create a split: **Ctrl+\\** splits the current view to the right. **Ctrl+Shift+\\** splits it downward.
 
@@ -72,7 +70,7 @@ These are handy for reordering items in a list or moving a paragraph.
 
 **In the current file**: Press **Ctrl+F**. Type your search term and press Enter to jump through matches. Press Escape to close the search bar.
 
-**Find and replace** (current file): Press **Ctrl+H**. Type the search term, then the replacement, and use the buttons to replace one at a time or all at once.
+**Find and replace** (current file): Use the command palette (**Ctrl+Shift+P**) and search for "find and replace". The default Ctrl+H is remapped to pane navigation.
 
 **Across all files in the project**: Press **Ctrl+Shift+F**. This opens a project-wide search panel. Type your term and results appear from every file.
 
@@ -84,7 +82,7 @@ Zed has a built-in AI agent panel, plus integration with Claude Code.
 
 ### Agent panel (built-in)
 
-- **Ctrl+?** opens (or closes) the agent panel on the right side
+- **Ctrl+?** toggles the right sidebar (where the agent panel lives)
 - **Ctrl+N** starts a new conversation (when the agent panel is focused)
 - **Ctrl+Enter** sends your message
 - Type a question or instruction and the agent can read and edit your files

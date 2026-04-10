@@ -2,19 +2,19 @@
   // =====================================================
   // CUSTOM BINDINGS (Scheme A -- Minimal)
   // =====================================================
-  // 6 custom bindings: 4 pane navigation + 2 line movers
+  // 5 unique bindings: 2 pane nav + 1 sidebar toggle + 2 line movers
   //
-  // Note: Ctrl+K is also Zed's chord prefix. If Ctrl+K
-  // as pane-up causes issues, remap to Ctrl+Alt+Up.
+  // Overrides: Ctrl+H replaces find-and-replace (use Ctrl+Shift+H
+  // for project-wide replace, or Ctrl+Shift+P to find it).
+  // Ctrl+? replaces agent-panel focus toggle with right dock toggle.
 
   // Pane navigation (move focus between split panes)
   {
     "context": "Workspace",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-l": "workspace::ActivatePaneRight"
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-?": "workspace::ToggleRightDock"
     }
   },
 
@@ -23,7 +23,9 @@
     "context": "Editor",
     "bindings": {
       "alt-j": "editor::MoveLineDown",
-      "alt-k": "editor::MoveLineUp"
+      "alt-k": "editor::MoveLineUp",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight"
     }
   }
 
@@ -59,12 +61,12 @@
   //
   // --- Search ---
   // Ctrl+F           Find in file
-  // Ctrl+H           Find and replace in file
+  // Ctrl+H           Find and replace in file (overridden -> pane left)
   // Ctrl+Shift+F     Search across all files
   // Ctrl+Shift+H     Replace across all files
   //
   // --- Agent / AI ---
-  // Ctrl+?           Toggle agent panel
+  // Ctrl+?           Toggle agent panel (overridden -> toggle right dock)
   // Ctrl+N           New conversation (in agent panel)
   // Ctrl+Enter       Send message (in agent panel)
   // Ctrl+;           Toggle inline assist
