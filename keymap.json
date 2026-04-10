@@ -1,0 +1,104 @@
+[
+  // =====================================================
+  // CUSTOM BINDINGS (Scheme A -- Minimal)
+  // =====================================================
+  // 6 custom bindings: 4 pane navigation + 2 line movers
+  //
+  // Note: Ctrl+K is also Zed's chord prefix. If Ctrl+K
+  // as pane-up causes issues, remap to Ctrl+Alt+Up.
+
+  // Pane navigation (move focus between split panes)
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+
+  // Line movers (move current line up/down)
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp"
+    }
+  }
+
+  // =====================================================
+  // ZED DEFAULT REFERENCE
+  // =====================================================
+  // These are built-in Zed shortcuts -- no config needed.
+  // Listed here for quick reference.
+  //
+  // --- File Operations ---
+  // Ctrl+P           Open file by name (file finder)
+  // Ctrl+S           Save file
+  // Ctrl+Shift+S     Save all files
+  // Ctrl+N           New file
+  // Ctrl+W           Close active tab
+  // Ctrl+Shift+T     Reopen closed tab
+  //
+  // --- Navigation ---
+  // Ctrl+Tab         Next tab
+  // Ctrl+Shift+Tab   Previous tab
+  // Ctrl+G           Go to line number
+  // Ctrl+Shift+O     Go to symbol in file
+  // F12              Go to definition
+  // Alt+Left         Go back (previous location)
+  // Alt+Right        Go forward (next location)
+  //
+  // --- Panels & Sidebars ---
+  // Ctrl+B           Toggle left sidebar
+  // Ctrl+Shift+E     File explorer (project panel)
+  // Ctrl+Shift+G     Git panel
+  // Ctrl+`           Toggle terminal
+  // Ctrl+Shift+M     Problems panel
+  //
+  // --- Search ---
+  // Ctrl+F           Find in file
+  // Ctrl+H           Find and replace in file
+  // Ctrl+Shift+F     Search across all files
+  // Ctrl+Shift+H     Replace across all files
+  //
+  // --- Agent / AI ---
+  // Ctrl+?           Toggle agent panel
+  // Ctrl+N           New conversation (in agent panel)
+  // Ctrl+Enter       Send message (in agent panel)
+  // Ctrl+;           Toggle inline assist
+  //
+  // --- Editing ---
+  // Ctrl+Z           Undo
+  // Ctrl+Y           Redo
+  // Ctrl+C           Copy
+  // Ctrl+X           Cut
+  // Ctrl+V           Paste
+  // Ctrl+D           Select next occurrence
+  // Ctrl+Shift+K     Delete line
+  // Ctrl+/           Toggle comment
+  // Ctrl+]           Indent line
+  // Ctrl+[           Outdent line
+  // Ctrl+Shift+Up    Add cursor above
+  // Ctrl+Shift+Down  Add cursor below
+  //
+  // --- Code Actions ---
+  // Ctrl+.           Quick fix / code actions
+  // F2               Rename symbol
+  // Ctrl+Space       Trigger autocomplete
+  // Ctrl+Shift+I     Format document
+  //
+  // --- Git ---
+  // Alt+G B          Toggle git blame
+  //
+  // --- Markdown ---
+  // Ctrl+K V         Markdown preview (side-by-side)
+  // Ctrl+Shift+V     Markdown preview (full tab)
+  //
+  // --- Window Management ---
+  // Ctrl+\           Split pane right
+  // Ctrl+Shift+\     Split pane down
+  // Ctrl+Shift+P     Command palette
+  // Ctrl+,           Open settings
+]

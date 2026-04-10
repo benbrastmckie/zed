@@ -1,0 +1,23 @@
+[
+  {
+    "label": "Open in LibreOffice",
+    "command": "libreoffice",
+    "args": ["$ZED_FILE"],
+    "tags": ["office"],
+    "use_new_terminal": false
+  },
+  {
+    "label": "Export Agent System",
+    "command": "bash",
+    "args": [".claude/scripts/export-to-markdown.sh"],
+    "tags": ["claude"],
+    "use_new_terminal": true
+  },
+  {
+    "label": "Git Status",
+    "command": "git",
+    "args": ["status", "--short"],
+    "tags": ["git"],
+    "use_new_terminal": true
+  }
+]

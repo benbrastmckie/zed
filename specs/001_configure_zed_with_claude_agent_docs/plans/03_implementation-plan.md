@@ -1,7 +1,7 @@
 # Implementation Plan: Configure Zed with Claude Agent Documentation (v3)
 
 - **Task**: 1 - configure_zed_with_claude_agent_docs
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 3 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/001_configure_zed_with_claude_agent_docs/reports/03_team-research.md
@@ -58,7 +58,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: Configuration Files [NOT STARTED]
+### Phase 1: Configuration Files [COMPLETED]
 
 **Goal**: Create settings.json, keymap.json (with default reference comments), and tasks.json.
 
@@ -89,7 +89,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Project Overview Rewrite [NOT STARTED]
+### Phase 2: Project Overview Rewrite [COMPLETED]
 
 **Goal**: Replace the Neovim-focused project-overview.md with an accurate Zed description.
 
@@ -114,7 +114,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Keybindings Guide for Collaborator [NOT STARTED]
+### Phase 3: Keybindings Guide for Collaborator [COMPLETED]
 
 **Goal**: Create a task-oriented keybindings guide targeting a non-coder who uses Zed for file navigation and heavy Claude Code usage.
 
@@ -148,7 +148,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Settings and Agent Documentation [NOT STARTED]
+### Phase 4: Settings and Agent Documentation [COMPLETED]
 
 **Goal**: Create docs/settings.md (configuration reference), docs/agent-system.md (bridge to .claude/), and docs/office-workflows.md (Linux Office workflows).
 
@@ -177,7 +177,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: README Hub and Final Cross-Linking [NOT STARTED]
+### Phase 5: README Hub and Final Cross-Linking [COMPLETED]
 
 **Goal**: Create README.md as the navigation hub and verify all cross-links between documents.
 

@@ -1,0 +1,128 @@
+{
+  // Zed Editor Settings
+  // Platform: NixOS Linux (binary: zeditor)
+  // No vim mode -- standard keybindings for all users
+
+  "theme": "One Dark",
+  "base_keymap": "VSCode",
+  "buffer_font_size": 14,
+  "ui_font_size": 15,
+  "buffer_font_family": "JetBrains Mono",
+
+  "tab_size": 2,
+  "soft_wrap": "preferred_line_length",
+  "preferred_line_length": 100,
+  "show_whitespaces": "boundary",
+  "relative_line_numbers": false,
+  "cursor_blink": true,
+  "scrollbar": {
+    "show": "auto"
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+
+  // Telemetry
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+
+  // Agent (AI) configuration
+  "agent": {
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-20250514"
+    },
+    "inline_alternatives": [
+      {
+        "provider": "anthropic",
+        "model": "claude-opus-4-20250514"
+      }
+    ]
+  },
+
+  // File and project settings
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/node_modules",
+    "**/target",
+    "**/.cache",
+    "**/result"
+  ],
+
+  // Terminal
+  "terminal": {
+    "shell": {
+      "program": "bash"
+    },
+    "font_size": 13,
+    "copy_on_select": true
+  },
+
+  // Language-specific settings
+  "languages": {
+    "Markdown": {
+      "soft_wrap": "preferred_line_length",
+      "preferred_line_length": 80,
+      "tab_size": 2
+    },
+    "JSON": {
+      "tab_size": 2
+    },
+    "JSONC": {
+      "tab_size": 2
+    },
+    "TOML": {
+      "tab_size": 2
+    },
+    "Nix": {
+      "tab_size": 2
+    },
+    "Python": {
+      "tab_size": 4
+    },
+    "R": {
+      "tab_size": 2
+    }
+  },
+
+  // Auto-install extensions
+  "auto_install_extensions": {
+    "markdown-oxide": true,
+    "markdownlint": true,
+    "codebook": true,
+    "csv": true,
+    "claude-code-extension": true,
+    "nix": true,
+    "toml": true,
+    "git-firefly": true
+  },
+
+  // Git integration
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+      "delay_ms": 500
+    }
+  },
+
+  // Formatter
+  "format_on_save": "off",
+
+  // Collaboration
+  "collaboration_panel": {
+    "button": false
+  },
+  "chat_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  }
+}
