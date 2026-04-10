@@ -4,11 +4,21 @@
     {
       "project_number": 7,
       "project_name": "revise_installation_md_macos",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "markdown",
       "description": "Revise docs/installation.md to target macOS users only (remove NixOS references). Include installation steps for Homebrew, Node, Claude Code, and any other dependencies, assuming only WezTerm (or default macOS Terminal) is installed. Order sections so dependencies come first, and each section should check whether the dependency is already installed so users can skip to the next step.",
       "created": "2026-04-10T20:07:47Z",
-      "last_updated": "2026-04-10T20:07:47Z"
+      "last_updated": "2026-04-10T20:15:00Z",
+      "session_id": "sess_1775851753_218c6d",
+      "researched": "2026-04-10T20:15:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/007_revise_installation_md_macos/reports/01_installation-macos-research.md",
+          "type": "research",
+          "summary": "Audit of NixOS references to remove, 8 dependencies with detection/install/verify commands, recommended section order, and per-section template for macOS-only installation guide"
+        }
+      ]
     },
     {
       "project_number": 6,

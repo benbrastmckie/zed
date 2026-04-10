@@ -9,8 +9,9 @@ next_project_number: 8
 ### 7. Revise installation.md for macOS (drop NixOS)
 
 - **Effort**: small
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: markdown
+- **Research**: [01_installation-macos-research.md](007_revise_installation_md_macos/reports/01_installation-macos-research.md)
 
 **Description**: Revise docs/installation.md to target macOS users only (remove NixOS references; building from a NixOS machine is incidental). Include installation steps for Homebrew, Node, Claude Code, and any other dependencies, assuming only WezTerm (or the default macOS Terminal as backup) is present. Order sections so dependencies come earlier, and each section should check whether the dependency is already installed so users can skip to the next step.
 

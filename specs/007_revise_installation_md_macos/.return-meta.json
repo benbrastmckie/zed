@@ -1,0 +1,17 @@
+{
+  "status": "researched",
+  "session_id": "sess_1775851753_218c6d",
+  "agent_type": "general-research-agent",
+  "delegation_path": ["orchestrator", "research", "general-research-agent"],
+  "task_number": 7,
+  "findings_count": 9,
+  "artifacts": [
+    {
+      "path": "specs/007_revise_installation_md_macos/reports/01_installation-macos-research.md",
+      "type": "research",
+      "summary": "Audit of docs/installation.md NixOS references to remove, eight dependencies (Xcode CLT, Homebrew, Node.js, Zed, Claude Code, claude-acp bridge, SuperDoc, openpyxl) with detection/install/verify commands, recommended section order, and a uniform per-section template."
+    }
+  ],
+  "summary": "Research complete. Identified NixOS references in docs/installation.md lines 3, 137-154, and broken inbound link in docs/agent-system/zed-agent-panel.md:58. Catalogued 8 dependencies with detection commands and authoritative sources. Flagged that current brew formula for Claude Code is outdated (should be 'brew install --cask claude-code') and that Node.js must be added as an explicit dependency because MCP tools use npx.",
+  "next_steps": "Run /plan 7 to create implementation plan"
+}
