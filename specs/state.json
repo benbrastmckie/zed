@@ -4,13 +4,20 @@
     {
       "project_number": 13,
       "project_name": "update_docs_for_agent_system_reload",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-10T22:49:12Z",
-      "last_updated": "2026-04-10T22:55:46Z",
-      "session_id": "sess_1775861393_616308",
+      "last_updated": "2026-04-10T23:28:19Z",
+      "session_id": "sess_1775863503_7b3365",
       "researched": "2026-04-10T22:55:46Z",
-      "next_artifact_number": 2
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/013_update_docs_for_agent_system_reload/plans/01_update-docs-agent-reload.md",
+          "type": "plan",
+          "summary": "3-phase implementation plan for updating docs/ to reflect epidemiology extension v2.0.0 reload"
+        }
+      ]
     },
     {
       "project_number": 12,
