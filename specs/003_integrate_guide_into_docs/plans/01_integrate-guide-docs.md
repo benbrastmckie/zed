@@ -1,7 +1,7 @@
 # Implementation Plan: Integrate Guide into Docs
 
 - **Task**: 3 - Integrate zed-claude-office-guide.md into docs/
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 2.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/003_integrate_guide_into_docs/reports/01_integrate-guide-docs.md
@@ -72,7 +72,7 @@ No ROAD_MAP.md found.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Convert docs/keybindings.md to macOS [NOT STARTED]
+### Phase 1: Convert docs/keybindings.md to macOS [COMPLETED]
 
 **Goal**: Replace all Ctrl-based shortcuts with Cmd-based equivalents and update application references for macOS.
 
