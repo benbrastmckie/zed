@@ -147,7 +147,7 @@ Phases are strictly sequential because they all edit the same file in layered pa
 
 ---
 
-### Phase 4: Update Summary quickstart and Verify checklist [IN PROGRESS]
+### Phase 4: Update Summary quickstart and Verify checklist [COMPLETED]
 
 **Goal**: Bring the top-of-file quickstart and the bottom-of-file verification checklist in line with the new content so users arriving at either end see correct, complete commands.
 
@@ -170,7 +170,7 @@ Phases are strictly sequential because they all edit the same file in layered pa
 
 ---
 
-### Phase 5: Fix broken inbound link in zed-agent-panel.md [NOT STARTED]
+### Phase 5: Fix broken inbound link in zed-agent-panel.md [IN PROGRESS]
 
 **Goal**: Repair the one dangling inbound link the research report flagged, so no file in the repo references the deleted `#platform-notes` anchor.
 

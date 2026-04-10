@@ -4,16 +4,18 @@ This guide walks through installing Zed, the Claude Code CLI, the `claude-acp` b
 
 ## Summary
 
-Minimum working setup in four commands:
+Minimum working setup, in order. Each line has a detection step in its full section below; skip any command whose tool is already installed.
 
 ```
+xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install node
 brew install --cask zed
 brew install --cask claude-code
 claude
 ```
 
-Then open Zed, confirm the Claude Code thread is available in the Agent Panel (Cmd+Shift+?), and run `/login` once inside the thread. Detailed steps follow.
+Then open Zed, paste the `agent_servers` block from [Configure claude-acp](#configure-claude-acp) into `settings.json`, confirm the Claude Code thread is available in the Agent Panel (Cmd+Shift+?), and run `/login` once inside the thread. Finally install the two MCP tools. Detailed steps follow.
 
 ## Prerequisites
 
@@ -277,11 +279,14 @@ You should see an `openpyxl` entry alongside `superdoc`. If either is missing, r
 
 ## Verify
 
-Run through this checklist end-to-end:
+Run through this checklist end-to-end. Every entry corresponds to one of the dependency sections above; a green check here means the full stack is working.
 
-- [ ] `brew --version` prints a version
-- [ ] `zed --version` (or launch from Applications) works
+- [ ] `git --version` prints a version (Xcode CLT)
+- [ ] `brew --version` prints a version (Homebrew)
+- [ ] `node --version && npx --version` both print versions (Node.js)
+- [ ] `zed --version` prints a version, or Zed launches from Applications
 - [ ] `claude --version` prints a version
+- [ ] `claude doctor` reports a healthy install (optional but recommended)
 - [ ] `claude mcp list` shows both `superdoc` and `openpyxl`
 - [ ] Zed's Agent Panel (Cmd+Shift+?) offers a Claude Code thread
 - [ ] Inside the Claude Code thread, `/login` completes without error
