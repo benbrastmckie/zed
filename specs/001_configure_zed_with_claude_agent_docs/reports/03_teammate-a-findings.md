@@ -30,7 +30,7 @@
 |----------|--------|-------|
 | `ctrl-s` | Save file | |
 | `ctrl-shift-s` | Save As | |
-| `ctrl-k s` | Save without formatting | |
+| `ctrl-k s` | Save without formatting | REMOVE |
 | `ctrl-alt-s` | Save all files | |
 | `ctrl-n` | New file | |
 | `ctrl-shift-n` | New window | |
@@ -46,8 +46,8 @@
 | Shortcut | Action | Notes |
 |----------|--------|-------|
 | `ctrl-p` | Open file finder (fuzzy) | |
-| `ctrl-e` | Open file finder (fuzzy) | Alias |
-| `ctrl-t` | Go to project symbol | |
+| `ctrl-e` | Open file finder (fuzzy) | REMOVE |
+| `ctrl-t` | Go to project symbol | EXPLAIN |
 | `ctrl-shift-o` | Toggle file outline | |
 | `ctrl-g` | Go to line | |
 | `ctrl-shift-p` | Command palette | |
@@ -60,7 +60,7 @@
 | `ctrl-shift-tab` | Tab switcher (select last) | |
 | `ctrl-tab` | Tab switcher | |
 | `ctrl-m` | Move to enclosing bracket | |
-| `ctrl-\|` | Move to enclosing bracket | Alias |
+| `ctrl-\|` | Move to enclosing bracket | REMOVE |
 
 ### Editor — Text Editing
 
@@ -68,7 +68,7 @@
 |----------|--------|-------|
 | `ctrl-z` | Undo | |
 | `ctrl-y` | Redo | |
-| `ctrl-shift-z` | Redo | Alias |
+| `ctrl-shift-z` | Redo | REMOVE |
 | `ctrl-x` | Cut | |
 | `shift-delete` | Cut | |
 | `ctrl-c` | Copy | |
@@ -85,11 +85,11 @@
 | `ctrl-shift-k` | Delete line | |
 | `ctrl-shift-j` | Join lines | |
 | `ctrl-/` | Toggle line comment | |
-| `ctrl-k ctrl-c` | Toggle line comment | Alias |
+| `ctrl-k ctrl-c` | Toggle line comment | REMOVE |
 | `ctrl-k ctrl-/` | Toggle block comment | |
-| `shift-alt-a` | Toggle block comment | Alias |
-| `ctrl-[` | Outdent | |
-| `ctrl-]` | Indent | |
+| `shift-alt-a` | Toggle block comment | REMOVE |
+| `ctrl-[` | Outdent | CHANGE to `ctrl-<` |
+| `ctrl-]` | Indent | CHANGE to `ctrl->` |
 | `alt-up` | Move line up | |
 | `alt-down` | Move line down | |
 | `ctrl-alt-shift-up` | Duplicate line up | |

@@ -4,18 +4,18 @@
     {
       "project_number": 1,
       "project_name": "configure_zed_with_claude_agent_docs",
-      "status": "researched",
+      "status": "planned",
       "language": "general",
       "created": "2026-04-09T00:00:00Z",
-      "last_updated": "2026-04-10T15:54:34Z",
-      "session_id": "sess_1775805529_abc123",
+      "last_updated": "2026-04-10T16:20:40Z",
+      "session_id": "sess_1775837864_4d8515",
       "researched": "2026-04-10T15:54:34Z",
       "next_artifact_number": 4,
       "artifacts": [
         {
-          "path": "specs/001_configure_zed_with_claude_agent_docs/plans/02_implementation-plan.md",
+          "path": "specs/001_configure_zed_with_claude_agent_docs/plans/03_implementation-plan.md",
           "type": "plan",
-          "summary": "5-phase implementation plan for configure_zed_with_claude_agent_docs"
+          "summary": "5-phase plan: Scheme A keybindings, no vim, collaborator guide"
         }
       ]
     }
