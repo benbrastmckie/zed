@@ -2,7 +2,7 @@
 
 Develop research proposals, budgets, timelines, funding analyses, and research talks. These commands use a **forcing-questions pattern**: they ask clarifying questions before creating the task, so the resulting work is well-scoped from the start.
 
-> **Requires the `present` extension.** Load it via `<leader>ac` before using these commands.
+> **Requires the `present` extension.** Ensure the extension is loaded before using these commands.
 
 ## Decision guide
 

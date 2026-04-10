@@ -1,6 +1,6 @@
 # Convert Documents
 
-Extract, convert, and reformat documents between PDF, DOCX, Markdown, spreadsheets, presentations, and PDF annotations. All of these commands run from Zed's terminal (Cmd+`) or Agent Panel (Cmd+Shift+?).
+Extract, convert, and reformat documents between PDF, DOCX, Markdown, spreadsheets, presentations, and PDF annotations. All of these commands run from Zed's terminal (Cmd+`) or Agent Panel (Cmd+?).
 
 ## Decision guide
 

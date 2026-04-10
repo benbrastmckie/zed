@@ -2,7 +2,7 @@
 
 Save knowledge across sessions and draw on prior learnings during research. The memory vault (`.memory/`) gives Claude persistent recall of facts, decisions, and discoveries that would otherwise be lost between conversations.
 
-> **Requires the `memory` extension.** Load it via `<leader>ac` before using these commands.
+> **Requires the `memory` extension.** Ensure the extension is loaded before using these commands.
 
 ## Decision guide
 

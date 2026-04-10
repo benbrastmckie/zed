@@ -6,7 +6,7 @@ This project hosts two AI systems: Zed's built-in Agent Panel for quick, in-edit
 
 | System | How to open | Strengths | When to use |
 |--------|-------------|-----------|-------------|
-| Zed Agent Panel | Cmd+Shift+? | Fast, inline edits, knows open files | Quick questions, single-file tweaks, inline assist |
+| Zed Agent Panel | Cmd+? | Fast, inline edits, knows open files | Quick questions, single-file tweaks, inline assist |
 | Claude Code | Terminal (`claude`) or Zed Agent Panel Claude Code thread | Full task lifecycle, structured artifacts, multi-file refactors, grant & research workflows | Multi-step work, anything worth tracking in `specs/TODO.md` |
 
 Both run on Claude models. They do **not** share conversation history. Use the panel for a 30-second question; use Claude Code when you want research, a plan, and a commit trail.
@@ -39,7 +39,7 @@ This workspace adapts the upstream `.claude/` configuration (designed for the ne
 
 Assuming [installation](../general/installation.md) is complete and the Claude Code thread is authenticated:
 
-1. In the Agent Panel (Cmd+Shift+?), open a Claude Code thread.
+1. In the Agent Panel (Cmd+?), open a Claude Code thread.
 2. Create a task:
    ```
    /task "Add a dark-mode toggle to the settings page"
