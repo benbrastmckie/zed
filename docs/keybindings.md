@@ -20,7 +20,7 @@ A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked
 | Cmd+W | Close the current tab |
 | Cmd+Tab | Switch to the next tab |
 | Cmd+` | Open or close the terminal |
-| Cmd+Shift+? * | Toggle the right sidebar (agent panel) |
+| Cmd+? * | Toggle the right sidebar (agent panel) |
 | Cmd+B | Show or hide the left sidebar |
 | Cmd+Shift+C * | Copy full path of the active file to clipboard |
 | Alt+J * | Move the current line down |

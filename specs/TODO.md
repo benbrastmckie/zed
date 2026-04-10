@@ -9,7 +9,7 @@ next_project_number: 6
 ### 5. Update docs/agent-system.md to accurately represent the .claude/ agent system
 
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
 
 **Description**: Update `/home/benjamin/.config/zed/docs/agent-system.md` to accurately represent the `/home/benjamin/.config/zed/.claude/` agent system. Clarify the main workflow commands `/task`, `/research`, `/plan`, `/revise`, and `/implement` that help the user progress through tasks, along with clean-up commands `/todo` and `/review`. Explain all other commands in topic-based groups. Devote a dedicated section to the `.memory/` system. Make any other necessary improvements, including adding appropriate links to relevant content in `/home/benjamin/.config/zed/.claude/docs/` or `/home/benjamin/.config/zed/.claude/README.md` as appropriate.
