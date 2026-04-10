@@ -4,10 +4,19 @@
     {
       "project_number": 3,
       "project_name": "integrate_guide_into_docs",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "general",
       "created": "2026-04-10T17:43:24Z",
-      "last_updated": "2026-04-10T17:43:24Z"
+      "last_updated": "2026-04-10T17:49:17Z",
+      "session_id": "sess_1775843184_e19d44",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/003_integrate_guide_into_docs/reports/01_integrate-guide-docs.md",
+          "type": "research",
+          "summary": "Detailed content comparison between zed-claude-office-guide.md and docs/, with integration recommendations"
+        }
+      ]
     },
     {
       "project_number": 2,
