@@ -8,6 +8,18 @@ Domain extensions for epidemiology research, grant development, memory capture, 
 
 ## Quick Start
 
+On a fresh Mac, the fastest path is the installation wizard:
+
+```
+git clone <repo-url> ~/.config/zed
+cd ~/.config/zed
+bash scripts/install/install.sh
+```
+
+The wizard walks through six groups (base tools, shell utilities, Python, R, typesetting, MCP servers) with accept/skip/cancel prompts. Non-interactive shortcuts: `bash scripts/install/install.sh --dry-run` (preview), `--check` (health report), `--preset epi-demo`, `--preset writing`, `--preset everything`, or `--only base,python --yes`. See [docs/general/installation.md](docs/general/installation.md#installation-wizard-recommended) for the full walkthrough and [docs/toolchain/README.md](docs/toolchain/README.md) for per-group detail.
+
+**Prefer to install by hand?**
+
 1. Install [Homebrew](https://brew.sh), then `brew install --cask zed`
 2. Open Zed from Applications or Spotlight (Cmd+Space, type "Zed")
 3. Extensions install automatically on first launch (including `python`, `ruff`, `r`)

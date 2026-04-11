@@ -273,7 +273,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 6: Repo-root README Quick Start [NOT STARTED]
+### Phase 6: Repo-root README Quick Start [COMPLETED]
 
 **Goal**: Add a 3-line Quick Start block to the repo-root `README.md` so the wizard is discoverable from the GitHub landing page.
 
