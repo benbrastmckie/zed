@@ -60,9 +60,9 @@
           "summary": "Round-2 14-slide CONFERENCE talk-map updated after task 28: byte-identical reproduction across R stack upgrade, coxph HR 0.426, pooled mice OR 3.262, Quarto render — strengthens slides 10/11/12"
         },
         {
-          "type": "plan",
           "path": "specs/029_talk_epi_study_walkthrough/plans/02_talk-assembly.md",
-          "summary": "14-slide CONFERENCE talk assembly plan (Slidev academic-clean, round 2 after task 28 rerun)"
+          "type": "plan",
+          "summary": "Slidev-based 7-phase plan with academic-clean theme; all build artifacts under examples/epi-slides/, specs/029 retains only plan and summary"
         }
       ],
       "design_decisions": {
