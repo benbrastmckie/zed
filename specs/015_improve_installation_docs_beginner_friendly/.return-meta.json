@@ -1,14 +1,15 @@
 {
-  "status": "researched",
-  "agent_type": "general-research-agent",
-  "delegation_path": ["orchestrator", "research", "general-research-agent"],
-  "session_id": "sess_1775866215_edec61",
-  "task_number": 15,
-  "started_at": "2026-04-11T00:15:00Z",
-  "completed_at": "2026-04-11T00:20:00Z",
-  "findings_count": 8,
-  "artifacts": [
-    "specs/015_improve_installation_docs_beginner_friendly/reports/01_beginner-friendly-install.md"
-  ],
-  "next_steps": "Run /plan 15 to create implementation plan"
+  "status": "in_progress",
+  "started_at": "2026-04-11T00:25:00Z",
+  "artifacts": [],
+  "partial_progress": {
+    "stage": "initializing",
+    "details": "Agent started, parsing delegation context"
+  },
+  "metadata": {
+    "session_id": "sess_1775866476_a58637",
+    "agent_type": "planner-agent",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "plan", "skill-planner"]
+  }
 }

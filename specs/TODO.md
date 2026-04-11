@@ -1,10 +1,17 @@
 ---
-next_project_number: 18
+next_project_number: 19
 ---
 
 # Task List
 
 ## Tasks
+
+### 18. Update docs/ documentation to reflect newly loaded Python extension
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Update all documentation in docs/ to reflect the Python extension loaded into .claude/. The extension adds python-research-agent, python-implementation-agent, skill-python-research, skill-python-implementation, and Python domain context files. Update docs/agent-system/ (architecture, commands, routing) and docs/workflows/ as appropriate to document Python as a supported language with its own research and implementation agents.
 
 ### 17. Fix broken link at line 22 in docs/agent-system/commands.md and scan for similar broken links
 - **Effort**: small
@@ -15,7 +22,7 @@ next_project_number: 18
 
 ### 15. Improve installation docs for beginner-friendly terminal walkthrough
 - **Effort**: small
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNING]
 - **Task Type**: markdown
 - **Research**: [01_beginner-friendly-install.md](015_improve_installation_docs_beginner_friendly/reports/01_beginner-friendly-install.md)
 

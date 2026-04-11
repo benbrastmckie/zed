@@ -1,6 +1,14 @@
 {
-  "next_project_number": 18,
+  "next_project_number": 19,
   "active_projects": [
+    {
+      "project_number": 18,
+      "project_name": "update_docs_for_python_extension",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-11T00:15:51Z",
+      "last_updated": "2026-04-11T00:15:51Z"
+    },
     {
       "project_number": 17,
       "project_name": "fix_broken_links_in_commands_md",
@@ -12,11 +20,11 @@
     {
       "project_number": 15,
       "project_name": "improve_installation_docs_beginner_friendly",
-      "status": "researched",
+      "status": "planning",
       "task_type": "markdown",
       "created": "2026-04-11T00:08:41Z",
-      "last_updated": "2026-04-11T00:20:00Z",
-      "session_id": "sess_1775866215_edec61",
+      "last_updated": "2026-04-11T00:14:52Z",
+      "session_id": "sess_1775866476_a58637",
       "researched": "2026-04-11T00:20:00Z",
       "next_artifact_number": 2,
       "artifacts": [
