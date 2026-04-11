@@ -1,10 +1,17 @@
 ---
-next_project_number: 19
+next_project_number: 20
 ---
 
 # Task List
 
 ## Tasks
+
+### 19. Create Python and R setup guides for macOS
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: markdown
+
+**Description**: Building on docs/general/installation.md, create python.md and R.md files in docs/general/ with complete instructions for setting up Python and R development environments on macOS, including linters, formatters, and LSP. Link these guides at the end of installation.md and briefly mention them at the beginning to walk new users through language-specific setup.
 
 ### 18. Update docs/ documentation to reflect newly loaded Python extension
 - **Effort**: small
