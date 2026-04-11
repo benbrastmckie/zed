@@ -29,6 +29,15 @@ For the full installation walkthrough, including MCP tool setup for Office file 
 
 For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/keybindings.md).
 
+## Example Outputs
+
+To see concretely what this configuration produces, two runnable end-to-end examples are included:
+
+| Example | Description |
+|---------|-------------|
+| [examples/epi-study/](examples/epi-study/README.md) | Synthetic RCT analysis produced by running the `/epi` command end to end -- R scripts, reports, and logs |
+| [examples/epi-slides/](examples/epi-slides/README.md) | 14-slide Slidev conference deck walking through the `epi-study` example as a `/epi` workflow showcase |
+
 ## Languages
 
 This configuration is built around first-class R and Python development inside Zed, with Claude Code as your writing, testing, and refactoring partner.

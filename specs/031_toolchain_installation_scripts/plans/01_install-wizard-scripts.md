@@ -166,7 +166,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Per-group toolchain scripts [NOT STARTED]
+### Phase 3: Per-group toolchain scripts [COMPLETED]
 
 **Goal**: Implement the five remaining per-group installers in parallel, each mapping 1:1 with a `docs/toolchain/*.md` file (excluding `README.md` and `extensions.md`).
 
