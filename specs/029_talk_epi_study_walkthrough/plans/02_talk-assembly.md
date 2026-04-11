@@ -195,7 +195,7 @@ Vue components plus author one new `CodeDiff` component for slide 10.
 
 ---
 
-### Phase 3: Asset Import [NOT STARTED]
+### Phase 3: Asset Import [COMPLETED]
 
 **Goal**: Copy static figure and table assets from
 `examples/epi-study/reports/` into `examples/epi-slides/public/assets/` and

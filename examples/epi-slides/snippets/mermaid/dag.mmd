@@ -1,0 +1,14 @@
+flowchart LR
+    arm["arm<br/>(KAT vs TAU)"] --> out["abstinent_12wk"]
+    sev["severity<br/>stratum"] --> out
+    sev --> arm
+    age["age"] --> out
+    sex["sex"] --> out
+    asi["baseline_asi"] --> out
+    asi --> arm
+    classDef exposure fill:#dbeafe,stroke:#1e40af,stroke-width:2px,color:#1e3a8a;
+    classDef outcome fill:#d1fae5,stroke:#059669,stroke-width:2px,color:#065f46;
+    classDef confounder fill:#fef3c7,stroke:#d97706,stroke-width:1px,color:#92400e;
+    class arm exposure;
+    class out outcome;
+    class sev,age,sex,asi confounder;

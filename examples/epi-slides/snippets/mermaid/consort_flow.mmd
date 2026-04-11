@@ -1,0 +1,12 @@
+flowchart TD
+    scr["Screened<br/>N = 240"] --> elig["Eligible<br/>N = 200"]
+    scr -.-> excl1["Excluded (n = 40)<br/>- did not meet criteria<br/>- declined participation"]
+    elig --> rand["Randomized<br/>N = 200"]
+    rand --> armK["KAT arm<br/>N = 100"]
+    rand --> armT["TAU arm<br/>N = 100"]
+    armK --> anK["Analyzed<br/>complete case: 85"]
+    armT --> anT["Analyzed<br/>complete case: 85"]
+    classDef box fill:#ebf0f9,stroke:#3b5998,stroke-width:2px,color:#16213e;
+    classDef excl fill:#fef3c7,stroke:#d97706,stroke-width:1px,color:#92400e;
+    class scr,elig,rand,armK,armT,anK,anT box;
+    class excl1 excl;

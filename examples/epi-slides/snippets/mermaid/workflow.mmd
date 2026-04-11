@@ -1,0 +1,7 @@
+flowchart LR
+    A["/epi<br/>Stage 0<br/>forcing questions"] --> B["/research<br/>synthesize<br/>report"]
+    B --> C["/plan<br/>phased<br/>plan"]
+    C --> D["/implement<br/>Py + R<br/>scripts"]
+    D -.->|"task 28<br/>self-referential"| A
+    classDef cmd fill:#ebf0f9,stroke:#3b5998,stroke-width:2px,color:#16213e;
+    class A,B,C,D cmd;
