@@ -1,0 +1,22 @@
+Seed: 20260410
+N: 200
+
+Arm balance by stratum:
+arm               KAT  TAU
+severity_stratum          
+High               30   29
+Low                21   22
+Mid                49   49
+
+Baseline summary:
+          age  years_use  baseline_asi
+count  200.00     200.00        200.00
+mean    35.39       6.03          0.51
+std      7.68       4.79          0.22
+min     18.00       0.50          0.06
+25%     30.00       2.70          0.35
+50%     35.00       4.70          0.48
+75%     41.00       8.02          0.69
+max     58.00      24.30          0.96
+
+Wrote /home/benjamin/.config/zed/examples/epi-study/data/raw/participants.csv (200 rows, 11 columns)

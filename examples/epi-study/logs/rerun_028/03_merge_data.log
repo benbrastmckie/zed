@@ -1,0 +1,18 @@
+Baseline:  (200, 11)
+Outcomes:  (200, 7)
+Merged:    (200, 17)
+
+Arm x completed_study:
+completed_study   0   1
+arm                    
+KAT              15  85
+TAU              15  85
+
+Abstinence (observed only):
+     count   mean
+arm              
+KAT     85  0.424
+TAU     85  0.224
+
+Wrote /home/benjamin/.config/zed/examples/epi-study/data/derived/analytic.csv
+Shape: (200, 21), columns: ['participant_id', 'age', 'sex', 'race_ethnicity', 'years_use', 'prior_treatment', 'baseline_asi', 'severity_stratum', 'arm', 'planned_sessions', 'enrollment_date', 'abstinent_12wk', 'asi_12wk', 'days_to_use', 'event', 'sessions_attended', 'completed_study', 'arm_label', 'compliance', 'per_protocol', 'age_group']
