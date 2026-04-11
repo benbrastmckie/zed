@@ -100,7 +100,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Synthetic Baseline Data Generation (Python) [NOT STARTED]
+### Phase 2: Synthetic Baseline Data Generation (Python) [COMPLETED]
 
 **Goal**: Generate 200 participants with baseline covariates and stratified 1:1 randomization using Python.
 
