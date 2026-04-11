@@ -116,7 +116,7 @@ TODO.md and state.json must stay synchronized; both are updated atomically. See 
 
 ## Extensions
 
-The `.claude/CLAUDE.md` file describes an extension loader — a pattern for merging language-specific task types, skills, and rules into the core framework on demand. **That loader does not apply in this Zed workspace.** All commands are always available; there is no `<leader>ac` or equivalent extension-loading keybinding (that is a neovim-specific pattern).
+The `.claude/CLAUDE.md` file describes an extension loader -- a pattern for merging language-specific task types, skills, and rules into the core framework. All extensions are pre-merged into the active configuration in this workspace. All commands are always available without any manual loading step.
 
 Every extension entry in `.claude/CLAUDE.md` (epidemiology, filetypes, latex, memory, present, typst) is pre-merged into the active configuration in this workspace. You do not need to load anything; just run the command.
 
@@ -131,6 +131,49 @@ Every task has a `task_type` field in `state.json` that tells the lifecycle comm
 | `markdown` | `skill-researcher` | `skill-implementer` |
 
 Specialty task types (for grants, talks, LaTeX, Typst, epidemiology, etc.) route to their respective specialized skills. See [`.claude/CLAUDE.md`](../../.claude/CLAUDE.md) for the full routing table.
+
+## Skills as keywords vs commands as workflows
+
+Commands (`/research`, `/plan`, `/implement`) guarantee a specific execution workflow — checkpoint gates, state transitions, git commits, and artifact validation all happen in a fixed sequence. When you need that structure, use commands.
+
+Skills, however, are also activated by **keywords in natural language prompts**. When Claude encounters terms like "research", "plan", "implement", "review", "convert", or "budget" in your message, it matches them against available skill definitions and follows the corresponding instructions. This means you can invoke skill behavior without using a slash command — just describe what you need using the right vocabulary.
+
+The practical consequence: you can **compose multi-step workflows in a single prompt** by describing each step with skill keywords. Claude will execute them in sequence, following each skill's instructions as it encounters the relevant phase of your description.
+
+### Example: composing skills in a single prompt
+
+Instead of running three separate commands:
+
+```
+/research 14
+/plan 14
+/implement 14
+```
+
+You can write a single prompt that chains the work:
+
+```
+For task 14 (standardize docs and root readme):
+
+1. Research the current state of documentation files across the repo —
+   check which docs have stale references, missing sections, or
+   inconsistent formatting. Write a research report.
+
+2. Based on the research findings, create an implementation plan
+   that groups the fixes into logical phases.
+
+3. Implement the plan, starting from phase 1.
+```
+
+Claude will pick up the skill keywords ("research … write a research report", "create an implementation plan", "implement the plan") and follow the corresponding skill instructions for each step. The artifacts, state updates, and commits still happen — but you control the narrative rather than issuing discrete commands.
+
+This is especially useful when:
+
+- You want to add **guidance or focus** to each phase (e.g., "research specifically the cross-references between docs" or "in the plan, keep each phase under 5 files")
+- You want to **skip or combine phases** (e.g., "research and plan together, then implement")
+- You want to **chain unrelated skills** (e.g., "convert the spreadsheet to a LaTeX table, then research grant formatting requirements, then draft the budget section")
+
+The trade-off: commands enforce the full checkpoint lifecycle with validation gates; keyword-driven skill composition relies on Claude following the instructions correctly without the structural guarantees. For critical or complex tasks, commands are safer. For exploratory or multi-faceted work, composing with keywords is more flexible.
 
 ## See also
 
