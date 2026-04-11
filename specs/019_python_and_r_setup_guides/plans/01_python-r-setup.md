@@ -67,7 +67,7 @@ No ROADMAP.md found.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Create python.md [NOT STARTED]
+### Phase 1: Create python.md [COMPLETED]
 
 **Goal**: Write the complete Python setup guide following installation.md patterns.
 
@@ -96,7 +96,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Create R.md [NOT STARTED]
+### Phase 2: Create R.md [COMPLETED]
 
 **Goal**: Write the complete R setup guide following installation.md patterns.
 
