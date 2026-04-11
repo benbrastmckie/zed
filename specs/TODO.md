@@ -8,14 +8,14 @@ next_project_number: 21
 
 ### 20. Test epi RCT study: ketamine-assisted therapy for methamphetamine use disorder
 - **Effort**: TBD
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHING]
 - **Task Type**: epi:study
 
 **Description**: Simple test RCT study on fake generated data to verify R and Python are configured correctly in Zed and identify configuration shortcomings. Research question: Does ketamine-assisted therapy improve recovery from methamphetamine use disorder?
 
 ### 19. Create Python and R setup guides for macOS
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: markdown
 - **Research**: [01_python-r-setup.md](019_python_and_r_setup_guides/reports/01_python-r-setup.md)
 - **Plan**: [01_python-r-setup.md](019_python_and_r_setup_guides/plans/01_python-r-setup.md)

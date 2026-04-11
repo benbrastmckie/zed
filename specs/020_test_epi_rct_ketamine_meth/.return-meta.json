@@ -1,0 +1,21 @@
+{
+  "status": "researched",
+  "session_id": "sess_1775868473_21022e",
+  "task_number": 20,
+  "artifacts": [
+    {
+      "path": "specs/020_test_epi_rct_ketamine_meth/reports/01_epi-research.md",
+      "type": "report",
+      "summary": "Study design report for test RCT: ketamine-assisted therapy for methamphetamine use disorder with synthetic data generation plan and Zed configuration assessment"
+    }
+  ],
+  "next_steps": "Run /plan 20 to create implementation plan",
+  "metadata": {
+    "session_id": "sess_1775868473_21022e",
+    "agent_type": "epi-research-agent",
+    "workflow_type": "epi_research",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "research", "skill-epi-research", "epi-research-agent"],
+    "findings_count": 7
+  }
+}

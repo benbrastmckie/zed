@@ -1,0 +1,9 @@
+{
+  "session_id": "sess_1775868473_21022e",
+  "skill": "skill-epi-research",
+  "task_number": 20,
+  "operation": "epi_research",
+  "reason": "Postflight pending: status update, artifact linking, git commit",
+  "created": "2026-04-11T00:47:53Z",
+  "stop_hook_active": false
+}
