@@ -1,11 +1,21 @@
 {
-  "status": "in_progress",
+  "status": "implemented",
   "session_id": "sess_1775874528_669a21",
   "agent_type": "general-implementation-agent",
   "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
-  "artifacts": [],
+  "artifacts": [
+    {
+      "path": "specs/030_audit_missing_dependencies_docs/summaries/01_toolchain-docs-summary.md",
+      "type": "summary",
+      "summary": "Toolchain documentation: new docs/toolchain/ directory with 7 Check/Install/Verify files, typst allowlist fix, Lean MCP prune."
+    }
+  ],
   "metadata": {
-    "phases_completed": 0,
+    "phases_completed": 7,
     "phases_total": 7
+  },
+  "completion_data": {
+    "completion_summary": "Created docs/toolchain/ with 7 Check/Install/Verify files covering R, Python, typesetting, MCP servers, extensions, and shell tools; moved R.md/python.md with history; fixed the typst Bash allowlist gap in .claude/settings.json; pruned the dormant Lean MCP references with restoration instructions recorded in mcp-servers.md.",
+    "claudemd_suggestions": "none"
   }
 }

@@ -1,7 +1,7 @@
 # Implementation Plan: Task #30 — Toolchain Documentation
 
 - **Task**: 30 - audit_missing_dependencies_docs
-- **Status**: [IN PROGRESS]
+- **Status**: [COMPLETED]
 - **Effort**: 7 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/030_audit_missing_dependencies_docs/reports/01_team-research.md
@@ -256,7 +256,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 7: Verification and link audit [NOT STARTED]
+### Phase 7: Verification and link audit [COMPLETED]
 
 **Goal**: Verify that every toolchain doc is reachable, every cross-reference resolves, no old paths linger, and the doc-lint passes.
 

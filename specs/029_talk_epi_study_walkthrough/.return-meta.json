@@ -1,0 +1,9 @@
+{
+  "status": "in_progress",
+  "session_id": "sess_1760000029_p2",
+  "agent_type": "planner-agent",
+  "delegation_path": ["orchestrator", "plan", "planner-agent"],
+  "task_number": 29,
+  "summary": "Planning talk assembly (in progress)",
+  "artifacts": []
+}

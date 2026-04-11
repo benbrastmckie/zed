@@ -14,6 +14,22 @@ Active extensions (from `.claude/extensions.json`):
 
 Each extension section lists: (1) what the extension does, (2) its hard prerequisites with cross-links to other toolchain docs, (3) any extension-specific extras not covered elsewhere, and (4) a one-line check command.
 
+## Template note: Check / Install / Verify
+
+Unlike the other files in `docs/toolchain/`, this file is a **per-extension router**: its Install and Verify steps delegate to the tool-specific docs (`r.md`, `python.md`, `typesetting.md`, `mcp-servers.md`) rather than repeating install commands. Each extension section below has:
+
+### Check
+
+A single command listing the binaries / Python modules / MCP servers the extension needs, runnable as-is.
+
+### Install
+
+Cross-links to the relevant toolchain files where the actual `brew install` / `pip install` commands live.
+
+### Verify
+
+Follow the Verify sections of the linked files, then re-run the Check command above. This keeps install instructions in one place (the tool doc) and per-extension summaries in this file.
+
 ## latex
 
 The `latex` extension provides research + implementation support for LaTeX documents (VimTeX-equivalent compile/view/clean workflows, subfile management, bibliography handling).
