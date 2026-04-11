@@ -4,12 +4,12 @@
     {
       "project_number": 30,
       "project_name": "audit_missing_dependencies_docs",
-      "status": "researched",
+      "status": "planning",
       "task_type": "meta",
       "description": "Audit .claude/ to identify all assumed external dependencies (typst, R, python, lean, latex, etc.) and update installation/setup documentation to include any missing elements.",
       "created": "2026-04-11T02:06:44Z",
-      "last_updated": "2026-04-11T02:15:47Z",
-      "session_id": "sess_1744336200_audit30",
+      "last_updated": "2026-04-11T02:21:27Z",
+      "session_id": "sess_1744336500_plan30",
       "researched": "2026-04-11T02:15:47Z",
       "next_artifact_number": 2,
       "artifacts": [
@@ -41,7 +41,7 @@
     {
       "project_number": 28,
       "project_name": "rerun_analysis_full_r_stack",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "epi:study",
       "description": "Re-run the analysis with the full R/tidyverse stack once task 27 is complete.",
       "depends_on": [
@@ -49,16 +49,25 @@
       ],
       "parent_task": 20,
       "created": "2026-04-11T01:32:22Z",
-      "last_updated": "2026-04-11T02:13:53Z",
+      "last_updated": "2026-04-11T02:30:00Z",
+      "completed": "2026-04-11T02:30:00Z",
       "session_id": "sess_1775873625_54d6eb",
+      "branch_taken": "A+B",
       "artifacts": {
         "reports": [
           "028_rerun_analysis_full_r_stack/reports/01_rerun-analysis-plan.md"
         ],
         "plans": [
           "028_rerun_analysis_full_r_stack/plans/01_rerun-analysis-plan.md"
+        ],
+        "summaries": [
+          "028_rerun_analysis_full_r_stack/summaries/01_rerun-analysis-plan-summary.md"
         ]
-      }
+      },
+      "completion_summary": "Re-ran examples/epi-study/ pipeline end-to-end. Branch A verified byte-identical reproduction of all six committed target artifacts against Phase 2 baseline (diff -q clean, SHA256 match); headline armKAT OR 3.28721 (95% CI 1.570-6.885, p = 0.00161) reasserted. Branch B executed the full enrichment stack (task 27 rWrapper rebuild via dotfiles 47 confirmed landed): broom::tidy logistic regression, survival::coxph (HR 0.426, p < 1e-5), mice::pool m=20 (pooled OR 3.2620, 0.77% deviation from complete-case), and quarto HTML render (exit 0). broom.helpers gap handled gracefully via requireNamespace gate. Frozen scripts 01-05 verified unchanged.",
+      "roadmap_items": [
+        "Consider adding broom.helpers to nix rWrapper derivation to enable full gtsummary::tbl_regression workflow (minor, non-blocking)"
+      ]
     },
     {
       "project_number": 27,

@@ -8,7 +8,7 @@ next_project_number: 31
 
 ### 30. Audit .claude/ for assumed dependencies and update install docs
 - **Effort**: TBD
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNING]
 - **Task Type**: meta
 - **Research**: [01_team-research.md](030_audit_missing_dependencies_docs/reports/01_team-research.md)
 
@@ -24,12 +24,15 @@ next_project_number: 31
 
 ### 28. Re-run the analysis with the full R/tidyverse stack once task 27 is complete
 - **Effort**: TBD
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Task Type**: epi:study
 - **Depends on**: 27
 - **Parent Task**: 20
-- **Report**: [01_rerun-analysis-plan.md](028_rerun_analysis_full_r_stack/reports/01_rerun-analysis-plan.md)
-- **Plan**: [01_rerun-analysis-plan.md](028_rerun_analysis_full_r_stack/plans/01_rerun-analysis-plan.md)
+- **Artifacts**:
+  - **Report**: [01_rerun-analysis-plan.md](028_rerun_analysis_full_r_stack/reports/01_rerun-analysis-plan.md)
+  - **Plan**: [01_rerun-analysis-plan.md](028_rerun_analysis_full_r_stack/plans/01_rerun-analysis-plan.md)
+  - **Summary**: [01_rerun-analysis-plan-summary.md](028_rerun_analysis_full_r_stack/summaries/01_rerun-analysis-plan-summary.md)
+- **Completion**: Branch A+B executed. All 6 target artifacts byte-identical to baseline; headline armKAT OR = 3.28721 (95% CI 1.570-6.885, p = 0.00161) reasserted. Enrichment stack ran: coxph HR 0.426, mice pooled OR 3.262 (0.77% deviation), quarto render exit 0.
 
 **Description**: Re-run the analysis with the full R/tidyverse stack once task 27 is complete.
 
