@@ -72,7 +72,7 @@ This distinction enables identification of which system created each task.
 
 **Extension Task Types** (available when extensions are loaded via `<leader>ac`):
 
-Extensions provide additional task type support (neovim, lean4, latex, typst, python, nix, web, z3, epidemiology, formal, founder, present, etc.). See `.claude/extensions/*/manifest.json` for available extensions and their capabilities.
+Extensions provide additional task type support (neovim, lean4, latex, typst, python, nix, web, z3, epi, formal, founder, present, etc.). See `.claude/extensions/*/manifest.json` for available extensions and their capabilities.
 
 When an extension is loaded, its routing entries are merged into the command tables and context index.
 
@@ -499,7 +499,7 @@ Structured proposal development (grants) and research presentation creation (tal
 | skill-budget | budget-agent | opus | Grant budget spreadsheet generation (XLSX) |
 | skill-timeline | timeline-agent | opus | Research project timeline planning |
 | skill-funds | funds-agent | opus | Research funding landscape analysis |
-| skill-talk | talk-agent | opus | Research talk material synthesis and presentation assembly |
+| skill-slides | slides-agent | opus | Research talk material synthesis and presentation assembly |
 
 ### Commands
 
@@ -527,7 +527,7 @@ Structured proposal development (grants) and research presentation creation (tal
 | `present` | `budget` | `skill-budget` | `skill-budget` | WebSearch, WebFetch, Read, Write, Edit, Bash |
 | `present` | `timeline` | `skill-timeline` | `skill-timeline` | WebSearch, WebFetch, Read, Write, Edit |
 | `present` | `funds` | `skill-funds` | `skill-funds` | WebSearch, WebFetch, Read, Write, Edit, Bash |
-| `present` | `talk` | `skill-talk` | `skill-talk` | WebSearch, WebFetch, Read, Write, Edit |
+| `present` | `slides` | `skill-slides` | `skill-slides` | WebSearch, WebFetch, Read, Write, Edit |
 
 ### Talk Modes
 
@@ -582,37 +582,3 @@ This project includes Typst document development support via the typst extension
 - Diagrams: Use `fletcher` package for commutative diagrams
 
 <!-- END_SECTION: extension_typst -->
-
-<!-- SECTION: extension_python -->
-## Python Extension
-
-This project includes Python development support via the python extension.
-
-### Language Routing
-
-| Language | Research Tools | Implementation Tools |
-|----------|----------------|---------------------|
-| `python` | WebSearch, WebFetch, Read | Read, Write, Edit, Bash (python, pytest) |
-
-### Skill-Agent Mapping
-
-| Skill | Agent | Purpose |
-|-------|-------|---------|
-| skill-python-research | python-research-agent | Python/library research |
-| skill-python-implementation | python-implementation-agent | Python implementation |
-
-### Testing
-
-- Run tests: `pytest`
-- Run specific test: `pytest path/to/test.py::test_function`
-- Coverage: `pytest --cov=src`
-- Watch mode: `pytest-watch`
-
-### Code Quality
-
-- Type checking: `mypy src/`
-- Linting: `ruff check src/`
-- Formatting: `ruff format src/`
-- All checks: `make lint` or `nox -s lint`
-
-<!-- END_SECTION: extension_python -->

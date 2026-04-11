@@ -7,7 +7,6 @@
       "Bash(latexmk *)",
       "Bash(bibtex *)",
       "Bash(biber *)",
-      "Bash(typst *)",
       "Bash(cd *)",
       "Bash(ls *)",
       "Bash(mkdir *)",
@@ -24,7 +23,8 @@
       "Task",
       "TaskCreate",
       "TaskUpdate",
-      "Skill"
+      "Skill",
+      "mcp__lean-lsp__*"
     ],
     "deny": [
       "Bash(rm -rf /)",

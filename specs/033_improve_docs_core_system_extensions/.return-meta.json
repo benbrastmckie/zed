@@ -1,0 +1,19 @@
+{
+  "status": "planned",
+  "artifacts": [
+    {
+      "path": "specs/033_improve_docs_core_system_extensions/plans/01_improve-docs-extensions.md",
+      "type": "plan",
+      "summary": "4-phase plan: fix stale Neovim references, restructure README around task lifecycle, update supporting docs, verify cross-file consistency"
+    }
+  ],
+  "metadata": {
+    "session_id": "sess_1775926068_9037a1",
+    "agent_type": "planner-agent",
+    "delegation_path": ["orchestrator", "plan", "planner-agent"],
+    "phase_count": 4,
+    "estimated_hours": 4,
+    "dependency_waves": [[1], [2, 3], [4]]
+  },
+  "next_steps": "Run /implement 33 to execute the plan"
+}

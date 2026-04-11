@@ -1,6 +1,6 @@
 # Zed IDE Configuration for R and Python with Claude Code
 
-A Zed editor configuration for macOS optimized for working in **R** and **Python** with **Claude Code** as the integrated AI assistant. Standard keybindings (no vim mode), minimal custom shortcuts, first-class language server support (pyright + ruff for Python, r-language-server + lintr + styler for R), and an agent system that helps you write, test, and refactor code from a single Ctrl+Shift+A away.
+A Zed editor configuration for macOS optimized for working in **R** and **Python** with **Claude Code** as the integrated AI assistant. Standard keybindings (vim optional), minimal custom shortcuts, first-class language server support (pyright + ruff for Python, r-language-server + lintr + styler for R), and an agent system that helps you write, test, and refactor code from a single Ctrl+Shift+A away.
 
 Domain extensions for epidemiology research, grant development, memory capture, and Office document editing are also available and can be layered on top of the core R/Python workflow.
 

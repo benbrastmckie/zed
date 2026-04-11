@@ -72,7 +72,7 @@ This distinction enables identification of which system created each task.
 
 **Extension Task Types** (available when extensions are loaded via `<leader>ac`):
 
-Extensions provide additional task type support (neovim, lean4, latex, typst, python, nix, web, z3, epidemiology, formal, founder, present, etc.). See `.claude/extensions/*/manifest.json` for available extensions and their capabilities.
+Extensions provide additional task type support (neovim, lean4, latex, typst, python, nix, web, z3, epi, formal, founder, present, etc.). See `.claude/extensions/*/manifest.json` for available extensions and their capabilities.
 
 When an extension is loaded, its routing entries are merged into the command tables and context index.
 
@@ -499,7 +499,7 @@ Structured proposal development (grants) and research presentation creation (tal
 | skill-budget | budget-agent | opus | Grant budget spreadsheet generation (XLSX) |
 | skill-timeline | timeline-agent | opus | Research project timeline planning |
 | skill-funds | funds-agent | opus | Research funding landscape analysis |
-| skill-talk | talk-agent | opus | Research talk material synthesis and presentation assembly |
+| skill-slides | slides-agent | opus | Research talk material synthesis and presentation assembly |
 
 ### Commands
 
@@ -527,7 +527,7 @@ Structured proposal development (grants) and research presentation creation (tal
 | `present` | `budget` | `skill-budget` | `skill-budget` | WebSearch, WebFetch, Read, Write, Edit, Bash |
 | `present` | `timeline` | `skill-timeline` | `skill-timeline` | WebSearch, WebFetch, Read, Write, Edit |
 | `present` | `funds` | `skill-funds` | `skill-funds` | WebSearch, WebFetch, Read, Write, Edit, Bash |
-| `present` | `talk` | `skill-talk` | `skill-talk` | WebSearch, WebFetch, Read, Write, Edit |
+| `present` | `slides` | `skill-slides` | `skill-slides` | WebSearch, WebFetch, Read, Write, Edit |
 
 ### Talk Modes
 
@@ -548,37 +548,3 @@ The talk library at `context/project/present/talk/` contains:
 - **Themes**: Academic-clean and clinical-teal visual themes
 
 <!-- END_SECTION: extension_present -->
-
-<!-- SECTION: extension_typst -->
-## Typst Extension
-
-This project includes Typst document development support via the typst extension.
-
-### Language Routing
-
-| Language | Research Tools | Implementation Tools |
-|----------|----------------|---------------------|
-| `typst` | WebSearch, WebFetch, Read | Read, Write, Edit, Bash (typst compile) |
-
-### Skill-Agent Mapping
-
-| Skill | Agent | Purpose |
-|-------|-------|---------|
-| skill-typst-research | typst-research-agent | Typst documentation research |
-| skill-typst-implementation | typst-implementation-agent | Typst document implementation |
-
-### Typst vs LaTeX
-
-- Typst uses single-pass compilation (faster)
-- Modern scripting syntax with `#` prefix
-- Built-in bibliography management
-- Simpler package import with `#import`
-
-### Common Operations
-
-- Compile: `typst compile main.typ`
-- Watch: `typst watch main.typ`
-- Format: Use consistent indentation for readability
-- Diagrams: Use `fletcher` package for commutative diagrams
-
-<!-- END_SECTION: extension_typst -->

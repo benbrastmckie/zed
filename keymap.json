@@ -2,7 +2,7 @@
   // =====================================================
   // CUSTOM BINDINGS (Scheme A -- Minimal)
   // =====================================================
-  // 7 unique custom bindings (9 entries; pane-nav is declared
+  // 9 unique custom bindings (11 entries; pane-nav is declared
   // in both Workspace and Editor contexts to defeat Zed's
   // default Editor-context Ctrl+H (find/replace) shadowing,
   // and Claude Code launcher is bound in both Workspace and
@@ -12,6 +12,8 @@
   //   - 1 dock toggle (Ctrl+?)
   //   - 1 Claude Code launcher (Ctrl+Shift+A, Workspace + Terminal)
   //   - 1 copy path utility (Ctrl+Shift+C)
+  //   - 1 Slidev preview (Alt+Shift+P)
+  //   - 1 Slidev PDF export (Alt+Shift+E)
   //
   // All custom bindings intentionally use Ctrl+ (not Cmd+) on
   // macOS so they do not collide with Zed's built-in Cmd+
@@ -51,7 +53,9 @@
       "alt-k": "editor::MoveLineUp",
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-shift-c": "workspace::CopyPath"
+      "ctrl-shift-c": "workspace::CopyPath",
+      "alt-shift-p": ["task::Spawn", { "task_name": "Slidev Preview" }],
+      "alt-shift-e": ["task::Spawn", { "task_name": "Slidev Export PDF" }]
     }
   },
 
@@ -123,6 +127,10 @@
   // Cmd+N             New conversation (in agent panel) (verify)
   // Cmd+Enter         Send message (in agent panel) (verify)
   // Cmd+;             Toggle inline assist (verify)
+  //
+  // --- Slidev ---
+  // Alt+Shift+P         Slidev Preview (custom; see Editor bindings)
+  // Alt+Shift+E         Slidev Export PDF (custom; see Editor bindings)
   //
   // --- Editing ---
   // Cmd+Z             Undo

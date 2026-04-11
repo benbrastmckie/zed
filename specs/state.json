@@ -4,11 +4,11 @@
     {
       "project_number": 33,
       "project_name": "improve_docs_core_system_extensions",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-11T16:34:38Z",
-      "last_updated": "2026-04-11T16:43:51Z",
-      "session_id": "sess_1775925529_075772",
+      "last_updated": "2026-04-11T16:51:45Z",
+      "session_id": "sess_1775926068_9037a1",
       "next_artifact_number": 2,
       "artifacts": [
         {
@@ -35,6 +35,11 @@
           "type": "research_report",
           "path": "specs/033_improve_docs_core_system_extensions/reports/01_team-research.md",
           "summary": "Team synthesis: 8 findings across correctness, narrative, and structure; 3-tier priority recommendations"
+        },
+        {
+          "path": "specs/033_improve_docs_core_system_extensions/plans/01_improve-docs-extensions.md",
+          "type": "plan",
+          "summary": "4-phase plan: fix stale Neovim references, restructure README around task lifecycle, update supporting docs, verify cross-file consistency"
         }
       ]
     },

@@ -26,6 +26,8 @@ A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked
 | Cmd+Shift+C \*       | Copy full path of the active file to clipboard |
 | Alt+J \*             | Move the current line down                     |
 | Alt+K \*             | Move the current line up                       |
+| Alt+Shift+P \*       | Preview current Slidev file in browser           |
+| Alt+Shift+E \*       | Export current Slidev file to PDF                |
 
 ## How do I open a file?
 
@@ -160,6 +162,10 @@ Debug ACP communication via the command palette: search for `dev: open acp logs`
 - `/convert` -- Convert document formats
 
 The keybinding is configured in `keymap.json` using `task::Spawn` with `task_name: "Claude Code"`, and works from both Workspace and Terminal contexts. The terminal opens in the dock panel (position controlled by `terminal.dock` in `settings.json`).
+
+## How do I export Slidev slides to PDF?
+
+With a Slidev markdown file open, press **Alt+Shift+P** \*. This runs `slidev export` on the current file and produces a PDF in the same directory. Output appears in the dock terminal panel.
 
 ## How do I use the terminal?
 

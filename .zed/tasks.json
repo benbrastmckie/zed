@@ -4,10 +4,34 @@
     // (subagents, --team mode, skills, hooks). Use this instead of the
     // agent panel when you need the full CLI experience.
     "label": "Claude Code",
-    "command": "/home/benjamin/.nix-profile/bin/claude",
+    "command": "claude",
     "args": ["--dangerously-skip-permissions"],
     "use_new_terminal": true,
     "allow_concurrent_runs": true,
+    "reveal": "always",
+    "reveal_target": "dock"
+  },
+  {
+    // Launch Slidev dev server for the current markdown file and open in browser.
+    // Bound to Alt+Shift+P in keymap.json.
+    "label": "Slidev Preview",
+    "command": "slidev",
+    "args": ["--open", "$ZED_FILE"],
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "reveal_target": "dock"
+  },
+  {
+    // Export the current Slidev markdown file to PDF via nix-aware wrapper.
+    // The wrapper resolves playwright-driver.browsers from nixpkgs so
+    // Chromium finds its shared libraries on NixOS.
+    "label": "Slidev Export PDF",
+    "command": "bash",
+    "args": ["scripts/slidev-export.sh", "$ZED_FILE"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
     "reveal": "always",
     "reveal_target": "dock"
   }
