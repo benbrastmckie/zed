@@ -4,11 +4,11 @@
     {
       "project_number": 32,
       "project_name": "update_docs_from_claude_diff",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "meta",
       "created": "2026-04-11T04:13:59Z",
-      "last_updated": "2026-04-11T04:37:01Z",
-      "session_id": "sess_1775882020_e61146",
+      "last_updated": "2026-04-11T04:38:26Z",
+      "session_id": "sess_1775882286_07b702",
       "next_artifact_number": 2,
       "artifacts": [
         {
@@ -38,7 +38,7 @@
       "project_name": "talk_epi_study_walkthrough",
       "status": "partial",
       "language": "present",
-      "task_type": "present:talk",
+      "task_type": "slides",
       "description": "Conference talk walking through the zed/examples/epi-study synthetic RCT demo (KAT vs TAU, adjusted OR 3.29) as an end-to-end showcase of the /epi Claude Code workflow for a mixed clinical/informatics audience",
       "forcing_data": {
         "talk_type": "CONFERENCE",

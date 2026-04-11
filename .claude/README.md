@@ -110,21 +110,20 @@ User-invocable operations with checkpoint-based execution:
 
 ## Extensions
 
-The extension system provides task-type-specific support. All extensions are pre-merged into the active configuration; there is no manual loading step.
+The extension system provides task-type-specific support. Extensions are loaded via `<leader>ac` keybinding.
 
-**Available Extensions**:
+**Available Extensions** (`.claude/extensions/`):
 
 | Extension | Domain | Provides |
 |-----------|--------|----------|
-| nvim | Editor configuration | Research and implementation agents |
+| nvim | Neovim/Lua | neovim-research-agent, neovim-implementation-agent |
 | lean | Theorem proving | lean4-research-agent, MCP integration |
 | latex | LaTeX documents | latex-research-agent |
 | typst | Typst documents | typst-research-agent |
-| python | Python development | Python patterns, tools |
 | nix | Nix expressions | Nix patterns |
 | web | Web development | Web standards |
 | z3 | SMT solving | Z3 patterns |
-| epidemiology | Epidemiology | R-based research patterns |
+| epidemiology | Epidemiology | /epi command, epi-research-agent, epi-implement-agent |
 | formal | Formal verification | Logic, math, physics domains |
 | filetypes | File conversion | Format conversion utilities |
 | founder | Business strategy | Market, analyze, strategy, legal, project, deck, finance, sheet |
@@ -185,6 +184,7 @@ Context files are discovered via `.claude/context/index.json`:
 
 - [User Installation Guide](docs/guides/user-installation.md) - Set up Claude Code
 - [User Guide](docs/guides/user-guide.md) - Command workflows
+- [Neovim Integration](docs/guides/neovim-integration.md) - Hooks, TTS/STT
 
 ### Development
 
@@ -244,7 +244,7 @@ Error recovery patterns: [rules/error-handling.md](rules/error-handling.md)
 | [CLAUDE.md](CLAUDE.md) | Quick reference (loaded every session) |
 | [docs/README.md](docs/README.md) | Documentation hub |
 | [context/README.md](context/README.md) | Context organization |
-| [extensions.json](extensions.json) | Active extension registry |
+| [extensions/README.md](extensions/README.md) | Extension overview |
 
 ---
 

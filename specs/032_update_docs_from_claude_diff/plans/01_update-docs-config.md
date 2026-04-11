@@ -61,7 +61,7 @@ No ROADMAP.md items to advance (roadmap is placeholder only).
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Critical Functional Fixes [NOT STARTED]
+### Phase 1: Critical Functional Fixes [COMPLETED]
 
 **Goal**: Fix routing breakage and remove references to deleted skills
 
@@ -94,7 +94,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: High-Priority Documentation Accuracy [NOT STARTED]
+### Phase 2: High-Priority Documentation Accuracy [IN PROGRESS]
 
 **Goal**: Remove Python references from root docs/ and fix active documentation that misleads users
 

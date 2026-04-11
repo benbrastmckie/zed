@@ -8,7 +8,7 @@ next_project_number: 33
 
 ### 32. Update documentation to reflect current .claude/ configuration
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: meta
 - **Research**:
   - [01_teammate-a-findings.md](032_update_docs_from_claude_diff/reports/01_teammate-a-findings.md)
@@ -23,7 +23,7 @@ next_project_number: 33
 ### 29. Conference talk walkthrough of the epi-study demo
 - **Effort**: 9.5 hours
 - **Status**: [PARTIAL]
-- **Task Type**: present:talk
+- **Task Type**: slides
 - **Research**:
   - [01_talk-research.md](029_talk_epi_study_walkthrough/reports/01_talk-research.md)
   - [02_talk-research.md](029_talk_epi_study_walkthrough/reports/02_talk-research.md)
