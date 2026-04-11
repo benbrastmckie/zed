@@ -1,6 +1,15 @@
 {
-  "next_project_number": 21,
+  "next_project_number": 22,
   "active_projects": [
+    {
+      "project_number": 21,
+      "project_name": "update_docs_r_python_zed",
+      "status": "not_started",
+      "task_type": "markdown",
+      "description": "Update /home/benjamin/.config/zed/README.md and the other documentation in /home/benjamin/.config/zed/docs/README.md and /home/benjamin/.config/zed/docs/ to reflect that this is a configuration for working in R and Python with Claude Code in the Zed IDE.",
+      "created": "2026-04-11T00:57:02Z",
+      "last_updated": "2026-04-11T00:57:02Z"
+    },
     {
       "project_number": 20,
       "project_name": "test_epi_rct_ketamine_meth",

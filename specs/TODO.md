@@ -1,10 +1,17 @@
 ---
-next_project_number: 21
+next_project_number: 22
 ---
 
 # Task List
 
 ## Tasks
+
+### 21. Update README and docs to reflect R/Python + Claude Code + Zed IDE configuration
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: markdown
+
+**Description**: Update /home/benjamin/.config/zed/README.md and the other documentation in /home/benjamin/.config/zed/docs/README.md and /home/benjamin/.config/zed/docs/ to reflect that this is a configuration for working in R and Python with Claude Code in the Zed IDE.
 
 ### 20. Test epi RCT study: ketamine-assisted therapy for methamphetamine use disorder
 - **Effort**: TBD
