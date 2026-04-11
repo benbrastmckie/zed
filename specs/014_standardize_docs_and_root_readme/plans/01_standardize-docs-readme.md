@@ -1,7 +1,7 @@
 # Implementation Plan: Standardize Docs and Root README
 
 - **Task**: 14 - Standardize and cross-link all docs/ README.md files for consistency, then improve the root README.md
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 3.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/014_standardize_docs_and_root_readme/reports/01_team-research.md
@@ -70,7 +70,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: Root README.md Rewrite [NOT STARTED]
+### Phase 1: Root README.md Rewrite [COMPLETED]
 
 **Goal**: Transform the root README from a generic Zed setup document into a clear presentation of a Zed + Claude Code configuration for epidemiology and medical research on macOS.
 

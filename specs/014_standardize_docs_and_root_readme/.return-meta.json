@@ -1,20 +1,7 @@
 {
-  "status": "planned",
-  "artifacts": [
-    {
-      "type": "plan",
-      "path": "specs/014_standardize_docs_and_root_readme/plans/01_standardize-docs-readme.md",
-      "summary": "5-phase plan to rewrite root README with epi/medical research identity, expand docs/README.md, fix shortcuts and Neovim references across 17 files"
-    }
-  ],
-  "next_steps": "Run /implement 14 to execute the plan",
-  "metadata": {
-    "session_id": "sess_1775865276_9718ae",
-    "agent_type": "planner-agent",
-    "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "plan", "planner-agent"],
-    "phase_count": 5,
-    "estimated_hours": 3.5,
-    "dependency_waves": [[1], [2, 3], [4], [5]]
-  }
+  "status": "in_progress",
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+  "session_id": "sess_1775865680_7ea64d",
+  "task_number": 14
 }

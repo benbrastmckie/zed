@@ -1,6 +1,6 @@
-# Zed Configuration
+# Zed + Claude Code for Epidemiology and Medical Research
 
-Zed editor configuration for macOS. Standard keybindings (no vim mode), minimal custom shortcuts, and full AI integration via Claude Code.
+A Zed editor configuration for macOS with full Claude Code integration, designed for epidemiology research, grant development, and medical research workflows. Standard keybindings (no vim mode), minimal custom shortcuts, and AI-powered research automation.
 
 **Platform**: macOS 11 (Big Sur) or newer.
 
@@ -8,8 +8,8 @@ Zed editor configuration for macOS. Standard keybindings (no vim mode), minimal 
 
 1. Install [Homebrew](https://brew.sh), then `brew install --cask zed`
 2. Open Zed from Applications or Spotlight (Cmd+Space, type "Zed")
-3. Extensions install automatically on first launch (Markdown, Claude Code, and more)
-4. Theme is One Dark; font is JetBrains Mono
+3. Extensions install automatically on first launch
+4. Theme is One Dark; font is Fira Code
 
 For the full installation walkthrough, including MCP tool setup for Office file editing, see [docs/general/installation.md](docs/general/installation.md).
 
@@ -17,15 +17,31 @@ For the full installation walkthrough, including MCP tool setup for Office file 
 
 | Shortcut | What it does |
 |----------|-------------|
+| Ctrl+Shift+A | Open Claude Code (primary AI interface) |
 | Cmd+P | Open any file by name |
 | Cmd+S | Save |
-| Cmd+Z | Undo |
 | Cmd+Shift+F | Search across all files |
 | Cmd+` | Toggle terminal |
-| Cmd+Shift+? | Toggle AI agent panel |
 | Cmd+Shift+P | Command palette (search for any command) |
 
 For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/keybindings.md).
+
+## Research Commands
+
+Claude Code provides structured research and development workflows. Open it with **Ctrl+Shift+A**, then use these commands:
+
+| Command | What it does |
+|---------|-------------|
+| `/epi` | Design and run epidemiology studies in R |
+| `/grant` | Develop grant proposals with narrative drafting |
+| `/budget` | Generate grant budgets with justification |
+| `/funds` | Analyze funding landscape and funder portfolios |
+| `/timeline` | Plan research project timelines |
+| `/slides` | Create research talks and presentations |
+| `/learn` | Save knowledge to the memory vault for future sessions |
+| `/convert` | Convert between PDF, DOCX, Markdown, and other formats |
+
+For the full command catalog, see [docs/agent-system/commands.md](docs/agent-system/commands.md).
 
 ## Directory Layout
 
@@ -38,7 +54,7 @@ For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/key
 ├── docs/                   # Documentation
 │   ├── general/            # Installation, keybindings, settings reference
 │   ├── agent-system/       # AI systems overview, commands, architecture
-│   └── workflows/          # Agent lifecycle and Office file workflows on macOS
+│   └── workflows/          # Agent lifecycle, epi, grants, Office file workflows
 ├── specs/                  # Claude Code task management
 ├── .claude/                # Claude Code agent system config
 └── .memory/                # AI memory vault
@@ -50,8 +66,9 @@ For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/key
 |----------|-------------|
 | [General](docs/general/README.md) | Installation, keybindings, and settings reference for this Zed configuration on macOS |
 | [Agent System](docs/agent-system/README.md) | Zed agent + Claude Code overview, workflows, command catalog, memory, and architecture |
-| [Workflows](docs/workflows/README.md) | Agent task lifecycle plus Word/Excel/PowerPoint/PDF workflows on macOS -- tracked changes, batch edits, conversions, OneDrive tips, and troubleshooting |
-| [Agent System Config](.claude/CLAUDE.md) | Full Claude Code system reference (commands, skills, agents) |
+| [Workflows](docs/workflows/README.md) | Agent task lifecycle, epidemiology analysis, grant development, and Office file workflows on macOS |
+| [Agent System Config](.claude/README.md) | Claude Code framework architecture, skills, agents, and extension system |
+| [Memory Vault](.memory/README.md) | Shared AI memory vault for persistent knowledge across sessions |
 
 ## Custom Keybindings
 
@@ -59,7 +76,8 @@ This setup uses **Scheme A** -- a minimal set of custom shortcuts. Everything el
 
 | Shortcut | Action |
 |----------|--------|
-| Ctrl+H/J/K/L | Move focus between split panes |
+| Ctrl+Shift+A | Launch Claude Code CLI (primary AI interface) |
+| Ctrl+H/L | Move focus between split panes (left/right) |
 | Alt+J/K | Move current line down/up |
 
 (The pane-navigation bindings intentionally use Ctrl so they do not collide with macOS system shortcuts.)
@@ -75,9 +93,9 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 
 ## AI Integration
 
-**Zed Agent Panel** (Cmd+Shift+?): Built-in AI for quick questions and edits. See [docs/agent-system/zed-agent-panel.md](docs/agent-system/zed-agent-panel.md).
+**Claude Code** (Ctrl+Shift+A): The primary AI interface. Full project management with `/research`, `/plan`, `/implement`, epidemiology workflows (`/epi`), grant/research commands (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), and Office document editing (`/edit`, `/convert`).
 
-**Claude Code** (terminal): Full project management with `/research`, `/plan`, `/implement`, grant/research commands (`/grant`, `/budget`, `/funds`, `/timeline`, `/talk`), and Office document editing (`/edit`, `/convert`). Start it in the terminal (Cmd+`).
+**Zed Agent Panel** (Ctrl+?): Built-in AI sidebar for quick questions and edits. See [docs/agent-system/zed-agent-panel.md](docs/agent-system/zed-agent-panel.md).
 
 ## Platform Notes
 
@@ -89,5 +107,5 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 
 ## Related
 
-- [Claude Code System](.claude/CLAUDE.md) -- Full agent system documentation
+- [Claude Code System](.claude/CLAUDE.md) -- Full agent system reference (commands, skills, agents)
 - [Task List](specs/TODO.md) -- Current project tasks
