@@ -119,7 +119,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Guide Example Replacement [IN PROGRESS]
+### Phase 3: Guide Example Replacement [COMPLETED]
 
 **Goal**: Replace Python-based examples in 6 guide/architecture files with Rust equivalents
 
@@ -151,7 +151,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Final Sweep and Verification [NOT STARTED]
+### Phase 4: Final Sweep and Verification [IN PROGRESS]
 
 **Goal**: Confirm all stale references are eliminated and document user-decision items
 
