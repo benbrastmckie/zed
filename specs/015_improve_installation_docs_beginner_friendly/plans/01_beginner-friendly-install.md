@@ -90,7 +90,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Middle Sections (Node through MCP Tools) [IN PROGRESS]
+### Phase 2: Middle Sections (Node through MCP Tools) [COMPLETED]
 
 **Goal**: Rewrite detection commands and add motivation/guidance for Node.js, Zed, Claude Code CLI, claude-acp, Authenticate in Zed, and MCP Tools sections.
 
@@ -117,7 +117,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Final Verification Section and Full-Doc Review [NOT STARTED]
+### Phase 3: Final Verification Section and Full-Doc Review [IN PROGRESS]
 
 **Goal**: Convert the final checklist from checkboxes to a numbered list with explicit instructions, then review the full document for tone consistency and missed jargon.
 
