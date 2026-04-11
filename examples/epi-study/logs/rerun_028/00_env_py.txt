@@ -1,0 +1,17 @@
+==== Python Environment Check ====
+Python version:  3.12.13 (main, Mar  3 2026, 12:39:30) [GCC 15.2.0]
+Executable:      /home/benjamin/.nix-profile/bin/python3
+Platform:        linux
+
+==== Module Availability ====
+  numpy           OK
+  pandas          OK
+  scipy           OK
+  matplotlib      OK
+  seaborn         OK
+  statsmodels     OK
+  sklearn         OK
+  pyarrow         OK
+
+==== Summary ====
+Available: 8 / 8
