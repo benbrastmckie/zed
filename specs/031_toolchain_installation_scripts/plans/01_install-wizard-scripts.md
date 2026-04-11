@@ -1,7 +1,7 @@
 # Implementation Plan: Toolchain Installation Scripts & Wizard
 
 - **Task**: 31 - toolchain_installation_scripts
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 12 hours
 - **Dependencies**: Task 30 (toolchain documentation) - COMPLETED
 - **Research Inputs**: specs/031_toolchain_installation_scripts/reports/01_team-research.md (plus 01_teammate-{a,b,c,d}-findings.md)
@@ -301,7 +301,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 7: Verification & smoke test [NOT STARTED]
+### Phase 7: Verification & smoke test [COMPLETED]
 
 **Goal**: Validate the full wizard + per-group scripts on the author's Mac via `--dry-run` and a manual consistency checklist; write a short verification log into the task summary.
 

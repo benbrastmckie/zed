@@ -1,8 +1,23 @@
 {
-  "status": "in_progress",
+  "status": "implemented",
   "session_id": "sess_1775876781_0da6cb",
   "agent_type": "general-implementation-agent",
   "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
   "task_number": 31,
-  "metadata": {"phases_completed": 0, "phases_total": 7}
+  "summary": "Shipped scripts/install/ wizard (lib.sh + 6 group installers + master install.sh) and rewrote docs/general/installation.md plus every docs/toolchain/*.md with a Quick install prefix, preserving all existing manual content verbatim.",
+  "artifacts": [
+    {
+      "path": "specs/031_toolchain_installation_scripts/summaries/01_install-wizard-summary.md",
+      "type": "summary",
+      "summary": "Task 31 implementation summary covering all 7 phases, verification results, and deviations."
+    }
+  ],
+  "completion_data": {
+    "completion_summary": "Shipped scripts/install/ (lib.sh + 6 group installers + master wizard) with --dry-run/--check/--yes/--preset/--only/--help; rewrote docs/general/installation.md lead and every docs/toolchain/*.md with a Quick install prefix; added README wizard Quick Start; verified via bash -n and --dry-run --preset everything on a faked-Darwin host.",
+    "claudemd_suggestions": "none"
+  },
+  "metadata": {
+    "phases_completed": 7,
+    "phases_total": 7
+  }
 }

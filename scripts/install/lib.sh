@@ -316,3 +316,17 @@ assert_git_or_hint() {
     exit 3
   fi
 }
+
+# require_brew: in normal mode, fail hard if brew is missing. In dry-run mode,
+# warn and continue so the wizard can still preview every group's actions.
+require_brew() {
+  if check_command brew; then
+    return 0
+  fi
+  if [ "$DRY_RUN" = "1" ]; then
+    log_warn "Homebrew not installed — dry-run continues, but real install would require it"
+    return 0
+  fi
+  log_error "Homebrew is required; run install-base.sh first"
+  exit 3
+}

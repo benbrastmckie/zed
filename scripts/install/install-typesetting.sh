@@ -139,10 +139,7 @@ main() {
     exit $?
   fi
 
-  if ! check_command brew; then
-    log_error "Homebrew is required; run install-base.sh first"
-    exit 3
-  fi
+  require_brew
 
   do_latex
   do_typst

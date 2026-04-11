@@ -131,8 +131,8 @@ append_group() {
 # Strips master-only flags (--preset, --only), keeps the rest.
 build_child_args() {
   CHILD_ARGS=""
-  [ "$DRY_RUN" = "1" ]    && CHILD_ARGS="$CHILD_ARGS --dry-run"
-  [ "$ASSUME_YES" = "1" ] && CHILD_ARGS="$CHILD_ARGS --yes"
+  if [ "$DRY_RUN" = "1" ];    then CHILD_ARGS="$CHILD_ARGS --dry-run"; fi
+  if [ "$ASSUME_YES" = "1" ]; then CHILD_ARGS="$CHILD_ARGS --yes"; fi
 }
 
 dispatch_group() {
@@ -167,7 +167,7 @@ run_check_mode() {
       continue
     fi
     printf '\n' >&2
-    printf '--- %s ---\n' "$g" >&2
+    printf -- '--- %s ---\n' "$g" >&2
     if bash "$script" --check; then
       :
     else
