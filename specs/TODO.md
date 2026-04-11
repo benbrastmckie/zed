@@ -1,10 +1,17 @@
 ---
-next_project_number: 33
+next_project_number: 34
 ---
 
 # Task List
 
 ## Tasks
+
+### 33. Improve documentation to present core agent system and extension architecture
+- **Effort**: 4 hours
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Improve README.md and supporting documentation to better present the Claude Code core system and the extensions used to augment it for writing grants, developing epi studies, building presentation slides, and other utilities. Documentation should highlight the range of commands the .claude/ agent system provides with the task management workflow system at the core
 
 ### 32. Update documentation to reflect current .claude/ configuration
 - **Effort**: 3 hours
@@ -33,3 +40,7 @@ next_project_number: 33
 
 **Description**: Conference talk (15-20 min) walking through `zed/examples/epi-study/` — the synthetic RCT demo (ketamine-assisted therapy vs TAU for methamphetamine use disorder, N=200, adjusted OR=3.29) — as an end-to-end showcase of the `/epi` Claude Code workflow for a mixed clinical/informatics audience. Balance tooling narrative, CONSORT/methods rigor, and the headline finding; emphasize reproducibility (deterministic seeds, base-R fallbacks).
 
+
+## Recommended Order
+
+1. **33** -> research (independent)

@@ -1,6 +1,14 @@
 {
-  "next_project_number": 33,
+  "next_project_number": 34,
   "active_projects": [
+    {
+      "project_number": 33,
+      "project_name": "improve_docs_core_system_extensions",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-11T16:34:38Z",
+      "last_updated": "2026-04-11T16:34:38Z"
+    },
     {
       "project_number": 32,
       "project_name": "update_docs_from_claude_diff",
