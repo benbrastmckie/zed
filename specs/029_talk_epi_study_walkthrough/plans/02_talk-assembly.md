@@ -1,7 +1,7 @@
 # Implementation Plan: Talk Assembly -- /epi Workflow Walkthrough (Round 2)
 
 - **Task**: 29 - talk_epi_study_walkthrough
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 9.5 hours
 - **Dependencies**: task 28 (R stack upgrade + rerun) - COMPLETED
 - **Research Inputs**: specs/029_talk_epi_study_walkthrough/reports/02_talk-research.md
@@ -101,7 +101,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: Scaffold `examples/epi-slides/` [NOT STARTED]
+### Phase 1: Scaffold `examples/epi-slides/` [COMPLETED]
 
 **Goal**: Create the project skeleton under `examples/epi-slides/` with
 Slidev installed, directory layout ready for theme/components/assets/slides,

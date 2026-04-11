@@ -18,7 +18,7 @@ next_project_number: 31
 
 ### 29. Conference talk walkthrough of the epi-study demo
 - **Effort**: 9.5 hours
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: present:talk
 - **Research**:
   - [01_talk-research.md](029_talk_epi_study_walkthrough/reports/01_talk-research.md)

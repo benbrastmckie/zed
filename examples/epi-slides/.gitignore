@@ -1,0 +1,5 @@
+node_modules/
+dist/
+*.log
+.slidev-cache/
+.DS_Store
