@@ -8,8 +8,9 @@ next_project_number: 31
 
 ### 30. Audit .claude/ for assumed dependencies and update install docs
 - **Effort**: TBD
-- **Status**: [RESEARCHING]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_team-research.md](030_audit_missing_dependencies_docs/reports/01_team-research.md)
 
 **Description**: Audit `.claude/` to identify all assumed external dependencies (typst, R, python, lean, latex, etc.) and create a plan to update installation/setup documentation to include any missing elements (typst was forgotten; likely others too).
 
@@ -23,7 +24,7 @@ next_project_number: 31
 
 ### 28. Re-run the analysis with the full R/tidyverse stack once task 27 is complete
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: epi:study
 - **Depends on**: 27
 - **Parent Task**: 20
