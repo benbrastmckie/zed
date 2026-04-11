@@ -8,7 +8,7 @@ next_project_number: 31
 
 ### 30. Audit .claude/ for assumed dependencies and update install docs
 - **Effort**: 7 hours
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: meta
 - **Research**: [01_team-research.md](030_audit_missing_dependencies_docs/reports/01_team-research.md)
 - **Plan**: [01_toolchain-docs.md](030_audit_missing_dependencies_docs/plans/01_toolchain-docs.md)
@@ -17,9 +17,11 @@ next_project_number: 31
 
 ### 29. Conference talk walkthrough of the epi-study demo
 - **Effort**: TBD
-- **Status**: [RESEARCHING]
+- **Status**: [RESEARCHED]
 - **Task Type**: present:talk
-- **Research**: [01_talk-research.md](029_talk_epi_study_walkthrough/reports/01_talk-research.md)
+- **Research**:
+  - [01_talk-research.md](029_talk_epi_study_walkthrough/reports/01_talk-research.md)
+  - [02_talk-research.md](029_talk_epi_study_walkthrough/reports/02_talk-research.md)
 
 **Description**: Conference talk (15-20 min) walking through `zed/examples/epi-study/` — the synthetic RCT demo (ketamine-assisted therapy vs TAU for methamphetamine use disorder, N=200, adjusted OR=3.29) — as an end-to-end showcase of the `/epi` Claude Code workflow for a mixed clinical/informatics audience. Balance tooling narrative, CONSORT/methods rigor, and the headline finding; emphasize reproducibility (deterministic seeds, base-R fallbacks).
 

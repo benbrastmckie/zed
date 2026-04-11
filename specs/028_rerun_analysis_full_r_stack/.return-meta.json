@@ -1,0 +1,42 @@
+{
+  "status": "completed",
+  "session_id": "sess_1775873625_54d6eb",
+  "summary": "Branch A+B executed: all 6 target artifacts reproduced byte-identically against baseline (SHA256 verified), headline armKAT OR = 3.28721 (95% CI 1.570-6.885, p = 0.00161) reasserted; full tidyverse/survival/mice/quarto enrichment stack ran successfully (pooled-mice OR 3.26 within 0.77% of 3.29, coxph HR 0.426 < 1, quarto render exit 0).",
+  "phases_completed": 7,
+  "phases_total": 7,
+  "branch_taken": "A+B",
+  "artifacts": [
+    {
+      "type": "summary",
+      "path": "specs/028_rerun_analysis_full_r_stack/summaries/01_rerun-analysis-plan-summary.md",
+      "summary": "Re-run execution summary covering all 7 phases with Branch A byte-identity verification and Branch B enrichment results"
+    },
+    {
+      "type": "log",
+      "path": "examples/epi-study/logs/rerun_028/rerun_summary.md",
+      "summary": "Canonical re-run summary at the study location with provenance and byte-identity table"
+    },
+    {
+      "type": "implementation",
+      "path": "specs/028_rerun_analysis_full_r_stack/artifacts/enriched/",
+      "summary": "Four enriched analysis scripts (tidyverse, survival, mice, quarto) authored and executed"
+    }
+  ],
+  "completion_data": {
+    "completion_summary": "Re-ran examples/epi-study/ pipeline end-to-end with LC_ALL=C.UTF-8. Branch A verified byte-identical reproduction of all six committed target artifacts (three raw CSVs, analytic.csv, primary_results.txt, sensitivity_results.txt) against Phase 2 baseline; headline armKAT OR 3.28721 (95% CI 1.570-6.885, p = 0.00161) reasserted. Branch B executed the full enrichment stack (task 27 rebuild via dotfiles 47 confirmed landed): broom::tidy logistic regression, survival::coxph (HR 0.426, p < 1e-5), mice::pool m=20 (pooled OR 3.2620, 0.77% deviation from complete-case), and quarto HTML render (exit 0). broom.helpers gap handled gracefully via requireNamespace gate; gtsummary::tbl_regression skipped with fallback note. Frozen scripts 01-05 verified unchanged.",
+    "roadmap_items": [
+      "Consider adding broom.helpers to nix rWrapper derivation to enable full gtsummary::tbl_regression workflow (minor, non-blocking)"
+    ]
+  },
+  "next_steps": "Skill postflight: transition task 28 to [COMPLETED]. Optional follow-up task to add broom.helpers to rWrapper.",
+  "metadata": {
+    "session_id": "sess_1775873625_54d6eb",
+    "agent_type": "epi-implement-agent",
+    "workflow_type": "epi_implement",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "implement", "skill-epi-implement", "epi-implement-agent"],
+    "phases_completed": 7,
+    "phases_total": 7,
+    "branch_taken": "A+B"
+  }
+}
