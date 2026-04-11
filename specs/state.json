@@ -4,10 +4,13 @@
     {
       "project_number": 34,
       "project_name": "improve_slidev_review_pipeline",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-11T18:45:55Z",
-      "last_updated": "2026-04-11T18:45:55Z"
+      "last_updated": "2026-04-11T18:59:01Z",
+      "session_id": "sess_1744400000_team34",
+      "researched": "2026-04-11T18:59:01Z",
+      "next_artifact_number": 2
     },
     {
       "project_number": 33,
