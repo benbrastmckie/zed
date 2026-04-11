@@ -35,11 +35,12 @@ next_project_number: 27
 
 ### 23. Update Claude model IDs in settings.json and docs
 - **Effort**: TBD
-- **Status**: [PLANNING]
+- **Status**: [PLANNED]
 - **Task Type**: general
 - **Priority**: high
 - **Source**: review-20260410
 - **Research**: [01_stale-proof-model-config.md](023_update_claude_model_ids/reports/01_stale-proof-model-config.md)
+- **Plan**: [01_delete-agent-block.md](023_update_claude_model_ids/plans/01_delete-agent-block.md)
 
 **Description**: Update outdated Claude model IDs in settings.json (lines 39, 44) and docs/general/settings.md (lines 59, 64) from `claude-sonnet-4-20250514` / `claude-opus-4-20250514` to `claude-sonnet-4-6` / `claude-opus-4-6` so the Zed Agent Panel uses current models.
 

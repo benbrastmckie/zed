@@ -37,13 +37,13 @@
     {
       "project_number": 23,
       "project_name": "update_claude_model_ids",
-      "status": "planning",
+      "status": "planned",
       "task_type": "general",
       "priority": "high",
       "description": "Update outdated Claude model IDs in settings.json (lines 39, 44) and docs/general/settings.md (lines 59, 64) from claude-sonnet-4-20250514 / claude-opus-4-20250514 to claude-sonnet-4-6 / claude-opus-4-6 so the Zed Agent Panel uses current models.",
       "created": "2026-04-11T01:21:49Z",
       "session_id": "sess_1775870976_593eac",
-      "last_updated": "2026-04-11T01:29:36Z",
+      "last_updated": "2026-04-11T01:30:38Z",
       "researched": "2026-04-11T01:30:00Z",
       "next_artifact_number": 2,
       "artifacts": [
@@ -51,8 +51,14 @@
           "path": "specs/023_update_claude_model_ids/reports/01_stale-proof-model-config.md",
           "type": "report",
           "summary": "Stale-proof Claude model config options for Zed: Zed's anthropic crate supports -latest aliases (claude-opus-4-6-latest etc.); recommends deleting the agent block entirely since user only uses Claude Code, not the Zed Agent Panel."
+        },
+        {
+          "path": "specs/023_update_claude_model_ids/plans/01_delete-agent-block.md",
+          "type": "plan",
+          "summary": "3-phase plan: delete agent block from settings.json, update docs/general/settings.md with explanation + -latest fallback, verify and commit."
         }
-      ]
+      ],
+      "planned": "2026-04-11T01:30:38Z"
     },
     {
       "project_number": 22,
