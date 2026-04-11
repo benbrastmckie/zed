@@ -1,10 +1,18 @@
 ---
-next_project_number: 27
+next_project_number: 28
 ---
 
 # Task List
 
 ## Tasks
+
+### 27. Fix the environment gaps documented in task 20's config_gaps.md
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: nix
+- **Parent Task**: 20
+
+**Description**: Fix the environment gaps documented in task 20's config_gaps.md (tidyverse, survival, quarto, etc.).
 
 ### 26. Remove redundant ctrl-h/ctrl-l in Editor context of keymap.json
 - **Effort**: TBD

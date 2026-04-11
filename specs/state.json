@@ -1,6 +1,16 @@
 {
-  "next_project_number": 27,
+  "next_project_number": 28,
   "active_projects": [
+    {
+      "project_number": 27,
+      "project_name": "fix_task20_env_gaps",
+      "status": "not_started",
+      "task_type": "nix",
+      "description": "Fix the environment gaps documented in task 20's config_gaps.md (tidyverse, survival, quarto, etc.).",
+      "parent_task": 20,
+      "created": "2026-04-11T01:31:34Z",
+      "last_updated": "2026-04-11T01:31:34Z"
+    },
     {
       "project_number": 26,
       "project_name": "remove_redundant_pane_nav_in_editor_context",
