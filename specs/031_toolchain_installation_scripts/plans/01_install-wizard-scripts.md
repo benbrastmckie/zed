@@ -133,7 +133,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Base installer [NOT STARTED]
+### Phase 2: Base installer [COMPLETED]
 
 **Goal**: Implement `install-base.sh` covering every tool mentioned in `docs/general/installation.md` (Homebrew bootstrap, Xcode CLT handoff, git, Claude Code CLI, Zed, core brew formulae).
 
