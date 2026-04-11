@@ -51,7 +51,26 @@
       "alt-k": "editor::MoveLineUp",
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-shift-c": "editor::CopyPath"
+      "ctrl-shift-c": "workspace::CopyPath"
+    }
+  },
+
+  // Project panel hjkl navigation (vim-style without vim mode)
+  //
+  // Provides h/j/k/l movement inside the file explorer while
+  // leaving vim mode disabled globally. Guarded by `not_editing`
+  // so the inline rename input (F2) still receives literal keys.
+  //   h -- collapse current directory (or move to parent)
+  //   j -- select next entry
+  //   k -- select previous entry
+  //   l -- open file, or expand/collapse directory
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "h": "project_panel::CollapseSelectedEntry",
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrevious",
+      "l": "project_panel::Open"
     }
   }
 
