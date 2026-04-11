@@ -1,6 +1,24 @@
 {
-  "next_project_number": 29,
+  "next_project_number": 30,
   "active_projects": [
+    {
+      "project_number": 29,
+      "project_name": "talk_epi_study_walkthrough",
+      "status": "not_started",
+      "language": "present",
+      "task_type": "talk",
+      "description": "Conference talk walking through the zed/examples/epi-study synthetic RCT demo (KAT vs TAU, adjusted OR 3.29) as an end-to-end showcase of the /epi Claude Code workflow for a mixed clinical/informatics audience",
+      "forcing_data": {
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "/home/benjamin/.config/zed/examples/epi-study/ (systematic review of entire directory: README.md, EPI_ANSWERS.md, scripts/, data/, reports/consort_report.md, reports/tables/*, logs/)"
+        ],
+        "audience_context": "Mixed clinical/informatics audience. Topic: demonstrating the Claude Code /epi extension via a synthetic RCT (ketamine-assisted therapy vs treatment-as-usual for methamphetamine use disorder, N=200, primary adjusted OR=3.29 for 12-week abstinence). Conference format, 15-20 min. Balance tooling narrative, methods/CONSORT rigor, and the headline clinical finding. Emphasize reproducibility (deterministic seeds, base-R fallbacks) and the four-step /epi -> /research -> /plan -> /implement workflow.",
+        "gathered_at": "2026-04-11T01:48:33Z"
+      },
+      "created": "2026-04-11T01:48:33Z",
+      "last_updated": "2026-04-11T01:48:33Z"
+    },
     {
       "project_number": 28,
       "project_name": "rerun_analysis_full_r_stack",

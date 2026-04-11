@@ -1,10 +1,17 @@
 ---
-next_project_number: 29
+next_project_number: 30
 ---
 
 # Task List
 
 ## Tasks
+
+### 29. Conference talk walkthrough of the epi-study demo
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: present:talk
+
+**Description**: Conference talk (15-20 min) walking through `zed/examples/epi-study/` — the synthetic RCT demo (ketamine-assisted therapy vs TAU for methamphetamine use disorder, N=200, adjusted OR=3.29) — as an end-to-end showcase of the `/epi` Claude Code workflow for a mixed clinical/informatics audience. Balance tooling narrative, CONSORT/methods rigor, and the headline finding; emphasize reproducibility (deterministic seeds, base-R fallbacks).
 
 ### 28. Re-run the analysis with the full R/tidyverse stack once task 27 is complete
 - **Effort**: TBD
