@@ -4,10 +4,39 @@
     {
       "project_number": 33,
       "project_name": "improve_docs_core_system_extensions",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-11T16:34:38Z",
-      "last_updated": "2026-04-11T16:34:38Z"
+      "last_updated": "2026-04-11T16:43:51Z",
+      "session_id": "sess_1775925529_075772",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/033_improve_docs_core_system_extensions/reports/01_teammate-a-findings.md",
+          "summary": "Structural improvements: lifecycle-first README, grouped extensions, architecture prose"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/033_improve_docs_core_system_extensions/reports/01_teammate-b-findings.md",
+          "summary": "Alternative approaches: audience-first guides, capabilities overview, visual command map, progressive disclosure"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/033_improve_docs_core_system_extensions/reports/01_teammate-c-findings.md",
+          "summary": "Critic: stale Neovim refs in CLAUDE.md, Python not an extension, audience confusion, scope risk"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/033_improve_docs_core_system_extensions/reports/01_teammate-d-findings.md",
+          "summary": "Horizons: wrong project identity, platform-first narrative, project-overview.md factually wrong"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/033_improve_docs_core_system_extensions/reports/01_team-research.md",
+          "summary": "Team synthesis: 8 findings across correctness, narrative, and structure; 3-tier priority recommendations"
+        }
+      ]
     },
     {
       "project_number": 32,

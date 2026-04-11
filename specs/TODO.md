@@ -8,8 +8,14 @@ next_project_number: 34
 
 ### 33. Improve documentation to present core agent system and extension architecture
 - **Effort**: 4 hours
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**:
+  - [01_teammate-a-findings.md](033_improve_docs_core_system_extensions/reports/01_teammate-a-findings.md)
+  - [01_teammate-b-findings.md](033_improve_docs_core_system_extensions/reports/01_teammate-b-findings.md)
+  - [01_teammate-c-findings.md](033_improve_docs_core_system_extensions/reports/01_teammate-c-findings.md)
+  - [01_teammate-d-findings.md](033_improve_docs_core_system_extensions/reports/01_teammate-d-findings.md)
+  - [01_team-research.md](033_improve_docs_core_system_extensions/reports/01_team-research.md)
 
 **Description**: Improve README.md and supporting documentation to better present the Claude Code core system and the extensions used to augment it for writing grants, developing epi studies, building presentation slides, and other utilities. Documentation should highlight the range of commands the .claude/ agent system provides with the task management workflow system at the core
 
