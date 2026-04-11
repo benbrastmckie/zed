@@ -1,0 +1,28 @@
+{
+  "_schema_version": "1.0.0",
+  "_comment": "Review state tracking",
+  "_last_updated": "2026-04-11T01:19:11Z",
+  "reviews": [
+    {
+      "review_id": "review-20260410",
+      "date": "2026-04-10",
+      "scope": "all",
+      "report_path": "specs/reviews/review-20260410.md",
+      "summary": {
+        "files_reviewed": 15,
+        "critical_issues": 0,
+        "high_issues": 1,
+        "medium_issues": 2,
+        "low_issues": 2
+      },
+      "tasks_created": [],
+      "registries_updated": []
+    }
+  ],
+  "statistics": {
+    "total_reviews": 1,
+    "last_review": "2026-04-10",
+    "total_issues_found": 5,
+    "total_tasks_created": 0
+  }
+}

@@ -9,7 +9,16 @@
       "description": "Create zed/examples/epi-study/ directory that organizes and documents the synthetic RCT study produced by task 20, as a demo for new users to understand how to run the /epi command to create an epi study.",
       "created": "2026-04-11T01:15:52Z",
       "last_updated": "2026-04-11T01:20:57Z",
-      "session_id": "sess_1776038900_res022"
+      "session_id": "sess_1776038900_res022",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/022_epi_study_example_demo/reports/01_epi-study-example-demo.md",
+          "type": "research",
+          "summary": "Research report with /epi Stage 0 flow, task-20 artifact inventory + disposition matrix, recommended zed/examples/epi-study/ layout, README outline, prerequisites, risks, and 8 open questions for the planning phase."
+        }
+      ],
+      "researched": "2026-04-11T01:25:00Z"
     },
     {
       "project_number": 21,
