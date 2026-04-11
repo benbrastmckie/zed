@@ -190,7 +190,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: Primary and Secondary Analyses (R) [NOT STARTED]
+### Phase 5: Primary and Secondary Analyses (R) [COMPLETED]
 
 **Goal**: Execute the pre-specified primary logistic regression plus secondary Cox and linear models; produce a baseline Table 1.
 
