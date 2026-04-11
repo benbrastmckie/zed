@@ -36,10 +36,10 @@
     {
       "project_number": 19,
       "project_name": "python_and_r_setup_guides",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "markdown",
       "created": "2026-04-11T00:35:45Z",
-      "last_updated": "2026-04-11T00:49:03Z",
+      "last_updated": "2026-04-11T00:54:06Z",
       "session_id": "sess_1775868517_2dfaf1",
       "next_artifact_number": 2,
       "artifacts": [
@@ -52,8 +52,15 @@
           "path": "specs/019_python_and_r_setup_guides/plans/01_python-r-setup.md",
           "type": "plan",
           "summary": "4-phase implementation plan for Python and R setup guides with 2.5 hours estimated effort"
+        },
+        {
+          "path": "specs/019_python_and_r_setup_guides/summaries/01_python-r-setup-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for Python and R setup guides"
         }
-      ]
+      ],
+      "completed": "2026-04-11T00:54:06Z",
+      "completion_summary": "Created docs/general/python.md and docs/general/R.md with complete macOS setup instructions for Python (Homebrew + uv + ruff) and R (Homebrew + in-console install.packages for languageserver/lintr/styler), plus updated installation.md with links to both guides."
     },
     {
       "project_number": 18,

@@ -1,7 +1,7 @@
 # Implementation Plan: Python and R Setup Guides
 
 - **Task**: 19 - Create Python and R setup guides for macOS
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 2.5 hours
 - **Dependencies**: Task 15 (installation.md improvements, completed)
 - **Research Inputs**: specs/019_python_and_r_setup_guides/reports/01_python-r-setup.md
@@ -125,7 +125,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Update installation.md with links [NOT STARTED]
+### Phase 3: Update installation.md with links [COMPLETED]
 
 **Goal**: Add references to the new language guides in installation.md.
 
@@ -148,7 +148,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Final review and consistency check [NOT STARTED]
+### Phase 4: Final review and consistency check [COMPLETED]
 
 **Goal**: Verify all three files are consistent in tone, structure, and cross-references.
 
