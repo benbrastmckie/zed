@@ -1,0 +1,16 @@
+{
+  "status": "researched",
+  "session_id": "sess_1775869065_6b00e6",
+  "agent_type": "general-research-agent",
+  "delegation_path": ["orchestrator", "research", "general-research-agent"],
+  "artifacts": [
+    {
+      "path": "specs/021_update_docs_r_python_zed/reports/01_update-docs-r-python-zed.md",
+      "type": "research",
+      "summary": "Identifies that README.md, docs/README.md, docs/general/README.md, docs/general/R.md, docs/general/python.md, docs/workflows/README.md, and docs/agent-system/README.md need reframing from macOS/epidemiology focus to R+Python+Claude Code in Zed, with dual-platform (Linux+macOS) notes and cross-links to the existing R.md and python.md language guides."
+    }
+  ],
+  "findings_count": 7,
+  "summary": "Research report written: 7 user-facing doc files need reframing from macOS/epidemiology to R/Python with Claude Code in Zed; R.md and python.md already exist but are orphaned from top-level navigation; platform framing conflicts with settings.json NixOS Linux declaration.",
+  "next_steps": "Run /plan 21 to create implementation plan"
+}

@@ -4,17 +4,26 @@
     {
       "project_number": 21,
       "project_name": "update_docs_r_python_zed",
-      "status": "researching",
+      "status": "researched",
       "task_type": "markdown",
       "description": "Update /home/benjamin/.config/zed/README.md and the other documentation in /home/benjamin/.config/zed/docs/README.md and /home/benjamin/.config/zed/docs/ to reflect that this is a configuration for working in R and Python with Claude Code in the Zed IDE.",
       "created": "2026-04-11T00:57:02Z",
-      "last_updated": "2026-04-11T00:57:45Z",
-      "session_id": "sess_1775869065_6b00e6"
+      "last_updated": "2026-04-11T01:05:00Z",
+      "session_id": "sess_1775869065_6b00e6",
+      "researched": "2026-04-11T01:05:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/021_update_docs_r_python_zed/reports/01_update-docs-r-python-zed.md",
+          "type": "report",
+          "summary": "Identifies 7 user-facing doc files needing reframing from macOS/epidemiology focus to R/Python + Claude Code in Zed, with dual-platform notes and cross-links to existing R.md and python.md language guides."
+        }
+      ]
     },
     {
       "project_number": 20,
       "project_name": "test_epi_rct_ketamine_meth",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "epi:study",
       "description": "Simple test RCT study on fake generated data to verify R and Python are configured correctly in Zed and identify configuration shortcomings.",
       "forcing_data": {
@@ -31,8 +40,8 @@
         "gathered_at": "2026-04-11T00:45:53Z"
       },
       "created": "2026-04-11T00:45:53Z",
-      "last_updated": "2026-04-11T00:57:47Z",
-      "session_id": "sess_1775868879_c5ed23",
+      "last_updated": "2026-04-11T00:59:25Z",
+      "session_id": "sess_1776038400_imp020",
       "next_artifact_number": 2,
       "artifacts": [
         {

@@ -8,14 +8,15 @@ next_project_number: 22
 
 ### 21. Update README and docs to reflect R/Python + Claude Code + Zed IDE configuration
 - **Effort**: TBD
-- **Status**: [RESEARCHING]
+- **Status**: [RESEARCHED]
 - **Task Type**: markdown
+- **Research**: [01_update-docs-r-python-zed.md](021_update_docs_r_python_zed/reports/01_update-docs-r-python-zed.md)
 
 **Description**: Update /home/benjamin/.config/zed/README.md and the other documentation in /home/benjamin/.config/zed/docs/README.md and /home/benjamin/.config/zed/docs/ to reflect that this is a configuration for working in R and Python with Claude Code in the Zed IDE.
 
 ### 20. Test epi RCT study: ketamine-assisted therapy for methamphetamine use disorder
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: epi:study
 - **Research**: [01_epi-research.md](020_test_epi_rct_ketamine_meth/reports/01_epi-research.md)
 - **Plan**: [01_epi-rct-test-study.md](020_test_epi_rct_ketamine_meth/plans/01_epi-rct-test-study.md)
