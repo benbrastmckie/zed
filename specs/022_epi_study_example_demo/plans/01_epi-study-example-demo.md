@@ -1,7 +1,7 @@
 # Implementation Plan: Task #22
 
 - **Task**: 22 - epi_study_example_demo
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 3-4 hours
 - **Dependencies**: None (reads from task 20 artifacts)
 - **Research Inputs**: specs/022_epi_study_example_demo/reports/01_epi-study-example-demo.md
@@ -157,7 +157,7 @@ phases can populate it.
 
 ---
 
-### Phase 2: Copy and Adapt Task 20 Artifacts [IN PROGRESS]
+### Phase 2: Copy and Adapt Task 20 Artifacts [COMPLETED]
 
 **Goal**: Populate the demo with scripts, data, logs, and the CONSORT
 report from task 20, with path-portability and seed-hygiene fixes
@@ -232,7 +232,7 @@ applied.
 
 ---
 
-### Phase 3: Write README.md Walkthrough [NOT STARTED]
+### Phase 3: Write README.md Walkthrough [COMPLETED]
 
 **Goal**: Author the primary newcomer-facing `README.md` following the
 outline in Finding 5 of the research report.
@@ -271,7 +271,7 @@ outline in Finding 5 of the research report.
 
 ---
 
-### Phase 4: Write EPI_ANSWERS.md Stage 0 Transcript [NOT STARTED]
+### Phase 4: Write EPI_ANSWERS.md Stage 0 Transcript [COMPLETED]
 
 **Goal**: Provide a literal transcript of the 10 Stage 0 forcing
 answers used to create task 20, formatted for readability plus a JSON
@@ -308,7 +308,7 @@ appendix.
 
 ---
 
-### Phase 5: Provenance and Cross-References [NOT STARTED]
+### Phase 5: Provenance and Cross-References [COMPLETED]
 
 **Goal**: Ensure the demo has clear, unambiguous pointers back to task
 20 without duplicating its research/plan/summary.
@@ -342,7 +342,7 @@ appendix.
 
 ---
 
-### Phase 6: Verification and Reproduction [NOT STARTED]
+### Phase 6: Verification and Reproduction [COMPLETED]
 
 **Goal**: Prove the demo actually runs end-to-end from a fresh cwd
 using only the files inside `zed/examples/epi-study/`.

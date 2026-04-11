@@ -1,0 +1,45 @@
+Reproduction Check -- zed/examples/epi-study
+=============================================
+Date:           2026-04-10
+Task:           22 (epi_study_example_demo)
+Python:         3.12.13
+R:              4.5.3 (2026-03-11) "Reassured Reassurer"
+Host:           NixOS
+Seeds:          numpy 20260410 / set.seed(20260410)
+
+Procedure
+---------
+From this directory as cwd:
+  python scripts/00_check_env.py       -> OK (scipy/sklearn/statsmodels missing)
+  Rscript scripts/00_check_env.R       -> OK (0/13 optional packages; base R only)
+  python scripts/01_generate_data.py   -> OK
+  Rscript scripts/02_generate_outcomes.R -> OK
+  python scripts/03_merge_data.py      -> OK
+  Rscript scripts/04_primary_analysis.R -> OK (models saved to data/derived/models/)
+  Rscript scripts/05_sensitivity.R     -> OK
+
+Determinism Check
+-----------------
+Regenerated artifacts compared against committed snapshots via `diff`:
+
+  data/raw/participants.csv         IDENTICAL
+  data/raw/outcomes.csv             IDENTICAL
+  data/raw/adverse_events.csv       IDENTICAL
+  data/derived/analytic.csv         IDENTICAL
+  reports/tables/primary_results.txt IDENTICAL
+
+Headline Result
+---------------
+KAT vs TAU adjusted odds ratio for 12-week abstinence:
+  OR     = 3.287
+  95% CI = 1.570 -- 6.885
+  p      = 0.00161
+
+Matches the task 20 snapshot to machine precision.
+
+Notes
+-----
+Phase 6 had to create an empty `data/derived/models/` directory because
+04_primary_analysis.R uses saveRDS() with a hard-coded path. This is
+the only manual fixup required for a fresh-checkout reproduction.
+The models/*.rds files are NOT committed (regenerable, binary).

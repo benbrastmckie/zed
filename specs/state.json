@@ -17,45 +17,46 @@
     {
       "project_number": 27,
       "project_name": "fix_task20_env_gaps",
-      "status": "not_started",
+      "status": "researching",
       "task_type": "nix",
       "description": "Fix the environment gaps documented in task 20's config_gaps.md (tidyverse, survival, quarto, etc.).",
       "parent_task": 20,
       "created": "2026-04-11T01:31:34Z",
-      "last_updated": "2026-04-11T01:31:34Z"
+      "last_updated": "2026-04-11T01:35:55Z",
+      "session_id": "sess_1775871346_f93e91"
     },
     {
       "project_number": 26,
       "project_name": "remove_redundant_pane_nav_in_editor_context",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "general",
       "priority": "low",
       "description": "Remove the redundant ctrl-h / ctrl-l pane navigation bindings from the Editor context block in keymap.json:35-36 (already covered by the Workspace context block at L14-15), or add a comment explaining why they are duplicated.",
       "created": "2026-04-11T01:21:49Z",
-      "last_updated": "2026-04-11T01:30:19Z",
-      "session_id": "sess_1744257600_b7c4d2"
+      "last_updated": "2026-04-11T01:35:12Z",
+      "session_id": "sess_1744257700_e8f3a1"
     },
     {
       "project_number": 25,
       "project_name": "fix_keymap_default_reference_comment",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "markdown",
       "priority": "medium",
       "description": "Rewrite the default-reference comment block in keymap.json (lines 46-116) to use Cmd+ modifiers for macOS defaults instead of Ctrl+, except for the four intentional Ctrl+ custom bindings. Consider folding into task 21 if scope allows.",
       "created": "2026-04-11T01:21:49Z",
-      "last_updated": "2026-04-11T01:30:19Z",
-      "session_id": "sess_1744257600_b7c4d2"
+      "last_updated": "2026-04-11T01:37:21Z",
+      "session_id": "sess_1744257700_e8f3a1"
     },
     {
       "project_number": 24,
       "project_name": "untrack_tts_log_files",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "general",
       "priority": "medium",
       "description": "Run git rm --cached on specs/tmp/claude-tts-last-notify and specs/tmp/claude-tts-notify.log, then add an entry to .gitignore so the Claude Code TTS notification hook stops dirtying the working tree on every run.",
       "created": "2026-04-11T01:21:49Z",
-      "last_updated": "2026-04-11T01:30:19Z",
-      "session_id": "sess_1744257600_b7c4d2"
+      "last_updated": "2026-04-11T01:35:12Z",
+      "session_id": "sess_1744257700_e8f3a1"
     },
     {
       "project_number": 23,
@@ -93,11 +94,11 @@
     {
       "project_number": 22,
       "project_name": "epi_study_example_demo",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "general",
       "description": "Create zed/examples/epi-study/ directory that organizes and documents the synthetic RCT study produced by task 20, as a demo for new users to understand how to run the /epi command to create an epi study.",
       "created": "2026-04-11T01:15:52Z",
-      "last_updated": "2026-04-11T01:33:01Z",
+      "last_updated": "2026-04-11T01:38:44Z",
       "session_id": "sess_1776040000_imp022",
       "next_artifact_number": 2,
       "artifacts": [
@@ -110,6 +111,11 @@
           "path": "specs/022_epi_study_example_demo/plans/01_epi-study-example-demo.md",
           "type": "plan",
           "summary": "6-phase plan to create zed/examples/epi-study/ as a frozen, reproducible demo of the task 20 synthetic KAT vs TAU RCT, with newcomer-facing README walkthrough of the /epi -> /research -> /plan -> /implement flow."
+        },
+        {
+          "path": "specs/022_epi_study_example_demo/summaries/01_epi-study-example-demo-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for task 22: created zed/examples/epi-study/ as a deterministic, runnable demo of the /epi workflow with README walkthrough, Stage 0 answer transcript, copied task 20 scripts/data, and reproduction check."
         }
       ],
       "researched": "2026-04-11T01:25:00Z",
@@ -119,7 +125,8 @@
         "complexity": "medium",
         "plan_version": 1
       },
-      "planned": "2026-04-11T01:30:00Z"
+      "planned": "2026-04-11T01:30:00Z",
+      "completion_summary": "Created zed/examples/epi-study/ as a newcomer-facing, byte-deterministic snapshot of task 20's synthetic ketamine-assisted therapy RCT. Ships a runnable Python+base-R pipeline (seeds 20260410), a narrative README walkthrough of the /epi -> /research -> /plan -> /implement flow, literal Stage 0 answers in EPI_ANSWERS.md, CONSORT report with CC0 banner, and a reproduction check proving byte-identical regeneration (primary OR = 3.29, 95% CI 1.57-6.89)."
     },
     {
       "project_number": 21,

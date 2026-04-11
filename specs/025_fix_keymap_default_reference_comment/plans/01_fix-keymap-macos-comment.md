@@ -1,7 +1,7 @@
 # Implementation Plan: Task #25
 
 - **Task**: 25 - Fix keymap.json default-reference comment for macOS
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 0.5 hours
 - **Dependencies**: None
 - **Research Inputs**: None (review-generated task, no research report)
@@ -57,7 +57,7 @@ No ROADMAP.md found in specs/. This task advances the broader post-task-21 clean
 |------|--------|------------|
 | 1    | 1      | --         |
 
-### Phase 1: Rewrite default-reference comment block for macOS [NOT STARTED]
+### Phase 1: Rewrite default-reference comment block for macOS [IN PROGRESS]
 
 **Goal**: Replace `Ctrl+` with `Cmd+` in the ZED DEFAULT REFERENCE comment block for all Zed macOS defaults, while preserving `Ctrl+` annotations for intentional custom bindings.
 

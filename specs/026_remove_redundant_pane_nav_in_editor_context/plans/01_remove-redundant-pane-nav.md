@@ -1,7 +1,7 @@
 # Implementation Plan: Task #26
 
 - **Task**: 26 - Remove redundant ctrl-h/ctrl-l in Editor context of keymap.json
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 0.1 hours
 - **Dependencies**: None
 - **Research Inputs**: None (review-generated task)
@@ -55,7 +55,7 @@ No ROADMAP.md consulted for this minimal cleanup task.
 |------|--------|------------|
 | 1 | 1 | -- |
 
-### Phase 1: Remove redundant bindings [NOT STARTED]
+### Phase 1: Remove redundant bindings [COMPLETED]
 
 **Goal**: Delete the two redundant lines from the Editor context block in `keymap.json`.
 

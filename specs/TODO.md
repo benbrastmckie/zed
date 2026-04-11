@@ -17,7 +17,7 @@ next_project_number: 29
 
 ### 27. Fix the environment gaps documented in task 20's config_gaps.md
 - **Effort**: TBD
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHING]
 - **Task Type**: nix
 - **Parent Task**: 20
 
@@ -25,7 +25,7 @@ next_project_number: 29
 
 ### 26. Remove redundant ctrl-h/ctrl-l in Editor context of keymap.json
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: general
 - **Priority**: low
 - **Source**: review-20260410
@@ -34,7 +34,7 @@ next_project_number: 29
 
 ### 25. Fix keymap.json default-reference comment for macOS
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: markdown
 - **Priority**: medium
 - **Source**: review-20260410
@@ -43,7 +43,7 @@ next_project_number: 29
 
 ### 24. Untrack Claude Code TTS log files from git
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: general
 - **Priority**: medium
 - **Source**: review-20260410
@@ -65,10 +65,11 @@ next_project_number: 29
 
 ### 22. Create epi study example demo in zed/examples/epi-study/
 - **Effort**: TBD
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Task Type**: general
 - **Research**: [01_epi-study-example-demo.md](022_epi_study_example_demo/reports/01_epi-study-example-demo.md)
 - **Plan**: [01_epi-study-example-demo.md](022_epi_study_example_demo/plans/01_epi-study-example-demo.md)
+- **Summary**: [01_epi-study-example-demo-summary.md](022_epi_study_example_demo/summaries/01_epi-study-example-demo-summary.md)
 
 **Description**: Create zed/examples/epi-study/ directory that organizes and documents the synthetic RCT study produced by task 20, as a demo for new users to understand how to run the /epi command to create an epi study.
 

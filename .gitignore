@@ -1,0 +1,7 @@
+# Claude Code TTS notification hook scratch files
+# The hook rewrites these on every invocation; they should not be tracked.
+specs/tmp/claude-tts-last-notify
+specs/tmp/claude-tts-notify.log
+
+# Broader scratch directory (nothing else here is tracked)
+specs/tmp/

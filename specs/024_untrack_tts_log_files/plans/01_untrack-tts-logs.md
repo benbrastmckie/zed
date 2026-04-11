@@ -1,7 +1,7 @@
 # Implementation Plan: Task #24
 
 - **Task**: 24 - Untrack Claude Code TTS log files from git
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 0.25 hours
 - **Dependencies**: None
 - **Research Inputs**: None (review-generated task)
@@ -53,7 +53,7 @@ No ROADMAP.md consultation required for this maintenance task.
 |------|--------|------------|
 | 1 | 1 | -- |
 
-### Phase 1: Untrack TTS scratch files and update .gitignore [NOT STARTED]
+### Phase 1: Untrack TTS scratch files and update .gitignore [COMPLETED]
 
 **Goal**: Remove the two TTS hook scratch files from git's index and add a `.gitignore` entry so they stay ignored going forward.
 

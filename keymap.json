@@ -2,10 +2,18 @@
   // =====================================================
   // CUSTOM BINDINGS (Scheme A -- Minimal)
   // =====================================================
-  // 8 custom bindings: 4 pane navigation + 2 line movers + 1 utility + 1 Claude Code
+  // 7 unique custom bindings (8 entries; Claude Code launcher
+  // is bound in both Workspace and Terminal contexts):
+  //   - 2 pane navigation (Ctrl+H, Ctrl+L)
+  //   - 2 line movers (Alt+J, Alt+K)
+  //   - 1 dock toggle (Ctrl+?)
+  //   - 1 Claude Code launcher (Ctrl+Shift+A, in 2 contexts)
+  //   - 1 copy path utility (Ctrl+Shift+C)
   //
-  // Note: Ctrl+K is also Zed's chord prefix. If Ctrl+K
-  // as pane-up causes issues, remap to Ctrl+Alt+Up.
+  // All custom bindings intentionally use Ctrl+ (not Cmd+) on
+  // macOS so they do not collide with Zed's built-in Cmd+
+  // shortcuts. See ZED DEFAULT REFERENCE below for the macOS
+  // defaults this config leaves intact.
 
   // Pane navigation (move focus between split panes)
   {
@@ -32,85 +40,95 @@
     "bindings": {
       "alt-j": "editor::MoveLineDown",
       "alt-k": "editor::MoveLineUp",
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-shift-c": "editor::CopyPath"
     }
   }
 
   // =====================================================
-  // ZED DEFAULT REFERENCE
+  // ZED DEFAULT REFERENCE (macOS)
   // =====================================================
-  // These are built-in Zed shortcuts -- no config needed.
-  // Listed here for quick reference.
+  // These are built-in Zed shortcuts on macOS -- no config
+  // needed. Listed here for quick reference. Entries marked
+  // (custom) are NOT Zed defaults; they are rebindings from
+  // the CUSTOM BINDINGS block above and are listed here so
+  // the exception is visible alongside the default table.
+  // Entries marked (verify) are best-guess macOS defaults
+  // that should be confirmed against Zed's keymap docs
+  // before relying on them.
   //
   // --- File Operations ---
-  // Ctrl+P           Open file by name (file finder)
-  // Ctrl+S           Save file
-  // Ctrl+Shift+S     Save all files
-  // Ctrl+N           New file
-  // Ctrl+W           Close active tab
-  // Ctrl+Shift+T     Reopen closed tab
+  // Cmd+P             Open file by name (file finder)
+  // Cmd+S             Save file
+  // Cmd+Shift+S       Save all files (verify)
+  // Cmd+N             New file
+  // Cmd+W             Close active tab
+  // Cmd+Shift+T       Reopen closed tab
   //
   // --- Navigation ---
-  // Ctrl+Tab         Next tab
-  // Ctrl+Shift+Tab   Previous tab
-  // Ctrl+G           Go to line number
-  // Ctrl+Shift+O     Go to symbol in file
-  // F12              Go to definition
-  // Alt+Left         Go back (previous location)
-  // Alt+Right        Go forward (next location)
+  // Ctrl+Tab          Next tab (platform-agnostic in Zed)
+  // Ctrl+Shift+Tab    Previous tab (platform-agnostic in Zed)
+  // Ctrl+G            Go to line number
+  // Cmd+Shift+O       Go to symbol in file
+  // F12               Go to definition
+  // Ctrl+-            Go back (previous location) (verify)
+  // Ctrl+Shift+-      Go forward (next location) (verify)
   //
   // --- Panels & Sidebars ---
-  // Ctrl+B           Toggle left sidebar
-  // Ctrl+Shift+E     File explorer (project panel)
-  // Ctrl+Shift+G     Git panel
-  // Ctrl+`           Toggle terminal
-  // Ctrl+Shift+M     Problems panel
+  // Cmd+B             Toggle left sidebar
+  // Cmd+Shift+E       File explorer (project panel)
+  // Cmd+Shift+G       Git panel (verify)
+  // Ctrl+`            Toggle terminal (Ctrl+ on macOS too)
+  // Cmd+Shift+M       Problems panel (verify)
   //
   // --- Search ---
-  // Ctrl+F           Find in file
-  // Ctrl+H           Find and replace in file
-  // Ctrl+Shift+F     Search across all files
-  // Ctrl+Shift+H     Replace across all files
+  // Cmd+F             Find in file
+  // Cmd+Alt+F         Find and replace in file (verify)
+  // Cmd+Shift+F       Search across all files
+  // Cmd+Shift+H       Replace across all files (verify)
   //
   // --- Agent / AI ---
-  // Ctrl+Shift+A     Launch Claude Code CLI (terminal task)
-  // Ctrl+?           Toggle agent panel
-  // Ctrl+N           New conversation (in agent panel)
-  // Ctrl+Enter       Send message (in agent panel)
-  // Ctrl+;           Toggle inline assist
+  // Ctrl+Shift+A      Launch Claude Code CLI (custom; terminal task)
+  // Ctrl+?            Toggle right dock (custom; see Workspace bindings)
+  // Cmd+?             Toggle agent panel (verify)
+  // Cmd+N             New conversation (in agent panel) (verify)
+  // Cmd+Enter         Send message (in agent panel) (verify)
+  // Cmd+;             Toggle inline assist (verify)
   //
   // --- Editing ---
-  // Ctrl+Z           Undo
-  // Ctrl+Y           Redo
-  // Ctrl+C           Copy
-  // Ctrl+X           Cut
-  // Ctrl+V           Paste
-  // Ctrl+D           Select next occurrence
-  // Ctrl+Shift+K     Delete line
-  // Ctrl+/           Toggle comment
-  // Ctrl+]           Indent line
-  // Ctrl+[           Outdent line
-  // Ctrl+Shift+Up    Add cursor above
-  // Ctrl+Shift+Down  Add cursor below
+  // Cmd+Z             Undo
+  // Cmd+Shift+Z       Redo
+  // Cmd+C             Copy
+  // Cmd+X             Cut
+  // Cmd+V             Paste
+  // Cmd+D             Select next occurrence
+  // Ctrl+Shift+K      Delete line (verify; may be Cmd+Shift+K)
+  // Cmd+/             Toggle comment
+  // Cmd+]             Indent line
+  // Cmd+[             Outdent line
+  // Cmd+Alt+Up        Add cursor above (verify)
+  // Cmd+Alt+Down      Add cursor below (verify)
+  // Ctrl+Shift+C      Copy path (custom; see Editor bindings)
   //
   // --- Code Actions ---
-  // Ctrl+.           Quick fix / code actions
-  // F2               Rename symbol
-  // Ctrl+Space       Trigger autocomplete
-  // Ctrl+Shift+I     Format document
+  // Cmd+.             Quick fix / code actions
+  // F2                Rename symbol
+  // Ctrl+Space        Trigger autocomplete
+  // Cmd+Shift+I       Format document (verify)
+  //
+  // --- Pane Navigation ---
+  // Ctrl+H            ActivatePaneLeft (custom; see Workspace bindings)
+  // Ctrl+L            ActivatePaneRight (custom; see Workspace bindings)
   //
   // --- Git ---
-  // Alt+G B          Toggle git blame
+  // Alt+G B           Toggle git blame
   //
   // --- Markdown ---
-  // Ctrl+K V         Markdown preview (side-by-side)
-  // Ctrl+Shift+V     Markdown preview (full tab)
+  // Cmd+K V           Markdown preview (side-by-side) (verify)
+  // Cmd+Shift+V       Markdown preview (full tab) (verify)
   //
   // --- Window Management ---
-  // Ctrl+\           Split pane right
-  // Ctrl+Shift+\     Split pane down
-  // Ctrl+Shift+P     Command palette
-  // Ctrl+,           Open settings
+  // Cmd+\             Split pane right (verify)
+  // Cmd+Shift+\       Split pane down (verify)
+  // Cmd+Shift+P       Command palette
+  // Cmd+,             Open settings
 ]

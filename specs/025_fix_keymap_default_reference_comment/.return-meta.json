@@ -1,26 +1,9 @@
 {
-  "status": "planned",
-  "agent_type": "planner-agent",
-  "delegation_path": ["orchestrator", "plan", "planner-agent"],
+  "status": "in_progress",
   "task_number": 25,
-  "artifact_number": 1,
-  "session_id": "sess_planner_025",
-  "started_at": "2026-04-10T00:00:00Z",
-  "completed_at": "2026-04-10T00:00:00Z",
-  "artifacts": [
-    {
-      "path": "specs/025_fix_keymap_default_reference_comment/plans/01_fix-keymap-macos-comment.md",
-      "type": "plan",
-      "summary": "Single-phase plan to rewrite keymap.json default-reference comment block (lines 41-115) from Ctrl+ to Cmd+ for macOS, preserving the four intentional custom Ctrl+ bindings with (custom) annotations."
-    }
-  ],
-  "phase_count": 1,
-  "estimated_hours": 0.5,
-  "dependency_waves": [[1]],
-  "prior_plan_consulted": false,
-  "research_consulted": false,
-  "roadmap_consulted": false,
-  "fold_into_task_21": false,
-  "fold_rationale": "Task 21 is already [COMPLETED] per state.json; folding is not viable. Task 25 proceeds standalone.",
-  "next_steps": "Run /implement 25 to execute the plan"
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+  "session_id": "sess_1744257700_e8f3a1",
+  "phases_completed": 0,
+  "phases_total": 1
 }
