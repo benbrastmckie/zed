@@ -17,15 +17,16 @@ next_project_number: 29
 
 ### 27. Fix the environment gaps documented in task 20's config_gaps.md
 - **Effort**: TBD
-- **Status**: [RESEARCHING]
+- **Status**: [RESEARCHED]
 - **Task Type**: nix
 - **Parent Task**: 20
+- **Research**: [01_fix-env-gaps.md](027_fix_task20_env_gaps/reports/01_fix-env-gaps.md)
 
 **Description**: Fix the environment gaps documented in task 20's config_gaps.md (tidyverse, survival, quarto, etc.).
 
 ### 26. Remove redundant ctrl-h/ctrl-l in Editor context of keymap.json
 - **Effort**: TBD
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Task Type**: general
 - **Priority**: low
 - **Source**: review-20260410
@@ -34,7 +35,7 @@ next_project_number: 29
 
 ### 25. Fix keymap.json default-reference comment for macOS
 - **Effort**: TBD
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Task Type**: markdown
 - **Priority**: medium
 - **Source**: review-20260410
@@ -43,7 +44,7 @@ next_project_number: 29
 
 ### 24. Untrack Claude Code TTS log files from git
 - **Effort**: TBD
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Task Type**: general
 - **Priority**: medium
 - **Source**: review-20260410

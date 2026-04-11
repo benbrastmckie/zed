@@ -17,45 +17,53 @@
     {
       "project_number": 27,
       "project_name": "fix_task20_env_gaps",
-      "status": "researching",
+      "status": "researched",
       "task_type": "nix",
       "description": "Fix the environment gaps documented in task 20's config_gaps.md (tidyverse, survival, quarto, etc.).",
       "parent_task": 20,
       "created": "2026-04-11T01:31:34Z",
-      "last_updated": "2026-04-11T01:35:55Z",
-      "session_id": "sess_1775871346_f93e91"
+      "last_updated": "2026-04-11T01:40:56Z",
+      "session_id": "sess_1775871346_f93e91",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/027_fix_task20_env_gaps/reports/01_fix-env-gaps.md",
+          "type": "research",
+          "summary": "Nix remediation plan for R/Python/Quarto gaps from task 20's config_gaps.md"
+        }
+      ]
     },
     {
       "project_number": 26,
       "project_name": "remove_redundant_pane_nav_in_editor_context",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "general",
       "priority": "low",
       "description": "Remove the redundant ctrl-h / ctrl-l pane navigation bindings from the Editor context block in keymap.json:35-36 (already covered by the Workspace context block at L14-15), or add a comment explaining why they are duplicated.",
       "created": "2026-04-11T01:21:49Z",
-      "last_updated": "2026-04-11T01:35:12Z",
+      "last_updated": "2026-04-11T01:40:17Z",
       "session_id": "sess_1744257700_e8f3a1"
     },
     {
       "project_number": 25,
       "project_name": "fix_keymap_default_reference_comment",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "markdown",
       "priority": "medium",
       "description": "Rewrite the default-reference comment block in keymap.json (lines 46-116) to use Cmd+ modifiers for macOS defaults instead of Ctrl+, except for the four intentional Ctrl+ custom bindings. Consider folding into task 21 if scope allows.",
       "created": "2026-04-11T01:21:49Z",
-      "last_updated": "2026-04-11T01:37:21Z",
+      "last_updated": "2026-04-11T01:40:16Z",
       "session_id": "sess_1744257700_e8f3a1"
     },
     {
       "project_number": 24,
       "project_name": "untrack_tts_log_files",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "general",
       "priority": "medium",
       "description": "Run git rm --cached on specs/tmp/claude-tts-last-notify and specs/tmp/claude-tts-notify.log, then add an entry to .gitignore so the Claude Code TTS notification hook stops dirtying the working tree on every run.",
       "created": "2026-04-11T01:21:49Z",
-      "last_updated": "2026-04-11T01:35:12Z",
+      "last_updated": "2026-04-11T01:40:16Z",
       "session_id": "sess_1744257700_e8f3a1"
     },
     {

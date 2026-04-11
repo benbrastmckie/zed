@@ -1,9 +1,18 @@
 {
-  "status": "in_progress",
+  "status": "implemented",
   "task_number": 25,
   "agent_type": "general-implementation-agent",
   "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
   "session_id": "sess_1744257700_e8f3a1",
-  "phases_completed": 0,
-  "phases_total": 1
+  "phases_completed": 1,
+  "phases_total": 1,
+  "artifacts": {
+    "summary": "specs/025_fix_keymap_default_reference_comment/summaries/01_fix-keymap-macos-comment-summary.md",
+    "plan": "specs/025_fix_keymap_default_reference_comment/plans/01_fix-keymap-macos-comment.md",
+    "modified_files": ["keymap.json"]
+  },
+  "completion_data": {
+    "completion_summary": "Rewrote keymap.json default-reference comment block to use Cmd+ for Zed macOS defaults, annotated 5 intentional custom Ctrl+ bindings with (custom), marked uncertain entries (verify), and updated the stale CUSTOM BINDINGS header to accurately reflect 7 unique bindings across 8 entries after task 26.",
+    "roadmap_items": []
+  }
 }

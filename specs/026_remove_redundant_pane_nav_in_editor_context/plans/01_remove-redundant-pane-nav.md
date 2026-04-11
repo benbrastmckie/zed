@@ -1,7 +1,7 @@
 # Implementation Plan: Task #26
 
 - **Task**: 26 - Remove redundant ctrl-h/ctrl-l in Editor context of keymap.json
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 0.1 hours
 - **Dependencies**: None
 - **Research Inputs**: None (review-generated task)
