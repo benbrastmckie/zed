@@ -4,7 +4,7 @@
     {
       "project_number": 20,
       "project_name": "test_epi_rct_ketamine_meth",
-      "status": "researching",
+      "status": "researched",
       "task_type": "epi:study",
       "description": "Simple test RCT study on fake generated data to verify R and Python are configured correctly in Zed and identify configuration shortcomings.",
       "forcing_data": {
@@ -21,10 +21,17 @@
         "gathered_at": "2026-04-11T00:45:53Z"
       },
       "created": "2026-04-11T00:45:53Z",
-      "last_updated": "2026-04-11T00:48:13Z",
+      "last_updated": "2026-04-11T00:53:18Z",
       "session_id": "sess_1775868473_21022e",
-      "next_artifact_number": 1,
-      "artifacts": []
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/020_test_epi_rct_ketamine_meth/reports/01_epi-research.md",
+          "type": "report",
+          "summary": "Study design report for test RCT: ketamine-assisted therapy for methamphetamine use disorder with synthetic data generation plan and Zed configuration assessment"
+        }
+      ],
+      "researched": "2026-04-11T00:53:18Z"
     },
     {
       "project_number": 19,

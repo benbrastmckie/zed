@@ -13,6 +13,8 @@ This guide walks through installing Zed, the Claude Code CLI, the `claude-acp` b
 > claude
 > ```
 
+> **Setting up Python or R?** After finishing this guide, see [Python Setup](python.md) or [R Setup](R.md) for language-specific install instructions (interpreters, linters, formatters, and LSP).
+
 ## Before you begin
 
 You will run every command in this guide inside a program called **Terminal**. To open it, press **Cmd+Space** to open Spotlight, type **Terminal**, and press Enter. (You can also find Terminal in Applications > Utilities.)
@@ -298,6 +300,8 @@ If any step fails, see [Troubleshooting in the agent panel doc](../agent-system/
 
 ## See also
 
+- [python.md](python.md) — Python setup guide for macOS (interpreter, uv, ruff, Zed configuration)
+- [R.md](R.md) — R setup guide for macOS (interpreter, languageserver, lintr, styler, Zed configuration)
 - [settings.md](settings.md#agent_servers) — `agent_servers` configuration reference
 - [../agent-system/zed-agent-panel.md](../agent-system/zed-agent-panel.md) — How the Agent Panel and claude-acp bridge work at runtime
 - [../../.claude/docs/guides/user-installation.md](../../.claude/docs/guides/user-installation.md) — Quick-start reference for the Claude Code framework itself
