@@ -62,7 +62,7 @@ End-to-end usage narratives for working with this Zed configuration on macOS. Ea
 | Change values in an .xlsx file | [edit-spreadsheets.md](edit-spreadsheets.md) |
 | Turn a PDF into Markdown (or back) | [convert-documents.md](convert-documents.md#convert--documents-between-formats) |
 | Pull a table out of a spreadsheet as LaTeX/Typst | [convert-documents.md](convert-documents.md#table--spreadsheets-to-formatted-tables) |
-| Convert a PowerPoint deck into Beamer/Polylux/Touying | [convert-documents.md](convert-documents.md#slides--presentations-to-source-based-slides) |
+| Convert a PowerPoint deck into Beamer/Polylux/Touying | [convert-documents.md](convert-documents.md#slides--research-talk-creation) |
 | Extract highlights and notes from a PDF | [convert-documents.md](convert-documents.md#scrape--pdf-annotations-to-markdown-or-json) |
 | Pause OneDrive sync before a batch edit | [tips-and-troubleshooting.md](tips-and-troubleshooting.md#onedrive-and-sharepoint-tips) |
 | Grant Zed permission to control Word | [tips-and-troubleshooting.md](tips-and-troubleshooting.md#first-time-macos-permissions-for-word-automation) |
