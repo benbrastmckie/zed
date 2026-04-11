@@ -20,6 +20,11 @@
           "type": "research_report",
           "path": "specs/032_update_docs_from_claude_diff/reports/01_team-research.md",
           "summary": "Team synthesis: 7 files need Python extension reference removal/replacement; all other stale-reference categories already clean"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/032_update_docs_from_claude_diff/reports/01_teammate-d-findings.md",
+          "summary": "Horizons analysis: strategic scope confirmed, lean MCP scripts undocumented, breadcrumb mismatch in docs/README.md, guide examples should use generic placeholder to prevent future drift"
         }
       ]
     },
