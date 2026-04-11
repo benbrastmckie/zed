@@ -1,7 +1,20 @@
 {
-  "status": "in_progress",
-  "agent_type": "general-implementation-agent",
-  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
-  "session_id": "sess_1775865680_7ea64d",
-  "task_number": 14
+  "status": "implemented",
+  "summary": "Completed phases 4-5 of documentation standardization: removed Neovim/NixOS references from .claude/README.md, docs/agent-system/architecture.md, docs/general/settings.md; verified all cross-links, keyboard shortcuts, and stale references across full documentation scope.",
+  "artifacts": [
+    {
+      "path": "specs/014_standardize_docs_and_root_readme/summaries/01_standardize-docs-readme-summary.md",
+      "type": "summary",
+      "summary": "Implementation summary for documentation standardization task"
+    }
+  ],
+  "metadata": {
+    "phases_completed": 5,
+    "phases_total": 5,
+    "session_id": "sess_1775865680_7ea64d"
+  },
+  "completion_data": {
+    "completion_summary": "Standardized all docs/ README files with consistent structure, cross-links, and correct keyboard shortcuts; rewrote root README as Zed + Claude Code for epidemiology/medical research; removed all Neovim and NixOS references from documentation scope.",
+    "claudemd_suggestions": "none"
+  }
 }
