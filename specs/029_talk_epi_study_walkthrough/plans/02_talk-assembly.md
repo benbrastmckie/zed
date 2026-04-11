@@ -249,7 +249,7 @@ expose text snippets (receipts, code samples) under `snippets/`.
 
 ---
 
-### Phase 4: Author Slides 1-7 (Workflow + Methods) [NOT STARTED]
+### Phase 4: Author Slides 1-7 (Workflow + Methods) [COMPLETED]
 
 **Goal**: Write slides 1 through 7 of the deck -- the workflow framing and
 methods/CONSORT setup -- using the slide map from report 02 as the
