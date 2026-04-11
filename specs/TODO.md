@@ -1,10 +1,46 @@
 ---
-next_project_number: 23
+next_project_number: 27
 ---
 
 # Task List
 
 ## Tasks
+
+### 26. Remove redundant ctrl-h/ctrl-l in Editor context of keymap.json
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: general
+- **Priority**: low
+- **Source**: review-20260410
+
+**Description**: Remove the redundant ctrl-h / ctrl-l pane navigation bindings from the Editor context block in keymap.json:35-36 (already covered by the Workspace context block at L14-15), or add a comment explaining why they are duplicated.
+
+### 25. Fix keymap.json default-reference comment for macOS
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: markdown
+- **Priority**: medium
+- **Source**: review-20260410
+
+**Description**: Rewrite the default-reference comment block in keymap.json (lines 46-116) to use Cmd+ modifiers for macOS defaults instead of Ctrl+, except for the four intentional Ctrl+ custom bindings. Consider folding into task 21 if scope allows.
+
+### 24. Untrack Claude Code TTS log files from git
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: general
+- **Priority**: medium
+- **Source**: review-20260410
+
+**Description**: Run `git rm --cached` on specs/tmp/claude-tts-last-notify and specs/tmp/claude-tts-notify.log, then add an entry to .gitignore so the Claude Code TTS notification hook stops dirtying the working tree on every run.
+
+### 23. Update Claude model IDs in settings.json and docs
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: general
+- **Priority**: high
+- **Source**: review-20260410
+
+**Description**: Update outdated Claude model IDs in settings.json (lines 39, 44) and docs/general/settings.md (lines 59, 64) from `claude-sonnet-4-20250514` / `claude-opus-4-20250514` to `claude-sonnet-4-6` / `claude-opus-4-6` so the Zed Agent Panel uses current models.
 
 ### 22. Create epi study example demo in zed/examples/epi-study/
 - **Effort**: TBD
