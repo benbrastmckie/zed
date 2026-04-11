@@ -4,13 +4,20 @@
     {
       "project_number": 34,
       "project_name": "improve_slidev_review_pipeline",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-11T18:45:55Z",
-      "last_updated": "2026-04-11T18:59:01Z",
-      "session_id": "sess_1744400000_team34",
+      "last_updated": "2026-04-11T19:21:41Z",
+      "session_id": "sess_1775935068_54731c",
       "researched": "2026-04-11T18:59:01Z",
-      "next_artifact_number": 2
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/034_improve_slidev_review_pipeline/plans/01_improve-slidev-pipeline.md",
+          "type": "plan",
+          "summary": "4-phase plan to create Slidev template scaffold, update pitfalls doc with 7 issue classes, fix Playwright script bugs, and verify integration"
+        }
+      ]
     },
     {
       "project_number": 33,
