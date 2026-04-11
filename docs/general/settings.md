@@ -76,7 +76,7 @@ This configures Zed's built-in agent panel. The block is named `"agent"` (not `"
 
 The `agent_servers` block configures external agent backends that Zed spawns through the Agent Client Protocol (ACP). This is where the Claude Code thread in the Agent Panel is wired up.
 
-There are two ways to configure `claude-acp`: the **registry** type (recommended default) and the **custom** type (for platforms where the registry version does not work, such as NixOS).
+There are two ways to configure `claude-acp`: the **registry** type (recommended default) and the **custom** type (for non-standard setups where the registry version does not work).
 
 #### Registry config (recommended)
 
@@ -91,20 +91,20 @@ There are two ways to configure `claude-acp`: the **registry** type (recommended
 
 With `"type": "registry"`, Zed downloads and manages the `@zed-industries/claude-agent-acp` bridge for you. This is the right choice on macOS after installing the Claude Code CLI via Homebrew.
 
-#### Custom config (NixOS and other non-standard setups)
+#### Custom config (non-standard setups)
 
 ```jsonc
 "agent_servers": {
   "claude-acp": {
     "type": "custom",
-    "command": "/home/benjamin/.nix-profile/bin/npx",
+    "command": "/usr/local/bin/npx",
     "args": ["@zed-industries/claude-agent-acp", "--serve"],
     "env": {}
   }
 }
 ```
 
-Use `"type": "custom"` when Zed cannot find `npx` on its PATH or when you need to pin a specific bridge binary. Adjust `command` to match your environment (on NixOS, point at the `npx` inside your Nix profile; on other systems, use `which npx` to find the absolute path).
+Use `"type": "custom"` when Zed cannot find `npx` on its PATH or when you need to pin a specific bridge binary. Adjust `command` to match your environment (use `which npx` to find the absolute path).
 
 #### Environment variables
 
