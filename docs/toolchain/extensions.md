@@ -1,5 +1,7 @@
 # Extension Prerequisites
 
+> **This page is a router, not an installer.** It maps each extension to the tools it needs, but the actual install commands live in the group-specific files ([shell-tools.md](shell-tools.md), [python.md](python.md), [r.md](r.md), [typesetting.md](typesetting.md), [mcp-servers.md](mcp-servers.md)) and in the wizard at [`scripts/install/install.sh`](../../scripts/install/). There is no `install-extensions.sh`; the extension-specific extras live in their natural-home scripts (for example, the epidemiology R bundle is under [`install-r.sh`](../../scripts/install/install-r.sh)).
+
 This file is a per-extension quick reference: for each active extension in this repository, what external tools it assumes, and where in `docs/toolchain/` those tools are documented. Use it as an onboarding checklist when you first load an extension, and as a rollback reference when something is not working.
 
 Active extensions (from `.claude/extensions.json`):

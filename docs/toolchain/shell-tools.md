@@ -1,5 +1,18 @@
 # Shell Tools
 
+## Quick install (script)
+
+```
+bash scripts/install/install-shell-tools.sh              # interactive
+bash scripts/install/install-shell-tools.sh --dry-run    # preview only
+bash scripts/install/install-shell-tools.sh --check      # presence report
+bash scripts/install/install-shell-tools.sh --yes        # non-interactive
+```
+
+Installs `jq`, `gh`, `fontconfig`, and optionally GNU `make`. Every action is guarded by a presence check and is safe to re-run. See [`scripts/install/install-shell-tools.sh`](../../scripts/install/install-shell-tools.sh) for the exact invocations. The manual walkthrough below is the source of truth for what the script automates.
+
+## Manual installation (advanced)
+
 The `.claude/` agent system, its hooks, and several commands assume a small set of shell utilities are on PATH. Most are part of a standard Homebrew developer environment; this file documents them for completeness and so a missing utility can be diagnosed quickly.
 
 ## Before you begin

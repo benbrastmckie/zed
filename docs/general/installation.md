@@ -1,5 +1,49 @@
 # Installation
 
+## Installation wizard (recommended)
+
+If you are setting up a new Mac, the fastest path is the interactive installation wizard at `scripts/install/install.sh`. It walks through six groups of installs (base tools, shell utilities, Python, R, typesetting, MCP servers), lets you accept or skip each group, and is safe to re-run — every step is guarded by a presence check.
+
+**Step by step** (for a fresh Mac):
+
+1. Press **Cmd+Space** to open Spotlight, type **Terminal**, and press Enter to open the Terminal app.
+2. Install the Xcode Command Line Tools (provides `git`). A dialog will appear; click **Install** and wait for it to finish:
+
+   ```
+   xcode-select --install
+   ```
+
+3. Clone this repository into your Zed config directory:
+
+   ```
+   git clone <repo-url> ~/.config/zed
+   cd ~/.config/zed
+   ```
+
+4. Run the wizard:
+
+   ```
+   bash scripts/install/install.sh
+   ```
+
+   For each group, press **a** to accept (install it), **s** to skip, or **c** to cancel the wizard. Accepted groups are dispatched in a safe topological order (`base` runs first so Homebrew and git are available for later groups).
+
+**Non-interactive shortcuts**:
+
+- `bash scripts/install/install.sh --dry-run` — preview every action without installing anything.
+- `bash scripts/install/install.sh --check` — health report only (prints which tools are present or missing).
+- `bash scripts/install/install.sh --preset minimal` — base + shell-tools only.
+- `bash scripts/install/install.sh --preset epi-demo` — base + shell-tools + Python + R + typesetting (everything except the extension MCP servers).
+- `bash scripts/install/install.sh --preset writing` — base + shell-tools + typesetting.
+- `bash scripts/install/install.sh --preset everything` — all six groups.
+- `bash scripts/install/install.sh --only base,python --yes` — pick specific groups and auto-accept prompts.
+
+Each group script (`scripts/install/install-<group>.sh`) can also be run directly and supports the same flags. See [docs/toolchain/README.md](../toolchain/README.md) for a per-group breakdown.
+
+If you prefer to install everything by hand, keep reading — the rest of this page is the authoritative manual walkthrough and is the source of truth for what the wizard automates.
+
+## Manual installation (advanced)
+
 This guide walks through installing Zed, the Claude Code CLI, the `claude-acp` bridge that connects them, and the MCP tools used for Word and Excel editing. The target platform is macOS 11 (Big Sur) or newer. All instructions are intended to be accessible.
 
 > **Already comfortable with the terminal?** Here is the full sequence of install commands. Skip any tool you already have, then jump to [Configure claude-acp](#configure-claude-acp).

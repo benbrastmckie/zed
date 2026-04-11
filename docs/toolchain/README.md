@@ -1,5 +1,7 @@
 # Toolchain Reference
 
+> **Quick install**: all dependencies below can be installed non-interactively via the wizard at [`scripts/install/install.sh`](../../scripts/install/) — see [docs/general/installation.md](../general/installation.md#installation-wizard-recommended) for the step-by-step walkthrough. Each per-group script (`install-<group>.sh`) can also be run directly and supports `--dry-run`, `--check`, `--yes`, and `--help`. The sections in this directory remain the authoritative manual walkthrough and are the source of truth for what the wizard automates.
+
 This directory documents every **external dependency** assumed by the active `.claude/` extensions in this repository. It is the single authoritative source for "what do I need to install so that the extensions in this repo actually work."
 
 The parent [docs/general/installation.md](../general/installation.md) covers the base environment (Zed, Claude Code CLI, Homebrew, Node.js, the two MCP tools required by `filetypes`). Everything here is **in addition to** that base install: language runtimes (R, Python), typesetting tools (LaTeX, Typst, Pandoc), additional MCP servers, extension-specific prerequisites, and the small set of shell utilities the agents assume are present.

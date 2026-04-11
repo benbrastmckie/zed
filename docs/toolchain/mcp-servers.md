@@ -1,5 +1,20 @@
 # MCP Server Toolchain
 
+## Quick install (script)
+
+```
+bash scripts/install/install-mcp-servers.sh              # interactive
+bash scripts/install/install-mcp-servers.sh --dry-run    # preview only
+bash scripts/install/install-mcp-servers.sh --check      # presence report
+bash scripts/install/install-mcp-servers.sh --yes        # non-interactive
+```
+
+Registers `rmcp`, `markitdown-mcp`, and `mcp-pandoc` via `claude mcp add --scope user` (all three launch via `uvx`). `superdoc` and `openpyxl` are handled by [`install-base.sh`](../../scripts/install/install-base.sh). `obsidian-memory` is a pointer-only install (Obsidian desktop + plugin setup cannot be automated sensibly) and the script offers to `open` the setup guide.
+
+**Lean MCP is intentionally absent from the script.** The script hard-codes every MCP server by name and never reads this markdown file at runtime — this prevents the pruned Lean MCP entry (see the decision record below) from being silently resurrected by a naive markdown scraper. Every action is guarded by a presence check and is safe to re-run. See [`scripts/install/install-mcp-servers.sh`](../../scripts/install/install-mcp-servers.sh) for the exact invocations. The manual walkthrough below is the source of truth for what the script automates.
+
+## Manual installation (advanced)
+
 This file documents MCP (Model Context Protocol) servers used by the active `.claude/` extensions in this repository, **in addition to** the two MCP servers already covered in [docs/general/installation.md](../general/installation.md#install-mcp-tools): `superdoc` (`@superdoc-dev/mcp`) for Word editing and `openpyxl` (`@jonemo/openpyxl-mcp`) for spreadsheet editing. Those two remain documented in `installation.md` because they are part of the base install; everything below is optional/per-extension.
 
 ## Before you begin

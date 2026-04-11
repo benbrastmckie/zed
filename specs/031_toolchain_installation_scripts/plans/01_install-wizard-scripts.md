@@ -237,7 +237,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: Documentation rewrites [NOT STARTED]
+### Phase 5: Documentation rewrites [COMPLETED]
 
 **Goal**: Rewrite `docs/general/installation.md` with a beginner-friendly wizard lead and prefix every `docs/toolchain/*.md` (except `README.md` and `extensions.md`) with a "Quick install (script)" section, preserving all existing manual content verbatim.
 
