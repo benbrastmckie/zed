@@ -8,21 +8,23 @@ next_project_number: 19
 
 ### 18. Update docs/ documentation to reflect newly loaded Python extension
 - **Effort**: small
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_python-extension-docs.md](018_update_docs_for_python_extension/reports/01_python-extension-docs.md)
 
 **Description**: Update all documentation in docs/ to reflect the Python extension loaded into .claude/. The extension adds python-research-agent, python-implementation-agent, skill-python-research, skill-python-implementation, and Python domain context files. Update docs/agent-system/ (architecture, commands, routing) and docs/workflows/ as appropriate to document Python as a supported language with its own research and implementation agents.
 
 ### 17. Fix broken link at line 22 in docs/agent-system/commands.md and scan for similar broken links
 - **Effort**: small
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_broken-links-scan.md](017_fix_broken_links_in_commands_md/reports/01_broken-links-scan.md)
 
 **Description**: Fix the broken link at line 22 in docs/agent-system/commands.md. Look for other similar broken link issues across the documentation, fixing all broken links found.
 
 ### 15. Improve installation docs for beginner-friendly terminal walkthrough
 - **Effort**: small
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: markdown
 - **Research**: [01_beginner-friendly-install.md](015_improve_installation_docs_beginner_friendly/reports/01_beginner-friendly-install.md)
 - **Plan**: [01_beginner-friendly-install.md](015_improve_installation_docs_beginner_friendly/plans/01_beginner-friendly-install.md)

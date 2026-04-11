@@ -4,27 +4,47 @@
     {
       "project_number": 18,
       "project_name": "update_docs_for_python_extension",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-11T00:15:51Z",
-      "last_updated": "2026-04-11T00:15:51Z"
+      "last_updated": "2026-04-11T00:25:00Z",
+      "session_id": "sess_1775866642_52c68e",
+      "researched": "2026-04-11T00:25:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/018_update_docs_for_python_extension/reports/01_python-extension-docs.md",
+          "type": "research",
+          "summary": "Python extension adds 2 agents, 2 skills, 6 context files; 3 docs files need updating with ~6-8 lines total following LaTeX/Typst documentation pattern"
+        }
+      ]
     },
     {
       "project_number": 17,
       "project_name": "fix_broken_links_in_commands_md",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-11T00:10:47Z",
-      "last_updated": "2026-04-11T00:10:47Z"
+      "last_updated": "2026-04-11T00:40:00Z",
+      "session_id": "sess_1775866642_52c68e",
+      "next_artifact_number": 2,
+      "researched": "2026-04-11T00:40:00Z",
+      "artifacts": [
+        {
+          "path": "specs/017_fix_broken_links_in_commands_md/reports/01_broken-links-scan.md",
+          "type": "research",
+          "summary": "14 broken anchor links found in 2 files (commands.md and workflows/README.md); all file-level links valid; mechanical anchor corrections needed"
+        }
+      ]
     },
     {
       "project_number": 15,
       "project_name": "improve_installation_docs_beginner_friendly",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "markdown",
       "created": "2026-04-11T00:08:41Z",
-      "last_updated": "2026-04-11T00:17:47Z",
-      "session_id": "sess_1775866476_a58637",
+      "last_updated": "2026-04-11T00:19:55Z",
+      "session_id": "sess_1775866778_1a4ad5",
       "researched": "2026-04-11T00:20:00Z",
       "next_artifact_number": 2,
       "artifacts": [
