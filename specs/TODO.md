@@ -8,7 +8,7 @@ next_project_number: 27
 
 ### 26. Remove redundant ctrl-h/ctrl-l in Editor context of keymap.json
 - **Effort**: TBD
-- **Status**: [PLANNING]
+- **Status**: [PLANNED]
 - **Task Type**: general
 - **Priority**: low
 - **Source**: review-20260410
@@ -17,7 +17,7 @@ next_project_number: 27
 
 ### 25. Fix keymap.json default-reference comment for macOS
 - **Effort**: TBD
-- **Status**: [PLANNING]
+- **Status**: [PLANNED]
 - **Task Type**: markdown
 - **Priority**: medium
 - **Source**: review-20260410
@@ -26,7 +26,7 @@ next_project_number: 27
 
 ### 24. Untrack Claude Code TTS log files from git
 - **Effort**: TBD
-- **Status**: [PLANNING]
+- **Status**: [PLANNED]
 - **Task Type**: general
 - **Priority**: medium
 - **Source**: review-20260410
@@ -35,7 +35,7 @@ next_project_number: 27
 
 ### 23. Update Claude model IDs in settings.json and docs
 - **Effort**: TBD
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNING]
 - **Task Type**: general
 - **Priority**: high
 - **Source**: review-20260410

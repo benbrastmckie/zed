@@ -4,34 +4,34 @@
     {
       "project_number": 26,
       "project_name": "remove_redundant_pane_nav_in_editor_context",
-      "status": "planning",
+      "status": "planned",
       "task_type": "general",
       "priority": "low",
       "description": "Remove the redundant ctrl-h / ctrl-l pane navigation bindings from the Editor context block in keymap.json:35-36 (already covered by the Workspace context block at L14-15), or add a comment explaining why they are duplicated.",
       "created": "2026-04-11T01:21:49Z",
-      "last_updated": "2026-04-11T01:28:21Z",
+      "last_updated": "2026-04-11T01:30:19Z",
       "session_id": "sess_1744257600_b7c4d2"
     },
     {
       "project_number": 25,
       "project_name": "fix_keymap_default_reference_comment",
-      "status": "planning",
+      "status": "planned",
       "task_type": "markdown",
       "priority": "medium",
       "description": "Rewrite the default-reference comment block in keymap.json (lines 46-116) to use Cmd+ modifiers for macOS defaults instead of Ctrl+, except for the four intentional Ctrl+ custom bindings. Consider folding into task 21 if scope allows.",
       "created": "2026-04-11T01:21:49Z",
-      "last_updated": "2026-04-11T01:28:21Z",
+      "last_updated": "2026-04-11T01:30:19Z",
       "session_id": "sess_1744257600_b7c4d2"
     },
     {
       "project_number": 24,
       "project_name": "untrack_tts_log_files",
-      "status": "planning",
+      "status": "planned",
       "task_type": "general",
       "priority": "medium",
       "description": "Run git rm --cached on specs/tmp/claude-tts-last-notify and specs/tmp/claude-tts-notify.log, then add an entry to .gitignore so the Claude Code TTS notification hook stops dirtying the working tree on every run.",
       "created": "2026-04-11T01:21:49Z",
-      "last_updated": "2026-04-11T01:28:20Z",
+      "last_updated": "2026-04-11T01:30:19Z",
       "session_id": "sess_1744257600_b7c4d2"
     },
     {
