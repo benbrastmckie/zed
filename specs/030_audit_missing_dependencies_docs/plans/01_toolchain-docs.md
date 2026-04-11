@@ -108,7 +108,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Language runtimes (R and Python) [NOT STARTED]
+### Phase 2: Language runtimes (R and Python) [COMPLETED]
 
 **Goal**: Move and expand `docs/general/R.md` and `docs/general/python.md` into `docs/toolchain/`, updating all cross-references and adding the Check/Install/Verify structure.
 

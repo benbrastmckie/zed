@@ -11,7 +11,7 @@ Domain extensions for epidemiology research, grant development, memory capture, 
 1. Install [Homebrew](https://brew.sh), then `brew install --cask zed`
 2. Open Zed from Applications or Spotlight (Cmd+Space, type "Zed")
 3. Extensions install automatically on first launch (including `python`, `ruff`, `r`)
-4. Set up your languages: [Python](docs/general/python.md) and [R](docs/general/R.md)
+4. Set up your languages: [Python](docs/toolchain/python.md) and [R](docs/toolchain/r.md)
 5. Theme is One Dark; font is Fira Code
 
 For the full installation walkthrough, including MCP tool setup for Office file editing, see [docs/general/installation.md](docs/general/installation.md).
@@ -38,14 +38,14 @@ This configuration is built around first-class R and Python development inside Z
 - **Language servers**: `pyright` (type checking) + `ruff` (lint + format)
 - **Package/env manager**: `uv` (recommended)
 - **Auto-formatting**: on save via ruff
-- **Setup guide**: [docs/general/python.md](docs/general/python.md)
+- **Setup guide**: [docs/toolchain/python.md](docs/toolchain/python.md)
 
 ### R
 
 - **Language server**: `r-language-server` (diagnostics + rich documentation)
 - **Lint / style**: `lintr` + `styler`
 - **Auto-formatting**: on save via r-language-server
-- **Setup guide**: [docs/general/R.md](docs/general/R.md)
+- **Setup guide**: [docs/toolchain/r.md](docs/toolchain/r.md)
 
 ## Claude Code Commands
 
@@ -97,8 +97,8 @@ For the full command catalog, see [docs/agent-system/commands.md](docs/agent-sys
 | Document | Description |
 |----------|-------------|
 | [General](docs/general/README.md) | Installation, keybindings, settings, and R/Python setup for this Zed configuration on macOS |
-| [Python Setup](docs/general/python.md) | Python + uv + ruff + pyright configuration for Zed on macOS |
-| [R Setup](docs/general/R.md) | R + languageserver + lintr + styler configuration for Zed on macOS |
+| [Python Setup](docs/toolchain/python.md) | Python + uv + ruff + pyright configuration for Zed on macOS |
+| [R Setup](docs/toolchain/r.md) | R + languageserver + lintr + styler configuration for Zed on macOS |
 | [Agent System](docs/agent-system/README.md) | Zed agent + Claude Code overview, workflows, command catalog, memory, and architecture |
 | [Workflows](docs/workflows/README.md) | Agent task lifecycle for R/Python development, plus epidemiology, grant, and Office file workflows |
 | [Agent System Config](.claude/README.md) | Claude Code framework architecture, skills, agents, and extension system |
@@ -137,7 +137,7 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 - **macOS keybindings**: All shortcuts use Cmd (shown as in menus). The Option key corresponds to Alt in custom bindings.
 - **Config location**: `~/.config/zed/` -- standard for Zed on macOS.
 - **Extensions**: Auto-installed on launch via `auto_install_extensions` in settings.json (`python`, `ruff`, `r`, and more).
-- **Language tooling**: Install Python and R via Homebrew; see [docs/general/python.md](docs/general/python.md) and [docs/general/R.md](docs/general/R.md).
+- **Language tooling**: Install Python and R via Homebrew; see [docs/toolchain/python.md](docs/toolchain/python.md) and [docs/toolchain/r.md](docs/toolchain/r.md).
 - **Office editing**: Requires SuperDoc and openpyxl MCP tools. See [docs/general/installation.md](docs/general/installation.md#install-mcp-tools) for setup and [docs/workflows/](docs/workflows/README.md) for workflows.
 
 ## Related

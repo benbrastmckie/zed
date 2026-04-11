@@ -13,7 +13,9 @@ This guide walks through installing Zed, the Claude Code CLI, the `claude-acp` b
 > claude
 > ```
 
-> **Setting up Python or R?** After finishing this guide, see [Python Setup](python.md) or [R Setup](R.md) for language-specific install instructions (interpreters, linters, formatters, and LSP).
+> **Setting up Python or R?** After finishing this guide, see [Python Setup](../toolchain/python.md) or [R Setup](../toolchain/r.md) for language-specific install instructions (interpreters, linters, formatters, and LSP).
+>
+> **Extension toolchains?** For every external dependency assumed by the `.claude/` agent extensions in this repo (LaTeX, Typst, Pandoc, MCP servers, epidemiology R packages, shell utilities), see [docs/toolchain/README.md](../toolchain/README.md) — the authoritative toolchain reference.
 
 ## Before you begin
 
@@ -300,8 +302,9 @@ If any step fails, see [Troubleshooting in the agent panel doc](../agent-system/
 
 ## See also
 
-- [python.md](python.md) — Python setup guide for macOS (interpreter, uv, ruff, Zed configuration)
-- [R.md](R.md) — R setup guide for macOS (interpreter, languageserver, lintr, styler, Zed configuration)
+- [../toolchain/README.md](../toolchain/README.md) — Toolchain reference: every external dependency assumed by the `.claude/` extensions (LaTeX, Typst, Pandoc, MCP servers, epi R packages, shell tools)
+- [../toolchain/python.md](../toolchain/python.md) — Python setup guide for macOS (interpreter, uv, ruff, Zed configuration)
+- [../toolchain/r.md](../toolchain/r.md) — R setup guide for macOS (interpreter, languageserver, lintr, styler, Zed configuration)
 - [settings.md](settings.md#agent_servers) — `agent_servers` configuration reference
 - [../agent-system/zed-agent-panel.md](../agent-system/zed-agent-panel.md) — How the Agent Panel and claude-acp bridge work at runtime
 - [../../.claude/docs/guides/user-installation.md](../../.claude/docs/guides/user-installation.md) — Quick-start reference for the Claude Code framework itself

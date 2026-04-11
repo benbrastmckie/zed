@@ -4,12 +4,12 @@ This guide walks through installing R and its development tools on macOS for use
 
 ## Before you begin
 
-You need two tools that are covered in the main [Installation](installation.md) guide:
+You need two tools that are covered in the main [Installation](../general/installation.md) guide:
 
 - **Xcode Command Line Tools** -- provides the compilers that some R packages need during installation
 - **Homebrew** -- the package manager used to install R itself
 
-If you followed [Installation](installation.md), you already have these. If not, complete the "Install Xcode Command Line Tools" and "Install Homebrew" sections there before continuing.
+If you followed [Installation](../general/installation.md), you already have these. If not, complete the "Install Xcode Command Line Tools" and "Install Homebrew" sections there before continuing.
 
 ## Install R
 
@@ -176,9 +176,88 @@ Confirm these three things are working:
 
 If all three work, your R environment is ready.
 
+## Additional R tooling for extensions
+
+The base R + `languageserver` + `lintr` + `styler` install above is enough for Zed's editor experience. The sections below cover extra tools needed by specific agent workflows (the `epidemiology` extension, rmcp MCP server, and Quarto-based reporting). Install these only if you plan to use those workflows.
+
+### renv (project-local R package environments)
+
+`renv` is R's project-local package manager (analogous to `uv` for Python). The epidemiology extension's `targets`/`renv` workflow expects each analysis project to have its own `renv.lock`.
+
+#### Check
+
+```
+Rscript -e 'packageVersion("renv")'
+```
+
+If this prints a version (e.g. `1.0.7`), skip to [Quarto](#quarto).
+
+#### Install
+
+From an R console:
+
+```r
+install.packages("renv")
+```
+
+#### Verify
+
+```
+Rscript -e 'packageVersion("renv")'
+```
+
+You should see a version number. In a project directory, `Rscript -e 'renv::init()'` creates a new project-local library.
+
+> **Network at runtime**: `renv::restore()` hits CRAN every time it runs. In a restricted environment, preflight the package cache.
+
+### Quarto
+
+Quarto is the document-rendering system used by the epidemiology extension for analysis reports. It bundles pandoc but still expects R (and optionally TeX) to render certain output types.
+
+#### Check
+
+```
+quarto --version
+```
+
+#### Install
+
+```
+brew install --cask quarto
+```
+
+#### Verify
+
+```
+quarto --version
+quarto check
+```
+
+`quarto check` runs a self-diagnostic and reports which rendering backends are available.
+
+### rmcp MCP server prerequisite
+
+The epidemiology extension optionally integrates the `rmcp` MCP server (R statistical modeling over MCP). `rmcp` itself is installed with `uvx` (see [python.md](python.md#install-uv)), but it requires a working R install at runtime, so the check belongs here:
+
+```
+Rscript -e 'R.version.string'
+uvx rmcp --help 2>/dev/null || echo "not installed yet; see mcp-servers.md"
+```
+
+Full install and config instructions are in [mcp-servers.md](mcp-servers.md#rmcp-r-statistical-modeling-epidemiology).
+
+### Epidemiology R packages
+
+The epidemiology extension assumes a broad set of R packages (survival analysis, Bayesian modeling, causal inference, missing data, etc.). These are documented with purpose and example usage in [`.claude/context/project/epidemiology/tools/r-packages.md`](../../.claude/context/project/epidemiology/tools/r-packages.md); see [extensions.md](extensions.md#epidemiology) for the install snippet.
+
+> **Stan / C++ toolchain**: packages that use Stan under the hood (`brms`, `EpiNow2`, `epidemia`) require the Xcode Command Line Tools C++ compiler. If you followed [docs/general/installation.md](../general/installation.md), you already have Xcode CLT installed.
+
 ## See also
 
-- [Installation](installation.md) -- Prerequisites (Homebrew, Xcode CLT) and Zed setup
-- [Python Setup](python.md) -- Python development environment guide
-- [General docs index](README.md) -- All general reference docs for this Zed configuration
+- [docs/general/installation.md](../general/installation.md) -- Prerequisites (Homebrew, Xcode CLT) and Zed setup
+- [python.md](python.md) -- Python development environment guide
+- [typesetting.md](typesetting.md) -- LaTeX, Typst, Pandoc for rendering R/Quarto output
+- [mcp-servers.md](mcp-servers.md) -- rmcp MCP server install
+- [extensions.md](extensions.md#epidemiology) -- Epidemiology extension prerequisite summary
+- [docs/toolchain/README.md](README.md) -- Toolchain directory index
 - [Main README](../../README.md) -- Repository overview and quick start

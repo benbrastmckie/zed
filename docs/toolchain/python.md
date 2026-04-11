@@ -4,7 +4,7 @@ This guide walks through installing Python and its development tools on macOS fo
 
 ## Before you begin
 
-You need Homebrew and Xcode Command Line Tools installed. If you followed [Installation](installation.md), you already have these. If not, complete the prerequisites sections there first, then come back here.
+You need Homebrew and Xcode Command Line Tools installed. If you followed [Installation](../general/installation.md), you already have these. If not, complete the prerequisites sections there first, then come back here.
 
 ## Install Python
 
@@ -184,9 +184,143 @@ Open any `.py` file in Zed, or create a quick test file to confirm everything wo
 
 If all three checks pass, your Python environment is ready.
 
+## Additional Python tooling for extensions
+
+The base Python + `uv` + `ruff` install above covers Zed's editor experience. The sections below are needed by specific agent workflows — MCP servers, filetypes conversions, and testing/typechecking used by the `python` extension's quality gates. Install only what your workflows need.
+
+### uvx (ephemeral tool runner)
+
+`uvx` ships with `uv` (you installed it above). It runs a tool in an ephemeral venv, fetching the package on first invocation and caching it locally. Several MCP servers in this repo are launched via `uvx`:
+
+- `rmcp` (epidemiology) — `uvx rmcp`
+- `markitdown-mcp` — `uvx markitdown-mcp`
+- `mcp-pandoc` — `uvx mcp-pandoc`
+
+#### Check
+
+```
+uvx --version
+```
+
+If this prints a version, `uvx` is available.
+
+#### Install
+
+`uvx` is part of `uv` — no separate install. If `uvx --version` fails after `brew install uv`, reinstall `uv`.
+
+#### Verify
+
+```
+uvx --help
+```
+
+> **Network at runtime**: `uvx <tool>` fetches the tool and its dependencies on first invocation. In a restricted environment, pre-cache by running each `uvx` command once while online.
+
+### pytest (test runner)
+
+Required by the `python` extension's test loop and by some agent workflows.
+
+#### Check
+
+```
+pytest --version
+```
+
+#### Install
+
+```
+uv tool install pytest
+```
+
+Or per-project: `uv add --dev pytest`.
+
+#### Verify
+
+```
+pytest --version
+```
+
+### mypy (type checker)
+
+Used by the `python` extension's lint gate alongside `ruff`.
+
+#### Check
+
+```
+mypy --version
+```
+
+#### Install
+
+```
+uv tool install mypy
+```
+
+#### Verify
+
+```
+mypy --version
+```
+
+### Python packages for filetypes conversions
+
+The `filetypes` extension assumes several Python packages are importable (they back `/convert`, `/table`, `/scrape`, and related commands):
+
+| Package | Purpose |
+|---------|---------|
+| `pandas` | Spreadsheet reading, `DataFrame.to_latex()` |
+| `openpyxl` | XLSX read/write (required by pandas for .xlsx) |
+| `python-pptx` | Slide extraction from .pptx |
+| `python-docx` | DOCX reading |
+| `markitdown` | Universal "X to Markdown" converter |
+| `xlsx2csv` | Fallback XLSX extractor |
+| `pymupdf` | PDF text/image extraction |
+| `pdfannots` | PDF annotation extraction (`/scrape`) |
+
+See [`.claude/context/project/filetypes/tools/dependency-guide.md`](../../.claude/context/project/filetypes/tools/dependency-guide.md) for the authoritative list.
+
+#### Check
+
+```
+python3 -c "import pandas, openpyxl, pptx, markitdown; print('OK')"
+```
+
+#### Install
+
+```
+pip3 install pandas openpyxl python-pptx python-docx markitdown xlsx2csv pymupdf pdfannots
+```
+
+Or, using a venv (recommended if you do not want to pollute system Python):
+
+```
+python3 -m venv ~/.venvs/claude-filetypes
+source ~/.venvs/claude-filetypes/bin/activate
+pip install pandas openpyxl python-pptx python-docx markitdown xlsx2csv pymupdf pdfannots
+```
+
+#### Verify
+
+```
+python3 -c "import pandas, openpyxl, pptx, docx, markitdown, fitz; print('OK')"
+```
+
+Note: `pymupdf` imports as `fitz`; `python-pptx` imports as `pptx`; `python-docx` imports as `docx`.
+
+### Node.js / npx (not Python, but referenced here)
+
+A few MCP servers are installed via `npm`/`npx` rather than Python. Node.js is covered in [docs/general/installation.md](../general/installation.md#install-nodejs); mentioned here so the reader knows it is a hard prerequisite for `obsidian-memory`, `@superdoc-dev/mcp`, and Slidev if you use it. Verify with:
+
+```
+node --version
+npx --version
+```
+
 ## See also
 
-- [Installation](installation.md) -- Prerequisites and base tool setup
-- [R Setup](R.md) -- R language setup for macOS
-- [General docs index](README.md) -- All general reference docs for this Zed configuration
+- [docs/general/installation.md](../general/installation.md) -- Prerequisites and base tool setup
+- [r.md](r.md) -- R language setup for macOS
+- [typesetting.md](typesetting.md) -- LaTeX, Typst, Pandoc install
+- [mcp-servers.md](mcp-servers.md) -- MCP servers launched via uvx
+- [docs/toolchain/README.md](README.md) -- Toolchain directory index
 - [Main README](../../README.md) -- Repository overview and quick start
