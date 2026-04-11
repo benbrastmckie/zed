@@ -20,6 +20,9 @@ A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked
 | Cmd+W                | Close the current tab                          |
 | Cmd+Tab              | Switch to the next tab                         |
 | Cmd+`                | Open or close the terminal                     |
+| Ctrl+O \*            | Jump back (like vim Ctrl+O)                     |
+| Ctrl+I \*            | Jump forward (like vim Ctrl+I)                  |
+| Alt+V \*             | Toggle vim mode on/off                          |
 | Ctrl+Shift+A \*      | Launch Claude Code CLI (primary AI interface)   |
 | Ctrl+? \*            | Toggle the right sidebar (agent panel)          |
 | Cmd+B                | Show or hide the left sidebar                  |
@@ -199,8 +202,14 @@ Press **Cmd+G**, type the line number, and press Enter.
 ## How do I navigate code?
 
 - **F12** jumps to where something is defined
-- **Alt+Left** goes back to where you were before
-- **Alt+Right** goes forward again
+- **Ctrl+O** \* goes back to where you were before (jump list, like vim)
+- **Ctrl+I** \* goes forward again (jump list, like vim)
+- **Alt+Left** goes back (Zed default, same effect)
+- **Alt+Right** goes forward (Zed default, same effect)
+
+## How do I toggle vim mode?
+
+Press **Alt+V** \* to toggle vim mode on and off. When vim mode is active, Zed enables modal editing (normal, insert, visual modes). Press the same shortcut again to return to standard editing. This is useful if you want vim keybindings temporarily for a specific task without committing to them full-time.
 
 ## How do I open settings?
 

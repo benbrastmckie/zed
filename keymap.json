@@ -2,12 +2,13 @@
   // =====================================================
   // CUSTOM BINDINGS (Scheme A -- Minimal)
   // =====================================================
-  // 9 unique custom bindings (11 entries; pane-nav is declared
-  // in both Workspace and Editor contexts to defeat Zed's
-  // default Editor-context Ctrl+H (find/replace) shadowing,
-  // and Claude Code launcher is bound in both Workspace and
-  // Terminal contexts):
+  // 12 unique custom bindings (16 entries; pane-nav and jump-list
+  // are declared in both Workspace and Editor contexts to defeat
+  // Zed's default Editor-context shadowing, and Claude Code
+  // launcher is bound in both Workspace and Terminal contexts):
   //   - 2 pane navigation (Ctrl+H, Ctrl+L), Workspace + Editor
+  //   - 2 jump list (Ctrl+O, Ctrl+I), Workspace + Editor
+  //   - 1 vim toggle (Alt+V), Workspace
   //   - 2 line movers (Alt+J, Alt+K)
   //   - 1 dock toggle (Ctrl+?)
   //   - 1 Claude Code launcher (Ctrl+Shift+A, Workspace + Terminal)
@@ -21,13 +22,18 @@
   // defaults this config leaves intact.
 
   // Pane navigation (move focus between split panes)
+  // Jump list: Ctrl+O / Ctrl+I (vim-style back/forward without vim mode)
+  // Vim toggle: Alt+V
   {
     "context": "Workspace",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-?": "workspace::ToggleRightDock",
-      "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }]
+      "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }],
+      "ctrl-o": "pane::GoBack",
+      "ctrl-i": "pane::GoForward",
+      "alt-v": "workspace::ToggleVimMode"
     }
   },
 
@@ -53,9 +59,12 @@
       "alt-k": "editor::MoveLineUp",
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-o": "pane::GoBack",
+      "ctrl-i": "pane::GoForward",
       "ctrl-shift-c": "workspace::CopyPath",
       "alt-shift-p": ["task::Spawn", { "task_name": "Slidev Preview" }],
-      "alt-shift-e": ["task::Spawn", { "task_name": "Slidev Export PDF" }]
+      "alt-shift-e": ["task::Spawn", { "task_name": "Slidev Export PDF" }],
+      "ctrl-enter": "editor::OpenFile"
     }
   },
 
@@ -104,6 +113,8 @@
   // Ctrl+G            Go to line number
   // Cmd+Shift+O       Go to symbol in file
   // F12               Go to definition
+  // Ctrl+O            Go back in jump list (custom; vim-style)
+  // Ctrl+I            Go forward in jump list (custom; vim-style)
   // Ctrl+-            Go back (previous location) (verify)
   // Ctrl+Shift+-      Go forward (next location) (verify)
   //
@@ -128,9 +139,15 @@
   // Cmd+Enter         Send message (in agent panel) (verify)
   // Cmd+;             Toggle inline assist (verify)
   //
+  // --- Navigation ---
+  // Ctrl+Enter        Open file under cursor (custom; see Editor bindings)
+  //
   // --- Slidev ---
   // Alt+Shift+P         Slidev Preview (custom; see Editor bindings)
   // Alt+Shift+E         Slidev Export PDF (custom; see Editor bindings)
+  //
+  // --- Mode ---
+  // Alt+V             Toggle vim mode (custom)
   //
   // --- Editing ---
   // Cmd+Z             Undo
