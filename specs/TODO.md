@@ -15,8 +15,9 @@ next_project_number: 18
 
 ### 15. Improve installation docs for beginner-friendly terminal walkthrough
 - **Effort**: small
-- **Status**: [RESEARCHING]
+- **Status**: [RESEARCHED]
 - **Task Type**: markdown
+- **Research**: [01_beginner-friendly-install.md](015_improve_installation_docs_beginner_friendly/reports/01_beginner-friendly-install.md)
 
 **Description**: Make docs/general/installation.md more user-friendly by walking through each installation step for someone with no prior terminal experience, briefly motivating and explaining each step without being too verbose to avoid overwhelming the reader.
 
