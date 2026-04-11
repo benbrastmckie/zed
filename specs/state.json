@@ -4,48 +4,65 @@
     {
       "project_number": 26,
       "project_name": "remove_redundant_pane_nav_in_editor_context",
-      "status": "not_started",
+      "status": "planning",
       "task_type": "general",
       "priority": "low",
       "description": "Remove the redundant ctrl-h / ctrl-l pane navigation bindings from the Editor context block in keymap.json:35-36 (already covered by the Workspace context block at L14-15), or add a comment explaining why they are duplicated.",
-      "created": "2026-04-11T01:21:49Z"
+      "created": "2026-04-11T01:21:49Z",
+      "last_updated": "2026-04-11T01:28:21Z",
+      "session_id": "sess_1744257600_b7c4d2"
     },
     {
       "project_number": 25,
       "project_name": "fix_keymap_default_reference_comment",
-      "status": "not_started",
+      "status": "planning",
       "task_type": "markdown",
       "priority": "medium",
       "description": "Rewrite the default-reference comment block in keymap.json (lines 46-116) to use Cmd+ modifiers for macOS defaults instead of Ctrl+, except for the four intentional Ctrl+ custom bindings. Consider folding into task 21 if scope allows.",
-      "created": "2026-04-11T01:21:49Z"
+      "created": "2026-04-11T01:21:49Z",
+      "last_updated": "2026-04-11T01:28:21Z",
+      "session_id": "sess_1744257600_b7c4d2"
     },
     {
       "project_number": 24,
       "project_name": "untrack_tts_log_files",
-      "status": "not_started",
+      "status": "planning",
       "task_type": "general",
       "priority": "medium",
       "description": "Run git rm --cached on specs/tmp/claude-tts-last-notify and specs/tmp/claude-tts-notify.log, then add an entry to .gitignore so the Claude Code TTS notification hook stops dirtying the working tree on every run.",
-      "created": "2026-04-11T01:21:49Z"
+      "created": "2026-04-11T01:21:49Z",
+      "last_updated": "2026-04-11T01:28:20Z",
+      "session_id": "sess_1744257600_b7c4d2"
     },
     {
       "project_number": 23,
       "project_name": "update_claude_model_ids",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "general",
       "priority": "high",
       "description": "Update outdated Claude model IDs in settings.json (lines 39, 44) and docs/general/settings.md (lines 59, 64) from claude-sonnet-4-20250514 / claude-opus-4-20250514 to claude-sonnet-4-6 / claude-opus-4-6 so the Zed Agent Panel uses current models.",
-      "created": "2026-04-11T01:21:49Z"
+      "created": "2026-04-11T01:21:49Z",
+      "session_id": "sess_1775870692_2ad62e",
+      "last_updated": "2026-04-11T01:30:00Z",
+      "researched": "2026-04-11T01:30:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/023_update_claude_model_ids/reports/01_stale-proof-model-config.md",
+          "type": "report",
+          "summary": "Stale-proof Claude model config options for Zed: Zed's anthropic crate supports -latest aliases (claude-opus-4-6-latest etc.); recommends deleting the agent block entirely since user only uses Claude Code, not the Zed Agent Panel."
+        }
+      ]
     },
     {
       "project_number": 22,
       "project_name": "epi_study_example_demo",
-      "status": "researched",
+      "status": "planning",
       "task_type": "general",
       "description": "Create zed/examples/epi-study/ directory that organizes and documents the synthetic RCT study produced by task 20, as a demo for new users to understand how to run the /epi command to create an epi study.",
       "created": "2026-04-11T01:15:52Z",
-      "last_updated": "2026-04-11T01:20:57Z",
-      "session_id": "sess_1776038900_res022",
+      "last_updated": "2026-04-11T01:26:14Z",
+      "session_id": "sess_1776039400_pln022",
       "next_artifact_number": 2,
       "artifacts": [
         {

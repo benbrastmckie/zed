@@ -1,0 +1,14 @@
+{
+  "status": "researched",
+  "agent_type": "general-research-agent",
+  "delegation_path": ["orchestrator", "research", "general-research-agent"],
+  "task_id": 23,
+  "artifact_number": 1,
+  "artifacts": [
+    "specs/023_update_claude_model_ids/reports/01_stale-proof-model-config.md"
+  ],
+  "findings_count": 5,
+  "next_steps": "Run /plan 23 to create implementation plan",
+  "started_at": "2026-04-10T00:00:00Z",
+  "completed_at": "2026-04-10T00:00:00Z"
+}
