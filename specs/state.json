@@ -42,7 +42,8 @@
       "description": "Remove the redundant ctrl-h / ctrl-l pane navigation bindings from the Editor context block in keymap.json:35-36 (already covered by the Workspace context block at L14-15), or add a comment explaining why they are duplicated.",
       "created": "2026-04-11T01:21:49Z",
       "last_updated": "2026-04-11T01:40:17Z",
-      "session_id": "sess_1744257700_e8f3a1"
+      "session_id": "sess_1744257700_e8f3a1",
+      "completion_summary": "Removed two redundant pane-navigation bindings (ctrl-h, ctrl-l) from the Editor context block in keymap.json; Workspace context cascades these bindings into editors."
     },
     {
       "project_number": 25,
@@ -53,7 +54,8 @@
       "description": "Rewrite the default-reference comment block in keymap.json (lines 46-116) to use Cmd+ modifiers for macOS defaults instead of Ctrl+, except for the four intentional Ctrl+ custom bindings. Consider folding into task 21 if scope allows.",
       "created": "2026-04-11T01:21:49Z",
       "last_updated": "2026-04-11T01:40:16Z",
-      "session_id": "sess_1744257700_e8f3a1"
+      "session_id": "sess_1744257700_e8f3a1",
+      "completion_summary": "Rewrote the ZED DEFAULT REFERENCE comment block in keymap.json to use Cmd+ for macOS defaults, annotated all 5 intentional custom Ctrl+ bindings (Ctrl+H, Ctrl+L, Ctrl+?, Ctrl+Shift+A, Ctrl+Shift+C) with (custom), marked uncertain defaults with (verify), and updated the stale header comment bindings count. Resolved open question in favor of 5 exceptions."
     },
     {
       "project_number": 24,
@@ -64,7 +66,8 @@
       "description": "Run git rm --cached on specs/tmp/claude-tts-last-notify and specs/tmp/claude-tts-notify.log, then add an entry to .gitignore so the Claude Code TTS notification hook stops dirtying the working tree on every run.",
       "created": "2026-04-11T01:21:49Z",
       "last_updated": "2026-04-11T01:40:16Z",
-      "session_id": "sess_1744257700_e8f3a1"
+      "session_id": "sess_1744257700_e8f3a1",
+      "completion_summary": "Untracked specs/tmp/claude-tts-last-notify and specs/tmp/claude-tts-notify.log via git rm --cached and created root .gitignore ignoring the two files plus specs/tmp/. Scratch files preserved on disk so the TTS hook keeps working."
     },
     {
       "project_number": 23,
