@@ -67,7 +67,7 @@ No active roadmap items. ROADMAP.md is empty.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Create Slidev Project Template Directory [NOT STARTED]
+### Phase 1: Create Slidev Project Template Directory [COMPLETED]
 
 **Goal**: Extract the four canonical scaffold files from `examples/epi-slides/` into a reusable template directory that agents copy when creating new Slidev decks.
 
@@ -98,7 +98,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Update slidev-pitfalls.md with All Seven Issue Classes [NOT STARTED]
+### Phase 2: Update slidev-pitfalls.md with All Seven Issue Classes [COMPLETED]
 
 **Goal**: Transform the pitfalls document from a mix of setup notes and fix instructions into comprehensive prevention-oriented documentation covering all seven known issue classes, with the corrected CLI command.
 
@@ -127,7 +127,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Fix Playwright Verification Script and Update index.json [NOT STARTED]
+### Phase 3: Fix Playwright Verification Script and Update index.json [COMPLETED]
 
 **Goal**: Fix the CLI command bug in the Playwright script, add `console.error` capture, and update index.json to reflect current file states and register the new template directory.
 

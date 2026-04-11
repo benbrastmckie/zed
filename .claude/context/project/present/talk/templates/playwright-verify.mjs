@@ -14,7 +14,7 @@ const BASE = `http://localhost:${PORT}`;
 const SCREENSHOT_DIR = 'scripts/screenshots';
 
 async function startDevServer() {
-  const server = spawn('npx', ['slidev', '--port', String(PORT)], {
+  const server = spawn('npx', ['@slidev/cli', '--port', String(PORT)], {
     stdio: ['ignore', 'pipe', 'pipe'],
     detached: true,
   });
@@ -55,6 +55,8 @@ async function main() {
     mkdirSync(SCREENSHOT_DIR, { recursive: true });
   }
 
+  // On NixOS: add executablePath to point at a system Chromium if the bundled binary fails.
+  // e.g. chromium.launch({ executablePath: '/run/current-system/sw/bin/chromium' })
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1280, height: 720 } });
 
@@ -64,7 +66,9 @@ async function main() {
     const slideErrors = [];
 
     page.removeAllListeners('pageerror');
+    page.removeAllListeners('console');
     page.on('pageerror', err => slideErrors.push(err.message));
+    page.on('console', msg => { if (msg.type() === 'error') slideErrors.push(msg.text()); });
 
     await page.goto(`${BASE}/${i}`, { waitUntil: 'networkidle', timeout: 15000 });
     await page.waitForTimeout(2000);

@@ -4109,6 +4109,7 @@
           "general-implementation-agent"
         ],
         "task_types": [
+          "present",
           "slides"
         ]
       },
@@ -4120,9 +4121,9 @@
         "mermaid",
         "pdf-export"
       ],
-      "description": "Slidev implementation notes: Mermaid diagrams, required Playwright verification phase for plans",
-      "summary": "Mermaid scale parameters, Playwright verification phase template (required final phase for all Slidev plans), common error fixes",
-      "line_count": 73,
+      "description": "Slidev implementation pitfalls covering 7 issue classes with prevention guidance, project scaffolding template, and Playwright verification",
+      "summary": "Slidev implementation pitfalls covering 7 issue classes with prevention guidance, project scaffolding template, and Playwright verification",
+      "line_count": 200,
       "path": "project/present/talk/patterns/slidev-pitfalls.md",
       "subdomain": "present",
       "keywords": [
@@ -4168,6 +4169,46 @@
         "slides",
         "test",
         "screenshot"
+      ]
+    },
+    {
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "commands": [
+          "/slides",
+          "/implement"
+        ],
+        "agents": [
+          "slides-agent",
+          "general-implementation-agent"
+        ],
+        "task_types": [
+          "present",
+          "slides"
+        ]
+      },
+      "domain": "project",
+      "topics": [
+        "slidev",
+        "template",
+        "scaffold",
+        "package",
+        "setup"
+      ],
+      "description": "Slidev project scaffold template README -- lists files to copy for a new deck and their purposes",
+      "summary": "Template directory README: package.json, .npmrc, vite.config.ts, lz-string-esm.js scaffold files for new Slidev decks",
+      "line_count": 36,
+      "path": "project/present/talk/templates/slidev-project/README.md",
+      "subdomain": "present",
+      "keywords": [
+        "slidev",
+        "template",
+        "scaffold",
+        "package.json",
+        "vite",
+        "lz-string"
       ]
     },
     {
