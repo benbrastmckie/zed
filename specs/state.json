@@ -1,6 +1,14 @@
 {
-  "next_project_number": 34,
+  "next_project_number": 35,
   "active_projects": [
+    {
+      "project_number": 34,
+      "project_name": "improve_slidev_review_pipeline",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-11T18:45:55Z",
+      "last_updated": "2026-04-11T18:45:55Z"
+    },
     {
       "project_number": 33,
       "project_name": "improve_docs_core_system_extensions",

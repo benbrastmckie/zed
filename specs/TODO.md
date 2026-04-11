@@ -1,10 +1,17 @@
 ---
-next_project_number: 34
+next_project_number: 35
 ---
 
 # Task List
 
 ## Tasks
+
+### 34. Improve Slidev review pipeline to catch rendering issues during first implementation
+- **Effort**: 3 hours
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Improve the Slidev implementation pipeline to catch rendering issues during first implementation rather than requiring manual post-hoc debugging. Based on troubleshooting of examples/epi-slides, the following issues were only caught post-implementation: (1) lz-string CJS/ESM incompatibility under pnpm strict layout crashing all mermaid slides, (2) Slidev CLI version mismatch between global nix binary (v52) and project package.json (v0.49), (3) Shiki syntax highlighter overriding custom theme inline code styles with dark backgrounds, (4) Vue components inside markdown pipe tables failing silently, (5) `<br/>` tags in mermaid node labels consumed by Vue/MDC parser before reaching mermaid. Update the slides implementation agent, planner context, Playwright verification template, and project scaffolding so these classes of errors are prevented or caught automatically during implementation
 
 ### 33. Improve documentation to present core agent system and extension architecture
 - **Effort**: 4 hours
