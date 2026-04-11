@@ -17,6 +17,14 @@ claude
 
 Then open Zed, paste the `agent_servers` block from [Configure claude-acp](#configure-claude-acp) into `settings.json`, confirm the Claude Code thread is available in the Agent Panel (Ctrl+?), and run `/login` once inside the thread. Finally install the two MCP tools. Detailed steps follow.
 
+## Before you begin
+
+You will run every command in this guide inside a terminal. To open one, press **Cmd+Space** to open Spotlight, type **Terminal**, and press Enter. (You can also find Terminal in Applications > Utilities.)
+
+When the terminal opens, you see a prompt -- a short line ending in `$` or `%`. To run a command, paste or type it after the prompt and press **Enter**. The examples in this guide show only the command itself, not the prompt character.
+
+If a command produces a lot of output, wait until the prompt appears again before running the next one. That means the previous command has finished.
+
 ## Prerequisites
 
 - macOS 11 (Big Sur) or newer
@@ -24,19 +32,19 @@ Then open Zed, paste the `agent_servers` block from [Configure claude-acp](#conf
 - About 20-30 minutes for initial setup
 - An Anthropic account for the Claude Code CLI
 
-Every dependency section below follows the same three-step pattern: **Check if already installed** -> **Install** -> **Verify**. Run the detection command first; if it succeeds, skip to the next section.
+Every dependency section below follows the same three-step pattern: **Check if already installed**, **Install**, **Verify**. Run the detection command first; if it prints a version number, skip to the next section.
 
 ## Install Xcode Command Line Tools
 
-Provides `git` and the compiler toolchain Homebrew needs. Most Macs already have these installed.
+These provide basic developer tools (like `git`) that other installers in this guide depend on. Most Macs already have them installed.
 
 ### Check if already installed
 
 ```
-xcode-select -p >/dev/null 2>&1 && git --version
+git --version
 ```
 
-If this prints a `git version ...` line and exits cleanly, skip to [Install Homebrew](#install-homebrew).
+If this prints a version number (e.g. `git version 2.39.5`), skip to [Install Homebrew](#install-homebrew).
 
 ### Install
 
@@ -44,7 +52,7 @@ If this prints a `git version ...` line and exits cleanly, skip to [Install Home
 xcode-select --install
 ```
 
-A GUI installer window appears; click through it. Installation takes several minutes.
+A dialog box appears. Click **Install** and wait a few minutes. When the dialog says the installation is complete, you can close it.
 
 ### Verify
 
@@ -52,29 +60,31 @@ A GUI installer window appears; click through it. Installation takes several min
 git --version
 ```
 
-Expected output: a line like `git version 2.xx.x`.
+You should see a line like `git version 2.39.5`. The exact number does not matter.
 
 ## Install Homebrew
 
-macOS package manager used for everything else below.
+Homebrew is a tool that lets you install software from the terminal with a single command, similar to an app store but for developer tools. Every remaining install in this guide uses it.
 
 ### Check if already installed
 
 ```
-command -v brew >/dev/null 2>&1 && brew --version
+brew --version
 ```
 
-If this prints `Homebrew X.Y.Z`, skip to [Install Node.js](#install-nodejs).
+If this prints a version number (e.g. `Homebrew 4.4.16`), skip to [Install Node.js](#install-nodejs).
 
 ### Install
 
-Open **WezTerm** (or the default macOS Terminal) and paste:
+Paste this command into your terminal:
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Follow the on-screen instructions (you may need your Mac password). When the installer finishes, it prints a `eval "$(/opt/homebrew/bin/brew shellenv)"` line; run that in your current shell (or close and reopen the terminal) so `brew` is on your `PATH`.
+Follow the on-screen instructions (you may need to enter your Mac password). The installer takes a few minutes.
+
+When it finishes, the installer tells you to run one more command to make `brew` available. Copy the line it shows you, paste it into the terminal, and press Enter. If you are unsure which line to copy, closing and reopening the terminal works too.
 
 ### Verify
 
@@ -82,7 +92,7 @@ Follow the on-screen instructions (you may need your Mac password). When the ins
 brew --version
 ```
 
-Expected output: `Homebrew X.Y.Z`.
+You should see something like `Homebrew 4.4.16`. The exact number does not matter.
 
 ## Install Node.js
 

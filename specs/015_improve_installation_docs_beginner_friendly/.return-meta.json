@@ -1,20 +1,8 @@
 {
-  "status": "planned",
-  "artifacts": [
-    {
-      "type": "plan",
-      "path": "specs/015_improve_installation_docs_beginner_friendly/plans/01_beginner-friendly-install.md",
-      "summary": "3-phase plan to make installation.md beginner-friendly with terminal intro, simplified detection commands, and motivation sentences"
-    }
-  ],
-  "next_steps": "Run /implement 15 to execute the plan",
+  "status": "in_progress",
   "metadata": {
-    "session_id": "sess_1775866476_a58637",
-    "agent_type": "planner-agent",
-    "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "plan", "skill-planner"],
-    "phase_count": 3,
-    "estimated_hours": 1.5,
-    "dependency_waves": [[1], [2], [3]]
+    "session_id": "sess_1775866778_1a4ad5",
+    "agent_type": "general-implementation-agent",
+    "delegation_path": ["orchestrator", "implement", "general-implementation-agent"]
   }
 }

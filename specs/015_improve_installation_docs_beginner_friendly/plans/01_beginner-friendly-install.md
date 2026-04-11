@@ -1,7 +1,7 @@
 # Implementation Plan: Beginner-Friendly Installation Docs
 
 - **Task**: 15 - Improve installation docs for beginner-friendly terminal walkthrough
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 1.5 hours
 - **Dependencies**: None (task 14 touches different files)
 - **Research Inputs**: specs/015_improve_installation_docs_beginner_friendly/reports/01_beginner-friendly-install.md
@@ -64,7 +64,7 @@ No ROADMAP.md found.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Terminal Introduction and First Three Sections [NOT STARTED]
+### Phase 1: Terminal Introduction and First Three Sections [COMPLETED]
 
 **Goal**: Add the "Before you begin" preamble and rewrite the top half of the doc (Prerequisites through Homebrew), addressing research findings 1-5 for those sections.
 
@@ -90,7 +90,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Middle Sections (Node through MCP Tools) [NOT STARTED]
+### Phase 2: Middle Sections (Node through MCP Tools) [IN PROGRESS]
 
 **Goal**: Rewrite detection commands and add motivation/guidance for Node.js, Zed, Claude Code CLI, claude-acp, Authenticate in Zed, and MCP Tools sections.
 
