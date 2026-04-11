@@ -225,7 +225,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 6: settings.json fix and cross-references [NOT STARTED]
+### Phase 6: settings.json fix and cross-references [COMPLETED]
 
 **Goal**: Fix the `typst` allowlist gap in `.claude/settings.json`, apply the Lean decision from Phase 4, and update cross-references in `docs/general/installation.md` and `docs/general/README.md`.
 
