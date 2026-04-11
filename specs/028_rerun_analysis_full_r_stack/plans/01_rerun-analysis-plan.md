@@ -168,7 +168,7 @@ Phases within the same wave can execute in parallel. Phase 6 is conditional on p
 
 ---
 
-### Phase 4: Byte-Identity Verification and Headline Assertion [NOT STARTED]
+### Phase 4: Byte-Identity Verification and Headline Assertion [COMPLETED]
 
 **Goal**: Diff the six regenerated artifacts against the Phase 2 baseline and assert the headline adjusted OR matches the committed value.
 

@@ -1,0 +1,18 @@
+=== diff -q per file ===
+IDENTICAL: data/raw/participants.csv
+IDENTICAL: data/raw/outcomes.csv
+IDENTICAL: data/raw/adverse_events.csv
+IDENTICAL: data/derived/analytic.csv
+IDENTICAL: reports/tables/primary_results.txt
+IDENTICAL: reports/tables/sensitivity_results.txt
+
+=== SHA256 comparison ===
+SHA256: all match
+
+=== Headline OR assertion ===
+armKAT                1.19004    0.37724   3.155  0.00161 **
+               armKAT  3.28721 1.57e+00    6.885 0.00161
+armKAT                0.488278   0.088114   5.541 9.75e-08 ***
+armKAT               -0.100250   0.014561  -6.885 1.19e-10 ***
+armKAT               -0.1290034394 -0.071497264
+     Complete case 3.29  1.57  6.89 1.61e-03
