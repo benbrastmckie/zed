@@ -137,7 +137,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Typesetting toolchain doc [NOT STARTED]
+### Phase 3: Typesetting toolchain doc [COMPLETED]
 
 **Goal**: Create `docs/toolchain/typesetting.md` covering LaTeX, Typst, Pandoc, markitdown, and required fonts — grouped because these tools are commonly installed together for document output.
 
