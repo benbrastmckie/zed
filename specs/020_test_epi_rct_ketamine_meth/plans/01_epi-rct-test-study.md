@@ -1,7 +1,7 @@
 # Implementation Plan: Ketamine-Assisted Therapy Test RCT (Zed R/Python Verification)
 
 - **Task**: 20 - test_epi_rct_ketamine_meth
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 9 hours
 - **Dependencies**: None
 - **Research Inputs**: reports/01_epi-research.md
@@ -246,7 +246,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 7: Quarto CONSORT Report and Configuration Summary [NOT STARTED]
+### Phase 7: Quarto CONSORT Report and Configuration Summary [COMPLETED]
 
 **Goal**: Render a CONSORT-style Quarto report and finalize the Zed/R/Python configuration gap document.
 

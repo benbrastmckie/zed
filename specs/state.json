@@ -4,12 +4,12 @@
     {
       "project_number": 21,
       "project_name": "update_docs_r_python_zed",
-      "status": "researched",
+      "status": "planned",
       "task_type": "markdown",
       "description": "Update /home/benjamin/.config/zed/README.md and the other documentation in /home/benjamin/.config/zed/docs/README.md and /home/benjamin/.config/zed/docs/ to reflect that this is a configuration for working in R and Python with Claude Code in the Zed IDE.",
       "created": "2026-04-11T00:57:02Z",
-      "last_updated": "2026-04-11T01:05:00Z",
-      "session_id": "sess_1775869065_6b00e6",
+      "last_updated": "2026-04-11T01:07:16Z",
+      "session_id": "sess_planner_21",
       "researched": "2026-04-11T01:05:00Z",
       "next_artifact_number": 2,
       "artifacts": [
@@ -17,6 +17,11 @@
           "path": "specs/021_update_docs_r_python_zed/reports/01_update-docs-r-python-zed.md",
           "type": "report",
           "summary": "Identifies 7 user-facing doc files needing reframing from macOS/epidemiology focus to R/Python + Claude Code in Zed, with dual-platform notes and cross-links to existing R.md and python.md language guides."
+        },
+        {
+          "path": "specs/021_update_docs_r_python_zed/plans/01_update-docs-r-python-zed.md",
+          "type": "plan",
+          "summary": "5-phase plan to reframe README, docs index, docs/general/*, docs/workflows/README, and audit settings.json for macOS-only R/Python Zed configuration."
         }
       ]
     },

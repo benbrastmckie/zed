@@ -1,0 +1,94 @@
+---
+title: "Ketamine-Assisted Therapy for Methamphetamine Use Disorder (Synthetic RCT)"
+subtitle: "Zed R/Python Toolchain Verification -- Task 20"
+author: "epi-implement-agent"
+date: "2026-04-10"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+  gfm:
+    preview-mode: raw
+execute:
+  echo: false
+  warning: false
+---
+
+## Background
+
+This is a verification exercise for Zed's R and Python toolchains on NixOS.
+We analyze a synthetic 1:1 randomized controlled trial of Ketamine-Assisted
+Therapy (KAT) vs Therapy-As-Usual (TAU) for methamphetamine use disorder,
+N=200 participants stratified by baseline severity.
+
+> **Note**: All data are synthetic. No real participants or clinical inference.
+
+## Methods
+
+**Design**: 1:1 stratified RCT, 12-week follow-up.
+**Primary outcome**: Abstinence from methamphetamine at 12 weeks (binary).
+**Secondary outcomes**: Time to first use (continuous, censored at 84 days),
+Addiction Severity Index (ASI) at 12 weeks.
+**Primary analysis**: Logistic regression adjusting for severity stratum,
+age, sex, and baseline ASI.
+
+## CONSORT Flow
+
+```{r}
+#| label: consort-flow
+dat <- read.csv("../data/derived/analytic.csv")
+cat("Enrolled:            ", nrow(dat), "\n")
+cat("Randomized to KAT:   ", sum(dat$arm == "KAT"), "\n")
+cat("Randomized to TAU:   ", sum(dat$arm == "TAU"), "\n")
+cat("Completed study:     ", sum(dat$completed_study == 1), "\n")
+cat("Lost to follow-up:   ", sum(dat$completed_study == 0), "\n")
+```
+
+## Table 1: Baseline Characteristics
+
+Generated via base R aggregation (see
+`reports/tables/primary_results.txt`). `gtsummary` is unavailable in
+this environment.
+
+## Primary Results
+
+Odds ratio (KAT vs TAU) for abstinence at 12 weeks, complete-case analysis:
+
+```{r}
+#| label: primary-or
+m <- readRDS("../data/derived/models/primary_logistic.rds")
+co <- summary(m)$coefficients
+ci <- confint.default(m)
+arm <- which(rownames(co) == "armKAT")
+cat(sprintf("OR = %.2f (95%% CI %.2f-%.2f), p = %.4f\n",
+            exp(co[arm, 1]), exp(ci[arm, 1]), exp(ci[arm, 2]), co[arm, 4]))
+```
+
+## Secondary Results
+
+- **Time-to-relapse (Cox fallback)**: `survival` package unavailable;
+  a log-rank test and exponential-glm fallback were used. See
+  `reports/tables/primary_results.txt` for details.
+- **ASI at 12 weeks**: Linear regression adjusting for the same covariates.
+
+## Sensitivity Analyses
+
+See `reports/tables/sensitivity_results.txt`. Five sensitivity scenarios were
+run: complete case (primary), per-protocol, single-imputation, and worst-case
+/ best-case tipping-point bounds.
+
+## Limitations
+
+1. Synthetic data only; effect sizes are pre-specified, not estimated.
+2. Cox regression replaced by log-rank + exponential glm fallback because
+   the `survival` R package is not installed.
+3. Multiple imputation replaced by mean/mode single imputation because
+   `mice` is not installed.
+4. Quarto rendering is disabled because Quarto is not installed; this
+   document is maintained as a `.qmd` source plus a Markdown mirror
+   (see `05_consort_report.md`).
+
+## Configuration Gaps
+
+See `logs/config_gaps.md` for the full list of missing packages and the
+recommended NixOS remediation snippets.
