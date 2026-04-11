@@ -1,13 +1,21 @@
 {
-  "next_project_number": 16,
+  "next_project_number": 18,
   "active_projects": [
+    {
+      "project_number": 17,
+      "project_name": "fix_broken_links_in_commands_md",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-11T00:10:47Z",
+      "last_updated": "2026-04-11T00:10:47Z"
+    },
     {
       "project_number": 15,
       "project_name": "improve_installation_docs_beginner_friendly",
-      "status": "not_started",
+      "status": "researching",
       "task_type": "markdown",
       "created": "2026-04-11T00:08:41Z",
-      "last_updated": "2026-04-11T00:08:41Z"
+      "last_updated": "2026-04-11T00:10:21Z"
     },
     {
       "project_number": 14,

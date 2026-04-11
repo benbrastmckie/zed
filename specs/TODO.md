@@ -1,14 +1,21 @@
 ---
-next_project_number: 16
+next_project_number: 18
 ---
 
 # Task List
 
 ## Tasks
 
-### 15. Improve installation docs for beginner-friendly terminal walkthrough
+### 17. Fix broken link at line 22 in docs/agent-system/commands.md and scan for similar broken links
 - **Effort**: small
 - **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Fix the broken link at line 22 in docs/agent-system/commands.md. Look for other similar broken link issues across the documentation, fixing all broken links found.
+
+### 15. Improve installation docs for beginner-friendly terminal walkthrough
+- **Effort**: small
+- **Status**: [RESEARCHING]
 - **Task Type**: markdown
 
 **Description**: Make docs/general/installation.md more user-friendly by walking through each installation step for someone with no prior terminal experience, briefly motivating and explaining each step without being too verbose to avoid overwhelming the reader.
