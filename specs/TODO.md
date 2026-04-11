@@ -8,10 +8,11 @@ next_project_number: 31
 
 ### 30. Audit .claude/ for assumed dependencies and update install docs
 - **Effort**: 7 hours
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
 - **Research**: [01_team-research.md](030_audit_missing_dependencies_docs/reports/01_team-research.md)
 - **Plan**: [01_toolchain-docs.md](030_audit_missing_dependencies_docs/plans/01_toolchain-docs.md)
+- **Summary**: [01_toolchain-docs-summary.md](030_audit_missing_dependencies_docs/summaries/01_toolchain-docs-summary.md)
 
 **Description**: Audit `.claude/` to identify all assumed external dependencies (typst, R, python, lean, latex, etc.) and create a plan to update installation/setup documentation to include any missing elements (typst was forgotten; likely others too).
 
