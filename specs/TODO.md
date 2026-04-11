@@ -8,8 +8,9 @@ next_project_number: 32
 
 ### 31. Create installation scripts for toolchain docs and a master installation wizard
 - **Effort**: TBD
-- **Status**: [RESEARCHING]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_team-research.md](031_toolchain_installation_scripts/reports/01_team-research.md)
 
 **Description**: Building on task 30, create installation scripts for each group of dependencies documented in `docs/toolchain/` (one script per file), plus a master installation script that installs all software mentioned in `docs/general/installation.md` and then runs each toolchain script afterwards. The master script must prompt the user to accept/skip/cancel each collection of packages, providing a clear and concise explanation of what will be installed and why. Then update `docs/general/installation.md` to lead with the master script as the installation wizard (explaining to a beginner how to clone the repo and run the script), followed by the existing manual instructions. Similarly, every file in `docs/toolchain/` should begin by explaining how to run the corresponding script before the manual installation instructions.
 
