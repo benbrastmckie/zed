@@ -10,7 +10,9 @@ next_project_number: 33
 - **Effort**: TBD
 - **Status**: [RESEARCHED]
 - **Task Type**: meta
-- **Research**: [01_teammate-a-findings.md](032_update_docs_from_claude_diff/reports/01_teammate-a-findings.md)
+- **Research**:
+  - [01_teammate-a-findings.md](032_update_docs_from_claude_diff/reports/01_teammate-a-findings.md)
+  - [01_team-research.md](032_update_docs_from_claude_diff/reports/01_team-research.md)
 
 **Description**: Review git diff of .claude/ changes and update all documentation to accurately reflect the current state without historical declarations (documentation should describe current reality, not mention what changed)
 

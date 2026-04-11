@@ -15,6 +15,11 @@
           "type": "research_report",
           "path": "specs/032_update_docs_from_claude_diff/reports/01_teammate-a-findings.md",
           "summary": "7 files with stale Python extension references catalogued with exact edits; no talk/slides or Zed issues found"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/032_update_docs_from_claude_diff/reports/01_team-research.md",
+          "summary": "Team synthesis: 7 files need Python extension reference removal/replacement; all other stale-reference categories already clean"
         }
       ]
     },
