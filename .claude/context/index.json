@@ -4120,9 +4120,9 @@
         "mermaid",
         "pdf-export"
       ],
-      "description": "Slidev implementation notes: Mermaid diagram scaling, PDF export verification checklist",
-      "summary": "Mermaid scale parameters, PDF export checklist for slides tasks",
-      "line_count": 29,
+      "description": "Slidev implementation notes: Mermaid diagrams, required Playwright verification phase for plans",
+      "summary": "Mermaid scale parameters, Playwright verification phase template (required final phase for all Slidev plans), common error fixes",
+      "line_count": 73,
       "path": "project/present/talk/patterns/slidev-pitfalls.md",
       "subdomain": "present",
       "keywords": [
@@ -4132,7 +4132,42 @@
         "pdf",
         "export",
         "playwright",
-        "pitfalls"
+        "verification"
+      ]
+    },
+    {
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "commands": [
+          "/implement"
+        ],
+        "agents": [
+          "general-implementation-agent"
+        ],
+        "task_types": [
+          "slides"
+        ]
+      },
+      "domain": "project",
+      "topics": [
+        "playwright",
+        "slidev",
+        "verification",
+        "testing"
+      ],
+      "description": "Playwright verification script template for Slidev decks -- copy to scripts/verify-slides.mjs",
+      "summary": "Reusable Playwright script that starts dev server, visits each slide, checks for errors, takes screenshots",
+      "line_count": 123,
+      "path": "project/present/talk/templates/playwright-verify.mjs",
+      "subdomain": "present",
+      "keywords": [
+        "playwright",
+        "verify",
+        "slides",
+        "test",
+        "screenshot"
       ]
     },
     {

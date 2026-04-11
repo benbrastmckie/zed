@@ -55,6 +55,13 @@
         { "name": "StatResult", "file": "StatResult.vue" },
         { "name": "FlowDiagram", "file": "FlowDiagram.vue" }
       ]
+    },
+    "templates": {
+      "description": "Reusable scripts and templates for Slidev projects",
+      "path": "templates/",
+      "items": [
+        { "name": "playwright-verify", "file": "playwright-verify.mjs", "description": "Playwright slide verification script -- copy to scripts/verify-slides.mjs in each project" }
+      ]
     }
   }
 }
