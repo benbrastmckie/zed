@@ -312,3 +312,6 @@
 [2026-04-10T18:30:52-07:00] Notification sent: Tab (worktree=false)
 [2026-04-10T18:30:56-07:00] Cooldown active: 4s < 10s - skipping notification
 [2026-04-10T18:31:00-07:00] Cooldown active: 8s < 10s - skipping notification
+[2026-04-10T18:31:48-07:00] Notification sent: Tab (worktree=false)
+[2026-04-10T18:31:56-07:00] Cooldown active: 8s < 10s - skipping notification
+[2026-04-10T18:32:00-07:00] Notification sent: Tab 4 (worktree=false)

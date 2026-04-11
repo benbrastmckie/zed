@@ -1,10 +1,19 @@
 ---
-next_project_number: 28
+next_project_number: 29
 ---
 
 # Task List
 
 ## Tasks
+
+### 28. Re-run the analysis with the full R/tidyverse stack once task 27 is complete
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: epi:study
+- **Depends on**: 27
+- **Parent Task**: 20
+
+**Description**: Re-run the analysis with the full R/tidyverse stack once task 27 is complete.
 
 ### 27. Fix the environment gaps documented in task 20's config_gaps.md
 - **Effort**: TBD

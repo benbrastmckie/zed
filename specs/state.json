@@ -1,6 +1,19 @@
 {
-  "next_project_number": 28,
+  "next_project_number": 29,
   "active_projects": [
+    {
+      "project_number": 28,
+      "project_name": "rerun_analysis_full_r_stack",
+      "status": "not_started",
+      "task_type": "epi:study",
+      "description": "Re-run the analysis with the full R/tidyverse stack once task 27 is complete.",
+      "depends_on": [
+        27
+      ],
+      "parent_task": 20,
+      "created": "2026-04-11T01:32:22Z",
+      "last_updated": "2026-04-11T01:32:22Z"
+    },
     {
       "project_number": 27,
       "project_name": "fix_task20_env_gaps",
