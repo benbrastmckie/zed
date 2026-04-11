@@ -141,7 +141,7 @@ and a README stub.
 
 ---
 
-### Phase 2: Theme + Components [NOT STARTED]
+### Phase 2: Theme + Components [COMPLETED]
 
 **Goal**: Stand up the `academic-clean` theme and copy in the five canonical
 Vue components plus author one new `CodeDiff` component for slide 10.

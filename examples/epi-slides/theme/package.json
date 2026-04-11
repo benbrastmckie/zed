@@ -1,0 +1,10 @@
+{
+  "name": "slidev-theme-academic-clean",
+  "version": "0.1.0",
+  "description": "Academic-clean Slidev theme for the /epi workflow talk. White background, muted blue accents, serif headings, amber caveat banner.",
+  "keywords": ["slidev-theme", "slidev", "academic"],
+  "engines": {
+    "slidev": ">=0.48.0"
+  },
+  "main": "index.ts"
+}

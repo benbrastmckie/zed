@@ -1,0 +1,121 @@
+/* Academic-clean theme styles
+ * Palette sourced from .claude/context/project/present/talk/themes/academic-clean.json
+ */
+
+:root {
+  --ac-bg: #ffffff;
+  --ac-text: #1a1a2e;
+  --ac-heading: #16213e;
+  --ac-accent: #3b5998;
+  --ac-accent-light: #ebf0f9;
+  --ac-muted: #6b7280;
+  --ac-highlight: #2563eb;
+  --ac-success: #059669;
+  --ac-warning: #d97706;
+  --ac-error: #dc2626;
+  --ac-amber-bg: #fef3c7;
+  --ac-amber-border: #f59e0b;
+  --ac-amber-text: #92400e;
+  --ac-heading-font: Georgia, 'Times New Roman', serif;
+  --ac-body-font: 'Helvetica Neue', Arial, sans-serif;
+  --ac-code-font: 'Courier New', monospace;
+}
+
+.slidev-layout {
+  background: var(--ac-bg);
+  color: var(--ac-text);
+  font-family: var(--ac-body-font);
+  font-size: 1.1rem;
+  padding: 2rem 3rem;
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3,
+.slidev-layout h4 {
+  font-family: var(--ac-heading-font);
+  color: var(--ac-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.slidev-layout h1 {
+  font-size: 2.2rem;
+  border-bottom: 3px solid var(--ac-accent);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.slidev-layout h2 {
+  font-size: 1.6rem;
+  color: var(--ac-accent);
+  margin-bottom: 0.6rem;
+}
+
+.slidev-layout h3 {
+  font-size: 1.2rem;
+  color: var(--ac-heading);
+  margin-bottom: 0.4rem;
+}
+
+.slidev-layout p,
+.slidev-layout li {
+  line-height: 1.5;
+}
+
+.slidev-layout a {
+  color: var(--ac-highlight);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ac-highlight);
+}
+
+.slidev-layout code {
+  font-family: var(--ac-code-font);
+  font-size: 0.9em;
+  background: var(--ac-accent-light);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+}
+
+.slidev-layout pre {
+  font-family: var(--ac-code-font);
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85em;
+  overflow-x: auto;
+}
+
+/* Amber caveat banner (used by caveat.vue and inline) */
+.caveat-banner {
+  background: var(--ac-amber-bg);
+  border-top: 2px solid var(--ac-amber-border);
+  border-bottom: 2px solid var(--ac-amber-border);
+  color: var(--ac-amber-text);
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.slide-footer {
+  position: absolute;
+  left: 3rem;
+  right: 3rem;
+  bottom: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--ac-muted);
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 0.3rem;
+}
+
+.synthetic-strap {
+  font-size: 0.8rem;
+  color: var(--ac-warning);
+  font-style: italic;
+  margin-top: 0.25rem;
+}
