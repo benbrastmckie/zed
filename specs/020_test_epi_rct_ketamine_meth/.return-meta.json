@@ -1,8 +1,0 @@
-{
-  "status": "in_progress",
-  "session_id": "sess_1775868879_c5ed23",
-  "task_number": 20,
-  "agent_type": "planner-agent",
-  "delegation_path": ["orchestrator", "plan", "planner-agent"],
-  "artifacts": []
-}
