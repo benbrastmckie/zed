@@ -21,6 +21,7 @@ Homebrew itself is a prerequisite for every install step below. If you do not ha
 | [typesetting.md](typesetting.md) | LaTeX (MacTeX/BasicTeX), Typst, Pandoc, markitdown, and required fonts |
 | [mcp-servers.md](mcp-servers.md) | MCP servers beyond those in installation.md: obsidian-memory, rmcp, markitdown-mcp, mcp-pandoc (plus the recorded Lean MCP decision) |
 | [extensions.md](extensions.md) | Per-extension prerequisite summary — points into the other files and lists any extension-specific extras |
+| [slidev.md](slidev.md) | Slidev CLI, Playwright browsers, Zed integration |
 | [shell-tools.md](shell-tools.md) | Shell utilities assumed present: `jq`, `gh`, `git`, `make` |
 
 ## Check / Install / Verify template

@@ -1,19 +1,16 @@
 {
-  "status": "planned",
-  "artifacts": [
-    {
-      "path": "specs/033_improve_docs_core_system_extensions/plans/01_improve-docs-extensions.md",
-      "type": "plan",
-      "summary": "4-phase plan: fix stale Neovim references, restructure README around task lifecycle, update supporting docs, verify cross-file consistency"
-    }
-  ],
-  "metadata": {
-    "session_id": "sess_1775926068_9037a1",
-    "agent_type": "planner-agent",
-    "delegation_path": ["orchestrator", "plan", "planner-agent"],
-    "phase_count": 4,
-    "estimated_hours": 4,
-    "dependency_waves": [[1], [2, 3], [4]]
-  },
-  "next_steps": "Run /implement 33 to execute the plan"
+  "task_number": 33,
+  "task_name": "improve_docs_core_system_extensions",
+  "status": "implemented",
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+  "session_id": "sess_1775926627_17fd67",
+  "phases_completed": 4,
+  "phases_total": 4,
+  "partial_progress": "All 4 phases completed",
+  "summary_path": "specs/033_improve_docs_core_system_extensions/summaries/01_improve-docs-summary.md",
+  "completion_data": {
+    "completion_summary": "Removed stale Neovim references from machine-facing files, rewrote project-overview.md for Zed, restructured README.md around the task lifecycle with three command groups and walkthrough example, and fixed supporting docs for consistency.",
+    "claudemd_suggestions": "Updated .claude/CLAUDE.md (removed VimTeX, <leader>ac, neovim refs, manifest.json path), updated .claude/README.md (removed nvim extension, fixed broken link), rewrote .claude/context/repo/project-overview.md, fixed 6 skill SKILL.md files"
+  }
 }

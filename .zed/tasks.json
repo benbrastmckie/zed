@@ -23,13 +23,12 @@
     "reveal_target": "dock"
   },
   {
-    // Export the current Slidev markdown file to PDF via nix-aware wrapper.
-    // The wrapper resolves playwright-driver.browsers from nixpkgs so
-    // Chromium finds its shared libraries on NixOS.
+    // Export the current Slidev markdown file to PDF.
+    // Requires Playwright; Chromium is downloaded automatically on first use.
+    // Bound to Alt+Shift+E in keymap.json.
     "label": "Slidev Export PDF",
-    "command": "bash",
-    "args": ["scripts/slidev-export.sh", "$ZED_FILE"],
-    "cwd": "$ZED_WORKTREE_ROOT",
+    "command": "slidev",
+    "args": ["export", "$ZED_FILE"],
     "use_new_terminal": true,
     "allow_concurrent_runs": false,
     "reveal": "always",

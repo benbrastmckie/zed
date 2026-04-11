@@ -1,8 +1,6 @@
-# Zed IDE Configuration for R and Python with Claude Code
+# Zed IDE Configuration with Claude Code Agent System
 
-A Zed editor configuration for macOS optimized for working in **R** and **Python** with **Claude Code** as the integrated AI assistant. Standard keybindings (vim optional), minimal custom shortcuts, first-class language server support (pyright + ruff for Python, r-language-server + lintr + styler for R), and an agent system that helps you write, test, and refactor code from a single Ctrl+Shift+A away.
-
-Domain extensions for epidemiology research, grant development, memory capture, and Office document editing are also available and can be layered on top of the core R/Python workflow.
+A Zed editor configuration for macOS that pairs first-class **R** and **Python** language support with a **Claude Code agent system** -- a structured task lifecycle that turns research, planning, and implementation into tracked, resumable workflows. Domain extensions for epidemiology, grant development, document conversion, and memory capture layer on top of the core system.
 
 **Platform**: macOS 11 (Big Sur) or newer.
 
@@ -41,6 +39,31 @@ For the full installation walkthrough, including MCP tool setup for Office file 
 
 For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/keybindings.md).
 
+## How It Works
+
+The agent system turns development work into tracked tasks with a predictable lifecycle. You create a task with `/task`, investigate it with `/research` (which produces a report), design a solution with `/plan` (which produces a phased plan), and execute it with `/implement` (which works through each phase, committing as it goes). When you are done, `/todo` archives completed tasks. If something goes wrong, `/implement` resumes from the last incomplete phase.
+
+### Walkthrough: Adding a New Language Server
+
+```
+# 1. Create a task
+/task "Add TOML language server support"
+
+# 2. Research approaches (produces a report)
+/research 34
+
+# 3. Create a phased plan
+/plan 34
+
+# 4. Execute the plan (commits after each phase)
+/implement 34
+
+# 5. Archive when done
+/todo
+```
+
+Each step produces artifacts in `specs/034_add_toml_language_server/` -- reports, plans, and summaries -- so you can always see what was investigated, decided, and built.
+
 ## Example Outputs
 
 To see concretely what this configuration produces, two runnable end-to-end examples are included:
@@ -72,29 +95,80 @@ This configuration is built around first-class R and Python development inside Z
 
 Claude Code provides structured research and development workflows. Open it with **Ctrl+Shift+A**, then use these commands.
 
-**Core commands for R and Python development**:
+### Task Lifecycle
+
+Commands that drive work through the research-plan-implement cycle:
 
 | Command | What it does |
 |---------|-------------|
+| `/task` | Create a new tracked task |
 | `/research` | Investigate a topic, library, or codebase and write a report |
 | `/plan` | Create a phased implementation plan from research |
 | `/implement` | Execute a plan, resuming from any incomplete phase |
-| `/review` | Review code and produce an analysis report |
-| `/learn` | Save knowledge to the memory vault for future sessions |
-| `/convert` | Convert between PDF, DOCX, Markdown, and other formats |
+| `/revise` | Create a new version of an existing plan |
+| `/todo` | Archive completed and abandoned tasks |
 
-**Also available -- domain extensions**:
+### Domain Extensions
+
+Specialized commands that add domain-specific capabilities on top of the core lifecycle:
+
+**Epidemiology** -- Design and run R-based epidemiological studies with structured analysis phases:
 
 | Command | What it does |
 |---------|-------------|
 | `/epi` | Design and run epidemiology studies in R |
+
+**Grant Development** -- Research proposals, budgets, timelines, and funding analysis:
+
+| Command | What it does |
+|---------|-------------|
 | `/grant` | Develop grant proposals with narrative drafting |
 | `/budget` | Generate grant budgets with justification |
 | `/funds` | Analyze funding landscape and funder portfolios |
 | `/timeline` | Plan research project timelines |
 | `/slides` | Create research talks and presentations |
 
+**Document Tools** -- Convert, edit, and extract from Office and PDF files:
+
+| Command | What it does |
+|---------|-------------|
+| `/convert` | Convert between PDF, DOCX, Markdown, and other formats |
+| `/edit` | Edit Word documents with tracked changes |
+| `/table` | Convert spreadsheets to LaTeX/Typst tables |
+| `/scrape` | Extract annotations from PDFs |
+
+**Memory** -- Persistent knowledge across sessions:
+
+| Command | What it does |
+|---------|-------------|
+| `/learn` | Save knowledge to the memory vault for future sessions |
+
+### Housekeeping
+
+Commands for code quality, error tracking, and system maintenance:
+
+| Command | What it does |
+|---------|-------------|
+| `/review` | Review code and produce an analysis report |
+| `/errors` | Analyze error patterns and create fix plans |
+| `/fix-it` | Scan files for FIX:/TODO:/NOTE: tags and create tasks |
+| `/refresh` | Clean up orphaned processes and old files |
+| `/meta` | System builder for modifying the agent system itself |
+| `/merge` | Create a pull/merge request for the current branch |
+
 For the full command catalog, see [docs/agent-system/commands.md](docs/agent-system/commands.md).
+
+## Common Scenarios
+
+| I want to... | Start here |
+|---|---|
+| Design and run an epidemiology study in R | [Epidemiology workflow](docs/workflows/epidemiology-analysis.md) |
+| Develop a grant proposal or budget | [Grant development](docs/workflows/grant-development.md) |
+| Edit a collaborator's Word document | [Office file editing](docs/workflows/edit-word-documents.md) |
+| Convert a PDF to Markdown (or back) | [Document conversion](docs/workflows/convert-documents.md) |
+| Investigate and fix codebase issues | [Maintenance workflow](docs/workflows/maintenance-and-meta.md) |
+
+For the complete decision guide, see [docs/workflows/README.md](docs/workflows/README.md#decision-guide).
 
 ## Directory Layout
 
@@ -148,7 +222,7 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 
 ## AI Integration
 
-**Claude Code** (Ctrl+Shift+A): The primary AI interface. Helps you write, test, debug, and refactor R and Python code through the full project lifecycle with `/research`, `/plan`, and `/implement`. Also provides domain extensions for epidemiology (`/epi`), grant and research development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), and Office document editing (`/edit`, `/convert`).
+**Claude Code** (Ctrl+Shift+A): The primary AI interface. Provides a structured task lifecycle (`/task`, `/research`, `/plan`, `/implement`) for tracked, resumable development work. Domain extensions add specialized capabilities for epidemiology (`/epi`), grant and research development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), document tools (`/edit`, `/convert`, `/table`, `/scrape`), and persistent memory (`/learn`).
 
 **Zed Agent Panel** (Ctrl+?): Built-in AI sidebar for quick questions and inline edits. See [docs/agent-system/zed-agent-panel.md](docs/agent-system/zed-agent-panel.md).
 

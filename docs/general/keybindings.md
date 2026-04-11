@@ -163,9 +163,12 @@ Debug ACP communication via the command palette: search for `dev: open acp logs`
 
 The keybinding is configured in `keymap.json` using `task::Spawn` with `task_name: "Claude Code"`, and works from both Workspace and Terminal contexts. The terminal opens in the dock panel (position controlled by `terminal.dock` in `settings.json`).
 
-## How do I export Slidev slides to PDF?
+## How do I work with Slidev presentations?
 
-With a Slidev markdown file open, press **Alt+Shift+P** \*. This runs `slidev export` on the current file and produces a PDF in the same directory. Output appears in the dock terminal panel.
+With a Slidev markdown file open:
+
+- **Alt+Shift+P** \* -- Launch the Slidev dev server and open the presentation in your browser. The terminal stays running; press Ctrl+C in it to stop the server.
+- **Alt+Shift+E** \* -- Export the presentation to PDF. The PDF is written next to the source file (e.g. `slides-export.pdf`). Requires Playwright (Chromium is downloaded automatically on first use).
 
 ## How do I use the terminal?
 

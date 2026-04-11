@@ -11,42 +11,6 @@ This project hosts two AI systems: Zed's built-in Agent Panel for quick, in-edit
 
 Both run on Claude models. They do **not** share conversation history. Use the panel for a 30-second question; use Claude Code when you want research, a plan, and a commit trail.
 
-## Navigation
-
-Files in this directory (`docs/agent-system/`):
-
-- **[zed-agent-panel.md](zed-agent-panel.md)** — Opening the panel, the built-in agent vs the Claude Code thread, how the `claude-acp` bridge works under the hood, authentication, inline assist, edit predictions, troubleshooting.
-- **[agent-lifecycle.md](../workflows/agent-lifecycle.md)** — Task lifecycle state machine and the seven main-workflow commands that drive it.
-- **[commands.md](commands.md)** — Full catalog of the Claude Code command catalog grouped by topic, each with a one-line summary, example, and link into `.claude/docs/`.
-- **[context-and-memory.md](context-and-memory.md)** — The two memory layers (`.memory/` vault vs auto-memory), the five context layers, and where new content belongs.
-- **[architecture.md](architecture.md)** — Three-layer execution pipeline, checkpoint execution, session IDs, state files, and routing.
-
-Companion files outside this directory:
-
-- [../general/installation.md](../general/installation.md) — Installing Zed, Claude Code CLI, `claude-acp`, and MCP tools
-- [../general/settings.md](../general/settings.md#agent_servers) — `agent_servers` configuration reference
-- [../general/keybindings.md](../general/keybindings.md#how-do-i-use-the-ai-agent) — Agent Panel keybindings
-
-## Extensions
-
-The agent system includes domain-specific extensions that provide specialized research and implementation capabilities:
-
-- **Python** -- General Python development with pytest, mypy, ruff, and library research. See [../general/python.md](../general/python.md) for language setup.
-- **Epidemiology** -- R-based study design, causal inference, statistical modeling, and reporting (STROBE, CONSORT). Use `/epi` to start a study. R language setup is covered in [../general/R.md](../general/R.md).
-- **Present** -- Grant proposals (`/grant`), budgets (`/budget`), timelines (`/timeline`), funding analysis (`/funds`), and research talks (`/slides`).
-- **Memory** -- Persistent knowledge vault (`/learn`, `--remember` flag on `/research`).
-- **Filetypes** -- Office document conversion and editing (`/convert`, `/edit`, `/table`, `/scrape`).
-- **LaTeX / Typst** -- Document typesetting with compilation support.
-
-All extensions are pre-merged into the active configuration; there is no manual loading step.
-
-## Zed adaptations
-
-This workspace adapts the upstream `.claude/` configuration with two intentional deviations:
-
-- **No `Co-Authored-By` trailer** -- Git commits in this workspace omit the `Co-Authored-By` line per user preference.
-- **No `.claude/extensions/` directory** -- Extensions are tracked via the flat `.claude/extensions.json` file rather than a directory tree. References to `.claude/extensions/*/context/` in `.claude/CLAUDE.md` do not apply here.
-
 ## Quick start: your first task
 
 Assuming [installation](../general/installation.md) is complete and the Claude Code thread is authenticated:
@@ -69,7 +33,42 @@ Assuming [installation](../general/installation.md) is complete and the Claude C
    /implement 1
    ```
 
-Each command produces a structured artifact under `specs/001_add_dark_mode_toggle/` and commits its work. You can stop between any two steps and resume later — the task state machine tracks where you are. See [agent-lifecycle.md](../workflows/agent-lifecycle.md) for the full state machine and [commands.md](commands.md) for the rest of the command catalog.
+Each command produces a structured artifact under `specs/001_add_dark_mode_toggle/` and commits its work. You can stop between any two steps and resume later -- the task state machine tracks where you are. See [agent-lifecycle.md](../workflows/agent-lifecycle.md) for the full state machine and [commands.md](commands.md) for the rest of the command catalog.
+
+## Navigation
+
+Files in this directory (`docs/agent-system/`):
+
+- **[zed-agent-panel.md](zed-agent-panel.md)** — Opening the panel, the built-in agent vs the Claude Code thread, how the `claude-acp` bridge works under the hood, authentication, inline assist, edit predictions, troubleshooting.
+- **[agent-lifecycle.md](../workflows/agent-lifecycle.md)** — Task lifecycle state machine and the seven main-workflow commands that drive it.
+- **[commands.md](commands.md)** — Full catalog of the Claude Code command catalog grouped by topic, each with a one-line summary, example, and link into `.claude/docs/`.
+- **[context-and-memory.md](context-and-memory.md)** — The two memory layers (`.memory/` vault vs auto-memory), the five context layers, and where new content belongs.
+- **[architecture.md](architecture.md)** — Three-layer execution pipeline, checkpoint execution, session IDs, state files, and routing.
+
+Companion files outside this directory:
+
+- [../general/installation.md](../general/installation.md) — Installing Zed, Claude Code CLI, `claude-acp`, and MCP tools
+- [../general/settings.md](../general/settings.md#agent_servers) — `agent_servers` configuration reference
+- [../general/keybindings.md](../general/keybindings.md#how-do-i-use-the-ai-agent) — Agent Panel keybindings
+
+## Extensions
+
+The agent system includes domain-specific extensions that provide specialized research and implementation capabilities:
+
+- **Epidemiology** -- R-based study design, causal inference, statistical modeling, and reporting (STROBE, CONSORT). Use `/epi` to start a study. R language setup is covered in [../general/R.md](../general/R.md).
+- **Present** -- Grant proposals (`/grant`), budgets (`/budget`), timelines (`/timeline`), funding analysis (`/funds`), and research talks (`/slides`).
+- **Memory** -- Persistent knowledge vault (`/learn`, `--remember` flag on `/research`).
+- **Filetypes** -- Office document conversion and editing (`/convert`, `/edit`, `/table`, `/scrape`).
+- **LaTeX / Typst** -- Document typesetting with compilation support.
+
+All extensions are pre-merged into the active configuration; there is no manual loading step.
+
+## Zed adaptations
+
+This workspace adapts the upstream `.claude/` configuration with two intentional deviations:
+
+- **No `Co-Authored-By` trailer** -- Git commits in this workspace omit the `Co-Authored-By` line per user preference.
+- **No `.claude/extensions/` directory** -- Extensions are tracked via the flat `.claude/extensions.json` file rather than a directory tree. References to `.claude/extensions/*/context/` in `.claude/CLAUDE.md` do not apply here.
 
 ## See also
 

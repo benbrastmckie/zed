@@ -351,4 +351,5 @@ If any step fails, see [Troubleshooting in the agent panel doc](../agent-system/
 - [../toolchain/r.md](../toolchain/r.md) — R setup guide for macOS (interpreter, languageserver, lintr, styler, Zed configuration)
 - [settings.md](settings.md#agent_servers) — `agent_servers` configuration reference
 - [../agent-system/zed-agent-panel.md](../agent-system/zed-agent-panel.md) — How the Agent Panel and claude-acp bridge work at runtime
+- [../toolchain/slidev.md](../toolchain/slidev.md) — Slidev CLI, Playwright browsers, and Zed keybindings
 - [../../.claude/docs/guides/user-installation.md](../../.claude/docs/guides/user-installation.md) — Quick-start reference for the Claude Code framework itself

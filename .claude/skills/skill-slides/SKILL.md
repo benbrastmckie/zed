@@ -34,7 +34,7 @@ This skill activates when:
 - `/slides` command with task number input
 - `/research` on a present task with `task_type: "slides"`
 - `/implement` on a present task with `task_type: "slides"` (assemble workflow)
-- Extension is loaded via `<leader>ac`
+- Present extension is available
 
 ---
 
