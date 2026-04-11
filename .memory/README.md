@@ -71,7 +71,7 @@ Memory files follow the pattern:
 MEM-{semantic-slug}.md
 ```
 
-Example: `MEM-telescope-custom-pickers.md`, `MEM-neovim-lsp-best-practices.md`
+Example: `MEM-epi-cohort-study-design.md`, `MEM-grant-nih-r01-tips.md`
 
 The MEM- prefix is preserved for grep discoverability (`grep -r "MEM-" .memory/`).
 
@@ -80,10 +80,10 @@ The MEM- prefix is preserved for grep discoverability (`grep -r "MEM-" .memory/`
 Memory entries use YAML frontmatter:
 ```yaml
 ---
-title: "Neovim LSP Best Practices"
+title: "Epidemiology Cohort Study Design"
 created: 2026-03-06
-tags: neovim, lsp, configuration
-topic: "neovim/lsp"
+tags: epidemiology, study-design, cohort
+topic: "epidemiology/study-design"
 source: "user input"
 modified: 2026-03-06
 ---

@@ -1,8 +1,8 @@
 # Claude Agent System Documentation
 
-[Neovim Configuration](../../README.md) | [Architecture](../README.md) | [CLAUDE.md](../CLAUDE.md)
+[Zed Configuration](../../README.md) | [Architecture](../README.md) | [CLAUDE.md](../CLAUDE.md)
 
-This directory contains the documentation for the `.claude/` agent system. The system provides structured task management, research workflows, and implementation automation for Neovim configuration development. For comprehensive system details, see [architecture/system-overview.md](architecture/system-overview.md).
+This directory contains the documentation for the `.claude/` agent system. The system provides structured task management, research workflows, and implementation automation for this Zed configuration project. For comprehensive system details, see [architecture/system-overview.md](architecture/system-overview.md).
 
 ---
 
@@ -53,7 +53,6 @@ The `.claude/` directory implements a three-layer architecture: Commands, Skills
 - [User Installation Guide](guides/user-installation.md) - Install Claude Code, set up the agent system, and learn the basics
 - [Command Workflows User Guide](guides/user-guide.md) - Comprehensive guide to all commands with examples and troubleshooting
 - [Copy .claude/ Directory](guides/copy-claude-directory.md) - Install the agent system in another project
-- [Neovim Integration](guides/neovim-integration.md) - Hook-based readiness signaling, TTS notifications, and STT voice input
 - [TTS/STT Integration](guides/tts-stt-integration.md) - Text-to-speech and speech-to-text setup and configuration
 
 ### Component Development
@@ -93,8 +92,8 @@ Reusable templates for creating new system components are available in [template
 - [README.md](../README.md) - Detailed system architecture and component specifications
 
 ### Project Documentation
-- [Neovim Configuration README](../../README.md) - Main project documentation
+- [Zed Configuration README](../../README.md) - Main project documentation
 
 ---
 
-[Neovim Configuration](../../README.md) | [Architecture](../README.md) | [CLAUDE.md](../CLAUDE.md)
+[Zed Configuration](../../README.md) | [Architecture](../README.md) | [CLAUDE.md](../CLAUDE.md)

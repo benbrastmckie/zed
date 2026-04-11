@@ -23,10 +23,11 @@ next_project_number: 18
 
 ### 14. Standardize docs/ README files and improve root README for Zed + Claude Code epi/medical research config
 - **Effort**: medium
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
 - **Research**: [01_team-research.md](014_standardize_docs_and_root_readme/reports/01_team-research.md)
 - **Plan**: [01_standardize-docs-readme.md](014_standardize_docs_and_root_readme/plans/01_standardize-docs-readme.md)
+- **Summary**: Standardized all docs/ README files with consistent structure, cross-links, and correct keyboard shortcuts; rewrote root README as Zed + Claude Code for epidemiology/medical research; removed all Neovim and NixOS references from documentation scope.
 
 **Description**: Standardize and cross-link all docs/ README.md files for consistency, then improve the root README.md to clearly present the repo as a Zed + Claude Code configuration for epidemiology and medical research with accurate links to docs/, .memory/README.md, and .claude/README.md.
 

@@ -30,10 +30,10 @@
     {
       "project_number": 14,
       "project_name": "standardize_docs_and_root_readme",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "meta",
       "created": "2026-04-10T23:39:14Z",
-      "last_updated": "2026-04-11T00:01:35Z",
+      "last_updated": "2026-04-11T00:14:21Z",
       "session_id": "sess_1775865680_7ea64d",
       "researched": "2026-04-10T23:50:08Z",
       "next_artifact_number": 2,
@@ -42,8 +42,14 @@
           "path": "specs/014_standardize_docs_and_root_readme/plans/01_standardize-docs-readme.md",
           "type": "plan",
           "summary": "5-phase plan to rewrite root README with epi/medical research identity, expand docs/README.md, fix shortcuts and Neovim references across 17 files"
+        },
+        {
+          "path": "specs/014_standardize_docs_and_root_readme/summaries/01_standardize-docs-readme-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for documentation standardization task"
         }
-      ]
+      ],
+      "completion_summary": "Standardized all docs/ README files with consistent structure, cross-links, and correct keyboard shortcuts; rewrote root README as Zed + Claude Code for epidemiology/medical research; removed all Neovim and NixOS references from documentation scope."
     },
     {
       "project_number": 13,

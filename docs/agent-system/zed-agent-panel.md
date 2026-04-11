@@ -4,20 +4,22 @@ Zed provides two ways to use Claude Code: the **agent panel** (ACP adapter) for 
 
 ## Summary
 
-- **Ctrl+Shift+A** — launch Claude Code CLI in a terminal panel (full parity)
-- **Ctrl+?** — toggle the agent panel (ACP adapter, limited capabilities)
+- **Ctrl+Shift+A** — launch Claude Code CLI in a terminal panel (full parity, multiple concurrent sessions)
+- **Ctrl+?** — toggle the agent panel (ACP adapter, limited capabilities, discouraged)
 
-The terminal task is the primary path for anything that needs subagents, skills, `--team` mode, or hooks. The agent panel is convenient for quick questions and simple edits.
+The terminal task is the recommended path. It supports multiple simultaneous sessions, subagents, skills, `--team` mode, and hooks. The agent panel exists as an alternative but is discouraged due to SDK isolation constraints that strip most functionality.
 
 ## Two modes of Claude Code in Zed
 
-### Terminal task (full CLI)
+### Terminal task (full CLI) — recommended
 
 A Zed terminal task (`.zed/tasks.json`) launches the `claude` binary directly. This gives you the exact same experience as running `claude` in a standalone terminal — all commands, skills, agents, and team mode work.
 
-**When to use**: Multi-step workflows (`/research`, `/plan`, `/implement`), `--team` mode, anything that spawns subagents.
+Because `allow_concurrent_runs` can be set to `true` (or you can define multiple task entries), you can run **multiple independent Claude Code sessions** simultaneously in separate terminal tabs. This is useful when you want to research in one session while implementing in another, or run parallel investigations on different parts of the codebase. Each session has its own context, conversation history, and tool permissions.
 
-### Agent panel (ACP adapter)
+**When to use**: Multi-step workflows (`/research`, `/plan`, `/implement`), `--team` mode, anything that spawns subagents, or any time you need multiple concurrent sessions.
+
+### Agent panel (ACP adapter) — discouraged
 
 The agent panel uses the `claude-acp` bridge to connect Zed's UI to Claude Code. However, the ACP adapter runs in **SDK isolation mode**, which means:
 
@@ -25,23 +27,27 @@ The agent panel uses the `claude-acp` bridge to connect Zed's UI to Claude Code.
 - Subagent spawning does not work
 - `--team` mode is unavailable
 - Slash commands that delegate to skills/agents will not function as expected
+- Only one session at a time per panel
 
 The `CLAUDE_CODE_EXECUTABLE` environment variable is configured to point the adapter to the installed `claude` binary, which improves basic functionality but does not overcome SDK isolation constraints.
 
-**When to use**: Quick questions, simple file edits, inline assist.
+Given that the terminal task provides full CLI parity, multiple concurrent sessions, and no tool restrictions, the agent panel is generally not worth the trade-offs. Prefer **Ctrl+Shift+A** for all Claude Code work.
+
+**When to use (if at all)**: Quick one-off questions where you don't need full CLI capabilities.
 
 ### Feature comparison
 
 | Feature | Terminal task | Agent panel (ACP) |
 |---------|-------------|-------------------|
 | Keybinding | Ctrl+Shift+A | Ctrl+? |
+| Multiple concurrent sessions | Yes | No |
 | Subagent spawning | Yes | No (SDK isolation) |
 | `--team` mode | Yes | No |
 | All slash commands | Yes | Limited |
 | Skills and hooks | Yes | No |
 | Inline diff review | No (terminal UI) | Yes |
 | File context awareness | Manual | Automatic (open files) |
-| Best for | Multi-step work, full CLI parity | Quick questions, simple edits |
+| Recommended | **Yes** | No |
 
 ## Configuration
 
@@ -55,12 +61,14 @@ The `CLAUDE_CODE_EXECUTABLE` environment variable is configured to point the ada
     "command": "/home/benjamin/.nix-profile/bin/claude",
     "args": ["--dangerously-skip-permissions"],
     "use_new_terminal": true,
-    "allow_concurrent_runs": false,
+    "allow_concurrent_runs": true,
     "reveal": "always",
     "reveal_target": "dock"
   }
 ]
 ```
+
+Setting `allow_concurrent_runs` to `true` lets you launch multiple independent Claude Code sessions by pressing Ctrl+Shift+A repeatedly. Each invocation opens a new terminal tab with its own session. This is the primary advantage over the agent panel, which is limited to a single thread at a time.
 
 The terminal opens in the dock panel. To control which side the dock appears on, set `terminal.dock` in `settings.json`:
 
