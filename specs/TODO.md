@@ -8,17 +8,19 @@ next_project_number: 20
 
 ### 19. Create Python and R setup guides for macOS
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHING]
 - **Task Type**: markdown
 
 **Description**: Building on docs/general/installation.md, create python.md and R.md files in docs/general/ with complete instructions for setting up Python and R development environments on macOS, including linters, formatters, and LSP. Link these guides at the end of installation.md and briefly mention them at the beginning to walk new users through language-specific setup.
 
 ### 18. Update docs/ documentation to reflect newly loaded Python extension
 - **Effort**: small
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
+- **Completed**: 2026-04-10
 - **Task Type**: meta
 - **Research**: [01_python-extension-docs.md](018_update_docs_for_python_extension/reports/01_python-extension-docs.md)
 - **Plan**: [01_python-docs-update.md](018_update_docs_for_python_extension/plans/01_python-docs-update.md)
+- **Summary**: [01_python-docs-summary.md](018_update_docs_for_python_extension/summaries/01_python-docs-summary.md)
 
 **Description**: Update all documentation in docs/ to reflect the Python extension loaded into .claude/. The extension adds python-research-agent, python-implementation-agent, skill-python-research, skill-python-implementation, and Python domain context files. Update docs/agent-system/ (architecture, commands, routing) and docs/workflows/ as appropriate to document Python as a supported language with its own research and implementation agents.
 

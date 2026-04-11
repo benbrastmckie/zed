@@ -36,6 +36,7 @@ The agent system includes domain-specific extensions that provide specialized re
 - **Memory** -- Persistent knowledge vault (`/learn`, `--remember` flag on `/research`).
 - **Filetypes** -- Office document conversion and editing (`/convert`, `/edit`, `/table`, `/scrape`).
 - **LaTeX / Typst** -- Document typesetting with compilation support.
+- **Python** -- Python development with pytest, mypy, ruff, and library research.
 
 All extensions are pre-merged into the active configuration; there is no manual loading step.
 

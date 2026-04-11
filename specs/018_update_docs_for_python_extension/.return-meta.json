@@ -1,20 +1,14 @@
 {
-  "status": "planned",
-  "artifacts": [
-    {
-      "type": "plan",
-      "path": "specs/018_update_docs_for_python_extension/plans/01_python-docs-update.md",
-      "summary": "1-phase plan to add Python extension references to 3 docs files following LaTeX/Typst pattern"
-    }
-  ],
-  "next_steps": "Run /implement 18 to execute the plan",
-  "metadata": {
-    "session_id": "sess_1775867339_7828df",
-    "agent_type": "planner-agent",
-    "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "plan", "planner-agent"],
-    "phase_count": 1,
-    "estimated_hours": 0.5,
-    "dependency_waves": [[1]]
+  "task_number": 18,
+  "status": "implemented",
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+  "session_id": "sess_1775867745_6c017d",
+  "artifact_number": 1,
+  "phases_completed": 1,
+  "phases_total": 1,
+  "completion_data": {
+    "completion_summary": "Added Python extension references to 3 docs files (agent-system/README.md, architecture.md, docs/README.md) following the LaTeX/Typst minimal documentation pattern.",
+    "claudemd_suggestions": "none"
   }
 }

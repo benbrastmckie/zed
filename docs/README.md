@@ -14,7 +14,7 @@ Installation, keybindings, and settings reference. Start here if you are setting
 
 ### [Agent System](agent-system/README.md)
 
-Claude Code and Zed AI integration: the Agent Panel, the Claude Code terminal interface, the command catalog, context and memory layers, and the three-layer execution architecture. This section also covers the epidemiology, grant development, and memory extensions.
+Claude Code and Zed AI integration: the Agent Panel, the Claude Code terminal interface, the command catalog, context and memory layers, and the three-layer execution architecture. This section also covers the epidemiology, grant development, memory, and Python extensions.
 
 ### [Workflows](workflows/README.md)
 
