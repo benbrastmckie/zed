@@ -260,7 +260,7 @@ Phases within the same wave can execute in parallel. Phase 6 is conditional on p
 
 ---
 
-### Phase 7: Re-run Summary Artifact [NOT STARTED]
+### Phase 7: Re-run Summary Artifact [COMPLETED]
 
 **Goal**: Produce `logs/rerun_028/rerun_summary.md` as the canonical record of this re-run, referenced by the task 28 execution summary.
 
