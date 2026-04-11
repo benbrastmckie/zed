@@ -1,0 +1,53 @@
+==================================================================
+ 04c Cox Proportional Hazards -- task 28 Branch B                 
+==================================================================
+
+Call:
+coxph(formula = Surv(days_to_use, event) ~ arm + severity_stratum + 
+    age + sex + baseline_asi, data = dat)
+
+  n= 200, number of events= 181 
+
+                          coef exp(coef)  se(coef)      z Pr(>|z|)    
+armKAT               -0.853416  0.425957  0.159790 -5.341 9.25e-08 ***
+severity_stratumMid  -0.348562  0.705702  0.323504 -1.077   0.2813    
+severity_stratumHigh -0.959420  0.383115  0.549650 -1.746   0.0809 .  
+age                   0.003826  1.003833  0.009933  0.385   0.7001    
+sexMale               0.123524  1.131478  0.156935  0.787   0.4312    
+baseline_asi          1.622696  5.066732  0.905404  1.792   0.0731 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+                     exp(coef) exp(-coef) lower .95 upper .95
+armKAT                  0.4260     2.3477    0.3114    0.5826
+severity_stratumMid     0.7057     1.4170    0.3743    1.3304
+severity_stratumHigh    0.3831     2.6102    0.1305    1.1251
+age                     1.0038     0.9962    0.9845    1.0236
+sexMale                 1.1315     0.8838    0.8319    1.5390
+baseline_asi            5.0667     0.1974    0.8591   29.8820
+
+Concordance= 0.622  (se = 0.021 )
+Likelihood ratio test= 30.46  on 6 df,   p=3e-05
+Wald test            = 30.27  on 6 df,   p=3e-05
+Score (logrank) test = 31.42  on 6 df,   p=2e-05
+
+
+---- Proportional-hazards test (cox.zph) ----
+                  chisq df    p
+arm              0.0292  1 0.86
+severity_stratum 2.2657  2 0.32
+age              1.5879  1 0.21
+sex              0.3556  1 0.55
+baseline_asi     0.0175  1 0.89
+GLOBAL           4.9646  6 0.55
+
+---- Kaplan-Meier by arm ----
+Call: survfit(formula = Surv(days_to_use, event) ~ arm, data = dat)
+
+          n events median 0.95LCL 0.95UCL
+arm=TAU 100     98   25.4    22.5    31.9
+arm=KAT 100     83   40.5    36.5    53.2
+
+---- Headline KAT hazard ratio ----
+  HR = 0.4260   95% CI = [0.3114, 0.5826]   p = 0.00000
+  HR < 1 assertion: PASS

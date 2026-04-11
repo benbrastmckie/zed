@@ -1,0 +1,35 @@
+[31m
+
+processing file: consort_report.qmd
+[39m1/5               
+2/5 [consort-flow]
+3/5               
+4/5 [primary-or]  
+5/5               
+[31moutput file: consort_report.knit.md
+
+[39m[1mpandoc [22m
+  to: html
+  output-file: consort_report.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 2
+  variables: {}
+  
+[1mmetadata[22m
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Ketamine-Assisted Therapy for Methamphetamine Use Disorder (Synthetic RCT)
+  subtitle: Zed R/Python Toolchain Verification -- Task 20
+  author: epi-implement-agent
+  date: '2026-04-10'
+  
+Output created: rendered/consort_report.html
+
+Rendered: /home/benjamin/.config/zed/examples/epi-study/reports/rendered/consort_report.html

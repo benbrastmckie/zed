@@ -222,7 +222,7 @@ Phases within the same wave can execute in parallel. Phase 6 is conditional on p
 
 ---
 
-### Phase 6: Optional Enrichment (Branch B, Conditional) [NOT STARTED]
+### Phase 6: Optional Enrichment (Branch B, Conditional) [COMPLETED]
 
 **Goal**: If task 27 is implemented, run parallel tidyverse/survival/mice/quarto analyses under `specs/028_rerun_analysis_full_r_stack/artifacts/enriched/` without modifying the frozen `examples/epi-study/scripts/`. If the stack is unavailable, log a skip and continue.
 
