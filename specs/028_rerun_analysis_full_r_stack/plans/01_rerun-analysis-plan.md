@@ -195,7 +195,7 @@ Phases within the same wave can execute in parallel. Phase 6 is conditional on p
 
 ---
 
-### Phase 5: Provenance Capture [NOT STARTED]
+### Phase 5: Provenance Capture [COMPLETED]
 
 **Goal**: Record the exact R/Python versions, package versions, and source commit so a future auditor can link this re-run to a reproducible environment.
 
