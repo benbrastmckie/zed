@@ -88,7 +88,7 @@ End-to-end usage narratives for working with this Zed configuration on macOS. Ea
 1. Open Zed, press **Cmd+`** for a terminal
 2. Run `/scrape paper.pdf` to extract annotations (see [convert-documents.md](convert-documents.md#scrape--pdf-annotations-to-markdown-or-json))
 3. Review the extracted notes in Markdown
-4. Use the Agent Panel (**Cmd+Shift+?**) to discuss the paper with Claude
+4. Use the Agent Panel (**Ctrl+?**) to discuss the paper with Claude
 
 ### Creating a report from data
 

@@ -7,7 +7,7 @@ Use this when you need to change values, add rows, or update formulas in an .xls
 ## Steps
 
 1. **Save and close** the spreadsheet in Excel
-2. Open the Agent Panel in Zed (**Cmd+Shift+?**)
+2. Open Claude Code in Zed (**Ctrl+Shift+A**)
 3. Describe what you want changed, being specific about sheet names, row labels, or column headers
 4. Open the file in Excel to verify the changes
 

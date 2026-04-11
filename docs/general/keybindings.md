@@ -20,8 +20,8 @@ A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked
 | Cmd+W                | Close the current tab                          |
 | Cmd+Tab              | Switch to the next tab                         |
 | Cmd+`                | Open or close the terminal                     |
-| Cmd+? \*             | Toggle the right sidebar (agent panel)         |
-| Cmd+Shift+A \*       | Launch Claude Code CLI (terminal task)          |
+| Ctrl+Shift+A \*      | Launch Claude Code CLI (primary AI interface)   |
+| Ctrl+? \*            | Toggle the right sidebar (agent panel)          |
 | Cmd+B                | Show or hide the left sidebar                  |
 | Cmd+Shift+C \*       | Copy full path of the active file to clipboard |
 | Alt+J \*             | Move the current line down                     |
@@ -88,13 +88,13 @@ Zed has a built-in AI agent panel, inline assist, edit predictions, and integrat
 
 > **Verify shortcuts**: Zed updates frequently. Press **Cmd+K Cmd+S** to open the keybinding editor and confirm any shortcut listed here.
 
-### Claude Code CLI (terminal task)
+### Claude Code CLI (primary AI interface)
 
-- **Cmd+Shift+A** \* -- Launch Claude Code in a terminal panel (full CLI with subagents, `--team` mode, skills, and hooks). Works from any context including inside a terminal. See [../agent-system/zed-agent-panel.md](../agent-system/zed-agent-panel.md) for details on the dual-mode setup.
+- **Ctrl+Shift+A** \* -- Launch Claude Code in a terminal panel (full CLI with subagents, `--team` mode, skills, and hooks). Works from any context including inside a terminal. See [../agent-system/zed-agent-panel.md](../agent-system/zed-agent-panel.md) for details on the dual-mode setup.
 
 ### Agent panel -- Opening and focus
 
-- **Cmd+Shift+?** \* -- Toggle the right sidebar (agent panel lives here; custom override of `agent::ToggleFocus` to `workspace::ToggleRightDock`)
+- **Ctrl+?** \* -- Toggle the right sidebar (agent panel lives here; custom override of `agent::ToggleFocus` to `workspace::ToggleRightDock`)
 
 ### Agent panel -- Thread management
 
@@ -146,13 +146,13 @@ Zed has a built-in AI agent panel, inline assist, edit predictions, and integrat
 
 ### External agents (Claude ACP)
 
-The agent panel (Cmd+? to toggle) connects to Claude Code via the `claude-acp` bridge. It runs in SDK isolation mode, so subagent spawning and `--team` mode are not available. Use it for quick questions and simple edits.
+The agent panel (Ctrl+? to toggle) connects to Claude Code via the `claude-acp` bridge. It runs in SDK isolation mode, so subagent spawning and `--team` mode are not available. Use it for quick questions and simple edits.
 
 Debug ACP communication via the command palette: search for `dev: open acp logs`.
 
 ### Claude Code (terminal task)
 
-**Cmd+Shift+A** \* launches the full Claude Code CLI as a terminal task. This is the primary path for multi-step work:
+**Ctrl+Shift+A** \* launches the full Claude Code CLI as a terminal task. This is the primary path for multi-step work:
 
 - `/research` -- Investigate a topic
 - `/plan` -- Create an implementation plan

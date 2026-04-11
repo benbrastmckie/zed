@@ -1,6 +1,6 @@
 # Maintenance and System Building
 
-Investigate code quality, track down errors, clean up resources, modify the agent system, and ship changes. These commands keep the codebase and the Claude Code agent system healthy. Run them from Zed's terminal (Cmd+`) or Agent Panel (Cmd+Shift+?).
+Investigate code quality, track down errors, clean up resources, modify the agent system, and ship changes. These commands keep the codebase and the Claude Code agent system healthy. Run them from Claude Code (Ctrl+Shift+A) or from a Zed terminal (Cmd+`).
 
 ## Decision guide
 

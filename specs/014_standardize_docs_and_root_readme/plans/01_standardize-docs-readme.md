@@ -135,7 +135,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Fix Keyboard Shortcuts Across docs/ [NOT STARTED]
+### Phase 3: Fix Keyboard Shortcuts Across docs/ [COMPLETED]
 
 **Goal**: Replace all stale `Cmd+Shift+?` and incorrect `Cmd+?` references in docs/ files with the correct `Ctrl+Shift+A` (primary) or `Ctrl+?` (ACP sidebar alternative).
 

@@ -15,7 +15,7 @@ brew install --cask claude-code
 claude
 ```
 
-Then open Zed, paste the `agent_servers` block from [Configure claude-acp](#configure-claude-acp) into `settings.json`, confirm the Claude Code thread is available in the Agent Panel (Cmd+Shift+?), and run `/login` once inside the thread. Finally install the two MCP tools. Detailed steps follow.
+Then open Zed, paste the `agent_servers` block from [Configure claude-acp](#configure-claude-acp) into `settings.json`, confirm the Claude Code thread is available in the Agent Panel (Ctrl+?), and run `/login` once inside the thread. Finally install the two MCP tools. Detailed steps follow.
 
 ## Prerequisites
 
@@ -211,11 +211,11 @@ See [settings.md](settings.md#agent_servers) for the full `agent_servers` refere
 
 ## Authenticate in Zed
 
-**Already authenticated?** Open the Agent Panel (Cmd+Shift+?); if a Claude Code thread is already listed and opens without asking you to log in, you can skip to [Install MCP Tools](#install-mcp-tools).
+**Already authenticated?** Open the Agent Panel (Ctrl+?); if a Claude Code thread is already listed and opens without asking you to log in, you can skip to [Install MCP Tools](#install-mcp-tools).
 
 Once `claude-acp` is configured, the Claude Code thread becomes available in Zed's Agent Panel.
 
-1. Open the Agent Panel with **Cmd+Shift+?**
+1. Open the Agent Panel with **Ctrl+?**
 2. Start a new Claude Code thread (the thread picker shows both the built-in agent and the Claude Code bridge)
 3. Type `/login` in the thread and follow the prompts
 
@@ -288,7 +288,7 @@ Run through this checklist end-to-end. Every entry corresponds to one of the dep
 - [ ] `claude --version` prints a version
 - [ ] `claude doctor` reports a healthy install (optional but recommended)
 - [ ] `claude mcp list` shows both `superdoc` and `openpyxl`
-- [ ] Zed's Agent Panel (Cmd+Shift+?) offers a Claude Code thread
+- [ ] Zed's Agent Panel (Ctrl+?) offers a Claude Code thread
 - [ ] Inside the Claude Code thread, `/login` completes without error
 - [ ] Running `/task "test"` from the Claude Code thread creates a task entry
 

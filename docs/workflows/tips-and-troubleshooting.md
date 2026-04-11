@@ -4,7 +4,7 @@ Cross-cutting tips and common errors for the Office document workflows in this d
 
 ## Opening the Agent Panel
 
-All the workflows in this directory start the same way: press **Cmd+Shift+?** in Zed to open the Agent Panel, then type your request. Terminal commands (like `/convert`, `/table`, `/scrape`) can also run from a Zed terminal opened with **Cmd+`**.
+All the workflows in this directory start the same way: press **Ctrl+Shift+A** to open Claude Code, then type your request. Terminal commands (like `/convert`, `/table`, `/scrape`) can also run from a Zed terminal opened with **Cmd+`**. Alternatively, the Agent Panel sidebar (Ctrl+?) provides a lighter-weight interface for quick questions.
 
 ## First-time macOS permissions for Word automation
 

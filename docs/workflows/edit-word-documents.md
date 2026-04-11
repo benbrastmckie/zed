@@ -2,7 +2,7 @@
 
 Use `/edit` to modify .docx files from Zed's Agent Panel. Claude handles save-edit-reload for you, can produce tracked changes, edit whole folders at once, or create new documents from scratch.
 
-Open the Agent Panel in Zed with **Cmd+Shift+?** and type your request. For macOS permission prompts and common errors, see [tips-and-troubleshooting.md](tips-and-troubleshooting.md). For the full `/edit` flag reference, see [`../agent-system/commands.md`](../agent-system/commands.md). The SuperDoc MCP tool must be installed first — see [Install MCP Tools](../general/installation.md#install-mcp-tools).
+Open Claude Code in Zed with **Ctrl+Shift+A** and type your request. For macOS permission prompts and common errors, see [tips-and-troubleshooting.md](tips-and-troubleshooting.md). For the full `/edit` flag reference, see [`../agent-system/commands.md`](../agent-system/commands.md). The SuperDoc MCP tool must be installed first — see [Install MCP Tools](../general/installation.md#install-mcp-tools).
 
 ## How Claude edits Word documents
 
