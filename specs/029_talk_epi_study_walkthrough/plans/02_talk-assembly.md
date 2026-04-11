@@ -345,7 +345,7 @@ slide map in report 02.
 
 ---
 
-### Phase 6: Build Verification [NOT STARTED]
+### Phase 6: Build Verification [PARTIAL]
 
 **Goal**: Run the full build and export pipeline; verify slide count, PDF
 integrity, and that Mermaid/components render in the final output.
