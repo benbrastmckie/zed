@@ -40,10 +40,10 @@
     {
       "project_number": 15,
       "project_name": "improve_installation_docs_beginner_friendly",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "markdown",
       "created": "2026-04-11T00:08:41Z",
-      "last_updated": "2026-04-11T00:19:55Z",
+      "last_updated": "2026-04-11T00:24:37Z",
       "session_id": "sess_1775866778_1a4ad5",
       "researched": "2026-04-11T00:20:00Z",
       "next_artifact_number": 2,
@@ -57,8 +57,14 @@
           "path": "specs/015_improve_installation_docs_beginner_friendly/plans/01_beginner-friendly-install.md",
           "type": "plan",
           "summary": "3-phase plan to make installation.md beginner-friendly with terminal intro, simplified detection commands, and motivation sentences"
+        },
+        {
+          "path": "specs/015_improve_installation_docs_beginner_friendly/summaries/01_beginner-friendly-install-summary.md",
+          "type": "summary",
+          "summary": "Rewrote installation.md for beginner-friendly terminal walkthrough addressing all 8 research findings"
         }
-      ]
+      ],
+      "completion_summary": "Rewrote docs/general/installation.md to be approachable for readers with no terminal experience: added terminal introduction, simplified all detection commands, added motivation sentences and what-you-should-see guidance per section, rewrote PATH instructions in plain language, and converted the final checklist to a numbered list."
     },
     {
       "project_number": 14,

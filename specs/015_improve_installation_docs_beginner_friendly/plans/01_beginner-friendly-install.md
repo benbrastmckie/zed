@@ -1,7 +1,7 @@
 # Implementation Plan: Beginner-Friendly Installation Docs
 
 - **Task**: 15 - Improve installation docs for beginner-friendly terminal walkthrough
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 1.5 hours
 - **Dependencies**: None (task 14 touches different files)
 - **Research Inputs**: specs/015_improve_installation_docs_beginner_friendly/reports/01_beginner-friendly-install.md
