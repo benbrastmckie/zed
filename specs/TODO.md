@@ -8,7 +8,7 @@ next_project_number: 32
 
 ### 31. Create installation scripts for toolchain docs and a master installation wizard
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: meta
 - **Research**: [01_team-research.md](031_toolchain_installation_scripts/reports/01_team-research.md)
 - **Plan**: [01_install-wizard-scripts.md](031_toolchain_installation_scripts/plans/01_install-wizard-scripts.md)

@@ -1,7 +1,7 @@
 # Implementation Plan: Toolchain Installation Scripts & Wizard
 
 - **Task**: 31 - toolchain_installation_scripts
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 12 hours
 - **Dependencies**: Task 30 (toolchain documentation) - COMPLETED
 - **Research Inputs**: specs/031_toolchain_installation_scripts/reports/01_team-research.md (plus 01_teammate-{a,b,c,d}-findings.md)
@@ -102,7 +102,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: Contract design & `lib.sh` scaffold [NOT STARTED]
+### Phase 1: Contract design & `lib.sh` scaffold [COMPLETED]
 
 **Goal**: Establish the script contract (flags, exit codes, presets, `--check` interface) and implement the shared helper library with all primitives the per-group scripts will consume.
 

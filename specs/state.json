@@ -4,12 +4,12 @@
     {
       "project_number": 31,
       "project_name": "toolchain_installation_scripts",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "meta",
       "description": "Building on task 30, create installation scripts for each group of dependencies documented in docs/toolchain/ (one script per file), plus a master installation script that installs all software mentioned in docs/general/installation.md and then runs each toolchain script afterwards. The master script must prompt the user to accept/skip/cancel each collection of packages, providing a clear and concise explanation of what will be installed and why. Then update docs/general/installation.md to lead with the master script as the installation wizard (explaining to a beginner how to clone the repo and run the script), followed by the existing manual instructions. Similarly, every file in docs/toolchain/ should begin by explaining how to run the corresponding script before the manual installation instructions.",
       "created": "2026-04-11T02:48:09Z",
-      "last_updated": "2026-04-11T03:04:52Z",
-      "session_id": "sess_1775876434_ae4297",
+      "last_updated": "2026-04-11T03:06:27Z",
+      "session_id": "sess_1775876781_0da6cb",
       "researched": "2026-04-10T20:10:00Z",
       "artifacts": [
         {
