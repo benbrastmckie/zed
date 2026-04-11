@@ -1,7 +1,7 @@
 # Implementation Plan: Talk Assembly -- /epi Workflow Walkthrough (Round 2)
 
 - **Task**: 29 - talk_epi_study_walkthrough
-- **Status**: [PARTIAL]
+- **Status**: [COMPLETED]
 - **Effort**: 9.5 hours
 - **Dependencies**: task 28 (R stack upgrade + rerun) - COMPLETED
 - **Research Inputs**: specs/029_talk_epi_study_walkthrough/reports/02_talk-research.md
@@ -345,7 +345,7 @@ slide map in report 02.
 
 ---
 
-### Phase 6: Build Verification [PARTIAL]
+### Phase 6: Build Verification [COMPLETED]
 
 **Goal**: Run the full build and export pipeline; verify slide count, PDF
 integrity, and that Mermaid/components render in the final output.

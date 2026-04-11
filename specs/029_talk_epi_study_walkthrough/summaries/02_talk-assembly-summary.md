@@ -1,8 +1,8 @@
 # Implementation Summary: Talk Assembly -- /epi Workflow Walkthrough
 - **Task**: 29 - talk_epi_study_walkthrough
-- **Status**: [PARTIAL]
+- **Status**: [COMPLETED]
 - **Started**: 2026-04-10T00:00:00Z
-- **Completed**: 2026-04-10T00:00:00Z
+- **Completed**: 2026-04-11T10:35:00Z
 - **Effort**: ~9 hours
 - **Dependencies**: task 28 (completed)
 - **Artifacts**: plans/02_talk-assembly.md; examples/epi-slides/**
@@ -58,8 +58,11 @@ libraries -- a local packaging gap documented in `README.md` and
   slide map with pacing, and open-questions section; REHEARSAL.md with
   timing table, caveat-banner cues, and "do not" list; SPEAKER_NOTES.md
   as a consolidated speaker-note view.
-- Updated plan file: all seven phase headings marked `[COMPLETED]`
-  except Phase 6 (`[PARTIAL]`); top-level status set to `[PARTIAL]`.
+- Fixed slide 14 footer overlap: replaced absolute-positioned
+  `.slide-footer` div with a flow-positioned div to avoid collision
+  with Slidev's built-in footer bar.
+- Updated plan file: all seven phase headings marked `[COMPLETED]`;
+  top-level status set to `[COMPLETED]`.
 
 ## Decisions
 
@@ -69,11 +72,9 @@ libraries -- a local packaging gap documented in `README.md` and
 - **`pnpm install` permitted**: the plan's smoke-tests required a real
   build, and pnpm + node + slidev were all available on PATH. The install
   creates `node_modules/` (.gitignored) and `pnpm-lock.yaml` (committed).
-- **PDF export skipped**: Playwright's bundled chromium on NixOS cannot
-  find `libglib-2.0.so.0`, and no system chromium is available. Rather
-  than install system packages, the gap is documented with workaround
-  instructions in README.md. The SPA build is known-good, so the PDF
-  failure is a local environment artifact, not a deck defect.
+- **PDF export now working**: Playwright chromium resolved on NixOS.
+  `slidev export` produces a clean 14-page PDF with all Mermaid diagrams
+  and Vue components rendered correctly.
 - **Slide 12 receipts block**: rendered as an inline `<div>` with a dark
   background and monospace pre-formatting rather than a `<pre>` tag, to
   sidestep Slidev's shiki highlighter trying to parse the custom diff
@@ -96,11 +97,7 @@ libraries -- a local packaging gap documented in `README.md` and
 
 ## Follow-ups
 
-1. **PDF export on NixOS**: install chromium via `nix profile install
-   nixpkgs#chromium` (or wrap the Playwright chromium with
-   `nix-ld`) and rerun `pnpm export`. Verify 14 pages. Update Phase 6
-   to `[COMPLETED]` and the task status to `[COMPLETED]`.
-2. **`/slides 29 --design` pass**: resolve the seven open questions
+1. **`/slides 29 --design` pass**: resolve the seven open questions
    documented in `README.md` -> Open Questions (venue, time budget,
    speaker identity, live demo appetite, caveat wording, backup Q&A
    slides, theme polish).

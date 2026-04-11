@@ -37,7 +37,9 @@ next_project_number: 34
 
 ### 29. Conference talk walkthrough of the epi-study demo
 - **Effort**: 9.5 hours
-- **Status**: [PARTIAL]
+- **Status**: [COMPLETED]
+- **Completed**: 2026-04-11
+- **Summary**: 14-slide Slidev conference deck with working PDF export via Playwright. Fixed slide 14 footer overlap and confirmed all Mermaid diagrams render correctly.
 - **Task Type**: slides
 - **Research**:
   - [01_talk-research.md](029_talk_epi_study_walkthrough/reports/01_talk-research.md)

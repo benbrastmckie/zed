@@ -553,7 +553,7 @@ layout: default
 - **Try `/epi` on your own study**: `EPI_ANSWERS.md` is a fork-ready
   template.
 
-<div class="slide-footer">
+<div style="margin-top: 1.5rem; font-size: 0.8rem; color: #6b7280; display: flex; justify-content: space-between;">
   <span>Everything at <code>examples/epi-study/</code></span>
   <span>Receipts at <code>logs/rerun_028/</code></span>
 </div>

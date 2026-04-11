@@ -92,7 +92,7 @@
     {
       "project_number": 29,
       "project_name": "talk_epi_study_walkthrough",
-      "status": "partial",
+      "status": "completed",
       "language": "present",
       "task_type": "slides",
       "description": "Conference talk walking through the zed/examples/epi-study synthetic RCT demo (KAT vs TAU, adjusted OR 3.29) as an end-to-end showcase of the /epi Claude Code workflow for a mixed clinical/informatics audience",
@@ -105,7 +105,7 @@
         "gathered_at": "2026-04-11T01:48:33Z"
       },
       "created": "2026-04-11T01:48:33Z",
-      "last_updated": "2026-04-10T12:00:00Z",
+      "last_updated": "2026-04-11T10:35:00Z",
       "session_id": "sess_1760000029_i1",
       "artifacts": [
         {
@@ -140,7 +140,7 @@
       "planned": "2026-04-10T00:00:00Z",
       "estimated_hours": 9.5,
       "next_artifact_number": 3,
-      "completion_summary": "Built a 14-slide Slidev conference deck walking through the examples/epi-study synthetic RCT as a showcase of the /epi workflow; slidev build compiles cleanly but PDF export is blocked by a NixOS chromium libglib gap documented in the README."
+      "completion_summary": "14-slide Slidev conference deck with working PDF export via Playwright. Fixed slide 14 footer overlap and confirmed all Mermaid diagrams (slides 3, 5, 8) render correctly. Build and export both exit 0."
     }
   ],
   "repository_health": {
