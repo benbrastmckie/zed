@@ -14,9 +14,11 @@
   {
     // Launch Slidev dev server for the current markdown file and open in browser.
     // Bound to Alt+Shift+P in keymap.json.
+    // Uses npx to resolve the project-local @slidev/cli, avoiding version
+    // mismatch with any globally installed slidev binary.
     "label": "Slidev Preview",
-    "command": "slidev",
-    "args": ["--open", "$ZED_FILE"],
+    "command": "npx",
+    "args": ["@slidev/cli", "--open", "$ZED_FILE"],
     "use_new_terminal": true,
     "allow_concurrent_runs": false,
     "reveal": "always",
@@ -26,12 +28,12 @@
     // Export the current Slidev markdown file to PDF.
     // Requires Playwright; Chromium is downloaded automatically on first use.
     // Bound to Alt+Shift+E in keymap.json.
+    // Runs silently; notifies on success, writes errors to /tmp log on failure.
     "label": "Slidev Export PDF",
-    "command": "slidev",
-    "args": ["export", "$ZED_FILE"],
-    "use_new_terminal": true,
+    "command": ".zed/scripts/slidev-export.sh",
+    "args": ["$ZED_FILE"],
+    "use_new_terminal": false,
     "allow_concurrent_runs": false,
-    "reveal": "always",
-    "reveal_target": "dock"
+    "reveal": "never"
   }
 ]

@@ -72,9 +72,17 @@
 .slidev-layout code {
   font-family: var(--ac-code-font);
   font-size: 0.9em;
-  background: var(--ac-accent-light);
+  background: var(--ac-accent-light) !important;
+  color: var(--ac-text) !important;
   padding: 0.1rem 0.35rem;
   border-radius: 3px;
+}
+
+/* Override Shiki inline code highlighting that applies dark backgrounds */
+.slidev-layout :not(pre) > code .shiki,
+.slidev-layout :not(pre) > code span {
+  background: transparent !important;
+  color: inherit !important;
 }
 
 .slidev-layout pre {

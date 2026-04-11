@@ -76,12 +76,12 @@ layout: default
 
 # The Four-Command Workflow
 
-```mermaid {scale: 0.8}
+```mermaid
 flowchart LR
-    A["/epi<br/>Stage 0<br/>forcing questions"] --> B["/research<br/>synthesize<br/>report"]
-    B --> C["/plan<br/>phased<br/>plan"]
-    C --> D["/implement<br/>Py + R<br/>scripts"]
-    D -.->|"task 28<br/>self-referential"| A
+    A["/epi\nStage 0\nforcing questions"] --> B["/research\nsynthesize\nreport"]
+    B --> C["/plan\nphased\nplan"]
+    C --> D["/implement\nPy + R\nscripts"]
+    D -.->|"task 28\nself-referential"| A
 ```
 
 - **/epi** -- ten forcing questions (PICO, estimand, sensitivity suite, ...).
@@ -155,10 +155,10 @@ layout: default
 **Outcome**: 12-week abstinence (binary); time-to-relapse (survival).
 **Estimand**: adjusted odds ratio of abstinence, KAT vs TAU.
 
-```mermaid {scale: 0.75}
+```mermaid
 flowchart LR
-    arm["arm<br/>(KAT vs TAU)"] --> out["abstinent_12wk"]
-    sev["severity<br/>stratum"] --> out
+    arm["arm\n(KAT vs TAU)"] --> out["abstinent_12wk"]
+    sev["severity\nstratum"] --> out
     sev --> arm
     age["age"] --> out
     sex["sex"] --> out
@@ -184,18 +184,25 @@ layout: default
 
 # Pipeline Anatomy: Python <-> R <-> Quarto Handoff
 
-<div class="data-table-container" style="font-size: 0.85rem;">
-
-| # | Script | Lang | Input | Output |
-|---|---|---|---|---|
-| 01 | `01_generate_data.py` | <LangBadge lang="py" /> | seeds | `data/raw/participants.csv` |
-| 02 | `02_generate_outcomes.py` | <LangBadge lang="py" /> | participants | `data/raw/outcomes.csv`, `adverse_events.csv` |
-| 03 | `03_merge_data.R` | <LangBadge lang="r" /> | raw CSVs | `data/derived/analytic.csv` |
-| 04 | `04_primary_analysis.R` | <LangBadge lang="r" /> | analytic | `primary_results.txt`, `.rds` models |
-| 05 | `05_sensitivity.R` | <LangBadge lang="r" /> | analytic | `sensitivity_results.txt`, `sensitivity_mice.txt`, `cox_results.txt` |
-| 06 | `quarto render` | <LangBadge lang="quarto" /> | `consort_report.qmd` | `rendered/consort_report.html` |
-
-</div>
+<table style="font-size: 0.85rem; border-collapse: collapse; width: 100%;">
+<thead>
+<tr>
+<th style="border-bottom: 2px solid #3b5998; padding: 0.4rem 0.6rem; text-align: left;">#</th>
+<th style="border-bottom: 2px solid #3b5998; padding: 0.4rem 0.6rem; text-align: left;">Script</th>
+<th style="border-bottom: 2px solid #3b5998; padding: 0.4rem 0.6rem; text-align: left;">Lang</th>
+<th style="border-bottom: 2px solid #3b5998; padding: 0.4rem 0.6rem; text-align: left;">Input</th>
+<th style="border-bottom: 2px solid #3b5998; padding: 0.4rem 0.6rem; text-align: left;">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr><td style="padding: 0.3rem 0.6rem;">01</td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">01_generate_data.py</td><td style="padding: 0.3rem 0.6rem;"><LangBadge lang="py" /></td><td style="padding: 0.3rem 0.6rem;">seeds</td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">data/raw/participants.csv</td></tr>
+<tr><td style="padding: 0.3rem 0.6rem;">02</td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">02_generate_outcomes.py</td><td style="padding: 0.3rem 0.6rem;"><LangBadge lang="py" /></td><td style="padding: 0.3rem 0.6rem;">participants</td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">outcomes.csv, adverse_events.csv</td></tr>
+<tr><td style="padding: 0.3rem 0.6rem;">03</td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">03_merge_data.R</td><td style="padding: 0.3rem 0.6rem;"><LangBadge lang="r" /></td><td style="padding: 0.3rem 0.6rem;">raw CSVs</td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">data/derived/analytic.csv</td></tr>
+<tr><td style="padding: 0.3rem 0.6rem;">04</td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">04_primary_analysis.R</td><td style="padding: 0.3rem 0.6rem;"><LangBadge lang="r" /></td><td style="padding: 0.3rem 0.6rem;">analytic</td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">primary_results.txt, .rds models</td></tr>
+<tr><td style="padding: 0.3rem 0.6rem;">05</td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">05_sensitivity.R</td><td style="padding: 0.3rem 0.6rem;"><LangBadge lang="r" /></td><td style="padding: 0.3rem 0.6rem;">analytic</td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">sensitivity + cox results</td></tr>
+<tr><td style="padding: 0.3rem 0.6rem;">06</td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">quarto render</td><td style="padding: 0.3rem 0.6rem;"><LangBadge lang="quarto" /></td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">consort_report.qmd</td><td style="padding: 0.3rem 0.6rem; font-family: monospace; font-size: 0.9em;">consort_report.html</td></tr>
+</tbody>
+</table>
 
 **Callout**: CSV is the lingua franca; Quarto is the report substrate.
 
@@ -247,15 +254,15 @@ layout: default
 
 # CONSORT Flow & Table 1
 
-```mermaid {scale: 0.65}
+```mermaid
 flowchart TD
-    scr["Screened<br/>N = 240"] --> elig["Eligible<br/>N = 200"]
+    scr["Screened\nN = 240"] --> elig["Eligible\nN = 200"]
     scr -.-> excl1["Excluded (n = 40)"]
-    elig --> rand["Randomized<br/>N = 200"]
-    rand --> armK["KAT<br/>N = 100"]
-    rand --> armT["TAU<br/>N = 100"]
-    armK --> anK["Analyzed<br/>CC: 85"]
-    armT --> anT["Analyzed<br/>CC: 85"]
+    elig --> rand["Randomized\nN = 200"]
+    rand --> armK["KAT\nN = 100"]
+    rand --> armT["TAU\nN = 100"]
+    armK --> anK["Analyzed\nCC: 85"]
+    armT --> anT["Analyzed\nCC: 85"]
 ```
 
 <div style="margin-top: 1rem; font-size: 0.85rem;">
