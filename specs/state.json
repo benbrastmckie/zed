@@ -60,13 +60,13 @@
     {
       "project_number": 23,
       "project_name": "update_claude_model_ids",
-      "status": "planned",
+      "status": "completed",
       "task_type": "general",
       "priority": "high",
       "description": "Update outdated Claude model IDs in settings.json (lines 39, 44) and docs/general/settings.md (lines 59, 64) from claude-sonnet-4-20250514 / claude-opus-4-20250514 to claude-sonnet-4-6 / claude-opus-4-6 so the Zed Agent Panel uses current models.",
       "created": "2026-04-11T01:21:49Z",
-      "session_id": "sess_1775870976_593eac",
-      "last_updated": "2026-04-11T01:30:38Z",
+      "session_id": "sess_1775871187_9bf1ec",
+      "last_updated": "2026-04-11T01:34:27Z",
       "researched": "2026-04-11T01:30:00Z",
       "next_artifact_number": 2,
       "artifacts": [
@@ -79,19 +79,26 @@
           "path": "specs/023_update_claude_model_ids/plans/01_delete-agent-block.md",
           "type": "plan",
           "summary": "3-phase plan: delete agent block from settings.json, update docs/general/settings.md with explanation + -latest fallback, verify and commit."
+        },
+        {
+          "path": "specs/023_update_claude_model_ids/summaries/01_delete-agent-block-summary.md",
+          "type": "summary",
+          "summary": "3-phase implementation: agent block removed from settings.json, docs rewritten, tree verified clean."
         }
       ],
-      "planned": "2026-04-11T01:30:38Z"
+      "planned": "2026-04-11T01:30:38Z",
+      "completed": "2026-04-11T01:34:27Z",
+      "completion_summary": "Deleted the stale agent block from settings.json (Zed Agent Panel now uses Zed's built-in default, which auto-updates with Zed releases) and rewrote docs/general/settings.md to explain the intentional omission plus document -latest alias fallback. Claude Code is unaffected (configured via independent agent_servers.claude-acp block)."
     },
     {
       "project_number": 22,
       "project_name": "epi_study_example_demo",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "general",
       "description": "Create zed/examples/epi-study/ directory that organizes and documents the synthetic RCT study produced by task 20, as a demo for new users to understand how to run the /epi command to create an epi study.",
       "created": "2026-04-11T01:15:52Z",
-      "last_updated": "2026-04-11T01:29:20Z",
-      "session_id": "sess_1776039400_pln022",
+      "last_updated": "2026-04-11T01:33:01Z",
+      "session_id": "sess_1776040000_imp022",
       "next_artifact_number": 2,
       "artifacts": [
         {

@@ -1,0 +1,47 @@
+==================================================================
+ Sensitivity Analyses -- Ketamine-Assisted Therapy RCT             
+ Task 20 / synthetic data / base R only                            
+==================================================================
+
+---- Complete-case analysis (primary) (n = 170) ----
+  OR (KAT vs TAU) = 3.29 (95% CI 1.57-6.89), p = 0.0016
+
+---- Per-protocol (>= 4/6 sessions) (n = 125) ----
+  OR (KAT vs TAU) = 2.52 (95% CI 1.04-6.13), p = 0.0407
+
+---- Treatment x severity interaction (LRT) ----
+Analysis of Deviance Table
+
+Model 1: abstinent_12wk ~ arm + severity_stratum + age + sex + baseline_asi
+Model 2: abstinent_12wk ~ arm * severity_stratum + age + sex + baseline_asi
+  Resid. Df Resid. Dev Df Deviance Pr(>Chi)
+1       163     182.76                     
+2       161     182.25  2  0.51614   0.7725
+
+  LRT p-value for arm*severity interaction: 0.7725
+
+---- Single-imputation sensitivity ----
+  (mice unavailable; using simple mean/mode imputation)
+
+---- Single-imputation (mode for abstinent) (n = 200) ----
+  OR (KAT vs TAU) = 3.13 (95% CI 1.55-6.33), p = 0.0015
+
+---- Tipping-point (worst-case / best-case) ----
+
+---- Worst-case for KAT (missing KAT=failure, TAU=success) (n = 200) ----
+  OR (KAT vs TAU) = 1.29 (95% CI 0.69-2.42), p = 0.4248
+
+---- Best-case for KAT (missing KAT=success, TAU=failure) (n = 200) ----
+  OR (KAT vs TAU) = 5.88 (95% CI 2.90-11.91), p = 0.0000
+
+==================================================================
+ Summary of KAT odds ratio across analyses                        
+==================================================================
+          analysis   OR lower upper        p
+     Complete case 3.29  1.57  6.89 1.61e-03
+      Per-protocol 2.52  1.04  6.13 4.07e-02
+ Single-imp (mode) 3.13  1.55  6.33 1.50e-03
+    Worst-case KAT 1.29  0.69  2.42 4.25e-01
+     Best-case KAT 5.88  2.90 11.91 8.68e-07
+
+Sensitivity analysis complete.

@@ -1,0 +1,163 @@
+==================================================================
+ Primary and Secondary Analyses -- Ketamine-Assisted Therapy RCT 
+ Task 20 / synthetic data / base R only                           
+==================================================================
+
+---- Table 1: Baseline Characteristics by Arm ----
+
+Arm sizes (complete case):
+
+TAU KAT 
+ 85  85 
+
+Age (mean [SD]) by arm:
+  arm  age.mean    age.sd
+1 TAU 35.411765  6.833555
+2 KAT 35.317647  8.429274
+
+Baseline ASI (mean [SD]) by arm:
+  arm baseline_asi.mean baseline_asi.sd
+1 TAU         0.5087176       0.2104735
+2 KAT         0.5441059       0.2218528
+
+Sex x Arm:
+        
+         TAU KAT
+  Female  29  35
+  Male    56  50
+
+Severity stratum x Arm:
+      
+       TAU KAT
+  Low   17  14
+  Mid   41  43
+  High  27  28
+
+Prior treatment x Arm:
+   
+    TAU KAT
+  0  35  45
+  1  50  40
+
+
+---- Primary Model: Logistic Regression ----
+abstinent_12wk ~ arm + severity_stratum + age + sex + baseline_asi
+
+
+Call:
+glm(formula = abstinent_12wk ~ arm + severity_stratum + age + 
+    sex + baseline_asi, family = binomial(), data = cc)
+
+Coefficients:
+                     Estimate Std. Error z value Pr(>|z|)   
+(Intercept)           3.06605    1.13199   2.709  0.00676 **
+armKAT                1.19004    0.37724   3.155  0.00161 **
+severity_stratumMid   0.34746    0.73749   0.471  0.63754   
+severity_stratumHigh  2.37121    1.35293   1.753  0.07966 . 
+age                  -0.04403    0.02355  -1.870  0.06152 . 
+sexMale              -0.76907    0.37399  -2.056  0.03975 * 
+baseline_asi         -6.55115    2.25838  -2.901  0.00372 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 214.03  on 169  degrees of freedom
+Residual deviance: 182.77  on 163  degrees of freedom
+AIC: 196.77
+
+Number of Fisher Scoring iterations: 4
+
+
+Odds ratios and 95% CI:
+                 term estimate ci_lower ci_upper p_value
+          (Intercept) 21.45701 2.33e+00  197.299 0.00676
+               armKAT  3.28721 1.57e+00    6.885 0.00161
+  severity_stratumMid  1.41547 3.34e-01    6.007 0.63754
+ severity_stratumHigh 10.71030 7.55e-01  151.852 0.07966
+                  age  0.95693 9.14e-01    1.002 0.06152
+              sexMale  0.46344 2.23e-01    0.965 0.03975
+         baseline_asi  0.00143 1.71e-05    0.119 0.00372
+
+
+---- Secondary Model: Time-to-Relapse (Cox fallback) ----
+NOTE: 'survival' package unavailable; using log-rank via base R stats
+and a parametric exponential model via glm(family=Gamma).
+
+Log-rank test (KAT vs TAU):
+  O1=98.0, E1=65.5, chisq=26.498, p=0.0000
+
+Exponential regression (glm Gamma log link) on days_to_use:
+
+Call:
+glm(formula = days_to_use ~ arm + severity_stratum + age + sex + 
+    baseline_asi, family = Gamma(link = "log"), data = dat)
+
+Coefficients:
+                      Estimate Std. Error t value Pr(>|t|)    
+(Intercept)           3.772046   0.261691  14.414  < 2e-16 ***
+armKAT                0.488278   0.088114   5.541 9.75e-08 ***
+severity_stratumMid   0.221562   0.175832   1.260   0.2092    
+severity_stratumHigh  0.547196   0.309298   1.769   0.0784 .  
+age                  -0.004258   0.005706  -0.746   0.4565    
+sexMale              -0.089097   0.090553  -0.984   0.3264    
+baseline_asi         -0.912017   0.504680  -1.807   0.0723 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for Gamma family taken to be 0.3776165)
+
+    Null deviance: 109.41  on 199  degrees of freedom
+Residual deviance:  97.38  on 193  degrees of freedom
+AIC: 1803.8
+
+Number of Fisher Scoring iterations: 6
+
+
+HR-like estimates (exp(-beta) for time model):
+  Approx HR (KAT vs TAU) = exp(-beta_arm) = 0.614
+
+
+---- Secondary Model: Linear Regression on 12-week ASI ----
+asi_12wk ~ arm + severity_stratum + age + sex + baseline_asi
+
+
+Call:
+lm(formula = asi_12wk ~ arm + severity_stratum + age + sex + 
+    baseline_asi, data = dat)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.247679 -0.065145 -0.005608  0.063362  0.227557 
+
+Coefficients:
+                      Estimate Std. Error t value Pr(>|t|)    
+(Intercept)          -0.078958   0.044983  -1.755   0.0811 .  
+armKAT               -0.100250   0.014561  -6.885 1.19e-10 ***
+severity_stratumMid  -0.034648   0.030298  -1.144   0.2545    
+severity_stratumHigh -0.003393   0.052410  -0.065   0.9485    
+age                   0.001157   0.000952   1.215   0.2261    
+sexMale              -0.008883   0.014999  -0.592   0.5545    
+baseline_asi          0.994988   0.085188  11.680  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.09383 on 163 degrees of freedom
+  (30 observations deleted due to missingness)
+Multiple R-squared:  0.851,	Adjusted R-squared:  0.8455 
+F-statistic: 155.1 on 6 and 163 DF,  p-value: < 2.2e-16
+
+
+95% CI for coefficients:
+                             2.5 %       97.5 %
+(Intercept)          -0.1677820468  0.009865489
+armKAT               -0.1290034394 -0.071497264
+severity_stratumMid  -0.0944745777  0.025179447
+severity_stratumHigh -0.1068824064  0.100096613
+age                  -0.0007231384  0.003036636
+sexMale              -0.0385012379  0.020734811
+baseline_asi          0.8267739641  1.163201191
+
+==================================================================
+ Primary analysis complete. Models saved to data/derived/models/.   
+==================================================================

@@ -52,18 +52,20 @@ next_project_number: 29
 
 ### 23. Update Claude model IDs in settings.json and docs
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
 - **Task Type**: general
 - **Priority**: high
 - **Source**: review-20260410
 - **Research**: [01_stale-proof-model-config.md](023_update_claude_model_ids/reports/01_stale-proof-model-config.md)
 - **Plan**: [01_delete-agent-block.md](023_update_claude_model_ids/plans/01_delete-agent-block.md)
+- **Summary file**: [01_delete-agent-block-summary.md](023_update_claude_model_ids/summaries/01_delete-agent-block-summary.md)
+- **Summary**: Deleted the stale agent block from settings.json (Zed Agent Panel now uses Zed's built-in default, which auto-updates with Zed releases) and rewrote docs/general/settings.md to explain the intentional omission plus document -latest alias fallback. Claude Code is unaffected (configured via independent agent_servers.claude-acp block).
 
 **Description**: Update outdated Claude model IDs in settings.json (lines 39, 44) and docs/general/settings.md (lines 59, 64) from `claude-sonnet-4-20250514` / `claude-opus-4-20250514` to `claude-sonnet-4-6` / `claude-opus-4-6` so the Zed Agent Panel uses current models.
 
 ### 22. Create epi study example demo in zed/examples/epi-study/
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: general
 - **Research**: [01_epi-study-example-demo.md](022_epi_study_example_demo/reports/01_epi-study-example-demo.md)
 - **Plan**: [01_epi-study-example-demo.md](022_epi_study_example_demo/plans/01_epi-study-example-demo.md)

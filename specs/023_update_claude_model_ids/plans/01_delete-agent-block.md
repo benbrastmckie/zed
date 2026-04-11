@@ -2,7 +2,7 @@
 
 **Task**: 23
 **Date**: 2026-04-10
-**Status**: [NOT STARTED]
+**Status**: [COMPLETED]
 **Estimated effort**: 15 minutes
 **Research**: [01_stale-proof-model-config.md](../reports/01_stale-proof-model-config.md)
 
@@ -18,7 +18,7 @@ Documentation in `docs/general/settings.md` is updated in lockstep to (a) replac
 
 ## Phases
 
-### Phase 1: Remove `agent` block from `settings.json` [NOT STARTED]
+### Phase 1: Remove `agent` block from `settings.json` [COMPLETED]
 
 **File**: `settings.json`
 
@@ -54,7 +54,7 @@ After:
 
 **Rollback**: Restore the deleted block from git.
 
-### Phase 2: Update `docs/general/settings.md` [NOT STARTED]
+### Phase 2: Update `docs/general/settings.md` [COMPLETED]
 
 **File**: `docs/general/settings.md` (current lines ~55-70 contain the stale example)
 
@@ -90,7 +90,7 @@ The `-latest` suffix auto-advances within a named model family (e.g., within 4.6
 
 **Rollback**: Restore from git.
 
-### Phase 3: Verify and commit [NOT STARTED]
+### Phase 3: Verify and commit [COMPLETED]
 
 - Run full grep across the working tree for the stale IDs: `grep -rn 'claude-.*-4-20250514' --include='*.json' --include='*.md' .` -- should return only matches under `specs/archive/` and `specs/reviews/` (historical artifacts; leave untouched).
 - Read back `settings.json` end-to-end to confirm no dangling comma or orphaned section header.

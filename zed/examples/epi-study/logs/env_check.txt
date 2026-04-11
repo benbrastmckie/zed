@@ -1,0 +1,98 @@
+### R ENV CHECK ###
+==== R Environment Check ====
+R version:         R version 4.5.3 (2026-03-11) 
+Platform:          x86_64-pc-linux-gnu 
+Running under:     linux-gnu 
+
+==== Library Paths ====
+   /nix/store/vvq8lzbk7m6n1z9nb00rks3cywc5sd4c-R-4.5.3/lib/R/library 
+
+==== Package Availability ====
+  tidyverse            MISSING
+  dplyr                MISSING
+  readr                MISSING
+  ggplot2              MISSING
+  survival             MISSING
+  gtsummary            MISSING
+  broom                MISSING
+  mice                 MISSING
+  knitr                MISSING
+  rmarkdown            MISSING
+  languageserver       MISSING
+  styler               MISSING
+  lintr                MISSING
+
+==== Summary ====
+Available: 0 / 13 
+Missing:   tidyverse, dplyr, readr, ggplot2, survival, gtsummary, broom, mice, knitr, rmarkdown, languageserver, styler, lintr 
+
+### PYTHON ENV CHECK ###
+==== Python Environment Check ====
+Python version:  3.12.13 (main, Mar  3 2026, 12:39:30) [GCC 15.2.0]
+Executable:      /home/benjamin/.nix-profile/bin/python3
+Platform:        linux
+
+==== Module Availability ====
+  numpy           OK
+  pandas          OK
+  scipy           MISSING
+  matplotlib      OK
+  seaborn         MISSING
+  statsmodels     MISSING
+  sklearn         MISSING
+  pyarrow         MISSING
+
+==== Summary ====
+Available: 3 / 8
+Missing:   scipy, seaborn, statsmodels, sklearn, pyarrow
+
+### QUARTO ###
+quarto: NOT FOUND
+Seed: 20260410
+N: 200
+
+Arm balance by stratum:
+arm               KAT  TAU
+severity_stratum          
+High               30   29
+Low                21   22
+Mid                49   49
+
+Baseline summary:
+          age  years_use  baseline_asi
+count  200.00     200.00        200.00
+mean    35.39       6.03          0.51
+std      7.68       4.79          0.22
+min     18.00       0.50          0.06
+25%     30.00       2.70          0.35
+50%     35.00       4.70          0.48
+75%     41.00       8.02          0.69
+max     58.00      24.30          0.96
+
+Wrote /home/benjamin/.config/zed/specs/020_test_epi_rct_ketamine_meth/data/raw/participants.csv (200 rows, 11 columns)
+Loaded 200 baseline rows with 11 cols
+Marginal abstinence -- KAT: 44.0%, TAU: 24.0%
+Time-to-use -- median KAT: 40.5, TAU: 25.4; event rate: 90.5%
+Completed study: 170/200 (85%)
+Wrote data/raw/outcomes.csv with 200 rows
+Wrote data/raw/adverse_events.csv with 50 rows
+
+==== Phase 3 Complete ====
+Baseline:  (200, 11)
+Outcomes:  (200, 7)
+Merged:    (200, 17)
+
+Arm x completed_study:
+completed_study   0   1
+arm                    
+KAT              15  85
+TAU              15  85
+
+Abstinence (observed only):
+     count   mean
+arm              
+KAT     85  0.424
+TAU     85  0.224
+
+Wrote /home/benjamin/.config/zed/specs/020_test_epi_rct_ketamine_meth/data/derived/analytic.csv
+Shape: (200, 21), columns: ['participant_id', 'age', 'sex', 'race_ethnicity', 'years_use', 'prior_treatment', 'baseline_asi', 'severity_stratum', 'arm', 'planned_sessions', 'enrollment_date', 'abstinent_12wk', 'asi_12wk', 'days_to_use', 'event', 'sessions_attended', 'completed_study', 'arm_label', 'compliance', 'per_protocol', 'age_group']

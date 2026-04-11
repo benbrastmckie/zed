@@ -50,24 +50,27 @@ This sets the default keybinding scheme to VSCode-style. On macOS this means Cmd
 - **show_whitespaces**: Shows dots at word boundaries to spot extra spaces
 - **relative_line_numbers**: Set to `false` for standard line numbers
 
-### Agent (AI) Configuration
+### Agent (AI) Configuration (intentionally unset)
+
+This configuration does **not** set `agent.default_model` in `settings.json`. The `agent` block governs only Zed's built-in Agent Panel (Ctrl+?) and inline assist -- it has no effect on Claude Code (Ctrl+Shift+A), which is the primary AI workflow here. Leaving the block unset lets Zed use its shipped default, which updates automatically with new Zed releases, so no manual model-ID maintenance is required.
+
+The block name is `"agent"` (not `"assistant"` -- that was the old name).
+
+#### If you do use the Agent Panel
+
+If you want to pin a specific model for the Agent Panel or inline assist, Zed supports `-latest` aliases internally (see `crates/anthropic/src/anthropic.rs` in the Zed source). The `-latest` suffix auto-advances within a named model family (for example within 4.6), but will **not** jump to 4.7 or 5.x without an explicit edit -- so it is much lower maintenance than pinning a dated snapshot ID like `claude-opus-4-6-20260101`.
 
 ```jsonc
 "agent": {
   "default_model": {
     "provider": "anthropic",
-    "model": "claude-sonnet-4-20250514"
+    "model": "claude-opus-4-6-latest"
   },
   "inline_alternatives": [
-    {
-      "provider": "anthropic",
-      "model": "claude-opus-4-20250514"
-    }
+    { "provider": "anthropic", "model": "claude-sonnet-4-6-latest" }
   ]
 }
 ```
-
-This configures Zed's built-in agent panel. The block is named `"agent"` (not `"assistant"` -- that was the old name).
 
 - **default_model**: Used for the agent panel and inline assist
 - **inline_alternatives**: Additional models available via the model picker

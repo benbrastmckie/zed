@@ -1,7 +1,7 @@
 # Implementation Plan: Task #22
 
 - **Task**: 22 - epi_study_example_demo
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 3-4 hours
 - **Dependencies**: None (reads from task 20 artifacts)
 - **Research Inputs**: specs/022_epi_study_example_demo/reports/01_epi-study-example-demo.md
@@ -127,7 +127,7 @@ These resolve the 8 open questions from the research report:
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Scaffold Directory Structure [NOT STARTED]
+### Phase 1: Scaffold Directory Structure [COMPLETED]
 
 **Goal**: Create the empty `zed/examples/epi-study/` tree so subsequent
 phases can populate it.
@@ -157,7 +157,7 @@ phases can populate it.
 
 ---
 
-### Phase 2: Copy and Adapt Task 20 Artifacts [NOT STARTED]
+### Phase 2: Copy and Adapt Task 20 Artifacts [IN PROGRESS]
 
 **Goal**: Populate the demo with scripts, data, logs, and the CONSORT
 report from task 20, with path-portability and seed-hygiene fixes

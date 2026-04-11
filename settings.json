@@ -32,20 +32,6 @@
     "metrics": false
   },
 
-  // Agent (AI) configuration
-  "agent": {
-    "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-20250514"
-    },
-    "inline_alternatives": [
-      {
-        "provider": "anthropic",
-        "model": "claude-opus-4-20250514"
-      }
-    ],
-  },
-
   // File and project settings
   "file_scan_exclusions": [
     "**/.git",
