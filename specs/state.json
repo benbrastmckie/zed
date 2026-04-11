@@ -4,38 +4,80 @@
     {
       "project_number": 18,
       "project_name": "update_docs_for_python_extension",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-11T00:15:51Z",
-      "last_updated": "2026-04-11T00:25:00Z",
-      "session_id": "sess_1775866642_52c68e",
+      "last_updated": "2026-04-11T00:30:00Z",
+      "session_id": "sess_1775867339_7828df",
       "researched": "2026-04-11T00:25:00Z",
+      "planned": "2026-04-11T00:30:00Z",
       "next_artifact_number": 2,
       "artifacts": [
         {
           "path": "specs/018_update_docs_for_python_extension/reports/01_python-extension-docs.md",
           "type": "research",
           "summary": "Python extension adds 2 agents, 2 skills, 6 context files; 3 docs files need updating with ~6-8 lines total following LaTeX/Typst documentation pattern"
+        },
+        {
+          "path": "specs/018_update_docs_for_python_extension/plans/01_python-docs-update.md",
+          "type": "plan",
+          "summary": "1-phase plan to add Python extension references to 3 docs files following LaTeX/Typst pattern"
         }
-      ]
+      ],
+      "plan_metadata": {
+        "phases": 1,
+        "total_effort_hours": 0.5,
+        "complexity": "simple",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [[1]],
+        "reports_integrated": [
+          {
+            "path": "reports/01_python-extension-docs.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-11"
+          }
+        ]
+      }
     },
     {
       "project_number": 17,
       "project_name": "fix_broken_links_in_commands_md",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-11T00:10:47Z",
-      "last_updated": "2026-04-11T00:40:00Z",
-      "session_id": "sess_1775866642_52c68e",
+      "last_updated": "2026-04-11T00:50:00Z",
+      "session_id": "sess_1775867339_7828df",
       "next_artifact_number": 2,
       "researched": "2026-04-11T00:40:00Z",
+      "planned": "2026-04-11T00:50:00Z",
       "artifacts": [
         {
           "path": "specs/017_fix_broken_links_in_commands_md/reports/01_broken-links-scan.md",
           "type": "research",
           "summary": "14 broken anchor links found in 2 files (commands.md and workflows/README.md); all file-level links valid; mechanical anchor corrections needed"
+        },
+        {
+          "path": "specs/017_fix_broken_links_in_commands_md/plans/01_fix-broken-links.md",
+          "type": "plan",
+          "summary": "2-phase plan to fix 14 broken anchor links across commands.md and workflows/README.md"
         }
-      ]
+      ],
+      "plan_metadata": {
+        "phases": 2,
+        "total_effort_hours": 0.5,
+        "complexity": "simple",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [[1, 2]],
+        "reports_integrated": [
+          {
+            "path": "reports/01_broken-links-scan.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-11"
+          }
+        ]
+      }
     },
     {
       "project_number": 15,

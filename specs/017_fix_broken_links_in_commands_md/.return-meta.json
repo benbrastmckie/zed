@@ -1,18 +1,20 @@
 {
-  "status": "researched",
+  "status": "planned",
   "artifacts": [
     {
-      "type": "report",
-      "path": "specs/017_fix_broken_links_in_commands_md/reports/01_broken-links-scan.md",
-      "summary": "14 broken anchor links found in 2 files (commands.md and workflows/README.md); all file-level links valid; mechanical anchor corrections needed"
+      "type": "plan",
+      "path": "specs/017_fix_broken_links_in_commands_md/plans/01_fix-broken-links.md",
+      "summary": "2-phase plan to fix 14 broken anchor links across commands.md and workflows/README.md"
     }
   ],
-  "next_steps": "Run /plan 17 to create implementation plan",
+  "next_steps": "Run /implement 17 to execute the plan",
   "metadata": {
-    "session_id": "sess_1775866642_52c68e",
-    "agent_type": "general-research-agent",
+    "session_id": "sess_1775867339_7828df",
+    "agent_type": "planner-agent",
     "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "research", "general-research-agent"],
-    "findings_count": 14
+    "delegation_path": ["orchestrator", "plan", "planner-agent"],
+    "phase_count": 2,
+    "estimated_hours": 0.5,
+    "dependency_waves": [[1, 2]]
   }
 }
