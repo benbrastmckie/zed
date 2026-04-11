@@ -288,7 +288,7 @@ authoritative spec.
 
 ---
 
-### Phase 5: Author Slides 8-14 (Results + Reproducibility + Takeaways) [NOT STARTED]
+### Phase 5: Author Slides 8-14 (Results + Reproducibility + Takeaways) [COMPLETED]
 
 **Goal**: Write slides 8 through 14 -- the high-emphasis results, Cox/MICE
 tables, byte-identical receipts, limitations, and takeaways -- per the
