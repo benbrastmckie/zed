@@ -74,6 +74,24 @@
         "MD022": false,
         "MD032": false
       }
+    },
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "typeCheckingMode": "basic",
+          "diagnosticMode": "openFilesOnly"
+        }
+      }
+    },
+    "r-language-server": {
+      "settings": {
+        "r": {
+          "lsp": {
+            "diagnostics": true,
+            "rich_documentation": true
+          }
+        }
+      }
     }
   },
 
@@ -103,10 +121,24 @@
       "tab_size": 2
     },
     "Python": {
-      "tab_size": 4
+      "tab_size": 4,
+      "language_servers": ["pyright", "ruff"],
+      "format_on_save": "on",
+      "formatter": {
+        "language_server": {
+          "name": "ruff"
+        }
+      }
     },
     "R": {
-      "tab_size": 2
+      "tab_size": 2,
+      "language_servers": ["r-language-server"],
+      "format_on_save": "on",
+      "formatter": {
+        "language_server": {
+          "name": "r-language-server"
+        }
+      }
     }
   },
 
@@ -120,7 +152,9 @@
     "nix": true,
     "toml": true,
     "git-firefly": true,
-    "r": true
+    "r": true,
+    "python": true,
+    "ruff": true
   },
 
   // Git integration

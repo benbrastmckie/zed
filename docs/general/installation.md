@@ -1,25 +1,21 @@
 # Installation
 
-This guide walks through installing Zed, the Claude Code CLI, the `claude-acp` bridge that connects them, and the MCP tools used for Word and Excel editing. The target platform is macOS 11 (Big Sur) or newer.
+This guide walks through installing Zed, the Claude Code CLI, the `claude-acp` bridge that connects them, and the MCP tools used for Word and Excel editing. The target platform is macOS 11 (Big Sur) or newer. All instructions are intended to be accessible.
 
-## Summary
-
-Minimum working setup, in order. Each line has a detection step in its full section below; skip any command whose tool is already installed.
-
-```
-xcode-select --install
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install node
-brew install --cask zed
-brew install --cask claude-code
-claude
-```
-
-Then open Zed, paste the `agent_servers` block from [Configure claude-acp](#configure-claude-acp) into `settings.json`, confirm the Claude Code thread is available in the Agent Panel (Ctrl+?), and run `/login` once inside the thread. Finally install the two MCP tools. Detailed steps follow.
+> **Already comfortable with the terminal?** Here is the full sequence of install commands. Skip any tool you already have, then jump to [Configure claude-acp](#configure-claude-acp).
+>
+> ```
+> xcode-select --install
+> /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+> brew install node
+> brew install --cask zed
+> brew install --cask claude-code
+> claude
+> ```
 
 ## Before you begin
 
-You will run every command in this guide inside a terminal. To open one, press **Cmd+Space** to open Spotlight, type **Terminal**, and press Enter. (You can also find Terminal in Applications > Utilities.)
+You will run every command in this guide inside a program called **Terminal**. To open it, press **Cmd+Space** to open Spotlight, type **Terminal**, and press Enter. (You can also find Terminal in Applications > Utilities.)
 
 When the terminal opens, you see a prompt -- a short line ending in `$` or `%`. To run a command, paste or type it after the prompt and press **Enter**. The examples in this guide show only the command itself, not the prompt character.
 
