@@ -105,7 +105,7 @@ Phases within the same wave can execute in parallel. Phase 6 is conditional on p
 
 ---
 
-### Phase 2: Preflight Safety and Baseline Backup [NOT STARTED]
+### Phase 2: Preflight Safety and Baseline Backup [COMPLETED]
 
 **Goal**: Back up the six committed output artifacts so Phase 4 can diff against them, and pre-create the `data/derived/models/` directory to defuse the `saveRDS` footgun.
 
