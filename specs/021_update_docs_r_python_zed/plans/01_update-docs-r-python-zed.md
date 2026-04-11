@@ -11,7 +11,7 @@ phase_count: 5
 # Implementation Plan: Task #21 — Update Docs for R/Python in Zed (macOS)
 
 - **Task**: 21 - update_docs_r_python_zed
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 4.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/021_update_docs_r_python_zed/reports/01_update-docs-r-python-zed.md
@@ -96,7 +96,7 @@ Phase 1 (README.md) and Phase 4 (settings.json audit) are independent and may ru
 
 ---
 
-### Phase 1: Reframe README.md and Top-Level Framing [NOT STARTED]
+### Phase 1: Reframe README.md and Top-Level Framing [COMPLETED]
 
 **Goal**: Rewrite `/home/benjamin/.config/zed/README.md` so it presents this repo as a macOS Zed IDE configuration for R and Python development with Claude Code. Add a Languages section with cross-links to the existing language guides.
 
@@ -132,7 +132,7 @@ Phase 1 (README.md) and Phase 4 (settings.json audit) are independent and may ru
 
 ---
 
-### Phase 2: Reframe docs/README.md Index [NOT STARTED]
+### Phase 2: Reframe docs/README.md Index [COMPLETED]
 
 **Goal**: Update `/home/benjamin/.config/zed/docs/README.md` so it presents the documentation set as "macOS Zed configuration for R and Python with Claude Code", and surface the existing R.md and python.md guides in the General section.
 
@@ -161,7 +161,7 @@ Phase 1 (README.md) and Phase 4 (settings.json audit) are independent and may ru
 
 ---
 
-### Phase 3: Update Individual docs/*.md Files [NOT STARTED]
+### Phase 3: Update Individual docs/*.md Files [COMPLETED]
 
 **Goal**: Update the three in-scope individual doc files under `docs/general/` and `docs/workflows/` and the `docs/agent-system/README.md` minor clarification.
 
@@ -210,7 +210,7 @@ Phase 1 (README.md) and Phase 4 (settings.json audit) are independent and may ru
 
 ---
 
-### Phase 4: macOS Audit of settings.json [NOT STARTED]
+### Phase 4: macOS Audit of settings.json [COMPLETED]
 
 **Goal**: Audit `/home/benjamin/.config/zed/settings.json` and adjust paths, commands, and tooling so the committed file matches a clean macOS environment. No NixOS-specific paths in the committed version.
 
@@ -243,7 +243,7 @@ Phase 1 (README.md) and Phase 4 (settings.json audit) are independent and may ru
 
 ---
 
-### Phase 5: Cross-Link Verification and Consistency Pass [NOT STARTED]
+### Phase 5: Cross-Link Verification and Consistency Pass [COMPLETED]
 
 **Goal**: Verify every new and updated cross-link resolves correctly; ensure macOS framing is consistent across all edited files; confirm no NixOS/Linux contamination leaked into user-facing docs.
 

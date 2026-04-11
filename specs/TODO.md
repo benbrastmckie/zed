@@ -1,14 +1,21 @@
 ---
-next_project_number: 22
+next_project_number: 23
 ---
 
 # Task List
 
 ## Tasks
 
+### 22. Create epi study example demo in zed/examples/epi-study/
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: general
+
+**Description**: Create zed/examples/epi-study/ directory that organizes and documents the synthetic RCT study produced by task 20, as a demo for new users to understand how to run the /epi command to create an epi study.
+
 ### 21. Update README and docs to reflect R/Python + Claude Code + Zed IDE configuration
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: markdown
 - **Research**: [01_update-docs-r-python-zed.md](021_update_docs_r_python_zed/reports/01_update-docs-r-python-zed.md)
 - **Plan**: [01_update-docs-r-python-zed.md](021_update_docs_r_python_zed/plans/01_update-docs-r-python-zed.md)
