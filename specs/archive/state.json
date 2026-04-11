@@ -1,6 +1,570 @@
 {
   "completed_projects": [
     {
+      "project_number": 19,
+      "project_name": "python_and_r_setup_guides",
+      "status": "completed",
+      "task_type": "markdown",
+      "created": "2026-04-11T00:35:45Z",
+      "last_updated": "2026-04-11T00:54:06Z",
+      "session_id": "sess_1775868517_2dfaf1",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/019_python_and_r_setup_guides/reports/01_python-r-setup.md",
+          "type": "research",
+          "summary": "Complete mapping of Python/R tools from NixOS dotfiles to macOS Homebrew equivalents, with Zed extension and settings.json configuration details"
+        },
+        {
+          "path": "specs/019_python_and_r_setup_guides/plans/01_python-r-setup.md",
+          "type": "plan",
+          "summary": "4-phase implementation plan for Python and R setup guides with 2.5 hours estimated effort"
+        },
+        {
+          "path": "specs/019_python_and_r_setup_guides/summaries/01_python-r-setup-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for Python and R setup guides"
+        }
+      ],
+      "completed": "2026-04-11T00:54:06Z",
+      "completion_summary": "Created docs/general/python.md and docs/general/R.md with complete macOS setup instructions for Python (Homebrew + uv + ruff) and R (Homebrew + in-console install.packages for languageserver/lintr/styler), plus updated installation.md with links to both guides."
+    },
+    {
+      "project_number": 18,
+      "project_name": "update_docs_for_python_extension",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-11T00:15:51Z",
+      "last_updated": "2026-04-11T00:45:00Z",
+      "completion_summary": "Added Python extension references to 3 docs files: bullet in agent-system/README.md Extensions list, routing table row and extension list update in architecture.md, and mention in docs/README.md Agent System description.",
+      "claudemd_suggestions": "none",
+      "session_id": "sess_1775867339_7828df",
+      "researched": "2026-04-11T00:25:00Z",
+      "planned": "2026-04-11T00:30:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/018_update_docs_for_python_extension/reports/01_python-extension-docs.md",
+          "type": "research",
+          "summary": "Python extension adds 2 agents, 2 skills, 6 context files; 3 docs files need updating with ~6-8 lines total following LaTeX/Typst documentation pattern"
+        },
+        {
+          "path": "specs/018_update_docs_for_python_extension/plans/01_python-docs-update.md",
+          "type": "plan",
+          "summary": "1-phase plan to add Python extension references to 3 docs files following LaTeX/Typst pattern"
+        },
+        {
+          "path": "specs/018_update_docs_for_python_extension/summaries/01_python-docs-summary.md",
+          "type": "summary",
+          "summary": "Added Python extension references to 3 docs files following LaTeX/Typst documentation pattern"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 1,
+        "total_effort_hours": 0.5,
+        "complexity": "simple",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_python-extension-docs.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-11"
+          }
+        ]
+      }
+    },
+    {
+      "project_number": 17,
+      "project_name": "fix_broken_links_in_commands_md",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-11T00:10:47Z",
+      "last_updated": "2026-04-11T01:00:00Z",
+      "session_id": "sess_1775867745_6c017d",
+      "completion_summary": "Fixed 8 broken anchor links in docs/agent-system/commands.md: corrected 7 user-guide.md anchors from bare command names to #name-command format, and removed invalid #funds anchor with no target heading. Verified 6 workflows/README.md double-dash anchors are correct (em-dash removal leaves double space which becomes double dash).",
+      "claudemd_suggestions": "none",
+      "next_artifact_number": 2,
+      "researched": "2026-04-11T00:40:00Z",
+      "planned": "2026-04-11T00:50:00Z",
+      "artifacts": [
+        {
+          "path": "specs/017_fix_broken_links_in_commands_md/reports/01_broken-links-scan.md",
+          "type": "research",
+          "summary": "14 broken anchor links found in 2 files (commands.md and workflows/README.md); all file-level links valid; mechanical anchor corrections needed"
+        },
+        {
+          "path": "specs/017_fix_broken_links_in_commands_md/plans/01_fix-broken-links.md",
+          "type": "plan",
+          "summary": "2-phase plan to fix 14 broken anchor links across commands.md and workflows/README.md"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 2,
+        "total_effort_hours": 0.5,
+        "complexity": "simple",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1,
+            2
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_broken-links-scan.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-11"
+          }
+        ]
+      }
+    },
+    {
+      "project_number": 15,
+      "project_name": "improve_installation_docs_beginner_friendly",
+      "status": "completed",
+      "task_type": "markdown",
+      "created": "2026-04-11T00:08:41Z",
+      "last_updated": "2026-04-11T00:24:37Z",
+      "session_id": "sess_1775866778_1a4ad5",
+      "researched": "2026-04-11T00:20:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/015_improve_installation_docs_beginner_friendly/reports/01_beginner-friendly-install.md",
+          "type": "research",
+          "summary": "8 beginner barriers identified with section-by-section recommendations for simplifying detection commands, adding motivation context, and matching keybindings.md tone"
+        },
+        {
+          "path": "specs/015_improve_installation_docs_beginner_friendly/plans/01_beginner-friendly-install.md",
+          "type": "plan",
+          "summary": "3-phase plan to make installation.md beginner-friendly with terminal intro, simplified detection commands, and motivation sentences"
+        },
+        {
+          "path": "specs/015_improve_installation_docs_beginner_friendly/summaries/01_beginner-friendly-install-summary.md",
+          "type": "summary",
+          "summary": "Rewrote installation.md for beginner-friendly terminal walkthrough addressing all 8 research findings"
+        }
+      ],
+      "completion_summary": "Rewrote docs/general/installation.md to be approachable for readers with no terminal experience: added terminal introduction, simplified all detection commands, added motivation sentences and what-you-should-see guidance per section, rewrote PATH instructions in plain language, and converted the final checklist to a numbered list."
+    },
+    {
+      "project_number": 14,
+      "project_name": "standardize_docs_and_root_readme",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-10T23:39:14Z",
+      "last_updated": "2026-04-11T00:14:21Z",
+      "session_id": "sess_1775865680_7ea64d",
+      "researched": "2026-04-10T23:50:08Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/014_standardize_docs_and_root_readme/plans/01_standardize-docs-readme.md",
+          "type": "plan",
+          "summary": "5-phase plan to rewrite root README with epi/medical research identity, expand docs/README.md, fix shortcuts and Neovim references across 17 files"
+        },
+        {
+          "path": "specs/014_standardize_docs_and_root_readme/summaries/01_standardize-docs-readme-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for documentation standardization task"
+        }
+      ],
+      "completion_summary": "Standardized all docs/ README files with consistent structure, cross-links, and correct keyboard shortcuts; rewrote root README as Zed + Claude Code for epidemiology/medical research; removed all Neovim and NixOS references from documentation scope."
+    },
+    {
+      "project_number": 13,
+      "project_name": "update_docs_for_agent_system_reload",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-10T22:49:12Z",
+      "last_updated": "2026-04-10T23:36:19Z",
+      "session_id": "sess_1775863769_a34e25",
+      "researched": "2026-04-10T22:55:46Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/013_update_docs_for_agent_system_reload/plans/01_update-docs-agent-reload.md",
+          "type": "plan",
+          "summary": "3-phase implementation plan for updating docs/ to reflect epidemiology extension v2.0.0 reload"
+        },
+        {
+          "path": "specs/013_update_docs_for_agent_system_reload/summaries/01_update-docs-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for docs update"
+        }
+      ],
+      "completion_summary": "Updated 9 documentation files to reflect epidemiology extension v2.0.0 reload: fixed broken routing.md skill names, added /epi command to catalog, created epidemiology workflow guide, corrected stale keybindings and Neovim-specific references."
+    },
+    {
+      "project_number": 12,
+      "project_name": "expand_commands_docs_examples",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-10T21:55:30Z",
+      "last_updated": "2026-04-10T22:15:30Z",
+      "session_id": "sess_1775858649_c0aa8c",
+      "researched": "2026-04-10T22:03:19Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/012_expand_commands_docs_examples/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research with 4 teammates"
+        },
+        {
+          "path": "specs/012_expand_commands_docs_examples/plans/01_expand-commands-docs.md",
+          "type": "plan",
+          "summary": "4-phase plan to expand and reorganize commands.md with standardized entry template"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 4,
+        "total_effort_hours": 1.5,
+        "complexity": "simple",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_team-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-10"
+          }
+        ]
+      },
+      "completion_summary": "Expanded and reorganized commands.md: regrouped 24 commands into 6 sections (Lifecycle, Review & Recovery, System & Housekeeping, Memory, Documents, Research & Grants), added 2-sentence explanations and standardized entry template to all entries, documented missing flags (--sheet, --fix-it, file-path input), added orientation paragraph and forcing-question pattern note."
+    },
+    {
+      "project_number": 11,
+      "project_name": "fix_zed_acp_subagent_invocation",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-10T21:32:00Z",
+      "last_updated": "2026-04-10T22:08:16Z",
+      "session_id": "sess_1775858188_0be4f1",
+      "researched": "2026-04-10T21:50:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/011_fix_zed_acp_subagent_invocation/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research with 4 teammates"
+        },
+        {
+          "path": "specs/011_fix_zed_acp_subagent_invocation/plans/01_zed-cli-parity.md",
+          "type": "plan",
+          "summary": "3-phase plan for Zed CLI parity via terminal task and ACP env var configuration"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 3,
+        "total_effort_hours": 1.5,
+        "complexity": "simple",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_team-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-10"
+          }
+        ]
+      },
+      "completion_summary": "Configured Zed for Claude Code CLI parity: created .zed/tasks.json terminal task for full feature parity (subagents, --team, skills), and added CLAUDE_CODE_EXECUTABLE env var to agent_servers config for improved ACP panel behavior."
+    },
+    {
+      "project_number": 10,
+      "project_name": "update_docs_from_claude_diff",
+      "status": "completed",
+      "task_type": "meta",
+      "description": "Review the diff for .claude/ to see what has changed in order to update the documentation in /home/benjamin/.config/zed/docs/ appropriately.",
+      "created": "2026-04-10T21:14:05Z",
+      "last_updated": "2026-04-10T22:15:00Z",
+      "session_id": "sess_impl_10",
+      "completion_summary": "Eliminated all 13 catalogued drift items across 6 docs/ files and one specs/ plan: removed /talk section from commands.md, rewrote /slides section, fixed ROAD_MAP->ROADMAP in two files, removed numeric '24 commands' phrasings, added 'Zed adaptations' subsection to README.md, clarified extensions directory difference in context-and-memory.md, and updated task 9 plan to remove dead /talk references.",
+      "researched": "2026-04-10T21:30:19Z",
+      "artifacts": [
+        {
+          "path": "specs/010_update_docs_from_claude_diff/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research synthesis (4 teammates: A-primary, B-docs-mapper, C-critic, D-horizons) with consolidated 13-item drift catalog"
+        },
+        {
+          "path": "specs/010_update_docs_from_claude_diff/plans/01_update-docs-from-claude-diff.md",
+          "type": "plan",
+          "summary": "6-phase plan (Tier 2): surgical drift fixes across 6 docs/ files + task 9 collision + Zed adaptations note + verification sweep"
+        }
+      ]
+    },
+    {
+      "project_number": 9,
+      "project_name": "workflow_docs_for_commands",
+      "status": "completed",
+      "task_type": "markdown",
+      "description": "Populate docs/workflows/ with workflows covering all commands in .claude/commands/, grouping related commands together as appropriate",
+      "created": "2026-04-10T20:45:15Z",
+      "last_updated": "2026-04-10T21:18:00Z",
+      "session_id": "sess_1775855268_e9e51d",
+      "researched": "2026-04-10T21:04:40Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/009_workflow_docs_for_commands/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research with 4 teammates"
+        },
+        {
+          "path": "specs/009_workflow_docs_for_commands/plans/01_workflow-docs-plan.md",
+          "type": "plan",
+          "summary": "Implementation plan for workflow documentation covering maintenance, grant, and memory command clusters"
+        },
+        {
+          "path": "specs/009_workflow_docs_for_commands/summaries/01_workflow-docs-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for workflow documentation"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 5,
+        "total_effort_hours": 3,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_team-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-10"
+          }
+        ]
+      },
+      "completion_summary": "Created 3 new workflow docs (maintenance-and-meta.md, grant-development.md, memory-and-learning.md), extended agent-lifecycle.md with /revise and /spawn sections, and updated README.md. All 24 commands now covered."
+    },
+    {
+      "project_number": 8,
+      "project_name": "split_workflows_into_directory",
+      "status": "completed",
+      "task_type": "markdown",
+      "created": "2026-04-10T20:14:30Z",
+      "last_updated": "2026-04-10T20:42:54Z",
+      "session_id": "sess_1744316400_imp008",
+      "researched": "2026-04-10T20:20:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/008_split_workflows_into_directory/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research synthesis (4 teammates) - recommends 5 workflow files + README, identifies 16 inbound links for repair, resolves granularity and naming conflicts"
+        },
+        {
+          "path": "specs/008_split_workflows_into_directory/plans/01_split-workflows-directory.md",
+          "type": "plan",
+          "summary": "10-phase plan to split docs/office-workflows.md into docs/workflows/ with 5 goal-clustered files + README, move agent-system/workflow.md to workflows/agent-lifecycle.md, and repair 16 inbound links across 9 files."
+        },
+        {
+          "path": "specs/008_split_workflows_into_directory/summaries/01_split-workflows-directory-summary.md",
+          "type": "summary",
+          "summary": "Split docs/office-workflows.md into docs/workflows/ with 6 files (README, agent-lifecycle, edit-word-documents, edit-spreadsheets, convert-documents, tips-and-troubleshooting); moved and renamed agent-system/workflow.md; repaired 17 inbound links across 9 files; deleted source files."
+        }
+      ],
+      "planned": "2026-04-10T20:29:10Z",
+      "completion_summary": "Converted docs/office-workflows.md and docs/agent-system/workflow.md into a new docs/workflows/ directory with 6 goal-clustered files, repaired all 17 inbound links across the repo, and deleted both source files.",
+      "roadmap_items": []
+    },
+    {
+      "project_number": 7,
+      "project_name": "revise_installation_md_macos",
+      "status": "completed",
+      "task_type": "markdown",
+      "description": "Revise docs/installation.md to target macOS users only (remove NixOS references). Include installation steps for Homebrew, Node, Claude Code, and any other dependencies, assuming only WezTerm (or default macOS Terminal) is installed. Order sections so dependencies come first, and each section should check whether the dependency is already installed so users can skip to the next step.",
+      "created": "2026-04-10T20:07:47Z",
+      "last_updated": "2026-04-10T20:29:42Z",
+      "session_id": "sess_1775852640_0175a5",
+      "researched": "2026-04-10T20:14:18Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/007_revise_installation_md_macos/reports/01_installation-macos-research.md",
+          "type": "research",
+          "summary": "Audit of NixOS references to remove, 8 dependencies with detection/install/verify commands, recommended section order, and per-section template for macOS-only installation guide"
+        },
+        {
+          "path": "specs/007_revise_installation_md_macos/plans/01_revise-installation-macos.md",
+          "type": "plan",
+          "summary": "Six-phase sequential plan to rewrite docs/installation.md as a macOS-only guide with detect/install/verify per section, remove NixOS content, add Xcode CLT and Node.js sections, fix the Claude Code brew cask and first-run auth, and repair one broken inbound link."
+        },
+        {
+          "path": "specs/007_revise_installation_md_macos/summaries/01_revise-installation-macos-summary.md",
+          "type": "summary",
+          "summary": "Rewrote docs/installation.md as a macOS-only, skippable detect/install/verify guide and repaired the one broken inbound link in docs/agent-system/zed-agent-panel.md."
+        }
+      ],
+      "completion_summary": "Revised docs/installation.md to be macOS-only: removed all NixOS content, added Xcode CLT and Node.js sections, and normalized every dependency section (Homebrew, Node, Zed, Claude Code, MCP tools) to a uniform detect/install/verify template so users can skip anything already installed. Corrected the outdated `brew install anthropics/claude/claude-code` command to `brew install --cask claude-code` and replaced `claude auth login` with the current first-run `claude` flow. Repaired the broken `#platform-notes` inbound link in docs/agent-system/zed-agent-panel.md."
+    },
+    {
+      "project_number": 6,
+      "project_name": "expand_agent_system_docs",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-10T19:10:31Z",
+      "last_updated": "2026-04-10T19:55:00Z",
+      "session_id": "sess_1775849200_b921b2",
+      "researched": "2026-04-10T19:18:06Z",
+      "planned": "2026-04-10T19:30:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/006_expand_agent_system_docs/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research with 4 teammates (Primary, Alternatives, Critic, Horizons)"
+        },
+        {
+          "path": "specs/006_expand_agent_system_docs/plans/01_expand-docs-directory.md",
+          "type": "plan",
+          "summary": "8-phase plan (~7.5h) to split docs/agent-system.md into docs/agent-system/ subdirectory, extract docs/installation.md with claude-acp setup, and repair 9 inbound links"
+        },
+        {
+          "path": "specs/006_expand_agent_system_docs/summaries/01_expand-docs-directory-summary.md",
+          "type": "summary",
+          "summary": "Split agent-system.md into 7 new focused files, repaired 9 inbound links, added agent_servers section, deleted old file"
+        }
+      ],
+      "completion_summary": "Split docs/agent-system.md (378 lines) into docs/agent-system/ subdirectory (README, zed-agent-panel, workflow, commands, context-and-memory, architecture) plus new docs/installation.md with first-class claude-acp coverage. Repaired 9 inbound links across README.md, docs/README.md, docs/settings.md, and docs/office-workflows.md, added agent_servers reference section to docs/settings.md, and deleted the old monolithic file.",
+      "claudemd_suggestions": "none"
+    },
+    {
+      "project_number": 5,
+      "project_name": "update_agent_system_docs",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-10T18:33:26Z",
+      "last_updated": "2026-04-10T18:49:56Z",
+      "session_id": "sess_1775846088_impl",
+      "completion_summary": "Rewrote docs/agent-system.md (185 -> 378 lines) with Main Workflow section, topic-grouped Command Catalog, dedicated Memory System section, and 22 verified cross-references into .claude/ docs."
+    },
+    {
+      "project_number": 3,
+      "project_name": "integrate_guide_into_docs",
+      "status": "completed",
+      "task_type": "general",
+      "created": "2026-04-10T17:43:24Z",
+      "last_updated": "2026-04-10T18:30:00Z",
+      "session_id": "sess_1775844026_e3165f",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/003_integrate_guide_into_docs/reports/01_integrate-guide-docs.md",
+          "type": "research",
+          "summary": "Detailed content comparison between zed-claude-office-guide.md and docs/, with integration recommendations"
+        },
+        {
+          "path": "specs/003_integrate_guide_into_docs/plans/01_integrate-guide-docs.md",
+          "type": "plan",
+          "summary": "Revised implementation plan - assume macOS throughout"
+        },
+        {
+          "path": "specs/003_integrate_guide_into_docs/summaries/01_integrate-guide-docs-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for guide integration"
+        }
+      ],
+      "completion_summary": "Integrated zed-claude-office-guide.md content into docs/ (macOS-focused, Cmd-based, Word/Excel) and deleted the original guide. Updated docs/README.md, top-level README.md, docs/settings.md, and config-report.md to reflect the macOS platform."
+    },
+    {
+      "project_number": 2,
+      "project_name": "add_claude_acp_keybindings_docs",
+      "status": "completed",
+      "task_type": "general",
+      "created": "2026-04-10T17:21:36Z",
+      "last_updated": "2026-04-10T17:39:24Z",
+      "session_id": "sess_1744310100_a2b3c4",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/002_add_claude_acp_keybindings_docs/reports/01_claude-acp-keybindings.md",
+          "type": "research",
+          "summary": "Comprehensive inventory of 20+ Zed agent panel keybindings across 9 categories"
+        },
+        {
+          "path": "specs/002_add_claude_acp_keybindings_docs/plans/01_add-keybindings-docs.md",
+          "type": "plan",
+          "summary": "2-phase plan to add comprehensive agent keybindings to docs/keybindings.md and docs/agent-system.md"
+        },
+        {
+          "path": "specs/002_add_claude_acp_keybindings_docs/summaries/01_add-keybindings-docs-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for keybinding documentation expansion"
+        }
+      ],
+      "completion_summary": "Expanded docs/keybindings.md with 20+ agent shortcuts across 9 categories (panel, threads, navigation, models, inline assist, edit predictions, Claude ACP). Added quick reference table to docs/agent-system.md. Fixed broken keybindings link."
+    },
+    {
+      "project_number": 1,
+      "project_name": "configure_zed_with_claude_agent_docs",
+      "status": "completed",
+      "language": "general",
+      "created": "2026-04-09T00:00:00Z",
+      "last_updated": "2026-04-10T16:41:02Z",
+      "session_id": "sess_1775838585_887f4f",
+      "researched": "2026-04-10T15:54:34Z",
+      "next_artifact_number": 4,
+      "artifacts": [
+        {
+          "path": "specs/001_configure_zed_with_claude_agent_docs/plans/03_implementation-plan.md",
+          "type": "plan",
+          "summary": "5-phase plan: Scheme A keybindings, no vim, collaborator guide"
+        },
+        {
+          "path": "specs/001_configure_zed_with_claude_agent_docs/summaries/03_execution-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary with verification results"
+        }
+      ],
+      "completion_summary": "Configured Zed editor with settings.json, keymap.json (Scheme A, 6 bindings), tasks.json, and 5 documentation files. Rewrote project-overview.md from Neovim to Zed. No vim mode; standard keybindings throughout."
+    },
+    {
       "project_number": 4,
       "project_name": "integrate_config_report_into_docs",
       "status": "abandoned",
