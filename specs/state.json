@@ -4,11 +4,11 @@
     {
       "project_number": 22,
       "project_name": "epi_study_example_demo",
-      "status": "researching",
+      "status": "researched",
       "task_type": "general",
       "description": "Create zed/examples/epi-study/ directory that organizes and documents the synthetic RCT study produced by task 20, as a demo for new users to understand how to run the /epi command to create an epi study.",
       "created": "2026-04-11T01:15:52Z",
-      "last_updated": "2026-04-11T01:16:33Z",
+      "last_updated": "2026-04-11T01:20:57Z",
       "session_id": "sess_1776038900_res022"
     },
     {
