@@ -166,7 +166,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: MCP servers doc (with Lean decision) [NOT STARTED]
+### Phase 4: MCP servers doc (with Lean decision) [COMPLETED]
 
 **Goal**: Create `docs/toolchain/mcp-servers.md` consolidating install and verify steps for all MCP servers used by active extensions; resolve the Lean MCP ambiguity with a recorded decision.
 
