@@ -283,18 +283,20 @@ You should see both `superdoc` and `openpyxl` in the list. If either is missing,
 
 ## Verify
 
-Run through this checklist end-to-end. Every entry corresponds to one of the dependency sections above; a green check here means the full stack is working.
+Run each command below in your terminal. If every one prints a version number or success message, you are done.
 
-- [ ] `git --version` prints a version (Xcode CLT)
-- [ ] `brew --version` prints a version (Homebrew)
-- [ ] `node --version && npx --version` both print versions (Node.js)
-- [ ] `zed --version` prints a version, or Zed launches from Applications
-- [ ] `claude --version` prints a version
-- [ ] `claude doctor` reports a healthy install (optional but recommended)
-- [ ] `claude mcp list` shows both `superdoc` and `openpyxl`
-- [ ] Zed's Agent Panel (Ctrl+?) offers a Claude Code thread
-- [ ] Inside the Claude Code thread, `/login` completes without error
-- [ ] Running `/task "test"` from the Claude Code thread creates a task entry
+1. `git --version` -- should print a version (Xcode CLT)
+2. `brew --version` -- should print a version (Homebrew)
+3. `node --version` -- should print a version (Node.js)
+4. `claude --version` -- should print a version (Claude Code CLI)
+5. `claude doctor` -- should report a healthy install (optional but recommended)
+6. `claude mcp list` -- should show both `superdoc` and `openpyxl`
+
+Then confirm the Zed integration:
+
+7. Open Zed and press **Ctrl+?** to open the Agent Panel -- you should see a Claude Code thread option
+8. Start a Claude Code thread and type `/login` -- it should complete without error
+9. Type `/task "test"` in the Claude Code thread -- it should create a task entry
 
 If any step fails, see [Troubleshooting in the agent panel doc](../agent-system/zed-agent-panel.md#troubleshooting).
 
