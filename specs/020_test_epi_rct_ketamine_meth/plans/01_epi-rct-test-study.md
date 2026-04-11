@@ -162,7 +162,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Merge and Derive Analytic Dataset (Python) [NOT STARTED]
+### Phase 4: Merge and Derive Analytic Dataset (Python) [COMPLETED]
 
 **Goal**: Merge baseline, outcomes, and event data into the analytic dataset consumed by the analysis phase.
 
