@@ -16,10 +16,11 @@ next_project_number: 30
 
 ### 28. Re-run the analysis with the full R/tidyverse stack once task 27 is complete
 - **Effort**: TBD
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: epi:study
 - **Depends on**: 27
 - **Parent Task**: 20
+- **Report**: [01_rerun-analysis-plan.md](028_rerun_analysis_full_r_stack/reports/01_rerun-analysis-plan.md)
 
 **Description**: Re-run the analysis with the full R/tidyverse stack once task 27 is complete.
 

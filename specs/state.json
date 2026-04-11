@@ -1,6 +1,15 @@
 {
-  "next_project_number": 30,
+  "next_project_number": 31,
   "active_projects": [
+    {
+      "project_number": 30,
+      "project_name": "audit_missing_dependencies_docs",
+      "status": "not_started",
+      "task_type": "meta",
+      "description": "Audit .claude/ to identify all assumed external dependencies (typst, R, python, lean, latex, etc.) and update installation/setup documentation to include any missing elements.",
+      "created": "2026-04-11T02:06:44Z",
+      "last_updated": "2026-04-11T02:06:44Z"
+    },
     {
       "project_number": 29,
       "project_name": "talk_epi_study_walkthrough",
@@ -22,7 +31,7 @@
     {
       "project_number": 28,
       "project_name": "rerun_analysis_full_r_stack",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "epi:study",
       "description": "Re-run the analysis with the full R/tidyverse stack once task 27 is complete.",
       "depends_on": [
@@ -30,7 +39,13 @@
       ],
       "parent_task": 20,
       "created": "2026-04-11T01:32:22Z",
-      "last_updated": "2026-04-11T01:32:22Z"
+      "last_updated": "2026-04-11T02:00:56Z",
+      "session_id": "sess_1775872843_e08192",
+      "artifacts": {
+        "reports": [
+          "028_rerun_analysis_full_r_stack/reports/01_rerun-analysis-plan.md"
+        ]
+      }
     },
     {
       "project_number": 27,
