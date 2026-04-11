@@ -1,6 +1,354 @@
 {
   "completed_projects": [
     {
+      "project_number": 31,
+      "project_name": "toolchain_installation_scripts",
+      "status": "completed",
+      "task_type": "meta",
+      "description": "Building on task 30, create installation scripts for each group of dependencies documented in docs/toolchain/ (one script per file), plus a master installation script that installs all software mentioned in docs/general/installation.md and then runs each toolchain script afterwards. The master script must prompt the user to accept/skip/cancel each collection of packages, providing a clear and concise explanation of what will be installed and why. Then update docs/general/installation.md to lead with the master script as the installation wizard (explaining to a beginner how to clone the repo and run the script), followed by the existing manual instructions. Similarly, every file in docs/toolchain/ should begin by explaining how to run the corresponding script before the manual installation instructions.",
+      "created": "2026-04-11T02:48:09Z",
+      "last_updated": "2026-04-11T04:08:03Z",
+      "session_id": "sess_1775876781_0da6cb",
+      "researched": "2026-04-10T20:10:00Z",
+      "artifacts": [
+        {
+          "path": "specs/031_toolchain_installation_scripts/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research with 4 teammates (Primary/Alternatives/Critic/Horizons): converges on per-doc bash scripts + lib.sh + interactive master with presets; resolves 20 critic questions; recommends /doctor co-design"
+        },
+        {
+          "path": "specs/031_toolchain_installation_scripts/plans/01_install-wizard-scripts.md",
+          "type": "plan",
+          "summary": "7-phase plan: lib.sh scaffold, install-base, 5 per-group scripts (parallel), master install.sh wizard, doc rewrites, repo README Quick Start, verification."
+        }
+      ],
+      "next_artifact_number": 2,
+      "completion_summary": "Shipped scripts/install/ with lib.sh, 6 per-group installers, and master install.sh wizard (accept/skip/cancel, presets, --dry-run/--check/--yes/--only). Rewrote docs to lead with wizard; preserved all manual content. Lean MCP resurrection guard enforced."
+    },
+    {
+      "project_number": 30,
+      "project_name": "audit_missing_dependencies_docs",
+      "status": "completed",
+      "task_type": "meta",
+      "description": "Audit .claude/ to identify all assumed external dependencies (typst, R, python, lean, latex, etc.) and update installation/setup documentation to include any missing elements.",
+      "created": "2026-04-11T02:06:44Z",
+      "last_updated": "2026-04-10T00:00:00Z",
+      "session_id": "sess_1775874528_669a21",
+      "researched": "2026-04-11T02:15:47Z",
+      "planned": "2026-04-11T02:35:00Z",
+      "next_artifact_number": 2,
+      "estimated_hours": 7,
+      "artifacts": [
+        {
+          "path": "specs/030_audit_missing_dependencies_docs/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research with 4 teammates"
+        },
+        {
+          "path": "specs/030_audit_missing_dependencies_docs/plans/01_toolchain-docs.md",
+          "type": "plan",
+          "summary": "7-phase plan to scaffold docs/toolchain/, migrate R.md and python.md, add typesetting/MCP/extensions/shell-tools docs, fix typst allowlist gap, resolve Lean MCP ambiguity"
+        },
+        {
+          "path": "specs/030_audit_missing_dependencies_docs/summaries/01_toolchain-docs-summary.md",
+          "type": "summary",
+          "summary": "Toolchain documentation: 7 new Check/Install/Verify files, typst allowlist fix, Lean MCP prune."
+        }
+      ],
+      "implemented": "2026-04-10T00:00:00Z",
+      "completion_summary": "Created docs/toolchain/ with 7 Check/Install/Verify files covering R, Python, typesetting, MCP servers, extensions, and shell tools; moved R.md/python.md with history; fixed the typst Bash allowlist gap in .claude/settings.json; pruned the dormant Lean MCP references with restoration instructions recorded in mcp-servers.md.",
+      "claudemd_suggestions": "none"
+    },
+    {
+      "project_number": 28,
+      "project_name": "rerun_analysis_full_r_stack",
+      "status": "completed",
+      "task_type": "epi:study",
+      "description": "Re-run the analysis with the full R/tidyverse stack once task 27 is complete.",
+      "depends_on": [
+        27
+      ],
+      "parent_task": 20,
+      "created": "2026-04-11T01:32:22Z",
+      "last_updated": "2026-04-11T02:30:00Z",
+      "completed": "2026-04-11T02:30:00Z",
+      "session_id": "sess_1775873625_54d6eb",
+      "branch_taken": "A+B",
+      "artifacts": {
+        "reports": [
+          "028_rerun_analysis_full_r_stack/reports/01_rerun-analysis-plan.md"
+        ],
+        "plans": [
+          "028_rerun_analysis_full_r_stack/plans/01_rerun-analysis-plan.md"
+        ],
+        "summaries": [
+          "028_rerun_analysis_full_r_stack/summaries/01_rerun-analysis-plan-summary.md"
+        ]
+      },
+      "completion_summary": "Re-ran examples/epi-study/ pipeline end-to-end. Branch A verified byte-identical reproduction of all six committed target artifacts against Phase 2 baseline (diff -q clean, SHA256 match); headline armKAT OR 3.28721 (95% CI 1.570-6.885, p = 0.00161) reasserted. Branch B executed the full enrichment stack (task 27 rWrapper rebuild via dotfiles 47 confirmed landed): broom::tidy logistic regression, survival::coxph (HR 0.426, p < 1e-5), mice::pool m=20 (pooled OR 3.2620, 0.77% deviation from complete-case), and quarto HTML render (exit 0). broom.helpers gap handled gracefully via requireNamespace gate. Frozen scripts 01-05 verified unchanged.",
+      "roadmap_items": [
+        "Consider adding broom.helpers to nix rWrapper derivation to enable full gtsummary::tbl_regression workflow (minor, non-blocking)"
+      ]
+    },
+    {
+      "project_number": 27,
+      "project_name": "fix_task20_env_gaps",
+      "status": "completed",
+      "task_type": "nix",
+      "description": "Fix the environment gaps documented in task 20's config_gaps.md (tidyverse, survival, quarto, etc.).",
+      "parent_task": 20,
+      "created": "2026-04-11T01:31:34Z",
+      "last_updated": "2026-04-10T19:00:00Z",
+      "session_id": "sess_1775871346_f93e91",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/027_fix_task20_env_gaps/reports/01_fix-env-gaps.md",
+          "type": "research",
+          "summary": "Nix remediation plan for R/Python/Quarto gaps from task 20's config_gaps.md"
+        }
+      ],
+      "completion_summary": "Implemented externally via ~/.dotfiles task 47 (commit 06c14e1). Changes: rWrapper.override with survival/MASS/nlme/lme4/tidyverse/broom/gtsummary/mice/knitr/rmarkdown/languageserver/styler/lintr in configuration.nix:524-543; quarto added to systemPackages; scipy/statsmodels/seaborn/pyarrow and p.scikit-learn appended to python312.withPackages in home.nix:359-377. Zed R LSP wiring already present at settings.json:72-81. All F8 verification tests pass (R P0/P1/P2 loads, Python imports, quarto 1.8.26 installed)."
+    },
+    {
+      "project_number": 26,
+      "project_name": "remove_redundant_pane_nav_in_editor_context",
+      "status": "completed",
+      "task_type": "general",
+      "priority": "low",
+      "description": "Remove the redundant ctrl-h / ctrl-l pane navigation bindings from the Editor context block in keymap.json:35-36 (already covered by the Workspace context block at L14-15), or add a comment explaining why they are duplicated.",
+      "created": "2026-04-11T01:21:49Z",
+      "last_updated": "2026-04-11T01:40:17Z",
+      "session_id": "sess_1744257700_e8f3a1",
+      "completion_summary": "Removed two redundant pane-navigation bindings (ctrl-h, ctrl-l) from the Editor context block in keymap.json; Workspace context cascades these bindings into editors."
+    },
+    {
+      "project_number": 25,
+      "project_name": "fix_keymap_default_reference_comment",
+      "status": "completed",
+      "task_type": "markdown",
+      "priority": "medium",
+      "description": "Rewrite the default-reference comment block in keymap.json (lines 46-116) to use Cmd+ modifiers for macOS defaults instead of Ctrl+, except for the four intentional Ctrl+ custom bindings. Consider folding into task 21 if scope allows.",
+      "created": "2026-04-11T01:21:49Z",
+      "last_updated": "2026-04-11T01:40:16Z",
+      "session_id": "sess_1744257700_e8f3a1",
+      "completion_summary": "Rewrote the ZED DEFAULT REFERENCE comment block in keymap.json to use Cmd+ for macOS defaults, annotated all 5 intentional custom Ctrl+ bindings (Ctrl+H, Ctrl+L, Ctrl+?, Ctrl+Shift+A, Ctrl+Shift+C) with (custom), marked uncertain defaults with (verify), and updated the stale header comment bindings count. Resolved open question in favor of 5 exceptions."
+    },
+    {
+      "project_number": 24,
+      "project_name": "untrack_tts_log_files",
+      "status": "completed",
+      "task_type": "general",
+      "priority": "medium",
+      "description": "Run git rm --cached on specs/tmp/claude-tts-last-notify and specs/tmp/claude-tts-notify.log, then add an entry to .gitignore so the Claude Code TTS notification hook stops dirtying the working tree on every run.",
+      "created": "2026-04-11T01:21:49Z",
+      "last_updated": "2026-04-11T01:40:16Z",
+      "session_id": "sess_1744257700_e8f3a1",
+      "completion_summary": "Untracked specs/tmp/claude-tts-last-notify and specs/tmp/claude-tts-notify.log via git rm --cached and created root .gitignore ignoring the two files plus specs/tmp/. Scratch files preserved on disk so the TTS hook keeps working."
+    },
+    {
+      "project_number": 23,
+      "project_name": "update_claude_model_ids",
+      "status": "completed",
+      "task_type": "general",
+      "priority": "high",
+      "description": "Update outdated Claude model IDs in settings.json (lines 39, 44) and docs/general/settings.md (lines 59, 64) from claude-sonnet-4-20250514 / claude-opus-4-20250514 to claude-sonnet-4-6 / claude-opus-4-6 so the Zed Agent Panel uses current models.",
+      "created": "2026-04-11T01:21:49Z",
+      "session_id": "sess_1775871187_9bf1ec",
+      "last_updated": "2026-04-11T01:34:27Z",
+      "researched": "2026-04-11T01:30:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/023_update_claude_model_ids/reports/01_stale-proof-model-config.md",
+          "type": "report",
+          "summary": "Stale-proof Claude model config options for Zed: Zed's anthropic crate supports -latest aliases (claude-opus-4-6-latest etc.); recommends deleting the agent block entirely since user only uses Claude Code, not the Zed Agent Panel."
+        },
+        {
+          "path": "specs/023_update_claude_model_ids/plans/01_delete-agent-block.md",
+          "type": "plan",
+          "summary": "3-phase plan: delete agent block from settings.json, update docs/general/settings.md with explanation + -latest fallback, verify and commit."
+        },
+        {
+          "path": "specs/023_update_claude_model_ids/summaries/01_delete-agent-block-summary.md",
+          "type": "summary",
+          "summary": "3-phase implementation: agent block removed from settings.json, docs rewritten, tree verified clean."
+        }
+      ],
+      "planned": "2026-04-11T01:30:38Z",
+      "completed": "2026-04-11T01:34:27Z",
+      "completion_summary": "Deleted the stale agent block from settings.json (Zed Agent Panel now uses Zed's built-in default, which auto-updates with Zed releases) and rewrote docs/general/settings.md to explain the intentional omission plus document -latest alias fallback. Claude Code is unaffected (configured via independent agent_servers.claude-acp block)."
+    },
+    {
+      "project_number": 22,
+      "project_name": "epi_study_example_demo",
+      "status": "completed",
+      "task_type": "general",
+      "description": "Create zed/examples/epi-study/ directory that organizes and documents the synthetic RCT study produced by task 20, as a demo for new users to understand how to run the /epi command to create an epi study.",
+      "created": "2026-04-11T01:15:52Z",
+      "last_updated": "2026-04-11T01:38:44Z",
+      "session_id": "sess_1776040000_imp022",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/022_epi_study_example_demo/reports/01_epi-study-example-demo.md",
+          "type": "research",
+          "summary": "Research report with /epi Stage 0 flow, task-20 artifact inventory + disposition matrix, recommended zed/examples/epi-study/ layout, README outline, prerequisites, risks, and 8 open questions for the planning phase."
+        },
+        {
+          "path": "specs/022_epi_study_example_demo/plans/01_epi-study-example-demo.md",
+          "type": "plan",
+          "summary": "6-phase plan to create zed/examples/epi-study/ as a frozen, reproducible demo of the task 20 synthetic KAT vs TAU RCT, with newcomer-facing README walkthrough of the /epi -> /research -> /plan -> /implement flow."
+        },
+        {
+          "path": "specs/022_epi_study_example_demo/summaries/01_epi-study-example-demo-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for task 22: created zed/examples/epi-study/ as a deterministic, runnable demo of the /epi workflow with README walkthrough, Stage 0 answer transcript, copied task 20 scripts/data, and reproduction check."
+        }
+      ],
+      "researched": "2026-04-11T01:25:00Z",
+      "plan_metadata": {
+        "phases": 6,
+        "total_effort_hours": 3.5,
+        "complexity": "medium",
+        "plan_version": 1
+      },
+      "planned": "2026-04-11T01:30:00Z",
+      "completion_summary": "Created zed/examples/epi-study/ as a newcomer-facing, byte-deterministic snapshot of task 20's synthetic ketamine-assisted therapy RCT. Ships a runnable Python+base-R pipeline (seeds 20260410), a narrative README walkthrough of the /epi -> /research -> /plan -> /implement flow, literal Stage 0 answers in EPI_ANSWERS.md, CONSORT report with CC0 banner, and a reproduction check proving byte-identical regeneration (primary OR = 3.29, 95% CI 1.57-6.89)."
+    },
+    {
+      "project_number": 21,
+      "project_name": "update_docs_r_python_zed",
+      "status": "completed",
+      "task_type": "markdown",
+      "description": "Update /home/benjamin/.config/zed/README.md and the other documentation in /home/benjamin/.config/zed/docs/README.md and /home/benjamin/.config/zed/docs/ to reflect that this is a configuration for working in R and Python with Claude Code in the Zed IDE.",
+      "created": "2026-04-11T00:57:02Z",
+      "last_updated": "2026-04-11T01:17:58Z",
+      "session_id": "sess_1775869897_a099c8",
+      "researched": "2026-04-11T01:05:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/021_update_docs_r_python_zed/reports/01_update-docs-r-python-zed.md",
+          "type": "report",
+          "summary": "Identifies 7 user-facing doc files needing reframing from macOS/epidemiology focus to R/Python + Claude Code in Zed, with dual-platform notes and cross-links to existing R.md and python.md language guides."
+        },
+        {
+          "path": "specs/021_update_docs_r_python_zed/plans/01_update-docs-r-python-zed.md",
+          "type": "plan",
+          "summary": "5-phase plan to reframe README, docs index, docs/general/*, docs/workflows/README, and audit settings.json for macOS-only R/Python Zed configuration."
+        },
+        {
+          "path": "specs/021_update_docs_r_python_zed/summaries/01_update-docs-r-python-zed-summary.md",
+          "type": "summary",
+          "summary": "macOS-only R/Python/Claude Code Zed doc reframing across 10 files."
+        }
+      ],
+      "completion_summary": "Reframed repository documentation and settings.json from an epidemiology/macOS framing to a macOS-only Zed IDE configuration for R and Python with Claude Code, surfacing the existing R.md and python.md guides and removing all NixOS-specific paths from user-facing docs and configs."
+    },
+    {
+      "project_number": 20,
+      "project_name": "test_epi_rct_ketamine_meth",
+      "status": "completed",
+      "task_type": "epi:study",
+      "description": "Simple test RCT study on fake generated data to verify R and Python are configured correctly in Zed and identify configuration shortcomings.",
+      "forcing_data": {
+        "study_design": "RCT",
+        "research_question": "Does ketamine assisted therapy improve recovery from methamphetamine use disorder?",
+        "causal_structure": "Treatment -> Recovery, confounded by baseline severity and demographics",
+        "data_paths": [],
+        "descriptive_paths": [],
+        "prior_work": [],
+        "ethics_status": "IRB_APPROVED",
+        "reporting_guideline": "CONSORT",
+        "r_preferences": "tidyverse + Quarto",
+        "analysis_hints": null,
+        "gathered_at": "2026-04-11T00:45:53Z"
+      },
+      "created": "2026-04-11T00:45:53Z",
+      "last_updated": "2026-04-11T01:08:18Z",
+      "session_id": "sess_1776038400_imp020",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/020_test_epi_rct_ketamine_meth/reports/01_epi-research.md",
+          "type": "report",
+          "summary": "Study design report for test RCT: ketamine-assisted therapy for methamphetamine use disorder with synthetic data generation plan and Zed configuration assessment"
+        },
+        {
+          "path": "specs/020_test_epi_rct_ketamine_meth/plans/01_epi-rct-test-study.md",
+          "type": "plan",
+          "summary": "7-phase plan for synthetic RCT (ketamine vs TAU for meth use disorder) exercising R/Python/Quarto toolchains in Zed"
+        },
+        {
+          "path": "specs/020_test_epi_rct_ketamine_meth/summaries/01_epi-rct-test-study-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary with toolchain scoreboard and consolidated gap list"
+        },
+        {
+          "path": "specs/020_test_epi_rct_ketamine_meth/logs/config_gaps.md",
+          "type": "log",
+          "summary": "Prioritized Zed R/Python/Quarto config gap remediation list with nix snippets"
+        },
+        {
+          "path": "specs/020_test_epi_rct_ketamine_meth/reports/06_zed_verification_summary.md",
+          "type": "report",
+          "summary": "10-point Zed configuration test-point scoreboard"
+        },
+        {
+          "path": "specs/020_test_epi_rct_ketamine_meth/reports/05_consort_report.md",
+          "type": "report",
+          "summary": "CONSORT-style report (Markdown fallback; Quarto unavailable)"
+        }
+      ],
+      "researched": "2026-04-11T00:53:18Z",
+      "plan_metadata": {
+        "phases": 7,
+        "total_effort_hours": 9,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_epi-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-10"
+          }
+        ]
+      },
+      "planned": "2026-04-11T00:56:00Z",
+      "completion_summary": "Task 20 completed: synthetic RCT pipeline executed successfully as a Zed R/Python/Quarto toolchain verification on NixOS. All 7 phases finished with graceful fallbacks (base R only, no Quarto). Primary deliverable is the prioritized configuration gap log (logs/config_gaps.md) identifying missing R packages (tidyverse, survival, gtsummary, mice, languageserver), Python modules (scipy, statsmodels), and Quarto, with concrete nix remediation snippets and recommended Zed settings.json additions.",
+      "completed": "2026-04-11T01:08:18Z",
+      "roadmap_items": [
+        "Install R package set (tidyverse, survival, gtsummary, broom, mice, knitr, rmarkdown, languageserver, styler, lintr) via configuration.nix rWrapper",
+        "Install Python scientific extras (scipy, statsmodels, seaborn, scikit-learn, pyarrow) via nix profile",
+        "Install Quarto (pkgs.quarto) and verify rmarkdown/jupyter engines",
+        "Register r-languageserver in Zed settings.json and verify LSP features interactively",
+        "Create project-level flake.nix for reproducible per-task R/Python environments"
+      ]
+    },
+    {
       "project_number": 19,
       "project_name": "python_and_r_setup_guides",
       "status": "completed",
