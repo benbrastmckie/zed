@@ -1,14 +1,21 @@
 ---
-next_project_number: 15
+next_project_number: 16
 ---
 
 # Task List
 
 ## Tasks
 
+### 15. Improve installation docs for beginner-friendly terminal walkthrough
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: markdown
+
+**Description**: Make docs/general/installation.md more user-friendly by walking through each installation step for someone with no prior terminal experience, briefly motivating and explaining each step without being too verbose to avoid overwhelming the reader.
+
 ### 14. Standardize docs/ README files and improve root README for Zed + Claude Code epi/medical research config
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: meta
 - **Research**: [01_team-research.md](014_standardize_docs_and_root_readme/reports/01_team-research.md)
 - **Plan**: [01_standardize-docs-readme.md](014_standardize_docs_and_root_readme/plans/01_standardize-docs-readme.md)

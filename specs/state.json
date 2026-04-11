@@ -1,14 +1,22 @@
 {
-  "next_project_number": 15,
+  "next_project_number": 16,
   "active_projects": [
+    {
+      "project_number": 15,
+      "project_name": "improve_installation_docs_beginner_friendly",
+      "status": "not_started",
+      "task_type": "markdown",
+      "created": "2026-04-11T00:08:41Z",
+      "last_updated": "2026-04-11T00:08:41Z"
+    },
     {
       "project_number": 14,
       "project_name": "standardize_docs_and_root_readme",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "meta",
       "created": "2026-04-10T23:39:14Z",
-      "last_updated": "2026-04-10T23:58:16Z",
-      "session_id": "sess_1775865276_9718ae",
+      "last_updated": "2026-04-11T00:01:35Z",
+      "session_id": "sess_1775865680_7ea64d",
       "researched": "2026-04-10T23:50:08Z",
       "next_artifact_number": 2,
       "artifacts": [
