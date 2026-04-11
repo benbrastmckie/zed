@@ -4123,7 +4123,7 @@
       ],
       "description": "Slidev implementation pitfalls covering 7 issue classes with prevention guidance, project scaffolding template, and Playwright verification",
       "summary": "Slidev implementation pitfalls covering 7 issue classes with prevention guidance, project scaffolding template, and Playwright verification",
-      "line_count": 200,
+      "line_count": 253,
       "path": "project/present/talk/patterns/slidev-pitfalls.md",
       "subdomain": "present",
       "keywords": [

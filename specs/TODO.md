@@ -8,7 +8,7 @@ next_project_number: 35
 
 ### 34. Improve Slidev review pipeline to catch rendering issues during first implementation
 - **Effort**: 3 hours
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
 - **Research**:
   - [01_teammate-a-findings.md](034_improve_slidev_review_pipeline/reports/01_teammate-a-findings.md)
@@ -17,6 +17,7 @@ next_project_number: 35
   - [01_teammate-d-findings.md](034_improve_slidev_review_pipeline/reports/01_teammate-d-findings.md)
   - [01_team-research.md](034_improve_slidev_review_pipeline/reports/01_team-research.md)
 - **Plan**: [01_improve-slidev-pipeline.md](034_improve_slidev_review_pipeline/plans/01_improve-slidev-pipeline.md)
+- **Summary**: [01_implementation-summary.md](034_improve_slidev_review_pipeline/summaries/01_implementation-summary.md)
 
 **Description**: Improve the Slidev implementation pipeline to catch rendering issues during first implementation rather than requiring manual post-hoc debugging. Based on troubleshooting of examples/epi-slides, the following issues were only caught post-implementation: (1) lz-string CJS/ESM incompatibility under pnpm strict layout crashing all mermaid slides, (2) Slidev CLI version mismatch between global nix binary (v52) and project package.json (v0.49), (3) Shiki syntax highlighter overriding custom theme inline code styles with dark backgrounds, (4) Vue components inside markdown pipe tables failing silently, (5) `<br/>` tags in mermaid node labels consumed by Vue/MDC parser before reaching mermaid, (6) `npx slidev` fails because the npm package name is `@slidev/cli` not `slidev` — Zed tasks and export scripts must use `npx @slidev/cli`. Update the slides implementation agent, planner context, Playwright verification template, and project scaffolding so these classes of errors are prevented or caught automatically during implementation. Deliverables should include: a Slidev project template (package.json, .npmrc, vite.config.ts, lz-string-esm.js) that the implementation agent copies when scaffolding new decks; updated slidev-pitfalls.md with all six issue classes; and an enhanced Playwright verification script that checks for console errors (not just visible error text)
 
