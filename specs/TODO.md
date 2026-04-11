@@ -8,8 +8,9 @@ next_project_number: 20
 
 ### 19. Create Python and R setup guides for macOS
 - **Effort**: medium
-- **Status**: [RESEARCHING]
+- **Status**: [RESEARCHED]
 - **Task Type**: markdown
+- **Research**: [01_python-r-setup.md](019_python_and_r_setup_guides/reports/01_python-r-setup.md)
 
 **Description**: Building on docs/general/installation.md, create python.md and R.md files in docs/general/ with complete instructions for setting up Python and R development environments on macOS, including linters, formatters, and LSP. Link these guides at the end of installation.md and briefly mention them at the beginning to walk new users through language-specific setup.
 

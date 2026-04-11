@@ -4,11 +4,19 @@
     {
       "project_number": 19,
       "project_name": "python_and_r_setup_guides",
-      "status": "researching",
+      "status": "researched",
       "task_type": "markdown",
       "created": "2026-04-11T00:35:45Z",
-      "last_updated": "2026-04-11T00:37:42Z",
-      "session_id": "sess_1775867847_822862"
+      "last_updated": "2026-04-11T00:42:04Z",
+      "session_id": "sess_1775867847_822862",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/019_python_and_r_setup_guides/reports/01_python-r-setup.md",
+          "type": "research",
+          "summary": "Complete mapping of Python/R tools from NixOS dotfiles to macOS Homebrew equivalents, with Zed extension and settings.json configuration details"
+        }
+      ]
     },
     {
       "project_number": 18,
