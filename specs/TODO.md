@@ -17,7 +17,7 @@ next_project_number: 31
 
 ### 29. Conference talk walkthrough of the epi-study demo
 - **Effort**: TBD
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNING]
 - **Task Type**: present:talk
 - **Research**:
   - [01_talk-research.md](029_talk_epi_study_walkthrough/reports/01_talk-research.md)

@@ -198,7 +198,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: Extension prereqs and shell tools [NOT STARTED]
+### Phase 5: Extension prereqs and shell tools [COMPLETED]
 
 **Goal**: Create the remaining topical docs: extension-specific prerequisites not yet covered and shell utilities.
 
