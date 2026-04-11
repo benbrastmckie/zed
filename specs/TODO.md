@@ -1,10 +1,17 @@
 ---
-next_project_number: 32
+next_project_number: 33
 ---
 
 # Task List
 
 ## Tasks
+
+### 32. Update documentation to reflect current .claude/ configuration
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Review git diff of .claude/ changes and update all documentation to accurately reflect the current state without historical declarations (documentation should describe current reality, not mention what changed)
 
 ### 29. Conference talk walkthrough of the epi-study demo
 - **Effort**: 9.5 hours

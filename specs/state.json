@@ -1,6 +1,14 @@
 {
-  "next_project_number": 32,
+  "next_project_number": 33,
   "active_projects": [
+    {
+      "project_number": 32,
+      "project_name": "update_docs_from_claude_diff",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-11T04:13:59Z",
+      "last_updated": "2026-04-11T04:13:59Z"
+    },
     {
       "project_number": 29,
       "project_name": "talk_epi_study_walkthrough",
