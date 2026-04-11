@@ -2,12 +2,15 @@
   // =====================================================
   // CUSTOM BINDINGS (Scheme A -- Minimal)
   // =====================================================
-  // 7 unique custom bindings (8 entries; Claude Code launcher
-  // is bound in both Workspace and Terminal contexts):
-  //   - 2 pane navigation (Ctrl+H, Ctrl+L)
+  // 7 unique custom bindings (9 entries; pane-nav is declared
+  // in both Workspace and Editor contexts to defeat Zed's
+  // default Editor-context Ctrl+H (find/replace) shadowing,
+  // and Claude Code launcher is bound in both Workspace and
+  // Terminal contexts):
+  //   - 2 pane navigation (Ctrl+H, Ctrl+L), Workspace + Editor
   //   - 2 line movers (Alt+J, Alt+K)
   //   - 1 dock toggle (Ctrl+?)
-  //   - 1 Claude Code launcher (Ctrl+Shift+A, in 2 contexts)
+  //   - 1 Claude Code launcher (Ctrl+Shift+A, Workspace + Terminal)
   //   - 1 copy path utility (Ctrl+Shift+C)
   //
   // All custom bindings intentionally use Ctrl+ (not Cmd+) on
@@ -34,12 +37,20 @@
     }
   },
 
-  // Line movers (move current line up/down)
+  // Editor-context overrides
+  //
+  // Ctrl+H and Ctrl+L are re-declared here so that Zed's default
+  // Editor-context Ctrl+H (Find and replace in file) does not
+  // shadow the Workspace-context pane-navigation binding above.
+  // Without these overrides, pressing Ctrl+H inside an editor
+  // opens find/replace instead of activating the left pane.
   {
     "context": "Editor",
     "bindings": {
       "alt-j": "editor::MoveLineDown",
       "alt-k": "editor::MoveLineUp",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-shift-c": "editor::CopyPath"
     }
   }
