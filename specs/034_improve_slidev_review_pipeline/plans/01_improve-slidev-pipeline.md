@@ -1,7 +1,7 @@
 # Implementation Plan: Improve Slidev Review Pipeline
 
 - **Task**: 34 - Improve Slidev review pipeline to catch rendering issues during first implementation
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 3 hours
 - **Dependencies**: None
 - **Research Inputs**: reports/01_team-research.md
