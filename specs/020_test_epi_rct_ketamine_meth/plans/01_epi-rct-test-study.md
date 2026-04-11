@@ -129,7 +129,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Synthetic Outcomes Generation (R) [NOT STARTED]
+### Phase 3: Synthetic Outcomes Generation (R) [COMPLETED]
 
 **Goal**: Generate longitudinal outcomes conditional on treatment and baseline covariates, with realistic effect sizes and ~15% MCAR missingness.
 

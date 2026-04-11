@@ -70,3 +70,11 @@ min     18.00       0.50          0.06
 max     58.00      24.30          0.96
 
 Wrote /home/benjamin/.config/zed/specs/020_test_epi_rct_ketamine_meth/data/raw/participants.csv (200 rows, 11 columns)
+Loaded 200 baseline rows with 11 cols
+Marginal abstinence -- KAT: 44.0%, TAU: 24.0%
+Time-to-use -- median KAT: 40.5, TAU: 25.4; event rate: 90.5%
+Completed study: 170/200 (85%)
+Wrote data/raw/outcomes.csv with 200 rows
+Wrote data/raw/adverse_events.csv with 50 rows
+
+==== Phase 3 Complete ====
