@@ -118,7 +118,7 @@ TODO.md and state.json must stay synchronized; both are updated atomically. See 
 
 The `.claude/CLAUDE.md` file describes an extension loader -- a pattern for merging language-specific task types, skills, and rules into the core framework. All extensions are pre-merged into the active configuration in this workspace. All commands are always available without any manual loading step.
 
-Every extension entry in `.claude/CLAUDE.md` (epidemiology, filetypes, latex, memory, present, python, typst) is pre-merged into the active configuration in this workspace. You do not need to load anything; just run the command.
+Every extension entry in `.claude/CLAUDE.md` (epidemiology, filetypes, latex, memory, present, typst) is pre-merged into the active configuration in this workspace. You do not need to load anything; just run the command.
 
 ## Task routing by task_type
 
@@ -129,7 +129,6 @@ Every task has a `task_type` field in `state.json` that tells the lifecycle comm
 | `general` | `skill-researcher` | `skill-implementer` |
 | `meta` | `skill-researcher` | `skill-implementer` |
 | `markdown` | `skill-researcher` | `skill-implementer` |
-| `python` | `skill-python-research` | `skill-python-implementation` |
 
 Specialty task types (for grants, talks, LaTeX, Typst, Python, epidemiology, etc.) route to their respective specialized skills. See [`.claude/CLAUDE.md`](../../.claude/CLAUDE.md) for the full routing table.
 

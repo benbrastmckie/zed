@@ -8,7 +8,6 @@ Active extensions (from `.claude/extensions.json`):
 
 - [latex](#latex)
 - [typst](#typst)
-- [python](#python)
 - [epidemiology](#epidemiology)
 - [filetypes](#filetypes)
 - [present](#present)
@@ -68,26 +67,6 @@ The `typst` extension provides research + implementation support for Typst docum
 ```
 command -v typst
 jq -r '.permissions.allow[]' .claude/settings.json | grep -q 'typst' && echo "allowlist: OK"
-```
-
-## python
-
-The `python` extension provides research + implementation support for Python code (pyright type checking, ruff linting/formatting).
-
-**Prerequisites**:
-
-- **Python 3.10+** — see [python.md](python.md).
-- **`uv` / `uvx`** — see [python.md#uvx-ephemeral-tool-runner](python.md#uvx-ephemeral-tool-runner).
-- **`ruff`** — see [python.md](python.md#install-ruff).
-- **`pytest`** (for test runs in agent workflows) — see [python.md#pytest-test-runner](python.md#pytest-test-runner).
-- **`mypy`** (for type-check gates) — see [python.md#mypy-type-checker](python.md#mypy-type-checker).
-
-**Extension-specific extras**: none; basedpyright ships bundled with Zed and does not need a separate install.
-
-**Check**:
-
-```
-command -v python3 uv ruff pytest mypy
 ```
 
 ## epidemiology
