@@ -220,7 +220,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 6: Sensitivity Analyses (R) [NOT STARTED]
+### Phase 6: Sensitivity Analyses (R) [COMPLETED]
 
 **Goal**: Run pre-specified sensitivity analyses (complete case, per-protocol, interaction test, and optional multiple imputation).
 
