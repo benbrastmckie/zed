@@ -104,3 +104,7 @@ Paper review and critique for journal club meetings.
 - Research from `/grant` tasks can inform talk content via `task:{N}` references
 - Manuscripts and papers can be provided as file path source materials
 - Multiple talks can reference the same source materials with different modes
+
+### Slidev Implementation Notes
+- See `talk/patterns/slidev-pitfalls.md` for Slidev-specific gotchas (footer positioning, Mermaid rendering, PDF export verification)
+- Theme JSON files include a `footer` section with correct positioning guidance

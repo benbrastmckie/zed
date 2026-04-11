@@ -18,7 +18,8 @@
         { "name": "conference-standard", "file": "conference-standard.json", "mode": "CONFERENCE", "slides": 12 },
         { "name": "journal-club", "file": "journal-club.json", "mode": "JOURNAL_CLUB", "slides": 12 },
         { "name": "seminar-deep-dive", "file": "seminar-deep-dive.json", "mode": "SEMINAR", "slides": 35 },
-        { "name": "defense-grant", "file": "defense-grant.json", "mode": "DEFENSE", "slides": 30 }
+        { "name": "defense-grant", "file": "defense-grant.json", "mode": "DEFENSE", "slides": 30 },
+        { "name": "slidev-pitfalls", "file": "slidev-pitfalls.md", "description": "Slidev implementation gotchas (footer, Mermaid, PDF export)" }
       ]
     },
     "animations": {

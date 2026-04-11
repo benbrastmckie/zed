@@ -4094,6 +4094,48 @@
       ]
     },
     {
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "commands": [
+          "/slides",
+          "/plan",
+          "/implement"
+        ],
+        "agents": [
+          "slides-agent",
+          "planner-agent",
+          "general-implementation-agent"
+        ],
+        "task_types": [
+          "slides"
+        ]
+      },
+      "domain": "project",
+      "topics": [
+        "slidev",
+        "pitfalls",
+        "footer",
+        "mermaid",
+        "pdf-export"
+      ],
+      "description": "Slidev implementation pitfalls: footer positioning, Mermaid diagrams, PDF export verification",
+      "summary": "Common Slidev gotchas -- footer collision with built-in bar, Mermaid rendering in PDF, Vue component scoping, export checklist",
+      "line_count": 89,
+      "path": "project/present/talk/patterns/slidev-pitfalls.md",
+      "subdomain": "present",
+      "keywords": [
+        "slidev",
+        "footer",
+        "mermaid",
+        "pdf",
+        "export",
+        "playwright",
+        "pitfalls"
+      ]
+    },
+    {
       "tags": [
         "typst",
         "theorems",

@@ -34,6 +34,11 @@
     "accent_bar": "3px solid #3b5998",
     "table_header": "2px solid #3b5998"
   },
+  "footer": {
+    "note": "Slidev renders a built-in footer bar at the bottom of each slide. Custom footer elements must use flow positioning (margin-top), NOT position:absolute with bottom values. See talk/patterns/slidev-pitfalls.md.",
+    "custom_footer_style": "margin-top: 1.5rem; font-size: 0.8rem; display: flex; justify-content: space-between;",
+    "avoid": "position: absolute; bottom: <3rem (collides with Slidev footer)"
+  },
   "slidev_config": {
     "theme": "none",
     "highlighter": "shiki",
