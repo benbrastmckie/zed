@@ -1,7 +1,7 @@
 # Implementation Plan: Talk Assembly -- /epi Workflow Walkthrough (Round 2)
 
 - **Task**: 29 - talk_epi_study_walkthrough
-- **Status**: [IMPLEMENTING]
+- **Status**: [PARTIAL]
 - **Effort**: 9.5 hours
 - **Dependencies**: task 28 (R stack upgrade + rerun) - COMPLETED
 - **Research Inputs**: specs/029_talk_epi_study_walkthrough/reports/02_talk-research.md
@@ -382,7 +382,7 @@ integrity, and that Mermaid/components render in the final output.
 
 ---
 
-### Phase 7: README + Speaker Notes + Rehearsal Checklist [NOT STARTED]
+### Phase 7: README + Speaker Notes + Rehearsal Checklist [COMPLETED]
 
 **Goal**: Finalize `README.md` with full build instructions, document
 speaker notes per slide, and provide a rehearsal checklist anchored to the
