@@ -1,8 +1,19 @@
 {
-  "status": "in_progress",
+  "status": "implemented",
+  "artifacts": [
+    {
+      "type": "summary",
+      "path": "specs/015_improve_installation_docs_beginner_friendly/summaries/01_beginner-friendly-install-summary.md",
+      "summary": "Rewrote installation.md for beginner-friendly terminal walkthrough addressing all 8 research findings"
+    }
+  ],
+  "completion_data": {
+    "completion_summary": "Rewrote docs/general/installation.md to be approachable for readers with no terminal experience: added terminal introduction, simplified all detection commands, added motivation sentences and what-you-should-see guidance per section, rewrote PATH instructions in plain language, and converted the final checklist to a numbered list."
+  },
   "metadata": {
     "session_id": "sess_1775866778_1a4ad5",
     "agent_type": "general-implementation-agent",
-    "delegation_path": ["orchestrator", "implement", "general-implementation-agent"]
+    "phases_completed": 3,
+    "phases_total": 3
   }
 }
