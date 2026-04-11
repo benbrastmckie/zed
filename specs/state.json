@@ -38,7 +38,7 @@
     {
       "project_number": 29,
       "project_name": "talk_epi_study_walkthrough",
-      "status": "planning",
+      "status": "planned",
       "language": "present",
       "task_type": "present:talk",
       "description": "Conference talk walking through the zed/examples/epi-study synthetic RCT demo (KAT vs TAU, adjusted OR 3.29) as an end-to-end showcase of the /epi Claude Code workflow for a mixed clinical/informatics audience",
@@ -51,13 +51,18 @@
         "gathered_at": "2026-04-11T01:48:33Z"
       },
       "created": "2026-04-11T01:48:33Z",
-      "last_updated": "2026-04-11T02:35:36Z",
+      "last_updated": "2026-04-10T00:00:00Z",
       "session_id": "sess_1760000029_p1",
       "artifacts": [
         {
           "type": "research_report",
           "path": "specs/029_talk_epi_study_walkthrough/reports/02_talk-research.md",
           "summary": "Round-2 14-slide CONFERENCE talk-map updated after task 28: byte-identical reproduction across R stack upgrade, coxph HR 0.426, pooled mice OR 3.262, Quarto render — strengthens slides 10/11/12"
+        },
+        {
+          "type": "plan",
+          "path": "specs/029_talk_epi_study_walkthrough/plans/02_talk-assembly.md",
+          "summary": "14-slide CONFERENCE talk assembly plan (Slidev academic-clean, round 2 after task 28 rerun)"
         }
       ],
       "design_decisions": {
@@ -72,7 +77,10 @@
         "confirmed_at": "2026-04-11T02:32:57Z",
         "based_on_report": "specs/029_talk_epi_study_walkthrough/reports/02_talk-research.md",
         "session_id": "sess_1760000029_d1"
-      }
+      },
+      "planned": "2026-04-10T00:00:00Z",
+      "estimated_hours": 9.5,
+      "next_artifact_number": 3
     },
     {
       "project_number": 28,

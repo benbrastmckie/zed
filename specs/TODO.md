@@ -17,12 +17,13 @@ next_project_number: 31
 **Description**: Audit `.claude/` to identify all assumed external dependencies (typst, R, python, lean, latex, etc.) and create a plan to update installation/setup documentation to include any missing elements (typst was forgotten; likely others too).
 
 ### 29. Conference talk walkthrough of the epi-study demo
-- **Effort**: TBD
-- **Status**: [PLANNING]
+- **Effort**: 9.5 hours
+- **Status**: [PLANNED]
 - **Task Type**: present:talk
 - **Research**:
   - [01_talk-research.md](029_talk_epi_study_walkthrough/reports/01_talk-research.md)
   - [02_talk-research.md](029_talk_epi_study_walkthrough/reports/02_talk-research.md)
+- **Plan**: [02_talk-assembly.md](029_talk_epi_study_walkthrough/plans/02_talk-assembly.md)
 
 **Description**: Conference talk (15-20 min) walking through `zed/examples/epi-study/` — the synthetic RCT demo (ketamine-assisted therapy vs TAU for methamphetamine use disorder, N=200, adjusted OR=3.29) — as an end-to-end showcase of the `/epi` Claude Code workflow for a mixed clinical/informatics audience. Balance tooling narrative, CONSORT/methods rigor, and the headline finding; emphasize reproducibility (deterministic seeds, base-R fallbacks).
 
