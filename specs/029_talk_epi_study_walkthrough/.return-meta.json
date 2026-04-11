@@ -1,0 +1,28 @@
+{
+  "status": "researched",
+  "artifacts": [
+    {
+      "path": "specs/029_talk_epi_study_walkthrough/reports/01_talk-research.md",
+      "type": "research_report",
+      "summary": "14-slide CONFERENCE talk mapping the /epi workflow and synthetic KAT-vs-TAU RCT for a mixed clinical/informatics audience"
+    }
+  ],
+  "key_messages": [
+    "The /epi workflow compresses CONSORT-compliant RCT scaffolding into four commands with pre-specification enforced by Stage 0 forcing questions",
+    "Headline recovered OR 3.29 (95% CI 1.57-6.89) is robust to per-protocol and single-imputation sensitivity but collapses to 1.29 under a worst-case tipping-point, with honesty baked into the pipeline",
+    "Byte-identical reproducibility on a hostile bare-base R environment (0/13 optional packages) proves reproducibility is a property of the generated code, not a promise from the extension"
+  ],
+  "slide_count": 14,
+  "talk_type": "CONFERENCE",
+  "session_id": "sess_1775872100_c2313c",
+  "next_steps": "Run /slides 29 --design to resolve open questions (venue, time budget, speaker identity, Slidev format) and produce the implementation plan",
+  "metadata": {
+    "session_id": "sess_1775872100_c2313c",
+    "agent_type": "talk-agent",
+    "workflow_type": "talk_research",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "slides", "skill-talk", "talk-agent"],
+    "recommended_theme": "academic-clean",
+    "target_duration_minutes": 18
+  }
+}
