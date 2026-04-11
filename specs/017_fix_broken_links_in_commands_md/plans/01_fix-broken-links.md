@@ -50,7 +50,7 @@ No ROADMAP.md found.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Fix commands.md anchor links [NOT STARTED]
+### Phase 1: Fix commands.md anchor links [COMPLETED]
 
 **Goal**: Correct 8 broken anchor links in docs/agent-system/commands.md
 
@@ -77,7 +77,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Fix workflows/README.md anchor links [NOT STARTED]
+### Phase 2: Fix workflows/README.md anchor links [COMPLETED]
 
 **Goal**: Correct 6 broken anchor links in docs/workflows/README.md by replacing double-dash anchors with single-dash anchors
 

@@ -26,10 +26,12 @@ next_project_number: 20
 
 ### 17. Fix broken link at line 22 in docs/agent-system/commands.md and scan for similar broken links
 - **Effort**: small
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
+- **Completed**: 2026-04-10
 - **Task Type**: meta
 - **Research**: [01_broken-links-scan.md](017_fix_broken_links_in_commands_md/reports/01_broken-links-scan.md)
 - **Plan**: [01_fix-broken-links.md](017_fix_broken_links_in_commands_md/plans/01_fix-broken-links.md)
+- **Summary**: [01_fix-broken-links-summary.md](017_fix_broken_links_in_commands_md/summaries/01_fix-broken-links-summary.md)
 
 **Description**: Fix the broken link at line 22 in docs/agent-system/commands.md. Look for other similar broken link issues across the documentation, fixing all broken links found.
 

@@ -1,20 +1,16 @@
 {
-  "status": "planned",
-  "artifacts": [
-    {
-      "type": "plan",
-      "path": "specs/017_fix_broken_links_in_commands_md/plans/01_fix-broken-links.md",
-      "summary": "2-phase plan to fix 14 broken anchor links across commands.md and workflows/README.md"
-    }
-  ],
-  "next_steps": "Run /implement 17 to execute the plan",
-  "metadata": {
-    "session_id": "sess_1775867339_7828df",
-    "agent_type": "planner-agent",
-    "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "plan", "planner-agent"],
-    "phase_count": 2,
-    "estimated_hours": 0.5,
-    "dependency_waves": [[1, 2]]
+  "status": "implemented",
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+  "session_id": "sess_1775867745_6c017d",
+  "task_number": 17,
+  "task_type": "meta",
+  "plan_path": "specs/017_fix_broken_links_in_commands_md/plans/01_fix-broken-links.md",
+  "phases_completed": 2,
+  "phases_total": 2,
+  "summary_path": "specs/017_fix_broken_links_in_commands_md/summaries/01_fix-broken-links-summary.md",
+  "completion_data": {
+    "completion_summary": "Fixed 8 broken anchor links in docs/agent-system/commands.md: corrected 7 user-guide.md anchors to #name-command format and removed invalid #funds anchor. Verified 6 workflows/README.md double-dash anchors are correct (no changes needed).",
+    "claudemd_suggestions": "none"
   }
 }

@@ -19,7 +19,7 @@ Create a new task or manage existing ones. Use this as the entry point for any n
 
 **Flags**: `--recover N`, `--expand N`, `--sync`, `--abandon N`, `--review N`
 
-See [`.claude/commands/task.md`](../../.claude/commands/task.md) · [user guide](../../.claude/docs/guides/user-guide.md#task).
+See [`.claude/commands/task.md`](../../.claude/commands/task.md) · [user guide](../../.claude/docs/guides/user-guide.md#task-command).
 
 ### /research
 
@@ -32,7 +32,7 @@ Investigate a task and produce a research report, routing to the appropriate res
 
 **Flags**: `[focus]`, `--team`, `--remember`, multi-task syntax (`5, 7-9`)
 
-See [`.claude/commands/research.md`](../../.claude/commands/research.md) · [user guide](../../.claude/docs/guides/user-guide.md#research).
+See [`.claude/commands/research.md`](../../.claude/commands/research.md) · [user guide](../../.claude/docs/guides/user-guide.md#research-command).
 
 ### /plan
 
@@ -45,7 +45,7 @@ Create a phased implementation plan from research findings. Supports multi-task 
 
 **Flags**: `--team`, multi-task syntax
 
-See [`.claude/commands/plan.md`](../../.claude/commands/plan.md) · [user guide](../../.claude/docs/guides/user-guide.md#plan).
+See [`.claude/commands/plan.md`](../../.claude/commands/plan.md) · [user guide](../../.claude/docs/guides/user-guide.md#plan-command).
 
 ### /implement
 
@@ -58,7 +58,7 @@ Execute a plan phase-by-phase. Automatically detects the first incomplete phase 
 
 **Flags**: `--team`, `--force`, multi-task syntax
 
-See [`.claude/commands/implement.md`](../../.claude/commands/implement.md) · [user guide](../../.claude/docs/guides/user-guide.md#implement).
+See [`.claude/commands/implement.md`](../../.claude/commands/implement.md) · [user guide](../../.claude/docs/guides/user-guide.md#implement-command).
 
 ### /revise
 
@@ -69,7 +69,7 @@ Create a new plan version, or update the task description if no plan exists. Wor
 /revise 5 "address reviewer comments on error handling"
 ```
 
-See [`.claude/commands/revise.md`](../../.claude/commands/revise.md) · [user guide](../../.claude/docs/guides/user-guide.md#revise).
+See [`.claude/commands/revise.md`](../../.claude/commands/revise.md) · [user guide](../../.claude/docs/guides/user-guide.md#revise-command).
 
 ### /todo
 
@@ -80,7 +80,7 @@ Archive completed and abandoned tasks, update CHANGE_LOG.md and ROADMAP.md, and 
 /todo --dry-run
 ```
 
-See [`.claude/commands/todo.md`](../../.claude/commands/todo.md) · [user guide](../../.claude/docs/guides/user-guide.md#todo).
+See [`.claude/commands/todo.md`](../../.claude/commands/todo.md) · [user guide](../../.claude/docs/guides/user-guide.md#todo-command).
 
 ## Review & Recovery
 
@@ -95,7 +95,7 @@ Analyze the codebase and produce a tier-grouped review report. Distinct from `/t
 /review --create-tasks
 ```
 
-See [`.claude/commands/review.md`](../../.claude/commands/review.md) · [user guide](../../.claude/docs/guides/user-guide.md#review).
+See [`.claude/commands/review.md`](../../.claude/commands/review.md) · [user guide](../../.claude/docs/guides/user-guide.md#review-command).
 
 ### /spawn
 
@@ -289,7 +289,7 @@ See [`.claude/commands/timeline.md`](../../.claude/commands/timeline.md).
 
 ### /funds
 
-Survey funding opportunities with eligibility, deadlines, and portfolio analysis across four analysis modes (see [user guide](../../.claude/docs/guides/user-guide.md#funds) for details). Use `--quick` for a lightweight scan without forcing questions.
+Survey funding opportunities with eligibility, deadlines, and portfolio analysis across four analysis modes. Use `--quick` for a lightweight scan without forcing questions.
 
 ```
 /funds "global health TB surveillance"
