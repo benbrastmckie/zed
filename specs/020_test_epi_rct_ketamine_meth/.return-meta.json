@@ -1,0 +1,17 @@
+{
+  "status": "in_progress",
+  "started_at": "2026-04-11T01:00:23Z",
+  "artifacts": [],
+  "partial_progress": {
+    "stage": "initializing",
+    "details": "Agent started, reading plan",
+    "phases_completed": 0,
+    "phases_total": 7
+  },
+  "metadata": {
+    "session_id": "sess_1776038400_imp020",
+    "agent_type": "epi-implement-agent",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "implement", "skill-epi-implement", "epi-implement-agent"]
+  }
+}

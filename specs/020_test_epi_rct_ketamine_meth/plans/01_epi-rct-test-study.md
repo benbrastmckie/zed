@@ -71,7 +71,7 @@ Consulted `specs/ROADMAP.md` (read-only). This task advances the development-env
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Project Scaffolding and Toolchain Verification [NOT STARTED]
+### Phase 1: Project Scaffolding and Toolchain Verification [COMPLETED]
 
 **Goal**: Create the directory structure, verify R and Python are runnable from Zed's integrated terminal, and capture the initial state of installed packages.
 

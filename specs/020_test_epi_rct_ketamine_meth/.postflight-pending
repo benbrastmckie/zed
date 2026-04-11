@@ -1,0 +1,8 @@
+{
+  "session_id": "sess_1776038400_imp020",
+  "skill": "skill-epi-implement",
+  "task_number": 20,
+  "operation": "epi_implement",
+  "reason": "Postflight pending: status update, artifact linking, git commit",
+  "stop_hook_active": false
+}

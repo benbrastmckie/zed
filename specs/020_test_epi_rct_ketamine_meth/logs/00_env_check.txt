@@ -1,0 +1,50 @@
+### R ENV CHECK ###
+==== R Environment Check ====
+R version:         R version 4.5.3 (2026-03-11) 
+Platform:          x86_64-pc-linux-gnu 
+Running under:     linux-gnu 
+
+==== Library Paths ====
+   /nix/store/vvq8lzbk7m6n1z9nb00rks3cywc5sd4c-R-4.5.3/lib/R/library 
+
+==== Package Availability ====
+  tidyverse            MISSING
+  dplyr                MISSING
+  readr                MISSING
+  ggplot2              MISSING
+  survival             MISSING
+  gtsummary            MISSING
+  broom                MISSING
+  mice                 MISSING
+  knitr                MISSING
+  rmarkdown            MISSING
+  languageserver       MISSING
+  styler               MISSING
+  lintr                MISSING
+
+==== Summary ====
+Available: 0 / 13 
+Missing:   tidyverse, dplyr, readr, ggplot2, survival, gtsummary, broom, mice, knitr, rmarkdown, languageserver, styler, lintr 
+
+### PYTHON ENV CHECK ###
+==== Python Environment Check ====
+Python version:  3.12.13 (main, Mar  3 2026, 12:39:30) [GCC 15.2.0]
+Executable:      /home/benjamin/.nix-profile/bin/python3
+Platform:        linux
+
+==== Module Availability ====
+  numpy           OK
+  pandas          OK
+  scipy           MISSING
+  matplotlib      OK
+  seaborn         MISSING
+  statsmodels     MISSING
+  sklearn         MISSING
+  pyarrow         MISSING
+
+==== Summary ====
+Available: 3 / 8
+Missing:   scipy, seaborn, statsmodels, sklearn, pyarrow
+
+### QUARTO ###
+quarto: NOT FOUND
