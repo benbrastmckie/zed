@@ -20,10 +20,10 @@
     {
       "project_number": 15,
       "project_name": "improve_installation_docs_beginner_friendly",
-      "status": "planning",
+      "status": "planned",
       "task_type": "markdown",
       "created": "2026-04-11T00:08:41Z",
-      "last_updated": "2026-04-11T00:14:52Z",
+      "last_updated": "2026-04-11T00:17:47Z",
       "session_id": "sess_1775866476_a58637",
       "researched": "2026-04-11T00:20:00Z",
       "next_artifact_number": 2,
@@ -32,6 +32,11 @@
           "path": "specs/015_improve_installation_docs_beginner_friendly/reports/01_beginner-friendly-install.md",
           "type": "research",
           "summary": "8 beginner barriers identified with section-by-section recommendations for simplifying detection commands, adding motivation context, and matching keybindings.md tone"
+        },
+        {
+          "path": "specs/015_improve_installation_docs_beginner_friendly/plans/01_beginner-friendly-install.md",
+          "type": "plan",
+          "summary": "3-phase plan to make installation.md beginner-friendly with terminal intro, simplified detection commands, and motivation sentences"
         }
       ]
     },

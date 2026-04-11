@@ -1,0 +1,15 @@
+{
+  "status": "in_progress",
+  "started_at": "2026-04-11T00:30:00Z",
+  "artifacts": [],
+  "partial_progress": {
+    "stage": "initializing",
+    "details": "Agent started, scanning for broken links"
+  },
+  "metadata": {
+    "session_id": "sess_1775866642_52c68e",
+    "agent_type": "general-research-agent",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "research", "general-research-agent"]
+  }
+}
