@@ -45,9 +45,10 @@ next_project_number: 27
 
 ### 22. Create epi study example demo in zed/examples/epi-study/
 - **Effort**: TBD
-- **Status**: [PLANNING]
+- **Status**: [PLANNED]
 - **Task Type**: general
 - **Research**: [01_epi-study-example-demo.md](022_epi_study_example_demo/reports/01_epi-study-example-demo.md)
+- **Plan**: [01_epi-study-example-demo.md](022_epi_study_example_demo/plans/01_epi-study-example-demo.md)
 
 **Description**: Create zed/examples/epi-study/ directory that organizes and documents the synthetic RCT study produced by task 20, as a demo for new users to understand how to run the /epi command to create an epi study.
 

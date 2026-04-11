@@ -37,13 +37,13 @@
     {
       "project_number": 23,
       "project_name": "update_claude_model_ids",
-      "status": "researched",
+      "status": "planning",
       "task_type": "general",
       "priority": "high",
       "description": "Update outdated Claude model IDs in settings.json (lines 39, 44) and docs/general/settings.md (lines 59, 64) from claude-sonnet-4-20250514 / claude-opus-4-20250514 to claude-sonnet-4-6 / claude-opus-4-6 so the Zed Agent Panel uses current models.",
       "created": "2026-04-11T01:21:49Z",
-      "session_id": "sess_1775870692_2ad62e",
-      "last_updated": "2026-04-11T01:30:00Z",
+      "session_id": "sess_1775870976_593eac",
+      "last_updated": "2026-04-11T01:29:36Z",
       "researched": "2026-04-11T01:30:00Z",
       "next_artifact_number": 2,
       "artifacts": [
@@ -57,11 +57,11 @@
     {
       "project_number": 22,
       "project_name": "epi_study_example_demo",
-      "status": "planning",
+      "status": "planned",
       "task_type": "general",
       "description": "Create zed/examples/epi-study/ directory that organizes and documents the synthetic RCT study produced by task 20, as a demo for new users to understand how to run the /epi command to create an epi study.",
       "created": "2026-04-11T01:15:52Z",
-      "last_updated": "2026-04-11T01:26:14Z",
+      "last_updated": "2026-04-11T01:29:20Z",
       "session_id": "sess_1776039400_pln022",
       "next_artifact_number": 2,
       "artifacts": [
@@ -69,9 +69,21 @@
           "path": "specs/022_epi_study_example_demo/reports/01_epi-study-example-demo.md",
           "type": "research",
           "summary": "Research report with /epi Stage 0 flow, task-20 artifact inventory + disposition matrix, recommended zed/examples/epi-study/ layout, README outline, prerequisites, risks, and 8 open questions for the planning phase."
+        },
+        {
+          "path": "specs/022_epi_study_example_demo/plans/01_epi-study-example-demo.md",
+          "type": "plan",
+          "summary": "6-phase plan to create zed/examples/epi-study/ as a frozen, reproducible demo of the task 20 synthetic KAT vs TAU RCT, with newcomer-facing README walkthrough of the /epi -> /research -> /plan -> /implement flow."
         }
       ],
-      "researched": "2026-04-11T01:25:00Z"
+      "researched": "2026-04-11T01:25:00Z",
+      "plan_metadata": {
+        "phases": 6,
+        "total_effort_hours": 3.5,
+        "complexity": "medium",
+        "plan_version": 1
+      },
+      "planned": "2026-04-11T01:30:00Z"
     },
     {
       "project_number": 21,

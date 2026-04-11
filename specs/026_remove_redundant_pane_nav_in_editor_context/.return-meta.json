@@ -1,0 +1,17 @@
+{
+  "status": "planned",
+  "agent_type": "planner-agent",
+  "delegation_path": ["orchestrator", "plan", "planner-agent"],
+  "task_number": 26,
+  "artifact_number": 1,
+  "artifacts": [
+    "specs/026_remove_redundant_pane_nav_in_editor_context/plans/01_remove-redundant-pane-nav.md"
+  ],
+  "summary": "Single-phase plan to remove 2 redundant pane navigation bindings (ctrl-h, ctrl-l) from the Editor context in keymap.json; they are already covered by the Workspace context block which cascades into Editor.",
+  "metadata": {
+    "phase_count": 1,
+    "estimated_hours": 0.1,
+    "dependency_waves": 1
+  },
+  "next_steps": "Run /implement 26 to execute the plan"
+}
