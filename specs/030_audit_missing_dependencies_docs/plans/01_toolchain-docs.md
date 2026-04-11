@@ -1,7 +1,7 @@
 # Implementation Plan: Task #30 — Toolchain Documentation
 
 - **Task**: 30 - audit_missing_dependencies_docs
-- **Status**: [NOT STARTED]
+- **Status**: [IN PROGRESS]
 - **Effort**: 7 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/030_audit_missing_dependencies_docs/reports/01_team-research.md
@@ -83,7 +83,7 @@ No `specs/ROADMAP.md` found at plan-time (research noted its absence). This task
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Scaffold docs/toolchain/ and establish template [NOT STARTED]
+### Phase 1: Scaffold docs/toolchain/ and establish template [COMPLETED]
 
 **Goal**: Create the `docs/toolchain/` directory with a README/index and lock in the Check/Install/Verify file template that all subsequent phases follow.
 
