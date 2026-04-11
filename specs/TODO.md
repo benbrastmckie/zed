@@ -25,10 +25,11 @@ next_project_number: 30
 
 ### 27. Fix the environment gaps documented in task 20's config_gaps.md
 - **Effort**: TBD
-- **Status**: [RESEARCHED]
+- **Status**: [COMPLETED]
 - **Task Type**: nix
 - **Parent Task**: 20
 - **Research**: [01_fix-env-gaps.md](027_fix_task20_env_gaps/reports/01_fix-env-gaps.md)
+- **Completion**: Implemented externally via `~/.dotfiles` task 47 (commit `06c14e1`). See that repo's `specs/047_*/summaries/01_nix-env-wrapper-refactor-summary.md`.
 
 **Description**: Fix the environment gaps documented in task 20's config_gaps.md (tidyverse, survival, quarto, etc.).
 

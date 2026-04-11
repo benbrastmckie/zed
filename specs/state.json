@@ -35,12 +35,12 @@
     {
       "project_number": 27,
       "project_name": "fix_task20_env_gaps",
-      "status": "researched",
+      "status": "completed",
       "task_type": "nix",
       "description": "Fix the environment gaps documented in task 20's config_gaps.md (tidyverse, survival, quarto, etc.).",
       "parent_task": 20,
       "created": "2026-04-11T01:31:34Z",
-      "last_updated": "2026-04-11T01:40:56Z",
+      "last_updated": "2026-04-10T19:00:00Z",
       "session_id": "sess_1775871346_f93e91",
       "next_artifact_number": 2,
       "artifacts": [
@@ -49,7 +49,8 @@
           "type": "research",
           "summary": "Nix remediation plan for R/Python/Quarto gaps from task 20's config_gaps.md"
         }
-      ]
+      ],
+      "completion_summary": "Implemented externally via ~/.dotfiles task 47 (commit 06c14e1). Changes: rWrapper.override with survival/MASS/nlme/lme4/tidyverse/broom/gtsummary/mice/knitr/rmarkdown/languageserver/styler/lintr in configuration.nix:524-543; quarto added to systemPackages; scipy/statsmodels/seaborn/pyarrow and p.scikit-learn appended to python312.withPackages in home.nix:359-377. Zed R LSP wiring already present at settings.json:72-81. All F8 verification tests pass (R P0/P1/P2 loads, Python imports, quarto 1.8.26 installed)."
     },
     {
       "project_number": 26,
