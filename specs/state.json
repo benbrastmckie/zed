@@ -4,11 +4,11 @@
     {
       "project_number": 32,
       "project_name": "update_docs_from_claude_diff",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-11T04:13:59Z",
-      "last_updated": "2026-04-11T04:26:50Z",
-      "session_id": "sess_1775881003_5f2e6a",
+      "last_updated": "2026-04-11T04:37:01Z",
+      "session_id": "sess_1775882020_e61146",
       "next_artifact_number": 2,
       "artifacts": [
         {
@@ -25,6 +25,11 @@
           "type": "research_report",
           "path": "specs/032_update_docs_from_claude_diff/reports/01_teammate-d-findings.md",
           "summary": "Horizons analysis: strategic scope confirmed, lean MCP scripts undocumented, breadcrumb mismatch in docs/README.md, guide examples should use generic placeholder to prevent future drift"
+        },
+        {
+          "path": "specs/032_update_docs_from_claude_diff/plans/01_update-docs-config.md",
+          "type": "plan",
+          "summary": "4-phase implementation plan to update documentation after Python removal and talk-to-slides rename"
         }
       ]
     },

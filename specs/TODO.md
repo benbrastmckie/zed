@@ -8,7 +8,7 @@ next_project_number: 33
 
 ### 32. Update documentation to reflect current .claude/ configuration
 - **Effort**: TBD
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: meta
 - **Research**:
   - [01_teammate-a-findings.md](032_update_docs_from_claude_diff/reports/01_teammate-a-findings.md)
@@ -16,6 +16,7 @@ next_project_number: 33
   - [01_teammate-c-findings.md](032_update_docs_from_claude_diff/reports/01_teammate-c-findings.md)
   - [01_teammate-d-findings.md](032_update_docs_from_claude_diff/reports/01_teammate-d-findings.md)
   - [01_team-research.md](032_update_docs_from_claude_diff/reports/01_team-research.md)
+- **Plan**: [01_update-docs-config.md](032_update_docs_from_claude_diff/plans/01_update-docs-config.md)
 
 **Description**: Review git diff of .claude/ changes and update all documentation to accurately reflect the current state without historical declarations (documentation should describe current reality, not mention what changed)
 
