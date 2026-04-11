@@ -43,7 +43,7 @@
         "gathered_at": "2026-04-11T01:48:33Z"
       },
       "created": "2026-04-11T01:48:33Z",
-      "last_updated": "2026-04-11T02:29:07Z",
+      "last_updated": "2026-04-11T02:32:57Z",
       "session_id": "sess_1760000029_r2",
       "artifacts": [
         {
@@ -51,7 +51,20 @@
           "path": "specs/029_talk_epi_study_walkthrough/reports/02_talk-research.md",
           "summary": "Round-2 14-slide CONFERENCE talk-map updated after task 28: byte-identical reproduction across R stack upgrade, coxph HR 0.426, pooled mice OR 3.262, Quarto render — strengthens slides 10/11/12"
         }
-      ]
+      ],
+      "design_decisions": {
+        "theme": "academic-clean",
+        "message_order": "1-2-3 (workflow -> rigor -> reproducibility)",
+        "section_emphasis": [
+          "results_cox_mice_tipping_point",
+          "reproducibility_provenance",
+          "tooling_epi_workflow",
+          "methods_consort"
+        ],
+        "confirmed_at": "2026-04-11T02:32:57Z",
+        "based_on_report": "specs/029_talk_epi_study_walkthrough/reports/02_talk-research.md",
+        "session_id": "sess_1760000029_d1"
+      }
     },
     {
       "project_number": 28,
