@@ -1,6 +1,8 @@
-# Zed + Claude Code for Epidemiology and Medical Research
+# Zed IDE Configuration for R and Python with Claude Code
 
-A Zed editor configuration for macOS with full Claude Code integration, designed for epidemiology research, grant development, and medical research workflows. Standard keybindings (no vim mode), minimal custom shortcuts, and AI-powered research automation.
+A Zed editor configuration for macOS optimized for working in **R** and **Python** with **Claude Code** as the integrated AI assistant. Standard keybindings (no vim mode), minimal custom shortcuts, first-class language server support (pyright + ruff for Python, r-language-server + lintr + styler for R), and an agent system that helps you write, test, and refactor code from a single Ctrl+Shift+A away.
+
+Domain extensions for epidemiology research, grant development, memory capture, and Office document editing are also available and can be layered on top of the core R/Python workflow.
 
 **Platform**: macOS 11 (Big Sur) or newer.
 
@@ -8,8 +10,9 @@ A Zed editor configuration for macOS with full Claude Code integration, designed
 
 1. Install [Homebrew](https://brew.sh), then `brew install --cask zed`
 2. Open Zed from Applications or Spotlight (Cmd+Space, type "Zed")
-3. Extensions install automatically on first launch
-4. Theme is One Dark; font is Fira Code
+3. Extensions install automatically on first launch (including `python`, `ruff`, `r`)
+4. Set up your languages: [Python](docs/general/python.md) and [R](docs/general/R.md)
+5. Theme is One Dark; font is Fira Code
 
 For the full installation walkthrough, including MCP tool setup for Office file editing, see [docs/general/installation.md](docs/general/installation.md).
 
@@ -26,9 +29,40 @@ For the full installation walkthrough, including MCP tool setup for Office file 
 
 For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/keybindings.md).
 
-## Research Commands
+## Languages
 
-Claude Code provides structured research and development workflows. Open it with **Ctrl+Shift+A**, then use these commands:
+This configuration is built around first-class R and Python development inside Zed, with Claude Code as your writing, testing, and refactoring partner.
+
+### Python
+
+- **Language servers**: `pyright` (type checking) + `ruff` (lint + format)
+- **Package/env manager**: `uv` (recommended)
+- **Auto-formatting**: on save via ruff
+- **Setup guide**: [docs/general/python.md](docs/general/python.md)
+
+### R
+
+- **Language server**: `r-language-server` (diagnostics + rich documentation)
+- **Lint / style**: `lintr` + `styler`
+- **Auto-formatting**: on save via r-language-server
+- **Setup guide**: [docs/general/R.md](docs/general/R.md)
+
+## Claude Code Commands
+
+Claude Code provides structured research and development workflows. Open it with **Ctrl+Shift+A**, then use these commands.
+
+**Core commands for R and Python development**:
+
+| Command | What it does |
+|---------|-------------|
+| `/research` | Investigate a topic, library, or codebase and write a report |
+| `/plan` | Create a phased implementation plan from research |
+| `/implement` | Execute a plan, resuming from any incomplete phase |
+| `/review` | Review code and produce an analysis report |
+| `/learn` | Save knowledge to the memory vault for future sessions |
+| `/convert` | Convert between PDF, DOCX, Markdown, and other formats |
+
+**Also available -- domain extensions**:
 
 | Command | What it does |
 |---------|-------------|
@@ -38,8 +72,6 @@ Claude Code provides structured research and development workflows. Open it with
 | `/funds` | Analyze funding landscape and funder portfolios |
 | `/timeline` | Plan research project timelines |
 | `/slides` | Create research talks and presentations |
-| `/learn` | Save knowledge to the memory vault for future sessions |
-| `/convert` | Convert between PDF, DOCX, Markdown, and other formats |
 
 For the full command catalog, see [docs/agent-system/commands.md](docs/agent-system/commands.md).
 
@@ -52,7 +84,7 @@ For the full command catalog, see [docs/agent-system/commands.md](docs/agent-sys
 ├── tasks.json              # Task runner (git, export)
 ├── themes/                 # Custom color themes
 ├── docs/                   # Documentation
-│   ├── general/            # Installation, keybindings, settings reference
+│   ├── general/            # Installation, keybindings, settings, R and Python setup
 │   ├── agent-system/       # AI systems overview, commands, architecture
 │   └── workflows/          # Agent lifecycle, epi, grants, Office file workflows
 ├── specs/                  # Claude Code task management
@@ -64,9 +96,11 @@ For the full command catalog, see [docs/agent-system/commands.md](docs/agent-sys
 
 | Document | Description |
 |----------|-------------|
-| [General](docs/general/README.md) | Installation, keybindings, and settings reference for this Zed configuration on macOS |
+| [General](docs/general/README.md) | Installation, keybindings, settings, and R/Python setup for this Zed configuration on macOS |
+| [Python Setup](docs/general/python.md) | Python + uv + ruff + pyright configuration for Zed on macOS |
+| [R Setup](docs/general/R.md) | R + languageserver + lintr + styler configuration for Zed on macOS |
 | [Agent System](docs/agent-system/README.md) | Zed agent + Claude Code overview, workflows, command catalog, memory, and architecture |
-| [Workflows](docs/workflows/README.md) | Agent task lifecycle, epidemiology analysis, grant development, and Office file workflows on macOS |
+| [Workflows](docs/workflows/README.md) | Agent task lifecycle for R/Python development, plus epidemiology, grant, and Office file workflows |
 | [Agent System Config](.claude/README.md) | Claude Code framework architecture, skills, agents, and extension system |
 | [Memory Vault](.memory/README.md) | Shared AI memory vault for persistent knowledge across sessions |
 
@@ -93,16 +127,17 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 
 ## AI Integration
 
-**Claude Code** (Ctrl+Shift+A): The primary AI interface. Full project management with `/research`, `/plan`, `/implement`, epidemiology workflows (`/epi`), grant/research commands (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), and Office document editing (`/edit`, `/convert`).
+**Claude Code** (Ctrl+Shift+A): The primary AI interface. Helps you write, test, debug, and refactor R and Python code through the full project lifecycle with `/research`, `/plan`, and `/implement`. Also provides domain extensions for epidemiology (`/epi`), grant and research development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), and Office document editing (`/edit`, `/convert`).
 
-**Zed Agent Panel** (Ctrl+?): Built-in AI sidebar for quick questions and edits. See [docs/agent-system/zed-agent-panel.md](docs/agent-system/zed-agent-panel.md).
+**Zed Agent Panel** (Ctrl+?): Built-in AI sidebar for quick questions and inline edits. See [docs/agent-system/zed-agent-panel.md](docs/agent-system/zed-agent-panel.md).
 
 ## Platform Notes
 
 - **macOS**: Install via Homebrew (`brew install --cask zed`). Open from Applications or Spotlight.
 - **macOS keybindings**: All shortcuts use Cmd (shown as in menus). The Option key corresponds to Alt in custom bindings.
 - **Config location**: `~/.config/zed/` -- standard for Zed on macOS.
-- **Extensions**: Auto-installed on launch via `auto_install_extensions` in settings.json.
+- **Extensions**: Auto-installed on launch via `auto_install_extensions` in settings.json (`python`, `ruff`, `r`, and more).
+- **Language tooling**: Install Python and R via Homebrew; see [docs/general/python.md](docs/general/python.md) and [docs/general/R.md](docs/general/R.md).
 - **Office editing**: Requires SuperDoc and openpyxl MCP tools. See [docs/general/installation.md](docs/general/installation.md#install-mcp-tools) for setup and [docs/workflows/](docs/workflows/README.md) for workflows.
 
 ## Related

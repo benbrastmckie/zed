@@ -1,8 +1,10 @@
 # Documentation
 
-Human-readable documentation for this Zed configuration on macOS. These guides explain how to install, use, and extend the editor and its AI integrations. See the [main README](../README.md) for a quick-start overview.
+Human-readable documentation for this Zed configuration on macOS, focused on working in **R** and **Python** with **Claude Code** as the integrated AI assistant. These guides explain how to install, use, and extend the editor and its AI integrations. See the [main README](../README.md) for a quick-start overview.
 
 **Audience**: These docs are written for day-to-day users of this configuration. For the machine-facing agent system internals (commands, skills, agents, routing), see [`.claude/README.md`](../.claude/README.md). For persistent AI knowledge, see [`.memory/README.md`](../.memory/README.md).
+
+**For R/Python development**: Jump straight to [general/python.md](general/python.md) and [general/R.md](general/R.md) for language setup (pyright + ruff + uv for Python; r-language-server + lintr + styler for R).
 
 --
 
@@ -10,7 +12,7 @@ Human-readable documentation for this Zed configuration on macOS. These guides e
 
 ### [General](general/README.md)
 
-Installation, keybindings, and settings reference. Start here if you are setting up the editor for the first time. Covers Homebrew, Node.js, Zed, the Claude Code CLI, the `claude-acp` bridge, and MCP tool installation.
+Installation, keybindings, settings reference, and language setup. Start here if you are setting up the editor for the first time. Covers Homebrew, Node.js, Zed, the Claude Code CLI, the `claude-acp` bridge, MCP tool installation, and per-language setup guides for [Python](general/python.md) and [R](general/R.md).
 
 ### [Agent System](agent-system/README.md)
 

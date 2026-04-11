@@ -11,7 +11,7 @@ phase_count: 5
 # Implementation Plan: Task #21 — Update Docs for R/Python in Zed (macOS)
 
 - **Task**: 21 - update_docs_r_python_zed
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 4.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/021_update_docs_r_python_zed/reports/01_update-docs-r-python-zed.md

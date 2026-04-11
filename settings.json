@@ -1,6 +1,6 @@
 {
   // Zed Editor Settings
-  // Platform: NixOS Linux (binary: zeditor)
+  // Platform: macOS 11 (Big Sur) or newer
   // No vim mode -- standard keybindings for all users
   "auto_reload_on_disk_change": true,
 
@@ -180,12 +180,18 @@
         "mode": "bypassPermissions"
       },
       "type": "custom",
-      "command": "/home/benjamin/.nix-profile/bin/npx",
+      // Bare `npx` lets macOS PATH resolve the binary. On Apple Silicon
+      // Homebrew installs to /opt/homebrew/bin/npx; on Intel Macs it is
+      // /usr/local/bin/npx. Substitute an absolute path here if PATH
+      // resolution is unavailable (e.g., when launching Zed from Finder
+      // without a login shell).
+      "command": "npx",
       "args": ["@agentclientprotocol/claude-agent-acp", "--serve"],
       "env": {
-        "CLAUDE_CODE_EXECUTABLE": "/home/benjamin/.nix-profile/bin/claude",
-        "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-        "HOME": "/home/benjamin"
+        // `claude` is resolved from PATH. Homebrew default on Apple
+        // Silicon is /opt/homebrew/bin/claude; on Intel, /usr/local/bin/claude.
+        "CLAUDE_CODE_EXECUTABLE": "claude",
+        "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
       }
     }
   },

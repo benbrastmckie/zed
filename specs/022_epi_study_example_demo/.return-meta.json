@@ -1,0 +1,12 @@
+{
+  "status": "in_progress",
+  "task_number": 22,
+  "task_name": "epi_study_example_demo",
+  "task_type": "general",
+  "session_id": "sess_1776038900_res022",
+  "agent_type": "general-research-agent",
+  "delegation_path": ["orchestrator", "research", "general-research-agent"],
+  "delegation_depth": 1,
+  "summary": "Research in progress",
+  "artifacts": []
+}

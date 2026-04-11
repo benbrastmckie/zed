@@ -188,3 +188,5 @@ If all three checks pass, your Python environment is ready.
 
 - [Installation](installation.md) -- Prerequisites and base tool setup
 - [R Setup](R.md) -- R language setup for macOS
+- [General docs index](README.md) -- All general reference docs for this Zed configuration
+- [Main README](../../README.md) -- Repository overview and quick start

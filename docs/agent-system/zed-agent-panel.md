@@ -58,7 +58,7 @@ Given that the terminal task provides full CLI parity, multiple concurrent sessi
   {
     // Full Claude Code CLI via terminal for complete feature parity
     "label": "Claude Code",
-    "command": "/home/benjamin/.nix-profile/bin/claude",
+    "command": "claude",
     "args": ["--dangerously-skip-permissions"],
     "use_new_terminal": true,
     "allow_concurrent_runs": true,
@@ -87,21 +87,21 @@ Note: `terminal.dock` is a global setting that affects all terminal panels, not 
 "agent_servers": {
     "claude-acp": {
         "type": "custom",
-        "command": "/home/benjamin/.nix-profile/bin/npx",
+        "command": "npx",
         "args": ["@agentclientprotocol/claude-agent-acp", "--serve"],
         "env": {
-            "CLAUDE_CODE_EXECUTABLE": "/home/benjamin/.nix-profile/bin/claude",
-            "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-            "HOME": "/home/benjamin"
+            "CLAUDE_CODE_EXECUTABLE": "claude",
+            "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
         }
     }
 }
 ```
 
 **Environment variables**:
-- `CLAUDE_CODE_EXECUTABLE` — tells the ACP adapter where to find the `claude` binary (required for the adapter to use the installed CLI rather than its bundled SDK)
+- `CLAUDE_CODE_EXECUTABLE` — tells the ACP adapter where to find the `claude` binary (required for the adapter to use the installed CLI rather than its bundled SDK). A bare `"claude"` is resolved from PATH; on Apple Silicon Homebrew installs to `/opt/homebrew/bin/claude`, on Intel Macs to `/usr/local/bin/claude`.
 - `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` — enables team mode support (though SDK isolation still prevents it from working in the panel)
-- `HOME` — ensures settings and configuration files are discoverable by the adapter process
+
+`HOME` is inherited from the launching environment on macOS and does not need to be set explicitly.
 
 ### Keybindings (`keymap.json`)
 
@@ -138,7 +138,7 @@ agent_servers.claude-acp  (config in settings.json)
 @agentclientprotocol/claude-agent-acp  (spawned ACP bridge)
      |
      v
-claude  (the CLI binary at ~/.nix-profile/bin/claude)
+claude  (the CLI binary on PATH, e.g. /opt/homebrew/bin/claude)
 ```
 
 **SDK isolation**: The ACP adapter runs Claude Code in a restricted SDK mode. This means the `Skill` and `Agent` tools are not available to the adapter, and commands that rely on subagent spawning will not work. This is a fundamental constraint of the ACP architecture, not a configuration issue.

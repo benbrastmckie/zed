@@ -180,3 +180,5 @@ If all three work, your R environment is ready.
 
 - [Installation](installation.md) -- Prerequisites (Homebrew, Xcode CLT) and Zed setup
 - [Python Setup](python.md) -- Python development environment guide
+- [General docs index](README.md) -- All general reference docs for this Zed configuration
+- [Main README](../../README.md) -- Repository overview and quick start

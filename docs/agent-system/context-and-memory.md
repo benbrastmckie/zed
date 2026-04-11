@@ -12,7 +12,7 @@ Claude Code in this workspace pulls information from two distinct memory layers 
 
 ### Project memory vault (.memory/)
 
-**Location**: `/home/benjamin/.config/zed/.memory/`
+**Location**: `~/.config/zed/.memory/`
 
 A real, populated [Obsidian](https://obsidian.md)-compatible vault managed by agents via the `skill-memory` skill and the `/learn` command. **Shared with OpenCode**: both AI systems read and write the same vault, using timestamped memory IDs for collision resistance. See [`.memory/README.md`](../../.memory/README.md) for the full structure and sharing protocol.
 

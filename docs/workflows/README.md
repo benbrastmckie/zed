@@ -1,8 +1,15 @@
 # Workflows
 
-End-to-end usage narratives for working with this Zed configuration on macOS. Each guide covers "when and why" to use a group of commands — for flag-level reference, see [`../agent-system/commands.md`](../agent-system/commands.md).
+End-to-end usage narratives for working in **R** and **Python** with **Claude Code** in this Zed configuration on macOS. Each guide covers "when and why" to use a group of commands — for flag-level reference, see [`../agent-system/commands.md`](../agent-system/commands.md).
 
 > **Note**: These docs are narrative guides. When something looks out of date, check [`../agent-system/commands.md`](../agent-system/commands.md) for the authoritative flag reference.
+
+## Languages
+
+For day-to-day R and Python development, the generic agent task lifecycle ([agent-lifecycle.md](agent-lifecycle.md)) is the primary workflow: `/research`, `/plan`, `/implement` over your R or Python codebase. For language-level setup, see:
+
+- [../general/python.md](../general/python.md) — Python (pyright + ruff + uv) setup in Zed
+- [../general/R.md](../general/R.md) — R (r-language-server + lintr + styler) setup in Zed
 
 ## Contents
 

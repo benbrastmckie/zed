@@ -31,12 +31,12 @@ Companion files outside this directory:
 
 The agent system includes domain-specific extensions that provide specialized research and implementation capabilities:
 
-- **Epidemiology** -- R-based study design, causal inference, statistical modeling, and reporting (STROBE, CONSORT). Use `/epi` to start a study.
+- **Python** -- General Python development with pytest, mypy, ruff, and library research. See [../general/python.md](../general/python.md) for language setup.
+- **Epidemiology** -- R-based study design, causal inference, statistical modeling, and reporting (STROBE, CONSORT). Use `/epi` to start a study. R language setup is covered in [../general/R.md](../general/R.md).
 - **Present** -- Grant proposals (`/grant`), budgets (`/budget`), timelines (`/timeline`), funding analysis (`/funds`), and research talks (`/slides`).
 - **Memory** -- Persistent knowledge vault (`/learn`, `--remember` flag on `/research`).
 - **Filetypes** -- Office document conversion and editing (`/convert`, `/edit`, `/table`, `/scrape`).
 - **LaTeX / Typst** -- Document typesetting with compilation support.
-- **Python** -- Python development with pytest, mypy, ruff, and library research.
 
 All extensions are pre-merged into the active configuration; there is no manual loading step.
 
