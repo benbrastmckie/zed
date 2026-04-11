@@ -200,7 +200,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Master wizard `install.sh` [NOT STARTED]
+### Phase 4: Master wizard `install.sh` [COMPLETED]
 
 **Goal**: Implement the interactive master wizard that prompts accept/skip/cancel for each collection, dispatches each script in a subprocess, supports presets and flags, and prints a final summary.
 
