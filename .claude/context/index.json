@@ -4120,9 +4120,9 @@
         "mermaid",
         "pdf-export"
       ],
-      "description": "Slidev implementation pitfalls: footer positioning, Mermaid diagrams, PDF export verification",
-      "summary": "Common Slidev gotchas -- footer collision with built-in bar, Mermaid rendering in PDF, Vue component scoping, export checklist",
-      "line_count": 89,
+      "description": "Slidev implementation notes: Mermaid diagram scaling, PDF export verification checklist",
+      "summary": "Mermaid scale parameters, PDF export checklist for slides tasks",
+      "line_count": 29,
       "path": "project/present/talk/patterns/slidev-pitfalls.md",
       "subdomain": "present",
       "keywords": [
