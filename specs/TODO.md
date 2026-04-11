@@ -7,16 +7,17 @@ next_project_number: 31
 ## Tasks
 
 ### 30. Audit .claude/ for assumed dependencies and update install docs
-- **Effort**: TBD
-- **Status**: [PLANNING]
+- **Effort**: 7 hours
+- **Status**: [PLANNED]
 - **Task Type**: meta
 - **Research**: [01_team-research.md](030_audit_missing_dependencies_docs/reports/01_team-research.md)
+- **Plan**: [01_toolchain-docs.md](030_audit_missing_dependencies_docs/plans/01_toolchain-docs.md)
 
 **Description**: Audit `.claude/` to identify all assumed external dependencies (typst, R, python, lean, latex, etc.) and create a plan to update installation/setup documentation to include any missing elements (typst was forgotten; likely others too).
 
 ### 29. Conference talk walkthrough of the epi-study demo
 - **Effort**: TBD
-- **Status**: [RESEARCHED]
+- **Status**: [RESEARCHING]
 - **Task Type**: present:talk
 - **Research**: [01_talk-research.md](029_talk_epi_study_walkthrough/reports/01_talk-research.md)
 

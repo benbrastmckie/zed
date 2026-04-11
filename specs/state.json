@@ -4,26 +4,33 @@
     {
       "project_number": 30,
       "project_name": "audit_missing_dependencies_docs",
-      "status": "planning",
+      "status": "planned",
       "task_type": "meta",
       "description": "Audit .claude/ to identify all assumed external dependencies (typst, R, python, lean, latex, etc.) and update installation/setup documentation to include any missing elements.",
       "created": "2026-04-11T02:06:44Z",
-      "last_updated": "2026-04-11T02:21:27Z",
+      "last_updated": "2026-04-11T02:35:00Z",
       "session_id": "sess_1744336500_plan30",
       "researched": "2026-04-11T02:15:47Z",
+      "planned": "2026-04-11T02:35:00Z",
       "next_artifact_number": 2,
+      "estimated_hours": 7,
       "artifacts": [
         {
           "path": "specs/030_audit_missing_dependencies_docs/reports/01_team-research.md",
           "type": "research",
           "summary": "Team research with 4 teammates"
+        },
+        {
+          "path": "specs/030_audit_missing_dependencies_docs/plans/01_toolchain-docs.md",
+          "type": "plan",
+          "summary": "7-phase plan to scaffold docs/toolchain/, migrate R.md and python.md, add typesetting/MCP/extensions/shell-tools docs, fix typst allowlist gap, resolve Lean MCP ambiguity"
         }
       ]
     },
     {
       "project_number": 29,
       "project_name": "talk_epi_study_walkthrough",
-      "status": "researched",
+      "status": "researching",
       "language": "present",
       "task_type": "present:talk",
       "description": "Conference talk walking through the zed/examples/epi-study synthetic RCT demo (KAT vs TAU, adjusted OR 3.29) as an end-to-end showcase of the /epi Claude Code workflow for a mixed clinical/informatics audience",
@@ -36,7 +43,8 @@
         "gathered_at": "2026-04-11T01:48:33Z"
       },
       "created": "2026-04-11T01:48:33Z",
-      "last_updated": "2026-04-11T01:55:00Z"
+      "last_updated": "2026-04-11T02:23:46Z",
+      "session_id": "sess_1760000029_r2"
     },
     {
       "project_number": 28,
