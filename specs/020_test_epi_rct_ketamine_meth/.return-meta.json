@@ -1,17 +1,33 @@
 {
-  "status": "in_progress",
-  "started_at": "2026-04-11T01:00:23Z",
-  "artifacts": [],
-  "partial_progress": {
-    "stage": "initializing",
-    "details": "Agent started, reading plan",
-    "phases_completed": 0,
-    "phases_total": 7
+  "status": "completed",
+  "started_at": "2026-04-11T01:07:38Z",
+  "summary": "Executed a synthetic ketamine RCT end-to-end (7 phases) as a Zed R/Python/Quarto verification exercise. Pipeline ran on base R + numpy/pandas only. Primary logistic regression OR (KAT vs TAU) = 3.29 (95% CI 1.57-6.89, p=0.002) on synthetic data. Discovered R environment is bare-base (no tidyverse/survival/gtsummary/mice/languageserver), Python missing scipy/statsmodels, and Quarto not installed. Produced a prioritized config gap log with nix remediation snippets as the primary deliverable.",
+  "artifacts": [
+    {"path": "specs/020_test_epi_rct_ketamine_meth/summaries/01_epi-rct-test-study-summary.md", "type": "summary", "summary": "Implementation summary with toolchain scoreboard and consolidated gap list"},
+    {"path": "specs/020_test_epi_rct_ketamine_meth/logs/config_gaps.md", "type": "log", "summary": "Prioritized Zed R/Python/Quarto config gap remediation list with nix snippets"},
+    {"path": "specs/020_test_epi_rct_ketamine_meth/reports/06_zed_verification_summary.md", "type": "report", "summary": "10-point Zed configuration test-point scoreboard"},
+    {"path": "specs/020_test_epi_rct_ketamine_meth/reports/05_consort_report.md", "type": "report", "summary": "CONSORT-style report (Markdown fallback; Quarto unavailable)"},
+    {"path": "specs/020_test_epi_rct_ketamine_meth/reports/tables/primary_results.txt", "type": "result", "summary": "Primary and secondary regression output"},
+    {"path": "specs/020_test_epi_rct_ketamine_meth/reports/tables/sensitivity_results.txt", "type": "result", "summary": "Sensitivity analysis results table"}
+  ],
+  "completion_data": {
+    "completion_summary": "Task 20 completed: synthetic RCT pipeline executed successfully as a Zed R/Python/Quarto toolchain verification on NixOS. All 7 phases finished with graceful fallbacks (base R only, no Quarto). Primary deliverable is the prioritized configuration gap log (logs/config_gaps.md) identifying missing R packages (tidyverse, survival, gtsummary, mice, languageserver), Python modules (scipy, statsmodels), and Quarto, with concrete nix remediation snippets and recommended Zed settings.json additions.",
+    "roadmap_items": [
+      "Install R package set (tidyverse, survival, gtsummary, broom, mice, knitr, rmarkdown, languageserver, styler, lintr) via configuration.nix rWrapper",
+      "Install Python scientific extras (scipy, statsmodels, seaborn, scikit-learn, pyarrow) via nix profile",
+      "Install Quarto (pkgs.quarto) and verify rmarkdown/jupyter engines",
+      "Register r-languageserver in Zed settings.json and verify LSP features interactively",
+      "Create project-level flake.nix for reproducible per-task R/Python environments"
+    ]
   },
+  "next_steps": "Apply HIGH-priority remediations from logs/config_gaps.md, then re-run task 20 scripts to confirm survival/gtsummary/quarto work end-to-end.",
   "metadata": {
     "session_id": "sess_1776038400_imp020",
     "agent_type": "epi-implement-agent",
+    "workflow_type": "epi_implement",
     "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "implement", "skill-epi-implement", "epi-implement-agent"]
+    "delegation_path": ["orchestrator", "implement", "skill-epi-implement", "epi-implement-agent"],
+    "phases_completed": 7,
+    "phases_total": 7
   }
 }
