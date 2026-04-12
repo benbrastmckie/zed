@@ -1,7 +1,20 @@
 {
-  "status": "in_progress",
-  "agent_type": "general-implementation-agent",
-  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
-  "session_id": "sess_1776034438_fdf684",
-  "task_number": 40
+  "status": "implemented",
+  "summary": "Added format-aware routing to skill-slides with output_format extraction, format-specific commit messages, format-specific return summaries, and :assemble manifest routing suffix",
+  "artifacts": [
+    {
+      "path": "specs/040_skill_slides_format_routing/summaries/01_format-routing-summary.md",
+      "type": "summary",
+      "summary": "Implementation summary for format-specific assembly routing in skill-slides"
+    }
+  ],
+  "metadata": {
+    "phases_completed": 3,
+    "phases_total": 3
+  },
+  "completion_data": {
+    "completion_summary": "Added output_format extraction and format-specific routing to skill-slides SKILL.md (Stages 2, 4, 9, 11) and updated present manifest with :assemble suffix for slides implement routing.",
+    "claudemd_suggestions": "none",
+    "roadmap_items": []
+  }
 }
