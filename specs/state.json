@@ -4,12 +4,40 @@
     {
       "project_number": 36,
       "project_name": "ucsf_institutional_theme_slides",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-12T19:46:50Z",
-      "last_updated": "2026-04-12T19:46:50Z",
-      "session_id": "sess_1776023191_c4653c",
-      "next_artifact_number": 1
+      "last_updated": "2026-04-12T19:57:36Z",
+      "session_id": "sess_1776023277_f2a70f",
+      "next_artifact_number": 2,
+      "researched": "2026-04-12T19:57:36Z",
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/036_ucsf_institutional_theme_slides/reports/01_teammate-a-findings.md",
+          "summary": "Primary implementation approach with theme JSON draft"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/036_ucsf_institutional_theme_slides/reports/01_teammate-b-findings.md",
+          "summary": "Alternative approaches: PPTX layout taxonomy, CSS consumption patterns, extended properties"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/036_ucsf_institutional_theme_slides/reports/01_teammate-c-findings.md",
+          "summary": "Critic: Garamond unavailable on Linux, phantom themes C/D, naming convention shift"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/036_ucsf_institutional_theme_slides/reports/01_teammate-d-findings.md",
+          "summary": "Horizons: institutional category field, title-institutional.md compatibility, scalability"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/036_ucsf_institutional_theme_slides/reports/01_team-research.md",
+          "summary": "Team synthesis: 4 integration points, resolved schema/color/font conflicts, concrete recommendations"
+        }
+      ]
     },
     {
       "project_number": 35,

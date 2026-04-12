@@ -8,8 +8,14 @@ next_project_number: 37
 
 ### 36. Add UCSF institutional theme to slides workflow
 - **Effort**: 1 hour
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**:
+  - [01_teammate-a-findings.md](036_ucsf_institutional_theme_slides/reports/01_teammate-a-findings.md)
+  - [01_teammate-b-findings.md](036_ucsf_institutional_theme_slides/reports/01_teammate-b-findings.md)
+  - [01_teammate-c-findings.md](036_ucsf_institutional_theme_slides/reports/01_teammate-c-findings.md)
+  - [01_teammate-d-findings.md](036_ucsf_institutional_theme_slides/reports/01_teammate-d-findings.md)
+  - [01_team-research.md](036_ucsf_institutional_theme_slides/reports/01_team-research.md)
 
 **Description**: Create a UCSF institutional Slidev theme (`ucsf-institutional.json`) extracted from `examples/test-files/UCSF_ZSFG_Template_16x9.pptx`. UCSF brand palette: navy #052049 (dark/heading), #0093D0 (primary accent blue), #16A0AC (teal), #32A03E (green), #A238BA (purple), #C32882 (pink), #6C61D0 (violet). Typography: Garamond headings, Arial body. Register theme in talk library index (`talk/index.json`), add as option E in `/slides --design` D1 question, and update any theme reference documentation so the new theme is selectable during presentation design.
 
