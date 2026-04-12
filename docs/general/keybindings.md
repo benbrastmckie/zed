@@ -4,6 +4,8 @@ This guide assumes macOS. The Cmd key is used where other platforms use Ctrl.
 
 A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked with \* are custom (defined in `keymap.json`); everything else is a Zed default.
 
+> **Printable version**: See [keybindings-cheat-sheet.typ](keybindings-cheat-sheet.typ) for a two-page landscape PDF cheat sheet (Linux notation, organized from essential to specialized).
+
 ## Quick Reference
 
 | Shortcut             | What it does                                   |
@@ -25,6 +27,7 @@ A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked
 | Alt+V \*             | Toggle vim mode on/off                          |
 | Ctrl+Shift+A \*      | Launch Claude Code CLI (primary AI interface)   |
 | Ctrl+? \*            | Toggle the right sidebar (agent panel)          |
+| Ctrl+Shift+E \*      | Toggle the left sidebar (file explorer)         |
 | Cmd+B                | Show or hide the left sidebar                  |
 | Cmd+Shift+C \*       | Copy full path of the active file to clipboard |
 | Alt+J \*             | Move the current line down                     |

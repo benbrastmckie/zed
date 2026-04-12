@@ -156,12 +156,14 @@
 #shortcut(key-combo("Ctrl", "]"),              [Indent])
 #shortcut(key-combo("Ctrl", "["),              [Outdent])
 
+#colbreak()
+
 #section("Search & Replace", clr-search)
 
 #shortcut(key-combo("Ctrl", "F"),              [Find in file])
 #shortcut(key-combo("Ctrl", "Shift", "F"),     [Search all files])
 #shortcut(key-combo("Ctrl", "Shift", "H"),     [Replace across files])
-#shortcut([], text(7.5pt, fill: luma(120))[Note: Ctrl+H is remapped to pane navigation. Use command palette for in-file replace.])
+#shortcut([], text(7.5pt, fill: luma(120))[Ctrl+H remapped to pane nav. Use palette for in-file replace.])
 
 #section("Panels & Layout", clr-panels)
 
@@ -179,8 +181,6 @@
 // PAGE 2 -- Specialized
 // ====================================================================
 
-#colbreak()
-// Force page 2 content to start in a new page's first column
 #pagebreak()
 
 #section("AI & Agent Panel", clr-ai)
@@ -205,6 +205,8 @@
 #shortcut(key-combo("Alt", "L"),               [Accept prediction (alt)], ctx: "editor")
 #shortcut(key-combo("Alt", "]"),               [Next prediction])
 #shortcut(key-combo("Alt", "["),               [Previous prediction])
+
+#colbreak()
 
 #section("Git", clr-git)
 
