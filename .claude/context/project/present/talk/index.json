@@ -1,6 +1,6 @@
 {
   "name": "talk-library",
-  "description": "Research presentation library for Slidev-based academic talks",
+  "description": "Research presentation library for Slidev and PowerPoint academic talks",
   "version": "1.0.0",
   "categories": {
     "themes": {
@@ -59,7 +59,7 @@
       ]
     },
     "templates": {
-      "description": "Reusable scripts and templates for Slidev projects",
+      "description": "Reusable scripts and templates for Slidev and PowerPoint projects",
       "path": "templates/",
       "items": [
         { "name": "playwright-verify", "file": "playwright-verify.mjs", "description": "Playwright slide verification script -- copy to scripts/verify-slides.mjs in each project" },

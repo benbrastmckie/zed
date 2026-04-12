@@ -536,7 +536,7 @@ Structured proposal development (grants) and research presentation creation (tal
 
 The talk library at `context/project/present/talk/` contains:
 - **Patterns**: Slide structure definitions for each talk mode
-- **Content Templates**: Slidev-compatible markdown templates for slide types (PPTX support planned)
+- **Content Templates**: Content templates for slide types (Slidev markdown and PowerPoint via python-pptx)
 - **Components**: Vue components (FigurePanel, DataTable, CitationBlock, StatResult, FlowDiagram)
 - **Themes**: Academic-clean and clinical-teal visual themes
 
