@@ -65,7 +65,7 @@ No ROADMAP.md items found.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Migrate auto-memories to .memory/ vault [NOT STARTED]
+### Phase 1: Migrate auto-memories to .memory/ vault [COMPLETED]
 
 **Goal**: Transfer the 4 auto-memory entries (2 files + 2 index-only) into the per-repo `.memory/10-Memories/` directory using proper MEM-*.md format with frontmatter.
 

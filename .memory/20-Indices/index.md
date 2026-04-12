@@ -7,7 +7,10 @@
 
 ## Recent Memories
 
-<!-- New memories will be added here automatically -->
+- [MEM-001](../10-Memories/MEM-001.md) - No vim mode in Zed
+- [MEM-002](../10-Memories/MEM-002.md) - Zed keymap context shadowing
+- [MEM-003](../10-Memories/MEM-003.md) - Lazy task directories
+- [MEM-004](../10-Memories/MEM-004.md) - No RESEARCHED without artifacts
 
 ## By Category
 
@@ -18,10 +21,12 @@
 <!-- Technique memories -->
 
 ### [CONFIG]
-<!-- Configuration memories -->
+- [MEM-001](../10-Memories/MEM-001.md) - No vim mode in Zed
+- [MEM-002](../10-Memories/MEM-002.md) - Zed keymap context shadowing
 
 ### [WORKFLOW]
-<!-- Workflow memories -->
+- [MEM-003](../10-Memories/MEM-003.md) - Lazy task directories
+- [MEM-004](../10-Memories/MEM-004.md) - No RESEARCHED without artifacts
 
 ### [INSIGHT]
 <!-- Insight memories -->
@@ -42,6 +47,6 @@ Topics use slash-separated hierarchical paths (e.g., `neovim/plugins/telescope`,
 <!-- Additional topic hierarchies will be added as memories are created -->
 
 ## Statistics
-- Total memories: 0
-- Topics: 0
-- Last updated: (not yet updated)
+- Total memories: 4
+- Topics: 2
+- Last updated: 2026-04-12
