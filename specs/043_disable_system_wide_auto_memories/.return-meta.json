@@ -1,0 +1,14 @@
+{
+  "status": "researched",
+  "agent_type": "general-research-agent",
+  "delegation_path": ["orchestrator", "research", "general-research-agent"],
+  "session_id": "sess_1776029035_1b3bdf",
+  "task_number": 43,
+  "started_at": "2026-04-12T21:10:00Z",
+  "completed_at": "2026-04-12T21:15:00Z",
+  "findings_count": 7,
+  "artifacts": [
+    "specs/043_disable_system_wide_auto_memories/reports/01_auto-memory-research.md"
+  ],
+  "next_steps": "Run /plan 43 to create implementation plan"
+}

@@ -4,21 +4,38 @@
     {
       "project_number": 43,
       "project_name": "disable_system_wide_auto_memories",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-12T21:05:02Z",
       "last_updated": "2026-04-12T21:05:02Z",
-      "next_artifact_number": 1
+      "next_artifact_number": 2,
+      "session_id": "sess_1776029035_1b3bdf",
+      "researched": "2026-04-12T21:24:00Z",
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/043_disable_system_wide_auto_memories/reports/01_auto-memory-research.md",
+          "summary": "Two official mechanisms: autoMemoryEnabled setting and env var; migrate 2 existing memories to .memory/ before disabling"
+        }
+      ]
     },
     {
       "project_number": 42,
       "project_name": "fix_meta_researched_status",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-12T21:30:00Z",
       "last_updated": "2026-04-12T21:30:00Z",
-      "session_id": "sess_1744444800_meta01",
-      "next_artifact_number": 1
+      "session_id": "sess_1776029035_1b3bdf",
+      "next_artifact_number": 2,
+      "researched": "2026-04-12T21:24:00Z",
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/042_fix_meta_researched_status/reports/01_meta-research-fix.md",
+          "summary": "17 edit locations across 3 files; remove Stage 5.5, change status to not_started, remove artifact arrays"
+        }
+      ]
     },
     {
       "project_number": 41,

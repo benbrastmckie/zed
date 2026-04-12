@@ -4,19 +4,31 @@ next_project_number: 44
 
 # Task List
 
+## Recommended Order
+
+1. **43**, **42**, and **36** in parallel (all independent)
+2. **37** and **38** in parallel (foundational for PPTX support)
+3. **39** (depends on 37 + 38)
+4. **40** (depends on 39)
+5. **41** (depends on 38 + 39 + 40)
+
 ## Tasks
 
 ### 43. Disable system-wide Claude Code auto-memories and use per-repo .memory/ exclusively
 - **Effort**: 2 hours
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**:
+  - [01_auto-memory-research.md](043_disable_system_wide_auto_memories/reports/01_auto-memory-research.md)
 
 **Description**: Disable system-wide Claude Code auto-memories (~/.claude/projects/) and rely exclusively on per-repo .memory/ system. Different repos require different behavior, so cross-repo memories in ~/.claude/ cause interference. Tasks: (1) Configure Claude Code settings to disable auto-memory persistence in ~/.claude/projects/, (2) Clean up or neutralize existing auto-memory files in ~/.claude/projects/ that may conflict, (3) Ensure .memory/ per-repo system is properly set up as the sole memory mechanism.
 
 ### 42. Fix /meta creating tasks at RESEARCHED status without research artifacts
 - **Effort**: 1 hour
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**:
+  - [01_meta-research-fix.md](042_fix_meta_researched_status/reports/01_meta-research-fix.md)
 
 **Description**: The meta-builder-agent's Stage 5.5 (GenerateResearchArtifacts) specifies creating `01_meta-research.md` files for each task, but the LLM agent skips this step at runtime — jumping from confirmation (Stage 5) directly to state updates (Stage 6). No enforcement mechanism catches the missing files, so tasks end up at [RESEARCHED] status with no actual reports. Fix: (1) Remove Stage 5.5 from meta-builder-agent.md — interview context is pre-task metadata, not a research artifact. (2) Change Stage 6 to set status `not_started` instead of `researched`. (3) Remove artifact array references from Stage 6 state.json and TODO.md templates. (4) Update skill-meta SKILL.md expected return examples to show `not_started` status. (5) Update multi-task-creation-standard.md to remove GenerateResearchArtifacts from the compliance table. Tasks from /meta should follow the normal `/research -> /plan -> /implement` lifecycle, consistent with how `/slides` handles forcing_data.
 
@@ -143,13 +155,3 @@ next_project_number: 44
 - **Summary**: [02_talk-assembly-summary.md](029_talk_epi_study_walkthrough/summaries/02_talk-assembly-summary.md)
 
 **Description**: Conference talk (15-20 min) walking through `zed/examples/epi-study/` — the synthetic RCT demo (ketamine-assisted therapy vs TAU for methamphetamine use disorder, N=200, adjusted OR=3.29) — as an end-to-end showcase of the `/epi` Claude Code workflow for a mixed clinical/informatics audience. Balance tooling narrative, CONSORT/methods rigor, and the headline finding; emphasize reproducibility (deterministic seeds, base-R fallbacks).
-
-
-## Recommended Order
-
-1. **42** (independent, fixes /meta workflow)
-2. **36** (independent, UCSF theme)
-3. **37** and **38** in parallel (foundational for PPTX support)
-4. **39** (depends on 37 + 38)
-5. **40** (depends on 39)
-6. **41** (depends on 38 + 39 + 40)

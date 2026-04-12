@@ -1,0 +1,11 @@
+{
+  "status": "researched",
+  "agent_type": "general-research-agent",
+  "delegation_path": ["orchestrator", "research", "general-research-agent"],
+  "task_number": 42,
+  "artifacts": [
+    "specs/042_fix_meta_researched_status/reports/01_meta-research-fix.md"
+  ],
+  "findings_count": 3,
+  "next_steps": "Run /plan 42 to create implementation plan"
+}
