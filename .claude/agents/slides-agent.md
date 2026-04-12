@@ -458,19 +458,53 @@ PPTX assembly completed for task {N}:
 
 ## Error Handling
 
-### Source Material Not Found
+### Research Workflow Errors
+
+#### Source Material Not Found
 - Log missing sources but continue with available materials
 - Note gaps in the report
 - Write `partial` status if critical materials are missing
 
-### Timeout/Interruption
+#### Timeout/Interruption
 - Save partial slide map to report file
 - Write `partial` status to metadata with resume point
 - Return brief summary of partial progress
 
-### Invalid Talk Type
+#### Invalid Talk Type
 - Default to CONFERENCE if talk_type is unrecognized
 - Note the fallback in the report
+
+### Assembly Workflow Errors
+
+#### python-pptx Not Installed
+- Run `pip install python-pptx` automatically
+- If install fails (no pip, network error), write failed metadata with install instructions
+- Never proceed to script execution without confirming the package is available
+
+#### Script Execution Failure
+- Capture stderr from the Python script
+- Attempt to diagnose common issues (missing imports, type errors, file path errors)
+- Fix and retry once; if retry fails, write `partial` status with stderr in metadata
+- Preserve the generated script for manual debugging
+
+#### Missing Images
+- `safe_add_picture()` from pptx-generation.md creates a labeled placeholder rectangle when an image file is not found
+- The presentation is still generated successfully with placeholders instead of missing images
+- Log which images were missing in the summary
+
+#### SVG Not Supported
+- python-pptx cannot insert SVG files directly
+- If an SVG path is detected, note in the summary that manual PNG conversion is needed
+- Use a placeholder rectangle with the label "SVG: {filename} (convert to PNG)"
+
+#### Research Report Not Found
+- If no `*slides-research*.md` file exists in `specs/{NNN}_{SLUG}/reports/`, fail immediately
+- Write failed metadata with message: "No slide-mapped research report found. Run `/slides {N}` first."
+- Do not attempt to generate slides without a research report
+
+#### Large Tables Overflow
+- Use `add_pptx_table_paginated()` for tables with more than 8 rows
+- Tables are split across multiple slides with "(continued)" in the title
 
 ## Critical Requirements
 
@@ -483,6 +517,9 @@ PPTX assembly completed for task {N}:
 6. Identify and document content gaps
 7. Include recommended theme in the report
 8. Update partial_progress on significant milestones
+9. Load pptx-generation.md and theme_mappings.json when `output_format == "pptx"`
+10. Generate a self-contained, executable Python script (only python-pptx dependency)
+11. Verify the output .pptx file exists before writing success metadata
 
 **MUST NOT**:
 1. Return JSON to the console
@@ -492,3 +529,25 @@ PPTX assembly completed for task {N}:
 5. Write success status without creating the report artifact
 6. Use status value "completed" (triggers Claude stop behavior)
 7. Assume your return ends the workflow (skill continues with postflight)
+8. Inline large code blocks from pptx-generation.md in the agent definition (reference instead)
+9. Skip the pip install check for python-pptx
+10. Hardcode theme colors in the script (always read from theme_mappings.json)
+
+## Slide Type Reference
+
+Quick reference for mapping report slide types to PPTX components:
+
+| Slide Type | PPTX Function | Content |
+|------------|---------------|---------|
+| `title` | Title slide + subtitle textbox | Authors, affiliations, date |
+| `motivation` | `add_titled_slide()` + bullets | Clinical/scientific question |
+| `background` | `add_titled_slide()` + bullets | Literature context |
+| `objectives` | `add_titled_slide()` + numbered bullets | Specific aims |
+| `methods` | `add_titled_slide()` + bullets or flow | Study design |
+| `results-primary` | `add_titled_slide()` + figure/table/stat | Main finding |
+| `results-secondary` | `add_titled_slide()` + table/figure | Secondary outcomes |
+| `results-additional` | `add_titled_slide()` + table/figure | Additional analyses |
+| `discussion` | `add_titled_slide()` + bullets | Interpretation |
+| `limitations` | `add_titled_slide()` + bullets | Study limitations |
+| `conclusions` | `add_titled_slide()` + bullets | Key takeaways |
+| `acknowledgments` | `add_titled_slide()` + bullets | Funding, collaborators |
