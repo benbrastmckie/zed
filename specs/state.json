@@ -1,6 +1,59 @@
 {
-  "next_project_number": 37,
+  "next_project_number": 42,
   "active_projects": [
+    {
+      "project_number": 41,
+      "project_name": "slides_pptx_documentation",
+      "status": "researched",
+      "task_type": "meta",
+      "created": "2026-04-12T21:00:00Z",
+      "last_updated": "2026-04-12T21:00:00Z",
+      "session_id": "sess_1744444800_meta01",
+      "next_artifact_number": 1,
+      "dependencies": [38, 39, 40]
+    },
+    {
+      "project_number": 40,
+      "project_name": "skill_slides_format_routing",
+      "status": "researched",
+      "task_type": "meta",
+      "created": "2026-04-12T21:00:00Z",
+      "last_updated": "2026-04-12T21:00:00Z",
+      "session_id": "sess_1744444800_meta01",
+      "next_artifact_number": 1,
+      "dependencies": [39]
+    },
+    {
+      "project_number": 39,
+      "project_name": "pptx_agent_assembly",
+      "status": "researched",
+      "task_type": "meta",
+      "created": "2026-04-12T21:00:00Z",
+      "last_updated": "2026-04-12T21:00:00Z",
+      "session_id": "sess_1744444800_meta01",
+      "next_artifact_number": 1,
+      "dependencies": [37, 38]
+    },
+    {
+      "project_number": 38,
+      "project_name": "pptx_context_files",
+      "status": "researched",
+      "task_type": "meta",
+      "created": "2026-04-12T21:00:00Z",
+      "last_updated": "2026-04-12T21:00:00Z",
+      "session_id": "sess_1744444800_meta01",
+      "next_artifact_number": 1
+    },
+    {
+      "project_number": 37,
+      "project_name": "slides_format_selection",
+      "status": "researched",
+      "task_type": "meta",
+      "created": "2026-04-12T21:00:00Z",
+      "last_updated": "2026-04-12T21:00:00Z",
+      "session_id": "sess_1744444800_meta01",
+      "next_artifact_number": 1
+    },
     {
       "project_number": 36,
       "project_name": "ucsf_institutional_theme_slides",

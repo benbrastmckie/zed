@@ -31,9 +31,10 @@
     "label": "Preview in Browser",
     "command": ".zed/scripts/preview.sh \"$ZED_FILE\"",
     "args": [],
-    "use_new_terminal": true,
+    "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "never",
-    "reveal_target": "dock"
+    "reveal_target": "dock",
+    "hide": "always"
   }
 ]
