@@ -1,10 +1,48 @@
 ---
-next_project_number: 37
+next_project_number: 42
 ---
 
 # Task List
 
 ## Tasks
+
+### 41. Update talk library index and slides documentation for PowerPoint support
+- **Effort**: 1 hour
+- **Status**: [RESEARCHED]
+- **Task Type**: meta
+- **Dependencies**: 38, 39, 40
+
+**Description**: Update `talk/index.json` to include PowerPoint templates alongside Slidev. Update `talk-structure.md` and `presentation-types.md` to mention both output formats. Update CLAUDE.md present extension section to document PowerPoint support. Ensure all references to "Slidev output" are generalized to "Slidev or PowerPoint output" where appropriate.
+
+### 40. Update skill-slides for format-specific assembly routing
+- **Effort**: 1 hour
+- **Status**: [RESEARCHED]
+- **Task Type**: meta
+- **Dependencies**: 39
+
+**Description**: Add format-aware routing in skill-slides so the `workflow_type=assemble` step checks `forcing_data.output_format` and passes the correct variant (`assemble_slidev` or `assemble_pptx`) to the slides-agent. Update commit messages and return summaries to reflect the chosen output format. Ensure backward compatibility: if `output_format` is absent, default to Slidev.
+
+### 39. Add PowerPoint assembly workflow to slides-agent
+- **Effort**: 3 hours
+- **Status**: [RESEARCHED]
+- **Task Type**: meta
+- **Dependencies**: 37, 38
+
+**Description**: Add an `assemble_pptx` workflow branch in slides-agent that generates a `.pptx` file from the slide-mapped research report using python-pptx. Reuse existing slide pattern JSON files (conference-standard.json etc.) since slide structure is format-agnostic. Map themes (academic-clean, clinical-teal) to PPTX master slide formatting. Handle figures, tables, and speaker notes. The agent should produce a complete, buildable .pptx file in the task's output directory.
+
+### 38. Create PowerPoint context files for talk library
+- **Effort**: 2 hours
+- **Status**: [RESEARCHED]
+- **Task Type**: meta
+
+**Description**: Create `talk/templates/pptx-project/` with python-pptx generation patterns. Create PowerPoint theme mappings translating academic-clean and clinical-teal themes to PPTX master slide specs (colors, fonts, layouts). Create `talk/patterns/pptx-generation.md` documenting python-pptx API patterns for slide creation, speaker notes, figure insertion, and table formatting. These context files guide the slides-agent when assembling PowerPoint output.
+
+### 37. Add output format selection to /slides command
+- **Effort**: 1 hour
+- **Status**: [RESEARCHED]
+- **Task Type**: meta
+
+**Description**: Insert a new Step 0.0 in the `/slides` Stage 0 forcing questions asking the user to choose between Slidev or PowerPoint output format. Store the choice as `forcing_data.output_format` (values: `slidev` or `pptx`). Update output messages and recommended workflow text to reflect the chosen format. Slidev remains the default if the user doesn't specify.
 
 ### 36. Add UCSF institutional theme to slides workflow
 - **Effort**: 1 hour
@@ -95,4 +133,7 @@ next_project_number: 37
 
 ## Recommended Order
 
-1. **33** -> research (independent)
+1. **37** and **38** in parallel (foundational, no dependencies)
+2. **39** (depends on 37 + 38)
+3. **40** (depends on 39)
+4. **41** (depends on 38 + 39 + 40)
