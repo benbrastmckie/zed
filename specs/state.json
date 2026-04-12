@@ -79,14 +79,21 @@
     {
       "project_number": 40,
       "project_name": "skill_slides_format_routing",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T21:00:00Z",
-      "session_id": "sess_1744444800_meta01",
-      "next_artifact_number": 1,
+      "last_updated": "2026-04-12T22:57:51Z",
+      "session_id": "sess_1776034438_fdf684",
+      "next_artifact_number": 2,
       "dependencies": [
         39
+      ],
+      "artifacts": [
+        {
+          "path": "specs/040_skill_slides_format_routing/reports/01_format-routing.md",
+          "type": "research_report",
+          "summary": "Research report on format-specific assembly routing in skill-slides"
+        }
       ]
     },
     {
