@@ -1,7 +1,7 @@
 # Implementation Plan: Slides Format Selection
 
 - **Task**: 37 - slides_format_selection
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 1.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/037_slides_format_selection/reports/01_format-selection.md
@@ -59,7 +59,7 @@ No active roadmap items. ROADMAP.md is empty.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Add Step 0.0 and Update Forcing Data Assembly [NOT STARTED]
+### Phase 1: Add Step 0.0 and Update Forcing Data Assembly [COMPLETED]
 
 **Goal**: Insert the format selection forcing question and include output_format in the forcing_data JSON object.
 

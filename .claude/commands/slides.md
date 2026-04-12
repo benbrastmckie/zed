@@ -49,6 +49,19 @@ This command initiates research talk creation through structured material gather
 
 **Skip this stage if**: task number input.
 
+### Step 0.0: Output Format
+
+Use AskUserQuestion to present output format options:
+
+```
+What output format do you want for the presentation?
+
+- SLIDEV (default): Slidev markdown-based slides
+- PPTX: PowerPoint presentation file
+```
+
+Store response as `forcing_data.output_format`. If the user does not specify or is ambiguous, default to `"slidev"`.
+
 ### Step 0.1: Talk Type
 
 Use AskUserQuestion to present talk type options:
@@ -101,6 +114,7 @@ Store response as `forcing_data.audience_context`.
 Capture all responses in a forcing_data object:
 ```json
 {
+  "output_format": "{selected_format}",
   "talk_type": "{selected_type}",
   "source_materials": ["{material_1}", "{material_2}"],
   "audience_context": "{audience description}",
