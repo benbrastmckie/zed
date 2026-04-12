@@ -64,16 +64,23 @@
     {
       "project_number": 41,
       "project_name": "slides_pptx_documentation",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T21:00:00Z",
-      "session_id": "sess_1744444800_meta01",
-      "next_artifact_number": 1,
+      "last_updated": "2026-04-12T23:09:13Z",
+      "session_id": "sess_1776035180_5e2112",
+      "next_artifact_number": 2,
       "dependencies": [
         38,
         39,
         40
+      ],
+      "artifacts": [
+        {
+          "path": "specs/041_slides_pptx_documentation/reports/01_pptx-docs.md",
+          "type": "research_report",
+          "summary": "Research report identifying 3 files needing PPTX documentation updates"
+        }
       ]
     },
     {
