@@ -1,7 +1,7 @@
 # Implementation Plan: Task #40
 
 - **Task**: 40 - Update skill-slides for format-specific assembly routing
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 1.5 hours
 - **Dependencies**: Task 39 (slides-agent PPTX assembly workflow)
 - **Research Inputs**: specs/040_skill_slides_format_routing/reports/01_format-routing.md
@@ -62,7 +62,7 @@ No ROADMAP.md items are currently defined. This task is part of the PPTX assembl
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Update skill-slides SKILL.md with format-aware routing [NOT STARTED]
+### Phase 1: Update skill-slides SKILL.md with format-aware routing [COMPLETED]
 
 **Goal**: Add output_format extraction, format-specific commit messages, and format-specific return summaries to the skill.
 
@@ -87,7 +87,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Update present extension manifest routing [NOT STARTED]
+### Phase 2: Update present extension manifest routing [IN PROGRESS]
 
 **Goal**: Add `:assemble` suffix to the slides implement routing in the present extension manifest, matching the grant pattern.
 
