@@ -2,6 +2,7 @@
   // Zed Editor Settings
   // Platform: macOS 11 (Big Sur) or newer
   // No vim mode -- standard keybindings for all users
+  "vim_mode": true,
   "auto_reload_on_disk_change": true,
 
   "theme": "One Dark",

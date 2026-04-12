@@ -60,6 +60,11 @@ GROUPS_OK=""
 GROUPS_SKIPPED=""
 GROUPS_FAILED=""
 
+# Deferred hints: pkg-cask installs skipped due to no-tty append here.
+# Each entry is a TAB-separated pair: "command<TAB>description"
+# Scripts call print_deferred_hints at the end of main() to surface them.
+DEFERRED_HINTS=""
+
 # ----- logging helpers ---------------------------------------------------
 # All logging goes to stderr so command substitution callers aren't polluted.
 
@@ -101,6 +106,12 @@ prompt_yn() {
     suffix="[y/N]"
   fi
   if [ "$ASSUME_YES" = "1" ]; then
+    # Respect default_n even in --yes mode: these are opt-in extras (e.g. MacTeX
+    # 5 GB, epi bundle) where silently accepting would cause surprising behaviour.
+    if [ "$default" = "default_n" ]; then
+      log_info "$question $suffix (auto-no — default is N; use interactive mode to opt in)"
+      return 1
+    fi
     log_info "$question $suffix (auto-yes)"
     return 0
   fi
@@ -226,6 +237,59 @@ brew_install_cask() {
     return 0
   fi
   run_or_dry brew install --cask "$c"
+}
+
+# brew_install_pkg_cask <cask> <manual-command> <description>
+# Like brew_install_cask but for .pkg-based casks that require sudo.
+# Detects non-interactive environments (no tty + no cached sudo) and records a
+# deferred hint instead of failing, so the wizard can continue cleanly.
+# Call print_deferred_hints at the end of main() to surface skipped installs.
+brew_install_pkg_cask() {
+  local c="$1"
+  local cmd="${2:-brew install --cask $c}"
+  local desc="${3:-}"
+  if check_brew_cask "$c"; then
+    log_ok "brew cask already installed: $c"
+    return 0
+  fi
+  if [ "$DRY_RUN" = "1" ]; then
+    log_dry "brew install --cask $c"
+    return 0
+  fi
+  # pkg-based casks invoke /usr/sbin/installer via sudo.  That requires either
+  # cached sudo credentials or a controlling tty.  Detect both; if neither is
+  # available, record a deferred hint and skip rather than failing hard.
+  if ! sudo -n true 2>/dev/null && ! tty -s 2>/dev/null; then
+    log_warn "$c requires sudo for its .pkg installer and no tty was detected."
+    log_warn "Skipping — see manual step printed at the end of this script."
+    if [ -n "$DEFERRED_HINTS" ]; then
+      DEFERRED_HINTS="${DEFERRED_HINTS}
+${cmd}	${desc}"
+    else
+      DEFERRED_HINTS="${cmd}	${desc}"
+    fi
+    return 0
+  fi
+  brew install --cask "$c"
+}
+
+# print_deferred_hints
+# Prints a "finish manually" section for any pkg-cask installs that were
+# skipped because no interactive tty was available.  Call at end of main().
+print_deferred_hints() {
+  [ -z "$DEFERRED_HINTS" ] && return 0
+  printf '\n' >&2
+  printf '===== Manual steps required =====\n' >&2
+  printf 'The following tools need a .pkg installer and must be run from a\n' >&2
+  printf 'terminal where sudo is available (open Terminal.app and paste):\n' >&2
+  printf '\n' >&2
+  local line cmd desc
+  printf '%s\n' "$DEFERRED_HINTS" | while IFS="	" read -r cmd desc; do
+    [ -z "$cmd" ] && continue
+    printf '  %s\n' "$cmd" >&2
+    [ -n "$desc" ] && printf '    → %s\n' "$desc" >&2
+  done
+  printf '\n' >&2
 }
 
 # ----- flag parsing ------------------------------------------------------

@@ -50,6 +50,23 @@ r_install_pkg() {
   run_or_dry Rscript -e "install.packages('$pkg', repos='$CRAN_REPO')"
 }
 
+cleanup_r_locks() {
+  # Remove stale 00LOCK-* directories left by previously interrupted installs.
+  # R refuses to install into a locked directory, producing cryptic errors.
+  if ! check_command Rscript; then return 0; fi
+  local lib_dir
+  lib_dir="$(Rscript --vanilla -e 'cat(.libPaths()[1])' 2>/dev/null || true)"
+  [ -z "$lib_dir" ] && return 0
+  local lock found=0
+  for lock in "$lib_dir"/00LOCK-*; do
+    [ -d "$lock" ] || continue
+    log_warn "removing stale R package lock: $lock"
+    rm -rf "$lock" && found=1 || log_warn "could not remove $lock (try: sudo rm -rf $lock)"
+  done
+  [ "$found" = "1" ] && log_info "stale locks cleared"
+  return 0
+}
+
 do_core() {
   if ! check_command R; then
     brew_install_formula r
@@ -60,6 +77,7 @@ do_core() {
     log_warn "Rscript missing after R install; aborting R package installs"
     return 0
   fi
+  cleanup_r_locks
   r_install_pkg languageserver
   r_install_pkg lintr
   r_install_pkg styler
@@ -83,7 +101,9 @@ do_quarto() {
     log_info "skipping Quarto"
     return 0
   fi
-  brew_install_cask quarto
+  brew_install_pkg_cask quarto \
+    "brew install --cask quarto" \
+    "Quarto: render .qmd/.Rmd notebooks to HTML/PDF/Word; required by the epidemiology (/epi) and reporting workflows"
 }
 
 # Epi bundle: survival, Bayesian, causal inference, missing data, plotting.
@@ -137,6 +157,7 @@ main() {
   do_quarto
   do_epi_bundle
 
+  print_deferred_hints
   log_info "install-r finished."
 }
 
