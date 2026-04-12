@@ -15,6 +15,7 @@
   //   - 1 Claude Code launcher (Ctrl+Shift+A, Workspace + Terminal)
   //   - 1 copy path utility (Ctrl+Shift+C)
   //   - 1 close tab (Ctrl+Q)
+  //   - 1 reload file from disk (Alt+R)
   //   - 1 build PDF (Alt+Shift+E) -- Typst/Slidev dispatcher
   //   - 1 preview in browser (Alt+Shift+P) -- Typst/Slidev dispatcher
   //
@@ -67,9 +68,11 @@
       "ctrl-o": "pane::GoBack",
       "ctrl-i": "pane::GoForward",
       "ctrl-shift-c": "workspace::CopyPath",
+      "ctrl-shift-e": "workspace::ToggleLeftDock",
       "alt-shift-e": ["task::Spawn", { "task_name": "Build PDF" }],
       "alt-shift-p": ["task::Spawn", { "task_name": "Preview in Browser" }],
-      "ctrl-enter": "editor::OpenFile"
+      "ctrl-enter": "editor::OpenFile",
+      "alt-r": "editor::ReloadFile"
     }
   },
 

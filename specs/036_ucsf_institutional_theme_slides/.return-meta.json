@@ -1,21 +1,13 @@
 {
-  "status": "planned",
-  "artifacts": [
-    {
-      "type": "plan",
-      "path": "specs/036_ucsf_institutional_theme_slides/plans/01_ucsf-theme.md",
-      "summary": "3-phase implementation plan for UCSF institutional theme: create theme JSON, register in index/extensions, add to /slides D1 question"
-    }
-  ],
-  "next_steps": "Run /implement 36 to execute the plan",
-  "metadata": {
-    "session_id": "sess_1776033600_p36a01",
-    "agent_type": "planner-agent",
-    "duration_seconds": 120,
-    "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "plan", "planner-agent"],
-    "phase_count": 3,
-    "estimated_hours": 0.5,
-    "dependency_waves": [[1], [2], [3]]
+  "status": "in_progress",
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+  "task_number": 36,
+  "session_id": "sess_1776029786_972f3d",
+  "started_at": "2026-04-12T22:00:00Z",
+  "partial_progress": {
+    "phases_completed": 0,
+    "phases_total": 3,
+    "current_phase": 1
   }
 }

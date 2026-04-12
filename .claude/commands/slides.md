@@ -338,6 +338,7 @@ A) Academic Clean - Minimal, high-contrast, serif headings (department seminars)
 B) Clinical Teal - Medical/clinical palette, clean data presentation (clinical audiences)
 C) Conference Bold - Strong colors, large type, designed for projection (conference talks)
 D) Minimal Dark - Dark background, high contrast, code-friendly (technical audiences)
+E) UCSF Institutional - Navy/blue palette, Garamond serif headings (UCSF presentations)
 ```
 
 Store response as `design_decisions.theme`.

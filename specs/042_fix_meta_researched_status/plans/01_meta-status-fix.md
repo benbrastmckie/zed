@@ -1,7 +1,7 @@
 # Implementation Plan: Fix /meta creating tasks at RESEARCHED status without research artifacts
 
 - **Task**: 42 - Fix /meta creating tasks at RESEARCHED status without research artifacts
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 1.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/042_fix_meta_researched_status/reports/01_meta-research-fix.md
@@ -64,7 +64,7 @@ No ROADMAP.md items are directly advanced by this task. This is an internal agen
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Remove Stage 5.5 and update Stage 6 in meta-builder-agent.md [NOT STARTED]
+### Phase 1: Remove Stage 5.5 and update Stage 6 in meta-builder-agent.md [COMPLETED]
 
 **Goal**: Remove the GenerateResearchArtifacts stage and update all status/artifact references in the agent definition.
 
@@ -94,7 +94,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Update skill-meta SKILL.md return examples [NOT STARTED]
+### Phase 2: Update skill-meta SKILL.md return examples [COMPLETED]
 
 **Goal**: Update the expected return examples and documentation in the skill definition to reflect NOT STARTED status.
 
@@ -119,7 +119,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Update multi-task-creation-standard.md [NOT STARTED]
+### Phase 3: Update multi-task-creation-standard.md [COMPLETED]
 
 **Goal**: Remove Stage 5.5 / GenerateResearchArtifacts references from the compliance standard.
 
@@ -144,7 +144,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: End-to-end verification [NOT STARTED]
+### Phase 4: End-to-end verification [COMPLETED]
 
 **Goal**: Verify all changes are consistent and no stale references remain.
 

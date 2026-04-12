@@ -8,7 +8,8 @@
       "path": "themes/",
       "items": [
         { "name": "academic-clean", "file": "academic-clean.json", "description": "White background, muted blue accents, serif headings" },
-        { "name": "clinical-teal", "file": "clinical-teal.json", "description": "White background, teal/medical accents" }
+        { "name": "clinical-teal", "file": "clinical-teal.json", "description": "White background, teal/medical accents" },
+        { "name": "ucsf-institutional", "file": "ucsf-institutional.json", "description": "UCSF institutional palette: navy/blue, Garamond headings" }
       ]
     },
     "patterns": {

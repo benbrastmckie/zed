@@ -1,7 +1,7 @@
 # Implementation Plan: Add UCSF Institutional Theme to Slides Workflow
 
 - **Task**: 36 - Add UCSF institutional theme to slides workflow
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 1 hour
 - **Dependencies**: None
 - **Research Inputs**: specs/036_ucsf_institutional_theme_slides/reports/01_team-research.md (team synthesis of 4 teammate findings)
@@ -67,7 +67,7 @@ No ROADMAP.md found.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Create UCSF Theme JSON [NOT STARTED]
+### Phase 1: Create UCSF Theme JSON [COMPLETED]
 
 **Goal**: Create the theme specification file with UCSF brand colors and typography
 
@@ -95,7 +95,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Register Theme in Talk Library and Extensions [NOT STARTED]
+### Phase 2: Register Theme in Talk Library and Extensions [COMPLETED]
 
 **Goal**: Make the theme discoverable by the slides-agent and tracked in the extensions manifest
 
@@ -118,7 +118,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Add Theme to /slides Design Question [NOT STARTED]
+### Phase 3: Add Theme to /slides Design Question [COMPLETED]
 
 **Goal**: Make UCSF theme selectable during the `/slides --design` D1 forcing question
 

@@ -110,6 +110,7 @@
         ".claude/context/project/present/talk/patterns/seminar-deep-dive.json",
         ".claude/context/project/present/talk/themes/academic-clean.json",
         ".claude/context/project/present/talk/themes/clinical-teal.json",
+        ".claude/context/project/present/talk/themes/ucsf-institutional.json",
         ".claude/context/project/present/templates/budget-justification.md",
         ".claude/context/project/present/templates/evaluation-plan.md",
         ".claude/context/project/present/templates/executive-summary.md",
