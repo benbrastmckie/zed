@@ -79,10 +79,10 @@
     {
       "project_number": 40,
       "project_name": "skill_slides_format_routing",
-      "status": "planned",
+      "status": "completed",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T23:01:18Z",
+      "last_updated": "2026-04-12T23:05:51Z",
       "session_id": "sess_1776034438_fdf684",
       "next_artifact_number": 2,
       "dependencies": [
@@ -98,8 +98,14 @@
           "path": "specs/040_skill_slides_format_routing/plans/01_format-routing.md",
           "type": "plan",
           "summary": "Implementation plan for format-aware routing in skill-slides with 3 phases across 2 waves"
+        },
+        {
+          "path": "specs/040_skill_slides_format_routing/summaries/01_format-routing-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for format-specific assembly routing in skill-slides"
         }
-      ]
+      ],
+      "completion_summary": "Added output_format extraction and format-specific routing to skill-slides SKILL.md (Stages 2, 4, 9, 11) and updated present manifest with :assemble suffix for slides implement routing."
     },
     {
       "project_number": 39,

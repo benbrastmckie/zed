@@ -1,7 +1,7 @@
 # Implementation Plan: Task #40
 
 - **Task**: 40 - Update skill-slides for format-specific assembly routing
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 1.5 hours
 - **Dependencies**: Task 39 (slides-agent PPTX assembly workflow)
 - **Research Inputs**: specs/040_skill_slides_format_routing/reports/01_format-routing.md
