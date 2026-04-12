@@ -1,7 +1,7 @@
 # Implementation Plan: Zed Keybindings Cheat Sheet
 
 - **Task**: 35 - Zed Keybindings Cheat Sheet
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 2.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/035_zed_keybindings_cheat_sheet/reports/01_team-research.md
@@ -68,7 +68,7 @@ No active roadmap items. This task creates a user-facing documentation artifact.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Document Scaffold and Helper Functions [NOT STARTED]
+### Phase 1: Document Scaffold and Helper Functions [COMPLETED]
 
 **Goal**: Create the Typst file with page setup, color palette, and reusable helper functions for key chips and section headers.
 
