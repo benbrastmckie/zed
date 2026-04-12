@@ -45,20 +45,31 @@ do_latex() {
     return 0
   fi
   local choice="basic"
+  # default_n: MacTeX is 5 GB — only opt in explicitly; --yes stays with BasicTeX
   if prompt_yn "Install full MacTeX (~5 GB) instead of BasicTeX (~100 MB)?" default_n; then
     choice="full"
   fi
   if [ "$choice" = "full" ]; then
-    brew_install_cask mactex
+    brew_install_pkg_cask mactex \
+      "brew install --cask mactex" \
+      "Full LaTeX distribution (~5 GB): compile .tex documents to PDF with pdflatex/xelatex/lualatex"
   else
-    brew_install_cask basictex
-    log_warn "BasicTeX installed. Open a new terminal so PATH picks up /Library/TeX/texbin."
-    log_warn "Then install extras with: sudo tlmgr update --self && sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra biber"
-    if [ "$DRY_RUN" = "0" ] && check_command tlmgr && prompt_yn "Run 'sudo tlmgr update/install' now (requires sudo password)?" default_n; then
-      sudo tlmgr update --self || true
-      sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra biber || true
+    brew_install_pkg_cask basictex \
+      "brew install --cask basictex && sudo tlmgr update --self && sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra biber" \
+      "Minimal LaTeX (~100 MB): compile .tex documents to PDF; required by the /convert and typesetting workflows"
+    if check_command tlmgr || [ -x /Library/TeX/texbin/tlmgr ]; then
+      log_info "BasicTeX installed. Running tlmgr to add latexmk and common packages..."
+      if [ "$DRY_RUN" = "0" ]; then
+        export PATH="/Library/TeX/texbin:$PATH"
+        sudo tlmgr update --self || true
+        sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra biber || true
+      else
+        log_dry "sudo tlmgr update --self && sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra biber"
+      fi
     else
-      log_dry "sudo tlmgr update --self && sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra biber"
+      log_warn "BasicTeX installed. Open a new terminal (PATH update) then run:"
+      log_warn "  sudo tlmgr update --self"
+      log_warn "  sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra biber"
     fi
   fi
 }
@@ -81,8 +92,22 @@ do_pandoc() {
   brew_install_formula pandoc
 }
 
+check_markitdown() {
+  # markitdown can live in several places depending on how it was installed:
+  #   uv tool install -> ~/.local/bin/markitdown (may not be in non-interactive PATH)
+  #   pip3 install    -> ~/Library/Python/X.Y/bin/markitdown
+  # Fall back to checking the Python library and uv tool list.
+  check_command markitdown && return 0
+  [ -x "$HOME/.local/bin/markitdown" ] && return 0
+  if check_command uv && uv tool list 2>/dev/null | grep -q "^markitdown"; then
+    return 0
+  fi
+  check_command python3 && python3 -c "import markitdown" >/dev/null 2>&1 && return 0
+  return 1
+}
+
 do_markitdown() {
-  if check_command markitdown; then
+  if check_markitdown; then
     log_ok "markitdown already installed"
     return 0
   fi
@@ -118,7 +143,7 @@ run_check_mode() {
   check_command latexmk    && log_ok "latexmk"    || { log_warn "[missing] latexmk"; missing=1; }
   check_command typst      && log_ok "typst"      || { log_warn "[missing] typst"; missing=1; }
   check_command pandoc     && log_ok "pandoc"     || { log_warn "[missing] pandoc"; missing=1; }
-  check_command markitdown && log_ok "markitdown" || { log_warn "[missing] markitdown"; missing=1; }
+  check_markitdown && log_ok "markitdown" || { log_warn "[missing] markitdown"; missing=1; }
   if check_command fc-list && fc-list 2>/dev/null | grep -qi "latin modern math"; then
     log_ok "font:latin-modern-math"
   else
@@ -147,6 +172,7 @@ main() {
   do_markitdown
   do_fonts
 
+  print_deferred_hints
   log_info "install-typesetting finished."
 }
 
