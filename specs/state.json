@@ -4,10 +4,13 @@
     {
       "project_number": 35,
       "project_name": "zed_keybindings_cheat_sheet",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "typst",
       "created": "2026-04-12T01:17:35Z",
-      "last_updated": "2026-04-12T01:17:35Z"
+      "last_updated": "2026-04-12T01:23:54Z",
+      "session_id": "sess_1775956747_f2ccdc",
+      "researched": "2026-04-12T01:23:54Z",
+      "next_artifact_number": 2
     },
     {
       "project_number": 34,

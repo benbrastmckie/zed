@@ -8,8 +8,14 @@ next_project_number: 36
 
 ### 35. Create Zed keybindings cheat sheet in Typst
 - **Effort**: 2 hours
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: typst
+- **Research**:
+  - [01_teammate-a-findings.md](035_zed_keybindings_cheat_sheet/reports/01_teammate-a-findings.md)
+  - [01_teammate-b-findings.md](035_zed_keybindings_cheat_sheet/reports/01_teammate-b-findings.md)
+  - [01_teammate-c-findings.md](035_zed_keybindings_cheat_sheet/reports/01_teammate-c-findings.md)
+  - [01_teammate-d-findings.md](035_zed_keybindings_cheat_sheet/reports/01_teammate-d-findings.md)
+  - [01_team-research.md](035_zed_keybindings_cheat_sheet/reports/01_team-research.md)
 
 **Description**: Use docs/general/keybindings.md to create a cheat sheet for learning Zed keybindings, organized from most basic/fundamental to less used or specific. Output as a Typst document following a natural and well-organized legend of different keybindings and their abilities
 
