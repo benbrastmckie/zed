@@ -42,10 +42,11 @@ next_project_number: 44
 
 ### 41. Update talk library index and slides documentation for PowerPoint support
 - **Effort**: 1 hour
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: meta
 - **Dependencies**: 38, 39, 40
 - **Research**: [01_pptx-docs.md](041_slides_pptx_documentation/reports/01_pptx-docs.md)
+- **Plan**: [01_pptx-docs.md](041_slides_pptx_documentation/plans/01_pptx-docs.md)
 
 **Description**: Update `talk/index.json` to include PowerPoint templates alongside Slidev. Update `talk-structure.md` and `presentation-types.md` to mention both output formats. Update CLAUDE.md present extension section to document PowerPoint support. Ensure all references to "Slidev output" are generalized to "Slidev or PowerPoint output" where appropriate.
 

@@ -64,10 +64,10 @@
     {
       "project_number": 41,
       "project_name": "slides_pptx_documentation",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T23:09:13Z",
+      "last_updated": "2026-04-12T23:11:21Z",
       "session_id": "sess_1776035180_5e2112",
       "next_artifact_number": 2,
       "dependencies": [
@@ -80,6 +80,11 @@
           "path": "specs/041_slides_pptx_documentation/reports/01_pptx-docs.md",
           "type": "research_report",
           "summary": "Research report identifying 3 files needing PPTX documentation updates"
+        },
+        {
+          "path": "specs/041_slides_pptx_documentation/plans/01_pptx-docs.md",
+          "type": "plan",
+          "summary": "Single-phase plan to update 3 documentation files for PowerPoint support"
         }
       ]
     },
