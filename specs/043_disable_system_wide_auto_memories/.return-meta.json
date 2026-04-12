@@ -1,14 +1,20 @@
 {
-  "status": "researched",
-  "agent_type": "general-research-agent",
-  "delegation_path": ["orchestrator", "research", "general-research-agent"],
-  "session_id": "sess_1776029035_1b3bdf",
-  "task_number": 43,
-  "started_at": "2026-04-12T21:10:00Z",
-  "completed_at": "2026-04-12T21:15:00Z",
-  "findings_count": 7,
+  "status": "planned",
   "artifacts": [
-    "specs/043_disable_system_wide_auto_memories/reports/01_auto-memory-research.md"
+    {
+      "type": "plan",
+      "path": "specs/043_disable_system_wide_auto_memories/plans/01_disable-auto-memory.md",
+      "summary": "3-phase plan: migrate 4 auto-memories to .memory/, disable via dotfiles settings, verify and update docs"
+    }
   ],
-  "next_steps": "Run /plan 43 to create implementation plan"
+  "next_steps": "Run /implement 43 to execute the plan",
+  "metadata": {
+    "session_id": "sess_1776029035_1b3bdf",
+    "agent_type": "planner-agent",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "plan", "planner-agent"],
+    "phase_count": 3,
+    "estimated_hours": 1.5,
+    "dependency_waves": [[1], [2], [3]]
+  }
 }

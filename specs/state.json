@@ -4,7 +4,7 @@
     {
       "project_number": 43,
       "project_name": "disable_system_wide_auto_memories",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-12T21:05:02Z",
       "last_updated": "2026-04-12T21:05:02Z",
@@ -16,13 +16,19 @@
           "type": "research_report",
           "path": "specs/043_disable_system_wide_auto_memories/reports/01_auto-memory-research.md",
           "summary": "Two official mechanisms: autoMemoryEnabled setting and env var; migrate 2 existing memories to .memory/ before disabling"
+        },
+        {
+          "type": "plan",
+          "path": "specs/043_disable_system_wide_auto_memories/plans/01_disable-auto-memory.md",
+          "summary": "3-phase plan: migrate memories, disable via settings.json, verify and document"
         }
-      ]
+      ],
+      "planned": "2026-04-12T21:35:00Z"
     },
     {
       "project_number": 42,
       "project_name": "fix_meta_researched_status",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-12T21:30:00Z",
       "last_updated": "2026-04-12T21:30:00Z",
@@ -34,8 +40,14 @@
           "type": "research_report",
           "path": "specs/042_fix_meta_researched_status/reports/01_meta-research-fix.md",
           "summary": "17 edit locations across 3 files; remove Stage 5.5, change status to not_started, remove artifact arrays"
+        },
+        {
+          "type": "plan",
+          "path": "specs/042_fix_meta_researched_status/plans/01_meta-status-fix.md",
+          "summary": "4-phase plan: remove Stage 5.5, update Stage 6, fix skill-meta and multi-task standard"
         }
-      ]
+      ],
+      "planned": "2026-04-12T21:35:00Z"
     },
     {
       "project_number": 41,
@@ -102,7 +114,7 @@
     {
       "project_number": 36,
       "project_name": "ucsf_institutional_theme_slides",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-12T19:46:50Z",
       "last_updated": "2026-04-12T19:57:36Z",
@@ -134,8 +146,14 @@
           "type": "research_report",
           "path": "specs/036_ucsf_institutional_theme_slides/reports/01_team-research.md",
           "summary": "Team synthesis: 4 integration points, resolved schema/color/font conflicts, concrete recommendations"
+        },
+        {
+          "type": "plan",
+          "path": "specs/036_ucsf_institutional_theme_slides/plans/01_ucsf-theme.md",
+          "summary": "3-phase plan: create theme JSON, register in indexes, add to /slides design question"
         }
-      ]
+      ],
+      "planned": "2026-04-12T21:35:00Z"
     },
     {
       "project_number": 35,

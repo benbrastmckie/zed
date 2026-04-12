@@ -16,19 +16,21 @@ next_project_number: 44
 
 ### 43. Disable system-wide Claude Code auto-memories and use per-repo .memory/ exclusively
 - **Effort**: 2 hours
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: meta
 - **Research**:
   - [01_auto-memory-research.md](043_disable_system_wide_auto_memories/reports/01_auto-memory-research.md)
+- **Plan**: [01_disable-auto-memory.md](043_disable_system_wide_auto_memories/plans/01_disable-auto-memory.md)
 
 **Description**: Disable system-wide Claude Code auto-memories (~/.claude/projects/) and rely exclusively on per-repo .memory/ system. Different repos require different behavior, so cross-repo memories in ~/.claude/ cause interference. Tasks: (1) Configure Claude Code settings to disable auto-memory persistence in ~/.claude/projects/, (2) Clean up or neutralize existing auto-memory files in ~/.claude/projects/ that may conflict, (3) Ensure .memory/ per-repo system is properly set up as the sole memory mechanism.
 
 ### 42. Fix /meta creating tasks at RESEARCHED status without research artifacts
 - **Effort**: 1 hour
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: meta
 - **Research**:
   - [01_meta-research-fix.md](042_fix_meta_researched_status/reports/01_meta-research-fix.md)
+- **Plan**: [01_meta-status-fix.md](042_fix_meta_researched_status/plans/01_meta-status-fix.md)
 
 **Description**: The meta-builder-agent's Stage 5.5 (GenerateResearchArtifacts) specifies creating `01_meta-research.md` files for each task, but the LLM agent skips this step at runtime — jumping from confirmation (Stage 5) directly to state updates (Stage 6). No enforcement mechanism catches the missing files, so tasks end up at [RESEARCHED] status with no actual reports. Fix: (1) Remove Stage 5.5 from meta-builder-agent.md — interview context is pre-task metadata, not a research artifact. (2) Change Stage 6 to set status `not_started` instead of `researched`. (3) Remove artifact array references from Stage 6 state.json and TODO.md templates. (4) Update skill-meta SKILL.md expected return examples to show `not_started` status. (5) Update multi-task-creation-standard.md to remove GenerateResearchArtifacts from the compliance table. Tasks from /meta should follow the normal `/research -> /plan -> /implement` lifecycle, consistent with how `/slides` handles forcing_data.
 
@@ -72,7 +74,7 @@ next_project_number: 44
 
 ### 36. Add UCSF institutional theme to slides workflow
 - **Effort**: 1 hour
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: meta
 - **Research**:
   - [01_teammate-a-findings.md](036_ucsf_institutional_theme_slides/reports/01_teammate-a-findings.md)
@@ -80,6 +82,7 @@ next_project_number: 44
   - [01_teammate-c-findings.md](036_ucsf_institutional_theme_slides/reports/01_teammate-c-findings.md)
   - [01_teammate-d-findings.md](036_ucsf_institutional_theme_slides/reports/01_teammate-d-findings.md)
   - [01_team-research.md](036_ucsf_institutional_theme_slides/reports/01_team-research.md)
+- **Plan**: [01_ucsf-theme.md](036_ucsf_institutional_theme_slides/plans/01_ucsf-theme.md)
 
 **Description**: Create a UCSF institutional Slidev theme (`ucsf-institutional.json`) extracted from `examples/test-files/UCSF_ZSFG_Template_16x9.pptx`. UCSF brand palette: navy #052049 (dark/heading), #0093D0 (primary accent blue), #16A0AC (teal), #32A03E (green), #A238BA (purple), #C32882 (pink), #6C61D0 (violet). Typography: Garamond headings, Arial body. Register theme in talk library index (`talk/index.json`), add as option E in `/slides --design` D1 question, and update any theme reference documentation so the new theme is selectable during presentation design.
 
