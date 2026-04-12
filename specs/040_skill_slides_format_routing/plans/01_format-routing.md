@@ -87,7 +87,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Update present extension manifest routing [IN PROGRESS]
+### Phase 2: Update present extension manifest routing [COMPLETED]
 
 **Goal**: Add `:assemble` suffix to the slides implement routing in the present extension manifest, matching the grant pattern.
 
@@ -109,7 +109,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Integration verification and documentation alignment [NOT STARTED]
+### Phase 3: Integration verification and documentation alignment [IN PROGRESS]
 
 **Goal**: Verify the full routing chain works end-to-end and update any documentation that references the old routing.
 
