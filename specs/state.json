@@ -1,6 +1,15 @@
 {
-  "next_project_number": 44,
+  "next_project_number": 45,
   "active_projects": [
+    {
+      "project_number": 44,
+      "project_name": "refactor_slides_agent_split",
+      "status": "not_started",
+      "task_type": "meta",
+      "description": "Refactor slides system: split slides-agent into three focused agents (slides-research-agent, pptx-assembly-agent, slidev-assembly-agent) to reduce context window usage and improve consistency. The current slides-agent.md (553 lines) combines format-agnostic research with format-specific assembly, loading all context regardless of workflow. Split research workflow (Stages 0-8) into slides-research-agent, PPTX assembly (Stages A1-A8) into pptx-assembly-agent, and create a new slidev-assembly-agent for Slidev markdown generation. Update skill-slides routing to dispatch to the correct agent based on workflow_type and output_format. Update the /slides command, context index, extensions.json, and CLAUDE.md documentation. Each agent should only load the context it needs, progressively.",
+      "created": "2026-04-12T23:54:34Z",
+      "last_updated": "2026-04-12T23:54:34Z"
+    },
     {
       "project_number": 43,
       "project_name": "disable_system_wide_auto_memories",

@@ -1,5 +1,5 @@
 ---
-next_project_number: 44
+next_project_number: 45
 ---
 
 # Task List
@@ -11,8 +11,16 @@ next_project_number: 44
 3. **39** (depends on 37 + 38)
 4. **40** (depends on 39)
 5. **41** (depends on 38 + 39 + 40)
+6. **44** (depends on 39, 40, 41 — refactors slides agent architecture)
 
 ## Tasks
+
+### 44. Refactor slides system: split slides-agent into three focused agents
+- **Effort**: 4 hours
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Split slides-agent.md (553 lines) into three focused agents to reduce context window usage and improve consistency. slides-research-agent handles format-agnostic content mapping (Stages 0-8). pptx-assembly-agent handles PPTX generation via python-pptx (Stages A1-A8). slidev-assembly-agent handles Slidev markdown generation (new). Update skill-slides routing to dispatch to the correct agent based on workflow_type and output_format. Update /slides command, context index, extensions.json, and CLAUDE.md documentation. Each agent should only load the context it needs, progressively.
 
 ### 43. Disable system-wide Claude Code auto-memories and use per-repo .memory/ exclusively
 - **Effort**: 2 hours
