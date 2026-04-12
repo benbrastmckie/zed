@@ -92,10 +92,10 @@
     {
       "project_number": 39,
       "project_name": "pptx_agent_assembly",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T22:44:28Z",
+      "last_updated": "2026-04-12T22:48:00Z",
       "session_id": "sess_1776033618_54db5d",
       "next_artifact_number": 2,
       "dependencies": [
@@ -107,6 +107,11 @@
           "path": "specs/039_pptx_agent_assembly/reports/01_pptx-assembly.md",
           "type": "research_report",
           "summary": "Research report covering slides-agent structure, PPTX generation patterns, theme mappings, slide patterns, and implementation recommendations for assemble_pptx workflow"
+        },
+        {
+          "path": "specs/039_pptx_agent_assembly/plans/01_pptx-assembly.md",
+          "type": "plan",
+          "summary": "Implementation plan for adding PPTX assembly workflow branch to slides-agent with 8 new stages"
         }
       ]
     },
