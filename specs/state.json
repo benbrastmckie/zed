@@ -1,43 +1,71 @@
 {
-  "next_project_number": 42,
+  "next_project_number": 44,
   "active_projects": [
+    {
+      "project_number": 43,
+      "project_name": "disable_system_wide_auto_memories",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-12T21:05:02Z",
+      "last_updated": "2026-04-12T21:05:02Z",
+      "next_artifact_number": 1
+    },
+    {
+      "project_number": 42,
+      "project_name": "fix_meta_researched_status",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-12T21:30:00Z",
+      "last_updated": "2026-04-12T21:30:00Z",
+      "session_id": "sess_1744444800_meta01",
+      "next_artifact_number": 1
+    },
     {
       "project_number": 41,
       "project_name": "slides_pptx_documentation",
-      "status": "researched",
+      "status": "not_started",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
       "last_updated": "2026-04-12T21:00:00Z",
       "session_id": "sess_1744444800_meta01",
       "next_artifact_number": 1,
-      "dependencies": [38, 39, 40]
+      "dependencies": [
+        38,
+        39,
+        40
+      ]
     },
     {
       "project_number": 40,
       "project_name": "skill_slides_format_routing",
-      "status": "researched",
+      "status": "not_started",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
       "last_updated": "2026-04-12T21:00:00Z",
       "session_id": "sess_1744444800_meta01",
       "next_artifact_number": 1,
-      "dependencies": [39]
+      "dependencies": [
+        39
+      ]
     },
     {
       "project_number": 39,
       "project_name": "pptx_agent_assembly",
-      "status": "researched",
+      "status": "not_started",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
       "last_updated": "2026-04-12T21:00:00Z",
       "session_id": "sess_1744444800_meta01",
       "next_artifact_number": 1,
-      "dependencies": [37, 38]
+      "dependencies": [
+        37,
+        38
+      ]
     },
     {
       "project_number": 38,
       "project_name": "pptx_context_files",
-      "status": "researched",
+      "status": "not_started",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
       "last_updated": "2026-04-12T21:00:00Z",
@@ -47,7 +75,7 @@
     {
       "project_number": 37,
       "project_name": "slides_format_selection",
-      "status": "researched",
+      "status": "not_started",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
       "last_updated": "2026-04-12T21:00:00Z",

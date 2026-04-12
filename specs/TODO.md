@@ -1,14 +1,28 @@
 ---
-next_project_number: 42
+next_project_number: 44
 ---
 
 # Task List
 
 ## Tasks
 
+### 43. Disable system-wide Claude Code auto-memories and use per-repo .memory/ exclusively
+- **Effort**: 2 hours
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Disable system-wide Claude Code auto-memories (~/.claude/projects/) and rely exclusively on per-repo .memory/ system. Different repos require different behavior, so cross-repo memories in ~/.claude/ cause interference. Tasks: (1) Configure Claude Code settings to disable auto-memory persistence in ~/.claude/projects/, (2) Clean up or neutralize existing auto-memory files in ~/.claude/projects/ that may conflict, (3) Ensure .memory/ per-repo system is properly set up as the sole memory mechanism.
+
+### 42. Fix /meta creating tasks at RESEARCHED status without research artifacts
+- **Effort**: 1 hour
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: The meta-builder-agent's Stage 5.5 (GenerateResearchArtifacts) specifies creating `01_meta-research.md` files for each task, but the LLM agent skips this step at runtime — jumping from confirmation (Stage 5) directly to state updates (Stage 6). No enforcement mechanism catches the missing files, so tasks end up at [RESEARCHED] status with no actual reports. Fix: (1) Remove Stage 5.5 from meta-builder-agent.md — interview context is pre-task metadata, not a research artifact. (2) Change Stage 6 to set status `not_started` instead of `researched`. (3) Remove artifact array references from Stage 6 state.json and TODO.md templates. (4) Update skill-meta SKILL.md expected return examples to show `not_started` status. (5) Update multi-task-creation-standard.md to remove GenerateResearchArtifacts from the compliance table. Tasks from /meta should follow the normal `/research -> /plan -> /implement` lifecycle, consistent with how `/slides` handles forcing_data.
+
 ### 41. Update talk library index and slides documentation for PowerPoint support
 - **Effort**: 1 hour
-- **Status**: [RESEARCHED]
+- **Status**: [NOT STARTED]
 - **Task Type**: meta
 - **Dependencies**: 38, 39, 40
 
@@ -16,7 +30,7 @@ next_project_number: 42
 
 ### 40. Update skill-slides for format-specific assembly routing
 - **Effort**: 1 hour
-- **Status**: [RESEARCHED]
+- **Status**: [NOT STARTED]
 - **Task Type**: meta
 - **Dependencies**: 39
 
@@ -24,7 +38,7 @@ next_project_number: 42
 
 ### 39. Add PowerPoint assembly workflow to slides-agent
 - **Effort**: 3 hours
-- **Status**: [RESEARCHED]
+- **Status**: [NOT STARTED]
 - **Task Type**: meta
 - **Dependencies**: 37, 38
 
@@ -32,14 +46,14 @@ next_project_number: 42
 
 ### 38. Create PowerPoint context files for talk library
 - **Effort**: 2 hours
-- **Status**: [RESEARCHED]
+- **Status**: [NOT STARTED]
 - **Task Type**: meta
 
 **Description**: Create `talk/templates/pptx-project/` with python-pptx generation patterns. Create PowerPoint theme mappings translating academic-clean and clinical-teal themes to PPTX master slide specs (colors, fonts, layouts). Create `talk/patterns/pptx-generation.md` documenting python-pptx API patterns for slide creation, speaker notes, figure insertion, and table formatting. These context files guide the slides-agent when assembling PowerPoint output.
 
 ### 37. Add output format selection to /slides command
 - **Effort**: 1 hour
-- **Status**: [RESEARCHED]
+- **Status**: [NOT STARTED]
 - **Task Type**: meta
 
 **Description**: Insert a new Step 0.0 in the `/slides` Stage 0 forcing questions asking the user to choose between Slidev or PowerPoint output format. Store the choice as `forcing_data.output_format` (values: `slidev` or `pptx`). Update output messages and recommended workflow text to reflect the chosen format. Slidev remains the default if the user doesn't specify.
@@ -133,7 +147,9 @@ next_project_number: 42
 
 ## Recommended Order
 
-1. **37** and **38** in parallel (foundational, no dependencies)
-2. **39** (depends on 37 + 38)
-3. **40** (depends on 39)
-4. **41** (depends on 38 + 39 + 40)
+1. **42** (independent, fixes /meta workflow)
+2. **36** (independent, UCSF theme)
+3. **37** and **38** in parallel (foundational for PPTX support)
+4. **39** (depends on 37 + 38)
+5. **40** (depends on 39)
+6. **41** (depends on 38 + 39 + 40)
