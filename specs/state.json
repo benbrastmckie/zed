@@ -64,10 +64,10 @@
     {
       "project_number": 41,
       "project_name": "slides_pptx_documentation",
-      "status": "planned",
+      "status": "completed",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T23:11:21Z",
+      "last_updated": "2026-04-12T23:13:29Z",
       "session_id": "sess_1776035180_5e2112",
       "next_artifact_number": 2,
       "dependencies": [
@@ -85,8 +85,14 @@
           "path": "specs/041_slides_pptx_documentation/plans/01_pptx-docs.md",
           "type": "plan",
           "summary": "Single-phase plan to update 3 documentation files for PowerPoint support"
+        },
+        {
+          "path": "specs/041_slides_pptx_documentation/summaries/01_pptx-docs-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for task 41 documentation updates"
         }
-      ]
+      ],
+      "completion_summary": "Updated talk/index.json, talk-structure.md, and CLAUDE.md to reflect dual-format (Slidev + PowerPoint) support, removing stale PPTX support planned references."
     },
     {
       "project_number": 40,
