@@ -96,7 +96,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Disable auto-memory in dotfiles settings [NOT STARTED]
+### Phase 2: Disable auto-memory in dotfiles settings [COMPLETED]
 
 **Goal**: Add `autoMemoryEnabled: false` to the dotfiles source for Claude Code settings and deploy via Home Manager.
 
