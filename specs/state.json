@@ -79,10 +79,10 @@
     {
       "project_number": 40,
       "project_name": "skill_slides_format_routing",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T22:57:51Z",
+      "last_updated": "2026-04-12T23:01:18Z",
       "session_id": "sess_1776034438_fdf684",
       "next_artifact_number": 2,
       "dependencies": [
@@ -93,6 +93,11 @@
           "path": "specs/040_skill_slides_format_routing/reports/01_format-routing.md",
           "type": "research_report",
           "summary": "Research report on format-specific assembly routing in skill-slides"
+        },
+        {
+          "path": "specs/040_skill_slides_format_routing/plans/01_format-routing.md",
+          "type": "plan",
+          "summary": "Implementation plan for format-aware routing in skill-slides with 3 phases across 2 waves"
         }
       ]
     },

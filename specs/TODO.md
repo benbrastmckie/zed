@@ -50,10 +50,11 @@ next_project_number: 44
 
 ### 40. Update skill-slides for format-specific assembly routing
 - **Effort**: 1 hour
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: meta
 - **Dependencies**: 39
 - **Research**: [01_format-routing.md](040_skill_slides_format_routing/reports/01_format-routing.md)
+- **Plan**: [01_format-routing.md](040_skill_slides_format_routing/plans/01_format-routing.md)
 
 **Description**: Add format-aware routing in skill-slides so the `workflow_type=assemble` step checks `forcing_data.output_format` and passes the correct variant (`assemble_slidev` or `assemble_pptx`) to the slides-agent. Update commit messages and return summaries to reflect the chosen output format. Ensure backward compatibility: if `output_format` is absent, default to Slidev.
 
