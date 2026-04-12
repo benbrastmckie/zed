@@ -261,7 +261,7 @@ Five layers provide context to agents. Each has a distinct owner and purpose.
 | Extensions | `.claude/extensions/*/context/` | Extension loader | Language-specific standards, tools, patterns |
 | Project context | `.context/` | User (via index.json) | Project conventions not covered by extensions |
 | Project memory | `.memory/` | Agents over time | Learned facts, discoveries, decisions |
-| Auto-memory | `~/.claude/projects/` | Claude Code | User preferences, behavioral corrections |
+| ~~Auto-memory~~ | `~/.claude/projects/` | ~~Claude Code~~ | **DISABLED** -- migrated to `.memory/10-Memories/` (see MEM-005) |
 
 ### Where to store new content
 
@@ -279,7 +279,7 @@ Learned fact from development (discovery, decision, pattern)?
   YES --> .memory/
 
 User preference or behavioral correction?
-  YES --> auto-memory (automatic, no action needed)
+  YES --> .memory/ (use /learn command; auto-memory is disabled)
 ```
 
 Full details: `.claude/context/architecture/context-layers.md`
