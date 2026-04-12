@@ -1,7 +1,7 @@
 # Implementation Plan: PPTX Context Files for Slides-Agent
 
 - **Task**: 38 - pptx_context_files
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 2.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/038_pptx_context_files/reports/01_pptx-context.md
@@ -64,7 +64,7 @@ No active roadmap items. The roadmap is empty (Phase 1 has no items yet).
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Pattern Document and Theme Mappings [NOT STARTED]
+### Phase 1: Pattern Document and Theme Mappings [COMPLETED]
 
 **Goal**: Create the two highest-value context files -- the pattern document that directly guides the slides-agent, and the theme mappings JSON it references.
 
@@ -88,7 +88,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Template Directory Completion [NOT STARTED]
+### Phase 2: Template Directory Completion [COMPLETED]
 
 **Goal**: Complete the pptx-project template directory with generation script skeleton and README.
 
@@ -111,7 +111,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Index Registration [NOT STARTED]
+### Phase 3: Index Registration [COMPLETED]
 
 **Goal**: Register new files in the talk library manifest so the slides-agent can discover them.
 

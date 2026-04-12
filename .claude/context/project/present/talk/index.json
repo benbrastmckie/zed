@@ -20,7 +20,8 @@
         { "name": "journal-club", "file": "journal-club.json", "mode": "JOURNAL_CLUB", "slides": 12 },
         { "name": "seminar-deep-dive", "file": "seminar-deep-dive.json", "mode": "SEMINAR", "slides": 35 },
         { "name": "defense-grant", "file": "defense-grant.json", "mode": "DEFENSE", "slides": 30 },
-        { "name": "slidev-pitfalls", "file": "slidev-pitfalls.md", "description": "Slidev implementation gotchas (footer, Mermaid, PDF export)" }
+        { "name": "slidev-pitfalls", "file": "slidev-pitfalls.md", "description": "Slidev implementation gotchas (footer, Mermaid, PDF export)" },
+        { "name": "pptx-generation", "file": "pptx-generation.md", "description": "python-pptx API patterns for PPTX slide creation, theme application, component helpers (DataTable, FigurePanel, CitationBlock, StatResult, FlowDiagram), speaker notes, and error handling" }
       ]
     },
     "animations": {
@@ -61,7 +62,8 @@
       "description": "Reusable scripts and templates for Slidev projects",
       "path": "templates/",
       "items": [
-        { "name": "playwright-verify", "file": "playwright-verify.mjs", "description": "Playwright slide verification script -- copy to scripts/verify-slides.mjs in each project" }
+        { "name": "playwright-verify", "file": "playwright-verify.mjs", "description": "Playwright slide verification script -- copy to scripts/verify-slides.mjs in each project" },
+        { "name": "pptx-project", "file": "pptx-project/", "description": "PowerPoint generation template with theme mappings and skeleton script", "files": ["theme_mappings.json", "generate_deck.py", "README.md"] }
       ]
     }
   }

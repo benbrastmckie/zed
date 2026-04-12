@@ -1,7 +1,7 @@
 # Implementation Plan: Slides Format Selection
 
 - **Task**: 37 - slides_format_selection
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 1.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/037_slides_format_selection/reports/01_format-selection.md

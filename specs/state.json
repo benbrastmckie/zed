@@ -106,11 +106,11 @@
     {
       "project_number": 38,
       "project_name": "pptx_context_files",
-      "status": "planned",
+      "status": "completed",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T22:06:02Z",
-      "session_id": "sess_1776031306_c3773c_t38",
+      "last_updated": "2026-04-12T22:37:19Z",
+      "session_id": "sess_1776033054_9e1440_t38",
       "next_artifact_number": 2,
       "artifacts": [
         {
@@ -122,17 +122,24 @@
           "path": "specs/038_pptx_context_files/plans/01_pptx-context.md",
           "type": "plan",
           "summary": "3-phase plan for creating PPTX context files that guide the slides-agent for PowerPoint output generation"
+        },
+        {
+          "path": "specs/038_pptx_context_files/summaries/01_pptx-context-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for PPTX context files creation"
         }
-      ]
+      ],
+      "completion_summary": "Created pptx-generation.md pattern document, theme_mappings.json for 3 themes, generate_deck.py skeleton, and README.md in talk/templates/pptx-project/. Updated talk/index.json with new entries.",
+      "claudemd_suggestions": "Added pptx-generation pattern and pptx-project template to talk library index.json. No CLAUDE.md changes needed -- present extension CLAUDE.md section was auto-updated to mention PowerPoint formats."
     },
     {
       "project_number": 37,
       "project_name": "slides_format_selection",
-      "status": "planned",
+      "status": "completed",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T22:05:01Z",
-      "session_id": "sess_1776031306_c3773c_t37",
+      "last_updated": "2026-04-12T22:35:18Z",
+      "session_id": "sess_1776033054_9e1440_t37",
       "next_artifact_number": 2,
       "artifacts": [
         {
@@ -144,8 +151,15 @@
           "path": "specs/037_slides_format_selection/plans/01_format-selection.md",
           "type": "plan",
           "summary": "3-phase plan to add output format selection (Slidev/PPTX) to /slides command"
+        },
+        {
+          "path": "specs/037_slides_format_selection/summaries/01_format-selection-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for slides format selection task"
         }
-      ]
+      ],
+      "completion_summary": "Added Step 0.0 output format selection (Slidev/PPTX) to /slides command with forcing_data.output_format propagation through output messages, CLAUDE.md, and slides-agent.md.",
+      "claudemd_suggestions": "Updated CLAUDE.md Present Extension description to include PowerPoint, updated Talk Library note for PPTX template support"
     },
     {
       "project_number": 36,
