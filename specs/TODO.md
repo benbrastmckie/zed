@@ -66,15 +66,17 @@ next_project_number: 44
 
 ### 38. Create PowerPoint context files for talk library
 - **Effort**: 2 hours
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_pptx-context.md](specs/038_pptx_context_files/reports/01_pptx-context.md)
 
 **Description**: Create `talk/templates/pptx-project/` with python-pptx generation patterns. Create PowerPoint theme mappings translating academic-clean and clinical-teal themes to PPTX master slide specs (colors, fonts, layouts). Create `talk/patterns/pptx-generation.md` documenting python-pptx API patterns for slide creation, speaker notes, figure insertion, and table formatting. These context files guide the slides-agent when assembling PowerPoint output.
 
 ### 37. Add output format selection to /slides command
 - **Effort**: 1 hour
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_format-selection.md](specs/037_slides_format_selection/reports/01_format-selection.md)
 
 **Description**: Insert a new Step 0.0 in the `/slides` Stage 0 forcing questions asking the user to choose between Slidev or PowerPoint output format. Store the choice as `forcing_data.output_format` (values: `slidev` or `pptx`). Update output messages and recommended workflow text to reflect the chosen format. Slidev remains the default if the user doesn't specify.
 

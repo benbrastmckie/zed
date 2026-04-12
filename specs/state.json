@@ -106,22 +106,36 @@
     {
       "project_number": 38,
       "project_name": "pptx_context_files",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T21:00:00Z",
-      "session_id": "sess_1744444800_meta01",
-      "next_artifact_number": 1
+      "last_updated": "2026-04-12T22:00:05Z",
+      "session_id": "sess_1776030728_57abd3_t38",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/038_pptx_context_files/reports/01_pptx-context.md",
+          "type": "research",
+          "summary": "Research report covering talk library structure, theme-to-PPTX mappings, python-pptx API patterns, and implementation recommendations"
+        }
+      ]
     },
     {
       "project_number": 37,
       "project_name": "slides_format_selection",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T21:00:00Z",
-      "session_id": "sess_1744444800_meta01",
-      "next_artifact_number": 1
+      "last_updated": "2026-04-12T21:57:22Z",
+      "session_id": "sess_1776030728_57abd3_t37",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/037_slides_format_selection/reports/01_format-selection.md",
+          "type": "research",
+          "summary": "Research report covering current /slides Stage 0 structure, forcing_data flow through skill/agent pipeline, 7 Slidev references across 4 files needing updates, and recommended Step 0.0 question format"
+        }
+      ]
     },
     {
       "project_number": 36,
