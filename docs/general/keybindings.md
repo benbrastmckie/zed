@@ -4,8 +4,6 @@ This guide assumes macOS. The Cmd key is used where other platforms use Ctrl.
 
 A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked with \* are custom (defined in `keymap.json`); everything else is a Zed default.
 
-> **Printable version**: See [keybindings-cheat-sheet.typ](keybindings-cheat-sheet.typ) for a two-page landscape PDF cheat sheet (Linux notation, organized from essential to specialized).
-
 ## Quick Reference
 
 | Shortcut             | What it does                                   |
@@ -22,18 +20,17 @@ A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked
 | Cmd+W                | Close the current tab                          |
 | Cmd+Tab              | Switch to the next tab                         |
 | Cmd+`                | Open or close the terminal                     |
-| Ctrl+O \*            | Jump back (like vim Ctrl+O)                     |
-| Ctrl+I \*            | Jump forward (like vim Ctrl+I)                  |
-| Alt+V \*             | Toggle vim mode on/off                          |
-| Ctrl+Shift+A \*      | Launch Claude Code CLI (primary AI interface)   |
-| Ctrl+? \*            | Toggle the right sidebar (agent panel)          |
-| Ctrl+Shift+E \*      | Toggle the left sidebar (file explorer)         |
+| Ctrl+O \*            | Jump back (like vim Ctrl+O)                    |
+| Ctrl+I \*            | Jump forward (like vim Ctrl+I)                 |
+| Alt+V \*             | Toggle vim mode on/off                         |
+| Ctrl+Shift+A \*      | Launch Claude Code CLI (primary AI interface)  |
+| Ctrl+? \*            | Toggle the right sidebar (agent panel)         |
 | Cmd+B                | Show or hide the left sidebar                  |
 | Cmd+Shift+C \*       | Copy full path of the active file to clipboard |
 | Alt+J \*             | Move the current line down                     |
 | Alt+K \*             | Move the current line up                       |
-| Alt+Shift+P \*       | Preview current Slidev file in browser           |
-| Alt+Shift+E \*       | Export current Slidev file to PDF                |
+| Alt+Shift+E \*       | Build PDF (Typst compile or Slidev export)     |
+| Alt+Shift+P \*       | Preview in browser (Typst PDF or Slidev dev)   |
 
 ## How do I open a file?
 
@@ -49,7 +46,7 @@ A practical guide to the most useful keyboard shortcuts in Zed. Shortcuts marked
 
 - **Cmd+Tab** moves to the next tab
 - **Cmd+Shift+Tab** moves to the previous tab
-- **Cmd+W** closes the current tab
+- **Ctrl+Q** \* closes the current tab
 - **Cmd+Shift+T** reopens the last closed tab
 
 If you have split panes (two files side by side), use these custom shortcuts to move between them:
@@ -169,12 +166,12 @@ Debug ACP communication via the command palette: search for `dev: open acp logs`
 
 The keybinding is configured in `keymap.json` using `task::Spawn` with `task_name: "Claude Code"`, and works from both Workspace and Terminal contexts. The terminal opens in the dock panel (position controlled by `terminal.dock` in `settings.json`).
 
-## How do I work with Slidev presentations?
+## How do I build or preview Typst / Slidev files?
 
-With a Slidev markdown file open:
+Two keybindings work for both Typst (`.typ`) and Slidev (`.md`) files -- they detect the file extension and dispatch automatically:
 
-- **Alt+Shift+P** \* -- Launch the Slidev dev server and open the presentation in your browser. The terminal stays running; press Ctrl+C in it to stop the server.
-- **Alt+Shift+E** \* -- Export the presentation to PDF. The PDF is written next to the source file (e.g. `slides-export.pdf`). Requires Playwright (Chromium is downloaded automatically on first use).
+- **Alt+Shift+E** \* -- **Build PDF**. For `.typ` files, runs `typst compile`. For Slidev `.md` files, exports to PDF via Playwright (Chromium is downloaded automatically on first use).
+- **Alt+Shift+P** \* -- **Preview in browser**. For `.typ` files, opens the compiled PDF with `xdg-open` (compiles first if needed). For Slidev `.md` files, launches the dev server and opens the presentation in your browser; press Ctrl+C in the terminal to stop.
 
 ## How do I use the terminal?
 

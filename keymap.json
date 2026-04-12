@@ -2,10 +2,11 @@
   // =====================================================
   // CUSTOM BINDINGS (Scheme A -- Minimal)
   // =====================================================
-  // 12 unique custom bindings (16 entries; pane-nav and jump-list
-  // are declared in both Workspace and Editor contexts to defeat
-  // Zed's default Editor-context shadowing, and Claude Code
-  // launcher is bound in both Workspace and Terminal contexts):
+  // 13 unique custom bindings (18 entries; pane-nav, jump-list,
+  // and close-tab are declared in both Workspace and Editor
+  // contexts to defeat Zed's default Editor-context shadowing,
+  // and Claude Code launcher is bound in both Workspace and
+  // Terminal contexts):
   //   - 2 pane navigation (Ctrl+H, Ctrl+L), Workspace + Editor
   //   - 2 jump list (Ctrl+O, Ctrl+I), Workspace + Editor
   //   - 1 vim toggle (Alt+V), Workspace
@@ -13,8 +14,9 @@
   //   - 1 dock toggle (Ctrl+?)
   //   - 1 Claude Code launcher (Ctrl+Shift+A, Workspace + Terminal)
   //   - 1 copy path utility (Ctrl+Shift+C)
-  //   - 1 Slidev preview (Alt+Shift+P)
-  //   - 1 Slidev PDF export (Alt+Shift+E)
+  //   - 1 close tab (Ctrl+Q)
+  //   - 1 build PDF (Alt+Shift+E) -- Typst/Slidev dispatcher
+  //   - 1 preview in browser (Alt+Shift+P) -- Typst/Slidev dispatcher
   //
   // All custom bindings intentionally use Ctrl+ (not Cmd+) on
   // macOS so they do not collide with Zed's built-in Cmd+
@@ -32,6 +34,7 @@
       "ctrl-?": "workspace::ToggleRightDock",
       "ctrl-shift-e": "workspace::ToggleLeftDock",
       "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }],
+      "ctrl-q": "pane::CloseActiveItem",
       "ctrl-o": "pane::GoBack",
       "ctrl-i": "pane::GoForward",
       "alt-v": "workspace::ToggleVimMode"
@@ -58,13 +61,14 @@
     "bindings": {
       "alt-j": "editor::MoveLineDown",
       "alt-k": "editor::MoveLineUp",
+      "ctrl-q": "pane::CloseActiveItem",
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-o": "pane::GoBack",
       "ctrl-i": "pane::GoForward",
       "ctrl-shift-c": "workspace::CopyPath",
-      "alt-shift-p": ["task::Spawn", { "task_name": "Slidev Preview" }],
-      "alt-shift-e": ["task::Spawn", { "task_name": "Slidev Export PDF" }],
+      "alt-shift-e": ["task::Spawn", { "task_name": "Build PDF" }],
+      "alt-shift-p": ["task::Spawn", { "task_name": "Preview in Browser" }],
       "ctrl-enter": "editor::OpenFile"
     }
   },
@@ -143,9 +147,9 @@
   // --- Navigation ---
   // Ctrl+Enter        Open file under cursor (custom; see Editor bindings)
   //
-  // --- Slidev ---
-  // Alt+Shift+P         Slidev Preview (custom; see Editor bindings)
-  // Alt+Shift+E         Slidev Export PDF (custom; see Editor bindings)
+  // --- Build / Preview (Typst + Slidev) ---
+  // Alt+Shift+E         Build PDF (custom; dispatches by file extension)
+  // Alt+Shift+P         Preview in Browser (custom; dispatches by file extension)
   //
   // --- Mode ---
   // Alt+V             Toggle vim mode (custom)

@@ -12,28 +12,28 @@
     "reveal_target": "dock"
   },
   {
-    // Launch Slidev dev server for the current markdown file and open in browser.
+    // Build PDF from the current file (Typst or Slidev).
+    // Dispatches by file extension: .typ -> typst compile, .md -> slidev export.
+    // Bound to Alt+Shift+E in keymap.json.
+    "label": "Build PDF",
+    "command": ".zed/scripts/build-pdf.sh \"$ZED_FILE\"",
+    "args": [],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "never",
+    "reveal_target": "dock",
+    "hide": "always"
+  },
+  {
+    // Preview the current file (Typst or Slidev) in browser.
+    // Dispatches by file extension: .typ -> xdg-open PDF, .md -> slidev dev server.
     // Bound to Alt+Shift+P in keymap.json.
-    // Uses npx to resolve the project-local @slidev/cli, avoiding version
-    // mismatch with any globally installed slidev binary.
-    "label": "Slidev Preview",
-    "command": "npx",
-    "args": ["@slidev/cli", "--open", "$ZED_FILE"],
+    "label": "Preview in Browser",
+    "command": ".zed/scripts/preview.sh \"$ZED_FILE\"",
+    "args": [],
     "use_new_terminal": true,
     "allow_concurrent_runs": false,
     "reveal": "always",
     "reveal_target": "dock"
-  },
-  {
-    // Export the current Slidev markdown file to PDF.
-    // Requires Playwright; Chromium is downloaded automatically on first use.
-    // Bound to Alt+Shift+E in keymap.json.
-    // Runs silently; notifies on success, writes errors to /tmp log on failure.
-    "label": "Slidev Export PDF",
-    "command": ".zed/scripts/slidev-export.sh",
-    "args": ["$ZED_FILE"],
-    "use_new_terminal": false,
-    "allow_concurrent_runs": false,
-    "reveal": "never"
   }
 ]
