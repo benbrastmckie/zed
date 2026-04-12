@@ -1,10 +1,17 @@
 ---
-next_project_number: 36
+next_project_number: 37
 ---
 
 # Task List
 
 ## Tasks
+
+### 36. Add UCSF institutional theme to slides workflow
+- **Effort**: 1 hour
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Create a UCSF institutional Slidev theme (`ucsf-institutional.json`) extracted from `examples/test-files/UCSF_ZSFG_Template_16x9.pptx`. UCSF brand palette: navy #052049 (dark/heading), #0093D0 (primary accent blue), #16A0AC (teal), #32A03E (green), #A238BA (purple), #C32882 (pink), #6C61D0 (violet). Typography: Garamond headings, Arial body. Register theme in talk library index (`talk/index.json`), add as option E in `/slides --design` D1 question, and update any theme reference documentation so the new theme is selectable during presentation design.
 
 ### 35. Create Zed keybindings cheat sheet in Typst
 - **Effort**: 2 hours
