@@ -1,7 +1,7 @@
 # Implementation Plan: Add PPTX Assembly Workflow to slides-agent
 
 - **Task**: 39 - Add PowerPoint assembly workflow to slides-agent
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 3 hours
 - **Dependencies**: 37 (completed), 38 (completed)
 - **Research Inputs**: specs/039_pptx_agent_assembly/reports/01_pptx-assembly.md

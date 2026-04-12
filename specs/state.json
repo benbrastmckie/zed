@@ -92,10 +92,10 @@
     {
       "project_number": 39,
       "project_name": "pptx_agent_assembly",
-      "status": "planned",
+      "status": "completed",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T22:48:00Z",
+      "last_updated": "2026-04-12T22:53:29Z",
       "session_id": "sess_1776033618_54db5d",
       "next_artifact_number": 2,
       "dependencies": [
@@ -112,8 +112,14 @@
           "path": "specs/039_pptx_agent_assembly/plans/01_pptx-assembly.md",
           "type": "plan",
           "summary": "Implementation plan for adding PPTX assembly workflow branch to slides-agent with 8 new stages"
+        },
+        {
+          "path": "specs/039_pptx_agent_assembly/summaries/01_pptx-assembly-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for PPTX assembly workflow addition to slides-agent"
         }
-      ]
+      ],
+      "completion_summary": "Added assemble_pptx workflow branch (Stages A1-A8) to slides-agent.md with conditional routing, PPTX context references, assembly-specific error handling, and slide type reference table."
     },
     {
       "project_number": 38,

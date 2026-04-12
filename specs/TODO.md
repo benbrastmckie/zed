@@ -58,11 +58,14 @@ next_project_number: 44
 
 ### 39. Add PowerPoint assembly workflow to slides-agent
 - **Effort**: 3 hours
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
+- **Completed**: 2026-04-12
+- **Summary**: Added assemble_pptx workflow branch (Stages A1-A8) to slides-agent.md with conditional routing, PPTX context references, assembly-specific error handling, and slide type reference table.
 - **Task Type**: meta
 - **Dependencies**: 37, 38
 - **Research**: [01_pptx-assembly.md](039_pptx_agent_assembly/reports/01_pptx-assembly.md)
 - **Plan**: [01_pptx-assembly.md](039_pptx_agent_assembly/plans/01_pptx-assembly.md)
+- **Summary**: [01_pptx-assembly-summary.md](039_pptx_agent_assembly/summaries/01_pptx-assembly-summary.md)
 
 **Description**: Add an `assemble_pptx` workflow branch in slides-agent that generates a `.pptx` file from the slide-mapped research report using python-pptx. Reuse existing slide pattern JSON files (conference-standard.json etc.) since slide structure is format-agnostic. Map themes (academic-clean, clinical-teal) to PPTX master slide formatting. Handle figures, tables, and speaker notes. The agent should produce a complete, buildable .pptx file in the task's output directory.
 
