@@ -106,34 +106,44 @@
     {
       "project_number": 38,
       "project_name": "pptx_context_files",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T22:00:05Z",
-      "session_id": "sess_1776030728_57abd3_t38",
+      "last_updated": "2026-04-12T22:06:02Z",
+      "session_id": "sess_1776031306_c3773c_t38",
       "next_artifact_number": 2,
       "artifacts": [
         {
           "path": "specs/038_pptx_context_files/reports/01_pptx-context.md",
           "type": "research",
           "summary": "Research report covering talk library structure, theme-to-PPTX mappings, python-pptx API patterns, and implementation recommendations"
+        },
+        {
+          "path": "specs/038_pptx_context_files/plans/01_pptx-context.md",
+          "type": "plan",
+          "summary": "3-phase plan for creating PPTX context files that guide the slides-agent for PowerPoint output generation"
         }
       ]
     },
     {
       "project_number": 37,
       "project_name": "slides_format_selection",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-12T21:00:00Z",
-      "last_updated": "2026-04-12T21:57:22Z",
-      "session_id": "sess_1776030728_57abd3_t37",
+      "last_updated": "2026-04-12T22:05:01Z",
+      "session_id": "sess_1776031306_c3773c_t37",
       "next_artifact_number": 2,
       "artifacts": [
         {
           "path": "specs/037_slides_format_selection/reports/01_format-selection.md",
           "type": "research",
           "summary": "Research report covering current /slides Stage 0 structure, forcing_data flow through skill/agent pipeline, 7 Slidev references across 4 files needing updates, and recommended Step 0.0 question format"
+        },
+        {
+          "path": "specs/037_slides_format_selection/plans/01_format-selection.md",
+          "type": "plan",
+          "summary": "3-phase plan to add output format selection (Slidev/PPTX) to /slides command"
         }
       ]
     },
