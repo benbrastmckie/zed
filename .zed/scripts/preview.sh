@@ -1,25 +1,33 @@
 #!/usr/bin/env bash
-# Open a preview for the current file based on extension.
-#   .typ  -> open compiled PDF with xdg-open
-#   .md   -> launch Slidev dev server with --open
+# Live preview for the current file in the browser.
+#   .typ  -> tinymist preview (live reload web server)
+#   .md   -> slidev dev server
 set -euo pipefail
+
+# Cross-platform notification
+notify() {
+  case "$(uname -s)" in
+    Darwin) osascript -e "display notification \"$1\" with title \"Preview\"" ;;
+    *)      notify-send "Preview" "$1" -t 2000 ;;
+  esac
+}
 
 file="$1"
 ext="${file##*.}"
 
 case "$ext" in
   typ)
-    pdf="${file%.typ}.pdf"
-    if [[ ! -f "$pdf" ]]; then
-      typst compile "$file"
-    fi
-    xdg-open "$pdf"
+    notify "Starting typst preview…"
+    exec tinymist preview --open "$file"
     ;;
   md)
-    exec npx @slidev/cli --open "$file"
+    dir="$(dirname "$file")"
+    notify "Starting slidev dev server…"
+    cd "$dir"
+    exec pnpm dev
     ;;
   *)
-    notify-send "Preview" "Unsupported file type: .$ext" -i dialog-error
+    echo "Unsupported file type: .$ext" >&2
     exit 1
     ;;
 esac

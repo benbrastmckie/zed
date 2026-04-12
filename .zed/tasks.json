@@ -25,15 +25,15 @@
     "hide": "always"
   },
   {
-    // Preview the current file (Typst or Slidev) in browser.
-    // Dispatches by file extension: .typ -> xdg-open PDF, .md -> slidev dev server.
+    // Live preview in browser (long-running server).
+    // Dispatches by file extension: .typ -> tinymist preview, .md -> slidev dev.
     // Bound to Alt+Shift+P in keymap.json.
     "label": "Preview in Browser",
     "command": ".zed/scripts/preview.sh \"$ZED_FILE\"",
     "args": [],
     "use_new_terminal": true,
     "allow_concurrent_runs": false,
-    "reveal": "always",
+    "reveal": "never",
     "reveal_target": "dock"
   }
 ]
