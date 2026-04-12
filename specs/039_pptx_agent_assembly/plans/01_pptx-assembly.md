@@ -92,7 +92,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Define PPTX Assembly Stages (A1-A8) [NOT STARTED]
+### Phase 2: Define PPTX Assembly Stages (A1-A8) [COMPLETED]
 
 **Goal**: Write the complete PPTX assembly workflow as new stages in slides-agent.md.
 

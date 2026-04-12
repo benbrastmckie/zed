@@ -292,6 +292,170 @@ Talk research completed for task {N}:
 - Metadata written for skill postflight
 ```
 
+---
+
+## PPTX Assembly Workflow (Stages A1-A8)
+
+*The following stages execute when `workflow_type == "assemble"` and `output_format == "pptx"`. Load `pptx-generation.md` and `theme_mappings.json` before starting.*
+
+### Stage A1: Read Slide-Mapped Research Report
+
+Find the most recent slide-mapped research report in `specs/{NNN}_{SLUG}/reports/`:
+
+```bash
+ls -t specs/{NNN}_{SLUG}/reports/*slides-research*.md | head -1
+```
+
+Parse the report into per-slide data by extracting `### Slide {position}: {type}` sections. For each slide section, extract:
+
+- **Position**: Integer from the heading (`### Slide 3: methods` -> position=3)
+- **Type**: Slide type from the heading (`### Slide 3: methods` -> type="methods")
+- **Status**: Value after `**Status**:` line (mapped, needs-input, optional-skip)
+- **Content**: All text between `**Content**:` and the next `**Speaker Notes**:` marker
+- **Speaker Notes**: All text after `**Speaker Notes**:` until the next slide heading or end of section
+
+Skip slides with status `optional-skip`. Flag slides with status `needs-input` for placeholder content.
+
+If no research report is found, write failed metadata with message: "No slide-mapped research report found. Run /slides {N} first to create one."
+
+### Stage A2: Resolve Design Decisions
+
+Determine theme and talk configuration:
+
+1. **Theme**: Check `design_decisions.theme` in state.json task metadata. If not set, read "Recommended Theme" from the research report. If neither available, default to `academic-clean`.
+2. **Talk type**: Read from `forcing_data.talk_type`. Used for slide count and structure validation.
+
+Valid themes: `academic-clean`, `clinical-teal`, `ucsf-institutional`.
+
+### Stage A3: Map Slide Types to PPTX Components
+
+For each parsed slide, determine the PPTX component function from `pptx-generation.md`:
+
+| Slide Type (from report) | PPTX Component | Content Strategy |
+|---------------------------|----------------|------------------|
+| `title` | Title slide with subtitle textbox | Authors, affiliations, date |
+| `motivation` | Bullet content slide | Clinical/scientific question |
+| `background` | Bullet content slide | Literature context with citations |
+| `objectives` | Numbered bullet slide | Specific aims |
+| `methods` | Bullet or flow diagram slide | Study design (use flow if content mentions "steps", "workflow", "pipeline") |
+| `results-primary` | Figure, table, stat, or content slide | Main finding (detect content type from keywords) |
+| `results-secondary` | Figure, table, or content slide | Secondary outcomes |
+| `results-additional` | Figure, table, or content slide | Additional analyses |
+| `discussion` | Bullet content slide | Interpretation with citations |
+| `limitations` | Bullet content slide | Study limitations |
+| `conclusions` | Bullet content slide | Key takeaways |
+| `acknowledgments` | Bullet content slide | Funding, collaborators |
+
+**Content type detection for results slides**: Scan the content block for indicators:
+- Table: Content contains markdown table syntax (`|---|`) or "Table" keyword
+- Figure: Content references image files (`.png`, `.jpg`, `.svg`) or "Figure" keyword
+- Stat: Content contains statistical results (p-values, confidence intervals, OR/RR/HR)
+- Default: Bullet content slide if no specific type detected
+
+Build a structured list of slide data dicts for script generation:
+```python
+# Example slide data structure
+slides = [
+    {"type": "title", "title": "...", "subtitle": "...", "authors": "...", "date": "...", "notes": "..."},
+    {"type": "content", "title": "...", "bullets": ["..."], "notes": "..."},
+    {"type": "table", "title": "...", "headers": [...], "rows": [...], "notes": "..."},
+    {"type": "figure", "title": "...", "image_path": "...", "caption": "...", "notes": "..."},
+]
+```
+
+### Stage A4: Generate Python Assembly Script
+
+1. Create output directory:
+   ```bash
+   mkdir -p "talks/{N}_{slug}"
+   ```
+
+2. Copy `theme_mappings.json` from templates to output directory:
+   ```bash
+   cp .claude/context/project/present/talk/templates/pptx-project/theme_mappings.json "talks/{N}_{slug}/"
+   ```
+
+3. Generate `talks/{N}_{slug}/generate_deck.py` containing:
+   - All necessary imports from pptx-generation.md
+   - Helper functions: `hex_to_rgb()`, `add_blank_slide()`, `add_titled_slide()`, `safe_add_picture()`, `add_pptx_table()`, `add_pptx_table_paginated()`, `add_pptx_figure()`, `add_pptx_citation()`, `add_pptx_stat_result()`, `add_pptx_flow_diagram()`
+   - Slide data hardcoded as Python data structures from Stage A3
+   - `build_deck()` function that iterates slides and dispatches to component functions
+   - CLI argument parsing: `--theme` (default from Stage A2), `--output` (default `{slug}.pptx`)
+   - Speaker notes added to each slide via `slide.notes_slide.notes_text_frame`
+
+4. The script must be self-contained and executable with only `python-pptx` as a dependency.
+
+### Stage A5: Execute Assembly Script
+
+1. Check python-pptx is installed:
+   ```bash
+   pip show python-pptx 2>/dev/null || pip install python-pptx
+   ```
+
+2. Run the script:
+   ```bash
+   cd "talks/{N}_{slug}" && python generate_deck.py --theme {theme} --output {slug}.pptx
+   ```
+
+3. Capture stdout and stderr for error reporting.
+
+### Stage A6: Verify Output and Handle Errors
+
+1. Check that `talks/{N}_{slug}/{slug}.pptx` exists
+2. Report file size:
+   ```bash
+   ls -lh "talks/{N}_{slug}/{slug}.pptx"
+   ```
+3. If script failed:
+   - Log the error (stderr)
+   - Attempt to fix common issues (missing imports, syntax errors) and retry once
+   - If retry fails, write `partial` status to metadata with error details
+
+### Stage A7: Write Final Metadata
+
+Write to `specs/{NNN}_{SLUG}/.return-meta.json`:
+
+```json
+{
+  "status": "assembled",
+  "artifacts": [
+    {
+      "type": "presentation",
+      "path": "talks/{N}_{slug}/{slug}.pptx",
+      "summary": "PPTX presentation ({slide_count} slides, {theme} theme)"
+    },
+    {
+      "type": "script",
+      "path": "talks/{N}_{slug}/generate_deck.py",
+      "summary": "Reproducible assembly script"
+    }
+  ],
+  "metadata": {
+    "session_id": "{from delegation context}",
+    "agent_type": "slides-agent",
+    "workflow_type": "assemble_pptx",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "slides", "skill-slides", "slides-agent"],
+    "slide_count": N,
+    "theme": "{theme_name}",
+    "output_path": "talks/{N}_{slug}/{slug}.pptx"
+  }
+}
+```
+
+### Stage A8: Return Brief Text Summary
+
+**CRITICAL**: Return a brief text summary (3-6 bullet points), NOT JSON.
+
+```
+PPTX assembly completed for task {N}:
+- Generated {slide_count}-slide presentation using {theme} theme
+- Output: talks/{N}_{slug}/{slug}.pptx ({file_size})
+- Assembly script: talks/{N}_{slug}/generate_deck.py (reproducible)
+- Slide types: {type_summary}
+- Metadata written for skill postflight
+```
+
 ## Error Handling
 
 ### Source Material Not Found
