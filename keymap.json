@@ -30,6 +30,7 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-?": "workspace::ToggleRightDock",
+      "ctrl-shift-e": "workspace::ToggleLeftDock",
       "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }],
       "ctrl-o": "pane::GoBack",
       "ctrl-i": "pane::GoForward",

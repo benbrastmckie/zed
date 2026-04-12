@@ -4,11 +4,11 @@
     {
       "project_number": 35,
       "project_name": "zed_keybindings_cheat_sheet",
-      "status": "planned",
+      "status": "completed",
       "task_type": "typst",
       "created": "2026-04-12T01:17:35Z",
-      "last_updated": "2026-04-12T05:45:21Z",
-      "session_id": "sess_1775972536_e1d4ba",
+      "last_updated": "2026-04-12T05:55:38Z",
+      "session_id": "sess_1775972945_f3ab44",
       "researched": "2026-04-12T01:23:54Z",
       "next_artifact_number": 2,
       "artifacts": [
@@ -16,8 +16,14 @@
           "path": "specs/035_zed_keybindings_cheat_sheet/plans/01_keybindings-cheat-sheet.md",
           "type": "plan",
           "summary": "3-phase implementation plan for Typst keybindings cheat sheet"
+        },
+        {
+          "path": "specs/035_zed_keybindings_cheat_sheet/summaries/01_keybindings-cheat-sheet-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for Typst cheat sheet"
         }
-      ]
+      ],
+      "completion_summary": "Created two-page landscape A4 Typst cheat sheet at docs/general/keybindings-cheat-sheet.typ with 57 curated Zed keybindings organized from essential to specialized, hand-rolled key chip styling, and Linux-native Ctrl notation. Updated keybindings.md with cross-reference."
     },
     {
       "project_number": 34,

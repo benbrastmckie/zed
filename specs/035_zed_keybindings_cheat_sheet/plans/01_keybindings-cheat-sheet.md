@@ -1,7 +1,7 @@
 # Implementation Plan: Zed Keybindings Cheat Sheet
 
 - **Task**: 35 - Zed Keybindings Cheat Sheet
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 2.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/035_zed_keybindings_cheat_sheet/reports/01_team-research.md
