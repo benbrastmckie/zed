@@ -82,7 +82,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Update Output Messages in slides.md [NOT STARTED]
+### Phase 2: Update Output Messages in slides.md [COMPLETED]
 
 **Goal**: Make all Slidev-specific output text conditional on the chosen format.
 

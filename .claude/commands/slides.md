@@ -11,7 +11,7 @@ Research presentation creation command with material synthesis and task system i
 
 ## Overview
 
-This command initiates research talk creation through structured material gathering. It asks essential questions BEFORE creating the task, storing gathered data in task metadata. After task creation, the user runs `/research`, `/plan`, and `/implement` to complete the workflow. The command focuses on collecting source materials and presentation context for synthesis into Slidev-based research talks.
+This command initiates research talk creation through structured material gathering. It asks essential questions BEFORE creating the task, storing gathered data in task metadata. After task creation, the user runs `/research`, `/plan`, and `/implement` to complete the workflow. The command focuses on collecting source materials and presentation context for synthesis into research talks. Output format is user-selectable: Slidev (default) or PowerPoint (PPTX).
 
 ## Syntax
 
@@ -252,12 +252,13 @@ Talk task #{N} created: {TITLE}
 Status: [NOT STARTED]
 Language: present
 Talk Type: {talk_type}
+Output Format: {output_format}
 Artifacts path: specs/{NNN}_{SLUG}/ (created on first artifact)
 
 Recommended workflow:
 1. /research {N} - Synthesize source materials into slide-mapped report
 2. /plan {N} - Create implementation plan
-3. /implement {N} - Generate Slidev presentation to talks/{N}_{slug}/
+3. /implement {N} - Generate {output_format} presentation to talks/{N}_{slug}/
 ```
 
 ---
@@ -442,7 +443,7 @@ Tasks with language="present" and task_type="slides" route through core commands
 |---------|-----------|---------|
 | `/research N` | skill-slides | Synthesize materials into slide-mapped report |
 | `/plan N` | skill-planner | Create implementation plan |
-| `/implement N` | skill-slides (assemble) | Generate Slidev presentation |
+| `/implement N` | skill-slides (assemble) | Generate presentation (Slidev or PPTX per output_format) |
 
 ---
 
@@ -471,11 +472,12 @@ Talk task #{N} created: {TITLE}
 Status: [NOT STARTED]
 Language: present
 Talk Type: {talk_type}
+Output Format: {output_format}
 
 Recommended workflow:
 1. /research {N} - Synthesize source materials
 2. /plan {N} - Create implementation plan
-3. /implement {N} - Generate Slidev presentation
+3. /implement {N} - Generate {output_format} presentation
 ```
 
 ### Research Success
