@@ -1,7 +1,7 @@
 # Implementation Plan: Add PPTX Assembly Workflow to slides-agent
 
 - **Task**: 39 - Add PowerPoint assembly workflow to slides-agent
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 3 hours
 - **Dependencies**: 37 (completed), 38 (completed)
 - **Research Inputs**: specs/039_pptx_agent_assembly/reports/01_pptx-assembly.md
@@ -62,7 +62,7 @@ No ROADMAP.md items defined yet. This task advances the present extension's PPTX
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Add Workflow Branching and Context References [NOT STARTED]
+### Phase 1: Add Workflow Branching and Context References [COMPLETED]
 
 **Goal**: Insert conditional branching after Stage 1b and add PPTX-specific context references to the agent definition.
 

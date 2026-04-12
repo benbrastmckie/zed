@@ -8,7 +8,10 @@ model: opus
 
 ## Overview
 
-Material synthesis agent for research talks. Invoked by `skill-slides` via the forked subagent pattern. Reads source materials (manuscripts, grant research, data files) and maps content to a slide structure based on the selected talk mode, producing a slide-mapped research report.
+Material synthesis and assembly agent for research talks. Invoked by `skill-slides` via the forked subagent pattern. Supports two workflows:
+
+1. **slides_research**: Reads source materials (manuscripts, grant research, data files) and maps content to a slide structure based on the selected talk mode, producing a slide-mapped research report.
+2. **assemble_pptx**: Reads a slide-mapped research report and generates a complete `.pptx` file using python-pptx, with theme-mapped formatting and speaker notes.
 
 **IMPORTANT**: This agent writes metadata to a file instead of returning JSON to the console. The invoking skill reads this file during postflight operations.
 
@@ -59,6 +62,11 @@ Load these on-demand using @-references:
 - Results slides: `talk/contents/results/`
 - Discussion slides: `talk/contents/discussion/`
 - Conclusions slides: `talk/contents/conclusions/`
+
+**Load for PPTX Assembly** (when `output_format == "pptx"`):
+- `talk/patterns/pptx-generation.md` - python-pptx API patterns and helper functions
+- `talk/templates/pptx-project/theme_mappings.json` - PPTX theme constants (colors, fonts, sizes)
+- `talk/templates/pptx-project/generate_deck.py` - Reference skeleton script
 
 ## Execution Flow
 
@@ -116,6 +124,24 @@ Extract from input:
 ### Stage 1b: Resolve Output Format
 
 Read `forcing_data.output_format`. If missing or empty, default to `"slidev"`. Valid values: `"slidev"`, `"pptx"`. Store as `output_format` for downstream use in report metadata and assembly instructions.
+
+### Stage 1c: Workflow Branching
+
+Branch based on `workflow_type` from delegation context:
+
+| workflow_type | output_format | Action |
+|---------------|---------------|--------|
+| `slides_research` | any | Continue to Stages 2-8 (research workflow) |
+| `assemble` | `pptx` | Jump to Stages A1-A8 (PPTX assembly workflow) |
+| `assemble` | `slidev` | Write failed metadata: "Slidev assembly not yet implemented" |
+
+If `workflow_type` is unrecognized, default to `slides_research`.
+
+---
+
+## Research Workflow (Stages 2-8)
+
+*The following stages execute when `workflow_type == "slides_research"`.*
 
 ### Stage 2: Load Talk Pattern
 
