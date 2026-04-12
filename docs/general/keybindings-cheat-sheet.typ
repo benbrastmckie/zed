@@ -119,4 +119,115 @@
 // PAGE 1 -- Everyday Use
 // ====================================================================
 
-// Content will be populated in Phase 2
+#section("Essentials", clr-essentials)
+
+#shortcut(key-combo("Ctrl", "P"),          [Open file by name])
+#shortcut(key-combo("Ctrl", "S"),          [Save file])
+#shortcut(key-combo("Ctrl", "Z"),          [Undo])
+#shortcut(key-combo("Ctrl", "Shift", "Z"), [Redo])
+#shortcut(key-combo("Ctrl", "C"),          [Copy])
+#shortcut(key-combo("Ctrl", "X"),          [Cut])
+#shortcut(key-combo("Ctrl", "V"),          [Paste])
+#shortcut(key-combo("Ctrl", "W"),          [Close tab])
+#shortcut(key-combo("Ctrl", "Shift", "P"), [Command palette])
+#shortcut(key-combo("Ctrl", ","),          [Open settings])
+
+#section("Navigation", clr-navigation)
+
+#shortcut(key-combo("Ctrl", "G"),              [Go to line])
+#shortcut(key-combo("F12"),                    [Go to definition])
+#shortcut(key-combo("Ctrl", "O"),              [Jump back], custom: true)
+#shortcut(key-combo("Ctrl", "I"),              [Jump forward], custom: true)
+#shortcut(key-combo("Alt", "Left"),            [Go back])
+#shortcut(key-combo("Alt", "Right"),           [Go forward])
+#shortcut(key-combo("Ctrl", "Tab"),            [Next tab])
+#shortcut(key-combo("Ctrl", "Shift", "Tab"),   [Previous tab])
+#shortcut(key-combo("Ctrl", "Shift", "T"),     [Reopen closed tab])
+#shortcut(key-combo("Ctrl", "Enter"),          [Open file under cursor], custom: true)
+
+#section("Editing", clr-editing)
+
+#shortcut(key-combo("Ctrl", "A"),              [Select all])
+#shortcut(key-combo("Ctrl", "D"),              [Select next occurrence])
+#shortcut(key-combo("Ctrl", "/"),              [Toggle comment])
+#shortcut(key-combo("Ctrl", "Shift", "K"),     [Delete line])
+#shortcut(key-combo("Alt", "K"),               [Move line up], custom: true)
+#shortcut(key-combo("Alt", "J"),               [Move line down], custom: true)
+#shortcut(key-combo("Ctrl", "]"),              [Indent])
+#shortcut(key-combo("Ctrl", "["),              [Outdent])
+
+#section("Search & Replace", clr-search)
+
+#shortcut(key-combo("Ctrl", "F"),              [Find in file])
+#shortcut(key-combo("Ctrl", "Shift", "F"),     [Search all files])
+#shortcut(key-combo("Ctrl", "Shift", "H"),     [Replace across files])
+#shortcut([], text(7.5pt, fill: luma(120))[Note: Ctrl+H is remapped to pane navigation. Use command palette for in-file replace.])
+
+#section("Panels & Layout", clr-panels)
+
+#shortcut(key-combo("Ctrl", "B"),              [Toggle left sidebar])
+#shortcut(key-combo("Ctrl", "Shift", "E"),     [File explorer], custom: true)
+#shortcut(key-combo("Ctrl", "?"),              [Toggle right dock / agent panel], custom: true)
+#shortcut(key-combo("Ctrl", "`"),              [Toggle terminal])
+#shortcut(key-combo("Ctrl", "\\"),             [Split pane right])
+#shortcut(key-combo("Ctrl", "Shift", "\\"),    [Split pane down])
+#shortcut(key-combo("Ctrl", "H"),              [Focus pane left], custom: true)
+#shortcut(key-combo("Ctrl", "L"),              [Focus pane right], custom: true)
+#shortcut(key-combo("Ctrl", "Shift", "C"),     [Copy file path], custom: true)
+
+// ====================================================================
+// PAGE 2 -- Specialized
+// ====================================================================
+
+#colbreak()
+// Force page 2 content to start in a new page's first column
+#pagebreak()
+
+#section("AI & Agent Panel", clr-ai)
+
+#shortcut(key-combo("Ctrl", "Shift", "A"),     [Launch Claude Code CLI], custom: true)
+#shortcut(key-combo("Ctrl", "N"),              [New thread], ctx: "agent panel")
+#shortcut(key-combo("Shift", "Alt", "J"),      [Recent threads])
+#shortcut(key-combo("Ctrl", "Shift", "H"),     [Thread history], ctx: "agent panel")
+#shortcut(key-combo("Ctrl", "Shift", "R"),     [Review agent changes])
+#shortcut(key-combo("Enter"),                  [Send message], ctx: "agent panel")
+#shortcut(key-combo("Shift", "Alt", "Escape"), [Expand message editor])
+#shortcut(key-combo("Ctrl", ">"),              [Add selection to thread])
+#shortcut(key-combo("Ctrl", "Alt", "/"),       [Toggle model selector])
+#shortcut(key-combo("Alt", "L"),               [Cycle favorite models], ctx: "agent panel")
+#shortcut(key-combo("Ctrl", "Alt", "P"),       [Manage profiles])
+#shortcut(key-combo("Shift", "Tab"),           [Cycle profiles], ctx: "agent panel")
+#shortcut(key-combo("Ctrl", "Enter"),          [Inline assist], ctx: "editor")
+
+#section("Edit Predictions", clr-ai)
+
+#shortcut(key-combo("Tab"),                    [Accept prediction])
+#shortcut(key-combo("Alt", "L"),               [Accept prediction (alt)], ctx: "editor")
+#shortcut(key-combo("Alt", "]"),               [Next prediction])
+#shortcut(key-combo("Alt", "["),               [Previous prediction])
+
+#section("Git", clr-git)
+
+#shortcut(key-combo("Ctrl", "Shift", "G"),     [Git panel])
+#shortcut(chord(("Alt", "G"), ("B",)),         [Git blame])
+
+#section("Markdown", clr-markdown)
+
+#shortcut(chord(("Ctrl", "K"), ("V",)),        [Preview side-by-side])
+#shortcut(key-combo("Ctrl", "Shift", "V"),     [Preview full tab])
+
+#section("Slidev", clr-slidev)
+
+#shortcut(key-combo("Alt", "Shift", "P"),      [Preview in browser], custom: true)
+#shortcut(key-combo("Alt", "Shift", "E"),      [Export to PDF], custom: true)
+
+#section("File Explorer", clr-explorer)
+
+#shortcut(key-combo("h"),                      [Collapse / go to parent], ctx: "project panel")
+#shortcut(key-combo("j"),                      [Select next entry], ctx: "project panel")
+#shortcut(key-combo("k"),                      [Select previous entry], ctx: "project panel")
+#shortcut(key-combo("l"),                      [Open / expand], ctx: "project panel")
+
+#section("Optional / Advanced", clr-advanced)
+
+#shortcut(key-combo("Alt", "V"),               [Toggle vim mode (off by default)], custom: true)
