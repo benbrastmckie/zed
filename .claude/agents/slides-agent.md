@@ -104,6 +104,7 @@ Extract from input:
   },
   "workflow_type": "slides_research|assemble",
   "forcing_data": {
+    "output_format": "slidev|pptx",
     "talk_type": "CONFERENCE|SEMINAR|DEFENSE|POSTER|JOURNAL_CLUB",
     "source_materials": ["task:500", "/path/to/manuscript.md"],
     "audience_context": "description of audience and emphasis"
@@ -111,6 +112,10 @@ Extract from input:
   "metadata_file_path": "specs/{NNN}_{SLUG}/.return-meta.json"
 }
 ```
+
+### Stage 1b: Resolve Output Format
+
+Read `forcing_data.output_format`. If missing or empty, default to `"slidev"`. Valid values: `"slidev"`, `"pptx"`. Store as `output_format` for downstream use in report metadata and assembly instructions.
 
 ### Stage 2: Load Talk Pattern
 

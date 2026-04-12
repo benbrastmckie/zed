@@ -482,7 +482,7 @@ The `--remember` flag on `/research` searches the memory vault for relevant prio
 <!-- SECTION: extension_present -->
 ## Present Extension
 
-Structured proposal development (grants) and research presentation creation (talks) in Typst and Slidev formats.
+Structured proposal development (grants) and research presentation creation (talks) in Typst, Slidev, and PowerPoint formats.
 
 ### Skill-Agent Mapping
 
@@ -536,7 +536,7 @@ Structured proposal development (grants) and research presentation creation (tal
 
 The talk library at `context/project/present/talk/` contains:
 - **Patterns**: Slide structure definitions for each talk mode
-- **Content Templates**: Slidev-compatible markdown templates for slide types
+- **Content Templates**: Slidev-compatible markdown templates for slide types (PPTX support planned)
 - **Components**: Vue components (FigurePanel, DataTable, CitationBlock, StatResult, FlowDiagram)
 - **Themes**: Academic-clean and clinical-teal visual themes
 
