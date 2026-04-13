@@ -2,9 +2,11 @@
 
 ## Installation wizard (recommended)
 
-If you are setting up a new Mac, the fastest path is the interactive installation wizard at `scripts/install/install.sh`. It walks through six groups of installs (base tools, shell utilities, Python, R, typesetting, MCP servers), lets you accept or skip each group, and is safe to re-run — every step is guarded by a presence check.
+The interactive installation wizard at `scripts/install/install.sh` walks through six groups of installs (base tools, shell utilities, Python, R, typesetting, MCP servers), lets you accept or skip each group, and is safe to re-run -- every step is guarded by a presence check.
 
-**Step by step** (for a fresh Mac):
+**Supported platforms**: macOS, Debian/Ubuntu, Arch/Manjaro. NixOS is detected and exits with guidance to use `configuration.nix` or `home.nix` instead.
+
+**Step by step** (macOS):
 
 1. Press **Cmd+Space** to open Spotlight, type **Terminal**, and press Enter to open the Terminal app.
 2. Install the Xcode Command Line Tools (provides `git`). A dialog will appear; click **Install** and wait for it to finish:
@@ -26,7 +28,25 @@ If you are setting up a new Mac, the fastest path is the interactive installatio
    bash scripts/install/install.sh
    ```
 
-   For each group, press **a** to accept (install it), **s** to skip, or **c** to cancel the wizard. Accepted groups are dispatched in a safe topological order (`base` runs first so Homebrew and git are available for later groups).
+   For each group, press **a** to accept (install it), **s** to skip, or **c** to cancel the wizard. Accepted groups are dispatched in a safe topological order (`base` runs first so build tools and the package manager are available for later groups).
+
+**Step by step** (Linux -- Debian/Ubuntu or Arch/Manjaro):
+
+1. Ensure `git` is installed (`sudo apt install git` or `sudo pacman -S git`).
+2. Clone this repository into your Zed config directory:
+
+   ```
+   git clone <repo-url> ~/.config/zed
+   cd ~/.config/zed
+   ```
+
+3. Run the wizard:
+
+   ```
+   bash scripts/install/install.sh
+   ```
+
+   The wizard auto-detects your platform and uses the appropriate package manager (Homebrew on macOS, apt on Debian/Ubuntu, pacman on Arch). Steps requiring sudo use an interactive prompt pattern that defers to a manual hint if no tty is available.
 
 **Non-interactive shortcuts**:
 
