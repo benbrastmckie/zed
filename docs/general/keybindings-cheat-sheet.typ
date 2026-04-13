@@ -15,8 +15,8 @@
       [#text(weight: "bold")[Legend:]
         #text(
           fill: luma(80),
-        )[ #sym.star.filled = custom binding (keymap.json) #h(1em) #sym.arrow.r = sequential press (chord)]],
-      align(right)[Linux notation. On macOS, substitute Cmd for Ctrl. #h(1em) _April 2026_],
+        )[ #sym.star.filled = custom binding (keymap.json) #h(1em) #sym.arrow.r = sequential press (chord) #h(1em) #sym.dagger = platform-adaptive (Ctrl on Linux, Cmd on macOS)]],
+      align(right)[Ctrl = fixed Ctrl on all platforms unless marked #sym.dagger #h(1em) _April 2026_],
     )
   },
 )
@@ -150,7 +150,7 @@
 #shortcut(key-combo("Ctrl", "Shift", "T"), [Reopen closed tab])
 #shortcut(key-combo("Ctrl", "H"), [Focus pane left], custom: true)
 #shortcut(key-combo("Ctrl", "L"), [Focus pane right], custom: true)
-#shortcut(key-combo("Ctrl", "Enter"), [Open file under cursor], custom: true)
+#shortcut(key-combo("Ctrl/Cmd", "Enter"), [Open file under cursor #sym.dagger], custom: true)
 
 #section("File Explorer", clr-explorer)
 
@@ -182,14 +182,14 @@
 #section("Panels & Layout", clr-panels)
 
 #shortcut(key-combo("Ctrl", "B"), [Toggle left sidebar])
-#shortcut(key-combo("Ctrl", "Shift", "E"), [File explorer], custom: true)
-#shortcut(key-combo("Ctrl", "?"), [Toggle right dock / agent panel], custom: true)
+#shortcut(key-combo("Ctrl/Cmd", "Shift", "E"), [File explorer #sym.dagger], custom: true)
+#shortcut(key-combo("Ctrl/Cmd", "?"), [Toggle right dock / agent panel #sym.dagger], custom: true)
 #shortcut(key-combo("Ctrl", "`"), [Toggle terminal])
 #shortcut(key-combo("Ctrl", "\\"), [Split pane right])
 #shortcut(key-combo("Ctrl", "Shift", "\\"), [Split pane down])
 #shortcut(key-combo("Ctrl", "H"), [Focus pane left], custom: true)
 #shortcut(key-combo("Ctrl", "L"), [Focus pane right], custom: true)
-#shortcut(key-combo("Ctrl", "Shift", "C"), [Copy file path], custom: true)
+#shortcut(key-combo("Ctrl/Cmd", "Shift", "C"), [Copy file path #sym.dagger], custom: true)
 
 #section("Preview", clr-markdown)
 

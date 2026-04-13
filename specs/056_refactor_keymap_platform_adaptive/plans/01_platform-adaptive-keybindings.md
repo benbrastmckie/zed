@@ -115,7 +115,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Update keybindings-cheat-sheet.typ [NOT STARTED]
+### Phase 3: Update keybindings-cheat-sheet.typ [COMPLETED]
 
 **Goal**: Update the Typst cheat sheet legend and binding labels for the 4 migrated bindings.
 
