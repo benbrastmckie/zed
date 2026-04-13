@@ -1,6 +1,6 @@
 # Documentation
 
-Human-readable documentation for this Zed configuration on macOS, focused on working in **R** and **Python** with **Claude Code** as the integrated AI assistant. The Claude Code agent system provides a structured task lifecycle for research, planning, and implementation, with domain extensions that add specialized capabilities for epidemiology, grant development, document tools, and more. These guides explain how to install, use, and extend the editor and its AI integrations. See the [main README](../README.md) for a quick-start overview.
+Human-readable documentation for this Zed configuration, focused on working in **R** and **Python** with **Claude Code** as the integrated AI assistant. The Claude Code agent system provides a structured task lifecycle for research, planning, and implementation, with domain extensions that add specialized capabilities for epidemiology, grant development, document tools, and more. These guides explain how to install, use, and extend the editor and its AI integrations. See the [main README](../README.md) for a quick-start overview.
 
 **Audience**: These docs are written for day-to-day users of this configuration. For the machine-facing agent system internals (commands, skills, agents, routing), see [`.claude/README.md`](../.claude/README.md). For persistent AI knowledge, see [`.memory/README.md`](../.memory/README.md).
 

@@ -1,6 +1,6 @@
 # Workflows
 
-End-to-end usage narratives for working in **R** and **Python** with **Claude Code** in this Zed configuration on macOS. Each guide covers "when and why" to use a group of commands — for flag-level reference, see [`../agent-system/commands.md`](../agent-system/commands.md).
+End-to-end usage narratives for working in **R** and **Python** with **Claude Code** in this Zed configuration. Each guide covers "when and why" to use a group of commands — for flag-level reference, see [`../agent-system/commands.md`](../agent-system/commands.md).
 
 > **Note**: These docs are narrative guides. When something looks out of date, check [`../agent-system/commands.md`](../agent-system/commands.md) for the authoritative flag reference.
 

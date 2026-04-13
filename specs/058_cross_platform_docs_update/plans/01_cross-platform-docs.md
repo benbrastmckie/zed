@@ -174,7 +174,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Cross-References and Light-Touch Files [NOT STARTED]
+### Phase 4: Cross-References and Light-Touch Files [COMPLETED]
 
 **Goal**: Update extensions.md cross-references, verify mcp-servers.md needs no changes, and sweep all files for remaining "for macOS" phrases in See Also sections.
 
