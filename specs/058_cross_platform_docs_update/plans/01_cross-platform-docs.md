@@ -97,7 +97,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Manual Installation Section -- installation.md [NOT STARTED]
+### Phase 2: Manual Installation Section -- installation.md [COMPLETED]
 
 **Goal**: Update the manual installation walkthrough in installation.md to include cross-platform prerequisites and package commands, while keeping the macOS-primary flow intact.
 
