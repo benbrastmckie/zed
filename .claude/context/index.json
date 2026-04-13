@@ -4063,8 +4063,7 @@
         "agents": [
           "slides-research-agent",
           "pptx-assembly-agent",
-          "slidev-assembly-agent",
-          "slide-planner-agent"
+          "slidev-assembly-agent"
         ],
         "languages": [
           "present"
@@ -4100,8 +4099,7 @@
         "agents": [
           "slides-research-agent",
           "pptx-assembly-agent",
-          "slidev-assembly-agent",
-          "slide-planner-agent"
+          "slidev-assembly-agent"
         ],
         "languages": [
           "present"
@@ -4135,8 +4133,7 @@
         ],
         "agents": [
           "slides-research-agent",
-          "slidev-assembly-agent",
-          "slide-planner-agent"
+          "slidev-assembly-agent"
         ],
         "task_types": [
           "present"
@@ -4197,8 +4194,7 @@
         "agents": [
           "slides-research-agent",
           "pptx-assembly-agent",
-          "slidev-assembly-agent",
-          "slide-planner-agent"
+          "slidev-assembly-agent"
         ],
         "task_types": [
           "present"
@@ -4375,8 +4371,7 @@
         ],
         "agents": [
           "pptx-assembly-agent",
-          "slidev-assembly-agent",
-          "slide-planner-agent"
+          "slidev-assembly-agent"
         ],
         "task_types": [
           "present"

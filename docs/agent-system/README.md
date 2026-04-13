@@ -56,7 +56,7 @@ Companion files outside this directory:
 The agent system includes domain-specific extensions that provide specialized research and implementation capabilities:
 
 - **Epidemiology** -- R-based study design, causal inference, statistical modeling, and reporting (STROBE, CONSORT). Use `/epi` to start a study. R language setup is covered in [../general/R.md](../general/R.md).
-- **Present** -- Grant proposals (`/grant`), budgets (`/budget`), timelines (`/timeline`), funding analysis (`/funds`), and research talks (`/slides`). Slide planning uses an interactive 5-stage design review via `skill-slide-planning`.
+- **Present** -- Grant proposals (`/grant`), budgets (`/budget`), timelines (`/timeline`), funding analysis (`/funds`), and research talks (`/slides`). Slide planning uses an interactive 5-stage design review via `skill-slides`.
 - **Memory** -- Persistent knowledge vault (`/learn`, `--remember` flag on `/research`).
 - **Filetypes** -- Office document conversion and editing (`/convert`, `/edit`, `/table`, `/scrape`).
 - **LaTeX / Typst** -- Document typesetting with compilation support.

@@ -1,7 +1,7 @@
 # Implementation Plan: Task #60
 
 - **Task**: 60 - Update documentation to reflect .claude/ changes
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 2 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/060_update_docs_for_claude_changes/reports/01_doc-update-audit.md
@@ -62,7 +62,7 @@ No active roadmap items. ROADMAP.md is empty (placeholder only).
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Remove slide-planner references from docs/ [NOT STARTED]
+### Phase 1: Remove slide-planner references from docs/ [COMPLETED]
 
 **Goal**: Clean all `skill-slide-planning` and `slide-planner-agent` references from user-facing documentation files.
 
@@ -86,7 +86,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Clean .claude/ internal references [NOT STARTED]
+### Phase 2: Clean .claude/ internal references [COMPLETED]
 
 **Goal**: Remove stale `slide-planner-agent` entries from `index.json` and update `skill-slides/SKILL.md`.
 
@@ -117,7 +117,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Resolve Co-Authored-By conflict in git-workflow.md [NOT STARTED]
+### Phase 3: Resolve Co-Authored-By conflict in git-workflow.md [COMPLETED]
 
 **Goal**: Revert the Co-Authored-By additions in `git-workflow.md` to match the documented user preference (omit trailers).
 
@@ -139,7 +139,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Cross-reference verification [NOT STARTED]
+### Phase 4: Cross-reference verification [COMPLETED]
 
 **Goal**: Run comprehensive grep verification to confirm all inconsistencies are resolved.
 

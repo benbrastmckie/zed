@@ -34,7 +34,7 @@ When `--team` is specified, implementation is delegated to `skill-team-implement
 
 **PROHIBITION**: You MUST NOT write implementation summary artifacts directly using Write or Edit tools. All summary files MUST be created by invoking the appropriate skill (skill-implementer or skill-team-implement) via the Skill tool.
 
-**Why**: Direct writes bypass format enforcement (validate-artifact.sh), produce non-conforming artifacts missing required metadata fields and sections, and circumvent the delegation chain that ensures quality. A PostToolUse hook monitors all Write/Edit operations to artifact paths and will flag violations with corrective context.
+**Why**: Direct writes bypass format enforcement (validate-artifact.sh), produce non-conforming artifacts missing required metadata fields and sections, and circumvent the delegation chain that ensures quality. A validation hook monitors Write/Edit operations to artifact paths and will flag violations with corrective context.
 
 **Required**: Always delegate to the Skill tool. Never write to `specs/*/summaries/*.md` directly from this command.
 
