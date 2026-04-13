@@ -8,9 +8,10 @@ next_project_number: 50
 
 ### 49. HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation
 - **Effort**: TBD
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: present
 - **Research**: [01_slides-research.md](049_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md)
+- **Plan**: [01_slides-plan.md](049_hiv_grand_rounds_la_art_prep/plans/01_slides-plan.md)
 
 **Description**: HIV Grand Rounds presentation on MXM LA-ART & LA-PrEP program. CONFERENCE talk (15-20 min), PPTX output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty and HIV clinic community members at UCSF/ZSFG, ~20-25 min with 4 patient cases and audience polls.
 

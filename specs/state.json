@@ -4,7 +4,7 @@
     {
       "project_number": 49,
       "project_name": "hiv_grand_rounds_la_art_prep",
-      "status": "researched",
+      "status": "planned",
       "task_type": "slides",
       "description": "HIV Grand Rounds presentation on MXM LA-ART & LA-PrEP program. CONFERENCE talk (15-20 min), PPTX output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty and HIV clinic community members at UCSF/ZSFG, ~20-25 min with 4 patient cases and audience polls.",
       "forcing_data": {
@@ -17,7 +17,7 @@
         "gathered_at": "2026-04-13T04:54:08Z"
       },
       "created": "2026-04-13T04:54:08Z",
-      "last_updated": "2026-04-13T05:00:54Z",
+      "last_updated": "2026-04-13T05:08:47Z",
       "next_artifact_number": 2,
       "session_id": "sess_1776056029_950ced",
       "artifacts": [
@@ -25,8 +25,54 @@
           "path": "specs/049_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md",
           "type": "research_report",
           "summary": "Slide-mapped research report for CONFERENCE talk (23 slides) with 4 patient cases and interactive polls"
+        },
+        {
+          "path": "specs/049_hiv_grand_rounds_la_art_prep/plans/01_slides-plan.md",
+          "type": "plan",
+          "summary": "5-phase implementation plan for 23-slide HIV Grand Rounds PPTX using python-pptx and UCSF template"
         }
-      ]
+      ],
+      "design_decisions": {
+        "theme": "ucsf-institutional",
+        "message_order": "1-2-3 (outcomes -> LEN strategy -> low-barrier philosophy)",
+        "section_emphasis": [
+          "patient_cases_polls",
+          "results_data"
+        ],
+        "confirmed_at": "2026-04-13T05:05:45Z",
+        "based_on_report": "specs/049_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md",
+        "session_id": "sess_1776056029_950ced"
+      },
+      "planned": "2026-04-13T05:08:47Z",
+      "plan_metadata": {
+        "phases": 5,
+        "total_effort_hours": 5,
+        "complexity": "complex",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_slides-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      }
     },
     {
       "project_number": 48,
