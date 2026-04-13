@@ -124,7 +124,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Remove --design from slides.md [NOT STARTED]
+### Phase 3: Remove --design from slides.md [COMPLETED]
 
 **Goal**: Remove the `--design` entry point and STAGE 3 from slides.md since design questions are now part of the plan workflow.
 
