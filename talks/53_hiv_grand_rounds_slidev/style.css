@@ -1,0 +1,472 @@
+/* UCSF Institutional Theme
+   Navy: #1B2A4A (slide source spec) / #052049 (UCSF brand)
+   Teal: #0095A8 (slide source spec) / #16A0AC (theme highlight)
+   Pacific Blue: #0093D0 (UCSF brand accent)
+   Gold: #FDB515 (UCSF brand gold -- callout boxes)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+
+:root {
+  /* UCSF color palette */
+  --ucsf-navy: #1B2A4A;
+  --ucsf-navy-deep: #052049;
+  --ucsf-teal: #0095A8;
+  --ucsf-teal-light: #e0f4f7;
+  --ucsf-blue: #0093D0;
+  --ucsf-gold: #FDB515;
+  --ucsf-gold-light: #fef3cd;
+  --ucsf-white: #ffffff;
+  --ucsf-muted: #5f6b7a;
+  --ucsf-text: #1a202c;
+  --ucsf-success: #32A03E;
+  --ucsf-warning: #d97706;
+  --ucsf-error: #dc2626;
+
+  /* Slidev overrides */
+  --slidev-theme-primary: var(--ucsf-teal);
+  --slidev-theme-accents: var(--ucsf-blue);
+}
+
+/* Global typography */
+.slidev-layout {
+  font-family: Arial, 'Helvetica Neue', sans-serif;
+  color: var(--ucsf-text);
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  font-family: 'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  color: var(--ucsf-navy-deep);
+}
+
+.slidev-layout h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.slidev-layout h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Inline code fix (Shiki override -- see slidev-pitfalls.md) */
+:not(pre) > code {
+  background-color: transparent !important;
+  color: inherit !important;
+  padding: 0.1em 0.3em !important;
+  border-radius: 3px !important;
+}
+
+/* ===== SLIDE TYPE CLASSES ===== */
+
+/* Divider slides -- teal background */
+.divider-teal {
+  background: linear-gradient(135deg, var(--ucsf-teal) 0%, #007a8a 100%);
+  color: var(--ucsf-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.divider-teal h1,
+.divider-teal h2,
+.divider-teal h3,
+.divider-teal p {
+  color: var(--ucsf-white);
+}
+
+.divider-teal h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.divider-teal .subtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+.divider-teal .descriptor {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  margin-top: 0.75rem;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+/* Navy accent slides (data overview) */
+.content-navy {
+  border-top: 4px solid var(--ucsf-navy);
+}
+
+.content-navy h1 {
+  color: var(--ucsf-navy);
+}
+
+/* White/clean slides */
+.content-white {
+  background: var(--ucsf-white);
+}
+
+/* ===== STAT CALLOUT ===== */
+
+.stat-callout {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.stat-callout .stat-number {
+  font-family: 'EB Garamond', Garamond, Georgia, serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--ucsf-teal);
+  line-height: 1;
+}
+
+.stat-callout .stat-label {
+  font-size: 1.1rem;
+  color: var(--ucsf-muted);
+  margin-top: 0.25rem;
+}
+
+.stat-callout-inline {
+  display: inline-block;
+  margin: 0 0.25rem;
+}
+
+.stat-callout-inline .stat-number {
+  font-family: 'EB Garamond', Garamond, Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--ucsf-teal);
+  line-height: 1;
+}
+
+/* ===== COMPARISON TABLE ===== */
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.comparison-table th {
+  background: var(--ucsf-navy);
+  color: var(--ucsf-white);
+  padding: 0.6rem 1rem;
+  text-align: left;
+  font-family: 'EB Garamond', Garamond, Georgia, serif;
+  font-weight: 600;
+}
+
+.comparison-table td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.comparison-table tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.comparison-table .highlight-col {
+  background: var(--ucsf-teal-light);
+  font-weight: 600;
+}
+
+.comparison-table .highlight-col strong {
+  color: var(--ucsf-teal);
+}
+
+/* ===== CAVEAT BOX ===== */
+
+.caveat-box {
+  background: #fef3cd;
+  border-left: 4px solid var(--ucsf-gold);
+  padding: 0.75rem 1rem;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #856404;
+  border-radius: 0 4px 4px 0;
+}
+
+.caveat-box strong {
+  color: #664d03;
+}
+
+/* ===== CALLOUT BOX (Gold) ===== */
+
+.callout-box {
+  background: var(--ucsf-gold-light);
+  border: 2px solid var(--ucsf-gold);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+}
+
+.callout-box strong {
+  color: var(--ucsf-navy);
+}
+
+/* ===== DISCUSSION CALLOUT ===== */
+
+.discussion-callout {
+  background: var(--ucsf-teal-light);
+  border-left: 4px solid var(--ucsf-teal);
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ===== POLL SLIDE ===== */
+
+.poll-slide {
+  text-align: center;
+}
+
+.poll-slide h1 {
+  font-size: 1.8rem;
+  color: var(--ucsf-navy);
+  margin-bottom: 1.5rem;
+}
+
+.poll-options {
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 2;
+}
+
+.poll-options .correct {
+  color: var(--ucsf-teal);
+  font-weight: 600;
+}
+
+.poll-placeholder {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border: 2px dashed var(--ucsf-muted);
+  border-radius: 8px;
+  color: var(--ucsf-muted);
+  font-size: 0.9rem;
+}
+
+/* ===== TWO-COLUMN LAYOUT ===== */
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 0.75rem;
+}
+
+.two-col .col {
+  font-size: 0.95rem;
+}
+
+.two-col .col h3 {
+  font-size: 1.15rem;
+  color: var(--ucsf-navy);
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid var(--ucsf-teal);
+  padding-bottom: 0.3rem;
+}
+
+.two-col .col ul {
+  padding-left: 1.2rem;
+}
+
+.two-col .col li {
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+/* ===== TIMELINE (Patient 2) ===== */
+
+.timeline-container {
+  position: relative;
+  margin: 1rem 0;
+  padding: 0 0.5rem;
+}
+
+.timeline-track {
+  position: relative;
+  height: 4px;
+  background: var(--ucsf-navy);
+  margin: 3.5rem 0 3rem;
+  border-radius: 2px;
+}
+
+.timeline-track::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: -6px;
+  border-left: 12px solid var(--ucsf-navy);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+.timeline-point {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 3px solid white;
+  z-index: 2;
+}
+
+.timeline-point.initiation { background: #7c3aed; }
+.timeline-point.on-time { background: var(--ucsf-success); }
+.timeline-point.delayed { background: var(--ucsf-warning); }
+.timeline-point.crisis { background: var(--ucsf-error); }
+
+.timeline-label-above {
+  position: absolute;
+  bottom: 20px;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--ucsf-text);
+  font-weight: 600;
+}
+
+.timeline-label-below {
+  position: absolute;
+  top: 20px;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.65rem;
+  line-height: 1.2;
+  color: var(--ucsf-muted);
+}
+
+.timeline-callout {
+  background: var(--ucsf-gold-light);
+  border: 2px solid var(--ucsf-gold);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.timeline-callout strong {
+  color: var(--ucsf-navy);
+}
+
+/* ===== TEACHING POINT ===== */
+
+.teaching-point {
+  background: #f0fdf4;
+  border-left: 4px solid var(--ucsf-success);
+  padding: 0.5rem 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.9rem;
+}
+
+.teaching-point strong {
+  color: var(--ucsf-navy);
+}
+
+/* ===== ANSWER REVEAL ===== */
+
+.answer-reveal {
+  background: var(--ucsf-teal-light);
+  border: 2px solid var(--ucsf-teal);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.answer-reveal .answer-letter {
+  font-family: 'EB Garamond', Garamond, Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ucsf-teal);
+}
+
+/* ===== CITATIONS ===== */
+
+.citations {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.75rem;
+  color: var(--ucsf-muted);
+  line-height: 1.6;
+}
+
+/* ===== CLOSING / TAKEAWAYS ===== */
+
+.takeaways ol {
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+.takeaways li {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.takeaways li strong {
+  color: var(--ucsf-teal);
+}
+
+/* ===== BULLET LIST OVERRIDES ===== */
+
+.slidev-layout ul {
+  padding-left: 1.3rem;
+}
+
+.slidev-layout li {
+  margin-bottom: 0.35rem;
+  line-height: 1.45;
+}
+
+.slidev-layout li strong {
+  color: var(--ucsf-navy);
+}
+
+/* ===== DENSE CONTENT ===== */
+
+.dense {
+  font-size: 0.85rem;
+}
+
+.dense li {
+  margin-bottom: 0.2rem;
+  line-height: 1.35;
+}
+
+.dense h1 {
+  font-size: 1.8rem;
+}
+
+/* ===== REGIMEN LIST ===== */
+
+.regimen-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.regimen-list .regimen-item {
+  padding: 0.3rem 0.6rem;
+  background: #f9fafb;
+  border-radius: 4px;
+  border-left: 3px solid var(--ucsf-teal);
+}

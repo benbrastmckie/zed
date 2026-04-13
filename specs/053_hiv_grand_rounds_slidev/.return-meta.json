@@ -1,21 +1,25 @@
 {
-  "status": "planned",
+  "status": "assembled",
   "artifacts": [
     {
-      "type": "plan",
-      "path": "specs/053_hiv_grand_rounds_slidev/plans/01_implementation-plan.md",
-      "summary": "5-phase implementation plan for 23-slide Slidev presentation with UCSF institutional theme, animated Patient 2 timeline, and Poll Everywhere placeholders"
+      "type": "presentation",
+      "path": "talks/53_hiv_grand_rounds_slidev/slides.md",
+      "summary": "Slidev presentation (23 slides, ucsf-institutional theme)"
+    },
+    {
+      "type": "project",
+      "path": "talks/53_hiv_grand_rounds_slidev/",
+      "summary": "Complete Slidev project directory with slides, theme CSS, and scaffold"
     }
   ],
-  "next_steps": "Run /implement 53 to execute the plan",
   "metadata": {
     "session_id": "sess_1776097099_577f37",
-    "agent_type": "planner-agent",
-    "duration_seconds": 120,
+    "agent_type": "slidev-assembly-agent",
+    "workflow_type": "assemble_slidev",
     "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "plan", "planner-agent"],
-    "phase_count": 5,
-    "estimated_hours": 5,
-    "dependency_waves": [[1], [2, 3], [4], [5]]
+    "delegation_path": ["orchestrator", "slides", "skill-slides", "slidev-assembly-agent"],
+    "slide_count": 23,
+    "theme": "ucsf-institutional",
+    "output_path": "talks/53_hiv_grand_rounds_slidev/slides.md"
   }
 }
