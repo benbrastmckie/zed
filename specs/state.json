@@ -4,11 +4,11 @@
     {
       "project_number": 46,
       "project_name": "enrich_slides_task_description",
-      "status": "researched",
+      "status": "abandoned",
       "task_type": "meta",
       "description": "Enrich /slides task description to include source material file paths, template references, and key forcing data details. Currently, /slides creates a task whose description omits the file paths passed as input and gathered during forcing questions — these end up only in forcing_data.source_materials in state.json but not in the user-facing description or TODO.md entry. Changes target .claude/commands/slides.md Stage 1 (Steps 2-4): construct the description by incorporating the primary source file path, any example template paths from source_materials, talk type, audience context summary, and output format. Ensure the TODO.md Description block includes the same detail.",
       "created": "2026-04-13T00:57:35Z",
-      "last_updated": "2026-04-13T01:03:10Z",
+      "last_updated": "2026-04-12T21:00:00Z",
       "session_id": "sess_1776041962_c74ca5",
       "next_artifact_number": 2,
       "researched": "2026-04-13T01:03:10Z",
@@ -18,17 +18,18 @@
           "path": "specs/046_enrich_slides_task_description/reports/01_enrich-slides-description.md",
           "summary": "6 findings on slides.md description construction; fix is new Step 2.5 enriching $desc with forcing_data fields"
         }
-      ]
+      ],
+      "abandoned_reason": "Scope absorbed into task 44 (slides-agent refactor)"
     },
     {
       "project_number": 44,
       "project_name": "refactor_slides_agent_split",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "meta",
       "description": "Refactor slides system: split slides-agent into three focused agents (slides-research-agent, pptx-assembly-agent, slidev-assembly-agent) to reduce context window usage and improve consistency. The current slides-agent.md (553 lines) combines format-agnostic research with format-specific assembly, loading all context regardless of workflow. Split research workflow (Stages 0-8) into slides-research-agent, PPTX assembly (Stages A1-A8) into pptx-assembly-agent, and create a new slidev-assembly-agent for Slidev markdown generation. Update skill-slides routing to dispatch to the correct agent based on workflow_type and output_format. Update the /slides command, context index, extensions.json, and CLAUDE.md documentation. Each agent should only load the context it needs, progressively.",
       "created": "2026-04-12T23:54:34Z",
-      "last_updated": "2026-04-13T03:27:01Z",
-      "session_id": "sess_1776050495_d74f5b",
+      "last_updated": "2026-04-13T03:50:10Z",
+      "session_id": "sess_1776051010_fdcaec",
       "next_artifact_number": 3,
       "artifacts": [
         {

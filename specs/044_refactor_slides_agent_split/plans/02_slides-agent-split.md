@@ -1,7 +1,7 @@
 # Implementation Plan: Refactor slides-agent into three focused agents
 
 - **Task**: 44 - Refactor slides system: split slides-agent into three focused agents
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 4 hours
 - **Dependencies**: None
 - **Research Inputs**: reports/01_slides-agent-split.md, reports/02_task46-integration.md
@@ -232,7 +232,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 6: End-to-end validation and task 46 cleanup [NOT STARTED]
+### Phase 6: End-to-end validation and task 46 cleanup [COMPLETED]
 
 **Goal**: Run a comprehensive grep to ensure no stale references remain, verify the three new agents are well-formed, and mark task 46 as abandoned (absorbed into task 44).
 

@@ -17,7 +17,7 @@ next_project_number: 47
 
 ### 46. Enrich /slides task description with source material paths and forcing data
 - **Effort**: 1 hour
-- **Status**: [RESEARCHED]
+- **Status**: [ABANDONED] - Scope absorbed into task 44
 - **Task Type**: meta
 - **Research**: [01_enrich-slides-description.md](046_enrich_slides_task_description/reports/01_enrich-slides-description.md)
 
@@ -25,7 +25,7 @@ next_project_number: 47
 
 ### 44. Refactor slides system: split slides-agent into three focused agents
 - **Effort**: 4 hours
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: meta
 - **Research**:
   - [01_slides-agent-split.md](044_refactor_slides_agent_split/reports/01_slides-agent-split.md)
