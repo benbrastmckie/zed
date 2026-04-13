@@ -1,18 +1,20 @@
 {
-  "status": "researched",
+  "status": "planned",
   "artifacts": [
     {
-      "type": "report",
-      "path": "specs/052_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md",
-      "summary": "Slide-mapped research report for CONFERENCE talk (23 slides mapped with speaker notes, layout recommendations, and data extraction)"
+      "type": "plan",
+      "path": "specs/052_hiv_grand_rounds_la_art_prep/plans/01_implementation-plan.md",
+      "summary": "6-phase implementation plan for 23-slide HIV Grand Rounds PPTX using python-pptx"
     }
   ],
-  "next_steps": "Run /plan 52 to create implementation plan",
+  "next_steps": "Run /implement 52 to execute the plan",
   "metadata": {
-    "session_id": "sess_1776070523_79c723",
-    "agent_type": "slides-research-agent",
-    "workflow_type": "slides_research",
-    "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "slides", "skill-slides", "slides-research-agent"]
+    "session_id": "sess_1776093555_045774",
+    "agent_type": "planner-agent",
+    "delegation_depth": 3,
+    "delegation_path": ["orchestrator", "slides", "skill-slides", "planner-agent"],
+    "phase_count": 6,
+    "estimated_hours": 6,
+    "dependency_waves": [[1], [2], [3, 4], [5], [6]]
   }
 }
