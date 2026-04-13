@@ -1,5 +1,5 @@
 ---
-next_project_number: 45
+next_project_number: 46
 ---
 
 # Task List
@@ -14,6 +14,13 @@ next_project_number: 45
 6. **44** (depends on 39, 40, 41 — refactors slides agent architecture)
 
 ## Tasks
+
+### 45. HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: present
+
+**Description**: HIV Grand Rounds presentation for UCSF/ZSFG (~22-23 slides, ~20-25 min, PPTX). Four patient cases with Poll Everywhere interaction, program outcome data (n=34 LA-ART, n=52 LA-PrEP), oral vs LA-ART comparison, and discussion of LEN+CAB/RPV as population-level harm reduction strategy. Uses UCSF/ZSFG 16x9 template.
 
 ### 44. Refactor slides system: split slides-agent into three focused agents
 - **Effort**: 4 hours

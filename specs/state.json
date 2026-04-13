@@ -1,6 +1,26 @@
 {
-  "next_project_number": 45,
+  "next_project_number": 46,
   "active_projects": [
+    {
+      "project_number": 45,
+      "project_name": "hiv_grand_rounds_la_art_prep",
+      "status": "not_started",
+      "task_type": "slides",
+      "language": "present",
+      "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for UCSF/ZSFG (~22-23 slides, ~20-25 min). Four patient cases with Poll Everywhere interaction, program outcome data (n=34 LA-ART, n=52 LA-PrEP), and discussion of LEN+CAB/RPV as population-level harm reduction strategy.",
+      "forcing_data": {
+        "output_format": "pptx",
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "/home/benjamin/.config/zed/examples/test-files/HIV_Grand_Rounds.md",
+          "/home/benjamin/.config/zed/examples/test-files/UCSF_ZSFG_Template_16x9.pptx"
+        ],
+        "audience_context": "ID faculty + HIV clinic community members/staff at UCSF/ZSFG. ~20-25 min conference talk. Clinical cases with Poll Everywhere audience interaction. Emphasis on LA-ART/LA-PrEP program data and 4 patient cases with genuine discussion questions. Presenter: Nicky Mehtani, MD MPH.",
+        "gathered_at": "2026-04-13T00:06:21Z"
+      },
+      "created": "2026-04-13T00:06:21Z",
+      "last_updated": "2026-04-13T00:06:21Z"
+    },
     {
       "project_number": 44,
       "project_name": "refactor_slides_agent_split",
