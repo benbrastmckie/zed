@@ -1,18 +1,20 @@
 {
-  "status": "researched",
+  "status": "planned",
   "artifacts": [
     {
-      "type": "report",
-      "path": "specs/054_hiv_grand_rounds_pptx_v2/reports/01_slides-research.md",
-      "summary": "Slide-mapped research report for CONFERENCE talk (23 slides, PPTX format)"
+      "type": "plan",
+      "path": "specs/054_hiv_grand_rounds_pptx_v2/plans/01_implementation-plan.md",
+      "summary": "4-phase implementation plan for 23-slide PPTX presentation using python-pptx with UCSF/ZSFG template"
     }
   ],
-  "next_steps": "Run /plan 54 to create implementation plan",
+  "next_steps": "Run /implement 54 to execute the plan",
   "metadata": {
-    "session_id": "sess_1776102009_5dd8cb",
-    "agent_type": "slides-research-agent",
-    "workflow_type": "slides_research",
+    "session_id": "sess_1776102634_13fae1",
+    "agent_type": "planner-agent",
     "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "research", "skill-slides", "slides-research-agent"]
+    "delegation_path": ["orchestrator", "plan", "planner-agent"],
+    "phase_count": 4,
+    "estimated_hours": 4,
+    "dependency_waves": [[1], [2], [3], [4]]
   }
 }
