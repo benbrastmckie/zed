@@ -4,7 +4,7 @@
     {
       "project_number": 49,
       "project_name": "hiv_grand_rounds_la_art_prep",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "slides",
       "description": "HIV Grand Rounds presentation on MXM LA-ART & LA-PrEP program. CONFERENCE talk (15-20 min), PPTX output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty and HIV clinic community members at UCSF/ZSFG, ~20-25 min with 4 patient cases and audience polls.",
       "forcing_data": {
@@ -17,8 +17,16 @@
         "gathered_at": "2026-04-13T04:54:08Z"
       },
       "created": "2026-04-13T04:54:08Z",
-      "last_updated": "2026-04-13T04:54:08Z",
-      "next_artifact_number": 1
+      "last_updated": "2026-04-13T05:00:54Z",
+      "next_artifact_number": 2,
+      "session_id": "sess_1776056029_950ced",
+      "artifacts": [
+        {
+          "path": "specs/049_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md",
+          "type": "research_report",
+          "summary": "Slide-mapped research report for CONFERENCE talk (23 slides) with 4 patient cases and interactive polls"
+        }
+      ]
     },
     {
       "project_number": 48,
