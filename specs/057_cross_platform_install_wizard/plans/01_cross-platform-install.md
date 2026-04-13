@@ -181,7 +181,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: install-r.sh Cross-Platform with Timeout Handling [NOT STARTED]
+### Phase 4: install-r.sh Cross-Platform with Timeout Handling [COMPLETED]
 
 **Goal**: Make install-r.sh work on Debian and Arch, configure PPM binary repository on Linux for fast R package installation, and add per-package installation with timeout handling for the epi bundle.
 
