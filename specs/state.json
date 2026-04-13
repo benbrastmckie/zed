@@ -4,10 +4,10 @@
     {
       "project_number": 56,
       "project_name": "refactor_keymap_platform_adaptive",
-      "status": "researched",
+      "status": "planned",
       "task_type": "general",
       "created": "2026-04-13T19:56:21Z",
-      "last_updated": "2026-04-13T20:00:00Z",
+      "last_updated": "2026-04-13T20:07:52Z",
       "session_id": "sess_1776110236_8ede20",
       "researched": "2026-04-13T20:00:00Z",
       "next_artifact_number": 2,
@@ -16,8 +16,39 @@
           "path": "specs/056_refactor_keymap_platform_adaptive/reports/01_platform-adaptive-keybindings.md",
           "type": "research",
           "summary": "Collision analysis of 17 custom keybindings against Zed macOS/Linux defaults for secondary- migration"
+        },
+        {
+          "path": "specs/056_refactor_keymap_platform_adaptive/plans/01_platform-adaptive-keybindings.md",
+          "type": "plan",
+          "summary": "Implementation plan: migrate 4 bindings to secondary-, update 3 docs files"
         }
-      ]
+      ],
+      "plan_metadata": {
+        "phases": 4,
+        "total_effort_hours": 2,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_platform-adaptive-keybindings.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      }
     },
     {
       "project_number": 55,

@@ -8,8 +8,9 @@ next_project_number: 57
 
 ### 56. Refactor keymap.json to use platform-adaptive keybindings
 - **Effort**: medium
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Research**: [01_platform-adaptive-keybindings.md](056_refactor_keymap_platform_adaptive/reports/01_platform-adaptive-keybindings.md)
+- **Plan**: [01_platform-adaptive-keybindings.md](056_refactor_keymap_platform_adaptive/plans/01_platform-adaptive-keybindings.md)
 - **Task Type**: general
 
 **Description**: Refactor keymap.json to use Zed's `secondary-` modifier for platform-adaptive keybindings (Ctrl on Linux, Cmd on macOS). Audit all 17 custom bindings against Zed's macOS defaults to identify collisions, resolve conflicts, and update keymap.json comments, docs/general/keybindings.md, and docs/general/keybindings-cheat-sheet.typ to reflect the new cross-platform scheme.
