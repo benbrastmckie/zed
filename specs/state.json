@@ -4,13 +4,13 @@
     {
       "project_number": 48,
       "project_name": "slides_theme_in_planning",
-      "status": "planned",
+      "status": "completed",
       "task_type": "meta",
       "description": "Move visual theme selection into /slides planning phase. Currently theme (Academic Clean, Clinical Teal, Conference Bold, Minimal Dark, UCSF Institutional) is only selectable via a separate /slides N --design invocation (STAGE 3). Refactor so theme and design questions are asked interactively during /plan N for slides tasks. Remove --design as a separate entry point from slides.md. Update skill-slides planning routing to include interactive design questions (theme, message ordering, section emphasis) before delegating to planner-agent. Store results in design_decisions on state.json. Verify assembly agents read design_decisions correctly.",
       "created": "2026-04-13T05:00:00Z",
-      "last_updated": "2026-04-13T04:35:31Z",
+      "last_updated": "2026-04-13T04:49:00Z",
       "next_artifact_number": 2,
-      "session_id": "sess_1776054628_7aad9a",
+      "session_id": "sess_1776055046_77ae42",
       "artifacts": [
         {
           "path": "specs/048_slides_theme_in_planning/reports/01_slides-theme-planning.md",
@@ -21,6 +21,11 @@
           "path": "specs/048_slides_theme_in_planning/plans/01_slides-theme-planning.md",
           "type": "plan",
           "summary": "4-phase implementation plan: add plan workflow to skill-slides, enable extension routing, remove --design from slides.md, update documentation"
+        },
+        {
+          "path": "specs/048_slides_theme_in_planning/summaries/01_slides-theme-planning-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for moving theme selection into planning phase"
         }
       ],
       "plan_metadata": {
@@ -50,7 +55,9 @@
             "integrated_date": "2026-04-13"
           }
         ]
-      }
+      },
+      "completion_summary": "Moved visual theme selection into /plan workflow for slides tasks. Added plan workflow type to skill-slides with design questions stage, installed extension manifest for routing, removed --design flag and STAGE 3 from slides.md.",
+      "claudemd_suggestions": "Updated skill-slides SKILL.md (added plan workflow, planner-agent subagent), installed .claude/extensions/present/manifest.json with slides plan routing, updated .claude/extensions.json installed_files, modified slides.md command definition"
     },
     {
       "project_number": 47,

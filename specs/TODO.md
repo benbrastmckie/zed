@@ -8,10 +8,11 @@ next_project_number: 49
 
 ### 48. Move visual theme selection into /slides planning phase
 - **Effort**: 2 hours
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
 - **Research**: [01_slides-theme-planning.md](048_slides_theme_in_planning/reports/01_slides-theme-planning.md)
 - **Plan**: [01_slides-theme-planning.md](048_slides_theme_in_planning/plans/01_slides-theme-planning.md)
+- **Summary**: [01_slides-theme-planning-summary.md](048_slides_theme_in_planning/summaries/01_slides-theme-planning-summary.md)
 
 **Description**: Move visual theme selection into /slides planning phase. Currently theme (Academic Clean, Clinical Teal, Conference Bold, Minimal Dark, UCSF Institutional) is only selectable via a separate `/slides N --design` invocation (STAGE 3). Refactor so theme and design questions are asked interactively during `/plan N` for slides tasks. Remove `--design` as a separate entry point from slides.md. Update skill-slides planning routing to include interactive design questions (theme, message ordering, section emphasis) before delegating to planner-agent. Store results in `design_decisions` on state.json. Verify assembly agents read `design_decisions` correctly.
 

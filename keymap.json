@@ -2,9 +2,10 @@
   // =====================================================
   // CUSTOM BINDINGS (Scheme A -- Minimal)
   // =====================================================
-  // 13 unique custom bindings (18 entries; pane-nav, jump-list,
+  // 17 unique custom bindings (26 entries; pane-nav, jump-list,
   // and close-tab are declared in both Workspace and Editor
   // contexts to defeat Zed's default Editor-context shadowing,
+  // indent/outdent also null out Zed's AddSelectionToThread default,
   // and Claude Code launcher is bound in both Workspace and
   // Terminal contexts):
   //   - 2 pane navigation (Ctrl+H, Ctrl+L), Workspace + Editor
@@ -16,6 +17,7 @@
   //   - 1 copy path utility (Ctrl+Shift+C)
   //   - 1 close tab (Ctrl+Q)
   //   - 1 reload file from disk (Alt+R)
+  //   - 2 indent/outdent (Ctrl+>, Ctrl+<), Editor + null at Workspace
   //   - 1 build PDF (Alt+Shift+E) -- Typst/Slidev dispatcher
   //   - 1 preview in browser (Alt+Shift+P) -- Typst/Slidev dispatcher
   //
@@ -72,7 +74,28 @@
       "alt-shift-e": ["task::Spawn", { "task_name": "Build PDF" }],
       "alt-shift-p": ["task::Spawn", { "task_name": "Preview in Browser" }],
       "ctrl-enter": "editor::OpenFile",
-      "alt-r": "editor::ReloadFile"
+      "alt-r": "editor::ReloadFile",
+      "ctrl->": "editor::Indent",
+      "ctrl-<": "editor::Outdent"
+    }
+  },
+
+  // Defeat Zed's default ctrl-> (agent::AddSelectionToThread) which
+  // is bound in Editor&&mode==full, AgentPanel, AcpThread>Editor,
+  // and Terminal contexts.  Null it out everywhere, then let the
+  // Editor-context bindings above provide indent/outdent.
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl->": null,
+      "ctrl-<": null
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "ctrl->": "editor::Indent",
+      "ctrl-<": "editor::Outdent"
     }
   },
 

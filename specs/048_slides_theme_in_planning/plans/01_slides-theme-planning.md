@@ -1,7 +1,7 @@
 # Implementation Plan: Move Theme Selection into Planning Phase
 
 - **Task**: 48 - slides_theme_in_planning
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 2.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/048_slides_theme_in_planning/reports/01_slides-theme-planning.md
