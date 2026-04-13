@@ -1,6 +1,47 @@
 {
   "completed_projects": [
     {
+      "project_number": 46,
+      "project_name": "enrich_slides_task_description",
+      "status": "abandoned",
+      "task_type": "meta",
+      "description": "Enrich /slides task description to include source material file paths, template references, and key forcing data details. Currently, /slides creates a task whose description omits the file paths passed as input and gathered during forcing questions — these end up only in forcing_data.source_materials in state.json but not in the user-facing description or TODO.md entry. Changes target .claude/commands/slides.md Stage 1 (Steps 2-4): construct the description by incorporating the primary source file path, any example template paths from source_materials, talk type, audience context summary, and output format. Ensure the TODO.md Description block includes the same detail.",
+      "created": "2026-04-13T00:57:35Z",
+      "last_updated": "2026-04-12T21:00:00Z",
+      "session_id": "sess_1776041962_c74ca5",
+      "next_artifact_number": 2,
+      "researched": "2026-04-13T01:03:10Z",
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/046_enrich_slides_task_description/reports/01_enrich-slides-description.md",
+          "summary": "6 findings on slides.md description construction; fix is new Step 2.5 enriching $desc with forcing_data fields"
+        }
+      ],
+      "abandoned_reason": "Scope absorbed into task 44 (slides-agent refactor)",
+      "abandoned": "2026-04-13T08:37:57Z"
+    },
+    {
+      "project_number": 51,
+      "project_name": "hiv_grand_rounds_pptx",
+      "status": "abandoned",
+      "task_type": "slides",
+      "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation (PPTX). CONFERENCE talk (15-20 min), pptx output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty and HIV clinic community members at UCSF/ZSFG, ~20-25 min with 4 patient cases and audience polls.",
+      "forcing_data": {
+        "output_format": "pptx",
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "examples/test-files/HIV_Grand_Rounds.md"
+        ],
+        "audience_context": "Primarily ID faculty + some HIV clinic community members/staff at UCSF/ZSFG. ~20-25 min presentation with 4 patient cases, audience polls via Poll Everywhere, and LA-ART/LA-PrEP program data. Presenter: Nicky Mehtani, MD MPH.",
+        "gathered_at": "2026-04-13T08:31:55Z"
+      },
+      "created": "2026-04-13T08:31:55Z",
+      "last_updated": "2026-04-13T08:32:33Z",
+      "session_id": "sess_1776069100_0fa1c2",
+      "abandoned": "2026-04-13T08:37:57Z"
+    },
+    {
       "project_number": 47,
       "project_name": "hiv_grand_rounds_la_art_prep",
       "status": "abandoned",

@@ -6,13 +6,6 @@ next_project_number: 52
 
 ## Tasks
 
-### 51. HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation (PPTX)
-- **Effort**: TBD
-- **Status**: [NOT STARTED]
-- **Task Type**: present
-
-**Description**: HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation (PPTX). CONFERENCE talk (15-20 min), pptx output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty and HIV clinic community members at UCSF/ZSFG, ~20-25 min with 4 patient cases and audience polls.
-
 ### 50. HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation (Slidev)
 - **Effort**: TBD
 - **Status**: [COMPLETED]
@@ -44,14 +37,6 @@ next_project_number: 52
 - **Summary**: [01_slides-theme-planning-summary.md](048_slides_theme_in_planning/summaries/01_slides-theme-planning-summary.md)
 
 **Description**: Move visual theme selection into /slides planning phase. Currently theme (Academic Clean, Clinical Teal, Conference Bold, Minimal Dark, UCSF Institutional) is only selectable via a separate `/slides N --design` invocation (STAGE 3). Refactor so theme and design questions are asked interactively during `/plan N` for slides tasks. Remove `--design` as a separate entry point from slides.md. Update skill-slides planning routing to include interactive design questions (theme, message ordering, section emphasis) before delegating to planner-agent. Store results in `design_decisions` on state.json. Verify assembly agents read `design_decisions` correctly.
-
-### 46. Enrich /slides task description with source material paths and forcing data
-- **Effort**: 1 hour
-- **Status**: [ABANDONED] - Scope absorbed into task 44
-- **Task Type**: meta
-- **Research**: [01_enrich-slides-description.md](046_enrich_slides_task_description/reports/01_enrich-slides-description.md)
-
-**Description**: Enrich /slides task description to include source material file paths, template references, and key forcing data details. Currently, /slides creates a task whose description omits the file paths passed as input and gathered during forcing questions — these end up only in forcing_data.source_materials in state.json but not in the user-facing description or TODO.md entry. Changes target .claude/commands/slides.md Stage 1 (Steps 2-4): construct the description by incorporating the primary source file path, any example template paths from source_materials, talk type, audience context summary, and output format. Ensure the TODO.md Description block includes the same detail.
 
 ### 44. Refactor slides system: split slides-agent into three focused agents
 - **Effort**: 4 hours
