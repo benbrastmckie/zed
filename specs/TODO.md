@@ -23,18 +23,13 @@ next_project_number: 47
 
 **Description**: Enrich /slides task description to include source material file paths, template references, and key forcing data details. Currently, /slides creates a task whose description omits the file paths passed as input and gathered during forcing questions — these end up only in forcing_data.source_materials in state.json but not in the user-facing description or TODO.md entry. Changes target .claude/commands/slides.md Stage 1 (Steps 2-4): construct the description by incorporating the primary source file path, any example template paths from source_materials, talk type, audience context summary, and output format. Ensure the TODO.md Description block includes the same detail.
 
-### 45. HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation
-- **Effort**: TBD
-- **Status**: [RESEARCHING]
-- **Task Type**: present
-
-**Description**: HIV Grand Rounds presentation for UCSF/ZSFG (~22-23 slides, ~20-25 min, PPTX). Four patient cases with Poll Everywhere interaction, program outcome data (n=34 LA-ART, n=52 LA-PrEP), oral vs LA-ART comparison, and discussion of LEN+CAB/RPV as population-level harm reduction strategy. Uses UCSF/ZSFG 16x9 template.
-
 ### 44. Refactor slides system: split slides-agent into three focused agents
 - **Effort**: 4 hours
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNING]
 - **Task Type**: meta
-- **Research**: [01_slides-agent-split.md](044_refactor_slides_agent_split/reports/01_slides-agent-split.md)
+- **Research**:
+  - [01_slides-agent-split.md](044_refactor_slides_agent_split/reports/01_slides-agent-split.md)
+  - [02_task46-integration.md](044_refactor_slides_agent_split/reports/02_task46-integration.md)
 
 **Description**: Split slides-agent.md (553 lines) into three focused agents to reduce context window usage and improve consistency. slides-research-agent handles format-agnostic content mapping (Stages 0-8). pptx-assembly-agent handles PPTX generation via python-pptx (Stages A1-A8). slidev-assembly-agent handles Slidev markdown generation (new). Update skill-slides routing to dispatch to the correct agent based on workflow_type and output_format. Update /slides command, context index, extensions.json, and CLAUDE.md documentation. Each agent should only load the context it needs, progressively.
 
