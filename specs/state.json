@@ -4,10 +4,10 @@
     {
       "project_number": 59,
       "project_name": "revise_keybindings_docs_post_task_56",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "markdown",
       "created": "2026-04-13T21:00:25Z",
-      "last_updated": "2026-04-13T21:31:02Z",
+      "last_updated": "2026-04-13T21:42:01Z",
       "session_id": "sess_1776114098_1df5e9",
       "next_artifact_number": 2,
       "artifacts": [
@@ -20,6 +20,11 @@
           "path": "specs/059_revise_keybindings_docs_post_task_56/plans/01_keybindings-docs-review.md",
           "type": "plan",
           "summary": "2-phase plan to fix inline assist docs conflict from task 56 secondary-enter migration"
+        },
+        {
+          "path": "specs/059_revise_keybindings_docs_post_task_56/summaries/01_keybindings-docs-summary.md",
+          "type": "summary",
+          "summary": "Revised keybindings docs to fix inline assist conflict after task 56"
         }
       ],
       "plan_metadata": {
@@ -41,15 +46,16 @@
             "integrated_date": "2026-04-13"
           }
         ]
-      }
+      },
+      "completion_summary": "Revised keybindings.md and cheat sheet to fix inline assist documentation conflict caused by task 56 secondary-enter migration. Added Open File to Quick Reference, documented the override, and updated cheat sheet to show Ctrl/Cmd+; as the working inline assist shortcut."
     },
     {
       "project_number": 58,
       "project_name": "cross_platform_docs_update",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "markdown",
       "created": "2026-04-13T20:59:02Z",
-      "last_updated": "2026-04-13T21:31:01Z",
+      "last_updated": "2026-04-13T21:42:01Z",
       "session_id": "sess_1776114098_1df5e9",
       "next_artifact_number": 2,
       "artifacts": [
@@ -62,6 +68,11 @@
           "path": "specs/058_cross_platform_docs_update/plans/01_cross-platform-docs.md",
           "type": "plan",
           "summary": "4-phase plan for updating 8 docs files to reflect cross-platform install wizard"
+        },
+        {
+          "path": "specs/058_cross_platform_docs_update/summaries/01_cross-platform-docs-summary.md",
+          "type": "summary",
+          "summary": "Updated 10 docs files with cross-platform install instructions"
         }
       ],
       "plan_metadata": {
@@ -87,7 +98,8 @@
             "integrated_date": "2026-04-13"
           }
         ]
-      }
+      },
+      "completion_summary": "Updated 10 documentation files to reflect cross-platform support: removed all macOS-only declarations, added Debian/Ubuntu and Arch/Manjaro package alternatives alongside every brew install command, documented Linux-specific features (PPM, uv curl installer, Typst via cargo/snap), and added a cross-platform package reference table to toolchain/README.md."
     },
     {
       "project_number": 57,

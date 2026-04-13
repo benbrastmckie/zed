@@ -1,7 +1,7 @@
 # Implementation Plan: Revise Keybindings Docs Post Task 56
 
 - **Task**: 59 - Revise keybindings docs post task 56
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 0.5 hours
 - **Dependencies**: Task 56 (completed)
 - **Research Inputs**: reports/01_keybindings-docs-review.md
