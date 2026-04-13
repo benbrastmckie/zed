@@ -1,0 +1,18 @@
+{
+  "status": "researched",
+  "artifacts": [
+    {
+      "type": "report",
+      "path": "specs/050_hiv_grand_rounds_slidev/reports/01_slides-research.md",
+      "summary": "Slide-mapped research report for CONFERENCE talk (23 slides, Slidev output)"
+    }
+  ],
+  "next_steps": "Run /plan 50 to create implementation plan",
+  "metadata": {
+    "session_id": "sess_1776062069_3e3464",
+    "agent_type": "slides-research-agent",
+    "workflow_type": "slides_research",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "slides", "skill-slides", "slides-research-agent"]
+  }
+}

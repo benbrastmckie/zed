@@ -1,0 +1,619 @@
+# Talk Research Report: MXM LA-ART & LA-PrEP -- HIV Grand Rounds (Slidev)
+
+- **Task**: 50 - HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation (Slidev)
+- **Talk Type**: CONFERENCE (adapted for grand rounds with case-based teaching)
+- **Pattern**: Custom 23-slide structure (extends conference-standard with 4 patient cases + polls)
+- **Source Materials**: `examples/test-files/HIV_Grand_Rounds.md` (871 lines, comprehensive reference document)
+- **Audience**: ID faculty and HIV clinic community members/staff at UCSF/ZSFG
+- **Presenter**: Nicky Mehtani, MD MPH
+- **Duration**: ~20-25 min (aim for <=28 min max; follows Stephen Matzat's ~20 min MXM/WPIC overview)
+- **Output Format**: Slidev (Markdown-based slides with Vue components)
+
+## Executive Summary
+
+This is a case-based grand rounds presentation covering the MXM long-acting ART and PrEP programs at UCSF/ZSFG. The talk opens with program-level data (LA-ART n=34, 100% viral suppression; LA-PrEP n=68 prescribed, 52 initiated) then moves through 4 patient cases with interactive audience polls via Poll Everywhere. The core message is that LA-ART works in marginalized populations but requires intensive infrastructure, and lenacapavir (LEN) may offer population-level INSTI class protection for patients at high LTFU risk. The tone is clinical, humble, and grounded in street medicine practice. Output is Slidev markdown for web-based presentation.
+
+## Slide Map
+
+### Slide 1: Section Opener / Divider
+
+**Template**: Divider slide (teal background, centered text)
+**Status**: mapped
+**Slidev Layout**: `section` or custom `divider-teal`
+
+**Content**:
+- Section title: "LA-ART & LA-PrEP at MXM"
+- Subtitle: HIV Grand Rounds, UCSF/ZSFG
+- Presenter: Nicky Mehtani, MD MPH
+- Date: April 2026
+
+**Speaker Notes**:
+Thanks Stephen for that overview. I'm going to walk through our LA-ART and LA-PrEP data, then we'll get into four patient cases. I've got some polls set up -- pull out your phones for those.
+
+---
+
+### Slide 2: LA-ART -- Who We Serve
+
+**Template**: Two-column layout (navy background)
+**Status**: mapped
+**Slidev Layout**: `two-cols` or custom `two-cols-navy`
+
+**Content**:
+
+*Left column -- Demographics (n=34, Nov 2021 - Apr 2026):*
+- Median age: 40
+- Gender: 22 cis-men, 8 trans women/NB, 4 cis-women
+- Race: 50% Black, 26% Hispanic, 24% non-Hispanic White
+- Housing: 10 street homeless, 16 sheltered/couch-surfing, 8 unstably housed
+
+*Right column -- Clinical complexity at initiation:*
+- 85% methamphetamine use disorder
+- 24% opioid use disorder
+- 32% schizophrenia or bipolar disorder with psychosis
+- 32% initiated with CD4 <200 (7 with CD4 <50)
+- 71% started with detectable viremia
+- Of those, 17/24 had NOT been suppressed in our system for >=3 years
+
+**Speaker Notes**:
+So this is who we're serving. Thirty-four patients since November 2021. The majority are people with active methamphetamine use, serious mental illness, and unstable housing. Most had detectable virus when we started -- and most of those had been viremic for years. These are not people who were already doing well on oral ART.
+
+---
+
+### Slide 3: LA-ART -- Delivery & Outcomes
+
+**Template**: Content slide with stat callout (navy background)
+**Status**: mapped
+**Slidev Layout**: `default` with custom styling or `StatResult` component
+
+**Content**:
+- **747 total injection visits**
+- 80% at MXM clinic | 17% mobile outreach, shelters, syringe access | 3% jails/hospitals
+- **93% on time** (within 7-day window)
+- 7% >7 days delayed; 22 doses >14 days delayed (required repeat loading)
+- **100% virally suppressed at latest follow-up** [STAT CALLOUT -- use large styled text or StatResult component]
+- Median time on LA-ART: 116 weeks (IQR: 60-145; range: 2-209 weeks)
+- 9 successfully transferred to new primary care homes
+- 1 currently LTFU ~3 months (Patient 1)
+
+*Current regimens:*
+- CAB/RPV q1-month: n=12
+- CAB/RPV q2-month: n=11
+- CAB (+/-RPV) q1-mo + LEN q6-mo: n=9
+- CAB/RPV q2-mo + LEN q6-mo: n=2
+
+**Speaker Notes**:
+Seven hundred and forty-seven injection visits. The vast majority happen at the clinic, but we're doing about 17% in the field -- shelters, syringe access programs, mobile outreach. Ninety-three percent on time. And the headline: 100% virally suppressed. Every single one of our 34 patients has an undetectable viral load at last follow-up. Median time on therapy is over two years. We've also successfully transferred 9 patients to new primary care homes -- this isn't meant to be forever for everyone.
+
+---
+
+### Slide 4: Oral vs. LA-ART Comparison
+
+**Template**: Two-column with table (white background)
+**Status**: mapped
+**Slidev Layout**: `two-cols` or `default` with markdown table
+
+**Content**:
+
+*Comparison table (2023-2024, Mehtani et al., in prep):*
+
+| Outcome | Oral ART (n=123) | LA-ART (n=24) |
+|---------|------------------|----------------|
+| Ever virally suppressed | 89/123 (72%) | 24/24 (100%) |
+| Suppressed at last follow-up | 69/123 (56%) | 24/24 (100%) |
+| Mean encounters/person-year | 9.1 | 23.0 |
+
+*Key caveat (MUST appear on slide):*
+Groups not randomized. LA-ART patients selected because we could reliably locate them and they demonstrated interest/understanding of injection requirements. Outcome gap reflects BOTH the intervention AND the selection.
+
+**Speaker Notes**:
+Here's a head-to-head comparison from our manuscript in preparation. Among 128 people with HIV at MXM, the LA-ART group had 100% suppression -- both ever and at last follow-up. Oral ART was 72% ever suppressed and only 56% at last check. But -- and this is critical -- these groups are not randomized. We selected LA-ART patients specifically because we could find them reliably and they understood the injection commitment. So the gap reflects both the intervention and the selection. This is not a randomized trial.
+
+---
+
+### Slide 5: LA-PrEP at MXM
+
+**Template**: Content slide (white background)
+**Status**: mapped
+**Slidev Layout**: `default`
+
+**Content**:
+- **n=68 prescribed; 52 initiated (76%)** [Aug 2022 - Dec 2025]
+- Cohort: 65% unhoused, 55% stimulant use, 27% OUD, 19% TG/NB, 50% non-White
+- Retention: 90% at >=3 months; 60% at >=6 months; median 212 days
+- **304 injections**: 58% clinic, 21% shelters, 23% mobile outreach
+- Timing: 78% on time, 17% delayed 8-28 days, 7% delayed >28 days
+- HIV testing: 68% any testing; 61% CDC guideline-concordant blood-based
+- **2 seroconversions** -- both during prolonged lapses, NOT during imperfect dosing
+- Gift card disruption (~6-7 months, Sep 2025 - Apr 2026) likely explains suboptimal retention
+
+*Key message:*
+Continuity of coverage > protocol perfection. For PEH/PWUD: prioritize rapid initiation, outreach-based delivery, flexible lab protocols. Getting LA-PrEP into bodies is the goal.
+
+**Speaker Notes**:
+LA-PrEP -- sixty-eight prescribed, fifty-two initiated. Ninety percent retained at three months, which is actually remarkable for this population. Two seroconversions, and both happened during prolonged lapses in coverage -- not during imperfect dosing. That's the key message here: continuity of coverage matters more than protocol perfection. We lost our gift card incentives for about 6 months -- that almost certainly explains some of the retention drop. We're planning to write that up. One additional seroconversion happened after a patient transferred to TWUHC -- not ours to present formally, but worth knowing about.
+
+---
+
+### Slide 6: Case Divider -- Patient 1
+
+**Template**: Divider slide (teal background)
+**Status**: mapped
+**Slidev Layout**: `section` or custom `divider-teal`
+
+**Content**:
+- "Patient 1"
+- Brief context line: 49M, SRO housing, schizophrenia, methamphetamine use disorder
+
+**Speaker Notes**:
+Alright, cases. Four patients. Get your phones out for Poll Everywhere. Patient 1 is published as Patient B in our Open Forum Infectious Diseases paper.
+
+---
+
+### Slide 7: Patient 1 -- Background
+
+**Template**: Content slide
+**Status**: mapped
+**Slidev Layout**: `default`
+
+**Content**:
+- 49-year-old man, housed in SRO (Tenderloin)
+- HIV diagnosed 2010
+- Schizophrenia, bipolar disorder, psychosis NOS; methamphetamine use disorder
+- NOT interested in antipsychotics or psychiatry; no cell phone
+- Unable to maintain oral ART x5 years (tried: EFV/TDF/FTC, RPV/TDF/FTC, EVG/c/TAF/FTC, BIC/TAF/FTC)
+- Baseline: CD4 334, VL 340 c/mL
+- Genotype: Y181C + M184V = high-level RPV resistance; NO INSTI mutations
+- This is his 3rd visit to MXM in 3 months -- first sustained engagement in years
+
+**Speaker Notes**:
+Patient 1. Forty-nine years old, living in an SRO in the Tenderloin. HIV since 2010. Schizophrenia, bipolar, psychosis -- not interested in psychiatric medications. No cell phone. He'd been through four oral regimens, couldn't stick with any of them. When he walked into MXM it was his third visit in three months -- the first time he'd been consistently showing up anywhere in years. The key thing to know about his resistance: Y181C gives him high-level RPV resistance. M184V. But no INSTI mutations -- so CAB is still active.
+
+---
+
+### Slide 8: Patient 1 -- Poll 1
+
+**Template**: Poll slide (custom layout with prominent question and answer choices)
+**Status**: mapped
+**Slidev Layout**: custom `poll` layout or styled `default`
+
+**Content**:
+*Would you start this patient on LA-ART?*
+
+- A: No -- not with untreated schizophrenia/psychosis
+- B: Yes, but wait until he has a cell phone
+- C: Yes -- start CAB/RPV monthly
+- D: Yes -- start CAB monthly + LEN q6 months [CORRECT]
+- E: Yes -- start CAB/RPV q2-months + LEN q6 months
+
+**Speaker Notes**:
+Pull up Poll Everywhere. Would you start this patient on LA-ART? And if so, what regimen?
+
+---
+
+### Slide 9: Patient 1 -- Poll 1 Answer + Clinical Course
+
+**Template**: Content slide
+**Status**: mapped
+**Slidev Layout**: `default` with v-clicks for progressive reveal
+
+**Content**:
+*Why D is correct:*
+- A: Untreated psychiatric illness is the rule, not exception, at MXM
+- B: No phone is not a barrier -- outreach RN goes to his SRO
+- C: Y181C = high-level RPV resistance; CAB monotherapy risk with any lapse
+- **D: Drop RPV due to resistance, add LEN as capsid inhibitor backbone to protect INSTI class during lapses**
+- E: Including RPV with documented resistance weakens regimen
+
+*Phase 1 -- Success (14 months):*
+- CAB monthly + LEN q6 months
+- 16 injections, ALL on time (MXM or outreach RN at SRO)
+- VL undetectable throughout
+
+*Then: LTFU*
+- Disappeared ~3 months; biked >300 miles to another city
+- Returns 10 weeks after last CAB/RPV due date, 4 weeks after last LEN due date
+- Wants to restart
+
+**Speaker Notes**:
+The answer is D. Drop RPV -- he has high-level resistance. Start CAB monthly and add lenacapavir every six months. LEN gives you a second active agent from a completely different drug class. If he lapses -- and in this population, lapses happen -- LEN protects the INSTI class while CAB levels drop. And that's exactly what happened. Fourteen months of success -- every injection on time, viral load undetectable. Then he disappeared. Turns out he biked over 300 miles to another city. Came back 10 weeks after his last CAB was due. Four weeks after his last LEN was due. And he wanted to restart.
+
+---
+
+### Slide 10: Patient 1 -- Poll 2
+
+**Template**: Poll slide
+**Status**: mapped
+**Slidev Layout**: custom `poll` layout or styled `default`
+
+**Content**:
+*He returns 10 weeks after last CAB/RPV, 4 weeks after last LEN. In addition to drawing HIV VL + RNA genotype, what do you do today?*
+
+- A: Nothing today -- have him return in 2-3 days once labs result
+- B: Start BIC/TAF/FTC oral bridge until labs return
+- C: Start DRV/c/TAF/FTC empirically until labs return
+- D: Administer LEN + CAB today and plan for close follow-up [WHAT WE DID]
+- E: Another reasonable option? (open to audience)
+
+**Speaker Notes**:
+Poll 2. He's standing in front of you right now. You've drawn labs. What do you do TODAY? No single correct answer here -- this is a genuine discussion question.
+
+---
+
+### Slide 11: Patient 1 -- Resolution + LEN Pharmacology
+
+**Template**: Content slide with teaching point callouts
+**Status**: mapped
+**Slidev Layout**: `default` with styled callout boxes
+
+**Content**:
+*Labs returned: VL undetectable* despite 10 weeks late for CAB and 4 weeks late for LEN
+
+**Teaching Point 1 -- Low-barrier philosophy:**
+In low-barrier settings, act with the opportunity in front of you. Don't wait for perfect lab data. That delay = further delay = months of lost contact.
+
+**Teaching Point 2 -- Why LEN likely protected him:**
+LEN has a longer pharmacokinetic tail than CAB. When CAB went subtherapeutic, LEN (capsid inhibitor, different mechanism) likely continued to suppress. Without LEN, INSTI resistance was almost certain during a 10-week CAB gap.
+
+*Phase 2 -- Success (again):*
+- LEN + CAB monthly restarted
+- 16 more injections over ~16 months, all on time
+- VL undetectable throughout
+
+*Published:* Mehtani NJ et al., Open Forum Infect Dis 2025;12(6):ofaf330. PMC12188974.
+
+**Speaker Notes**:
+His viral load came back undetectable. Ten weeks late for CAB and he was still suppressed. Two teaching points. First -- the low-barrier philosophy. He's a guy who bikes 300 miles on a whim. If we'd sent him away to wait for labs, we might not see him for another three months. You act when the patient is in front of you. Second -- why was he still suppressed? LEN has a longer PK tail than CAB. When CAB dropped to subtherapeutic levels, LEN was likely still working. Different mechanism -- capsid inhibitor versus integrase inhibitor. Without LEN in this regimen, I'm almost certain he would have developed INSTI resistance during that 10-week gap.
+
+---
+
+### Slide 12: Patient 1 -- LTFU + Population Question
+
+**Template**: Content slide
+**Status**: mapped
+**Slidev Layout**: `default`
+
+**Content**:
+*Current status:*
+- Disappeared again after 16 more months of success
+- 11 weeks since last CAB/RPV dose
+- Still within LEN window (due ~26 weeks)
+- Cannot locate -- suspected >3,000 miles away (Care Everywhere ED note)
+- **Only patient in our cohort currently LTFU**
+
+*Silver lining (hypothesis):*
+If resistance develops, it will likely be to LEN -- not to the INSTI class. LEN's long tail may still offer some INSTI protection.
+
+*Population-level question:*
+As LA-ART expands beyond specialty centers, should LEN + CAB/RPV become the DEFAULT for high LTFU-risk patients -- as harm reduction to protect the INSTI class?
+
+Supporting: We've encountered >=2 patients started on CAB/RPV alone at other counties who later presented with new INSTI resistance after LTFU. LEN might have prevented it.
+
+**Speaker Notes**:
+He's disappeared again. Eleven weeks since his last CAB. But he's still within the LEN window. We think he's over 3,000 miles away based on a Care Everywhere ED note. He's the only patient in our cohort who's LTFU. The silver lining -- if he develops resistance, it's more likely to be LEN resistance than INSTI resistance. And LEN resistance mutations confer very low viral fitness. The bigger question I want to raise: should LEN plus CAB/RPV be the default for patients at high LTFU risk? We've seen at least two other patients started on CAB/RPV alone at other counties who showed up at MXM months later with new INSTI resistance. That's devastating. LEN might have prevented it. The downside -- LEN is a painful subcutaneous injection, harder to administer than IM CAB/RPV.
+
+---
+
+### Slide 13: Case Divider -- Patient 2
+
+**Template**: Divider slide (teal background)
+**Status**: mapped
+**Slidev Layout**: `section` or custom `divider-teal`
+
+**Content**:
+- "Patient 2"
+- Context: Update case from Nov 2024 Grand Rounds. Street/sheltered homeless, meth use, PTSD.
+
+**Speaker Notes**:
+Patient 2. Some of you may remember this case from Grand Rounds last year. This is an update.
+
+---
+
+### Slide 14: Patient 2 -- Timeline
+
+**Template**: Custom timeline layout (animated build)
+**Status**: mapped -- assembly agent should implement progressive reveal via v-clicks
+**Slidev Layout**: `default` with custom timeline CSS/component or FlowDiagram component
+
+**Content**:
+*Timeline design: Horizontal arrow, dose markers above (color-coded: purple=initiation, green=on-time, orange=delayed), lab values below, callout boxes for key decisions. Use v-clicks for progressive reveal.*
+
+**Phase 1 (W-29 to W0):**
+- W-29: CAB/RPV 600/900mg loading | VL 177,992 | Geno: K103N, V108I | CD4 187
+- Doses #2-5: Escalating MA use, housing loss, 2 delayed (12+21 days) | VL 33 -> <30 c/mL
+- Dose #6 (W0): On-time standard dose | **VL 37,464 c/mL** -- VIREMIA
+
+**Pre-genotype decision (W0):**
+- Administered CAB/RPV 400/600 + LEN 927mg loading
+- Reasoning: Likely single-class resistance -> LEN gives ~2 active agents
+
+**Genotype returns:**
+- NNRTI: K101P, K103N, V108I, E138K, Y181C
+- INSTI: E138K, G140S, Q148R
+- **High-level resistance to BOTH CAB AND RPV**
+- CAB/RPV discontinued; oral ART prescribed but patient insists he CANNOT take pills
+- **Disengages -- effectively on LEN monotherapy**
+
+**Phase 2:**
+- W38: Returns for abscess (unrelated) | VL **<30 c/mL** despite ~10 weeks subtherapeutic LEN
+- W42: LEN q26-wk + CAB/RPV q4-wk re-initiated | VL undetectable 2 weeks later
+- W107 (publication): Suppressed 65+ weeks | CD4 554
+
+**Speaker Notes**:
+Patient 2 was started on Cabenuva at another clinic before transferring to MXM. At baseline he had NNRTI mutations -- K103N, V108I -- but no INSTI mutations. He initially suppressed, but at dose 6 his viral load bounced to 37,000. Before the genotype came back, we added LEN -- reasoning that he likely had resistance to one class but probably not both, so LEN would give us approximately two active agents. The genotype was worse than expected -- high-level resistance to both CAB and RPV. We stopped CAB/RPV and prescribed oral ART, but he told us flat out he cannot take pills. He disengaged. Effectively on LEN monotherapy. Then at week 38 he comes back for an abscess -- totally unrelated to HIV care -- and his viral load is undetectable. On what was functionally LEN monotherapy for months, including about 10 weeks where LEN was likely subtherapeutic. We restarted everything at week 42.
+
+---
+
+### Slide 15: Patient 2 -- Update/Today
+
+**Template**: Content slide
+**Status**: mapped
+**Slidev Layout**: `default`
+
+**Content**:
+*Today's update (April 2026):*
+- **~195+ total weeks** on LEN +/- CAB/RPV
+- **88 additional weeks** of viral suppression since restart
+- No viremic episodes since re-initiation
+- Still on LEN + CAB/RPV despite documented high-level resistance to both CAB and RPV
+
+*Key teaching points:*
+1. This is 1 patient. He may be an outlier. NOT an endorsement of LEN monotherapy.
+2. Possible mechanism: LEN resistance mutations (e.g., M66I) confer ~1.5% of wild-type replication capacity -- resistance may evolve but with devastated viral fitness.
+3. CAPELLA trial: 14 LEN resistance cases at 104 wks; 7 re-suppressed after adherence counseling or OBR switch.
+4. Connects to Patient 1: LEN's long tail protects INSTI class even in lapses.
+5. "I don't fully understand why this regimen is holding. If anyone wants to discuss the pharmacology after, I'd genuinely welcome that."
+
+**Speaker Notes**:
+As of today, Patient 2 has been on this regimen for about 195 weeks total. Eighty-eight more weeks of suppression since the restart. No viremia. He's still getting CAB/RPV despite high-level resistance to both drugs -- we keep it as a hedge. I want to be very clear: this is one patient. He could be an outlier. This is not an endorsement of LEN monotherapy as a strategy. But the biology is interesting -- LEN resistance mutations appear to devastate viral fitness, down to about 1.5% of wild-type replication. I honestly don't fully understand why this is holding. If anyone in this room wants to talk pharmacology after, I'd genuinely welcome that.
+
+---
+
+### Slide 16: Case Divider -- Patient 3
+
+**Template**: Divider slide (teal background)
+**Status**: mapped
+**Slidev Layout**: `section` or custom `divider-teal`
+
+**Content**:
+- "Patient 3"
+- Context: NOT our patient. Street homeless, relocated from another county. Cabenuva q8-weeks.
+
+**Speaker Notes**:
+Patient 3 is interesting because he's not our patient. He showed up.
+
+---
+
+### Slide 17: Patient 3 -- Background
+
+**Template**: Content slide
+**Status**: mapped
+**Slidev Layout**: `default`
+
+**Content**:
+- Street homeless, recently relocated from another county (~4 hrs away)
+- Methamphetamine use disorder, bipolar 2, history of DVTs/PE, SSTI
+- Started CAB/RPV 600/900mg q8 weeks at out-of-county clinic 8 months ago
+- ALL injections on time at home clinic until recently
+- Admitted ZSFG for SSTI -- hospital tried to give Cabenuva but patient AMA'd
+- Labs during hospitalization (1 month ago): VL undetectable, CD4 670
+- Presents to MXM 2 weeks after discharge -- for wound care, NOT HIV care
+- Last Cabenuva dose: **10 weeks ago** (2 weeks overdue for q8-week schedule)
+- Declines labs, declines oral ART, declines returning to home county
+- Insists LA-ART is working; open to receiving LA-ART today -- same-day only
+
+**Speaker Notes**:
+Patient 3 is street homeless, recently relocated from another county about four hours away. He was doing well on q8-week Cabenuva at his home clinic -- all injections on time. He got admitted to ZSFG for a skin infection, the hospital tried to give him his Cabenuva dose but he left AMA before they could. He shows up at MXM two weeks later for wound care -- not for HIV. Via Care Everywhere we can see his last Cabenuva was 10 weeks ago. He's two weeks overdue. His last labs from the hospital a month ago showed undetectable viral load, CD4 670. He won't do labs today. Won't take oral ART. Won't go back to his home county. But he'll take an injection right now if we can do it.
+
+---
+
+### Slide 18: Patient 3 -- Poll 3
+
+**Template**: Poll slide
+**Status**: mapped
+**Slidev Layout**: custom `poll` layout or styled `default`
+
+**Content**:
+*He will not accept oral ART or labs. What do you do?*
+
+- A: Order and administer Cabenuva today without labs
+- B: Nothing -- this is not your patient; he should return to his out-of-county PCP
+- C: Help him get a phone and encourage him to return when less activated [WHAT WE DID ON VISIT 1]
+- D: Give him an oral ART sample anyway
+- E: Another reasonable approach? (open to audience)
+
+**Speaker Notes**:
+No single right answer. What would you do? He's only two weeks past his due date. His last VL was undetectable a month ago -- but a month ago, not two weeks ago, and that distinction matters. What we actually did on visit 1: C. We helped him get phone resources and made a deal -- come back, do labs, and we'll give you the injection same day.
+
+---
+
+### Slide 19: Patient 3 -- Resolution
+
+**Template**: Content slide
+**Status**: mapped
+**Slidev Layout**: `default`
+
+**Content**:
+*Visit 2 (1 week later -- now 22 days past due):*
+- Returns, calmer but somewhat volatile
+- Still no home county access
+- Agrees to labs IF same-day injection guaranteed
+- Now **22 days overdue** (vs. 14 at visit 1)
+
+*Decision:* Used 1 of 2 on-hand emergency Cabenuva doses (CAB/RPV 600/900mg)
+- Labs drawn simultaneously
+- Told: return in 1-2 days to confirm VL; must establish care at MXM for continued doses
+- Emergency supply via 403B Emergency ART program -- NOT standard supply
+- Insurance ordering unclear (home clinic likely already ordered through separate pharmacy)
+
+*Why this was hard:*
+- Don't want to set precedent that non-patients get same-day Cabenuva
+- If he developed resistance during lapse, giving dose = functional monotherapy
+- Counter: extremely high INSTI resistance risk if untreated; very unlikely he could get home county dose
+
+*Closing line:* "I still don't know if this was the right call. Ask me next year."
+
+**Speaker Notes**:
+He came back a week later. Now 22 days overdue -- worse than before. He agreed to labs if we'd guarantee the injection same day. We used one of our two emergency Cabenuva doses -- obtained through the 403B Emergency ART program, not regular supply. I still don't know if this was the right call. We didn't want to set a precedent. If he'd developed resistance during the lapse, that injection is functional monotherapy. But the alternative was sending him away with nothing, and he was at extremely high risk of INSTI resistance if we didn't treat. Ask me next year.
+
+---
+
+### Slide 20: Case Divider -- Patient 4
+
+**Template**: Divider slide (teal background)
+**Status**: mapped
+**Slidev Layout**: `section` or custom `divider-teal`
+
+**Content**:
+- "Patient 4"
+- Context: 52M, street homeless, CD4 <35, AIDS. Open question -- genuine consult.
+
+**Speaker Notes**:
+Last case. This one is an open question. I'm genuinely asking for your input.
+
+---
+
+### Slide 21: Patient 4 -- Background
+
+**Template**: Content slide (dense -- may need split into 21a/21b during assembly)
+**Status**: mapped -- may need split
+**Slidev Layout**: `default` (consider splitting into two slides during assembly)
+
+**Content**:
+- 52-year-old man, street homeless ~6 months, no family
+- **HIV/AIDS: CD4 <35 (2%), VL 255,000 c/mL**
+- Not on ART >=5 years despite prior Triumeq
+- "To tell the truth, I threw the medicine away"
+- Recently expressing interest in LA-ART
+- Schizophrenia (no meds), stimulant use, AUD + withdrawal seizures
+- M184V on recent genotype; CrAg NEGATIVE; afebrile
+- Prior OIs: PCP pneumonia (Dec 2025), Strep pneumo bacteremia + H. influenzae empyema (Mar 2025) -> septic shock, bilateral chest tubes, pressors; esophageal candidiasis; CMV viremia
+
+**Pericardial history (CRITICAL):**
+- Mar 2025: Strep bacteremia -> pericardial effusion -> tamponade -> PEA arrest -> emergent drain
+- Etiology: presumed infectious, never definitively established, NOT known TB
+- April 2025: effusive-constrictive pericarditis, loculated effusion, pericardial mass
+- CT surgery felt too high risk; patient/family declined surgery
+- May 2025: AMA discharge
+- **Recent CT: NO current pericardial effusion** (reassuring)
+
+**Clinical question:** Risk of IRIS -> new pericardial effusion -> tamponade?
+- Pericardial effusion IS a recognized IRIS manifestation (especially TB-IRIS)
+- Cardiac tamponade as IRIS: documented but "extremely rare"
+- CrAg negativity removes most dangerous trigger
+- In ART era: pericardial effusion rate dropped from 11% to 0.25% (ART is generally protective)
+- Bottom line: concern is clinically legitimate but NOT a clear contraindication
+
+**Speaker Notes**:
+Patient 4. Fifty-two years old, street homeless, CD4 less than 35. He's had PCP, Strep bacteremia with empyema, septic shock, cardiac tamponade from a pericardial effusion -- and a cardiac arrest. He threw his oral meds away. But recently he's been interested in LA-ART. The clinical dilemma: his pericardial disease was incompletely treated. It was presumed infectious but never definitively characterized, and it's not TB. If we start ART and his immune system reconstitutes, could IRIS trigger a new pericardial effusion and tamponade? The literature says pericardial IRIS is recognized but extremely rare. His CrAg is negative, which is reassuring. And his recent CT shows no current effusion. But at a CD4 of 35, the biggest risk might be NOT treating.
+
+---
+
+### Slide 22: Patient 4 -- Poll 4
+
+**Template**: Poll slide
+**Status**: mapped
+**Slidev Layout**: custom `poll` layout or styled `default`
+
+**Content**:
+*You are consulted on starting ART. What do you do?*
+
+- A: Start Cabenuva (CAB/RPV) now
+- B: Start Cabenuva + Lenacapavir now
+- C: Start DRV/c/TAF/FTC (oral) now
+- D: Start BIC/TAF/FTC (oral) now
+- E: Wait -- work on getting him on a long-acting antipsychotic first, then reassess ART
+
+*No correct answer -- genuine consult.*
+- A/B: Windows of engagement close. Recent CT reassuring. But IRIS risk real at CD4 <35. If going LA-ART, LEN argument: protects INSTI class in high LTFU-risk patient; M184V also argues for LEN.
+- C/D: Pharmacologically reasonable but he literally throws pills away.
+- E: Nicky's current lean. LA-antipsychotic (paliperidone palmitate) could improve engagement. But months of delay at CD4 <35 is dangerous.
+
+*Closing:* "I genuinely don't know the right answer. I'd welcome your thoughts."
+
+**Speaker Notes**:
+Last poll. What would you do? I'm leaning toward E right now -- if we could get him on a long-acting antipsychotic like paliperidone palmitate, his engagement and decision-making might improve enough to safely initiate ART with close monitoring. But I fully acknowledge the danger of delay at a CD4 of 35. Oral options are pharmacologically reasonable but this is a man who tells you to your face that he throws the medicine away. If we go LA-ART, the argument for adding LEN is strong -- high LTFU risk, M184V on genotype. I genuinely don't know the right answer here. I'd welcome your thoughts.
+
+---
+
+### Slide 23: Key Takeaways / Thank You
+
+**Template**: Closing slide
+**Status**: mapped
+**Slidev Layout**: `end` or styled `default`
+
+**Content**:
+1. LA-ART works in this population -- **100% suppression** -- but requires intensive infrastructure. Not set-it-and-forget-it.
+
+2. For patients at high LTFU risk, **LEN + CAB/RPV may offer population-level harm reduction** -- protecting the INSTI class even when CAB levels drop.
+
+3. In low-barrier settings: **act when the patient is in front of you**. Waiting for perfect lab data can mean waiting forever.
+
+4. Starting ART in patients with AIDS and incompletely treated infectious pericarditis raises **novel IRIS concerns** the field has not yet addressed.
+
+5. **Humility.** We are working in genuinely new territory. These cases don't have clean endings -- and that's the point.
+
+*Citations:*
+- Mehtani NJ et al. Open Forum Infect Dis. 2025;12(6):ofaf330. PMC12188974.
+- Mehtani NJ et al. J Acquir Immune Defic Syndr. 2024;96:61-7. PMC11009050.
+- Mehtani NJ et al. LA-PrEP abstract, submitted 2026.
+- Mehtani NJ et al. Oral vs. LA-ART comparison, in preparation.
+
+**Speaker Notes**:
+Five takeaways. One -- LA-ART works, 100% suppression, but it takes a team, outreach nurses, street medicine, showing up at SROs and shelters. Two -- lenacapavir may be the most important harm reduction tool we have for protecting the INSTI class at a population level. Three -- when someone is standing in front of you, that IS the window. Don't close it waiting for labs. Four -- we're encountering genuinely novel clinical territory with IRIS and pericardial disease that nobody has written about. And five -- humility. These cases don't have clean endings. That's the point. Thank you.
+
+---
+
+## Content Gaps
+
+The source material is exceptionally comprehensive. All 23 slides are fully mappable. Minor gaps:
+
+1. **Slide 14 (Patient 2 timeline)**: The animated timeline build requires design-level decisions about progressive reveal. Slidev's `v-click` directives and CSS animations can handle this natively. The assembly agent should decide how many `v-click` steps to use for the timeline build. The source describes the prior deck style in detail (horizontal arrow, colored dose circles, lab annotations below, gold callout boxes) which can be implemented with custom CSS or a FlowDiagram component.
+
+2. **Slide 21 (Patient 4)**: Content density is very high. The assembly agent should evaluate whether to split into two slides (21a: demographics/OI history, 21b: pericardial history + IRIS question) based on Slidev rendering constraints.
+
+3. **Poll Everywhere integration**: The source specifies Poll Everywhere for interactive polls but does not provide QR codes or embed URLs. For Slidev, these could be embedded as iframes or displayed as QR code images. Placeholder slots should be left for the presenter to fill in.
+
+4. **Slidev-specific components**: The talk library provides Vue components (StatResult, DataTable, FlowDiagram) that could enhance slides 3 (stat callout), 4 (comparison table), and 14 (timeline). The assembly agent should evaluate component availability.
+
+No content gaps requiring additional source material. No clarifying questions needed.
+
+## Recommended Theme
+
+**clinical-teal** (from talk library) adapted with UCSF/ZSFG brand colors.
+
+The source material specifies a UCSF/ZSFG visual identity. For Slidev output, translate the PowerPoint template specifications into CSS custom properties:
+
+**Color palette** (per UCSF brand):
+- Navy: ~#1B2A4A (primary dark background)
+- Teal: ~#0095A8 (accent, divider backgrounds)
+- White: #FFFFFF (light slide backgrounds)
+- Navy/teal accents on white slides
+
+**Typography recommendations for Slidev**:
+- Headers: serif font (closest web equivalent to Garamond: `EB Garamond`, `Cormorant Garamond`, or system `Georgia`)
+- Content: `Arial`, `Helvetica`, or system sans-serif
+- Minimum font size equivalent: ensure readability on projected screens
+
+**Design rules** (carry over from source):
+- Sparse text: 4-7 bullets max per slide, large font, breathing room
+- Big stat callouts (100%, 93%) as visual anchors using styled elements
+- No patient initials -- use Patient 1, 2, 3, 4
+- Speaker notes in Nicky's voice: calm, casual, thoughtful, street medicine/public health scientific
+
+**Slidev-specific recommendations**:
+- Use `layouts` for divider slides (teal background) vs content slides (white/navy)
+- Use `v-click` for progressive reveal on answer/course slides
+- Use markdown tables for comparison data (slide 4)
+- Consider custom CSS for timeline visualization (slide 14)
+
+## Key Messages
+
+1. **LA-ART achieves 100% viral suppression** in a highly marginalized population (n=34) with methamphetamine use, psychotic disorders, and unstable housing -- but requires intensive outreach infrastructure.
+
+2. **Lenacapavir + CAB/RPV may be the harm reduction strategy** the field needs for patients at high LTFU risk, protecting the INSTI class at the population level even when CAB levels become subtherapeutic.
+
+3. **Low-barrier care means acting in the moment of engagement** -- waiting for perfect lab data in populations who disappear for months is a clinical luxury that costs lives.
+
+4. **Novel IRIS questions** arise when starting ART in patients with AIDS and incompletely treated infectious pericarditis -- the field has no established guidance.
+
+5. **Clinical humility** is not optional in this work. These cases don't have clean endings, and that is the point of presenting them.
