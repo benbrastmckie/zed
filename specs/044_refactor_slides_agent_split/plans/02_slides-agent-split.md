@@ -78,7 +78,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: Create the three new agent files [NOT STARTED]
+### Phase 1: Create the three new agent files [COMPLETED]
 
 **Goal**: Extract research and PPTX assembly workflows from slides-agent.md into two new agents, and create a new slidev-assembly-agent, without deleting the original yet.
 
