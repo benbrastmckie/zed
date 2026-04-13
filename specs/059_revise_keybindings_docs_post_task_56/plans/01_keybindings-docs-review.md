@@ -75,7 +75,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Fix cheat sheet [NOT STARTED]
+### Phase 2: Fix cheat sheet [COMPLETED]
 
 **Goal**: Correct the inline assist entry in the Typst cheat sheet.
 

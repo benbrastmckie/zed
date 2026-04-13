@@ -228,11 +228,12 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 
 ## Platform Notes
 
-- **macOS**: Install via Homebrew (`brew install --cask zed`). Open from Applications or Spotlight.
-- **macOS keybindings**: All shortcuts use Cmd (shown as in menus). The Option key corresponds to Alt in custom bindings.
-- **Config location**: `~/.config/zed/` -- standard for Zed on macOS.
+- **macOS**: Install Zed via Homebrew (`brew install --cask zed`). Open from Applications or Spotlight. All shortcuts use Cmd; the Option key corresponds to Alt in custom bindings.
+- **Debian/Ubuntu**: Install Zed from [zed.dev](https://zed.dev) or via the official `.deb` package. Tools install via `apt`. Use Ctrl where macOS shortcuts show Cmd.
+- **Arch/Manjaro**: Install Zed from [zed.dev](https://zed.dev) or via the AUR. Tools install via `pacman`. Use Ctrl where macOS shortcuts show Cmd.
+- **Config location**: `~/.config/zed/` -- standard for Zed on all platforms.
 - **Extensions**: Auto-installed on launch via `auto_install_extensions` in settings.json (`python`, `ruff`, `r`, and more).
-- **Language tooling**: Install Python and R via Homebrew; see [docs/toolchain/python.md](docs/toolchain/python.md) and [docs/toolchain/r.md](docs/toolchain/r.md).
+- **Language tooling**: Install Python and R via your platform's package manager (Homebrew on macOS, apt on Debian/Ubuntu, pacman on Arch); see [docs/toolchain/python.md](docs/toolchain/python.md) and [docs/toolchain/r.md](docs/toolchain/r.md).
 - **Office editing**: Requires SuperDoc and openpyxl MCP tools. See [docs/general/installation.md](docs/general/installation.md#install-mcp-tools) for setup and [docs/workflows/](docs/workflows/README.md) for workflows.
 
 ## Related

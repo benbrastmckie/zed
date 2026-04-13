@@ -214,7 +214,9 @@
 #shortcut(key-combo("Alt", "L"), [Cycle favorite models], ctx: "agent panel")
 #shortcut(key-combo("Ctrl", "Alt", "P"), [Manage profiles])
 #shortcut(key-combo("Shift", "Tab"), [Cycle profiles], ctx: "agent panel")
-#shortcut(key-combo("Ctrl", "Enter"), [Inline assist], ctx: "editor")
+#shortcut(key-combo("Ctrl/Cmd", ";"), [Inline assist #sym.dagger], ctx: "editor")
+// Note: Ctrl/Cmd+Enter is the Zed default for inline assist but is
+// overridden by the custom "Open file under cursor" binding above.
 
 #section("Optional / Advanced", clr-advanced)
 
