@@ -1,7 +1,7 @@
 # Implementation Plan: Move Theme Selection into Planning Phase
 
 - **Task**: 48 - slides_theme_in_planning
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 2.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/048_slides_theme_in_planning/reports/01_slides-theme-planning.md
@@ -68,7 +68,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: Add plan workflow to skill-slides [NOT STARTED]
+### Phase 1: Add plan workflow to skill-slides [COMPLETED]
 
 **Goal**: Add `workflow_type: "plan"` support to skill-slides SKILL.md so it can ask design questions and delegate to planner-agent.
 
