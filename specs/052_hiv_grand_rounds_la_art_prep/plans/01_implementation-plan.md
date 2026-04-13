@@ -66,7 +66,7 @@ No ROADMAP.md items found.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Python Project Setup and Theme Foundation [NOT STARTED]
+### Phase 1: Python Project Setup and Theme Foundation [COMPLETED]
 
 **Goal**: Set up python-pptx environment and create the base PPTX template with UCSF/ZSFG theme colors, fonts, and reusable slide layout helpers.
 
@@ -99,7 +99,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Slide Builder Architecture and Content Data [NOT STARTED]
+### Phase 2: Slide Builder Architecture and Content Data [COMPLETED]
 
 **Goal**: Structure the slide-building pipeline and encode all 23 slides' content as data (text, speaker notes, layout type) so each slide can be built by calling the appropriate helper.
 
@@ -128,7 +128,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Data and Comparison Slides (Slides 1-5) [NOT STARTED]
+### Phase 3: Data and Comparison Slides (Slides 1-5) [COMPLETED]
 
 **Goal**: Polish the opening section slides with stat callouts, the oral vs. LA-ART comparison table, and proper visual hierarchy for data-dense slides.
 
@@ -155,7 +155,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Case Slides with Polls and Patient 2 Timeline (Slides 6-22) [NOT STARTED]
+### Phase 4: Case Slides with Polls and Patient 2 Timeline (Slides 6-22) [COMPLETED]
 
 **Goal**: Build all four patient case sections including poll placeholder slides and the Patient 2 horizontal timeline figure.
 
@@ -194,7 +194,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: Closing Slide, Speaker Notes Polish, and Full Assembly [NOT STARTED]
+### Phase 5: Closing Slide, Speaker Notes Polish, and Full Assembly [COMPLETED]
 
 **Goal**: Complete slide 23, do a full pass on all speaker notes for voice consistency, and verify the complete 23-slide deck assembles correctly.
 
@@ -221,7 +221,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 6: Build, Verify, and Output Final PPTX [NOT STARTED]
+### Phase 6: Build, Verify, and Output Final PPTX [COMPLETED]
 
 **Goal**: Execute the build script, verify the output PPTX, and confirm deliverable quality.
 
