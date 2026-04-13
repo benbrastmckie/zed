@@ -16,15 +16,6 @@ next_project_number: 49
 
 **Description**: Move visual theme selection into /slides planning phase. Currently theme (Academic Clean, Clinical Teal, Conference Bold, Minimal Dark, UCSF Institutional) is only selectable via a separate `/slides N --design` invocation (STAGE 3). Refactor so theme and design questions are asked interactively during `/plan N` for slides tasks. Remove `--design` as a separate entry point from slides.md. Update skill-slides planning routing to include interactive design questions (theme, message ordering, section emphasis) before delegating to planner-agent. Store results in `design_decisions` on state.json. Verify assembly agents read `design_decisions` correctly.
 
-### 47. HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation
-- **Effort**: TBD
-- **Status**: [PLANNED]
-- **Task Type**: present
-- **Research**: [01_slides-research.md](047_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md)
-- **Plan**: [01_slides-plan.md](047_hiv_grand_rounds_la_art_prep/plans/01_slides-plan.md)
-
-**Description**: HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for Dr. Nicky Mehtani. CONFERENCE talk (20-25 min), PPTX output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty + HIV clinic staff at UCSF/ZSFG, clinical cases with interactive Poll Everywhere polls, low-barrier street medicine framing.
-
 ### 46. Enrich /slides task description with source material paths and forcing data
 - **Effort**: 1 hour
 - **Status**: [ABANDONED] - Scope absorbed into task 44
