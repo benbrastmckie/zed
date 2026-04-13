@@ -4,18 +4,36 @@
     {
       "project_number": 59,
       "project_name": "revise_keybindings_docs_post_task_56",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "markdown",
       "created": "2026-04-13T21:00:25Z",
-      "last_updated": "2026-04-13T21:00:25Z"
+      "last_updated": "2026-04-13T21:06:51Z",
+      "session_id": "sess_1776114098_1df5e9",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/059_revise_keybindings_docs_post_task_56/reports/01_keybindings-docs-review.md",
+          "type": "research",
+          "summary": "Reviewed keybindings docs post task 56; found inline assist/open-file conflict and cheat sheet notation issue"
+        }
+      ]
     },
     {
       "project_number": 58,
       "project_name": "cross_platform_docs_update",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "markdown",
       "created": "2026-04-13T20:59:02Z",
-      "last_updated": "2026-04-13T20:59:02Z"
+      "last_updated": "2026-04-13T21:06:51Z",
+      "session_id": "sess_1776114098_1df5e9",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/058_cross_platform_docs_update/reports/01_cross-platform-docs.md",
+          "type": "research",
+          "summary": "Comprehensive inventory of ~50 edits needed across 8 documentation files to reflect cross-platform install wizard support"
+        }
+      ]
     },
     {
       "project_number": 57,
