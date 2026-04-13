@@ -4,7 +4,7 @@
     {
       "project_number": 53,
       "project_name": "hiv_grand_rounds_slidev",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "present",
       "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for UCSF/ZSFG (CONFERENCE talk, 20-25 min, slidev)",
       "forcing_data": {
@@ -17,7 +17,15 @@
         "gathered_at": "2026-04-13T16:17:33Z"
       },
       "created": "2026-04-13T16:17:33Z",
-      "last_updated": "2026-04-13T16:17:33Z"
+      "last_updated": "2026-04-13T16:24:38Z",
+      "session_id": "sess_1776097099_577f37",
+      "artifacts": [
+        {
+          "path": "specs/053_hiv_grand_rounds_slidev/reports/01_slides-research.md",
+          "type": "report",
+          "summary": "Slide-mapped research report for CONFERENCE talk (23 slides, case-based grand rounds)"
+        }
+      ]
     },
     {
       "project_number": 52,
