@@ -1,10 +1,17 @@
 ---
-next_project_number: 49
+next_project_number: 50
 ---
 
 # Task List
 
 ## Tasks
+
+### 49. HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: present
+
+**Description**: HIV Grand Rounds presentation on MXM LA-ART & LA-PrEP program. CONFERENCE talk (15-20 min), PPTX output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty and HIV clinic community members at UCSF/ZSFG, ~20-25 min with 4 patient cases and audience polls.
 
 ### 48. Move visual theme selection into /slides planning phase
 - **Effort**: 2 hours
