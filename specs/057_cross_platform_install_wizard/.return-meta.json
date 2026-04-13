@@ -1,30 +1,10 @@
 {
-  "status": "planned",
-  "session_id": "sess_1776112228_6eddca",
-  "agent_type": "planner-agent",
-  "delegation_path": ["orchestrator", "plan", "planner-agent"],
   "task_number": 57,
   "task_name": "cross_platform_install_wizard",
-  "artifacts": [
-    {
-      "path": "specs/057_cross_platform_install_wizard/plans/01_cross-platform-install.md",
-      "type": "plan",
-      "summary": "6-phase implementation plan for cross-platform install wizard supporting macOS, Debian, and Arch Linux with OS detection, package manager abstraction, interactive_step pattern, R timeout handling, and NixOS detect-and-skip"
-    }
-  ],
-  "plan_metadata": {
-    "phases": 6,
-    "total_effort_hours": 10,
-    "complexity": "complex",
-    "research_integrated": true,
-    "plan_version": 1,
-    "reports_integrated": [
-      {
-        "path": "reports/01_cross-platform-install.md",
-        "integrated_in_plan_version": 1,
-        "integrated_date": "2026-04-13"
-      }
-    ]
-  },
-  "next_steps": "Run /implement 57 to execute the plan"
+  "status": "in_progress",
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+  "session_id": "sess_1776112889_d15f36",
+  "phases_completed": 0,
+  "phases_total": 6
 }
