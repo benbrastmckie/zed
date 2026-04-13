@@ -25,11 +25,12 @@ next_project_number: 47
 
 ### 44. Refactor slides system: split slides-agent into three focused agents
 - **Effort**: 4 hours
-- **Status**: [PLANNING]
+- **Status**: [PLANNED]
 - **Task Type**: meta
 - **Research**:
   - [01_slides-agent-split.md](044_refactor_slides_agent_split/reports/01_slides-agent-split.md)
   - [02_task46-integration.md](044_refactor_slides_agent_split/reports/02_task46-integration.md)
+- **Plan**: [02_slides-agent-split.md](044_refactor_slides_agent_split/plans/02_slides-agent-split.md)
 
 **Description**: Split slides-agent.md (553 lines) into three focused agents to reduce context window usage and improve consistency. slides-research-agent handles format-agnostic content mapping (Stages 0-8). pptx-assembly-agent handles PPTX generation via python-pptx (Stages A1-A8). slidev-assembly-agent handles Slidev markdown generation (new). Update skill-slides routing to dispatch to the correct agent based on workflow_type and output_format. Update /slides command, context index, extensions.json, and CLAUDE.md documentation. Each agent should only load the context it needs, progressively.
 

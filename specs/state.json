@@ -23,11 +23,11 @@
     {
       "project_number": 44,
       "project_name": "refactor_slides_agent_split",
-      "status": "planning",
+      "status": "planned",
       "task_type": "meta",
       "description": "Refactor slides system: split slides-agent into three focused agents (slides-research-agent, pptx-assembly-agent, slidev-assembly-agent) to reduce context window usage and improve consistency. The current slides-agent.md (553 lines) combines format-agnostic research with format-specific assembly, loading all context regardless of workflow. Split research workflow (Stages 0-8) into slides-research-agent, PPTX assembly (Stages A1-A8) into pptx-assembly-agent, and create a new slidev-assembly-agent for Slidev markdown generation. Update skill-slides routing to dispatch to the correct agent based on workflow_type and output_format. Update the /slides command, context index, extensions.json, and CLAUDE.md documentation. Each agent should only load the context it needs, progressively.",
       "created": "2026-04-12T23:54:34Z",
-      "last_updated": "2026-04-13T03:21:54Z",
+      "last_updated": "2026-04-13T03:27:01Z",
       "session_id": "sess_1776050495_d74f5b",
       "next_artifact_number": 3,
       "artifacts": [
@@ -40,8 +40,48 @@
           "path": "specs/044_refactor_slides_agent_split/reports/02_task46-integration.md",
           "type": "research_report",
           "summary": "Round 2 analysis: task 46 integration feasibility and concrete merge plan for slides-agent split"
+        },
+        {
+          "path": "specs/044_refactor_slides_agent_split/plans/02_slides-agent-split.md",
+          "type": "plan",
+          "summary": "Implementation plan for splitting slides-agent into three focused agents with task 46 integration"
         }
-      ]
+      ],
+      "plan_metadata": {
+        "phases": 6,
+        "total_effort_hours": 4,
+        "complexity": "complex",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_slides-agent-split.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-12"
+          },
+          {
+            "path": "reports/02_task46-integration.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-12"
+          }
+        ]
+      }
     },
     {
       "project_number": 43,
