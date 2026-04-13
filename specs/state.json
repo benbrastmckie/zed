@@ -1,6 +1,24 @@
 {
-  "next_project_number": 51,
+  "next_project_number": 52,
   "active_projects": [
+    {
+      "project_number": 51,
+      "project_name": "hiv_grand_rounds_pptx",
+      "status": "not_started",
+      "task_type": "slides",
+      "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation (PPTX). CONFERENCE talk (15-20 min), pptx output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty and HIV clinic community members at UCSF/ZSFG, ~20-25 min with 4 patient cases and audience polls.",
+      "forcing_data": {
+        "output_format": "pptx",
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "examples/test-files/HIV_Grand_Rounds.md"
+        ],
+        "audience_context": "Primarily ID faculty + some HIV clinic community members/staff at UCSF/ZSFG. ~20-25 min presentation with 4 patient cases, audience polls via Poll Everywhere, and LA-ART/LA-PrEP program data. Presenter: Nicky Mehtani, MD MPH.",
+        "gathered_at": "2026-04-13T08:31:55Z"
+      },
+      "created": "2026-04-13T08:31:55Z",
+      "last_updated": "2026-04-13T08:31:55Z"
+    },
     {
       "project_number": 50,
       "project_name": "hiv_grand_rounds_slidev",
