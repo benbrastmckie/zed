@@ -1,10 +1,26 @@
 ---
-next_project_number: 53
+next_project_number: 54
 ---
 
 # Task List
 
 ## Tasks
+
+### 53. HIV Grand Rounds: MXM LA-ART & LA-PrEP Presentation (Slidev)
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: present
+
+**Description**: HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for UCSF/ZSFG (CONFERENCE talk, 20-25 min, slidev)
+
+**Sources**:
+- /home/benjamin/.config/zed/examples/test-files/HIV_Grand_Rounds.md
+
+**Forcing Data Gathered**:
+- Output format: slidev
+- Talk type: CONFERENCE
+- Source materials: HIV_Grand_Rounds.md reference document
+- Audience context: ID faculty + HIV clinic community members/staff at UCSF/ZSFG. Presenter: Nicky Mehtani. ~20-25 min, casual but thoughtful clinical voice, street medicine/public health perspective.
 
 ### 52. HIV Grand Rounds: MXM LA-ART & LA-PrEP Presentation
 - **Effort**: TBD
