@@ -1,6 +1,15 @@
 {
-  "next_project_number": 60,
-  "active_projects": [],
+  "next_project_number": 61,
+  "active_projects": [
+    {
+      "project_number": 60,
+      "project_name": "update_docs_for_claude_changes",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-13T22:29:44Z",
+      "last_updated": "2026-04-13T22:29:44Z"
+    }
+  ],
   "repository_health": {
     "last_assessed": "2026-04-13T21:46:02Z",
     "status": "healthy"
