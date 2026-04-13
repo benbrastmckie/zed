@@ -158,7 +158,7 @@ fi
 ### Step 3: Handle Input Type
 
 **If task number**:
-Load existing task, validate language is "present" and task_type is "slides", then delegate to skill-slides for research.
+Load existing task, validate task_type is "present:slides", then delegate to skill-slides for research.
 
 **If file path**:
 Read the file as primary source material. Run Stage 0 forcing questions (Steps 0.1-0.3) with the file content as context. Then proceed to task creation.
@@ -192,40 +192,18 @@ Construct an enriched description incorporating forcing data:
    - If `input_type="description"`: use the user's original text
    - If `input_type="file_path"`: synthesize from file content (first heading or basename) and audience_context
 
-2. Append structured details:
-   - Talk type and output format: "({talk_type} talk, {output_format} format)"
-   - Source materials with relative paths (strip repository root via `git rev-parse --show-toplevel`)
-   - Audience context summary (first sentence or key phrase, ~20 words max)
+2. Append talk type, duration, and output format in parentheses.
 
 3. The enriched description replaces `$desc` for both state.json and TODO.md.
 
-**Path relativization**: Detect the git repository root and strip it from absolute paths. Fall back to basename for paths outside the repo.
-
 **Target format**:
 ```
-{base_description}. {talk_type} talk ({duration}), {output_format} output. Source: {relative_paths}. Audience: {audience_summary}.
+{base_description} ({talk_type} talk, {duration}, {output_format})
 ```
 
 ```bash
 # Example enrichment
-repo_root=$(git rev-parse --show-toplevel 2>/dev/null || echo "")
-enriched_description="${description}. ${talk_type} talk, ${output_format} output."
-
-# Relativize source material paths
-for src in "${source_materials[@]}"; do
-  if [[ "$src" == task:* ]]; then
-    enriched_description="${enriched_description} Source: ${src}."
-  elif [[ -n "$repo_root" && "$src" == "$repo_root"* ]]; then
-    rel_path="${src#$repo_root/}"
-    enriched_description="${enriched_description} Source: ${rel_path}."
-  else
-    enriched_description="${enriched_description} Source: $(basename "$src")."
-  fi
-done
-
-# Append audience summary (first ~20 words)
-audience_summary=$(echo "$audience_context" | head -c 120)
-enriched_description="${enriched_description} Audience: ${audience_summary}."
+enriched_description="${description} (${talk_type} talk, ${duration}, ${output_format})"
 ```
 
 ### Step 3: Update state.json
@@ -239,8 +217,7 @@ jq --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
      "project_number": $next_num,
      "project_name": "slug",
      "status": "not_started",
-     "task_type": "present",
-     "task_type": "slides",
+     "task_type": "present:slides",
      "description": $desc,
      "forcing_data": $forcing,
      "created": $ts,
@@ -263,9 +240,20 @@ sed -i 's/^next_project_number: [0-9]*/next_project_number: {NEW_NUMBER}/' \
 ### {N}. {Title}
 - **Effort**: TBD
 - **Status**: [NOT STARTED]
-- **Task Type**: present
+- **Task Type**: present:slides
 
 **Description**: {enriched_description}
+
+**Sources**:
+- {full_absolute_path_1}
+- {full_absolute_path_2}
+- task:{N} (for task references)
+
+**Forcing Data Gathered**:
+- Output format: {forcing_data.output_format}
+- Talk type: {forcing_data.talk_type}
+- Source materials: {forcing_data.source_materials}
+- Audience context: {forcing_data.audience_context}
 ```
 
 ### Step 5: Git commit
@@ -284,10 +272,16 @@ Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 ```
 Talk task #{N} created: {TITLE}
 Status: [NOT STARTED]
-Language: present
+Task Type: present
 Talk Type: {talk_type}
 Output Format: {output_format}
 Artifacts path: specs/{NNN}_{SLUG}/ (created on first artifact)
+
+Forcing Data Gathered:
+- Output format: {forcing_data.output_format}
+- Talk type: {forcing_data.talk_type}
+- Source materials: {forcing_data.source_materials}
+- Audience context: {forcing_data.audience_context}
 
 Recommended workflow:
 1. /research {N} - Synthesize source materials into slide-mapped report
@@ -309,8 +303,7 @@ task_data=$(jq -r --argjson num "$task_number" \
   specs/state.json)
 
 # Validate exists
-# Validate language is "present"
-# Validate task_type is "slides"
+# Validate task_type is "present:slides"
 # Validate status allows research (not_started or researched for re-research)
 ```
 
@@ -339,7 +332,7 @@ Next: /plan {N} (create implementation plan with design questions)
 
 ## Core Command Integration
 
-Tasks with language="present" and task_type="slides" route through core commands:
+Tasks with task_type="present:slides" route through core commands:
 
 | Command | Routes To | Purpose |
 |---------|-----------|---------|
@@ -372,9 +365,15 @@ Tasks with language="present" and task_type="slides" route through core commands
 ```
 Talk task #{N} created: {TITLE}
 Status: [NOT STARTED]
-Language: present
+Task Type: present
 Talk Type: {talk_type}
 Output Format: {output_format}
+
+Forcing Data Gathered:
+- Output format: {forcing_data.output_format}
+- Talk type: {forcing_data.talk_type}
+- Source materials: {forcing_data.source_materials}
+- Audience context: {forcing_data.audience_context}
 
 Recommended workflow:
 1. /research {N} - Synthesize source materials

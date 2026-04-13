@@ -35,7 +35,7 @@
         {
           "path": "specs/056_refactor_keymap_platform_adaptive/summaries/01_platform-adaptive-keybindings-summary.md",
           "type": "summary",
-          "summary": "Implementation summary: 4 phases completed, 3 files updated for platform-adaptive keybindings"
+          "summary": "Implementation summary for platform-adaptive keybinding refactor"
         }
       ],
       "plan_metadata": {

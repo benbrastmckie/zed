@@ -4,7 +4,6 @@ description: Research talk material synthesis, design-aware planning, and presen
 allowed-tools: Task, Bash, Edit, Read, Write, AskUserQuestion
 # Subagents (dispatched by workflow_type + output_format):
 #   - slides-research-agent (workflow_type=slides_research)
-#   - planner-agent (workflow_type=plan, via design questions pre-delegation)
 #   - pptx-assembly-agent (workflow_type=assemble, output_format=pptx)
 #   - slidev-assembly-agent (workflow_type=assemble, output_format=slidev)
 # Context is loaded by each subagent independently.
@@ -19,6 +18,8 @@ Thin wrapper that delegates slides work to the appropriate subagent based on wor
 - **slides-research-agent**: Material synthesis into slide-mapped research reports
 - **pptx-assembly-agent**: PowerPoint generation from research reports
 - **slidev-assembly-agent**: Slidev project generation from research reports
+
+**Note**: Plan workflow (`/plan present:slides`) is handled by `skill-slide-planning`, not this skill.
 
 **IMPORTANT**: This skill implements the skill-internal postflight pattern. After the subagent returns,
 this skill handles all postflight operations (status update, artifact linking, git commit) before returning.
@@ -38,9 +39,8 @@ Note: This skill is a thin wrapper with internal postflight. Context is loaded b
 
 This skill activates when:
 - `/slides` command with task number input
-- `/research` on a present task with `task_type: "slides"`
-- `/plan` on a present task with `task_type: "slides"` (plan workflow with design questions)
-- `/implement` on a present task with `task_type: "slides"` (assemble workflow)
+- `/research` on a task with `task_type: "present:slides"`
+- `/implement` on a task with `task_type: "present:slides"` (assemble workflow)
 - Present extension is available
 
 ---
@@ -52,12 +52,9 @@ This skill routes to the appropriate subagent based on workflow type and output 
 | Workflow Type | Preflight Status | Success Status | TODO.md Markers |
 |---------------|-----------------|----------------|-----------------|
 | slides_research | researching | researched | [RESEARCHING] -> [RESEARCHED] |
-| plan | planning | planned | [PLANNING] -> [PLANNED] |
 | assemble | implementing | completed | [IMPLEMENTING] -> [COMPLETED] |
 
-**Note**: The `plan` workflow asks interactive design questions (theme, message ordering, section
-emphasis) before delegating to planner-agent. Design decisions are stored as `design_decisions` in
-state.json task metadata. Assembly agents read `design_decisions.theme` with a fallback chain:
+**Note**: Assembly agents read `design_decisions.theme` with a fallback chain:
 design_decisions -> research report "Recommended Theme" -> default `academic-clean`.
 
 ---
@@ -65,11 +62,11 @@ design_decisions -> research report "Recommended Theme" -> default `academic-cle
 ## Input Parameters
 
 ### Required Parameters
-- `task_number` - Task number (must exist in state.json with language="present", task_type="slides")
+- `task_number` - Task number (must exist in state.json with task_type="present:slides")
 - `session_id` - Session ID from orchestrator
 
 ### Optional Parameters
-- `workflow_type` - One of: slides_research, plan, assemble (default: slides_research)
+- `workflow_type` - One of: slides_research, assemble (default: slides_research)
 
 ---
 
@@ -79,7 +76,7 @@ design_decisions -> research report "Recommended Theme" -> default `academic-cle
 
 Validate required inputs:
 - `task_number` - Must be provided and exist in state.json
-- Verify language is "present" and task_type is "slides"
+- Verify task_type is "present:slides"
 
 ```bash
 # Lookup task
@@ -93,15 +90,14 @@ if [ -z "$task_data" ]; then
 fi
 
 # Extract fields
-language=$(echo "$task_data" | jq -r '.language // "present"')
 task_type=$(echo "$task_data" | jq -r '.task_type // ""')
 status=$(echo "$task_data" | jq -r '.status')
 project_name=$(echo "$task_data" | jq -r '.project_name')
 description=$(echo "$task_data" | jq -r '.description // ""')
 
-# Validate language and task_type
-if [ "$task_type" != "present" ] || [ "$task_type" != "slides" ]; then
-  return error "Task $task_number is not a slides task (language=$task_type, task_type=$task_type)"
+# Validate task_type (supports "present:slides" or legacy "slides")
+if [ "$task_type" != "present:slides" ] && [ "$task_type" != "slides" ]; then
+  return error "Task $task_number is not a slides task (task_type=$task_type)"
 fi
 ```
 
@@ -125,10 +121,6 @@ case "$workflow_type" in
   slides_research)
     preflight_status="researching"
     preflight_marker="[RESEARCHING]"
-    ;;
-  plan)
-    preflight_status="planning"
-    preflight_marker="[PLANNING]"
     ;;
   assemble)
     preflight_status="implementing"
@@ -172,108 +164,6 @@ EOF
 
 ---
 
-### Stage 3.5: Design Questions (plan workflow only)
-
-**Skip this stage** if `workflow_type` is not `plan`.
-
-This stage asks interactive design questions before delegating to the planner-agent. It reads the
-research report to extract key messages and presents theme, ordering, and emphasis choices.
-
-#### Step 1: Check for Existing Design Decisions
-
-```bash
-existing_dd=$(echo "$task_data" | jq -r '.design_decisions // empty')
-if [ -n "$existing_dd" ]; then
-  # Ask user: reuse or reconfigure?
-  # AskUserQuestion: "Design decisions already exist for this task:
-  #   Theme: {theme}, Message Order: {order}, Section Emphasis: {emphasis}
-  #   Use existing decisions or reconfigure?"
-  # If "use existing": skip to Stage 4
-  # If "reconfigure": continue with D1-D3 below
-fi
-```
-
-#### Step 2: Read Research Report
-
-```bash
-padded_num=$(printf "%03d" "$task_number")
-report_path=$(ls -1 "specs/${padded_num}_${project_name}/reports/"*_slides-research.md 2>/dev/null | sort -V | tail -1)
-
-# Read the research report to extract key messages, suggested structure, and themes
-# Parse key messages for D2 ordering question
-```
-
-#### Step 3: Design Questions (D1-D3)
-
-**D1: Visual Theme**
-
-Use AskUserQuestion:
-
-```
-Based on the research report, which visual theme fits best?
-
-A) Academic Clean - Minimal, high-contrast, serif headings (department seminars)
-B) Clinical Teal - Medical/clinical palette, clean data presentation (clinical audiences)
-C) Conference Bold - Strong colors, large type, designed for projection (conference talks)
-D) Minimal Dark - Dark background, high contrast, code-friendly (technical audiences)
-E) UCSF Institutional - Navy/blue palette, Garamond serif headings (UCSF presentations)
-```
-
-Store response as `design_decisions.theme`.
-
-**D2: Key Message Ordering**
-
-Present the 3 key messages identified in the research report and ask:
-
-```
-The research identified these key messages. Confirm or reorder:
-
-1. {key_message_1}
-2. {key_message_2}
-3. {key_message_3}
-
-Enter the preferred order (e.g., "2, 1, 3") or "confirm" to keep as-is.
-Add any messages to emphasize or de-emphasize.
-```
-
-Store response as `design_decisions.message_order`.
-
-**D3: Section Emphasis**
-
-```
-Which sections should receive extra slides or depth?
-
-Select all that apply:
-- Methods/approach (show technical detail)
-- Results/data (more data slides)
-- Background/motivation (broader context)
-- Clinical implications (translational focus)
-- Future directions (forward-looking)
-
-Which sections to expand?
-```
-
-Store response as `design_decisions.section_emphasis`.
-
-#### Step 4: Store Design Decisions
-
-Update task metadata in state.json:
-
-```bash
-jq --arg theme "$theme" \
-   --arg order "$message_order" \
-   --arg emphasis "$section_emphasis" \
-   --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-  '(.active_projects[] | select(.project_number == '$task_number')).design_decisions = {
-    "theme": $theme,
-    "message_order": $order,
-    "section_emphasis": $emphasis,
-    "confirmed_at": $ts
-  }' specs/state.json > specs/tmp/state.json && mv specs/tmp/state.json specs/state.json
-```
-
----
-
 ### Stage 4: Prepare Delegation Context
 
 Resolve the target agent based on workflow_type and output_format:
@@ -282,9 +172,6 @@ Resolve the target agent based on workflow_type and output_format:
 case "$workflow_type" in
   slides_research)
     target_agent="slides-research-agent"
-    ;;
-  plan)
-    target_agent="planner-agent"
     ;;
   assemble)
     case "$output_format" in
@@ -307,8 +194,7 @@ esac
     "task_number": N,
     "task_name": "{project_name}",
     "description": "{description}",
-    "task_type": "present",
-    "task_type": "slides"
+    "task_type": "present:slides"
   },
   "workflow_type": "slides_research|assemble",
   "output_format": "slidev|pptx (extracted from forcing_data, default: slidev)",
@@ -336,7 +222,6 @@ Parameters:
 | workflow_type | output_format | target_agent |
 |---------------|---------------|--------------|
 | `slides_research` | any | `slides-research-agent` |
-| `plan` | any | `planner-agent` |
 | `assemble` | `pptx` | `pptx-assembly-agent` |
 | `assemble` | `slidev` (default) | `slidev-assembly-agent` |
 
@@ -344,7 +229,23 @@ Parameters:
 
 ---
 
-### Stage 6: Parse Subagent Return (Read Metadata File)
+### Stage 5b: Self-Execution Fallback
+
+**CRITICAL**: If you performed the work above WITHOUT using the Task tool (i.e., you read files,
+wrote artifacts, or updated metadata directly instead of spawning a subagent), you MUST write a
+`.return-meta.json` file now before proceeding to postflight. Use the schema from
+`return-metadata-file.md` with the appropriate status value for this operation.
+
+If you DID use the Task tool, skip this stage -- the subagent already wrote the metadata.
+
+---
+
+## Postflight (ALWAYS EXECUTE)
+
+The following stages MUST execute after work is complete, whether the work was done by a
+subagent or inline (Stage 5b). Do NOT skip these stages for any reason.
+
+### Stage 6: Read Metadata File
 
 ```bash
 metadata_file="specs/${padded_num}_${project_name}/.return-meta.json"
@@ -368,8 +269,6 @@ fi
 |---------------|-------------|-----------------|---------------|
 | slides_research | researched | researched | [RESEARCHED] |
 | slides_research | partial | researching | [RESEARCHING] |
-| plan | planned | planned | [PLANNED] |
-| plan | partial | planning | [PLANNING] |
 | assemble | assembled | completed | [COMPLETED] |
 | assemble | partial | implementing | [IMPLEMENTING] |
 | any | failed | (keep preflight) | (keep preflight marker) |
@@ -380,6 +279,8 @@ fi
 
 Add artifact to state.json with summary. Use the two-step jq pattern to avoid Issue #1132.
 
+**Update TODO.md**: Link artifact per `@.claude/context/patterns/artifact-linking-todo.md` with `field_name=**Summary**`, `next_field=**Description**`.
+
 ---
 
 ### Stage 9: Git Commit
@@ -388,9 +289,6 @@ Add artifact to state.json with summary. Use the two-step jq pattern to avoid Is
 case "$workflow_type" in
   slides_research)
     commit_action="complete slides research"
-    ;;
-  plan)
-    commit_action="create implementation plan"
     ;;
   assemble)
     # Branch commit message on output_format

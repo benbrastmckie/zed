@@ -79,7 +79,7 @@ if [ -z "$task_data" ]; then
 fi
 
 # Extract fields
-language=$(echo "$task_data" | jq -r '.language // "present"')
+task_type=$(echo "$task_data" | jq -r '.task_type // "present"')
 status=$(echo "$task_data" | jq -r '.status')
 project_name=$(echo "$task_data" | jq -r '.project_name')
 description=$(echo "$task_data" | jq -r '.description // ""')
@@ -219,7 +219,23 @@ Parameters:
 
 ---
 
-### Stage 6: Parse Subagent Return (Read Metadata File)
+### Stage 5b: Self-Execution Fallback
+
+**CRITICAL**: If you performed the work above WITHOUT using the Task tool (i.e., you read files,
+wrote artifacts, or updated metadata directly instead of spawning a subagent), you MUST write a
+`.return-meta.json` file now before proceeding to postflight. Use the schema from
+`return-metadata-file.md` with the appropriate status value for this operation.
+
+If you DID use the Task tool, skip this stage -- the subagent already wrote the metadata.
+
+---
+
+## Postflight (ALWAYS EXECUTE)
+
+The following stages MUST execute after work is complete, whether the work was done by a
+subagent or inline (Stage 5b). Do NOT skip these stages for any reason.
+
+### Stage 6: Read Metadata File
 
 ```bash
 metadata_file="specs/${padded_num}_${project_name}/.return-meta.json"
@@ -295,7 +311,7 @@ if [ -n "$artifact_path" ]; then
 fi
 ```
 
-**Update TODO.md**: Add artifact link using count-aware format.
+**Update TODO.md**: Link artifact using count-aware format. Apply the four-case Edit logic from `@.claude/context/patterns/artifact-linking-todo.md` with `field_name=**Research**`, `next_field=**Plan**`.
 
 ---
 
