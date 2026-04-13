@@ -1,6 +1,14 @@
 {
-  "next_project_number": 56,
+  "next_project_number": 57,
   "active_projects": [
+    {
+      "project_number": 56,
+      "project_name": "refactor_keymap_platform_adaptive",
+      "status": "not_started",
+      "task_type": "general",
+      "created": "2026-04-13T19:56:21Z",
+      "last_updated": "2026-04-13T19:56:21Z"
+    },
     {
       "project_number": 55,
       "project_name": "update_claude_and_project_docs",
