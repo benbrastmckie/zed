@@ -4,10 +4,20 @@
     {
       "project_number": 56,
       "project_name": "refactor_keymap_platform_adaptive",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "general",
       "created": "2026-04-13T19:56:21Z",
-      "last_updated": "2026-04-13T19:56:21Z"
+      "last_updated": "2026-04-13T20:00:00Z",
+      "session_id": "sess_1776110236_8ede20",
+      "researched": "2026-04-13T20:00:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/056_refactor_keymap_platform_adaptive/reports/01_platform-adaptive-keybindings.md",
+          "type": "research",
+          "summary": "Collision analysis of 17 custom keybindings against Zed macOS/Linux defaults for secondary- migration"
+        }
+      ]
     },
     {
       "project_number": 55,
