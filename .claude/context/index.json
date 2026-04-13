@@ -4035,7 +4035,7 @@
           "/slides"
         ],
         "agents": [
-          "slides-agent"
+          "slides-research-agent"
         ]
       },
       "domain": "project",
@@ -4069,7 +4069,7 @@
           "/slides"
         ],
         "agents": [
-          "slides-agent"
+          "slides-research-agent"
         ]
       },
       "domain": "project",
@@ -4104,7 +4104,7 @@
           "/implement"
         ],
         "agents": [
-          "slides-agent",
+          "slidev-assembly-agent",
           "planner-agent",
           "general-implementation-agent"
         ],
@@ -4181,7 +4181,7 @@
           "/implement"
         ],
         "agents": [
-          "slides-agent",
+          "slidev-assembly-agent",
           "general-implementation-agent"
         ],
         "task_types": [
@@ -4209,6 +4209,175 @@
         "package.json",
         "vite",
         "lz-string"
+      ]
+    },
+    {
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "commands": [
+          "/slides"
+        ],
+        "agents": [
+          "slides-research-agent"
+        ]
+      },
+      "domain": "project",
+      "topics": [
+        "talk",
+        "library",
+        "index"
+      ],
+      "summary": "Talk library index: available patterns, content templates, components, and themes",
+      "line_count": 50,
+      "path": "project/present/talk/index.json",
+      "subdomain": "present",
+      "keywords": [
+        "talk",
+        "library",
+        "patterns",
+        "templates",
+        "components"
+      ]
+    },
+    {
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "commands": [
+          "/implement"
+        ],
+        "agents": [
+          "pptx-assembly-agent"
+        ],
+        "task_types": [
+          "present",
+          "slides"
+        ]
+      },
+      "domain": "project",
+      "topics": [
+        "pptx",
+        "python-pptx",
+        "powerpoint",
+        "generation"
+      ],
+      "summary": "python-pptx API patterns and helper functions for PowerPoint generation",
+      "line_count": 828,
+      "path": "project/present/talk/patterns/pptx-generation.md",
+      "subdomain": "present",
+      "keywords": [
+        "pptx",
+        "python-pptx",
+        "powerpoint",
+        "slide",
+        "assembly"
+      ]
+    },
+    {
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "commands": [
+          "/implement"
+        ],
+        "agents": [
+          "pptx-assembly-agent"
+        ],
+        "task_types": [
+          "present",
+          "slides"
+        ]
+      },
+      "domain": "project",
+      "topics": [
+        "pptx",
+        "theme",
+        "colors",
+        "fonts"
+      ],
+      "summary": "PPTX theme constants: colors, fonts, and sizes for academic presentation themes",
+      "line_count": 80,
+      "path": "project/present/talk/templates/pptx-project/theme_mappings.json",
+      "subdomain": "present",
+      "keywords": [
+        "theme",
+        "colors",
+        "fonts",
+        "pptx",
+        "mappings"
+      ]
+    },
+    {
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "commands": [
+          "/implement"
+        ],
+        "agents": [
+          "pptx-assembly-agent"
+        ],
+        "task_types": [
+          "present",
+          "slides"
+        ]
+      },
+      "domain": "project",
+      "topics": [
+        "pptx",
+        "script",
+        "generation",
+        "skeleton"
+      ],
+      "summary": "Reference skeleton script for PPTX deck generation using python-pptx",
+      "line_count": 150,
+      "path": "project/present/talk/templates/pptx-project/generate_deck.py",
+      "subdomain": "present",
+      "keywords": [
+        "generate",
+        "deck",
+        "python",
+        "pptx",
+        "script"
+      ]
+    },
+    {
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "commands": [
+          "/implement"
+        ],
+        "agents": [
+          "pptx-assembly-agent"
+        ],
+        "task_types": [
+          "present",
+          "slides"
+        ]
+      },
+      "domain": "project",
+      "topics": [
+        "pptx",
+        "template",
+        "project"
+      ],
+      "summary": "PPTX project template README: theme mappings and generation script documentation",
+      "line_count": 40,
+      "path": "project/present/talk/templates/pptx-project/README.md",
+      "subdomain": "present",
+      "keywords": [
+        "pptx",
+        "template",
+        "theme",
+        "project",
+        "readme"
       ]
     },
     {

@@ -135,7 +135,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Update context index and extensions.json [NOT STARTED]
+### Phase 3: Update context index and extensions.json [COMPLETED]
 
 **Goal**: Update all context/index.json entries and extensions.json installed_files to reference the new agent names instead of slides-agent.
 
