@@ -4,17 +4,22 @@
     {
       "project_number": 60,
       "project_name": "update_docs_for_claude_changes",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-13T22:29:44Z",
-      "last_updated": "2026-04-13T22:38:55Z",
-      "session_id": "sess_1776119511_e4b8a1",
+      "last_updated": "2026-04-13T22:48:12Z",
+      "session_id": "sess_1776120307_439cfa",
       "next_artifact_number": 2,
       "artifacts": [
         {
           "path": "specs/060_update_docs_for_claude_changes/reports/01_doc-update-audit.md",
           "type": "research",
           "summary": "Audit of 13 documentation items needing updates across 10 files"
+        },
+        {
+          "path": "specs/060_update_docs_for_claude_changes/plans/01_doc-update-plan.md",
+          "type": "plan",
+          "summary": "4-phase plan to fix 13 documentation inconsistencies"
         }
       ]
     }

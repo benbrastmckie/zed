@@ -91,9 +91,9 @@ Modified:
 {scope}: {action} {description}
 
 Session: {session_id}
-```
 
-**Note**: Per user preference, omit `Co-Authored-By` trailers from all commits in this workspace.
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+```
 
 ### Session ID
 
@@ -120,18 +120,24 @@ session_id="sess_$(date +%s)_$(od -An -N3 -tx1 /dev/urandom | tr -d ' ')"
 task 334: create LaTeX documentation for Logos system
 
 Session: sess_1736700000_a1b2c3
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
 ```
 
 ```
 task 259 phase 2: implement modal semantics evaluator
 
 Session: sess_1736701234_d4e5f6
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
 ```
 
 ```
 todo: archive 3 completed tasks (336, 337, 338)
 
 Session: sess_1736702000_789abc
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
 ```
 
 ## Branch Strategy

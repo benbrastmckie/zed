@@ -13,9 +13,6 @@ Agent definitions for the Claude Code system. Agents perform execution work for 
 | code-reviewer-agent.md | Code quality assessment and review |
 | reviser-agent.md | Plan revision and task description updates |
 | spawn-agent.md | Blocker analysis and task decomposition |
-| slide-planner-agent.md | Interactive slide design planning with 5-stage Q&A |
-
-Extension-specific agents (epi, filetypes, latex, python, typst, present) are documented in their respective CLAUDE.md extension sections.
 
 ## Agent Structure
 
