@@ -1,36 +1,15 @@
 {
-  "status": "planned",
-  "summary": "4-phase plan to move design questions from /slides --design into /plan N workflow via skill-slides plan routing",
-  "artifacts": [
-    {
-      "path": "specs/048_slides_theme_in_planning/plans/01_slides-theme-planning.md",
-      "type": "plan",
-      "summary": "4-phase implementation plan: add plan workflow to skill-slides, enable extension routing, remove --design from slides.md, update documentation"
-    }
-  ],
-  "next_steps": "Run /implement 48 to execute the plan",
-  "plan_metadata": {
-    "phases": 4,
-    "total_effort_hours": 2.5,
-    "complexity": "medium",
-    "research_integrated": true,
-    "plan_version": 1,
-    "dependency_waves": [[1], [2], [3], [4]],
-    "reports_integrated": [
-      {
-        "path": "reports/01_slides-theme-planning.md",
-        "integrated_in_plan_version": 1,
-        "integrated_date": "2026-04-13"
-      }
-    ]
-  },
-  "metadata": {
-    "session_id": "sess_1776054628_7aad9a",
-    "agent_type": "planner-agent",
-    "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "plan", "planner-agent"],
-    "phase_count": 4,
-    "estimated_hours": 2.5,
-    "dependency_waves": [[1], [2], [3], [4]]
+  "task_number": 48,
+  "task_name": "slides_theme_in_planning",
+  "status": "implemented",
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+  "session_id": "sess_1776055046_77ae42",
+  "phases_completed": 4,
+  "phases_total": 4,
+  "summary_path": "specs/048_slides_theme_in_planning/summaries/01_slides-theme-planning-summary.md",
+  "completion_data": {
+    "completion_summary": "Moved visual theme selection into /plan workflow for slides tasks. Added plan workflow type to skill-slides with design questions stage, installed extension manifest for routing, removed --design flag and STAGE 3 from slides.md.",
+    "claudemd_suggestions": "Updated skill-slides SKILL.md (added plan workflow, planner-agent subagent), installed .claude/extensions/present/manifest.json with slides plan routing, updated .claude/extensions.json installed_files, modified slides.md command definition"
   }
 }
