@@ -1,6 +1,14 @@
 {
-  "next_project_number": 58,
+  "next_project_number": 59,
   "active_projects": [
+    {
+      "project_number": 58,
+      "project_name": "cross_platform_docs_update",
+      "status": "not_started",
+      "task_type": "markdown",
+      "created": "2026-04-13T20:59:02Z",
+      "last_updated": "2026-04-13T20:59:02Z"
+    },
     {
       "project_number": 57,
       "project_name": "cross_platform_install_wizard",

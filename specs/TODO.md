@@ -1,10 +1,29 @@
 ---
-next_project_number: 58
+next_project_number: 59
 ---
 
 # Task List
 
 ## Tasks
+
+### 58. Update documentation for cross-platform install wizard
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: markdown
+
+**Description**: Update all documentation to reflect the cross-platform install wizard completed in task 57. The wizard now supports macOS, Debian/Ubuntu, and Arch/Manjaro with OS detection, package manager abstraction, interactive_step pattern, PPM binary repos for R on Linux, and NixOS detect-and-skip. The following files still reference "macOS only" or contain Homebrew-only install instructions that need cross-platform alternatives added:
+
+- `README.md` — Platform line says "macOS 11 (Big Sur) or newer", Quick Start says "On a fresh Mac"
+- `docs/general/installation.md` — Manual installation section says "target platform is macOS 11", Prerequisites list only macOS, all manual install steps are Homebrew-only. The wizard section was already updated by task 57.
+- `docs/toolchain/README.md` — Platform scope section explicitly says "macOS / Homebrew only" and "Linux install paths are explicitly out of scope per the task-21 reframing"
+- `docs/toolchain/python.md` — All install commands are brew-only (brew install python, brew install uv, brew install ruff). Needs Linux alternatives (apt/pacman for python3, curl installer for uv, uv tool install for ruff)
+- `docs/toolchain/r.md` — Install command is "brew install r" only. Needs apt/pacman alternatives, mention of PPM binary repos for Linux, note about compilation timeouts on Linux without PPM
+- `docs/toolchain/shell-tools.md` — Install commands are brew/xcode-select only. Needs apt/pacman alternatives for jq, gh, make, fontconfig, git
+- `docs/toolchain/typesetting.md` — All install commands are brew-only (BasicTeX/MacTeX casks, brew install typst, brew install pandoc, brew font casks). Needs apt/pacman alternatives for texlive, typst, pandoc, and system font packages
+- `docs/toolchain/extensions.md` — Check commands reference brew-specific paths; epidemiology section mentions "Xcode Command Line Tools C++ compiler" without Linux equivalent (build-essential/base-devel)
+- `docs/toolchain/mcp-servers.md` — Mostly platform-neutral (uvx/npx), minimal changes needed
+
+Reference: The cross-platform install logic is in `scripts/install/lib.sh` (detect_os, resolve_pkg_name, pkg_install, interactive_step, etc.) — consult for correct package names and install methods per platform.
 
 ### 57. Cross-platform install wizard with headless-aware interactive fallbacks
 - **Effort**: large
@@ -35,3 +54,7 @@ next_project_number: 58
 - **Task Type**: meta
 
 **Description**: Run git diff on .claude/ to see what has changed in order to systematically update all documentation in .claude/ as well as /home/benjamin/.config/zed/README.md and in /home/benjamin/.config/zed/docs/ as appropriate, cutting no corners
+
+## Recommended Order
+
+1. **58** -> research (independent)
