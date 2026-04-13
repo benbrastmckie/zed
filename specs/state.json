@@ -4,11 +4,13 @@
     {
       "project_number": 55,
       "project_name": "update_claude_and_project_docs",
-      "status": "planned",
+      "status": "completed",
+      "completion_summary": "Updated CLAUDE.md tables, agents/README.md, docs/, git-workflow.md, and README.md to reflect slide-planner-agent, present:slides compound task type, validate-plan-write.sh hook, and corrected Co-Authored-By examples.",
+      "claudemd_suggestions": "Added slide-planner-agent to 3 CLAUDE.md tables, added Hooks subsection under Rules References, updated Present Extension routing to use present:slides compound value, removed stale Co-Authored-By from git-workflow.md examples",
       "task_type": "meta",
       "created": "2026-04-13T19:23:01Z",
-      "last_updated": "2026-04-13T19:45:00Z",
-      "session_id": "sess_1776108752_c13517",
+      "last_updated": "2026-04-13T19:41:13Z",
+      "session_id": "sess_1776109261_decc37",
       "researched": "2026-04-13T19:30:45Z",
       "planned": "2026-04-13T19:45:00Z",
       "next_artifact_number": 2,
@@ -22,6 +24,11 @@
           "path": "specs/055_update_claude_and_project_docs/plans/01_update-docs.md",
           "type": "plan",
           "summary": "4-phase plan: CLAUDE.md tables, agents README, docs/, housekeeping"
+        },
+        {
+          "path": "specs/055_update_claude_and_project_docs/summaries/01_update-docs-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary: 7 docs updated across 4 phases"
         }
       ],
       "plan_metadata": {
@@ -30,7 +37,18 @@
         "complexity": "medium",
         "research_integrated": true,
         "plan_version": 1,
-        "dependency_waves": [[1], [2, 3], [4]],
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
         "reports_integrated": [
           {
             "path": "reports/01_team-research.md",
