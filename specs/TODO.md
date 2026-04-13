@@ -7,9 +7,10 @@ next_project_number: 54
 ## Tasks
 
 ### 53. HIV Grand Rounds: MXM LA-ART & LA-PrEP Presentation (Slidev)
-- **Effort**: TBD
-- **Status**: [RESEARCHED]
+- **Effort**: 5 hours
+- **Status**: [PLANNED]
 - **Report**: [01_slides-research.md](specs/053_hiv_grand_rounds_slidev/reports/01_slides-research.md)
+- **Plan**: [01_implementation-plan.md](specs/053_hiv_grand_rounds_slidev/plans/01_implementation-plan.md)
 - **Task Type**: present
 
 **Description**: HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for UCSF/ZSFG (CONFERENCE talk, 20-25 min, slidev)
