@@ -4,7 +4,7 @@
     {
       "project_number": 50,
       "project_name": "hiv_grand_rounds_slidev",
-      "status": "planned",
+      "status": "completed",
       "task_type": "slides",
       "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation (Slidev). CONFERENCE talk (15-20 min), slidev output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty and HIV clinic community members at UCSF/ZSFG, ~20-25 min with 4 patient cases and audience polls.",
       "forcing_data": {
@@ -17,7 +17,7 @@
         "gathered_at": "2026-04-13T06:34:45Z"
       },
       "created": "2026-04-13T06:34:45Z",
-      "last_updated": "2026-04-13T06:49:17Z",
+      "last_updated": "2026-04-13T06:59:23Z",
       "session_id": "sess_1776062069_3e3464",
       "next_artifact_number": 2,
       "artifacts": [
@@ -30,6 +30,11 @@
           "path": "specs/050_hiv_grand_rounds_slidev/plans/01_slides-plan.md",
           "type": "plan",
           "summary": "5-phase implementation plan for 23-slide Slidev presentation with UCSF institutional theme"
+        },
+        {
+          "path": "talks/50_hiv_grand_rounds_slidev/slides.md",
+          "type": "presentation",
+          "summary": "Slidev presentation (24 slides, ucsf-institutional theme)"
         }
       ],
       "design_decisions": {
@@ -37,7 +42,8 @@
         "message_order": "1,2,3,4",
         "section_emphasis": "clinical-cases-polls,results-data",
         "confirmed_at": "2026-04-13T06:45:13Z"
-      }
+      },
+      "completion_summary": "24-slide Slidev presentation with UCSF institutional theme, 4 patient cases, interactive polls, and speaker notes"
     },
     {
       "project_number": 49,

@@ -1,21 +1,25 @@
 {
-  "status": "planned",
+  "status": "assembled",
   "artifacts": [
     {
-      "type": "plan",
-      "path": "specs/050_hiv_grand_rounds_slidev/plans/01_slides-plan.md",
-      "summary": "5-phase implementation plan for 23-slide Slidev presentation with UCSF institutional theme"
+      "type": "presentation",
+      "path": "talks/50_hiv_grand_rounds_slidev/slides.md",
+      "summary": "Slidev presentation (24 slides, ucsf-institutional theme)"
+    },
+    {
+      "type": "project",
+      "path": "talks/50_hiv_grand_rounds_slidev/",
+      "summary": "Complete Slidev project directory"
     }
   ],
-  "next_steps": "Run /implement 50 to execute the plan",
   "metadata": {
     "session_id": "sess_1776062069_3e3464",
-    "agent_type": "planner-agent",
-    "duration_seconds": 180,
+    "agent_type": "slidev-assembly-agent",
+    "workflow_type": "assemble_slidev",
     "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "plan", "planner-agent"],
-    "phase_count": 5,
-    "estimated_hours": 4,
-    "dependency_waves": [[1], [2], [3], [4], [5]]
+    "delegation_path": ["orchestrator", "slides", "skill-slides", "slidev-assembly-agent"],
+    "slide_count": 24,
+    "theme": "ucsf-institutional",
+    "output_path": "talks/50_hiv_grand_rounds_slidev/slides.md"
   }
 }

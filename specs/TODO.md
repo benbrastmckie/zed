@@ -8,7 +8,9 @@ next_project_number: 51
 
 ### 50. HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation (Slidev)
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
+- **Completed**: 2026-04-13
+- **Summary**: 24-slide Slidev presentation with UCSF institutional theme, 4 patient cases, interactive polls, and speaker notes.
 - **Task Type**: present
 - **Research**: [01_slides-research.md](050_hiv_grand_rounds_slidev/reports/01_slides-research.md)
 - **Plan**: [01_slides-plan.md](050_hiv_grand_rounds_slidev/plans/01_slides-plan.md)
