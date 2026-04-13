@@ -1,5 +1,5 @@
 // Zed Keybindings Cheat Sheet
-// Synced with keybindings.md and keymap.json on 2026-04-11
+// Synced with keybindings.md and keymap.json on 2026-04-13
 
 #set page(
   paper: "a4",
