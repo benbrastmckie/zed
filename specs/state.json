@@ -4,18 +4,21 @@
     {
       "project_number": 52,
       "project_name": "hiv_grand_rounds_la_art_prep",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "present",
       "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for UCSF/ZSFG (CONFERENCE talk, 20-25 min, pptx)",
       "forcing_data": {
         "output_format": "pptx",
         "talk_type": "CONFERENCE",
-        "source_materials": ["/home/benjamin/.config/zed/examples/test-files/HIV_Grand_Rounds.md"],
+        "source_materials": [
+          "/home/benjamin/.config/zed/examples/test-files/HIV_Grand_Rounds.md"
+        ],
         "audience_context": "ID faculty + HIV clinic community members/staff at UCSF/ZSFG. Presenter: Nicky Mehtani, MD MPH. ~20-25 min, casual but thoughtful clinical voice, street medicine/public health perspective.",
         "gathered_at": "2026-04-13T12:34:51Z"
       },
       "created": "2026-04-13T12:34:51Z",
-      "last_updated": "2026-04-13T12:34:51Z"
+      "last_updated": "2026-04-13T09:02:03Z",
+      "session_id": "sess_1776070523_79c723"
     }
   ],
   "repository_health": {

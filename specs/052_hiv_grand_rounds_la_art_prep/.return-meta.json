@@ -1,0 +1,18 @@
+{
+  "status": "researched",
+  "artifacts": [
+    {
+      "type": "report",
+      "path": "specs/052_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md",
+      "summary": "Slide-mapped research report for CONFERENCE talk (23 slides mapped with speaker notes, layout recommendations, and data extraction)"
+    }
+  ],
+  "next_steps": "Run /plan 52 to create implementation plan",
+  "metadata": {
+    "session_id": "sess_1776070523_79c723",
+    "agent_type": "slides-research-agent",
+    "workflow_type": "slides_research",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "slides", "skill-slides", "slides-research-agent"]
+  }
+}
