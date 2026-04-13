@@ -8,9 +8,10 @@ next_project_number: 53
 
 ### 52. HIV Grand Rounds: MXM LA-ART & LA-PrEP Presentation
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
 - **Plan**: [01_implementation-plan.md](specs/052_hiv_grand_rounds_la_art_prep/plans/01_implementation-plan.md)
 - **Report**: [01_slides-research.md](specs/052_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md)
+- **Summary**: [01_execution-summary.md](specs/052_hiv_grand_rounds_la_art_prep/summaries/01_execution-summary.md)
 - **Task Type**: present
 
 **Description**: HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for UCSF/ZSFG (CONFERENCE talk, 20-25 min, pptx)

@@ -1,7 +1,7 @@
 # Implementation Plan: HIV Grand Rounds PPTX Presentation
 
 - **Task**: 52 - HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for UCSF/ZSFG
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 6 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/052_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md

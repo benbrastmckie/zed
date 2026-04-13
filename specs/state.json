@@ -4,7 +4,7 @@
     {
       "project_number": 52,
       "project_name": "hiv_grand_rounds_la_art_prep",
-      "status": "planned",
+      "status": "completed",
       "task_type": "present",
       "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for UCSF/ZSFG (CONFERENCE talk, 20-25 min, pptx)",
       "forcing_data": {
@@ -17,14 +17,22 @@
         "gathered_at": "2026-04-13T12:34:51Z"
       },
       "created": "2026-04-13T12:34:51Z",
-      "last_updated": "2026-04-13T15:24:39Z",
-      "session_id": "sess_1776093555_045774",
+      "last_updated": "2026-04-13T16:12:03Z",
+      "session_id": "sess_1776096126_4d13b2",
       "design_decisions": {
         "theme": "ucsf-institutional",
         "message_order": "1,2,3,4",
         "section_emphasis": "patient-cases",
         "confirmed_at": "2026-04-13T15:21:40Z"
-      }
+      },
+      "completion_summary": "Built 23-slide PPTX presentation for HIV Grand Rounds talk using python-pptx with UCSF institutional theming, patient case studies, poll placeholders, and complete speaker notes",
+      "artifacts": [
+        {
+          "path": "specs/052_hiv_grand_rounds_la_art_prep/summaries/01_execution-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for HIV Grand Rounds PPTX"
+        }
+      ]
     }
   ],
   "repository_health": {
