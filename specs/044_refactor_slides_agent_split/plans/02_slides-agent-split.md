@@ -170,7 +170,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Update slides.md command and absorb task 46 [NOT STARTED]
+### Phase 4: Update slides.md command and absorb task 46 [COMPLETED]
 
 **Goal**: Update the `/slides` command file to reference new agent names where applicable, and add the description enrichment step from task 46.
 

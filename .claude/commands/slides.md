@@ -194,11 +194,55 @@ next_num=$(jq -r '.next_project_number' specs/state.json)
 - Remove special characters
 - Max 50 characters
 
+### Step 2.5: Enrich Description
+
+Construct an enriched description incorporating forcing data:
+
+1. Start with the base description:
+   - If `input_type="description"`: use the user's original text
+   - If `input_type="file_path"`: synthesize from file content (first heading or basename) and audience_context
+
+2. Append structured details:
+   - Talk type and output format: "({talk_type} talk, {output_format} format)"
+   - Source materials with relative paths (strip repository root via `git rev-parse --show-toplevel`)
+   - Audience context summary (first sentence or key phrase, ~20 words max)
+
+3. The enriched description replaces `$desc` for both state.json and TODO.md.
+
+**Path relativization**: Detect the git repository root and strip it from absolute paths. Fall back to basename for paths outside the repo.
+
+**Target format**:
+```
+{base_description}. {talk_type} talk ({duration}), {output_format} output. Source: {relative_paths}. Audience: {audience_summary}.
+```
+
+```bash
+# Example enrichment
+repo_root=$(git rev-parse --show-toplevel 2>/dev/null || echo "")
+enriched_description="${description}. ${talk_type} talk, ${output_format} output."
+
+# Relativize source material paths
+for src in "${source_materials[@]}"; do
+  if [[ "$src" == task:* ]]; then
+    enriched_description="${enriched_description} Source: ${src}."
+  elif [[ -n "$repo_root" && "$src" == "$repo_root"* ]]; then
+    rel_path="${src#$repo_root/}"
+    enriched_description="${enriched_description} Source: ${rel_path}."
+  else
+    enriched_description="${enriched_description} Source: $(basename "$src")."
+  fi
+done
+
+# Append audience summary (first ~20 words)
+audience_summary=$(echo "$audience_context" | head -c 120)
+enriched_description="${enriched_description} Audience: ${audience_summary}."
+```
+
 ### Step 3: Update state.json
 
 ```bash
 jq --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-  --arg desc "$description" \
+  --arg desc "$enriched_description" \
   --argjson forcing "$forcing_data_json" \
   '.next_project_number = ($next_num + 1) |
    .active_projects = [{
@@ -231,7 +275,7 @@ sed -i 's/^next_project_number: [0-9]*/next_project_number: {NEW_NUMBER}/' \
 - **Status**: [NOT STARTED]
 - **Task Type**: present
 
-**Description**: {description}
+**Description**: {enriched_description}
 ```
 
 ### Step 5: Git commit
