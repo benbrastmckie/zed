@@ -2,7 +2,7 @@
 # install-mcp-servers.sh - Extension MCP servers (rmcp, markitdown-mcp, mcp-pandoc)
 #
 # ============================================================================
-# HARD INVARIANT — LEAN MCP RESURRECTION GUARD
+# HARD INVARIANT -- LEAN MCP RESURRECTION GUARD
 # ============================================================================
 # This script NEVER reads, parses, or scrapes any markdown file at runtime.
 # Every MCP server entry below is hard-coded in bash. This is intentional.
@@ -10,7 +10,7 @@
 # Lean MCP (`lean-lsp-mcp`, `mcp__lean-lsp__*`) is INTENTIONALLY ABSENT from
 # this script. It was pruned from the repository in task 30 because this
 # `.config/zed/` configuration is a macOS Zed IDE for R and Python, not a
-# theorem-prover toolchain. See docs/toolchain/mcp-servers.md 'Lean MCP —
+# theorem-prover toolchain. See docs/toolchain/mcp-servers.md 'Lean MCP --
 # pruned (decision record)' for the rationale and restore instructions.
 #
 # DO NOT re-add Lean MCP here without explicit user request. A script that
@@ -105,9 +105,17 @@ do_obsidian_pointer() {
   log_info "obsidian-memory is not auto-installed."
   log_info "Setup docs: .claude/context/project/memory/memory-setup.md"
   if [ "$DRY_RUN" = "0" ] && [ "$ASSUME_YES" = "0" ] \
-     && prompt_yn "Open the obsidian-memory setup guide in your default app?" default_n; then
-    open .claude/context/project/memory/memory-setup.md 2>/dev/null || \
-      log_warn "could not 'open' the setup doc; navigate manually"
+     && prompt_yn "Open the obsidian-memory setup guide?" default_n; then
+    case "$DETECTED_OS" in
+      macos)
+        open .claude/context/project/memory/memory-setup.md 2>/dev/null || \
+          log_warn "could not open the setup doc; navigate manually"
+        ;;
+      *)
+        xdg-open .claude/context/project/memory/memory-setup.md 2>/dev/null || \
+          log_warn "could not open the setup doc; navigate manually"
+        ;;
+    esac
   fi
 }
 
@@ -131,7 +139,7 @@ run_check_mode() {
 main() {
   parse_common_flags "$@"
   if [ "$SHOW_HELP" = "1" ]; then print_help; exit 0; fi
-  assert_macos
+  assert_supported_os
   print_section "install-mcp-servers: rmcp, markitdown, pandoc (+ obsidian pointer)"
 
   if [ "$CHECK_MODE" = "1" ]; then

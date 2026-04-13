@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-# install-python.sh - Python toolchain
+# install-python.sh - Python toolchain (cross-platform)
 #
-# Mirrors docs/toolchain/python.md:
-#   Core:    python (brew), uv (brew), ruff (brew)
-#   Tools:   pytest, mypy, ipython (uv tool install)
-#   Filetypes packages (pip3): pandas openpyxl python-pptx python-docx
-#                              markitdown xlsx2csv pymupdf pdfannots
+# Core:       python3, uv, ruff
+# Tools:      pytest, mypy, ipython (uv tool install)
+# Filetypes:  pandas openpyxl python-pptx python-docx markitdown xlsx2csv
+#             pymupdf pdfannots
 #
 # Flags: --dry-run --yes --check --help
 # Idempotent: every install guarded by presence check.
@@ -21,10 +20,10 @@ print_help() {
 install-python.sh - Python toolchain
 
 Installs:
-  Core (Homebrew):
-    - python (python3)
-    - uv (package manager; provides uvx)
-    - ruff (linter/formatter)
+  Core:
+    - python3 (platform package manager)
+    - uv (brew on macOS, curl installer on Linux)
+    - ruff (brew on macOS, uv/pipx on Linux)
   Optional sub-groups (prompted):
     - uv tools: pytest, mypy, ipython
     - filetypes packages (pip3): pandas openpyxl python-pptx python-docx
@@ -34,18 +33,72 @@ EOF
 }
 
 do_core() {
+  # Python
   if ! check_command python3; then
-    brew_install_formula python
+    case "$DETECTED_OS" in
+      macos)
+        brew_install_formula python
+        ;;
+      debian)
+        pkg_install python3
+        if [ "$DRY_RUN" = "1" ]; then
+          log_dry "sudo apt-get install -y python3-pip python3-venv"
+        else
+          sudo apt-get install -y python3-pip python3-venv 2>/dev/null || true
+        fi
+        ;;
+      arch)
+        pkg_install python3
+        ;;
+      *)
+        log_warn "install python3 manually"
+        ;;
+    esac
   else
     log_ok "python3 already installed: $(python3 --version 2>&1)"
   fi
+
+  # uv
   if ! check_command uv; then
-    brew_install_formula uv
+    case "$DETECTED_OS" in
+      macos)
+        brew_install_formula uv
+        ;;
+      *)
+        # Use the official curl installer on Linux.
+        if [ "$DRY_RUN" = "1" ]; then
+          log_dry "curl -LsSf https://astral.sh/uv/install.sh | sh"
+        else
+          curl -LsSf https://astral.sh/uv/install.sh | sh || \
+            log_warn "uv installer failed; install manually: https://docs.astral.sh/uv/"
+          # Ensure uv is on PATH for the rest of the script.
+          if [ -f "$HOME/.local/bin/uv" ]; then
+            export PATH="$HOME/.local/bin:$PATH"
+          fi
+        fi
+        ;;
+    esac
   else
     log_ok "uv already installed: $(uv --version 2>&1)"
   fi
+
+  # ruff
   if ! check_command ruff; then
-    brew_install_formula ruff
+    case "$DETECTED_OS" in
+      macos)
+        brew_install_formula ruff
+        ;;
+      *)
+        # On Linux, install ruff via uv tool or pipx.
+        if check_command uv; then
+          run_or_dry uv tool install ruff
+        elif check_command pipx; then
+          run_or_dry pipx install ruff
+        else
+          log_warn "install ruff manually: pip3 install ruff or uv tool install ruff"
+        fi
+        ;;
+    esac
   else
     log_ok "ruff already installed: $(ruff --version 2>&1)"
   fi
@@ -109,15 +162,15 @@ run_check_mode() {
 main() {
   parse_common_flags "$@"
   if [ "$SHOW_HELP" = "1" ]; then print_help; exit 0; fi
-  assert_macos
-  print_section "install-python: python, uv, ruff + optional tools"
+  assert_supported_os
+  print_section "install-python: python, uv, ruff + optional tools ($DETECTED_OS)"
 
   if [ "$CHECK_MODE" = "1" ]; then
     run_check_mode
     exit $?
   fi
 
-  require_brew
+  require_pkg_manager
 
   do_core
   do_uv_tools

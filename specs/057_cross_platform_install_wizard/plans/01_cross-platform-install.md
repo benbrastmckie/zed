@@ -153,7 +153,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Per-Group Scripts Cross-Platform (shell-tools, python, mcp-servers) [NOT STARTED]
+### Phase 3: Per-Group Scripts Cross-Platform (shell-tools, python, mcp-servers) [COMPLETED]
 
 **Goal**: Make install-shell-tools.sh, install-python.sh, and install-mcp-servers.sh cross-platform. These three are the simplest to convert because their packages have direct equivalents or are already platform-neutral.
 
