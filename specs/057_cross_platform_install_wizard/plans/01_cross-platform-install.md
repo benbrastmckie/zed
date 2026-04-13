@@ -214,7 +214,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: install-typesetting.sh Cross-Platform [NOT STARTED]
+### Phase 5: install-typesetting.sh Cross-Platform [COMPLETED]
 
 **Goal**: Make install-typesetting.sh work on Debian and Arch with platform-appropriate TeX Live, Typst, and font installation.
 
