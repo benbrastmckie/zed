@@ -4,10 +4,10 @@
     {
       "project_number": 59,
       "project_name": "revise_keybindings_docs_post_task_56",
-      "status": "researched",
+      "status": "planned",
       "task_type": "markdown",
       "created": "2026-04-13T21:00:25Z",
-      "last_updated": "2026-04-13T21:06:51Z",
+      "last_updated": "2026-04-13T21:27:52Z",
       "session_id": "sess_1776114098_1df5e9",
       "next_artifact_number": 2,
       "artifacts": [
@@ -15,16 +15,41 @@
           "path": "specs/059_revise_keybindings_docs_post_task_56/reports/01_keybindings-docs-review.md",
           "type": "research",
           "summary": "Reviewed keybindings docs post task 56; found inline assist/open-file conflict and cheat sheet notation issue"
+        },
+        {
+          "path": "specs/059_revise_keybindings_docs_post_task_56/plans/01_keybindings-docs-review.md",
+          "type": "plan",
+          "summary": "2-phase plan to fix inline assist docs conflict from task 56 secondary-enter migration"
         }
-      ]
+      ],
+      "plan_metadata": {
+        "phases": 2,
+        "total_effort_hours": 0.5,
+        "complexity": "simple",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1,
+            2
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_keybindings-docs-review.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      }
     },
     {
       "project_number": 58,
       "project_name": "cross_platform_docs_update",
-      "status": "researched",
+      "status": "planned",
       "task_type": "markdown",
       "created": "2026-04-13T20:59:02Z",
-      "last_updated": "2026-04-13T21:06:51Z",
+      "last_updated": "2026-04-13T21:27:52Z",
       "session_id": "sess_1776114098_1df5e9",
       "next_artifact_number": 2,
       "artifacts": [
@@ -32,8 +57,37 @@
           "path": "specs/058_cross_platform_docs_update/reports/01_cross-platform-docs.md",
           "type": "research",
           "summary": "Comprehensive inventory of ~50 edits needed across 8 documentation files to reflect cross-platform install wizard support"
+        },
+        {
+          "path": "specs/058_cross_platform_docs_update/plans/01_cross-platform-docs.md",
+          "type": "plan",
+          "summary": "4-phase plan for updating 8 docs files to reflect cross-platform install wizard"
         }
-      ]
+      ],
+      "plan_metadata": {
+        "phases": 4,
+        "total_effort_hours": 4,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_cross-platform-docs.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      }
     },
     {
       "project_number": 57,

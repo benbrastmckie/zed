@@ -8,16 +8,18 @@ next_project_number: 60
 
 ### 59. Revise keybindings documentation after task 56
 - **Effort**: small
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Research**: [01_keybindings-docs-review.md](059_revise_keybindings_docs_post_task_56/reports/01_keybindings-docs-review.md)
+- **Plan**: [01_keybindings-docs-review.md](059_revise_keybindings_docs_post_task_56/plans/01_keybindings-docs-review.md)
 - **Task Type**: markdown
 
 **Description**: Revise `docs/general/keybindings.md` and `docs/general/keybindings-cheat-sheet.typ` to reflect changes completed in task 56.
 
 ### 58. Update documentation for cross-platform install wizard
 - **Effort**: medium
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Research**: [01_cross-platform-docs.md](058_cross_platform_docs_update/reports/01_cross-platform-docs.md)
+- **Plan**: [01_cross-platform-docs.md](058_cross_platform_docs_update/plans/01_cross-platform-docs.md)
 - **Task Type**: markdown
 
 **Description**: Update all documentation to reflect the cross-platform install wizard completed in task 57. The wizard now supports macOS, Debian/Ubuntu, and Arch/Manjaro with OS detection, package manager abstraction, interactive_step pattern, PPM binary repos for R on Linux, and NixOS detect-and-skip. The following files still reference "macOS only" or contain Homebrew-only install instructions that need cross-platform alternatives added:
