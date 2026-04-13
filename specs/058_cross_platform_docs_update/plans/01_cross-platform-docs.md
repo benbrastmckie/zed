@@ -66,7 +66,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: High-Visibility Declarations -- README.md and toolchain/README.md [IN PROGRESS]
+### Phase 1: High-Visibility Declarations -- README.md and toolchain/README.md [COMPLETED]
 
 **Goal**: Remove the most prominent "macOS only" statements and establish the cross-platform callout format that subsequent phases will follow.
 

@@ -4,13 +4,39 @@
 
 This directory documents every **external dependency** assumed by the active `.claude/` extensions in this repository. It is the single authoritative source for "what do I need to install so that the extensions in this repo actually work."
 
-The parent [docs/general/installation.md](../general/installation.md) covers the base environment (Zed, Claude Code CLI, Homebrew, Node.js, the two MCP tools required by `filetypes`). Everything here is **in addition to** that base install: language runtimes (R, Python), typesetting tools (LaTeX, Typst, Pandoc), additional MCP servers, extension-specific prerequisites, and the small set of shell utilities the agents assume are present.
+The parent [docs/general/installation.md](../general/installation.md) covers the base environment (Zed, Claude Code CLI, package manager, Node.js, the two MCP tools required by `filetypes`). Everything here is **in addition to** that base install: language runtimes (R, Python), typesetting tools (LaTeX, Typst, Pandoc), additional MCP servers, extension-specific prerequisites, and the small set of shell utilities the agents assume are present.
 
 ## Platform scope
 
-This documentation is **macOS / Homebrew only**. Linux install paths (apt, nix, pacman, dnf) are explicitly out of scope per the task-21 "macOS Zed IDE" reframing. If you are installing on another platform, consult the relevant upstream docs directly; the Check / Verify sections below still apply regardless of platform.
+All tools are documented with cross-platform install commands for **macOS** (Homebrew), **Debian/Ubuntu** (apt), and **Arch/Manjaro** (pacman). Each tool section shows the macOS command inline, with Linux alternatives in a callout block. The install wizard (`scripts/install/install.sh`) auto-detects the platform and uses the correct package manager; these docs are the manual equivalent.
 
-Homebrew itself is a prerequisite for every install step below. If you do not have it yet, follow [docs/general/installation.md](../general/installation.md) first.
+> **NixOS**: The wizard detects NixOS and exits with guidance to use `configuration.nix` or `home.nix`. NixOS users should add packages declaratively rather than following the imperative instructions here.
+
+The canonical package name mapping lives in [`scripts/install/lib.sh`](../../scripts/install/lib.sh) (`_pkg_map_add` entries). When docs and lib.sh disagree, lib.sh is the source of truth.
+
+### Cross-platform package reference
+
+| Tool | Homebrew (macOS) | apt (Debian/Ubuntu) | pacman (Arch/Manjaro) |
+|------|-----------------|--------------------|-----------------------|
+| jq | `jq` | `jq` | `jq` |
+| gh | `gh` | `gh` | `github-cli` |
+| fontconfig | `fontconfig` | `fontconfig` | `fontconfig` |
+| make | `make` | `make` | `make` |
+| Node.js | `node` | `nodejs` | `nodejs` |
+| npm | (included with `node`) | `npm` | `npm` |
+| Python | `python` | `python3` | `python` |
+| R | `r` | `r-base` + `r-base-dev` | `r` |
+| Pandoc | `pandoc` | `pandoc` | `pandoc` |
+| Typst | `typst` | (not in repos; use `cargo install typst-cli` or `snap install typst`) | `typst` |
+| C++ toolchain | Xcode CLT | `build-essential` | `base-devel` |
+| git | `git` | `git` | `git` |
+| curl | `curl` | `curl` | `curl` |
+| LaTeX (basic) | `basictex` (cask) | `texlive-base texlive-latex-extra latexmk biber` | `texlive-basic texlive-latexextra texlive-binextra biber` |
+| LaTeX (full) | `mactex` (cask) | `texlive-full` | `texlive-most` |
+| Fonts (Latin Modern) | `font-latin-modern` + `font-latin-modern-math` (cask) | `fonts-lmodern fonts-cmu` | `otf-latin-modern noto-fonts` |
+| Fonts (Noto) | `font-noto-sans` + `font-noto-serif` + `font-noto-sans-mono` (cask) | `fonts-noto fonts-noto-cjk` | `noto-fonts noto-fonts-cjk` |
+
+Your platform's package manager is a prerequisite for every install step below. On macOS, install [Homebrew](https://brew.sh) first; on Linux, `apt` or `pacman` is already present. See [docs/general/installation.md](../general/installation.md) for the base setup.
 
 ## File index
 
@@ -38,10 +64,12 @@ command -v <tool> && <tool> --version
 
 ### Install
 
-The Homebrew command (or, for Python/R packages, the in-runtime install command). Always a single runnable block the reader can copy.
+The platform-appropriate install command. macOS commands use Homebrew; Linux alternatives are shown in a callout block. Always a single runnable block the reader can copy.
 
 ```
-brew install <formula>
+brew install <formula>           # macOS
+sudo apt install <package>       # Debian/Ubuntu
+sudo pacman -S <package>         # Arch/Manjaro
 ```
 
 ### Verify
