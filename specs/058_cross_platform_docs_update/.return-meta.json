@@ -1,6 +1,20 @@
 {
-  "status": "in_progress",
+  "status": "implemented",
   "agent_type": "general-implementation-agent",
   "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
-  "session_id": "sess_1776114098_1df5e9"
+  "session_id": "sess_1776114098_1df5e9",
+  "artifacts": [
+    {
+      "path": "specs/058_cross_platform_docs_update/summaries/01_cross-platform-docs-summary.md",
+      "type": "summary",
+      "summary": "Updated 10 documentation files with cross-platform install instructions for macOS, Debian/Ubuntu, and Arch/Manjaro"
+    }
+  ],
+  "completion_data": {
+    "completion_summary": "Updated 10 documentation files to reflect cross-platform support: removed all macOS-only declarations, added Debian/Ubuntu and Arch/Manjaro package alternatives alongside every brew install command, documented Linux-specific features (PPM, uv curl installer, Typst via cargo/snap), and added a cross-platform package reference table to toolchain/README.md."
+  },
+  "metadata": {
+    "phases_completed": 4,
+    "phases_total": 4
+  }
 }
