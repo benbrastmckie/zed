@@ -1,5 +1,5 @@
 ---
-next_project_number: 47
+next_project_number: 48
 ---
 
 # Task List
@@ -14,6 +14,13 @@ next_project_number: 47
 6. **44** (depends on 39, 40, 41 — refactors slides agent architecture)
 
 ## Tasks
+
+### 47. HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation
+- **Effort**: TBD
+- **Status**: [NOT STARTED]
+- **Task Type**: present
+
+**Description**: HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for Dr. Nicky Mehtani. CONFERENCE talk (20-25 min), PPTX output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty + HIV clinic staff at UCSF/ZSFG, clinical cases with interactive Poll Everywhere polls, low-barrier street medicine framing.
 
 ### 46. Enrich /slides task description with source material paths and forcing data
 - **Effort**: 1 hour
