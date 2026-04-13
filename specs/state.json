@@ -1,6 +1,24 @@
 {
-  "next_project_number": 48,
+  "next_project_number": 49,
   "active_projects": [
+    {
+      "project_number": 48,
+      "project_name": "slides_theme_in_planning",
+      "status": "researched",
+      "task_type": "meta",
+      "description": "Move visual theme selection into /slides planning phase. Currently theme (Academic Clean, Clinical Teal, Conference Bold, Minimal Dark, UCSF Institutional) is only selectable via a separate /slides N --design invocation (STAGE 3). Refactor so theme and design questions are asked interactively during /plan N for slides tasks. Remove --design as a separate entry point from slides.md. Update skill-slides planning routing to include interactive design questions (theme, message ordering, section emphasis) before delegating to planner-agent. Store results in design_decisions on state.json. Verify assembly agents read design_decisions correctly.",
+      "created": "2026-04-13T05:00:00Z",
+      "last_updated": "2026-04-13T04:28:56Z",
+      "next_artifact_number": 2,
+      "session_id": "sess_1776054180_0bcba0",
+      "artifacts": [
+        {
+          "path": "specs/048_slides_theme_in_planning/reports/01_slides-theme-planning.md",
+          "type": "research_report",
+          "summary": "Full analysis of design_decisions flow, 5 architecture options evaluated, Option C recommended with 5-phase implementation plan"
+        }
+      ]
+    },
     {
       "project_number": 47,
       "project_name": "hiv_grand_rounds_la_art_prep",

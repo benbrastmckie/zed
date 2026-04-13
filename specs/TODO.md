@@ -1,19 +1,18 @@
 ---
-next_project_number: 48
+next_project_number: 49
 ---
 
 # Task List
 
-## Recommended Order
-
-1. **43**, **42**, and **36** in parallel (all independent)
-2. **37** and **38** in parallel (foundational for PPTX support)
-3. **39** (depends on 37 + 38)
-4. **40** (depends on 39)
-5. **41** (depends on 38 + 39 + 40)
-6. **44** (depends on 39, 40, 41 — refactors slides agent architecture)
-
 ## Tasks
+
+### 48. Move visual theme selection into /slides planning phase
+- **Effort**: 2 hours
+- **Status**: [RESEARCHED]
+- **Task Type**: meta
+- **Research**: [01_slides-theme-planning.md](048_slides_theme_in_planning/reports/01_slides-theme-planning.md)
+
+**Description**: Move visual theme selection into /slides planning phase. Currently theme (Academic Clean, Clinical Teal, Conference Bold, Minimal Dark, UCSF Institutional) is only selectable via a separate `/slides N --design` invocation (STAGE 3). Refactor so theme and design questions are asked interactively during `/plan N` for slides tasks. Remove `--design` as a separate entry point from slides.md. Update skill-slides planning routing to include interactive design questions (theme, message ordering, section emphasis) before delegating to planner-agent. Store results in `design_decisions` on state.json. Verify assembly agents read `design_decisions` correctly.
 
 ### 47. HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation
 - **Effort**: TBD
