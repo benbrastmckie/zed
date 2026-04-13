@@ -2,21 +2,22 @@
 // Synced with keybindings.md and keymap.json on 2026-04-13
 
 #set page(
-  paper: "a4",
+  paper: "us-letter",
   flipped: true,
   margin: (top: 1.2cm, bottom: 1.4cm, left: 1cm, right: 1cm),
   columns: 3,
   footer: context {
-    set text(7pt, fill: luma(120))
+    set text(8.5pt, fill: luma(70))
     line(length: 100%, stroke: 0.4pt + luma(180))
-    v(2pt)
+    v(3pt)
     grid(
-      columns: (1fr, 1fr),
-      [#text(weight: "bold")[Legend:]
-        #text(
-          fill: luma(80),
-        )[ #sym.star.filled = custom binding (keymap.json) #h(1em) #sym.arrow.r = sequential press (chord) #h(1em) #sym.dagger = platform-adaptive (Ctrl on Linux, Cmd on macOS)]],
-      align(right)[Ctrl = fixed Ctrl on all platforms unless marked #sym.dagger #h(1em) _April 2026_],
+      columns: (1fr, 1fr, 1fr, 1fr),
+      column-gutter: 1.5em,
+      align: horizon,
+      [#sym.star.filled#h(4pt)Custom binding (keymap.json)],
+      [#sym.arrow.r#h(4pt)Sequential press (chord)],
+      [#sym.dagger#h(4pt)Platform-adaptive (Ctrl#sym.space.thin/#sym.space.thin Cmd)],
+      align(right)[Ctrl = fixed on all platforms #h(1em) _April 2026_],
     )
   },
 )
