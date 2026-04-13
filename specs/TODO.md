@@ -8,7 +8,7 @@ next_project_number: 60
 
 ### 59. Revise keybindings documentation after task 56
 - **Effort**: small
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Research**: [01_keybindings-docs-review.md](059_revise_keybindings_docs_post_task_56/reports/01_keybindings-docs-review.md)
 - **Plan**: [01_keybindings-docs-review.md](059_revise_keybindings_docs_post_task_56/plans/01_keybindings-docs-review.md)
 - **Task Type**: markdown
@@ -17,7 +17,7 @@ next_project_number: 60
 
 ### 58. Update documentation for cross-platform install wizard
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Research**: [01_cross-platform-docs.md](058_cross_platform_docs_update/reports/01_cross-platform-docs.md)
 - **Plan**: [01_cross-platform-docs.md](058_cross_platform_docs_update/plans/01_cross-platform-docs.md)
 - **Task Type**: markdown

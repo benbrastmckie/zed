@@ -1,12 +1,12 @@
 # Zed IDE Configuration with Claude Code Agent System
 
-A Zed editor configuration for macOS that pairs first-class **R** and **Python** language support with a **Claude Code agent system** -- a structured task lifecycle that turns research, planning, and implementation into tracked, resumable workflows. Domain extensions for epidemiology, grant development, document conversion, and memory capture layer on top of the core system.
+A Zed editor configuration for macOS, Debian/Ubuntu, and Arch/Manjaro that pairs first-class **R** and **Python** language support with a **Claude Code agent system** -- a structured task lifecycle that turns research, planning, and implementation into tracked, resumable workflows. Domain extensions for epidemiology, grant development, document conversion, and memory capture layer on top of the core system.
 
-**Platform**: macOS 11 (Big Sur) or newer.
+**Platforms**: macOS 11+, Debian/Ubuntu, Arch/Manjaro.
 
 ## Quick Start
 
-On a fresh Mac, the fastest path is the installation wizard:
+On a fresh system, the fastest path is the installation wizard:
 
 ```
 git clone <repo-url> ~/.config/zed
@@ -18,8 +18,8 @@ The wizard walks through six groups (base tools, shell utilities, Python, R, typ
 
 **Prefer to install by hand?**
 
-1. Install [Homebrew](https://brew.sh), then `brew install --cask zed`
-2. Open Zed from Applications or Spotlight (Cmd+Space, type "Zed")
+1. Install Zed: **macOS** -- `brew install --cask zed`; **Linux** -- download from [zed.dev](https://zed.dev) or install via your package manager
+2. Open Zed from Applications/Spotlight (macOS) or your app launcher (Linux)
 3. Extensions install automatically on first launch (including `python`, `ruff`, `r`)
 4. Set up your languages: [Python](docs/toolchain/python.md) and [R](docs/toolchain/r.md)
 5. Theme is One Dark; font is Fira Code
@@ -191,9 +191,9 @@ For the complete decision guide, see [docs/workflows/README.md](docs/workflows/R
 
 | Document | Description |
 |----------|-------------|
-| [General](docs/general/README.md) | Installation, keybindings, settings, and R/Python setup for this Zed configuration on macOS |
-| [Python Setup](docs/toolchain/python.md) | Python + uv + ruff + pyright configuration for Zed on macOS |
-| [R Setup](docs/toolchain/r.md) | R + languageserver + lintr + styler configuration for Zed on macOS |
+| [General](docs/general/README.md) | Installation, keybindings, settings, and R/Python setup for this Zed configuration |
+| [Python Setup](docs/toolchain/python.md) | Python + uv + ruff + pyright configuration for Zed |
+| [R Setup](docs/toolchain/r.md) | R + languageserver + lintr + styler configuration for Zed |
 | [Agent System](docs/agent-system/README.md) | Zed agent + Claude Code overview, workflows, command catalog, memory, and architecture |
 | [Workflows](docs/workflows/README.md) | Agent task lifecycle for R/Python development, plus epidemiology, grant, and Office file workflows |
 | [Agent System Config](.claude/README.md) | Claude Code framework architecture, skills, agents, and extension system |

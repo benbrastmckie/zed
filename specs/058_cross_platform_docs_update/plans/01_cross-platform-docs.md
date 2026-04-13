@@ -1,7 +1,7 @@
 # Implementation Plan: Cross-Platform Documentation Update
 
 - **Task**: 58 - cross_platform_docs_update
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 4 hours
 - **Dependencies**: Task 57 (cross-platform install wizard)
 - **Research Inputs**: specs/058_cross_platform_docs_update/reports/01_cross-platform-docs.md
@@ -66,7 +66,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: High-Visibility Declarations -- README.md and toolchain/README.md [NOT STARTED]
+### Phase 1: High-Visibility Declarations -- README.md and toolchain/README.md [IN PROGRESS]
 
 **Goal**: Remove the most prominent "macOS only" statements and establish the cross-platform callout format that subsequent phases will follow.
 

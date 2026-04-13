@@ -1,7 +1,7 @@
 # Implementation Plan: Revise Keybindings Docs Post Task 56
 
 - **Task**: 59 - Revise keybindings docs post task 56
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 0.5 hours
 - **Dependencies**: Task 56 (completed)
 - **Research Inputs**: reports/01_keybindings-docs-review.md
@@ -52,7 +52,7 @@ No active roadmap items. The roadmap is empty.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Fix keybindings.md [NOT STARTED]
+### Phase 1: Fix keybindings.md [COMPLETED]
 
 **Goal**: Correct inline assist documentation and add Open File to Quick Reference table.
 

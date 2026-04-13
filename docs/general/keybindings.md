@@ -29,6 +29,7 @@ Custom bindings (\*) fall into two categories:
 | Ctrl/Cmd+`           | Open or close the terminal                     |
 | Ctrl+O \*            | Jump back (like vim Ctrl+O; Ctrl on all platforms) |
 | Ctrl+I \*            | Jump forward (like vim Ctrl+I; Ctrl on all platforms) |
+| Ctrl/Cmd+Enter \*    | Open file under cursor (overrides inline assist default) |
 | Alt+V \*             | Toggle vim mode on/off                         |
 | Ctrl+Shift+A \*      | Launch Claude Code CLI (Ctrl on all platforms) |
 | Ctrl/Cmd+? \*        | Toggle the right sidebar (agent panel)         |
@@ -146,8 +147,8 @@ Zed has a built-in AI agent panel, inline assist, edit predictions, and integrat
 
 ### Inline assist
 
-- **Ctrl/Cmd+Enter** -- Open inline assistant (select text first; works in editors, terminal, and rules library)
-- **Ctrl/Cmd+;** -- May also trigger inline assist (older default; verify with Ctrl/Cmd+K Ctrl/Cmd+S as this may have changed)
+- **Ctrl/Cmd+Enter** -- Zed's default for inline assist, but **overridden** in Editor context by the custom "Open file under cursor" binding (`secondary-enter` in `keymap.json`). Use **Ctrl/Cmd+;** or the command palette (search "inline assist") instead.
+- **Ctrl/Cmd+;** -- Open inline assistant (select text first; works in editors, terminal, and rules library)
 
 ### Edit predictions (AI code completion)
 
