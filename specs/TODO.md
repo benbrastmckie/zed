@@ -1,10 +1,17 @@
 ---
-next_project_number: 59
+next_project_number: 60
 ---
 
 # Task List
 
 ## Tasks
+
+### 59. Revise keybindings documentation after task 56
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: markdown
+
+**Description**: Revise `docs/general/keybindings.md` and `docs/general/keybindings-cheat-sheet.typ` to reflect changes completed in task 56.
 
 ### 58. Update documentation for cross-platform install wizard
 - **Effort**: medium
@@ -58,3 +65,4 @@ Reference: The cross-platform install logic is in `scripts/install/lib.sh` (dete
 ## Recommended Order
 
 1. **58** -> research (independent)
+2. **59** -> research (independent)

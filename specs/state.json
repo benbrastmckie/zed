@@ -1,6 +1,14 @@
 {
-  "next_project_number": 59,
+  "next_project_number": 60,
   "active_projects": [
+    {
+      "project_number": 59,
+      "project_name": "revise_keybindings_docs_post_task_56",
+      "status": "not_started",
+      "task_type": "markdown",
+      "created": "2026-04-13T21:00:25Z",
+      "last_updated": "2026-04-13T21:00:25Z"
+    },
     {
       "project_number": 58,
       "project_name": "cross_platform_docs_update",
