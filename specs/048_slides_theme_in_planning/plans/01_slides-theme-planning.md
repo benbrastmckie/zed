@@ -98,7 +98,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Enable extension routing for slides plan tasks [NOT STARTED]
+### Phase 2: Enable extension routing for slides plan tasks [COMPLETED]
 
 **Goal**: Ensure `/plan N` for slides tasks routes to skill-slides instead of the default skill-planner.
 

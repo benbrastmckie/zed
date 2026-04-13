@@ -42,7 +42,8 @@
         ".claude/skills/skill-timeline",
         ".claude/skills/skill-funds",
         ".claude/skills/skill-slides",
-        ".claude/context/project/present"
+        ".claude/context/project/present",
+        ".claude/extensions/present"
       ],
       "source_dir": "/home/benjamin/.config/nvim/.claude/extensions/present",
       "data_skeleton_files": [],
@@ -120,7 +121,8 @@
         ".claude/context/project/present/templates/timeline-template.md",
         ".claude/context/project/present/templates/typst/research-timeline.typ",
         ".claude/context/project/present/tools/funder-research.md",
-        ".claude/context/project/present/tools/web-resources.md"
+        ".claude/context/project/present/tools/web-resources.md",
+        ".claude/extensions/present/manifest.json"
       ],
       "loaded_at": "2026-04-11T04:12:29Z",
       "version": "1.0.0"
