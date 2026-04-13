@@ -88,7 +88,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Update keybindings.md [NOT STARTED]
+### Phase 2: Update keybindings.md [COMPLETED]
 
 **Goal**: Revise the keyboard shortcuts guide to use platform-neutral notation and explain the two modifier categories.
 
