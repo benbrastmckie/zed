@@ -2,29 +2,34 @@
   // =====================================================
   // CUSTOM BINDINGS (Scheme A -- Minimal)
   // =====================================================
-  // 17 unique custom bindings (26 entries; pane-nav, jump-list,
-  // and close-tab are declared in both Workspace and Editor
-  // contexts to defeat Zed's default Editor-context shadowing,
-  // indent/outdent also null out Zed's AddSelectionToThread default,
-  // and Claude Code launcher is bound in both Workspace and
-  // Terminal contexts):
-  //   - 2 pane navigation (Ctrl+H, Ctrl+L), Workspace + Editor
-  //   - 2 jump list (Ctrl+O, Ctrl+I), Workspace + Editor
-  //   - 1 vim toggle (Alt+V), Workspace
-  //   - 2 line movers (Alt+J, Alt+K)
-  //   - 1 dock toggle (Ctrl+?)
-  //   - 1 Claude Code launcher (Ctrl+Shift+A, Workspace + Terminal)
-  //   - 1 copy path utility (Ctrl+Shift+C)
-  //   - 1 close tab (Ctrl+Q)
-  //   - 1 reload file from disk (Alt+R)
-  //   - 2 indent/outdent (Ctrl+>, Ctrl+<), Editor + null at Workspace
-  //   - 1 build PDF (Alt+Shift+E) -- Typst/Slidev dispatcher
-  //   - 1 preview in browser (Alt+Shift+P) -- Typst/Slidev dispatcher
+  // 17 unique custom bindings (26 entries across contexts).
   //
-  // All custom bindings intentionally use Ctrl+ (not Cmd+) on
-  // macOS so they do not collide with Zed's built-in Cmd+
-  // shortcuts. See ZED DEFAULT REFERENCE below for the macOS
-  // defaults this config leaves intact.
+  // Modifier categories:
+  //
+  //   secondary- (platform-adaptive: Ctrl on Linux, Cmd on macOS)
+  //     - 1 dock toggle (Secondary+?)
+  //     - 1 left dock / explorer (Secondary+Shift+E), Workspace + Editor
+  //     - 1 copy path (Secondary+Shift+C)
+  //     - 1 open file under cursor (Secondary+Enter)
+  //
+  //   ctrl- (fixed Ctrl on ALL platforms, including macOS)
+  //     - 2 pane navigation (Ctrl+H, Ctrl+L), Workspace + Editor
+  //     - 2 jump list (Ctrl+O, Ctrl+I), Workspace + Editor
+  //     - 1 close tab (Ctrl+Q), Workspace + Editor
+  //     - 1 Claude Code launcher (Ctrl+Shift+A), Workspace + Terminal
+  //     - 2 indent/outdent (Ctrl+>, Ctrl+<), Editor + null at Workspace
+  //
+  //   alt- (fixed Alt on all platforms)
+  //     - 1 vim toggle (Alt+V), Workspace
+  //     - 2 line movers (Alt+J, Alt+K)
+  //     - 1 reload file from disk (Alt+R)
+  //     - 1 build PDF (Alt+Shift+E) -- Typst/Slidev dispatcher
+  //     - 1 preview in browser (Alt+Shift+P) -- Typst/Slidev dispatcher
+  //
+  // The ctrl- bindings intentionally remain Ctrl (not Cmd) on
+  // macOS to avoid collisions with Zed defaults (e.g. Cmd+Q
+  // quits the app, Cmd+H hides it). See ZED DEFAULT REFERENCE
+  // below for the macOS defaults this config leaves intact.
 
   // Pane navigation (move focus between split panes)
   // Jump list: Ctrl+O / Ctrl+I (vim-style back/forward without vim mode)
@@ -34,8 +39,8 @@
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-?": "workspace::ToggleRightDock",
-      "ctrl-shift-e": "workspace::ToggleLeftDock",
+      "secondary-?": "workspace::ToggleRightDock",
+      "secondary-shift-e": "workspace::ToggleLeftDock",
       "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }],
       "ctrl-q": "pane::CloseActiveItem",
       "ctrl-o": "pane::GoBack",
@@ -69,11 +74,11 @@
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-o": "pane::GoBack",
       "ctrl-i": "pane::GoForward",
-      "ctrl-shift-c": "workspace::CopyPath",
-      "ctrl-shift-e": "workspace::ToggleLeftDock",
+      "secondary-shift-c": "workspace::CopyPath",
+      "secondary-shift-e": "workspace::ToggleLeftDock",
       "alt-shift-e": ["task::Spawn", { "task_name": "Build PDF" }],
       "alt-shift-p": ["task::Spawn", { "task_name": "Preview in Browser" }],
-      "ctrl-enter": "editor::OpenFile",
+      "secondary-enter": "editor::OpenFile",
       "alt-r": "editor::ReloadFile",
       "ctrl->": "editor::Indent",
       "ctrl-<": "editor::Outdent"
@@ -151,7 +156,7 @@
   //
   // --- Panels & Sidebars ---
   // Cmd+B             Toggle left sidebar
-  // Cmd+Shift+E       File explorer (project panel)
+  // Secondary+Shift+E File explorer / toggle left dock (custom; overrides project_panel::ToggleFocus on macOS)
   // Cmd+Shift+G       Git panel (verify)
   // Ctrl+`            Toggle terminal (Ctrl+ on macOS too)
   // Cmd+Shift+M       Problems panel (verify)
@@ -164,14 +169,14 @@
   //
   // --- Agent / AI ---
   // Ctrl+Shift+A      Launch Claude Code CLI (custom; terminal task)
-  // Ctrl+?            Toggle right dock (custom; see Workspace bindings)
-  // Cmd+?             Toggle agent panel (verify)
+  // Secondary+?       Toggle right dock (custom; secondary- = Ctrl on Linux, Cmd on macOS)
+  // Cmd+?             Toggle agent panel (verify; overridden by custom binding on macOS)
   // Cmd+N             New conversation (in agent panel) (verify)
   // Cmd+Enter         Send message (in agent panel) (verify)
   // Cmd+;             Toggle inline assist (verify)
   //
   // --- Navigation ---
-  // Ctrl+Enter        Open file under cursor (custom; see Editor bindings)
+  // Secondary+Enter   Open file under cursor (custom; secondary- = Ctrl on Linux, Cmd on macOS)
   //
   // --- Build / Preview (Typst + Slidev) ---
   // Alt+Shift+E         Build PDF (custom; dispatches by file extension)
@@ -193,7 +198,7 @@
   // Cmd+[             Outdent line
   // Cmd+Alt+Up        Add cursor above (verify)
   // Cmd+Alt+Down      Add cursor below (verify)
-  // Ctrl+Shift+C      Copy path (custom; see Editor bindings)
+  // Secondary+Shift+C Copy path (custom; secondary- = Ctrl on Linux, Cmd on macOS)
   //
   // --- Code Actions ---
   // Cmd+.             Quick fix / code actions

@@ -1,7 +1,7 @@
 # Implementation Plan: Refactor Keymap Platform-Adaptive Keybindings
 
 - **Task**: 56 - Refactor keymap.json to use Zed's `secondary-` modifier for platform-adaptive keybindings
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 2 hours
 - **Dependencies**: None
 - **Research Inputs**: reports/01_platform-adaptive-keybindings.md
@@ -61,7 +61,7 @@ No ROADMAP.md items are directly advanced by this task.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Migrate Bindings in keymap.json [NOT STARTED]
+### Phase 1: Migrate Bindings in keymap.json [COMPLETED]
 
 **Goal**: Change 4 bindings from `ctrl-` to `secondary-` and update the header comment block.
 
