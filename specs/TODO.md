@@ -8,7 +8,9 @@ next_project_number: 50
 
 ### 49. HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation
 - **Effort**: TBD
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
+- **Completed**: 2026-04-13
+- **Summary**: 24-slide PPTX presentation with UCSF/ZSFG template, 4 patient cases, polls, and speaker notes.
 - **Task Type**: present
 - **Research**: [01_slides-research.md](049_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md)
 - **Plan**: [01_slides-plan.md](049_hiv_grand_rounds_la_art_prep/plans/01_slides-plan.md)

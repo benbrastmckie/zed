@@ -1,20 +1,25 @@
 {
-  "status": "planned",
+  "status": "assembled",
   "artifacts": [
     {
-      "type": "plan",
-      "path": "specs/049_hiv_grand_rounds_la_art_prep/plans/01_slides-plan.md",
-      "summary": "5-phase implementation plan for 23-slide HIV Grand Rounds PPTX using python-pptx and UCSF template"
+      "type": "presentation",
+      "path": "talks/49_hiv_grand_rounds_la_art_prep/hiv_grand_rounds_mxm.pptx",
+      "summary": "PPTX presentation (24 slides, UCSF/ZSFG template with navy/teal theme)"
+    },
+    {
+      "type": "script",
+      "path": "talks/49_hiv_grand_rounds_la_art_prep/generate_deck.py",
+      "summary": "Reproducible python-pptx assembly script"
     }
   ],
-  "next_steps": "Run /implement 49 to execute the plan",
   "metadata": {
     "session_id": "sess_1776056029_950ced",
-    "agent_type": "planner-agent",
+    "agent_type": "pptx-assembly-agent",
+    "workflow_type": "assemble_pptx",
     "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "plan", "planner-agent"],
-    "phase_count": 5,
-    "estimated_hours": 5,
-    "dependency_waves": [[1], [2, 3], [4], [5]]
+    "delegation_path": ["orchestrator", "slides", "skill-slides", "pptx-assembly-agent"],
+    "slide_count": 24,
+    "theme": "ucsf-institutional",
+    "output_path": "talks/49_hiv_grand_rounds_la_art_prep/hiv_grand_rounds_mxm.pptx"
   }
 }

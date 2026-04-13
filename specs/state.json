@@ -4,7 +4,7 @@
     {
       "project_number": 49,
       "project_name": "hiv_grand_rounds_la_art_prep",
-      "status": "planned",
+      "status": "completed",
       "task_type": "slides",
       "description": "HIV Grand Rounds presentation on MXM LA-ART & LA-PrEP program. CONFERENCE talk (15-20 min), PPTX output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty and HIV clinic community members at UCSF/ZSFG, ~20-25 min with 4 patient cases and audience polls.",
       "forcing_data": {
@@ -17,7 +17,7 @@
         "gathered_at": "2026-04-13T04:54:08Z"
       },
       "created": "2026-04-13T04:54:08Z",
-      "last_updated": "2026-04-13T05:08:47Z",
+      "last_updated": "2026-04-13T05:40:35Z",
       "next_artifact_number": 2,
       "session_id": "sess_1776056029_950ced",
       "artifacts": [
@@ -30,6 +30,16 @@
           "path": "specs/049_hiv_grand_rounds_la_art_prep/plans/01_slides-plan.md",
           "type": "plan",
           "summary": "5-phase implementation plan for 23-slide HIV Grand Rounds PPTX using python-pptx and UCSF template"
+        },
+        {
+          "path": "talks/49_hiv_grand_rounds_la_art_prep/hiv_grand_rounds_mxm.pptx",
+          "type": "presentation",
+          "summary": "PPTX presentation (24 slides, UCSF/ZSFG template with navy/teal theme)"
+        },
+        {
+          "path": "talks/49_hiv_grand_rounds_la_art_prep/generate_deck.py",
+          "type": "script",
+          "summary": "Reproducible python-pptx assembly script"
         }
       ],
       "design_decisions": {
@@ -72,7 +82,8 @@
             "integrated_date": "2026-04-13"
           }
         ]
-      }
+      },
+      "completion_summary": "24-slide PPTX presentation assembled using python-pptx with UCSF/ZSFG navy/teal template. 4 patient cases with poll slides, LA-ART (n=34, 100% suppression) and LA-PrEP (n=52) program data, timeline visualizations for Patient 2, and speaker notes in presenter voice."
     },
     {
       "project_number": 48,
