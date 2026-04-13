@@ -13,15 +13,15 @@ Installs `python3`, `uv` (with `uvx`), and `ruff` via Homebrew, then prompts for
 
 ## Manual installation (advanced)
 
-This guide walks through installing Python and its development tools on macOS for use with Zed. By the end, you will have a working Python environment with linting, formatting, and intelligent code completion.
+This guide walks through installing Python and its development tools for use with Zed. By the end, you will have a working Python environment with linting, formatting, and intelligent code completion. macOS commands are shown inline; Linux alternatives appear in callout blocks.
 
 ## Before you begin
 
-You need Homebrew and Xcode Command Line Tools installed. If you followed [Installation](../general/installation.md), you already have these. If not, complete the prerequisites sections there first, then come back here.
+You need your platform's build tools and package manager installed. On macOS, that means Homebrew and Xcode Command Line Tools; on Debian/Ubuntu, `apt` and `build-essential`; on Arch/Manjaro, `pacman` and `base-devel`. If you followed [Installation](../general/installation.md), you already have these. If not, complete the prerequisites sections there first, then come back here.
 
 ## Install Python
 
-Python is the programming language itself. Homebrew installs the latest Python 3.x release.
+Python is the programming language itself. Your package manager installs the latest Python 3.x release.
 
 ### Check if already installed
 
@@ -37,7 +37,11 @@ If this prints a version number (e.g. `Python 3.12.8`), skip to [Install uv](#in
 brew install python
 ```
 
-Homebrew downloads Python and its dependencies. When you see your terminal prompt again, it is finished.
+> **Linux alternatives**:
+> - **Debian/Ubuntu**: `sudo apt install python3`
+> - **Arch/Manjaro**: `sudo pacman -S python`
+
+The package manager downloads Python and its dependencies. When you see your terminal prompt again, it is finished.
 
 ### Verify
 
@@ -65,6 +69,8 @@ If this prints a version number (e.g. `uv 0.5.14`), skip to [Install ruff](#inst
 brew install uv
 ```
 
+> **Linux alternative**: `curl -LsSf https://astral.sh/uv/install.sh | sh` (the official standalone installer works on all Linux distributions).
+
 ### Verify
 
 ```
@@ -90,6 +96,8 @@ If this prints a version number (e.g. `ruff 0.9.3`), skip to [Zed configuration]
 ```
 brew install ruff
 ```
+
+> **Linux alternative**: `uv tool install ruff` (uses the uv tool runner you installed above) or `pipx install ruff`.
 
 ### Verify
 
@@ -332,7 +340,7 @@ npx --version
 ## See also
 
 - [docs/general/installation.md](../general/installation.md) -- Prerequisites and base tool setup
-- [r.md](r.md) -- R language setup for macOS
+- [r.md](r.md) -- R language setup
 - [typesetting.md](typesetting.md) -- LaTeX, Typst, Pandoc install
 - [mcp-servers.md](mcp-servers.md) -- MCP servers launched via uvx
 - [docs/toolchain/README.md](README.md) -- Toolchain directory index

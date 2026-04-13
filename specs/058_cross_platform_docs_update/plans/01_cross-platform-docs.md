@@ -125,7 +125,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Toolchain Guides -- python.md, r.md, shell-tools.md, typesetting.md [NOT STARTED]
+### Phase 3: Toolchain Guides -- python.md, r.md, shell-tools.md, typesetting.md [COMPLETED]
 
 **Goal**: Add cross-platform package commands and Linux-specific features to each toolchain guide, using the callout format established in Phase 1.
 

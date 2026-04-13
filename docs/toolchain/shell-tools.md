@@ -13,11 +13,11 @@ Installs `jq`, `gh`, `fontconfig`, and optionally GNU `make`. Every action is gu
 
 ## Manual installation (advanced)
 
-The `.claude/` agent system, its hooks, and several commands assume a small set of shell utilities are on PATH. Most are part of a standard Homebrew developer environment; this file documents them for completeness and so a missing utility can be diagnosed quickly.
+The `.claude/` agent system, its hooks, and several commands assume a small set of shell utilities are on PATH. Most are part of a standard developer environment; this file documents them for completeness and so a missing utility can be diagnosed quickly. macOS commands are shown inline; Linux alternatives appear in callout blocks.
 
 ## Before you begin
 
-Homebrew is required. See [docs/general/installation.md](../general/installation.md) if you do not have it.
+Your platform's package manager is required: Homebrew on macOS, `apt` on Debian/Ubuntu, or `pacman` on Arch/Manjaro. See [docs/general/installation.md](../general/installation.md) if you do not have it set up.
 
 ## git
 
@@ -29,19 +29,21 @@ Version control — used by every skill that commits task artifacts, and by `/me
 git --version
 ```
 
-If this prints a version, you are done. `git` is provided by the Xcode Command Line Tools covered in [docs/general/installation.md#install-xcode-command-line-tools](../general/installation.md#install-xcode-command-line-tools).
+If this prints a version, you are done. On macOS, `git` is provided by the Xcode Command Line Tools; on Linux, it is typically pre-installed or available via your package manager.
 
 ### Install
+
+**macOS**:
 
 ```
 xcode-select --install
 ```
 
-Or, if you prefer Homebrew's newer git:
+Or via Homebrew: `brew install git`
 
-```
-brew install git
-```
+> **Linux alternatives**:
+> - **Debian/Ubuntu**: `sudo apt install git`
+> - **Arch/Manjaro**: `sudo pacman -S git`
 
 ### Verify
 
@@ -65,6 +67,10 @@ jq --version
 ```
 brew install jq
 ```
+
+> **Linux alternatives**:
+> - **Debian/Ubuntu**: `sudo apt install jq`
+> - **Arch/Manjaro**: `sudo pacman -S jq`
 
 ### Verify
 
@@ -92,6 +98,10 @@ gh --version
 brew install gh
 ```
 
+> **Linux alternatives**:
+> - **Debian/Ubuntu**: Follow the [GitHub CLI apt instructions](https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian-ubuntu-linux-raspberry-pi-os-apt) to add the official repo, then `sudo apt install gh`
+> - **Arch/Manjaro**: `sudo pacman -S github-cli`
+
 ### Verify
 
 ```
@@ -111,23 +121,21 @@ Some projects and epidemiology analyses use a `Makefile` for reproducible pipeli
 make --version
 ```
 
-On macOS, `make` is provided by the Xcode Command Line Tools, so if you ran `xcode-select --install` from [docs/general/installation.md](../general/installation.md#install-xcode-command-line-tools), you already have it.
+On macOS, `make` is provided by the Xcode Command Line Tools. On Linux, it is included in `build-essential` (Debian/Ubuntu) or `base-devel` (Arch/Manjaro).
 
 ### Install
 
-If `make` is missing:
+**macOS** -- if `make` is missing:
 
 ```
 xcode-select --install
 ```
 
-Or a newer GNU make via Homebrew:
+Or a newer GNU make via Homebrew: `brew install make` (installs as `gmake` to avoid shadowing the system `make`).
 
-```
-brew install make
-```
-
-Note: Homebrew's GNU make is installed as `gmake` to avoid shadowing the system `make`. Use `gmake` or add `$(brew --prefix make)/libexec/gnubin` to your PATH if you need GNU-specific features.
+> **Linux alternatives**:
+> - **Debian/Ubuntu**: `sudo apt install make` (or `build-essential` which includes it)
+> - **Arch/Manjaro**: `sudo pacman -S make` (or `base-devel` which includes it)
 
 ### Verify
 
@@ -151,6 +159,10 @@ fc-list --version 2>&1 | head -1
 brew install fontconfig
 ```
 
+> **Linux alternatives**:
+> - **Debian/Ubuntu**: `sudo apt install fontconfig`
+> - **Arch/Manjaro**: `sudo pacman -S fontconfig`
+
 ### Verify
 
 ```
@@ -159,7 +171,7 @@ fc-list | head -1
 
 ## od / date (already present)
 
-Several scripts use `od` and `date` for session ID generation (see [`.claude/rules/git-workflow.md`](../../.claude/rules/git-workflow.md)). Both are part of base macOS; no install needed.
+Several scripts use `od` and `date` for session ID generation (see [`.claude/rules/git-workflow.md`](../../.claude/rules/git-workflow.md)). Both are part of all supported platforms (macOS, Debian/Ubuntu, Arch/Manjaro); no install needed.
 
 ### Check
 
