@@ -121,7 +121,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: install-base.sh Cross-Platform [NOT STARTED]
+### Phase 2: install-base.sh Cross-Platform [COMPLETED]
 
 **Goal**: Make install-base.sh work on macOS, Debian, and Arch by replacing macOS-only bootstrap steps with platform-dispatched equivalents.
 
