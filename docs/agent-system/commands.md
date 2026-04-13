@@ -45,6 +45,8 @@ Create a phased implementation plan from research findings. Supports multi-task 
 
 **Flags**: `--team`, multi-task syntax
 
+**Note**: For `present:slides` tasks, `/plan` routes to `skill-slide-planning` instead of the generic planner, running an interactive 5-stage design review (narrative arc, per-slide feedback, visual layout) before producing the slide plan.
+
 See [`.claude/commands/plan.md`](../../.claude/commands/plan.md) · [user guide](../../.claude/docs/guides/user-guide.md#plan-command).
 
 ### /implement

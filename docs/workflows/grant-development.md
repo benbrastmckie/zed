@@ -77,9 +77,11 @@ After creating the task, use the standard lifecycle to develop the slides:
 
 ```
 /research 42          # synthesize source material
-/plan 42              # design slide structure
+/plan 42              # interactive 5-stage slide design review (skill-slide-planning)
 /implement 42         # generate the slide deck
 ```
+
+**Note**: For slides tasks, `/plan` routes to `skill-slide-planning` rather than the generic planner. This runs an interactive design review covering narrative arc, per-slide content, and visual layout before producing the slide plan.
 
 ## See also
 

@@ -126,7 +126,7 @@ Specialized commands that add domain-specific capabilities on top of the core li
 | `/budget` | Generate grant budgets with justification |
 | `/funds` | Analyze funding landscape and funder portfolios |
 | `/timeline` | Plan research project timelines |
-| `/slides` | Create research talks and presentations |
+| `/slides` | Create research talks and presentations (`/plan` triggers interactive slide design) |
 
 **Document Tools** -- Convert, edit, and extract from Office and PDF files:
 
