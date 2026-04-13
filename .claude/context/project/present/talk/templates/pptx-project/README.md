@@ -1,6 +1,6 @@
 # pptx-project Template
 
-PowerPoint (.pptx) generation template for the talk library. Provides theme mappings and a skeleton generation script that the slides-agent uses when assembling PPTX output instead of Slidev markdown.
+PowerPoint (.pptx) generation template for the talk library. Provides theme mappings and a skeleton generation script that the pptx-assembly-agent uses when assembling PPTX output instead of Slidev markdown.
 
 ## Files
 
@@ -22,9 +22,9 @@ Three themes are available, each mapping to a set of python-pptx constants:
 
 ## Usage
 
-### For the slides-agent
+### For the pptx-assembly-agent
 
-When generating PPTX output, the slides-agent should:
+When generating PPTX output, the pptx-assembly-agent should:
 
 1. Copy `theme_mappings.json` to the project output directory
 2. Use the patterns from `pptx-generation.md` (in `talk/patterns/`) to construct slides

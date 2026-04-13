@@ -1,6 +1,6 @@
 # PPTX Generation Patterns (python-pptx)
 
-API patterns for generating PowerPoint (.pptx) presentations programmatically. Use these patterns when the slides-agent assembles PPTX output instead of Slidev markdown.
+API patterns for generating PowerPoint (.pptx) presentations programmatically. Use these patterns when the pptx-assembly-agent assembles PPTX output instead of Slidev markdown.
 
 ## 1. Imports and Setup
 

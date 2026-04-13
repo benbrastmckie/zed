@@ -3,7 +3,7 @@
 generate_deck.py -- Theme-aware PowerPoint deck generator.
 
 This is a skeleton script demonstrating how to assemble a PPTX presentation
-using python-pptx with the talk library's theme system. The slides-agent
+using python-pptx with the talk library's theme system. The pptx-assembly-agent
 uses these patterns when producing PowerPoint output.
 
 Usage:
