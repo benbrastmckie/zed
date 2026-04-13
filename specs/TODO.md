@@ -17,8 +17,9 @@ next_project_number: 47
 
 ### 46. Enrich /slides task description with source material paths and forcing data
 - **Effort**: 1 hour
-- **Status**: [RESEARCHING]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_enrich-slides-description.md](046_enrich_slides_task_description/reports/01_enrich-slides-description.md)
 
 **Description**: Enrich /slides task description to include source material file paths, template references, and key forcing data details. Currently, /slides creates a task whose description omits the file paths passed as input and gathered during forcing questions — these end up only in forcing_data.source_materials in state.json but not in the user-facing description or TODO.md entry. Changes target .claude/commands/slides.md Stage 1 (Steps 2-4): construct the description by incorporating the primary source file path, any example template paths from source_materials, talk type, audience context summary, and output format. Ensure the TODO.md Description block includes the same detail.
 
