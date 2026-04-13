@@ -391,7 +391,6 @@ See `.claude/agents/meta-builder-agent.md` for complete implementation details.
 
 **Enhanced `/meta` Features**:
 - **Automatic Topic Clustering** (Stage 3.5): Proactively analyzes user-provided task breakdown and suggests consolidation opportunities
-- **NOT STARTED Status**: Tasks start in `not_started` status and follow the normal `/research N` -> `/plan N` -> `/implement N` lifecycle
 
 ## Gaps and Future Enhancements
 

@@ -499,7 +499,9 @@ Structured proposal development (grants) and research presentation creation (tal
 | skill-budget | budget-agent | opus | Grant budget spreadsheet generation (XLSX) |
 | skill-timeline | timeline-agent | opus | Research project timeline planning |
 | skill-funds | funds-agent | opus | Research funding landscape analysis |
-| skill-slides | slides-agent | opus | Research talk material synthesis and presentation assembly |
+| skill-slides | slides-research-agent | opus | Research talk material synthesis |
+| skill-slides | pptx-assembly-agent | opus | PowerPoint presentation assembly |
+| skill-slides | slidev-assembly-agent | opus | Slidev presentation assembly |
 
 ### Commands
 
@@ -548,3 +550,37 @@ The talk library at `context/project/present/talk/` contains:
 - **Themes**: Academic-clean and clinical-teal visual themes
 
 <!-- END_SECTION: extension_present -->
+
+<!-- SECTION: extension_python -->
+## Python Extension
+
+This project includes Python development support via the python extension.
+
+### Language Routing
+
+| Language | Research Tools | Implementation Tools |
+|----------|----------------|---------------------|
+| `python` | WebSearch, WebFetch, Read | Read, Write, Edit, Bash (python, pytest) |
+
+### Skill-Agent Mapping
+
+| Skill | Agent | Purpose |
+|-------|-------|---------|
+| skill-python-research | python-research-agent | Python/library research |
+| skill-python-implementation | python-implementation-agent | Python implementation |
+
+### Testing
+
+- Run tests: `pytest`
+- Run specific test: `pytest path/to/test.py::test_function`
+- Coverage: `pytest --cov=src`
+- Watch mode: `pytest-watch`
+
+### Code Quality
+
+- Type checking: `mypy src/`
+- Linting: `ruff check src/`
+- Formatting: `ruff format src/`
+- All checks: `make lint` or `nox -s lint`
+
+<!-- END_SECTION: extension_python -->

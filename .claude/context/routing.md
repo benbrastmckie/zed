@@ -9,6 +9,7 @@ Token budget: ~200 tokens
 | lean4 | skill-lean-research | skill-lean-implementation |
 | latex | skill-latex-research | skill-latex-implementation |
 | typst | skill-typst-research | skill-typst-implementation |
+| python | skill-python-research | skill-python-implementation |
 | nix | skill-nix-research | skill-nix-implementation |
 | web | skill-web-research | skill-web-implementation |
 | epi, epi:study | skill-epi-research | skill-epi-implement |

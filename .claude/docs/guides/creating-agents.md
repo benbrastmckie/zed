@@ -280,7 +280,7 @@ Extract from input:
     "delegation_depth": 1,
     "delegation_path": ["orchestrator", "research", "{name}-agent"]
   },
-  "focus_prompt": "asyncio best practices"
+  "focus_prompt": "tokio best practices"
 }
 ```
 ```

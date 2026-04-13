@@ -337,8 +337,6 @@ Report: specs/{NNN}_{SLUG}/reports/{MM}_slides-research.md
 Next: /plan {N} (create implementation plan with design questions)
 ```
 
----
-
 ## Core Command Integration
 
 Tasks with language="present" and task_type="slides" route through core commands:

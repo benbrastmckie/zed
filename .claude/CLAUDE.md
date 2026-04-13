@@ -70,11 +70,11 @@ This distinction enables identification of which system created each task.
 | `meta` | `skill-researcher` | `skill-implementer` | Read, Grep, Glob, Write, Edit |
 | `markdown` | `skill-researcher` | `skill-implementer` | Read, Write, Edit |
 
-**Extension Task Types** (pre-merged into the agent system):
+**Extension Task Types** (available when extensions are loaded via `<leader>ac`):
 
-Extensions provide additional task type support (lean4, latex, typst, python, nix, web, z3, epi, formal, founder, present, etc.). See `.claude/extensions.json` for available extensions and their capabilities.
+Extensions provide additional task type support (neovim, lean4, latex, typst, python, nix, web, z3, epi, formal, founder, present, etc.). See `.claude/extensions/*/manifest.json` for available extensions and their capabilities.
 
-Extension routing entries are pre-merged into the command tables and context index.
+When an extension is loaded, its routing entries are merged into the command tables and context index.
 
 ## Command Reference
 
@@ -117,7 +117,7 @@ TODO.md and state.json must stay synchronized. Update state.json first (machine 
     "project_number": 1,
     "project_name": "task_slug",
     "status": "planned",
-    "task_type": "general",
+    "task_type": "neovim",
     "completion_summary": "Required when status=completed",
     "roadmap_items": ["Optional explicit roadmap items"]
   }],
@@ -197,7 +197,7 @@ Standard actions: `create`, `complete research`, `create implementation plan`, `
 
 **User-Only Skills**: Skills marked as "user-only" cannot be invoked by agents. These are for human-controlled operations like deployment (`skill-tag`).
 
-**Extension Skills**: When extensions are loaded, additional skill-to-agent mappings are added (e.g., skill-latex-research -> latex-research-agent). Extension task types use bare values (e.g., `latex`) or compound values (e.g., `present:grant`) for sub-routing.
+**Extension Skills**: When extensions are loaded, additional skill-to-agent mappings are added (e.g., skill-neovim-research -> neovim-research-agent). Extension task types use bare values (e.g., `neovim`) or compound values (e.g., `present:grant`) for sub-routing.
 
 **Team Mode Skills**: When `--team` flag is passed to `/research`, `/plan`, or `/implement`, routing overrides to team skills which spawn multiple parallel teammates. Requires `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` environment variable. Gracefully degrades to single-agent if unavailable.
 
@@ -219,7 +219,7 @@ Core rules (auto-applied by file path):
 - @.claude/rules/workflows.md - Command lifecycle (.claude/**)
 - @.claude/rules/plan-format-enforcement.md - Plan format checklist (specs/**)
 
-**Extension Rules**: When extensions are loaded, additional rules are added (e.g., latex-conventions.md for LaTeX development).
+**Extension Rules**: When extensions are loaded, additional rules are added (e.g., neovim-lua.md for Lua development).
 
 ## Context Discovery
 
@@ -261,7 +261,7 @@ Five layers provide context to agents. Each has a distinct owner and purpose.
 | Extensions | `.claude/extensions/*/context/` | Extension loader | Language-specific standards, tools, patterns |
 | Project context | `.context/` | User (via index.json) | Project conventions not covered by extensions |
 | Project memory | `.memory/` | Agents over time | Learned facts, discoveries, decisions |
-| ~~Auto-memory~~ | `~/.claude/projects/` | ~~Claude Code~~ | **DISABLED** -- migrated to `.memory/10-Memories/` (see MEM-005) |
+| Auto-memory | `~/.claude/projects/` | Claude Code | User preferences, behavioral corrections |
 
 ### Where to store new content
 
@@ -279,7 +279,7 @@ Learned fact from development (discovery, decision, pattern)?
   YES --> .memory/
 
 User preference or behavioral correction?
-  YES --> .memory/ (use /learn command; auto-memory is disabled)
+  YES --> auto-memory (automatic, no action needed)
 ```
 
 Full details: `.claude/context/architecture/context-layers.md`
@@ -290,7 +290,7 @@ Core context (always available):
 - @.claude/context/repo/project-overview.md
 - @.claude/context/meta/meta-guide.md
 
-**Extension Context**: Extension context is pre-merged into `index.json`. Query for extension-specific context files as needed.
+**Extension Context**: Available when extensions are loaded via `<leader>ac`. Query `index.json` for extension-specific context files.
 
 ## Multi-Task Creation Standards
 
@@ -440,6 +440,13 @@ This project includes LaTeX document development support via the latex extension
 |-------|-------|---------|
 | skill-latex-implementation | latex-implementation-agent | LaTeX document implementation |
 
+### VimTeX Integration
+
+- Compile: `:VimtexCompile` (`<leader>lc`)
+- View PDF: `:VimtexView` (`<leader>lv`)
+- Clean: `:VimtexClean` (`<leader>lk`)
+- TOC: `:VimtexTocOpen` (`<leader>li`)
+
 ### Document Structure
 
 - Use `\documentclass` appropriate for document type
@@ -482,7 +489,7 @@ The `--remember` flag on `/research` searches the memory vault for relevant prio
 <!-- SECTION: extension_present -->
 ## Present Extension
 
-Structured proposal development (grants) and research presentation creation (talks) in Typst, Slidev, and PowerPoint formats.
+Structured proposal development (grants) and research presentation creation (talks) in Typst and Slidev formats.
 
 ### Skill-Agent Mapping
 
@@ -538,11 +545,45 @@ Structured proposal development (grants) and research presentation creation (tal
 
 The talk library at `context/project/present/talk/` contains:
 - **Patterns**: Slide structure definitions for each talk mode
-- **Content Templates**: Content templates for slide types (Slidev markdown and PowerPoint via python-pptx)
+- **Content Templates**: Slidev-compatible markdown templates for slide types
 - **Components**: Vue components (FigurePanel, DataTable, CitationBlock, StatResult, FlowDiagram)
 - **Themes**: Academic-clean and clinical-teal visual themes
 
 <!-- END_SECTION: extension_present -->
+
+<!-- SECTION: extension_python -->
+## Python Extension
+
+This project includes Python development support via the python extension.
+
+### Language Routing
+
+| Language | Research Tools | Implementation Tools |
+|----------|----------------|---------------------|
+| `python` | WebSearch, WebFetch, Read | Read, Write, Edit, Bash (python, pytest) |
+
+### Skill-Agent Mapping
+
+| Skill | Agent | Purpose |
+|-------|-------|---------|
+| skill-python-research | python-research-agent | Python/library research |
+| skill-python-implementation | python-implementation-agent | Python implementation |
+
+### Testing
+
+- Run tests: `pytest`
+- Run specific test: `pytest path/to/test.py::test_function`
+- Coverage: `pytest --cov=src`
+- Watch mode: `pytest-watch`
+
+### Code Quality
+
+- Type checking: `mypy src/`
+- Linting: `ruff check src/`
+- Formatting: `ruff format src/`
+- All checks: `make lint` or `nox -s lint`
+
+<!-- END_SECTION: extension_python -->
 
 <!-- SECTION: extension_typst -->
 ## Typst Extension

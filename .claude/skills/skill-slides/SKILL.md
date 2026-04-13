@@ -295,6 +295,8 @@ case "$workflow_type" in
 esac
 ```
 
+**Delegation context**:
+
 ```json
 {
   "session_id": "sess_{timestamp}_{random}",

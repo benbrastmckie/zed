@@ -153,7 +153,7 @@ See `.claude/context/formats/subagent-return.md` for full specification.
 }
 ```
 
-**Note**: Tasks created via `/meta` start in NOT STARTED status and follow the normal `/research N` -> `/plan N` -> `/implement N` lifecycle.
+**Note**: Tasks created via `/meta` start in NOT STARTED status. Run `/research N` to begin the standard research -> plan -> implement lifecycle.
 
 ### Expected Return: Analyze Mode (read-only)
 

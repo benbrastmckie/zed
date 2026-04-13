@@ -678,7 +678,8 @@ for position, task_idx in enumerate(sorted_indices):
   "project_name": "task_slug",
   "status": "not_started",
   "task_type": "meta",
-  "dependencies": [35, 34]
+  "dependencies": [35, 34],
+  "artifacts": []
 }
 ```
 
@@ -714,7 +715,7 @@ for position, task_idx in enumerate(sorted_indices):
     else:
         dep_str = "None"
 
-    # Build entry (with NOT STARTED status)
+    # Build entry (NOT STARTED status, no research link)
     entry = f"""### {task_num}. {task['title']}
 - **Effort**: {task['effort']}
 - **Status**: [NOT STARTED]

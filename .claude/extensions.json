@@ -1,7 +1,21 @@
 {
   "extensions": {
     "present": {
+      "installed_dirs": [
+        ".claude/skills/skill-grant",
+        ".claude/skills/skill-budget",
+        ".claude/skills/skill-timeline",
+        ".claude/skills/skill-funds",
+        ".claude/skills/skill-slides",
+        ".claude/context/project/present"
+      ],
+      "source_dir": "/home/benjamin/.config/nvim/.claude/extensions/present",
+      "status": "active",
+      "loaded_at": "2026-04-13T08:12:30Z",
       "merged_sections": {
+        "claudemd": {
+          "section_id": "extension_present"
+        },
         "index": {
           "paths": [
             "project/present/README.md",
@@ -29,25 +43,21 @@
             "project/present/domain/funding-analysis.md",
             "project/present/patterns/funding-forcing-questions.md",
             "project/present/domain/presentation-types.md",
-            "project/present/patterns/talk-structure.md"
+            "project/present/patterns/talk-structure.md",
+            "project/present/talk/patterns/slidev-pitfalls.md",
+            "project/present/talk/patterns/pptx-generation.md",
+            "project/present/talk/index.json",
+            "project/present/talk/templates/playwright-verify.mjs",
+            "project/present/talk/templates/pptx-project/theme_mappings.json",
+            "project/present/talk/templates/pptx-project/generate_deck.py",
+            "project/present/talk/templates/pptx-project/README.md",
+            "project/present/talk/templates/slidev-project/README.md",
+            "project/present/talk/themes/ucsf-institutional.json"
           ]
-        },
-        "claudemd": {
-          "section_id": "extension_present"
         }
       },
-      "installed_dirs": [
-        ".claude/skills/skill-grant",
-        ".claude/skills/skill-budget",
-        ".claude/skills/skill-timeline",
-        ".claude/skills/skill-funds",
-        ".claude/skills/skill-slides",
-        ".claude/context/project/present",
-        ".claude/extensions/present"
-      ],
-      "source_dir": "/home/benjamin/.config/nvim/.claude/extensions/present",
+      "version": "1.0.0",
       "data_skeleton_files": [],
-      "status": "active",
       "installed_files": [
         ".claude/agents/grant-agent.md",
         ".claude/agents/budget-agent.md",
@@ -110,7 +120,18 @@
         ".claude/context/project/present/talk/patterns/conference-standard.json",
         ".claude/context/project/present/talk/patterns/defense-grant.json",
         ".claude/context/project/present/talk/patterns/journal-club.json",
+        ".claude/context/project/present/talk/patterns/pptx-generation.md",
         ".claude/context/project/present/talk/patterns/seminar-deep-dive.json",
+        ".claude/context/project/present/talk/patterns/slidev-pitfalls.md",
+        ".claude/context/project/present/talk/templates/playwright-verify.mjs",
+        ".claude/context/project/present/talk/templates/pptx-project/README.md",
+        ".claude/context/project/present/talk/templates/pptx-project/UCSF_ZSFG_Template_16x9.pptx",
+        ".claude/context/project/present/talk/templates/pptx-project/generate_deck.py",
+        ".claude/context/project/present/talk/templates/pptx-project/theme_mappings.json",
+        ".claude/context/project/present/talk/templates/slidev-project/README.md",
+        ".claude/context/project/present/talk/templates/slidev-project/lz-string-esm.js",
+        ".claude/context/project/present/talk/templates/slidev-project/package.json",
+        ".claude/context/project/present/talk/templates/slidev-project/vite.config.ts",
         ".claude/context/project/present/talk/themes/academic-clean.json",
         ".claude/context/project/present/talk/themes/clinical-teal.json",
         ".claude/context/project/present/talk/themes/ucsf-institutional.json",
@@ -121,33 +142,10 @@
         ".claude/context/project/present/templates/timeline-template.md",
         ".claude/context/project/present/templates/typst/research-timeline.typ",
         ".claude/context/project/present/tools/funder-research.md",
-        ".claude/context/project/present/tools/web-resources.md",
-        ".claude/extensions/present/manifest.json"
-      ],
-      "loaded_at": "2026-04-11T04:12:29Z",
-      "version": "1.0.0"
+        ".claude/context/project/present/tools/web-resources.md"
+      ]
     },
     "filetypes": {
-      "merged_sections": {
-        "index": {
-          "paths": [
-            "project/filetypes/tools/tool-detection.md",
-            "project/filetypes/tools/dependency-guide.md",
-            "project/filetypes/tools/mcp-integration.md",
-            "project/filetypes/patterns/spreadsheet-tables.md",
-            "project/filetypes/patterns/presentation-slides.md",
-            "project/filetypes/patterns/pitch-deck-structure.md",
-            "project/filetypes/patterns/touying-pitch-deck-template.md",
-            "project/filetypes/domain/conversion-tables.md",
-            "project/filetypes/README.md",
-            "project/filetypes/tools/superdoc-integration.md",
-            "project/filetypes/patterns/office-edit-patterns.md"
-          ]
-        },
-        "claudemd": {
-          "section_id": "extension_filetypes"
-        }
-      },
       "installed_dirs": [
         ".claude/skills/skill-filetypes",
         ".claude/skills/skill-spreadsheet",
@@ -157,8 +155,8 @@
         ".claude/context/project/filetypes"
       ],
       "source_dir": "/home/benjamin/.config/nvim/.claude/extensions/filetypes",
-      "version": "2.2.0",
       "status": "active",
+      "loaded_at": "2026-04-13T08:12:18Z",
       "installed_files": [
         ".claude/agents/filetypes-router-agent.md",
         ".claude/agents/document-agent.md",
@@ -187,159 +185,37 @@
         ".claude/context/project/filetypes/tools/superdoc-integration.md",
         ".claude/context/project/filetypes/tools/tool-detection.md"
       ],
-      "loaded_at": "2026-04-11T04:12:19Z",
-      "data_skeleton_files": []
-    },
-    "latex": {
+      "version": "2.2.0",
+      "data_skeleton_files": [],
       "merged_sections": {
+        "claudemd": {
+          "section_id": "extension_filetypes"
+        },
         "index": {
           "paths": [
-            "project/latex/patterns/document-structure.md",
-            "project/latex/patterns/theorem-environments.md",
-            "project/latex/patterns/cross-references.md",
-            "project/latex/standards/document-structure.md",
-            "project/latex/standards/latex-style-guide.md",
-            "project/latex/standards/notation-conventions.md",
-            "project/latex/standards/custom-macros.md",
-            "project/latex/templates/subfile-template.md",
-            "project/latex/tools/compilation-guide.md",
-            "project/latex/README.md"
+            "project/filetypes/tools/tool-detection.md",
+            "project/filetypes/tools/dependency-guide.md",
+            "project/filetypes/tools/mcp-integration.md",
+            "project/filetypes/patterns/spreadsheet-tables.md",
+            "project/filetypes/patterns/presentation-slides.md",
+            "project/filetypes/patterns/pitch-deck-structure.md",
+            "project/filetypes/patterns/touying-pitch-deck-template.md",
+            "project/filetypes/domain/conversion-tables.md",
+            "project/filetypes/README.md",
+            "project/filetypes/tools/superdoc-integration.md",
+            "project/filetypes/patterns/office-edit-patterns.md"
           ]
-        },
-        "claudemd": {
-          "section_id": "extension_latex"
         }
-      },
-      "installed_dirs": [
-        ".claude/skills/skill-latex-implementation",
-        ".claude/skills/skill-latex-research",
-        ".claude/context/project/latex"
-      ],
-      "source_dir": "/home/benjamin/.config/nvim/.claude/extensions/latex",
-      "data_skeleton_files": [],
-      "status": "active",
-      "installed_files": [
-        ".claude/agents/latex-implementation-agent.md",
-        ".claude/agents/latex-research-agent.md",
-        ".claude/rules/latex.md",
-        ".claude/skills/skill-latex-implementation/SKILL.md",
-        ".claude/skills/skill-latex-research/SKILL.md",
-        ".claude/context/project/latex/README.md",
-        ".claude/context/project/latex/patterns/cross-references.md",
-        ".claude/context/project/latex/patterns/document-structure.md",
-        ".claude/context/project/latex/patterns/theorem-environments.md",
-        ".claude/context/project/latex/standards/custom-macros.md",
-        ".claude/context/project/latex/standards/document-structure.md",
-        ".claude/context/project/latex/standards/latex-style-guide.md",
-        ".claude/context/project/latex/standards/notation-conventions.md",
-        ".claude/context/project/latex/templates/subfile-template.md",
-        ".claude/context/project/latex/tools/compilation-guide.md"
-      ],
-      "loaded_at": "2026-04-11T04:12:23Z",
-      "version": "1.0.0"
-    },
-    "epidemiology": {
-      "merged_sections": {
-        "index": {
-          "paths": [
-            "project/epidemiology/README.md",
-            "project/epidemiology/tools/r-packages.md",
-            "project/epidemiology/tools/mcp-guide.md",
-            "project/epidemiology/patterns/statistical-modeling.md",
-            "project/epidemiology/domain/study-designs.md",
-            "project/epidemiology/domain/causal-inference.md",
-            "project/epidemiology/domain/missing-data.md",
-            "project/epidemiology/domain/data-management.md",
-            "project/epidemiology/domain/reporting-standards.md",
-            "project/epidemiology/domain/r-workflow.md",
-            "project/epidemiology/patterns/observational-methods.md",
-            "project/epidemiology/patterns/analysis-phases.md",
-            "project/epidemiology/patterns/strobe-checklist.md",
-            "project/epidemiology/templates/analysis-plan.md",
-            "project/epidemiology/templates/findings-report.md"
-          ]
-        },
-        "settings": {
-          "mcp_servers": {
-            "type": "new_object",
-            "children": {
-              "rmcp": {
-                "type": "new_object",
-                "children": {
-                  "command": {
-                    "type": "new_value",
-                    "value": "uvx"
-                  },
-                  "args": {
-                    "type": "new_array",
-                    "items": [
-                      "rmcp"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "claudemd": {
-          "section_id": "extension_epidemiology"
-        }
-      },
-      "installed_dirs": [
-        ".claude/skills/skill-epi-research",
-        ".claude/skills/skill-epi-implement",
-        ".claude/context/project/epidemiology"
-      ],
-      "source_dir": "/home/benjamin/.config/nvim/.claude/extensions/epidemiology",
-      "data_skeleton_files": [],
-      "status": "active",
-      "installed_files": [
-        ".claude/agents/epi-research-agent.md",
-        ".claude/agents/epi-implement-agent.md",
-        ".claude/commands/epi.md",
-        ".claude/skills/skill-epi-research/SKILL.md",
-        ".claude/skills/skill-epi-implement/SKILL.md",
-        ".claude/context/project/epidemiology/README.md",
-        ".claude/context/project/epidemiology/domain/causal-inference.md",
-        ".claude/context/project/epidemiology/domain/data-management.md",
-        ".claude/context/project/epidemiology/domain/missing-data.md",
-        ".claude/context/project/epidemiology/domain/r-workflow.md",
-        ".claude/context/project/epidemiology/domain/reporting-standards.md",
-        ".claude/context/project/epidemiology/domain/study-designs.md",
-        ".claude/context/project/epidemiology/patterns/analysis-phases.md",
-        ".claude/context/project/epidemiology/patterns/observational-methods.md",
-        ".claude/context/project/epidemiology/patterns/statistical-modeling.md",
-        ".claude/context/project/epidemiology/patterns/strobe-checklist.md",
-        ".claude/context/project/epidemiology/templates/analysis-plan.md",
-        ".claude/context/project/epidemiology/templates/findings-report.md",
-        ".claude/context/project/epidemiology/tools/mcp-guide.md",
-        ".claude/context/project/epidemiology/tools/r-packages.md"
-      ],
-      "loaded_at": "2026-04-11T04:12:17Z",
-      "version": "2.0.0"
+      }
     },
     "memory": {
-      "merged_sections": {
-        "index": {
-          "paths": [
-            "project/memory/learn-usage.md",
-            "project/memory/memory-setup.md",
-            "project/memory/memory-troubleshooting.md",
-            "project/memory/domain/memory-reference.md",
-            "project/memory/knowledge-capture-usage.md"
-          ]
-        },
-        "claudemd": {
-          "section_id": "extension_memory"
-        }
-      },
       "installed_dirs": [
         ".claude/skills/skill-memory",
         ".claude/context/project/memory"
       ],
       "source_dir": "/home/benjamin/.config/nvim/.claude/extensions/memory",
-      "version": "1.0.0",
       "status": "active",
+      "loaded_at": "2026-04-13T08:12:24Z",
       "installed_files": [
         ".claude/commands/learn.md",
         ".claude/skills/skill-memory/README.md",
@@ -351,11 +227,37 @@
         ".claude/context/project/memory/memory-setup.md",
         ".claude/context/project/memory/memory-troubleshooting.md"
       ],
-      "loaded_at": "2026-04-11T04:12:25Z",
-      "data_skeleton_files": []
+      "version": "1.0.0",
+      "data_skeleton_files": [],
+      "merged_sections": {
+        "claudemd": {
+          "section_id": "extension_memory"
+        },
+        "index": {
+          "paths": [
+            "project/memory/learn-usage.md",
+            "project/memory/memory-setup.md",
+            "project/memory/memory-troubleshooting.md",
+            "project/memory/domain/memory-reference.md",
+            "project/memory/knowledge-capture-usage.md"
+          ]
+        }
+      }
     },
     "typst": {
+      "installed_dirs": [
+        ".claude/skills/skill-typst-research",
+        ".claude/skills/skill-typst-implementation",
+        ".claude/context/project/typst"
+      ],
+      "source_dir": "/home/benjamin/.config/nvim/.claude/extensions/typst",
+      "status": "active",
+      "loaded_at": "2026-04-13T08:12:36Z",
+      "version": "1.0.0",
       "merged_sections": {
+        "claudemd": {
+          "section_id": "extension_typst"
+        },
         "index": {
           "paths": [
             "project/typst/patterns/theorem-environments.md",
@@ -385,19 +287,9 @@
             "project/typst/typst-packages.md",
             "project/typst/typst-vs-latex.md"
           ]
-        },
-        "claudemd": {
-          "section_id": "extension_typst"
         }
       },
-      "installed_dirs": [
-        ".claude/skills/skill-typst-research",
-        ".claude/skills/skill-typst-implementation",
-        ".claude/context/project/typst"
-      ],
-      "source_dir": "/home/benjamin/.config/nvim/.claude/extensions/typst",
-      "version": "1.0.0",
-      "status": "active",
+      "data_skeleton_files": [],
       "installed_files": [
         ".claude/agents/typst-research-agent.md",
         ".claude/agents/typst-implementation-agent.md",
@@ -429,9 +321,174 @@
         ".claude/context/project/typst/typst-overview.md",
         ".claude/context/project/typst/typst-packages.md",
         ".claude/context/project/typst/typst-vs-latex.md"
+      ]
+    },
+    "latex": {
+      "installed_dirs": [
+        ".claude/skills/skill-latex-implementation",
+        ".claude/skills/skill-latex-research",
+        ".claude/context/project/latex"
       ],
-      "loaded_at": "2026-04-11T04:12:32Z",
-      "data_skeleton_files": []
+      "source_dir": "/home/benjamin/.config/nvim/.claude/extensions/latex",
+      "status": "active",
+      "loaded_at": "2026-04-13T08:12:21Z",
+      "merged_sections": {
+        "claudemd": {
+          "section_id": "extension_latex"
+        },
+        "index": {
+          "paths": [
+            "project/latex/patterns/document-structure.md",
+            "project/latex/patterns/theorem-environments.md",
+            "project/latex/patterns/cross-references.md",
+            "project/latex/standards/document-structure.md",
+            "project/latex/standards/latex-style-guide.md",
+            "project/latex/standards/notation-conventions.md",
+            "project/latex/standards/custom-macros.md",
+            "project/latex/templates/subfile-template.md",
+            "project/latex/tools/compilation-guide.md",
+            "project/latex/README.md"
+          ]
+        }
+      },
+      "version": "1.0.0",
+      "data_skeleton_files": [],
+      "installed_files": [
+        ".claude/agents/latex-implementation-agent.md",
+        ".claude/agents/latex-research-agent.md",
+        ".claude/rules/latex.md",
+        ".claude/skills/skill-latex-implementation/SKILL.md",
+        ".claude/skills/skill-latex-research/SKILL.md",
+        ".claude/context/project/latex/README.md",
+        ".claude/context/project/latex/patterns/cross-references.md",
+        ".claude/context/project/latex/patterns/document-structure.md",
+        ".claude/context/project/latex/patterns/theorem-environments.md",
+        ".claude/context/project/latex/standards/custom-macros.md",
+        ".claude/context/project/latex/standards/document-structure.md",
+        ".claude/context/project/latex/standards/latex-style-guide.md",
+        ".claude/context/project/latex/standards/notation-conventions.md",
+        ".claude/context/project/latex/templates/subfile-template.md",
+        ".claude/context/project/latex/tools/compilation-guide.md"
+      ]
+    },
+    "epidemiology": {
+      "installed_dirs": [
+        ".claude/skills/skill-epi-research",
+        ".claude/skills/skill-epi-implement",
+        ".claude/context/project/epidemiology"
+      ],
+      "source_dir": "/home/benjamin/.config/nvim/.claude/extensions/epidemiology",
+      "status": "active",
+      "loaded_at": "2026-04-13T08:12:16Z",
+      "merged_sections": {
+        "index": {
+          "paths": [
+            "project/epidemiology/README.md",
+            "project/epidemiology/tools/r-packages.md",
+            "project/epidemiology/tools/mcp-guide.md",
+            "project/epidemiology/patterns/statistical-modeling.md",
+            "project/epidemiology/domain/study-designs.md",
+            "project/epidemiology/domain/causal-inference.md",
+            "project/epidemiology/domain/missing-data.md",
+            "project/epidemiology/domain/data-management.md",
+            "project/epidemiology/domain/reporting-standards.md",
+            "project/epidemiology/domain/r-workflow.md",
+            "project/epidemiology/patterns/observational-methods.md",
+            "project/epidemiology/patterns/analysis-phases.md",
+            "project/epidemiology/patterns/strobe-checklist.md",
+            "project/epidemiology/templates/analysis-plan.md",
+            "project/epidemiology/templates/findings-report.md"
+          ]
+        },
+        "claudemd": {
+          "section_id": "extension_epidemiology"
+        },
+        "settings": {
+          "mcp_servers": {
+            "type": "new_object",
+            "children": {
+              "rmcp": {
+                "type": "new_object",
+                "children": {
+                  "args": {
+                    "type": "new_array",
+                    "items": [
+                      "rmcp"
+                    ]
+                  },
+                  "command": {
+                    "type": "new_value",
+                    "value": "uvx"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "version": "2.0.0",
+      "data_skeleton_files": [],
+      "installed_files": [
+        ".claude/agents/epi-research-agent.md",
+        ".claude/agents/epi-implement-agent.md",
+        ".claude/commands/epi.md",
+        ".claude/skills/skill-epi-research/SKILL.md",
+        ".claude/skills/skill-epi-implement/SKILL.md",
+        ".claude/context/project/epidemiology/README.md",
+        ".claude/context/project/epidemiology/domain/causal-inference.md",
+        ".claude/context/project/epidemiology/domain/data-management.md",
+        ".claude/context/project/epidemiology/domain/missing-data.md",
+        ".claude/context/project/epidemiology/domain/r-workflow.md",
+        ".claude/context/project/epidemiology/domain/reporting-standards.md",
+        ".claude/context/project/epidemiology/domain/study-designs.md",
+        ".claude/context/project/epidemiology/patterns/analysis-phases.md",
+        ".claude/context/project/epidemiology/patterns/observational-methods.md",
+        ".claude/context/project/epidemiology/patterns/statistical-modeling.md",
+        ".claude/context/project/epidemiology/patterns/strobe-checklist.md",
+        ".claude/context/project/epidemiology/templates/analysis-plan.md",
+        ".claude/context/project/epidemiology/templates/findings-report.md",
+        ".claude/context/project/epidemiology/tools/mcp-guide.md",
+        ".claude/context/project/epidemiology/tools/r-packages.md"
+      ]
+    },
+    "python": {
+      "installed_dirs": [
+        ".claude/skills/skill-python-research",
+        ".claude/skills/skill-python-implementation",
+        ".claude/context/project/python"
+      ],
+      "source_dir": "/home/benjamin/.config/nvim/.claude/extensions/python",
+      "status": "active",
+      "loaded_at": "2026-04-13T08:12:32Z",
+      "installed_files": [
+        ".claude/agents/python-research-agent.md",
+        ".claude/agents/python-implementation-agent.md",
+        ".claude/skills/skill-python-research/SKILL.md",
+        ".claude/skills/skill-python-implementation/SKILL.md",
+        ".claude/context/project/python/README.md",
+        ".claude/context/project/python/domain/model-checker-api.md",
+        ".claude/context/project/python/domain/theory-lib-patterns.md",
+        ".claude/context/project/python/patterns/semantic-evaluation.md",
+        ".claude/context/project/python/patterns/testing-patterns.md",
+        ".claude/context/project/python/standards/code-style.md"
+      ],
+      "version": "1.0.0",
+      "data_skeleton_files": [],
+      "merged_sections": {
+        "claudemd": {
+          "section_id": "extension_python"
+        },
+        "index": {
+          "paths": [
+            "project/python/standards/code-style.md",
+            "project/python/patterns/testing-patterns.md",
+            "project/python/domain/model-checker-api.md",
+            "project/python/domain/theory-lib-patterns.md",
+            "project/python/patterns/semantic-evaluation.md",
+            "project/python/README.md"
+          ]
+        }
+      }
     }
   },
   "version": "1.0.0"

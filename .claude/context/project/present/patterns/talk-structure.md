@@ -106,6 +106,6 @@ Paper review and critique for journal club meetings.
 - Multiple talks can reference the same source materials with different modes
 
 ### Format-Specific Implementation Notes
-- **Slidev**: See `talk/patterns/slidev-pitfalls.md` for Slidev-specific gotchas (footer positioning, Mermaid rendering, PDF export verification)
-- **PowerPoint**: See `talk/patterns/pptx-generation.md` for python-pptx API patterns, theme application, component helpers, and speaker notes
-- Theme JSON files include a `footer` section with correct positioning guidance
+- **Slidev**: See `talk/patterns/slidev-pitfalls.md` for setup, footer positioning, and mermaid gotchas
+- **PowerPoint**: See `talk/patterns/pptx-generation.md` for python-pptx API patterns and component helpers
+- Theme JSON files include a `footer` section with correct positioning guidance for custom footers
