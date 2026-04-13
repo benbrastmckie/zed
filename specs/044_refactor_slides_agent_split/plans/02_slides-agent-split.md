@@ -107,7 +107,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Update skill-slides routing [NOT STARTED]
+### Phase 2: Update skill-slides routing [COMPLETED]
 
 **Goal**: Modify skill-slides to dispatch to the correct agent based on workflow_type and output_format, replacing the single slides-agent dispatch.
 

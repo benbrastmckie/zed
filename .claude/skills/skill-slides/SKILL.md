@@ -2,17 +2,22 @@
 name: skill-slides
 description: Research talk material synthesis and presentation assembly. Invoke for slides tasks.
 allowed-tools: Task, Bash, Edit, Read, Write, AskUserQuestion
-# Context (loaded by subagent):
-#   - .claude/extensions/present/context/project/present/talk/index.json
-#   - .claude/extensions/present/context/project/present/patterns/talk-structure.md
-#   - .claude/extensions/present/context/project/present/domain/presentation-types.md
-# Tools (used by subagent):
-#   - Read, Write, Edit, Glob, Grep, WebSearch, WebFetch
+# Subagents (dispatched by workflow_type + output_format):
+#   - slides-research-agent (workflow_type=slides_research)
+#   - pptx-assembly-agent (workflow_type=assemble, output_format=pptx)
+#   - slidev-assembly-agent (workflow_type=assemble, output_format=slidev)
+# Context is loaded by each subagent independently.
+# Tools (used by subagents):
+#   - Read, Write, Edit, Glob, Grep, WebSearch, WebFetch, Bash
 ---
 
 # Slides Skill
 
-Thin wrapper that delegates slides research work to `slides-agent` subagent.
+Thin wrapper that delegates slides work to the appropriate subagent based on workflow type and output format:
+
+- **slides-research-agent**: Material synthesis into slide-mapped research reports
+- **pptx-assembly-agent**: PowerPoint generation from research reports
+- **slidev-assembly-agent**: Slidev project generation from research reports
 
 **IMPORTANT**: This skill implements the skill-internal postflight pattern. After the subagent returns,
 this skill handles all postflight operations (status update, artifact linking, git commit) before returning.
@@ -40,7 +45,7 @@ This skill activates when:
 
 ## Workflow Type Routing
 
-This skill routes to slides-agent with one of two workflow types:
+This skill routes to the appropriate subagent based on workflow type and output format:
 
 | Workflow Type | Preflight Status | Success Status | TODO.md Markers |
 |---------------|-----------------|----------------|-----------------|
@@ -161,11 +166,27 @@ EOF
 
 ### Stage 4: Prepare Delegation Context
 
+Resolve the target agent based on workflow_type and output_format:
+
+```bash
+case "$workflow_type" in
+  slides_research)
+    target_agent="slides-research-agent"
+    ;;
+  assemble)
+    case "$output_format" in
+      pptx) target_agent="pptx-assembly-agent" ;;
+      *)    target_agent="slidev-assembly-agent" ;;
+    esac
+    ;;
+esac
+```
+
 ```json
 {
   "session_id": "sess_{timestamp}_{random}",
   "delegation_depth": 1,
-  "delegation_path": ["orchestrator", "slides", "skill-slides"],
+  "delegation_path": ["orchestrator", "slides", "skill-slides", "{target_agent}"],
   "timeout": 3600,
   "task_context": {
     "task_number": N,
@@ -185,17 +206,25 @@ EOF
 
 ### Stage 5: Invoke Subagent
 
-**CRITICAL**: Use the **Task** tool to spawn the subagent.
+**CRITICAL**: Use the **Task** tool to spawn the subagent. Use the `target_agent` resolved in Stage 4.
 
 ```
 Tool: Task (NOT Skill)
 Parameters:
-  - subagent_type: "slides-agent"
+  - subagent_type: "{target_agent}"
   - prompt: [Include task_context, delegation_context, workflow_type, forcing_data, metadata_file_path]
   - description: "Execute {workflow_type} for task {N}"
 ```
 
-**DO NOT** use `Skill(slides-agent)` - this will FAIL.
+**Routing table**:
+
+| workflow_type | output_format | target_agent |
+|---------------|---------------|--------------|
+| `slides_research` | any | `slides-research-agent` |
+| `assemble` | `pptx` | `pptx-assembly-agent` |
+| `assemble` | `slidev` (default) | `slidev-assembly-agent` |
+
+**DO NOT** use `Skill(...)` - this will FAIL. Always use `Task`.
 
 ---
 
