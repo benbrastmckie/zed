@@ -4,10 +4,19 @@
     {
       "project_number": 61,
       "project_name": "revert_task_60_restore_slide_planner",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-13T23:19:25Z",
-      "last_updated": "2026-04-13T23:19:25Z"
+      "last_updated": "2026-04-13T23:26:51Z",
+      "session_id": "sess_1776122447_b77a96",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/061_revert_task_60_restore_slide_planner/reports/01_revert-audit.md",
+          "type": "research",
+          "summary": "Complete audit of task 60 commits, files affected, revert strategy, and CLAUDE.md table restoration requirements"
+        }
+      ]
     },
     {
       "project_number": 60,
