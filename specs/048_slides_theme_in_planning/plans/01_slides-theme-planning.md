@@ -154,7 +154,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Update documentation and CLAUDE.md references [NOT STARTED]
+### Phase 4: Update documentation and CLAUDE.md references [COMPLETED]
 
 **Goal**: Update CLAUDE.md command reference tables and present extension documentation to reflect the removal of `--design` and the new plan routing.
 

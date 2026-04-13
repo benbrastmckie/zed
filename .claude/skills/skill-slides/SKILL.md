@@ -1,6 +1,6 @@
 ---
 name: skill-slides
-description: Research talk material synthesis and presentation assembly. Invoke for slides tasks.
+description: Research talk material synthesis, design-aware planning, and presentation assembly. Invoke for slides tasks.
 allowed-tools: Task, Bash, Edit, Read, Write, AskUserQuestion
 # Subagents (dispatched by workflow_type + output_format):
 #   - slides-research-agent (workflow_type=slides_research)
