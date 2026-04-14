@@ -29,14 +29,6 @@
       ],
       "completion_summary": "Reverted all 4 task-60 commits that incorrectly removed slide-planner-agent/skill-slide-planning references, restoring 17+ files across .claude/ and docs/. Verified all cross-references are consistent.",
       "claudemd_suggestions": "Restored CLAUDE.md Hooks section, slide-planner-agent in 3 tables, and present:slides routing row. Restored Co-Authored-By note in git-workflow.md."
-    },
-    {
-      "project_number": 60,
-      "project_name": "update_docs_for_claude_changes",
-      "status": "not_started",
-      "task_type": "meta",
-      "created": "2026-04-13T22:29:44Z",
-      "last_updated": "2026-04-13T22:29:44Z"
     }
   ],
   "repository_health": {

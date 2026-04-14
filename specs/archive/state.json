@@ -1,6 +1,15 @@
 {
   "completed_projects": [
     {
+      "project_number": 60,
+      "project_name": "update_docs_for_claude_changes",
+      "status": "abandoned",
+      "task_type": "meta",
+      "created": "2026-04-13T22:29:44Z",
+      "last_updated": "2026-04-13T22:29:44Z",
+      "abandoned": "2026-04-14T01:13:56Z"
+    },
+    {
       "project_number": 52,
       "project_name": "hiv_grand_rounds_la_art_prep",
       "status": "completed",
