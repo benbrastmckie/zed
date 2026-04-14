@@ -150,7 +150,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Simplify Group Install Scripts (Part 2: Light) [NOT STARTED]
+### Phase 4: Simplify Group Install Scripts (Part 2: Light) [COMPLETED]
 
 **Goal**: Remove Linux branches from the three scripts requiring lighter changes: install.sh, install-shell-tools.sh, install-python.sh, install-mcp-servers.sh.
 

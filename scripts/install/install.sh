@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-# install.sh - Master installer wizard for .config/zed/ (cross-platform)
+# install.sh - Master installer wizard for .config/zed/ (macOS)
 #
 # Dispatches per-group installers in topological order:
 #   base -> shell-tools -> python -> r -> typesetting -> mcp-servers
 #
-# Supported platforms: macOS, Debian/Ubuntu, Arch/Manjaro.
-# NixOS is detected and exits with guidance (use configuration.nix instead).
+# Supported platform: macOS (Homebrew).
 #
 # Each group runs in a subprocess (failure isolation): a failing group does
 # not abort the wizard; it's recorded in GROUPS_FAILED and the summary prints
@@ -37,8 +36,7 @@ print_help() {
   cat >&2 <<'EOF'
 install.sh - Zed + Claude Code toolchain installer
 
-Supported platforms: macOS, Debian/Ubuntu, Arch/Manjaro
-NixOS: detected and exits with guidance (use configuration.nix/home.nix)
+Supported platform: macOS (Homebrew)
 
 Usage:
   bash scripts/install/install.sh              # interactive wizard
@@ -217,21 +215,6 @@ main() {
   trap on_exit EXIT INT TERM
 
   assert_supported_os
-
-  # NixOS early exit (assert_supported_os handles nixos with exit 3,
-  # but this provides additional context if reached).
-  if [ "$DETECTED_OS" = "nixos" ]; then
-    log_error "NixOS detected. This imperative wizard is not designed for NixOS."
-    log_error "Add packages to your configuration.nix or home.nix, or use the"
-    log_error "companion flake.nix when available."
-    exit 0
-  fi
-
-  # linux-unknown warning (assert_supported_os already warned but didn't exit).
-  if [ "$DETECTED_OS" = "linux-unknown" ]; then
-    log_warn "Unrecognized Linux distribution. The wizard will attempt to continue"
-    log_warn "but some package install commands may fail. Supported: macOS, Debian/Ubuntu, Arch/Manjaro."
-  fi
 
   if [ "$CHECK_MODE" = "1" ]; then
     run_check_mode

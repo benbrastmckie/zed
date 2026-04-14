@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# install-python.sh - Python toolchain (cross-platform)
+# install-python.sh - Python toolchain (macOS)
 #
 # Core:       python3, uv, ruff
 # Tools:      pytest, mypy, ipython (uv tool install)
@@ -17,13 +17,13 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 print_help() {
   cat >&2 <<'EOF'
-install-python.sh - Python toolchain
+install-python.sh - Python toolchain (macOS)
 
 Installs:
   Core:
-    - python3 (platform package manager)
-    - uv (brew on macOS, curl installer on Linux)
-    - ruff (brew on macOS, uv/pipx on Linux)
+    - python3 (Homebrew)
+    - uv (Homebrew)
+    - ruff (Homebrew)
   Optional sub-groups (prompted):
     - uv tools: pytest, mypy, ipython
     - filetypes packages (pip3): pandas openpyxl python-pptx python-docx
@@ -35,70 +35,21 @@ EOF
 do_core() {
   # Python
   if ! check_command python3; then
-    case "$DETECTED_OS" in
-      macos)
-        brew_install_formula python
-        ;;
-      debian)
-        pkg_install python3
-        if [ "$DRY_RUN" = "1" ]; then
-          log_dry "sudo apt-get install -y python3-pip python3-venv"
-        else
-          sudo apt-get install -y python3-pip python3-venv 2>/dev/null || true
-        fi
-        ;;
-      arch)
-        pkg_install python3
-        ;;
-      *)
-        log_warn "install python3 manually"
-        ;;
-    esac
+    brew_install_formula python
   else
     log_ok "python3 already installed: $(python3 --version 2>&1)"
   fi
 
   # uv
   if ! check_command uv; then
-    case "$DETECTED_OS" in
-      macos)
-        brew_install_formula uv
-        ;;
-      *)
-        # Use the official curl installer on Linux.
-        if [ "$DRY_RUN" = "1" ]; then
-          log_dry "curl -LsSf https://astral.sh/uv/install.sh | sh"
-        else
-          curl -LsSf https://astral.sh/uv/install.sh | sh || \
-            log_warn "uv installer failed; install manually: https://docs.astral.sh/uv/"
-          # Ensure uv is on PATH for the rest of the script.
-          if [ -f "$HOME/.local/bin/uv" ]; then
-            export PATH="$HOME/.local/bin:$PATH"
-          fi
-        fi
-        ;;
-    esac
+    brew_install_formula uv
   else
     log_ok "uv already installed: $(uv --version 2>&1)"
   fi
 
   # ruff
   if ! check_command ruff; then
-    case "$DETECTED_OS" in
-      macos)
-        brew_install_formula ruff
-        ;;
-      *)
-        # On Linux, install ruff via uv tool or pipx.
-        if check_command uv; then
-          run_or_dry uv tool install ruff
-        elif check_command pipx; then
-          run_or_dry pipx install ruff
-        else
-          log_warn "install ruff manually: pip3 install ruff or uv tool install ruff"
-        fi
-        ;;
-    esac
+    brew_install_formula ruff
   else
     log_ok "ruff already installed: $(ruff --version 2>&1)"
   fi

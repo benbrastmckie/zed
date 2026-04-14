@@ -106,16 +106,8 @@ do_obsidian_pointer() {
   log_info "Setup docs: .claude/context/project/memory/memory-setup.md"
   if [ "$DRY_RUN" = "0" ] && [ "$ASSUME_YES" = "0" ] \
      && prompt_yn "Open the obsidian-memory setup guide?" default_n; then
-    case "$DETECTED_OS" in
-      macos)
-        open .claude/context/project/memory/memory-setup.md 2>/dev/null || \
-          log_warn "could not open the setup doc; navigate manually"
-        ;;
-      *)
-        xdg-open .claude/context/project/memory/memory-setup.md 2>/dev/null || \
-          log_warn "could not open the setup doc; navigate manually"
-        ;;
-    esac
+    open .claude/context/project/memory/memory-setup.md 2>/dev/null || \
+      log_warn "could not open the setup doc; navigate manually"
   fi
 }
 
