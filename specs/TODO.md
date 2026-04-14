@@ -1,10 +1,17 @@
 ---
-next_project_number: 64
+next_project_number: 65
 ---
 
 # Task List
 
 ## Tasks
+
+### 64. Narrow installation scripts and documentation to macOS-only, removing all Linux support
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: general
+
+**Description**: Remove all Linux platform support (Debian/Ubuntu, Arch/Manjaro, NixOS detection, linux-unknown) from the installation wizard scripts (install.sh, lib.sh, install-base.sh, install-shell-tools.sh, install-python.sh, install-r.sh, install-typesetting.sh) and all associated documentation (docs/general/installation.md, docs/toolchain/README.md, README.md, project-overview.md). Simplify lib.sh platform detection to macOS-only, remove the cross-platform package name mapping (apt/pacman columns), remove Linux-specific features (Posit Package Manager configuration, systemd timer, AUR helper detection, /etc/os-release parsing), and update all docs to reference only macOS/Homebrew. Delete the systemd timer installer script. Retain the clean idempotent/interactive-step architecture but strip all multi-platform branching.
 
 ### 63. Create zed-specific .claude/ customizations and .syncprotect file
 - **Effort**: medium
@@ -55,3 +62,4 @@ Create `.claude/.syncprotect` listing files that have zed-specific customization
 
 1. **61** -> research (independent)
 2. **62** -> research (independent)
+3. **64** -> research (independent)

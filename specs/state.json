@@ -1,6 +1,14 @@
 {
-  "next_project_number": 64,
+  "next_project_number": 65,
   "active_projects": [
+    {
+      "project_number": 64,
+      "project_name": "narrow_install_to_macos_only",
+      "status": "not_started",
+      "task_type": "general",
+      "created": "2026-04-14T16:32:32Z",
+      "last_updated": "2026-04-14T16:32:32Z"
+    },
     {
       "project_number": 63,
       "project_name": "zed_specific_claude_customizations_and_syncprotect",
