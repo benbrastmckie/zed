@@ -720,7 +720,6 @@ When "Keep as grouped tasks" is selected, create one task per group:
 **Task type inference by majority file type in group:**
 | File pattern | Task Type |
 |--------------|-----------|
-| `nvim/**/*.lua` | neovim |
 | `*.md`, `*.json`, `.claude/**` | meta |
 | `*.tex` | latex |
 | `*.typ` | typst |

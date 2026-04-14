@@ -23,3 +23,8 @@ rules/plan-format-enforcement.md
 
 # Recreated agent listing (no nvim agents)
 agents/README.md
+
+# Updated task_type detection and examples
+commands/task.md
+commands/learn.md
+commands/review.md
