@@ -4,11 +4,11 @@
     {
       "project_number": 63,
       "project_name": "zed_specific_claude_customizations_and_syncprotect",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-14T15:20:20Z",
-      "last_updated": "2026-04-14T16:30:00Z",
-      "session_id": "sess_1744641200_c9d5e3",
+      "last_updated": "2026-04-14T15:50:38Z",
+      "session_id": "sess_1744641800_d0e6f4",
       "next_artifact_number": 4,
       "artifacts": [
         {
@@ -17,22 +17,21 @@
           "summary": "Comprehensive audit of zed .claude/ files: project-overview.md is entirely wrong (nvim template), CLAUDE.md needs slide-planner references updated, git-workflow.md accepts nvim canonical version, agents/README.md needs recreation, .syncprotect should protect only CLAUDE.md"
         },
         {
-          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/plans/01_zed-customizations-plan.md",
-          "type": "plan",
-          "summary": "5-phase plan for zed-specific .claude/ customizations: project-overview rewrite, CLAUDE.md leader-ac fixes, git-workflow verification, agents/README recreation, and .syncprotect creation"
-        },
-        {
           "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/reports/02_docs-update-audit.md",
           "type": "research",
           "summary": "Audit of .claude/ changes since task 56 identifying 5 docs files and README.md needing updates for slide-critic system, Co-Authored-By removal, and pymupdf tool priority change"
+        },
+        {
+          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/plans/02_zed-customizations-plan.md",
+          "type": "plan"
         }
       ],
       "plan_metadata": {
-        "phases": 5,
-        "total_effort_hours": 2,
-        "complexity": "simple",
+        "phases": 7,
+        "total_effort_hours": 3.5,
+        "complexity": "medium",
         "research_integrated": true,
-        "plan_version": 1,
+        "plan_version": 2,
         "dependency_waves": [
           [
             1,
@@ -41,8 +40,22 @@
             4
           ],
           [
-            5
+            5,
+            6,
+            7
           ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_zed-customizations-audit.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-14"
+          },
+          {
+            "path": "reports/02_docs-update-audit.md",
+            "integrated_in_plan_version": 2,
+            "integrated_date": "2026-04-14"
+          }
         ]
       }
     },
