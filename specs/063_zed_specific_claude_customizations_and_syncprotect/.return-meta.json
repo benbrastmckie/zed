@@ -1,10 +1,15 @@
 {
   "task_number": 63,
-  "status": "in_progress",
+  "status": "implemented",
   "agent_type": "general-implementation-agent",
   "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
   "session_id": "sess_1744649000_63impl",
   "artifact_number": "03",
-  "phases_completed": 0,
-  "phases_total": 7
+  "phases_completed": 7,
+  "phases_total": 7,
+  "summary_path": "specs/063_zed_specific_claude_customizations_and_syncprotect/summaries/03_zed-customizations-summary.md",
+  "completion_data": {
+    "completion_summary": "Stripped all neovim/NixOS/leader-ac references from .claude/ config, docs/, and README.md. Rewrote project-overview.md for Zed. Created .syncprotect and agents/README.md. Updated docs for slide-critic addition and accurate skill/agent counts.",
+    "claudemd_suggestions": "Updated CLAUDE.md core section (leader-ac, neovim, nix references removed). Updated README.md, commands/fix-it.md, commands/task.md, commands/learn.md, commands/review.md, skills/skill-orchestrator/SKILL.md, rules/plan-format-enforcement.md. Created agents/README.md and .syncprotect."
+  }
 }
