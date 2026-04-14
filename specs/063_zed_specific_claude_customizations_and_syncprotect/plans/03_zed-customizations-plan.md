@@ -279,7 +279,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 7: Update root README.md and .claude/README.md [NOT STARTED]
+### Phase 7: Update root README.md and .claude/README.md [COMPLETED]
 
 **Goal**: Update README.md to mention --critic flag and strip nvim/nix references. Update .claude/README.md to strip nvim-specific references.
 
