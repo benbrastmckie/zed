@@ -96,7 +96,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Delete Systemd Timer and Unit Files [NOT STARTED]
+### Phase 2: Delete Systemd Timer and Unit Files [COMPLETED]
 
 **Goal**: Remove the Linux-only systemd timer script and associated unit files.
 
