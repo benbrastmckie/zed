@@ -6,25 +6,6 @@ next_project_number: 63
 
 ## Tasks
 
-### 62. Triage and selectively apply working tree changes synced from nvim config
-- **Effort**: medium
-- **Status**: [RESEARCHED]
-- **Task Type**: meta
-- **Research**: [01_sync-triage-audit.md](specs/062_triage_nvim_sync_changes/reports/01_sync-triage-audit.md)
-
-**Description**: The `<leader>ac` extension loader has synced .claude/ files from the nvim config, producing unstaged working tree changes across 19 files in `.claude/`. These are a mix of genuine improvements from nvim and regressions caused by the nvim sync overwriting zed-specific content (the same root cause as task 60, reverted by task 61; tracked upstream as nvim task 422).
-
-Each changed file needs to be triaged: is the diff a legitimate improvement to keep, a regression to discard, or a mix requiring selective editing? The research phase should audit every file in `git diff --stat .claude/` against what actually exists in this repo's committed state and determine the correct action per file.
-
-**19 files with unstaged changes** (from `git diff --stat .claude/`):
-- CLAUDE.md, agents/README.md, agents/document-agent.md
-- context/index.json, context/index.json.backup, context/patterns/artifact-linking-todo.md
-- context/project/filetypes/ (3 files: conversion-tables.md, dependency-guide.md, tool-detection.md)
-- extensions.json, rules/git-workflow.md, scripts/update-task-status.sh
-- 7 skill files (skill-researcher, skill-planner, skill-implementer, skill-reviser, skill-team-implement, skill-team-plan, skill-team-research)
-- 1 new untracked file: .claude/scripts/link-artifact-todo.sh
-
-**Key context**: This repo has zed-specific content that does not exist in nvim (e.g., slide-planner-agent, skill-slide-planning, Hooks section, Co-Authored-By preference, present:slides compound routing, pymupdf document-agent improvements). The sync overwrites all of these because nvim's sync.lua only protects CLAUDE.md section markers (see nvim task 420/422 for upstream fix).
 
 ### 61. Revert task 60 implementation and restore slide-planner-agent references
 - **Effort**: medium

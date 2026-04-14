@@ -2,23 +2,6 @@
   "next_project_number": 63,
   "active_projects": [
     {
-      "project_number": 62,
-      "project_name": "triage_nvim_sync_changes",
-      "status": "researched",
-      "task_type": "meta",
-      "created": "2026-04-14T02:55:04Z",
-      "last_updated": "2026-04-14T03:20:41Z",
-      "session_id": "sess_1776136456_4b8f4f",
-      "next_artifact_number": 2,
-      "artifacts": [
-        {
-          "path": "specs/062_triage_nvim_sync_changes/reports/01_sync-triage-audit.md",
-          "type": "research",
-          "summary": "Audit of 19 files: 5 DISCARD (regressions), 14 KEEP (improvements). Per-file verdicts with justification."
-        }
-      ]
-    },
-    {
       "project_number": 61,
       "project_name": "revert_task_60_restore_slide_planner",
       "status": "completed",

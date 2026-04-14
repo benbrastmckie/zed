@@ -1,6 +1,24 @@
 {
   "completed_projects": [
     {
+      "project_number": 62,
+      "project_name": "triage_nvim_sync_changes",
+      "status": "abandoned",
+      "task_type": "meta",
+      "created": "2026-04-14T02:55:04Z",
+      "last_updated": "2026-04-14T03:20:41Z",
+      "session_id": "sess_1776136456_4b8f4f",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/062_triage_nvim_sync_changes/reports/01_sync-triage-audit.md",
+          "type": "research",
+          "summary": "Audit of 19 files: 5 DISCARD (regressions), 14 KEEP (improvements). Per-file verdicts with justification."
+        }
+      ],
+      "abandoned": "2026-04-14T04:14:45Z"
+    },
+    {
       "project_number": 60,
       "project_name": "update_docs_for_claude_changes",
       "status": "abandoned",
