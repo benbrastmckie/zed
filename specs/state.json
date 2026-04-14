@@ -1,6 +1,16 @@
 {
-  "next_project_number": 65,
+  "next_project_number": 66,
   "active_projects": [
+    {
+      "project_number": 65,
+      "project_name": "strip_nvim_references_post_sync",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-14T20:30:00Z",
+      "last_updated": "2026-04-14T20:30:00Z",
+      "artifacts": [],
+      "next_artifact_number": 1
+    },
     {
       "project_number": 64,
       "project_name": "narrow_install_to_macos_only",

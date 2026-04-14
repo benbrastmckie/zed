@@ -1,10 +1,30 @@
 ---
-next_project_number: 65
+next_project_number: 66
 ---
 
 # Task List
 
 ## Tasks
+
+### 65. Strip nvim/neovim references from .claude/ after sync reload
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: The .claude/ directory was reloaded from the nvim config source, overwriting zed-specific customizations from task 63. Multiple files now contain nvim/neovim/neotex references that are incorrect for this Zed configuration repository. Fix the following:
+
+**Critical:**
+1. Rewrite `context/repo/project-overview.md` for Zed (currently describes Neovim/Lua/lazy.nvim/treesitter). Cover: settings.json, keymap.json, themes/, talks/, scripts/, docs/, examples/, prompts/, tasks.json, specs/, .memory/
+2. Create root `CLAUDE.md` at repo root as central config index (matching nvim pattern but pointing to zed-specific content)
+
+**Medium:**
+3. Remove or rewrite `docs/guides/neovim-integration.md` (336-line Neovim-specific guide with neotex/sidebar/TTS references)
+4. Remove `neovim` routing entry from `context/routing.md` line 17 (skill-neovim-research/implementation don't exist here)
+5. Audit and clean nvim/neovim/neotex references from ~75 core .claude/ files (CLAUDE.md lines 75/120/200/222, README.md lines 119/188, agents, commands, context, docs, rules, skills). For files that are synced from nvim, only clean references that name neovim as an *available* feature in this repo -- keep generic mentions in templates/examples that just list it as a possible task type
+
+**Low:**
+6. Clean up TODO.md Recommended Order (lists completed tasks 61, 62, 64)
+7. Verify .syncprotect at project root protects project-overview.md from future sync overwrites
 
 ### 64. Narrow installation scripts and documentation to macOS-only, removing all Linux support
 - **Effort**: medium
@@ -63,6 +83,4 @@ Create `.claude/.syncprotect` listing files that have zed-specific customization
 
 ## Recommended Order
 
-1. **61** -> research (independent)
-2. **62** -> research (independent)
-3. **64** -> research (independent)
+1. **65** [NOT STARTED] -> research (independent)
