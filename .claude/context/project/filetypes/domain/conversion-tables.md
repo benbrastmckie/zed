@@ -2,15 +2,13 @@
 
 ## Document Conversions (via /convert)
 
-| Source | Target | Primary Tool | Fallback 1 | Fallback 2 |
-|--------|--------|--------------|------------|------------|
-| PDF | Markdown | pymupdf | pandoc | markitdown |
-| DOCX | Markdown | markitdown | pandoc | - |
-| HTML | Markdown | markitdown | pandoc | - |
-| EPUB | Markdown | pymupdf | pandoc | - |
-| Images | Markdown | pymupdf (OCR) | markitdown | - |
-| PPTX/XLSX | Markdown | markitdown | - | - |
-| Markdown | PDF | pandoc | typst | - |
+| Source | Target | Primary Tool | Fallback |
+|--------|--------|--------------|----------|
+| PDF | Markdown | markitdown | pandoc |
+| DOCX | Markdown | markitdown | pandoc |
+| HTML | Markdown | markitdown | pandoc |
+| Images | Markdown | markitdown | - |
+| Markdown | PDF | pandoc | typst |
 
 ## Spreadsheet Conversions (via /table)
 
@@ -90,10 +88,8 @@ Edit operations modify documents in-place, unlike format conversion which create
 Install conversion tools based on your needs:
 
 **Document Conversion**:
-- `pymupdf`: `pip install pymupdf` (primary for PDF/EPUB/Images)
-- `pymupdf4llm`: `pip install pymupdf4llm` (optional, enhanced PDF-to-markdown)
-- `markitdown`: `pip install markitdown` (primary for DOCX/PPTX/XLSX/HTML)
-- `pandoc`: Install from package manager (universal fallback)
+- `markitdown`: `pip install markitdown`
+- `pandoc`: Install from package manager
 - `typst`: Install for Typst output
 
 **Spreadsheet Conversion**:
@@ -118,7 +114,7 @@ Install conversion tools based on your needs:
 home.packages = with pkgs; [
   pandoc typst
   (python3.withPackages (ps: with ps; [
-    pymupdf markitdown openpyxl pandas python-pptx xlsx2csv pypdf pikepdf
+    markitdown openpyxl pandas python-pptx xlsx2csv pymupdf pypdf pikepdf
   ]))
 ];
 ```
@@ -127,10 +123,8 @@ home.packages = with pkgs; [
 
 | Tool | Purpose | Required For |
 |------|---------|--------------|
-| pymupdf | PDF/EPUB/Image extraction | /convert (PDF primary) |
-| pymupdf4llm | Enhanced PDF-to-markdown | /convert (PDF optional) |
-| markitdown | Office to Markdown | /convert (DOCX/PPTX/XLSX) |
-| pandoc | Universal converter | /convert (fallback) |
+| markitdown | Office to Markdown | /convert |
+| pandoc | Universal converter | /convert |
 | typst | Typst compiler | /convert (typst output) |
 | pandas | DataFrame handling | /table |
 | openpyxl | XLSX support | /table (xlsx) |

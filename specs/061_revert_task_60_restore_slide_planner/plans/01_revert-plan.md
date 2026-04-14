@@ -60,7 +60,7 @@ No ROADMAP.md found.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Revert Task 60 Commits [NOT STARTED]
+### Phase 1: Revert Task 60 Commits [IN PROGRESS]
 
 **Goal**: Revert all 4 task-60 commits in reverse chronological order using a compound no-commit revert, resolving TODO.md/state.json conflicts manually.
 

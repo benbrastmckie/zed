@@ -4,11 +4,11 @@
     {
       "project_number": 61,
       "project_name": "revert_task_60_restore_slide_planner",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "meta",
       "created": "2026-04-13T23:19:25Z",
-      "last_updated": "2026-04-13T23:53:03Z",
-      "session_id": "sess_1776124200_443658",
+      "last_updated": "2026-04-14T01:06:00Z",
+      "session_id": "sess_1776128744_1d56ce",
       "next_artifact_number": 2,
       "artifacts": [
         {
@@ -26,31 +26,10 @@
     {
       "project_number": 60,
       "project_name": "update_docs_for_claude_changes",
-      "status": "completed",
+      "status": "not_started",
       "task_type": "meta",
       "created": "2026-04-13T22:29:44Z",
-      "last_updated": "2026-04-13T23:10:13Z",
-      "session_id": "sess_1776121049_8c82ac",
-      "next_artifact_number": 2,
-      "artifacts": [
-        {
-          "path": "specs/060_update_docs_for_claude_changes/reports/01_doc-update-audit.md",
-          "type": "research",
-          "summary": "Audit of 13 documentation items needing updates across 10 files"
-        },
-        {
-          "path": "specs/060_update_docs_for_claude_changes/plans/01_doc-update-plan.md",
-          "type": "plan",
-          "summary": "4-phase plan to fix 13 documentation inconsistencies"
-        },
-        {
-          "path": "specs/060_update_docs_for_claude_changes/summaries/01_doc-update-summary.md",
-          "type": "summary",
-          "summary": "Implementation summary documenting 12 file edits across 4 phases"
-        }
-      ],
-      "completion_summary": "Updated 12 documentation files to resolve 13 inconsistencies: removed slide-planner-agent/skill-slide-planning references from docs and index.json, softened PostToolUse references in command files, and reverted Co-Authored-By conflict in git-workflow.md.",
-      "claudemd_suggestions": "Removed slide-planner-agent from 5 index.json entries and backup, updated skill-slides/SKILL.md routing note, softened PostToolUse to validation hook in 3 command files, removed Co-Authored-By from git-workflow.md template and examples"
+      "last_updated": "2026-04-13T22:29:44Z"
     }
   ],
   "repository_health": {

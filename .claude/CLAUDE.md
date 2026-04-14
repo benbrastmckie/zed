@@ -179,6 +179,7 @@ Standard actions: `create`, `complete research`, `create implementation plan`, `
 | skill-reviser | reviser-agent | opus | Plan revision and description update |
 | skill-spawn | spawn-agent | opus | Analyze blockers and spawn new tasks |
 | skill-orchestrator | (direct execution) | - | Route commands to appropriate workflows |
+| skill-slide-planning | slide-planner-agent | opus | Interactive slide design planning |
 | skill-git-workflow | (direct execution) | - | Create scoped git commits for task operations |
 
 ### Agents
@@ -192,6 +193,7 @@ Standard actions: `create`, `complete research`, `create implementation plan`, `
 | code-reviewer-agent | Code quality assessment and review |
 | reviser-agent | Plan revision with research synthesis |
 | spawn-agent | Blocker analysis and task decomposition |
+| slide-planner-agent | Interactive slide design and per-slide planning |
 
 **Model Enforcement**: Agents declare preferred models via `model:` frontmatter field. Research and planning agents use `opus` for superior reasoning. Implementation agents use default model. See `.claude/docs/reference/standards/agent-frontmatter-standard.md` for details.
 
@@ -220,6 +222,11 @@ Core rules (auto-applied by file path):
 - @.claude/rules/plan-format-enforcement.md - Plan format checklist (specs/**)
 
 **Extension Rules**: When extensions are loaded, additional rules are added (e.g., neovim-lua.md for Lua development).
+
+### Hooks
+
+PostToolUse hooks run automatically after tool invocations:
+- `.claude/hooks/validate-plan-write.sh` - Validates plan files written by the Write/Edit tools against plan-format-enforcement.md requirements
 
 ## Context Discovery
 
@@ -502,6 +509,7 @@ Structured proposal development (grants) and research presentation creation (tal
 | skill-slides | slides-research-agent | opus | Research talk material synthesis |
 | skill-slides | pptx-assembly-agent | opus | PowerPoint presentation assembly |
 | skill-slides | slidev-assembly-agent | opus | Slidev presentation assembly |
+| skill-slide-planning | slide-planner-agent | opus | Interactive slide design planning |
 
 ### Commands
 
@@ -529,7 +537,7 @@ Structured proposal development (grants) and research presentation creation (tal
 | `present` | `budget` | `skill-budget` | `skill-budget` | WebSearch, WebFetch, Read, Write, Edit, Bash |
 | `present` | `timeline` | `skill-timeline` | `skill-timeline` | WebSearch, WebFetch, Read, Write, Edit |
 | `present` | `funds` | `skill-funds` | `skill-funds` | WebSearch, WebFetch, Read, Write, Edit, Bash |
-| `present` | `slides` | `skill-slides` | `skill-slides` | WebSearch, WebFetch, Read, Write, Edit |
+| `present:slides` | `slides` | `skill-slide-planning` | `skill-slides` | WebSearch, WebFetch, Read, Write, Edit |
 
 ### Talk Modes
 
