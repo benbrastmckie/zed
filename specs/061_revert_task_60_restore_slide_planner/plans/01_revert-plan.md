@@ -60,7 +60,7 @@ No ROADMAP.md found.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Revert Task 60 Commits [IN PROGRESS]
+### Phase 1: Revert Task 60 Commits [COMPLETED]
 
 **Goal**: Revert all 4 task-60 commits in reverse chronological order using a compound no-commit revert, resolving TODO.md/state.json conflicts manually.
 
@@ -107,7 +107,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Re-add slide-planner-agent to CLAUDE.md Tables [NOT STARTED]
+### Phase 2: Re-add slide-planner-agent to CLAUDE.md Tables [COMPLETED]
 
 **Goal**: Add the 4 slide-planner-agent/skill-slide-planning entries to CLAUDE.md tables that were removed by the earlier commit 191655c3 (not by task 60), completing the restoration.
 
@@ -132,7 +132,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Cross-Reference Verification [NOT STARTED]
+### Phase 3: Cross-Reference Verification [COMPLETED]
 
 **Goal**: Verify that all references to slide-planner-agent and skill-slide-planning are consistent across the codebase.
 
