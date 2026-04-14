@@ -123,7 +123,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Simplify Group Install Scripts (Part 1: Heavy) [NOT STARTED]
+### Phase 3: Simplify Group Install Scripts (Part 1: Heavy) [COMPLETED]
 
 **Goal**: Remove Linux branches from the three scripts requiring the most changes: install-base.sh, install-r.sh, install-typesetting.sh.
 

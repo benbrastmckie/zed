@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
-# install-base.sh - Base developer environment (cross-platform)
+# install-base.sh - Base developer environment (macOS)
 #
 # Installs everything in docs/general/installation.md:
-#   macOS:  Xcode Command Line Tools, Homebrew, Node.js, Zed (cask),
-#           Claude Code CLI (cask), SuperDoc + openpyxl MCP servers
-#   Debian: build-essential, Node.js (apt), Zed (interactive), Claude Code
-#           CLI (npm), SuperDoc + openpyxl MCP servers
-#   Arch:   base-devel, Node.js (pacman), Zed (AUR/interactive), Claude Code
-#           CLI (npm), SuperDoc + openpyxl MCP servers
+#   Xcode Command Line Tools, Homebrew, Node.js, Zed (cask),
+#   Claude Code CLI (cask), SuperDoc + openpyxl MCP servers
 #
 # Flags: --dry-run --yes --check --help
 #
@@ -21,11 +17,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 print_help() {
   cat >&2 <<'EOF'
-install-base.sh - Install base developer tools
+install-base.sh - Install base developer tools (macOS)
 
-Installs (platform-dependent):
-  - Build tools (Xcode CLT on macOS, build-essential on Debian, base-devel on Arch)
-  - Package manager bootstrap (Homebrew on macOS; apt/pacman already present on Linux)
+Installs:
+  - Xcode Command Line Tools
+  - Homebrew
   - Node.js
   - Zed editor
   - Claude Code CLI
@@ -88,43 +84,14 @@ install_homebrew() {
   fi
 }
 
-# ----- cross-platform install functions -------------------------------------
+# ----- install functions ----------------------------------------------------
 
 install_build_tools() {
-  case "$DETECTED_OS" in
-    macos)
-      install_xcode_clt
-      ;;
-    debian)
-      if check_command gcc && check_command make; then
-        log_ok "build tools already installed (gcc + make found)"
-        return 0
-      fi
-      sudo_install build-essential "Compilers and build tools required for native packages"
-      ;;
-    arch)
-      if check_command gcc && check_command make; then
-        log_ok "build tools already installed (gcc + make found)"
-        return 0
-      fi
-      sudo_install build-essential "Compilers and build tools required for native packages"
-      ;;
-    *)
-      log_warn "build tools: install gcc, make, and development headers manually"
-      ;;
-  esac
+  install_xcode_clt
 }
 
 install_pkg_manager() {
-  case "$DETECTED_OS" in
-    macos)
-      install_homebrew
-      ;;
-    *)
-      # On Linux, the package manager is already present.
-      log_ok "package manager available ($DETECTED_OS)"
-      ;;
-  esac
+  install_homebrew
 }
 
 install_node() {
@@ -132,75 +99,15 @@ install_node() {
     log_ok "node already installed: $(node --version)"
     return 0
   fi
-  case "$DETECTED_OS" in
-    macos)
-      brew_install_formula node
-      ;;
-    debian)
-      pkg_install nodejs
-      pkg_install npm
-      ;;
-    arch)
-      pkg_install nodejs
-      pkg_install npm
-      ;;
-    *)
-      log_warn "install Node.js manually for your platform"
-      ;;
-  esac
+  brew_install_formula node
 }
 
 install_zed() {
-  case "$DETECTED_OS" in
-    macos)
-      if check_app_bundle "Zed.app" || check_brew_cask zed; then
-        log_ok "Zed already installed"
-        return 0
-      fi
-      brew_install_cask zed
-      ;;
-    debian)
-      if check_command zed; then
-        log_ok "Zed already installed"
-        return 0
-      fi
-      interactive_step "Install Zed editor" \
-        "curl -f https://zed.dev/install.sh | sh" \
-        "check_command zed" \
-        "Zed is the primary editor for this configuration"
-      ;;
-    arch)
-      if check_command zed; then
-        log_ok "Zed already installed"
-        return 0
-      fi
-      # Try AUR helper first, fall back to interactive instructions.
-      if check_command yay; then
-        if [ "$DRY_RUN" = "1" ]; then
-          log_dry "yay -S --noconfirm zed-editor"
-        else
-          yay -S --noconfirm zed-editor || true
-        fi
-      elif check_command paru; then
-        if [ "$DRY_RUN" = "1" ]; then
-          log_dry "paru -S --noconfirm zed-editor"
-        else
-          paru -S --noconfirm zed-editor || true
-        fi
-      else
-        interactive_step "Install Zed editor" \
-          "curl -f https://zed.dev/install.sh | sh" \
-          "check_command zed" \
-          "Zed is the primary editor; install via AUR (zed-editor) or the official installer"
-      fi
-      ;;
-    *)
-      interactive_step "Install Zed editor" \
-        "curl -f https://zed.dev/install.sh | sh" \
-        "check_command zed" \
-        "Zed is the primary editor for this configuration"
-      ;;
-  esac
+  if check_app_bundle "Zed.app" || check_brew_cask zed; then
+    log_ok "Zed already installed"
+    return 0
+  fi
+  brew_install_cask zed
 }
 
 install_claude_cli() {
@@ -208,27 +115,7 @@ install_claude_cli() {
     log_ok "claude CLI already installed"
     return 0
   fi
-  case "$DETECTED_OS" in
-    macos)
-      brew_install_cask claude-code
-      ;;
-    *)
-      # On Linux, install via npm.
-      if ! check_command npm; then
-        log_warn "npm not found; cannot install Claude Code CLI. Install Node.js first."
-        return 0
-      fi
-      if [ "$DRY_RUN" = "1" ]; then
-        log_dry "npm install -g @anthropic-ai/claude-code"
-        return 0
-      fi
-      npm install -g @anthropic-ai/claude-code || \
-        interactive_step "Install Claude Code CLI" \
-          "sudo npm install -g @anthropic-ai/claude-code" \
-          "check_command claude" \
-          "Claude Code CLI is required for MCP server registration and agent operation"
-      ;;
-  esac
+  brew_install_cask claude-code
 }
 
 install_mcp_superdoc() {
@@ -257,15 +144,8 @@ install_mcp_openpyxl() {
 
 run_check_mode() {
   local missing=0
-  case "$DETECTED_OS" in
-    macos)
-      check_xcode_clt && log_ok "xcode-clt" || { log_warn "[missing] xcode-clt"; missing=1; }
-      check_command brew && log_ok "brew" || { log_warn "[missing] brew"; missing=1; }
-      ;;
-    *)
-      check_command gcc && log_ok "build-tools" || { log_warn "[missing] build-tools (gcc)"; missing=1; }
-      ;;
-  esac
+  check_xcode_clt && log_ok "xcode-clt" || { log_warn "[missing] xcode-clt"; missing=1; }
+  check_command brew && log_ok "brew" || { log_warn "[missing] brew"; missing=1; }
   check_command node   && log_ok "node"   || { log_warn "[missing] node"; missing=1; }
   check_command zed    && log_ok "zed"    || { check_app_bundle "Zed.app" && log_ok "zed" || { log_warn "[missing] zed"; missing=1; }; }
   check_command claude && log_ok "claude" || { log_warn "[missing] claude"; missing=1; }
