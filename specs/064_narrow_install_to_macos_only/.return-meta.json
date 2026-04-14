@@ -1,0 +1,15 @@
+{
+  "task_number": 64,
+  "task_name": "narrow_install_to_macos_only",
+  "agent_type": "general-research-agent",
+  "delegation_path": ["orchestrator", "research", "general-research-agent"],
+  "session_id": "sess_1744650200_64res",
+  "status": "researched",
+  "artifact_path": "specs/064_narrow_install_to_macos_only/reports/01_macos-narrowing-audit.md",
+  "metadata_path": "specs/064_narrow_install_to_macos_only/.return-meta.json",
+  "started_at": "2026-04-14T12:00:00Z",
+  "completed_at": "2026-04-14T12:30:00Z",
+  "findings_count": 63,
+  "next_steps": "Run /plan 64 to create implementation plan",
+  "partial_progress": null
+}

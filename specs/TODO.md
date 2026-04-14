@@ -8,8 +8,9 @@ next_project_number: 65
 
 ### 64. Narrow installation scripts and documentation to macOS-only, removing all Linux support
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: general
+- **Research**: [01_macos-narrowing-audit.md](specs/064_narrow_install_to_macos_only/reports/01_macos-narrowing-audit.md)
 
 **Description**: Remove all Linux platform support (Debian/Ubuntu, Arch/Manjaro, NixOS detection, linux-unknown) from the installation wizard scripts (install.sh, lib.sh, install-base.sh, install-shell-tools.sh, install-python.sh, install-r.sh, install-typesetting.sh) and all associated documentation (docs/general/installation.md, docs/toolchain/README.md, README.md, project-overview.md). Simplify lib.sh platform detection to macOS-only, remove the cross-platform package name mapping (apt/pacman columns), remove Linux-specific features (Posit Package Manager configuration, systemd timer, AUR helper detection, /etc/os-release parsing), and update all docs to reference only macOS/Homebrew. Delete the systemd timer installer script. Retain the clean idempotent/interactive-step architecture but strip all multi-platform branching.
 

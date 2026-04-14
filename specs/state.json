@@ -4,10 +4,19 @@
     {
       "project_number": 64,
       "project_name": "narrow_install_to_macos_only",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "general",
       "created": "2026-04-14T16:32:32Z",
-      "last_updated": "2026-04-14T16:32:32Z"
+      "last_updated": "2026-04-14T16:50:00Z",
+      "session_id": "sess_1744650200_64res",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/064_narrow_install_to_macos_only/reports/01_macos-narrowing-audit.md",
+          "type": "research",
+          "summary": "Comprehensive file-by-file audit of 63 files: 7 install scripts (lib.sh heaviest rewrite ~200 lines), 4 files to delete (systemd timer + units), 11 docs with Linux sections, ~40 .claude/ context files with cosmetic platform mentions. Estimated ~850 total lines changed."
+        }
+      ]
     },
     {
       "project_number": 63,
