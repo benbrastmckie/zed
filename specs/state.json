@@ -9,7 +9,7 @@
       "created": "2026-04-14T15:20:20Z",
       "last_updated": "2026-04-14T16:30:00Z",
       "session_id": "sess_1744641200_c9d5e3",
-      "next_artifact_number": 3,
+      "next_artifact_number": 4,
       "artifacts": [
         {
           "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/reports/01_zed-customizations-audit.md",
