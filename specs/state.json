@@ -3,11 +3,11 @@
   "active_projects": [
     {
       "project_number": 62,
-      "project_name": "update_claude_docs_system_changes",
+      "project_name": "triage_nvim_sync_changes",
       "status": "not_started",
       "task_type": "meta",
       "created": "2026-04-14T02:55:04Z",
-      "last_updated": "2026-04-14T02:55:04Z"
+      "last_updated": "2026-04-14T03:02:06Z"
     },
     {
       "project_number": 61,

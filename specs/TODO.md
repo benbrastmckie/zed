@@ -6,12 +6,30 @@ next_project_number: 63
 
 ## Tasks
 
-### 62. Update .claude/ documentation to reflect recent system changes
+### 62. Triage and selectively apply working tree changes synced from nvim config
 - **Effort**: medium
 - **Status**: [NOT STARTED]
 - **Task Type**: meta
 
-**Description**: Update .claude/ documentation to reflect recent system changes: (1) Remove slide-planner-agent references and hooks section from docs, (2) Document pymupdf as primary PDF conversion tool replacing markitdown, (3) Document new link-artifact-todo.sh script replacing inline Edit logic in skills, (4) Update git workflow docs for Co-Authored-By trailer restoration, (5) Document tolerant status regex in update-task-status.sh, (6) Update present:slides -> present/slides task type routing in any remaining docs
+**Description**: The `<leader>ac` extension loader has synced .claude/ files from the nvim config, producing working tree changes that are a mix of genuine improvements and regressions. This is the same pattern that caused task 60 (which was reverted by task 61). Changes must be triaged into two groups:
+
+**DISCARD (regressions from nvim sync not knowing about zed-specific additions):**
+- CLAUDE.md: Removal of slide-planner-agent/skill-slide-planning from 3 tables (skill-agent mapping, agents table, present extension skill mapping)
+- CLAUDE.md: Removal of Hooks section (validate-plan-write.sh)
+- CLAUDE.md: Changing `present:slides` task type to `present`/`slides` (zed uses compound routing)
+- agents/README.md: Removal of slide-planner-agent row and extension note
+- git-workflow.md: Removal of "omit Co-Authored-By" user preference note (zed repo preference differs from nvim)
+- index.json / extensions.json: Key reordering only (cosmetic churn, no semantic value)
+
+**KEEP (genuine improvements to selectively commit):**
+- document-agent.md: pymupdf as primary PDF/EPUB/Image conversion tool (valid improvement, was collateral damage in task 60 revert)
+- 3 filetypes context files (conversion-tables.md, dependency-guide.md, tool-detection.md): pymupdf additions to fallback chains and dependency tables
+- 7 skills (researcher, planner, implementer, reviser, team-research, team-plan, team-implement): Replace inline Edit-based artifact linking with link-artifact-todo.sh script call
+- artifact-linking-todo.md: Updated note about script automation
+- update-task-status.sh: Tolerant status regex for space-indented TODO entries
+- New untracked file: .claude/scripts/link-artifact-todo.sh (the script referenced by the skill changes)
+
+**Approach**: `git checkout` the regression files to discard those changes, then stage and commit only the genuine improvements
 
 ### 61. Revert task 60 implementation and restore slide-planner-agent references
 - **Effort**: medium
