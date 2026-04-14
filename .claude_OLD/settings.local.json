@@ -1,4 +1,9 @@
 {
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "lean-lsp"
+  ],
+  "outputStyle": "default",
   "permissions": {
     "allow": [
       "Bash(echo:*)",
@@ -54,10 +59,5 @@
     }
   },
   "_comment": "Personal project overrides - not committed to git",
-  "model": "opus",
-  "outputStyle": "default",
-  "enabledMcpjsonServers": [
-    "lean-lsp"
-  ],
-  "enableAllProjectMcpServers": true
+  "model": "opus"
 }

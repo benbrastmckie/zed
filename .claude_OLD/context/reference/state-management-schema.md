@@ -90,8 +90,6 @@ The `task_type` field is the unified routing field for all tasks. It replaces th
 3. Route to extension matching base key, then to skill matching subtype
 4. If bare value, route directly to matching extension or core skill
 
-**Backward Compatibility**: If a legacy task has a `language` field but no `task_type`, treat `language` as `task_type`. This shim will be removed in task 394.
-
 **Format Conversion**:
 
 | state.json | TODO.md |
@@ -286,6 +284,8 @@ The vault system manages task number cycling when `next_project_number` exceeds 
 - **No existing line**: `- **{Type}**:` not found in task entry
 - **Existing inline**: Line matches `- **{Type}**: \[.*\]\(.*\)` (has link on same line)
 - **Existing multi-line**: Line matches `- **{Type}**:$` (ends with colon, no link)
+
+**Implementation Reference**: For the full four-case Edit tool logic used by skills during postflight, see `.claude/context/patterns/artifact-linking-todo.md`.
 
 ## Directory Creation
 

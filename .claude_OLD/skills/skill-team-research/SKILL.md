@@ -62,7 +62,7 @@ if [ -z "$task_data" ]; then
 fi
 
 # Extract fields
-task_type=$(echo "$task_data" | jq -r '.task_type // .language // "general"')
+task_type=$(echo "$task_data" | jq -r '.task_type // "general"')
 status=$(echo "$task_data" | jq -r '.status')
 project_name=$(echo "$task_data" | jq -r '.project_name')
 description=$(echo "$task_data" | jq -r '.description // ""')
@@ -469,30 +469,13 @@ jq --arg path "specs/${padded_num}_${project_name}/reports/${run_padded}_team-re
   specs/state.json > specs/tmp/state.json && mv specs/tmp/state.json specs/state.json
 ```
 
-**Update TODO.md**: Add research artifact link using count-aware format.
+**Update TODO.md**: Link artifact using the automated script:
 
-See `.claude/rules/state-management.md` "Artifact Linking Format" for canonical rules. Use Edit tool:
+```bash
+bash .claude/scripts/link-artifact-todo.sh $task_number '**Research**' '**Plan**' "$artifact_path"
+```
 
-1. **Read existing task entry** to detect current research links
-2. **If no `- **Research**:` line exists**: Insert inline format:
-   ```markdown
-   - **Research**: [{NN}_team-research.md]({artifact_path})
-   ```
-3. **If existing inline (single link)**: Convert to multi-line:
-   ```markdown
-   old_string: - **Research**: [existing.md](existing/path)
-   new_string: - **Research**:
-     - [existing.md](existing/path)
-     - [{NN}_team-research.md]({artifact_path})
-   ```
-4. **If existing multi-line**: Append new item before next field:
-   ```markdown
-   old_string:   - [last-item.md](last/path)
-   - **Plan**:
-   new_string:   - [last-item.md](last/path)
-     - [{NN}_team-research.md]({artifact_path})
-   - **Plan**:
-   ```
+If the script exits non-zero, log a warning but continue (linking errors are non-blocking).
 
 ---
 

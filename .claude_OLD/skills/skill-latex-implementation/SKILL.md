@@ -29,14 +29,28 @@ Include task_context, plan_path, metadata_file_path.
 ### Stage 4: Invoke Subagent
 Use Task tool with subagent_type: "latex-implementation-agent".
 
+### Stage 4b: Self-Execution Fallback
+
+**CRITICAL**: If you performed the work above WITHOUT using the Task tool (i.e., you read files,
+wrote artifacts, or updated metadata directly instead of spawning a subagent), you MUST write a
+`.return-meta.json` file now before proceeding to postflight. Use the schema from
+`return-metadata-file.md` with the appropriate status value for this operation.
+
+If you DID use the Task tool, skip this stage -- the subagent already wrote the metadata.
+
+## Postflight (ALWAYS EXECUTE)
+
+The following stages MUST execute after work is complete, whether the work was done by a
+subagent or inline (Stage 4b). Do NOT skip these stages for any reason.
+
 ### Stage 5: Parse Subagent Return
-Read metadata from `specs/{N}_{SLUG}/.return-meta.json`.
+Read the metadata file from `specs/{N}_{SLUG}/.return-meta.json`.
 
 ### Stage 6: Update Task Status (Postflight)
 Update state.json and TODO.md based on result.
 
 ### Stage 7: Link Artifacts
-Add artifact to state.json with summary.
+Add artifact to state.json with summary. Update TODO.md per `@.claude/context/patterns/artifact-linking-todo.md` with `field_name=**Summary**`, `next_field=**Description**`.
 
 ### Stage 8: Git Commit
 Commit changes with session ID.

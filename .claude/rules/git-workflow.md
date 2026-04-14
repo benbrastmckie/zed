@@ -93,8 +93,6 @@ Modified:
 Session: {session_id}
 ```
 
-**Note**: Per user preference, omit `Co-Authored-By` trailers from all commits in this workspace.
-
 ### Session ID
 
 Session ID links commits to their originating command execution.

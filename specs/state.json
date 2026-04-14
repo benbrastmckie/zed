@@ -4,19 +4,42 @@
     {
       "project_number": 63,
       "project_name": "zed_specific_claude_customizations_and_syncprotect",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-14T15:20:20Z",
-      "last_updated": "2026-04-14T15:30:30Z",
-      "session_id": "sess_1744640420_a7b3c1",
+      "last_updated": "2026-04-14T15:34:43Z",
+      "session_id": "sess_1744640463_b8c4d2",
       "next_artifact_number": 2,
       "artifacts": [
         {
           "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/reports/01_zed-customizations-audit.md",
           "type": "research",
           "summary": "Comprehensive audit of zed .claude/ files: project-overview.md is entirely wrong (nvim template), CLAUDE.md needs slide-planner references updated, git-workflow.md accepts nvim canonical version, agents/README.md needs recreation, .syncprotect should protect only CLAUDE.md"
+        },
+        {
+          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/plans/01_zed-customizations-plan.md",
+          "type": "plan",
+          "summary": "5-phase plan for zed-specific .claude/ customizations: project-overview rewrite, CLAUDE.md leader-ac fixes, git-workflow verification, agents/README recreation, and .syncprotect creation"
         }
-      ]
+      ],
+      "plan_metadata": {
+        "phases": 5,
+        "total_effort_hours": 2,
+        "complexity": "simple",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5
+          ]
+        ]
+      }
     },
     {
       "project_number": 61,

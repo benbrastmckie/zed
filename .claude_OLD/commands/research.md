@@ -36,6 +36,14 @@ When `--team` is specified, research is delegated to `skill-team-research` which
 
 **Note**: Team mode requires `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` environment variable. If unavailable, gracefully degrades to single-agent research.
 
+## Anti-Bypass Constraint
+
+**PROHIBITION**: You MUST NOT write research report artifacts directly using Write or Edit tools. All report files MUST be created by invoking the appropriate skill (skill-researcher or skill-team-research) via the Skill tool.
+
+**Why**: Direct writes bypass format enforcement (validate-artifact.sh), produce non-conforming artifacts missing required metadata fields and sections, and circumvent the delegation chain that ensures quality. A PostToolUse hook monitors all Write/Edit operations to artifact paths and will flag violations with corrective context.
+
+**Required**: Always delegate to the Skill tool. Never write to `specs/*/reports/*.md` directly from this command.
+
 ## Execution
 
 **Note**: Delegate to skills for task-type-specific research.
@@ -250,8 +258,7 @@ Skipped: {count}
      '.active_projects[] | select(.project_number == ($num | tonumber))' \
      specs/state.json)
 
-   # Extract task_type for routing (backward compat: fall back to language field)
-   task_type=$(echo "$task_data" | jq -r '.task_type // .language // "general"')
+   task_type=$(echo "$task_data" | jq -r '.task_type // "general"')
    ```
 
 3. **Validate**
@@ -307,8 +314,7 @@ Check extension manifests for task-type-specific research routing:
 
 ```bash
 # Get task_type (may be simple "founder" or compound "founder:deck")
-# Backward compat: fall back to language field for legacy tasks
-task_type=$(echo "$task_data" | jq -r '.task_type // .language // "general"')
+task_type=$(echo "$task_data" | jq -r '.task_type // "general"')
 
 # Check extension routing for research (skill_name starts empty)
 skill_name=""
