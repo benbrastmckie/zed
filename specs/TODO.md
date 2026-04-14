@@ -1,10 +1,17 @@
 ---
-next_project_number: 62
+next_project_number: 63
 ---
 
 # Task List
 
 ## Tasks
+
+### 62. Update .claude/ documentation to reflect recent system changes
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Update .claude/ documentation to reflect recent system changes: (1) Remove slide-planner-agent references and hooks section from docs, (2) Document pymupdf as primary PDF conversion tool replacing markitdown, (3) Document new link-artifact-todo.sh script replacing inline Edit logic in skills, (4) Update git workflow docs for Co-Authored-By trailer restoration, (5) Document tolerant status regex in update-task-status.sh, (6) Update present:slides -> present/slides task type routing in any remaining docs
 
 ### 61. Revert task 60 implementation and restore slide-planner-agent references
 - **Effort**: medium
@@ -19,3 +26,4 @@ next_project_number: 62
 ## Recommended Order
 
 1. **61** -> research (independent)
+2. **62** -> research (independent)

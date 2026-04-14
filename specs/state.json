@@ -1,6 +1,14 @@
 {
-  "next_project_number": 62,
+  "next_project_number": 63,
   "active_projects": [
+    {
+      "project_number": 62,
+      "project_name": "update_claude_docs_system_changes",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-14T02:55:04Z",
+      "last_updated": "2026-04-14T02:55:04Z"
+    },
     {
       "project_number": 61,
       "project_name": "revert_task_60_restore_slide_planner",
