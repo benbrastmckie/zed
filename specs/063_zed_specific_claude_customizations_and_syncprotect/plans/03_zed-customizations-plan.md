@@ -1,7 +1,7 @@
 # Implementation Plan: Task #63 (Revised v3)
 
 - **Task**: 63 - Create zed-specific .claude/ customizations and .syncprotect file
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 5.5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/063_zed_specific_claude_customizations_and_syncprotect/reports/01_zed-customizations-audit.md, specs/063_zed_specific_claude_customizations_and_syncprotect/reports/02_docs-update-audit.md
@@ -91,7 +91,7 @@ No ROADMAP.md found.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Generate project-overview.md [NOT STARTED]
+### Phase 1: Generate project-overview.md [COMPLETED]
 
 **Goal**: Replace the incorrect Neovim-focused project-overview.md with accurate Zed editor configuration documentation containing zero nvim/nix references.
 
@@ -116,7 +116,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Update CLAUDE.md core section [NOT STARTED]
+### Phase 2: Update CLAUDE.md core section [COMPLETED]
 
 **Goal**: Remove all `<leader>ac`, nvim-specific, and NixOS-specific references from the CLAUDE.md core section (lines 1-345), making it generic to the Claude Code agent system.
 
@@ -147,7 +147,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Accept nvim canonical git-workflow.md [NOT STARTED]
+### Phase 3: Accept nvim canonical git-workflow.md [COMPLETED]
 
 **Goal**: Confirm git-workflow.md requires no changes and document the decision.
 
@@ -169,7 +169,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Recreate agents/README.md [NOT STARTED]
+### Phase 4: Recreate agents/README.md [COMPLETED]
 
 **Goal**: Create agents/README.md with an accurate listing of all agents organized by source (core vs extension), without nvim-specific agent references.
 

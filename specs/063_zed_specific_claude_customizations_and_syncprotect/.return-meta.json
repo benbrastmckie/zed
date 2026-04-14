@@ -1,22 +1,10 @@
 {
-  "status": "planned",
-  "artifacts": [
-    {
-      "type": "plan",
-      "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/plans/03_zed-customizations-plan.md",
-      "summary": "Revised v3 plan preserving 7-phase structure with cross-cutting requirement to strip all NeoVim/NixOS/leader-ac references from every file touched"
-    }
-  ],
-  "next_steps": "Run /implement 63 to execute the revised plan",
-  "metadata": {
-    "session_id": "sess_1744642500_e1f7g5",
-    "agent_type": "reviser-agent",
-    "delegation_path": ["orchestrator", "revise", "reviser-agent"],
-    "phase_count": 7,
-    "estimated_hours": 5.5,
-    "reports_integrated": [
-      "01_zed-customizations-audit.md",
-      "02_docs-update-audit.md"
-    ]
-  }
+  "task_number": 63,
+  "status": "in_progress",
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+  "session_id": "sess_1744649000_63impl",
+  "artifact_number": "03",
+  "phases_completed": 0,
+  "phases_total": 7
 }

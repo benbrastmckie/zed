@@ -1,144 +1,127 @@
-# Neovim Configuration Project
+# Zed Editor Configuration Project
 
 ## Project Overview
 
-This is a Neovim configuration project using Lua and lazy.nvim for plugin management. The configuration provides a modern, efficient development environment with LSP support, treesitter integration, and extensive customization.
+This is a Zed editor configuration repository providing a structured development environment for R and Python, with a Claude Code agent system for tracked research, planning, and implementation workflows. The configuration supports macOS, Debian/Ubuntu, and Arch/Manjaro.
 
-**Purpose**: Maintain a productive Neovim development environment with organized, modular configuration.
+**Purpose**: Maintain a productive Zed development environment with organized configuration, language support, and AI-assisted task management.
 
 ## Technology Stack
 
-**Primary Language:** Lua
-**Plugin Manager:** lazy.nvim
-**LSP:** nvim-lspconfig + mason.nvim
-**Treesitter:** nvim-treesitter
-**Version:** Neovim 0.9+
+**Editor**: Zed (modern code editor)
+**Theme**: One Dark
+**Font**: Fira Code (14pt buffer, 15pt UI)
+**Languages**: R (r-language-server), Python (pyright + ruff), Markdown (prettier)
+**AI Integration**: Claude Code via ACP (Agent Client Protocol)
+**Platform**: macOS 11+, Debian/Ubuntu, Arch/Manjaro
 
 ## Project Structure
 
 ```
-nvim/
-├── init.lua                 # Entry point
-├── lua/
-│   ├── config/             # Core configuration
-│   │   ├── options.lua     # vim.opt settings
-│   │   ├── keymaps.lua     # Key bindings
-│   │   ├── autocmds.lua    # Autocommands
-│   │   └── lazy.lua        # Plugin manager setup
-│   ├── plugins/            # Plugin specifications
-│   │   ├── init.lua        # Main plugin list
-│   │   ├── ui.lua          # UI plugins
-│   │   ├── editor.lua      # Editor enhancements
-│   │   ├── lsp.lua         # LSP configuration
-│   │   ├── treesitter.lua  # Treesitter setup
-│   │   └── git.lua         # Git integration
-│   └── utils/              # Utility functions
-│       └── init.lua
-├── after/
-│   └── ftplugin/           # Filetype-specific settings
-│       ├── lua.lua
-│       ├── python.lua
-│       └── markdown.lua
-├── plugin/                  # Auto-loaded plugins
-└── lazy-lock.json          # Plugin lockfile
+~/.config/zed/
+├── settings.json             # Editor settings (theme, fonts, LSP, extensions, ACP)
+├── keymap.json               # Custom shortcuts + default reference
+├── tasks.json                # Task runner definitions
+├── themes/                   # Custom color themes
+├── scripts/
+│   └── install/              # Installation wizard and per-group scripts
+├── docs/                     # Documentation
+│   ├── general/              # Installation, keybindings, settings, R/Python setup
+│   ├── agent-system/         # AI systems overview, commands, architecture
+│   ├── toolchain/            # External dependency docs (R, Python, LaTeX, Typst, MCP)
+│   └── workflows/            # Agent lifecycle, epi, grants, Office file workflows
+├── examples/                 # Runnable end-to-end examples
+│   ├── epi-study/            # Synthetic RCT analysis
+│   ├── epi-slides/           # Conference deck example
+│   └── test-files/           # Test fixtures for filetypes extension
+├── talks/                    # Research talk artifacts
+├── prompts/                  # Prompt library database
+├── .zed/                     # Zed workspace-local settings
+│   └── scripts/              # Workspace scripts
+│       └── tasks.json        # Workspace task definitions
+├── .memory/                  # AI memory vault (Obsidian-backed)
 
-specs/                       # Task management
-├── TODO.md                 # Task list
-├── state.json              # Task state
+specs/                        # Task management
+├── TODO.md                   # Task list
+├── state.json                # Task state
 └── {NNN}_{SLUG}/             # Task artifacts
     ├── reports/
     ├── plans/
     └── summaries/
 
-.claude/                     # Claude Code configuration
-├── CLAUDE.md               # Main reference
-├── commands/               # Slash commands
-├── skills/                 # Skill definitions
-├── agents/                 # Agent definitions
-├── rules/                  # Auto-applied rules
-└── context/                # Domain knowledge
+.claude/                      # Claude Code configuration
+├── CLAUDE.md                 # Main reference (loaded every session)
+├── README.md                 # Architecture navigation hub
+├── commands/                 # Slash commands
+├── skills/                   # Skill definitions
+├── agents/                   # Agent definitions
+├── rules/                    # Auto-applied rules
+├── context/                  # Domain knowledge
+├── docs/                     # Guides, examples, standards
+├── extensions.json           # Active extension registry
+└── scripts/                  # Utility scripts
 ```
 
-## Core Configuration
+## Editor Configuration
 
-### Plugin Manager: lazy.nvim
+### Settings (settings.json)
 
-The configuration uses lazy.nvim for plugin management with:
-- Automatic lazy loading by event, command, or filetype
-- Lockfile for reproducibility
-- Built-in profiler for performance analysis
+- Vim mode enabled with VSCode base keymap
+- One Dark theme with Fira Code font
+- Auto-install extensions: python, ruff, r, markdown-oxide, markdownlint, csv, nix, toml, git-firefly, codebook
+- Format on save enabled globally
+- Language-specific: Python (4-space tabs, pyright + ruff), R (2-space tabs, r-language-server), Markdown (prettier)
+- Terminal docked right with bash shell
+- Claude Code ACP integration via agent_servers configuration
 
-### LSP Integration
+### Keybindings (keymap.json)
 
-Language Server Protocol support via:
-- nvim-lspconfig for server configuration
-- mason.nvim for automatic server installation
-- Built-in vim.lsp.* API
+- Ctrl+Shift+A: Launch Claude Code CLI
+- Ctrl+H/L: Move focus between split panes
+- Alt+J/K: Move current line down/up
 
-### Treesitter
+## AI-Assisted Workflow
 
-Native tree-sitter support providing:
-- Syntax highlighting
-- Code folding
-- Incremental selection
-- Text objects
+1. **Create Task**: `/task "Description"` - Create tracked work item
+2. **Research**: `/research N` - Investigate and produce a report
+3. **Planning**: `/plan N` - Create phased implementation plan
+4. **Implementation**: `/implement N` - Execute plan phase by phase
+5. **Archive**: `/todo` - Archive completed tasks
 
-## Development Workflow
+## Domain Extensions
 
-### Standard Workflow
+Active extensions (from .claude/extensions.json):
 
-1. **Identify Need**: Plugin to add, keymap to change, feature to implement
-2. **Research**: Look up plugin docs, check existing patterns
-3. **Implement**: Create/modify Lua files
-4. **Test**: Restart Neovim, verify behavior
-5. **Commit**: Track changes
-
-### AI-Assisted Workflow
-
-1. **Research**: `/research` - Gather plugin docs, patterns
-2. **Planning**: `/plan` - Create implementation plan
-3. **Implementation**: `/implement` - Execute the plan
-4. **Review**: `/review` - Analyze configuration
-
-## Common Tasks
-
-### Adding a Plugin
-
-1. Create spec file in `lua/plugins/` or add to existing
-2. Define lazy loading conditions (event, cmd, ft, keys)
-3. Configure plugin options
-4. Add keymaps if needed
-
-### Modifying Keymaps
-
-1. Edit `lua/config/keymaps.lua` for global mappings
-2. Use buffer-local mappings for filetype-specific
-3. Always include descriptions for which-key
-
-### Adding Filetype Settings
-
-1. Create `after/ftplugin/{filetype}.lua`
-2. Use `vim.opt_local` for buffer settings
-3. Add buffer-local keymaps as needed
+- **Epidemiology**: R-based study design, statistical modeling, causal inference (`/epi`)
+- **Present**: Grant proposals, budgets, timelines, funding analysis, research talks (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`)
+- **LaTeX**: Document typesetting with compilation support
+- **Typst**: Modern typesetting alternative to LaTeX
+- **Filetypes**: Office document conversion and editing (`/convert`, `/edit`, `/table`, `/scrape`)
+- **Memory**: Persistent knowledge vault (`/learn`, `--remember`)
+- **Python**: Python development patterns and tools
 
 ## Verification Commands
 
 ```bash
-# Test Neovim starts without errors
-nvim --headless -c "echo 'OK'" -c "q"
+# Check Zed is installed
+command -v zed
 
-# Test module loading
-nvim --headless -c "lua require('plugins')" -c "q"
+# Check Claude Code CLI
+claude --version
 
-# Check plugin health
-nvim --headless -c "checkhealth" -c "q"
+# Check language servers
+command -v pyright ruff
 
-# Profile startup
-nvim --startuptime specs/tmp/startup.log
+# Check R
+command -v R Rscript
+
+# Run installation health check
+bash scripts/install/install.sh --check
 ```
 
 ## Related Documentation
 
-- `.claude/context/project/neovim/` - Neovim domain knowledge
-- `.claude/rules/neovim-lua.md` - Lua coding standards
-- `nvim/CLAUDE.md` - Configuration-specific guidelines
+- `.claude/CLAUDE.md` - Claude Code agent system quick reference
+- `docs/general/installation.md` - Full installation walkthrough
+- `docs/agent-system/README.md` - AI systems overview
+- `docs/toolchain/README.md` - External dependency reference
