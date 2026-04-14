@@ -117,7 +117,7 @@ TODO.md and state.json must stay synchronized. Update state.json first (machine 
     "project_number": 1,
     "project_name": "task_slug",
     "status": "planned",
-    "task_type": "meta",
+    "task_type": "general",
     "completion_summary": "Required when status=completed",
     "roadmap_items": ["Optional explicit roadmap items"]
   }],
@@ -178,6 +178,8 @@ Standard actions: `create`, `complete research`, `create implementation plan`, `
 | skill-spawn | spawn-agent | opus | Analyze blockers and spawn new tasks |
 | skill-orchestrator | (direct execution) | - | Route commands to appropriate workflows |
 | skill-git-workflow | (direct execution) | - | Create scoped git commits for task operations |
+| skill-fix-it | (direct execution) | - | Scan for FIX:/TODO:/NOTE: tags and create tasks |
+| /review | (direct execution) | - | Codebase analysis; code-reviewer-agent available for future skill integration |
 
 ### Agents
 
@@ -336,6 +338,10 @@ select(.type != "plan")
 ```
 
 Full documentation: @.claude/context/patterns/jq-escaping-workarounds.md
+
+## Syncprotect
+
+The `.syncprotect` file lives at the **project root** (not inside `.claude/`) and lists relative paths (one per line) of artifacts that should never be overwritten during sync operations. Lines starting with `#` are comments, blank lines are ignored. Paths are relative to the base directory (e.g., `rules/my-custom-rule.md`). Protected files are skipped during both full "Load Core" syncs and individual artifact updates via `Ctrl-l`. The picker preview shows a "Protected Files" section listing which files will be skipped.
 
 ## Important Notes
 

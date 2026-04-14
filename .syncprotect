@@ -2,5 +2,35 @@
 # One path per line, relative to the base directory (e.g., .claude/).
 # Lines starting with # are comments; blank lines are ignored.
 
-# Zed-specific project overview (must not be overwritten with nvim version)
+# --- Core files with Zed-specific customizations ---
+
+# Zed-specific project overview (not nvim)
 context/repo/project-overview.md
+
+# Removed neovim references, adjusted extension examples
+CLAUDE.md
+
+# Removed nvim extension row, fixed guide links
+README.md
+
+# --- Commands with generic/Zed-appropriate examples ---
+
+# Generic examples (src/, docs/) not nvim/lua/ paths
+commands/fix-it.md
+
+# Generic path examples, not neovim-specific
+commands/learn.md
+
+# No nvim/**/*.lua routing row
+commands/review.md
+
+# Zed-appropriate task_type detection keywords
+commands/task.md
+
+# --- Skills/rules with correct routing ---
+
+# No neovim routing entry, generic task_type example
+skills/skill-orchestrator/SKILL.md
+
+# Generic task_type example list (not neovim-first)
+rules/plan-format-enforcement.md

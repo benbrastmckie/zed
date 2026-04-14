@@ -361,7 +361,7 @@ Error: No conversion tools available.
 
 Required tools (install one):
   - markitdown: pip install markitdown
-  - pandoc: brew install pandoc
+  - pandoc: apt install pandoc (or brew install pandoc)
 
 Then retry: /convert {source_path}
 ```
@@ -374,7 +374,7 @@ Install with:
   pip install python-pptx
 
 For Beamer output, also install:
-  brew install pandoc
+  apt install pandoc  (or brew install pandoc)
 
 Then retry: /convert {source_path} --format {output_format}
 ```
