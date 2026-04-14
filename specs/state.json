@@ -1,6 +1,14 @@
 {
-  "next_project_number": 63,
+  "next_project_number": 64,
   "active_projects": [
+    {
+      "project_number": 63,
+      "project_name": "zed_specific_claude_customizations_and_syncprotect",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-14T15:20:20Z",
+      "last_updated": "2026-04-14T15:20:20Z"
+    },
     {
       "project_number": 61,
       "project_name": "revert_task_60_restore_slide_planner",

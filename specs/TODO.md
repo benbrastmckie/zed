@@ -1,11 +1,41 @@
 ---
-next_project_number: 63
+next_project_number: 64
 ---
 
 # Task List
 
 ## Tasks
 
+### 63. Create zed-specific .claude/ customizations and .syncprotect file
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Make the zed config repo's .claude/ files accurate and repo-specific, then protect them from future sync overwrites.
+
+**Phase 1: Generate project-overview.md for zed repo**
+
+The current `context/repo/project-overview.md` is a copy of the nvim template describing Lua, lazy.nvim, treesitter, etc. Replace it with an accurate overview of the zed config repo: settings.json, keymap.json, themes/, talks/, scripts/, docs/, examples/, prompts/, tasks.json, specs/. This file is already excluded from sync by CONTEXT_EXCLUDE_PATTERNS so no protection needed, but it's actively misleading agents.
+
+**Phase 2: Update CLAUDE.md with zed-specific content**
+
+Review the current CLAUDE.md against the nvim version (which is now canonical post-task 427). Decide what zed-specific additions are needed:
+- The slide-critic entries (tasks 424-426) are already in the nvim version — accept those
+- The slide-planner-agent rows were in the old zed version but removed from nvim — check if slide-planner-agent.md exists in this repo's agents/ and if so, re-add the table rows
+- The Hooks section — check if `.claude/hooks/validate-plan-write.sh` exists in this repo; if so, document it; if not, omit the section
+- Remove any stale Co-Authored-By references (task 427 cleaned these from nvim)
+
+**Phase 3: Update rules/git-workflow.md**
+
+Accept the nvim canonical version (Co-Authored-By notes removed by task 427). If the user wants a no-trailer policy for this repo, that belongs in Claude's auto-memory, not in a synced file.
+
+**Phase 4: Recreate agents/README.md**
+
+Generate a zed-specific agents/README.md listing the agents actually available in this repo's .claude/agents/ directory. README.md files are already skipped by sync, so this is inherently protected.
+
+**Phase 5: Create .syncprotect file**
+
+Create `.claude/.syncprotect` listing files that have zed-specific customizations. Only CLAUDE.md needs protection — git-workflow.md should accept upstream, README.md is already skip-protected, and project-overview.md is already excluded by CONTEXT_EXCLUDE_PATTERNS.
 
 ### 61. Revert task 60 implementation and restore slide-planner-agent references
 - **Effort**: medium
