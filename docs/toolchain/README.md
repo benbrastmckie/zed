@@ -8,35 +8,30 @@ The parent [docs/general/installation.md](../general/installation.md) covers the
 
 ## Platform scope
 
-All tools are documented with cross-platform install commands for **macOS** (Homebrew), **Debian/Ubuntu** (apt), and **Arch/Manjaro** (pacman). Each tool section shows the macOS command inline, with Linux alternatives in a callout block. The install wizard (`scripts/install/install.sh`) auto-detects the platform and uses the correct package manager; these docs are the manual equivalent.
+All tools are documented with macOS (Homebrew) install commands. The install wizard (`scripts/install/install.sh`) automates these installs; these docs are the manual equivalent.
 
-> **Note**: The wizard auto-detects the current platform. On distributions that use declarative package management, it exits with guidance to use the native configuration approach instead of the imperative instructions here.
+### Homebrew package reference
 
-The canonical package name mapping lives in [`scripts/install/lib.sh`](../../scripts/install/lib.sh) (`_pkg_map_add` entries). When docs and lib.sh disagree, lib.sh is the source of truth.
+| Tool | Homebrew formula/cask |
+|------|-----------------------|
+| jq | `jq` |
+| gh | `gh` |
+| fontconfig | `fontconfig` |
+| make | `make` |
+| Node.js | `node` |
+| Python | `python` |
+| R | `r` |
+| Pandoc | `pandoc` |
+| Typst | `typst` |
+| C++ toolchain | Xcode CLT |
+| git | `git` |
+| curl | `curl` |
+| LaTeX (basic) | `basictex` (cask) |
+| LaTeX (full) | `mactex` (cask) |
+| Fonts (Latin Modern) | `font-latin-modern` + `font-latin-modern-math` (cask) |
+| Fonts (Noto) | `font-noto-sans` + `font-noto-serif` + `font-noto-sans-mono` (cask) |
 
-### Cross-platform package reference
-
-| Tool | Homebrew (macOS) | apt (Debian/Ubuntu) | pacman (Arch/Manjaro) |
-|------|-----------------|--------------------|-----------------------|
-| jq | `jq` | `jq` | `jq` |
-| gh | `gh` | `gh` | `github-cli` |
-| fontconfig | `fontconfig` | `fontconfig` | `fontconfig` |
-| make | `make` | `make` | `make` |
-| Node.js | `node` | `nodejs` | `nodejs` |
-| npm | (included with `node`) | `npm` | `npm` |
-| Python | `python` | `python3` | `python` |
-| R | `r` | `r-base` + `r-base-dev` | `r` |
-| Pandoc | `pandoc` | `pandoc` | `pandoc` |
-| Typst | `typst` | (not in repos; use `cargo install typst-cli` or `snap install typst`) | `typst` |
-| C++ toolchain | Xcode CLT | `build-essential` | `base-devel` |
-| git | `git` | `git` | `git` |
-| curl | `curl` | `curl` | `curl` |
-| LaTeX (basic) | `basictex` (cask) | `texlive-base texlive-latex-extra latexmk biber` | `texlive-basic texlive-latexextra texlive-binextra biber` |
-| LaTeX (full) | `mactex` (cask) | `texlive-full` | `texlive-most` |
-| Fonts (Latin Modern) | `font-latin-modern` + `font-latin-modern-math` (cask) | `fonts-lmodern fonts-cmu` | `otf-latin-modern noto-fonts` |
-| Fonts (Noto) | `font-noto-sans` + `font-noto-serif` + `font-noto-sans-mono` (cask) | `fonts-noto fonts-noto-cjk` | `noto-fonts noto-fonts-cjk` |
-
-Your platform's package manager is a prerequisite for every install step below. On macOS, install [Homebrew](https://brew.sh) first; on Linux, `apt` or `pacman` is already present. See [docs/general/installation.md](../general/installation.md) for the base setup.
+Homebrew is a prerequisite for every install step below. See [docs/general/installation.md](../general/installation.md) for the base setup.
 
 ## File index
 
@@ -64,12 +59,10 @@ command -v <tool> && <tool> --version
 
 ### Install
 
-The platform-appropriate install command. macOS commands use Homebrew; Linux alternatives are shown in a callout block. Always a single runnable block the reader can copy.
+The Homebrew install command. Always a single runnable block the reader can copy.
 
 ```
-brew install <formula>           # macOS
-sudo apt install <package>       # Debian/Ubuntu
-sudo pacman -S <package>         # Arch/Manjaro
+brew install <formula>
 ```
 
 ### Verify

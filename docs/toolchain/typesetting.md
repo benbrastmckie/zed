@@ -13,13 +13,13 @@ Prompts for LaTeX (BasicTeX by default, MacTeX on opt-in), Typst, Pandoc, `marki
 
 ## Manual installation (advanced)
 
-This guide installs the typesetting tools used by the `latex`, `typst`, `filetypes`, and `present` extensions. These tools are grouped here because they are usually installed together for document output: LaTeX and Typst as the two PDF-producing engines, Pandoc as the universal format bridge, markitdown for "anything to Markdown" extraction, and a minimal set of fonts that LaTeX and Typst expect to find on disk. macOS commands are shown inline; Linux alternatives appear in callout blocks.
+This guide installs the typesetting tools used by the `latex`, `typst`, `filetypes`, and `present` extensions. These tools are grouped here because they are usually installed together for document output: LaTeX and Typst as the two PDF-producing engines, Pandoc as the universal format bridge, markitdown for "anything to Markdown" extraction, and a minimal set of fonts that LaTeX and Typst expect to find on disk.
 
 If you are only using one of these (e.g. just Typst), you can install just that tool — the sections are independent.
 
 ## Before you begin
 
-Your platform's package manager is required: Homebrew on macOS, `apt` on Debian/Ubuntu, or `pacman` on Arch/Manjaro. If you do not have it set up, follow [docs/general/installation.md](../general/installation.md) first.
+Homebrew is required. If you do not have it set up, follow [docs/general/installation.md](../general/installation.md) first.
 
 Some tools (notably `markitdown`) are installed with `uv tool install`, which requires `uv`. See [python.md](python.md#install-uv) for the install.
 
@@ -31,8 +31,6 @@ The `latex` extension, LaTeX compilation workflows, and Beamer slide output all 
 
 - **BasicTeX** -- small (~100 MB), minimal, install extra packages later via `tlmgr`. Recommended unless you know you need the full MacTeX.
 - **MacTeX** -- full (~5 GB), installs everything. Use if you are processing third-party LaTeX documents with unknown package requirements.
-
-**Linux** uses the distribution's TeX Live packages (see Linux alternatives below).
 
 ### Check
 
@@ -59,7 +57,7 @@ eval "$(/usr/libexec/path_helper)"
 
 Open a new terminal to pick up the change persistently.
 
-Then install the extra packages that Beamer / LaTeX workflows expect (macOS only -- Linux texlive packages include these):
+Then install the extra packages that Beamer / LaTeX workflows expect:
 
 ```
 sudo tlmgr update --self
@@ -71,12 +69,6 @@ sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra bib
 ```
 brew install --cask mactex
 ```
-
-> **Linux alternatives**:
-> - **Debian/Ubuntu (basic)**: `sudo apt install texlive-base texlive-latex-extra latexmk biber`
-> - **Debian/Ubuntu (full)**: `sudo apt install texlive-full`
-> - **Arch/Manjaro (basic)**: `sudo pacman -S texlive-basic texlive-latexextra texlive-binextra biber`
-> - **Arch/Manjaro (full)**: `sudo pacman -S texlive-most`
 
 ### Verify
 
@@ -106,10 +98,6 @@ If this prints a version (e.g. `typst 0.12.0`), skip to [Pandoc](#pandoc).
 ```
 brew install typst
 ```
-
-> **Linux alternatives**:
-> - **Debian/Ubuntu**: Typst is not in the standard repos. Install via `cargo install typst-cli` (requires Rust) or `snap install typst`.
-> - **Arch/Manjaro**: `sudo pacman -S typst`
 
 ### Verify
 
@@ -144,10 +132,6 @@ pandoc --version
 ```
 brew install pandoc
 ```
-
-> **Linux alternatives**:
-> - **Debian/Ubuntu**: `sudo apt install pandoc`
-> - **Arch/Manjaro**: `sudo pacman -S pandoc`
 
 ### Verify
 
@@ -224,10 +208,6 @@ brew install --cask font-noto-sans font-noto-serif font-noto-sans-mono
 ```
 
 If a cask name is not found, use `brew search font-<name>` to locate the current formula name.
-
-> **Linux alternatives**:
-> - **Debian/Ubuntu**: `sudo apt install fonts-lmodern fonts-cmu fonts-noto fonts-noto-cjk`
-> - **Arch/Manjaro**: `sudo pacman -S otf-latin-modern noto-fonts noto-fonts-cjk`
 
 ### Verify
 

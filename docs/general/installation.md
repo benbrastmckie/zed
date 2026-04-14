@@ -4,7 +4,7 @@
 
 The interactive installation wizard at `scripts/install/install.sh` walks through six groups of installs (base tools, shell utilities, Python, R, typesetting, MCP servers), lets you accept or skip each group, and is safe to re-run -- every step is guarded by a presence check.
 
-**Supported platforms**: macOS, Debian/Ubuntu, Arch/Manjaro. Distributions with declarative package management are detected and exit with guidance to use the native configuration approach instead.
+**Supported platform**: macOS (Homebrew).
 
 **Step by step** (macOS):
 
@@ -30,24 +30,6 @@ The interactive installation wizard at `scripts/install/install.sh` walks throug
 
    For each group, press **a** to accept (install it), **s** to skip, or **c** to cancel the wizard. Accepted groups are dispatched in a safe topological order (`base` runs first so build tools and the package manager are available for later groups).
 
-**Step by step** (Linux -- Debian/Ubuntu or Arch/Manjaro):
-
-1. Ensure `git` is installed (`sudo apt install git` or `sudo pacman -S git`).
-2. Clone this repository into your Zed config directory:
-
-   ```
-   git clone <repo-url> ~/.config/zed
-   cd ~/.config/zed
-   ```
-
-3. Run the wizard:
-
-   ```
-   bash scripts/install/install.sh
-   ```
-
-   The wizard auto-detects your platform and uses the appropriate package manager (Homebrew on macOS, apt on Debian/Ubuntu, pacman on Arch). Steps requiring sudo use an interactive prompt pattern that defers to a manual hint if no tty is available.
-
 **Non-interactive shortcuts**:
 
 - `bash scripts/install/install.sh --dry-run` — preview every action without installing anything.
@@ -64,7 +46,7 @@ If you prefer to install everything by hand, keep reading — the rest of this p
 
 ## Manual installation (advanced)
 
-This guide walks through installing Zed, the Claude Code CLI, the `claude-acp` bridge that connects them, and the MCP tools used for Word and Excel editing. The primary walkthrough below uses macOS commands; Linux alternatives are noted in each section. For a fully automated cross-platform install, use the wizard above instead.
+This guide walks through installing Zed, the Claude Code CLI, the `claude-acp` bridge that connects them, and the MCP tools used for Word and Excel editing. For a fully automated install, use the wizard above instead.
 
 > **Already comfortable with the terminal?** Here is the full sequence of install commands. Skip any tool you already have, then jump to [Configure claude-acp](#configure-claude-acp).
 >
@@ -83,7 +65,7 @@ This guide walks through installing Zed, the Claude Code CLI, the `claude-acp` b
 
 ## Before you begin
 
-You will run every command in this guide inside a **terminal emulator**. On macOS, press **Cmd+Space** to open Spotlight, type **Terminal**, and press Enter (you can also find Terminal in Applications > Utilities). On Linux, open your distribution's terminal application (e.g. GNOME Terminal, Konsole, or Alacritty).
+You will run every command in this guide inside a **terminal emulator**. On macOS, press **Cmd+Space** to open Spotlight, type **Terminal**, and press Enter (you can also find Terminal in Applications > Utilities).
 
 When the terminal opens, you see a prompt -- a short line ending in `$` or `%`. To run a command, paste or type it after the prompt and press **Enter**. The examples in this guide show only the command itself, not the prompt character.
 
@@ -92,8 +74,6 @@ If a command produces a lot of output, wait until the prompt appears again befor
 ## Prerequisites
 
 - **macOS**: macOS 11 (Big Sur) or newer
-- **Debian/Ubuntu**: A recent release with `apt` available
-- **Arch/Manjaro**: A recent release with `pacman` available
 - An internet connection
 - About 20-30 minutes for initial setup
 - An Anthropic account for the Claude Code CLI
@@ -120,10 +100,6 @@ If this prints a version number (e.g. `git version 2.39.5`), skip to [Install Ho
 xcode-select --install
 ```
 
-> **Linux alternatives**:
-> - **Debian/Ubuntu**: `sudo apt install build-essential git`
-> - **Arch/Manjaro**: `sudo pacman -S base-devel git`
-
 ### Verify
 
 ```
@@ -134,7 +110,7 @@ You should see a line like `git version 2.39.5`. The exact number does not matte
 
 ## Install Homebrew
 
-Homebrew is the macOS package manager used by the remaining install steps in this guide. On Linux, your system package manager (`apt` or `pacman`) is used instead -- skip this section if you are on Linux.
+Homebrew is the macOS package manager used by the remaining install steps in this guide.
 
 ### Check if already installed
 
@@ -182,10 +158,6 @@ If this prints a version number (e.g. `v20.17.0`), skip to [Install Zed](#instal
 brew install node
 ```
 
-> **Linux alternatives**:
-> - **Debian/Ubuntu**: `sudo apt install nodejs npm`
-> - **Arch/Manjaro**: `sudo pacman -S nodejs npm`
-
 The package manager downloads and installs Node. This takes a minute or two. When you see your terminal prompt again, it is finished.
 
 ### Verify
@@ -214,11 +186,9 @@ brew install --cask zed
 
 Optional: to track the preview channel, install `zed@preview` alongside (or instead of) stable: `brew install --cask zed@preview`. Both channels can be installed simultaneously.
 
-> **Linux alternatives**: Download Zed from [zed.dev](https://zed.dev), or install via your distribution's package manager or the official `.deb`/AUR package.
-
 ### Verify
 
-Open Zed from Applications/Spotlight (macOS) or your app launcher (Linux) to confirm it launches.
+Open Zed from Applications or Spotlight to confirm it launches.
 
 ## Install the Claude Code CLI
 
@@ -241,8 +211,6 @@ brew install --cask claude-code
 ```
 
 The `claude-code` cask tracks the stable channel (recommended). If you prefer the latest channel, use `brew install --cask claude-code@latest` instead.
-
-> **Linux alternatives**: Install via npm (`npm install -g @anthropic-ai/claude-code`) or download directly from [claude.ai/code](https://claude.ai/code). See the [official setup docs](https://code.claude.com/docs/en/setup) for details.
 
 ### First-run authentication
 

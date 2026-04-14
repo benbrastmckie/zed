@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a Zed editor configuration repository providing a structured development environment for R and Python, with a Claude Code agent system for tracked research, planning, and implementation workflows. The configuration supports macOS, Debian/Ubuntu, and Arch/Manjaro.
+This is a Zed editor configuration repository providing a structured development environment for R and Python, with a Claude Code agent system for tracked research, planning, and implementation workflows. The configuration supports macOS.
 
 **Purpose**: Maintain a productive Zed development environment with organized configuration, language support, and AI-assisted task management.
 
@@ -13,7 +13,7 @@ This is a Zed editor configuration repository providing a structured development
 **Font**: Fira Code (14pt buffer, 15pt UI)
 **Languages**: R (r-language-server), Python (pyright + ruff), Markdown (prettier)
 **AI Integration**: Claude Code via ACP (Agent Client Protocol)
-**Platform**: macOS 11+, Debian/Ubuntu, Arch/Manjaro
+**Platform**: macOS 11+
 
 ## Project Structure
 
