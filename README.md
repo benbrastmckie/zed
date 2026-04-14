@@ -37,7 +37,7 @@ For the full installation walkthrough, including MCP tool setup for Office file 
 | Cmd+` | Toggle terminal |
 | Cmd+Shift+P | Command palette (search for any command) |
 
-For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/keybindings.md) | ([pdf](/home/benjamin/.config/zed/docs/general/keybindings-cheat-sheet.pdf)).
+For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/keybindings.md) | ([pdf](https://github.com/benbrastmckie/zed/blob/master/docs/general/keybindings-cheat-sheet.pdf)).
 
 ## How It Works
 
