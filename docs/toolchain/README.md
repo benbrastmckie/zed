@@ -10,7 +10,7 @@ The parent [docs/general/installation.md](../general/installation.md) covers the
 
 All tools are documented with cross-platform install commands for **macOS** (Homebrew), **Debian/Ubuntu** (apt), and **Arch/Manjaro** (pacman). Each tool section shows the macOS command inline, with Linux alternatives in a callout block. The install wizard (`scripts/install/install.sh`) auto-detects the platform and uses the correct package manager; these docs are the manual equivalent.
 
-> **NixOS**: The wizard detects NixOS and exits with guidance to use `configuration.nix` or `home.nix`. NixOS users should add packages declaratively rather than following the imperative instructions here.
+> **Note**: The wizard auto-detects the current platform. On distributions that use declarative package management, it exits with guidance to use the native configuration approach instead of the imperative instructions here.
 
 The canonical package name mapping lives in [`scripts/install/lib.sh`](../../scripts/install/lib.sh) (`_pkg_map_add` entries). When docs and lib.sh disagree, lib.sh is the source of truth.
 
@@ -96,13 +96,13 @@ Individual toolchain docs note this per tool where relevant.
 
 ## Optional author-personal tooling
 
-A few pieces of infrastructure referenced from `.claude/` are **not project dependencies** — they are the author's personal UX layer shared with the Neovim config repository. These are intentionally not documented here:
+A few pieces of infrastructure referenced from `.claude/` are **not project dependencies** — they are the author's personal UX layer. These are intentionally not documented here:
 
 - WezTerm hooks (`.claude/hooks/wezterm-*.sh`) — require WezTerm specifically; no-op on other terminals.
 - Piper TTS (`.claude/hooks/tts-notify.sh`) — requires `piper` binary + a voice model file at a hardcoded path.
-- The `SessionStart` hook reference to `~/.config/nvim/scripts/claude-ready-signal.sh` — only works when the author's Neovim config is co-installed.
+- Some hooks reference external scripts not included in this repository.
 
-If you want any of these, consult the author's dotfiles / nvim config repositories. None of the agent-system functionality in this repo depends on them.
+None of the agent-system functionality in this repo depends on them.
 
 ## Follow-on work
 

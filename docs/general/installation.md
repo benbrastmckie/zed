@@ -4,7 +4,7 @@
 
 The interactive installation wizard at `scripts/install/install.sh` walks through six groups of installs (base tools, shell utilities, Python, R, typesetting, MCP servers), lets you accept or skip each group, and is safe to re-run -- every step is guarded by a presence check.
 
-**Supported platforms**: macOS, Debian/Ubuntu, Arch/Manjaro. NixOS is detected and exits with guidance to use `configuration.nix` or `home.nix` instead.
+**Supported platforms**: macOS, Debian/Ubuntu, Arch/Manjaro. Distributions with declarative package management are detected and exit with guidance to use the native configuration approach instead.
 
 **Step by step** (macOS):
 

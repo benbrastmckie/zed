@@ -25,7 +25,7 @@ Some tools (notably `markitdown`) are installed with `uv tool install`, which re
 
 ## LaTeX (MacTeX or BasicTeX)
 
-The `latex` extension, VimTeX-equivalent workflows, and Beamer slide output all assume a working LaTeX distribution with `pdflatex`, `latexmk`, `bibtex`, and `biber`.
+The `latex` extension, LaTeX compilation workflows, and Beamer slide output all assume a working LaTeX distribution with `pdflatex`, `latexmk`, `bibtex`, and `biber`.
 
 **macOS** has two Homebrew-friendly LaTeX distributions:
 
@@ -59,7 +59,7 @@ eval "$(/usr/libexec/path_helper)"
 
 Open a new terminal to pick up the change persistently.
 
-Then install the extra packages that Beamer / VimTeX workflows expect (macOS only -- Linux texlive packages include these):
+Then install the extra packages that Beamer / LaTeX workflows expect (macOS only -- Linux texlive packages include these):
 
 ```
 sudo tlmgr update --self

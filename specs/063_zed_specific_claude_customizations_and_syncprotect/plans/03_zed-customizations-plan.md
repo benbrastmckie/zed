@@ -222,7 +222,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 6: Update docs/ files and strip nvim/nix references [NOT STARTED]
+### Phase 6: Update docs/ files and strip nvim/nix references [COMPLETED]
 
 **Goal**: Update documentation files in docs/ to reflect .claude/ changes (slide-critic, Co-Authored-By removal, updated counts) AND strip all nvim/nix/leader-ac references found in docs/.
 

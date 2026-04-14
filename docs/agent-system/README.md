@@ -56,7 +56,7 @@ Companion files outside this directory:
 The agent system includes domain-specific extensions that provide specialized research and implementation capabilities:
 
 - **Epidemiology** -- R-based study design, causal inference, statistical modeling, and reporting (STROBE, CONSORT). Use `/epi` to start a study. R language setup is covered in [../general/R.md](../general/R.md).
-- **Present** -- Grant proposals (`/grant`), budgets (`/budget`), timelines (`/timeline`), funding analysis (`/funds`), and research talks (`/slides`). Slide planning uses an interactive 5-stage design review via `skill-slide-planning`.
+- **Present** -- Grant proposals (`/grant`), budgets (`/budget`), timelines (`/timeline`), funding analysis (`/funds`), and research talks (`/slides`). Slide planning uses an interactive 5-stage design review via `skill-slide-planning`. Use `/slides N --critic` for interactive slide critique with rubric evaluation via `skill-slide-critic`.
 - **Memory** -- Persistent knowledge vault (`/learn`, `--remember` flag on `/research`).
 - **Filetypes** -- Office document conversion and editing (`/convert`, `/edit`, `/table`, `/scrape`).
 - **LaTeX / Typst** -- Document typesetting with compilation support.
@@ -65,9 +65,8 @@ All extensions are pre-merged into the active configuration; there is no manual 
 
 ## Zed adaptations
 
-This workspace adapts the upstream `.claude/` configuration with two intentional deviations:
+This workspace adapts the upstream `.claude/` configuration with one intentional deviation:
 
-- **No `Co-Authored-By` trailer** -- Git commits in this workspace omit the `Co-Authored-By` line per user preference.
 - **No `.claude/extensions/` directory** -- Extensions are tracked via the flat `.claude/extensions.json` file rather than a directory tree. References to `.claude/extensions/*/context/` in `.claude/CLAUDE.md` do not apply here.
 
 ## See also

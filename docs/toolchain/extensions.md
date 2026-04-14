@@ -33,7 +33,7 @@ Follow the Verify sections of the linked files, then re-run the Check command ab
 
 ## latex
 
-The `latex` extension provides research + implementation support for LaTeX documents (VimTeX-equivalent compile/view/clean workflows, subfile management, bibliography handling).
+The `latex` extension provides research + implementation support for LaTeX documents (compile/view/clean workflows, subfile management, bibliography handling).
 
 **Prerequisites**:
 

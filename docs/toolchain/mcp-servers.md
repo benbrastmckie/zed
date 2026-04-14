@@ -172,7 +172,7 @@ Should show a `pandoc` entry.
 **Rationale**:
 
 - `.claude/extensions.json` does not list a `lean` extension. The only references to Lean MCP outside `settings.json` are the two setup/verify scripts (`.claude/scripts/setup-lean-mcp.sh`, `.claude/scripts/verify-lean-mcp.sh`). No active agent, skill, command, or workflow invokes Lean MCP tools.
-- Task 21 explicitly reframed this repository as a **macOS Zed IDE for R and Python** work. Lean is a theorem-prover toolchain used in the author's Neovim config repo, not here.
+- Task 21 explicitly reframed this repository as a **macOS Zed IDE for R and Python** work. Lean is a theorem-prover toolchain not used in this repository.
 - Keeping a dormant allowlist entry for a tool that cannot be reached is worse than either state: it signals an unmet dependency while providing no benefit.
 
 **What was pruned** (applied in Phase 6 of this task):

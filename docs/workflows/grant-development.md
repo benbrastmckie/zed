@@ -83,6 +83,8 @@ After creating the task, use the standard lifecycle to develop the slides:
 
 **Note**: For slides tasks, `/plan` routes to `skill-slide-planning` rather than the generic planner. This runs an interactive design review covering narrative arc, per-slide content, and visual layout before producing the slide plan.
 
+**Critique**: After implementation, use `/slides N --critic` to run an interactive critique loop with rubric-based evaluation. The critic agent scores slides on content, design, and narrative flow, then presents findings for accept/reject/modify decisions.
+
 ## See also
 
 - [agent-lifecycle.md](agent-lifecycle.md) — The core task lifecycle that grant tasks follow
