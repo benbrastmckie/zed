@@ -22,16 +22,16 @@
           "summary": "Audit of .claude/ changes since task 56 identifying 5 docs files and README.md needing updates for slide-critic system, Co-Authored-By removal, and pymupdf tool priority change"
         },
         {
-          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/plans/02_zed-customizations-plan.md",
+          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/plans/03_zed-customizations-plan.md",
           "type": "plan"
         }
       ],
       "plan_metadata": {
         "phases": 7,
-        "total_effort_hours": 3.5,
+        "total_effort_hours": 5.5,
         "complexity": "medium",
         "research_integrated": true,
-        "plan_version": 2,
+        "plan_version": 3,
         "dependency_waves": [
           [
             1,
