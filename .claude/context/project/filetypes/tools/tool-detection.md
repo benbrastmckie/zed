@@ -121,28 +121,6 @@ def detect_docx_editor():
 
 ## Error Messages with Installation Guidance
 
-### NixOS
-```bash
-echo "Missing tool: $TOOL_NAME"
-echo ""
-echo "Install with nix-shell (ephemeral):"
-echo "  nix-shell -p $NIX_PACKAGE"
-echo ""
-echo "Or add to home-manager (persistent):"
-echo "  home.packages = with pkgs; [ $NIX_PACKAGE ];"
-```
-
-### Ubuntu/Debian
-```bash
-echo "Missing tool: $TOOL_NAME"
-echo ""
-echo "Install with apt:"
-echo "  sudo apt install $APT_PACKAGE"
-echo ""
-echo "Or with pip (Python packages):"
-echo "  pip install $PIP_PACKAGE"
-```
-
 ### macOS
 ```bash
 echo "Missing tool: $TOOL_NAME"
@@ -156,20 +134,20 @@ echo "  pip install $PIP_PACKAGE"
 
 ## Package Name Mappings
 
-| Tool | NixOS Package | apt Package | Homebrew Package | pip Package |
-|------|---------------|-------------|------------------|-------------|
-| markitdown | python3Packages.markitdown | - | - | markitdown |
-| pymupdf | python3Packages.pymupdf | - | - | pymupdf |
-| pymupdf4llm | - | - | - | pymupdf4llm |
-| pandoc | pandoc | pandoc | pandoc | - |
-| typst | typst | - | typst | - |
-| pdflatex | texlive.combined.scheme-basic | texlive-base | mactex-no-gui | - |
-| pandas | python3Packages.pandas | python3-pandas | - | pandas |
-| openpyxl | python3Packages.openpyxl | python3-openpyxl | - | openpyxl |
-| python-pptx | python3Packages.python-pptx | - | - | python-pptx |
-| xlsx2csv | python3Packages.xlsx2csv | - | - | xlsx2csv |
-| superdoc | - | - | - | @superdoc-dev/mcp (npx) |
-| python-docx | python3Packages.python-docx | python3-python-docx | - | python-docx |
+| Tool | Homebrew Package | pip Package |
+|------|------------------|-------------|
+| markitdown | - | markitdown |
+| pymupdf | - | pymupdf |
+| pymupdf4llm | - | pymupdf4llm |
+| pandoc | pandoc | - |
+| typst | typst | - |
+| pdflatex | basictex (cask) | - |
+| pandas | - | pandas |
+| openpyxl | - | openpyxl |
+| python-pptx | - | python-pptx |
+| xlsx2csv | - | xlsx2csv |
+| superdoc | - | @superdoc-dev/mcp (npx) |
+| python-docx | - | python-docx |
 
 ## Aggregated Detection Function
 

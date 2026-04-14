@@ -218,7 +218,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 6: Clean Up .claude/ Context Files [NOT STARTED]
+### Phase 6: Clean Up .claude/ Context Files [COMPLETED]
 
 **Goal**: Remove incidental "Debian/Ubuntu, Arch/Manjaro" mentions from ~40 .claude/ context and system files.
 

@@ -194,16 +194,6 @@ authenticate with GitHub.
 brew install gh
 ```
 
-**Windows:**
-```powershell
-winget install GitHub.cli
-```
-
-**Linux (Debian/Ubuntu):**
-```bash
-sudo apt install gh
-```
-
 ### Authenticate with GitHub
 
 ```bash
