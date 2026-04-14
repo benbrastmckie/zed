@@ -8,8 +8,9 @@ next_project_number: 63
 
 ### 62. Triage and selectively apply working tree changes synced from nvim config
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_sync-triage-audit.md](specs/062_triage_nvim_sync_changes/reports/01_sync-triage-audit.md)
 
 **Description**: The `<leader>ac` extension loader has synced .claude/ files from the nvim config, producing unstaged working tree changes across 19 files in `.claude/`. These are a mix of genuine improvements from nvim and regressions caused by the nvim sync overwriting zed-specific content (the same root cause as task 60, reverted by task 61; tracked upstream as nvim task 422).
 
