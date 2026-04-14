@@ -1,13 +1,12 @@
 {
-  "status": "planned",
-  "agent_type": "planner-agent",
-  "delegation_path": ["orchestrator", "plan", "planner-agent"],
-  "session_id": "sess_1744650800_64plan",
-  "task_number": 64,
-  "artifact_type": "plan",
-  "artifact_path": "specs/064_narrow_install_to_macos_only/plans/01_macos-narrowing-plan.md",
-  "phase_count": 6,
-  "estimated_hours": 5,
-  "dependency_waves": [[1, 2], [3, 4], [5], [6]],
-  "next_steps": "Run /implement 64 to execute the plan"
+  "status": "in_progress",
+  "summary": "Implementation in progress",
+  "artifacts": [],
+  "metadata": {
+    "phases_completed": 0,
+    "phases_total": 6
+  },
+  "session_id": "sess_1744651200_impl64",
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"]
 }

@@ -1,7 +1,7 @@
 # Implementation Plan: Task #64
 
 - **Task**: 64 - narrow_install_to_macos_only
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 5 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/064_narrow_install_to_macos_only/reports/01_macos-narrowing-audit.md
@@ -66,7 +66,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: Simplify lib.sh Platform Infrastructure [NOT STARTED]
+### Phase 1: Simplify lib.sh Platform Infrastructure [COMPLETED]
 
 **Goal**: Remove all cross-platform dispatch from lib.sh, leaving a macOS/Homebrew-only shared library. This is the foundation that all other scripts depend on.
 

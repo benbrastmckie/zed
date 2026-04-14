@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# lib.sh - Shared helper library for scripts/install/*.sh
+# lib.sh - Shared helper library for macOS install scripts (scripts/install/*.sh)
 #
 # BASH 3.2 COMPATIBILITY CONSTRAINTS (macOS ships bash 3.2 by default):
 #   - No `mapfile` / `readarray` (use while-read loops)
@@ -48,56 +48,17 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ENV_HINTS=1
 
 # ----- platform detection ---------------------------------------------------
-# DETECTED_OS is set once at source time. Valid values:
-#   macos, debian, arch, nixos, linux-unknown, unsupported
+# DETECTED_OS is set once at source time. Valid value: macos
 DETECTED_OS=""
 
 detect_os() {
   local kernel
   kernel="$(uname -s)"
-  case "$kernel" in
-    Darwin)
-      DETECTED_OS="macos"
-      return 0
-      ;;
-    Linux)
-      # Parse /etc/os-release for distribution identification.
-      if [ -f /etc/os-release ]; then
-        local id=""
-        local id_like=""
-        # shellcheck disable=SC1091
-        id="$(. /etc/os-release && printf '%s' "${ID:-}")"
-        id_like="$(. /etc/os-release && printf '%s' "${ID_LIKE:-}")"
-        case "$id" in
-          nixos)
-            DETECTED_OS="nixos"
-            return 0
-            ;;
-          debian|ubuntu|linuxmint|pop|raspbian|kali)
-            DETECTED_OS="debian"
-            return 0
-            ;;
-          arch|manjaro|endeavouros|garuda|artix)
-            DETECTED_OS="arch"
-            return 0
-            ;;
-        esac
-        # Fall back to ID_LIKE for derivatives.
-        case "$id_like" in
-          *debian*|*ubuntu*) DETECTED_OS="debian"; return 0 ;;
-          *arch*)            DETECTED_OS="arch"; return 0 ;;
-        esac
-        DETECTED_OS="linux-unknown"
-        return 0
-      fi
-      DETECTED_OS="linux-unknown"
-      return 0
-      ;;
-    *)
-      DETECTED_OS="unsupported"
-      return 0
-      ;;
-  esac
+  if [ "$kernel" = "Darwin" ]; then
+    DETECTED_OS="macos"
+  else
+    DETECTED_OS="unsupported"
+  fi
 }
 
 # Run detection at source time (after double-source guard).
@@ -275,223 +236,31 @@ claude_mcp_has() {
 # ----- platform abstraction ----------------------------------------------
 
 assert_supported_os() {
-  case "$DETECTED_OS" in
-    macos|debian|arch)
-      return 0
-      ;;
-    nixos)
-      log_error "NixOS detected. This imperative wizard is not designed for NixOS."
-      log_error "Add packages to your configuration.nix or home.nix, or use the"
-      log_error "companion flake.nix when available."
-      exit 3
-      ;;
-    linux-unknown)
-      log_warn "Unsupported Linux distribution detected."
-      if [ -f /etc/os-release ]; then
-        local distro_name
-        distro_name="$(. /etc/os-release && printf '%s' "${PRETTY_NAME:-unknown}")"
-        log_warn "Detected: $distro_name"
-      fi
-      log_warn "Supported: macOS, Debian/Ubuntu, Arch/Manjaro."
-      log_warn "Continuing at your own risk; some install commands may fail."
-      ;;
-    *)
-      log_error "Unsupported platform: $(uname -s). This wizard supports macOS, Debian/Ubuntu, and Arch Linux."
-      exit 3
-      ;;
-  esac
+  if [ "$DETECTED_OS" = "macos" ]; then
+    return 0
+  fi
+  log_error "Unsupported platform: $(uname -s). This wizard supports macOS only."
+  exit 3
 }
 
-# require_pkg_manager: ensure the platform's package manager is available.
-# On macOS requires brew, on Debian checks apt, on Arch checks pacman.
+# require_pkg_manager: ensure Homebrew is available.
 # In dry-run mode, warn and continue.
 require_pkg_manager() {
-  case "$DETECTED_OS" in
-    macos)
-      require_brew
-      return $?
-      ;;
-    debian)
-      if check_command apt-get; then return 0; fi
-      if [ "$DRY_RUN" = "1" ]; then
-        log_warn "apt-get not found — dry-run continues"
-        return 0
-      fi
-      log_error "apt-get is required on Debian/Ubuntu"
-      exit 3
-      ;;
-    arch)
-      if check_command pacman; then return 0; fi
-      if [ "$DRY_RUN" = "1" ]; then
-        log_warn "pacman not found — dry-run continues"
-        return 0
-      fi
-      log_error "pacman is required on Arch Linux"
-      exit 3
-      ;;
-    *)
-      log_warn "No package manager check for $DETECTED_OS"
-      return 0
-      ;;
-  esac
+  require_brew
 }
 
-# ----- package name mapping (Bash 3.2 compat: parallel arrays) -----------
-# Canonical names are used in scripts; platform-specific names resolved here.
-# Format: PKG_MAP_CANONICAL[i] -> PKG_MAP_BREW[i] / PKG_MAP_APT[i] / PKG_MAP_PACMAN[i]
-# Use empty string ("") if package is not available on that platform.
+# ----- brew package helpers -------------------------------------------------
 
-PKG_MAP_CANONICAL=""
-PKG_MAP_BREW=""
-PKG_MAP_APT=""
-PKG_MAP_PACMAN=""
-
-_pkg_map_add() {
-  # _pkg_map_add <canonical> <brew> <apt> <pacman>
-  if [ -z "$PKG_MAP_CANONICAL" ]; then
-    PKG_MAP_CANONICAL="$1"
-    PKG_MAP_BREW="$2"
-    PKG_MAP_APT="$3"
-    PKG_MAP_PACMAN="$4"
-  else
-    PKG_MAP_CANONICAL="$PKG_MAP_CANONICAL
-$1"
-    PKG_MAP_BREW="$PKG_MAP_BREW
-$2"
-    PKG_MAP_APT="$PKG_MAP_APT
-$3"
-    PKG_MAP_PACMAN="$PKG_MAP_PACMAN
-$4"
-  fi
-}
-
-# Build the mapping table.
-#               canonical         brew              apt                       pacman
-_pkg_map_add    jq                jq                jq                        jq
-_pkg_map_add    gh                gh                gh                        github-cli
-_pkg_map_add    fontconfig        fontconfig        fontconfig                fontconfig
-_pkg_map_add    make              make              make                      make
-_pkg_map_add    nodejs            node              nodejs                    nodejs
-_pkg_map_add    npm               node              npm                       npm
-_pkg_map_add    python3           python            python3                   python
-_pkg_map_add    r                 r                 r-base                    r
-_pkg_map_add    r-dev             ""                r-base-dev                ""
-_pkg_map_add    pandoc            pandoc            pandoc                    pandoc
-_pkg_map_add    typst             typst             ""                        typst
-_pkg_map_add    build-essential   ""                build-essential           base-devel
-_pkg_map_add    curl              curl              curl                      curl
-_pkg_map_add    git               git               git                       git
-_pkg_map_add    texlive-basic     ""                "texlive-base texlive-latex-extra latexmk biber"   "texlive-basic texlive-latexextra texlive-binextra biber"
-_pkg_map_add    texlive-full      ""                texlive-full              texlive-most
-_pkg_map_add    fonts-lm          ""                "fonts-lmodern fonts-cmu" "otf-latin-modern noto-fonts"
-_pkg_map_add    fonts-noto        ""                "fonts-noto fonts-noto-cjk" "noto-fonts noto-fonts-cjk"
-
-resolve_pkg_name() {
-  # resolve_pkg_name <canonical> -> prints platform-specific name(s) to stdout
-  # Returns 1 if not found in map or empty for this platform.
-  local canonical="$1"
-  local i=1
-  local line
-  local platform_map
-  case "$DETECTED_OS" in
-    macos)   platform_map="$PKG_MAP_BREW" ;;
-    debian)  platform_map="$PKG_MAP_APT" ;;
-    arch)    platform_map="$PKG_MAP_PACMAN" ;;
-    *)       platform_map="" ;;
-  esac
-  [ -z "$platform_map" ] && return 1
-  # Walk parallel arrays line by line.
-  while IFS= read -r line; do
-    local canon_line
-    canon_line="$(printf '%s\n' "$PKG_MAP_CANONICAL" | sed -n "${i}p")"
-    if [ "$canon_line" = "$canonical" ]; then
-      if [ -z "$line" ]; then
-        return 1
-      fi
-      printf '%s' "$line"
-      return 0
-    fi
-    i=$((i + 1))
-  done <<EOF
-$platform_map
-EOF
-  return 1
-}
-
-# pkg_install <canonical-name>
-# Resolves canonical name and dispatches to the platform's package manager.
+# pkg_install <brew-formula>
+# Thin wrapper around brew_install_formula for backward compatibility.
 pkg_install() {
-  local canonical="$1"
-  local resolved
-  if ! resolved="$(resolve_pkg_name "$canonical")"; then
-    log_warn "no package mapping for '$canonical' on $DETECTED_OS"
-    return 1
-  fi
-  case "$DETECTED_OS" in
-    macos)
-      # On macOS, route through brew helpers for each resolved name.
-      local pkg
-      for pkg in $resolved; do
-        brew_install_formula "$pkg"
-      done
-      ;;
-    debian)
-      if [ "$DRY_RUN" = "1" ]; then
-        log_dry "sudo apt-get install -y $resolved"
-        return 0
-      fi
-      # shellcheck disable=SC2086
-      sudo apt-get install -y $resolved
-      ;;
-    arch)
-      if [ "$DRY_RUN" = "1" ]; then
-        log_dry "sudo pacman -S --noconfirm $resolved"
-        return 0
-      fi
-      # shellcheck disable=SC2086
-      sudo pacman -S --noconfirm $resolved
-      ;;
-    *)
-      log_warn "cannot install '$canonical' on $DETECTED_OS"
-      return 1
-      ;;
-  esac
+  brew_install_formula "$1"
 }
 
-# check_pkg_installed <canonical-name>
-# Cross-platform presence check dispatcher.
+# check_pkg_installed <brew-formula>
+# Check if a Homebrew formula is installed.
 check_pkg_installed() {
-  local canonical="$1"
-  local resolved
-  case "$DETECTED_OS" in
-    macos)
-      if ! resolved="$(resolve_pkg_name "$canonical")"; then return 1; fi
-      local pkg
-      for pkg in $resolved; do
-        check_brew_formula "$pkg" || return 1
-      done
-      return 0
-      ;;
-    debian)
-      if ! resolved="$(resolve_pkg_name "$canonical")"; then return 1; fi
-      local pkg
-      for pkg in $resolved; do
-        dpkg -l "$pkg" 2>/dev/null | grep -q "^ii" || return 1
-      done
-      return 0
-      ;;
-    arch)
-      if ! resolved="$(resolve_pkg_name "$canonical")"; then return 1; fi
-      local pkg
-      for pkg in $resolved; do
-        pacman -Qi "$pkg" >/dev/null 2>&1 || return 1
-      done
-      return 0
-      ;;
-    *)
-      return 1
-      ;;
-  esac
+  check_brew_formula "$1"
 }
 
 # ----- interactive_step ---------------------------------------------------
@@ -570,38 +339,11 @@ ${cmd}	${desc}"
   fi
 }
 
-# sudo_install <canonical-name> [why_needed]
-# Wraps package installation that requires sudo via interactive_step.
+# sudo_install <formula> [why_needed]
+# On macOS, sudo installs are rare; fall through to brew_install_formula.
 sudo_install() {
-  local canonical="$1"
-  local why="${2:-}"
-  local resolved
-  if ! resolved="$(resolve_pkg_name "$canonical")"; then
-    log_warn "no package mapping for '$canonical' on $DETECTED_OS"
-    return 1
-  fi
-  local install_cmd verify_cmd
-  case "$DETECTED_OS" in
-    debian)
-      install_cmd="sudo apt-get install -y $resolved"
-      # Verify all packages are installed.
-      verify_cmd="dpkg -l $resolved 2>/dev/null | grep -c '^ii' | grep -q '$(printf '%s' "$resolved" | wc -w | tr -d ' ')'"
-      ;;
-    arch)
-      install_cmd="sudo pacman -S --noconfirm $resolved"
-      verify_cmd="pacman -Qi $resolved >/dev/null 2>&1"
-      ;;
-    macos)
-      # On macOS, sudo installs are rare; fall through to pkg_install.
-      pkg_install "$canonical"
-      return $?
-      ;;
-    *)
-      log_warn "sudo_install not supported on $DETECTED_OS"
-      return 1
-      ;;
-  esac
-  interactive_step "Install $canonical ($resolved)" "$install_cmd" "$verify_cmd" "$why"
+  local formula="$1"
+  brew_install_formula "$formula"
 }
 
 # ----- runners -----------------------------------------------------------
@@ -771,20 +513,7 @@ assert_macos() {
 
 assert_git_or_hint() {
   if ! check_command git; then
-    case "$DETECTED_OS" in
-      macos)
-        log_error "git is not installed — run 'xcode-select --install' first"
-        ;;
-      debian)
-        log_error "git is not installed — run 'sudo apt-get install -y git'"
-        ;;
-      arch)
-        log_error "git is not installed — run 'sudo pacman -S git'"
-        ;;
-      *)
-        log_error "git is not installed — install it with your system's package manager"
-        ;;
-    esac
+    log_error "git is not installed — run 'xcode-select --install' first"
     log_error "see docs/general/installation.md for step-by-step instructions"
     exit 3
   fi
