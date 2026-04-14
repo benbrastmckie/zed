@@ -4,11 +4,11 @@
     {
       "project_number": 64,
       "project_name": "narrow_install_to_macos_only",
-      "status": "planned",
+      "status": "completed",
       "task_type": "general",
       "created": "2026-04-14T16:32:32Z",
-      "last_updated": "2026-04-14T16:45:05Z",
-      "session_id": "sess_1744650800_64plan",
+      "last_updated": "2026-04-14T18:30:00Z",
+      "session_id": "sess_1744651200_impl64",
       "next_artifact_number": 2,
       "artifacts": [
         {
@@ -19,15 +19,36 @@
         {
           "path": "specs/064_narrow_install_to_macos_only/plans/01_macos-narrowing-plan.md",
           "type": "plan"
+        },
+        {
+          "path": "specs/064_narrow_install_to_macos_only/summaries/01_macos-narrowing-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for macOS-only narrowing across scripts and documentation"
         }
       ],
+      "completion_summary": "Removed all Linux platform support (Debian/Ubuntu, Arch/Manjaro, NixOS) from 8 install scripts, 11 documentation files, and 4 .claude/ context files. Deleted systemd timer/service files and PPM configuration. Simplified lib.sh from ~806 to ~535 lines by eliminating cross-platform dispatch and package name mapping infrastructure.",
       "plan_metadata": {
         "phases": 6,
         "total_effort_hours": 5,
         "complexity": "medium",
         "research_integrated": true,
         "plan_version": 1,
-        "dependency_waves": [[1, 2], [3, 4], [5], [6]],
+        "dependency_waves": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ],
         "reports_integrated": [
           {
             "path": "reports/01_macos-narrowing-audit.md",
