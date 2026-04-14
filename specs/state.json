@@ -4,10 +4,10 @@
     {
       "project_number": 61,
       "project_name": "revert_task_60_restore_slide_planner",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "meta",
       "created": "2026-04-13T23:19:25Z",
-      "last_updated": "2026-04-14T01:06:00Z",
+      "last_updated": "2026-04-14T01:25:00Z",
       "session_id": "sess_1776128744_1d56ce",
       "next_artifact_number": 2,
       "artifacts": [
@@ -20,8 +20,15 @@
           "path": "specs/061_revert_task_60_restore_slide_planner/plans/01_revert-plan.md",
           "type": "plan",
           "summary": "3-phase plan to revert task 60 commits, re-add slide-planner-agent to CLAUDE.md tables, and verify cross-references"
+        },
+        {
+          "path": "specs/061_revert_task_60_restore_slide_planner/summaries/01_revert-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary documenting compound revert of 4 task-60 commits and cross-reference verification"
         }
-      ]
+      ],
+      "completion_summary": "Reverted all 4 task-60 commits that incorrectly removed slide-planner-agent/skill-slide-planning references, restoring 17+ files across .claude/ and docs/. Verified all cross-references are consistent.",
+      "claudemd_suggestions": "Restored CLAUDE.md Hooks section, slide-planner-agent in 3 tables, and present:slides routing row. Restored Co-Authored-By note in git-workflow.md."
     },
     {
       "project_number": 60,
