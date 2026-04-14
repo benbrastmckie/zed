@@ -8,12 +8,13 @@ next_project_number: 64
 
 ### 63. Create zed-specific .claude/ customizations and .syncprotect file
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
 - **Research**:
   - [01_zed-customizations-audit.md](specs/063_zed_specific_claude_customizations_and_syncprotect/reports/01_zed-customizations-audit.md)
   - [02_docs-update-audit.md](specs/063_zed_specific_claude_customizations_and_syncprotect/reports/02_docs-update-audit.md)
 - **Plan**: [03_zed-customizations-plan.md](specs/063_zed_specific_claude_customizations_and_syncprotect/plans/03_zed-customizations-plan.md)
+- **Summary**: [03_zed-customizations-summary.md](063_zed_specific_claude_customizations_and_syncprotect/summaries/03_zed-customizations-summary.md)
 **Description**: Make the zed config repo's .claude/ files accurate and repo-specific, then protect them from future sync overwrites.
 
 **Phase 1: Generate project-overview.md for zed repo**
