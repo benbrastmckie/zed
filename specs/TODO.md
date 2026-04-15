@@ -1,10 +1,17 @@
 ---
-next_project_number: 66
+next_project_number: 67
 ---
 
 # Task List
 
 ## Tasks
+
+### 66. Update docs/ and README.md to reflect .claude/ refactoring
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Update all relevant documentation in `docs/` and `README.md` to reflect the .claude/ directory refactoring: remove neovim-specific references, replace `<leader>ac` with "extension picker", genericize examples (nvim/lua/ paths to src/ paths, neovim task types to general), and fix any stale cross-references from deleted files (neovim-integration.md, tts-stt-integration.md).
 
 ### 65. Strip nvim/neovim references from 53 .claude/ files after sync reload
 - **Effort**: large

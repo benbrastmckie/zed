@@ -1,6 +1,14 @@
 {
-  "next_project_number": 66,
+  "next_project_number": 67,
   "active_projects": [
+    {
+      "project_number": 66,
+      "project_name": "update_docs_readme_post_refactor",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-15T02:41:52Z",
+      "last_updated": "2026-04-15T02:41:52Z"
+    },
     {
       "project_number": 65,
       "project_name": "strip_nvim_references_post_sync",
