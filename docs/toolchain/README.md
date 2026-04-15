@@ -1,6 +1,6 @@
 # Toolchain Reference
 
-> **Quick install**: all dependencies below can be installed non-interactively via the wizard at [`scripts/install/install.sh`](../../scripts/install/) — see [docs/general/installation.md](../general/installation.md#installation-wizard-recommended) for the step-by-step walkthrough. Each per-group script (`install-<group>.sh`) can also be run directly and supports `--dry-run`, `--check`, `--yes`, and `--help`. The sections in this directory remain the authoritative manual walkthrough and are the source of truth for what the wizard automates.
+> **Quick install**: all dependencies below can be installed non-interactively via the wizard at [`scripts/install/install.sh`](../../scripts/install/) — see [docs/general/installation.md](../general/installation.md#installation-wizard-recommended) for the step-by-step walkthrough. Each per-group script (`install-<group>.sh`) can also be run directly and supports `--dry-run`, `--check`, and `--help`. The sections in this directory remain the authoritative manual walkthrough and are the source of truth for what the wizard automates.
 
 This directory documents every **external dependency** assumed by the active `.claude/` extensions in this repository. It is the single authoritative source for "what do I need to install so that the extensions in this repo actually work."
 

@@ -6,7 +6,6 @@
 bash scripts/install/install-typesetting.sh              # interactive
 bash scripts/install/install-typesetting.sh --dry-run    # preview only
 bash scripts/install/install-typesetting.sh --check      # presence report
-bash scripts/install/install-typesetting.sh --yes        # non-interactive
 ```
 
 Prompts for LaTeX (BasicTeX by default, MacTeX on opt-in), Typst, Pandoc, `markitdown` (via `uv tool install`), and the Latin Modern / Computer Modern / Noto font family. `.claude/settings.json`'s `Bash(typst *)` allowlist is a separate concern and is **not** managed by this script. Every action is guarded by a presence check and is safe to re-run. See [`scripts/install/install-typesetting.sh`](../../scripts/install/install-typesetting.sh) for the exact invocations. The manual walkthrough below is the source of truth for what the script automates.

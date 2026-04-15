@@ -15,7 +15,7 @@ bash scripts/install/install.sh
 ```
 
 The wizard walks through six groups (base tools, shell utilities, Python, R, typesetting, MCP servers) with accept/skip/cancel prompts.
-<!-- Non-interactive shortcuts: `bash scripts/install/install.sh --dry-run` (preview), `--check` (health report), `--preset epi-demo`, `--preset writing`, `--preset everything`, or `--only base,python --yes`. -->
+Add `--dry-run` to preview every action without installing, or `--check` to print a health report of which tools are present or missing.
 
 ### Manual Installation
 

@@ -6,7 +6,6 @@
 bash scripts/install/install-python.sh              # interactive
 bash scripts/install/install-python.sh --dry-run    # preview only
 bash scripts/install/install-python.sh --check      # presence report
-bash scripts/install/install-python.sh --yes        # non-interactive
 ```
 
 Installs `python3`, `uv` (with `uvx`), and `ruff` via Homebrew, then prompts for optional uv tools (`pytest`, `mypy`, `ipython`) and the filetypes packages (`pandas`, `openpyxl`, `python-pptx`, `python-docx`, `markitdown`, `xlsx2csv`, `pymupdf`, `pdfannots`). Every action is guarded by a presence check and is safe to re-run. See [`scripts/install/install-python.sh`](../../scripts/install/install-python.sh) for the exact invocations. The manual walkthrough below is the source of truth for what the script automates.

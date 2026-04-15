@@ -6,7 +6,6 @@
 bash scripts/install/install-r.sh              # interactive
 bash scripts/install/install-r.sh --dry-run    # preview only
 bash scripts/install/install-r.sh --check      # presence report
-bash scripts/install/install-r.sh --yes        # non-interactive
 ```
 
 Installs R via Homebrew and the editor packages `languageserver`, `lintr`, and `styler` (forcing `repos="https://cloud.r-project.org"` so CRAN does not prompt for a mirror). Optional sub-groups cover `renv`, Quarto, and the epidemiology R package bundle. Every action is guarded by a presence check and is safe to re-run. See [`scripts/install/install-r.sh`](../../scripts/install/install-r.sh) for the exact invocations. The manual walkthrough below is the source of truth for what the script automates.

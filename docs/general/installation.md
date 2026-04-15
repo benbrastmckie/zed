@@ -34,13 +34,8 @@ The interactive installation wizard at `scripts/install/install.sh` walks throug
 
 - `bash scripts/install/install.sh --dry-run` — preview every action without installing anything.
 - `bash scripts/install/install.sh --check` — health report only (prints which tools are present or missing).
-- `bash scripts/install/install.sh --preset minimal` — base + shell-tools only.
-- `bash scripts/install/install.sh --preset epi-demo` — base + shell-tools + Python + R + typesetting (everything except the extension MCP servers).
-- `bash scripts/install/install.sh --preset writing` — base + shell-tools + typesetting.
-- `bash scripts/install/install.sh --preset everything` — all six groups.
-- `bash scripts/install/install.sh --only base,python --yes` — pick specific groups and auto-accept prompts.
 
-Each group script (`scripts/install/install-<group>.sh`) can also be run directly and supports the same flags. See [docs/toolchain/README.md](../toolchain/README.md) for a per-group breakdown.
+Each group script (`scripts/install/install-<group>.sh`) can also be run directly and supports `--dry-run`, `--check`, and `--help`. See [docs/toolchain/README.md](../toolchain/README.md) for a per-group breakdown.
 
 If you prefer to install everything by hand, keep reading — the rest of this page is the authoritative manual walkthrough and is the source of truth for what the wizard automates.
 

@@ -6,7 +6,6 @@
 bash scripts/install/install-mcp-servers.sh              # interactive
 bash scripts/install/install-mcp-servers.sh --dry-run    # preview only
 bash scripts/install/install-mcp-servers.sh --check      # presence report
-bash scripts/install/install-mcp-servers.sh --yes        # non-interactive
 ```
 
 Registers `rmcp`, `markitdown-mcp`, and `mcp-pandoc` via `claude mcp add --scope user` (all three launch via `uvx`). `superdoc` and `openpyxl` are handled by [`install-base.sh`](../../scripts/install/install-base.sh). `obsidian-memory` is a pointer-only install (Obsidian desktop + plugin setup cannot be automated sensibly) and the script offers to `open` the setup guide.
