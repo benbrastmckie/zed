@@ -3,7 +3,7 @@ title: "Self-Learning Memory System: Team Research Synthesis"
 task: 68
 artifact_type: research
 mode: team
-teammates: 3 (A: Primary, C: Critic, D: Horizons; B: web research timed out)
+teammates: 4 (A: Primary, B: Alternatives/Web Research, C: Critic, D: Horizons)
 created: 2026-04-15
 ---
 
@@ -11,7 +11,7 @@ created: 2026-04-15
 
 **Task**: Design self-learning memory system with automatic capture and retrieval
 **Date**: 2026-04-15
-**Mode**: Team Research (3 of 4 teammates completed)
+**Mode**: Team Research (4 teammates)
 
 ## Summary
 
@@ -93,12 +93,31 @@ Teammate A identified three candidate points; Teammate C ruled out postflight on
 
 Teammate D recommended making `--remember` default for `meta` tasks only. Teammate A proposed making it default for all research. **Resolution**: Make retrieval default for all research operations (it's cheap and the vault is small). Add `--no-remember` flag for opt-out. For planning and implementation, use topic-based filtering (Approach B) to inject only highly relevant memories without full vault search.
 
+### Prior Art Integration (from Teammate B -- late completion)
+
+Teammate B's web research surfaced seven major systems with converging evidence:
+
+**Retrieval scoring**: The Generative Agents paper (Stanford/Google, UIST 2023) established the gold-standard formula: `score = α·recency + β·importance + γ·relevance`. Key insight: recency measures time since last *retrieval*, not creation -- implementing natural spaced repetition. Frequently-accessed memories strengthen; unused ones decay.
+
+**Reflexion pattern** (NeurIPS 2023): Post-task verbal reflection stored as episodic memory dramatically improves coding agent performance (SOTA on HumanEval, MBPP). Maps directly to GATE OUT capture. The most effective reflections are task-outcome-conditional, failure-focused, and prescriptive.
+
+**AUDN cycle** (Mem0, production 2024-2025): Industry-standard deduplication: ADD/UPDATE/DELETE/NOOP. LLM-driven decision after semantic search of top-10 similar memories. Achieves 26% improvement over OpenAI memory, 91% token reduction vs full context. Most candidates result in NOOP (system already knows the fact).
+
+**Verification-at-retrieval** (GitHub Copilot, production): Rather than time-based decay, verify whether memory citations are still valid at retrieval time. Better for code repos because changes are event-driven, not time-driven. Measured impact: 7% increase in PR merge rates with memory-enabled agents.
+
+**Design implications for task 68**:
+- Use composite scoring for retrieval (not just keyword matching)
+- Add `retrieval_count` and `last_retrieved` fields to memory frontmatter for natural decay
+- Adopt AUDN for deduplication (the existing UPDATE/EXTEND/CREATE in skill-memory is already close)
+- Prefer verification-at-retrieval over time-based expiration for staleness
+- Budget retrieval to 5-10 memories, <2000 tokens per injection
+
 ### Gaps Identified
 
-1. **Memory invalidation**: No mechanism exists to detect or mark stale memories. Needs a maintenance command or periodic review cycle.
-2. **Memory pruning**: No design for archiving or removing low-value memories over time.
-3. **Cross-session deduplication**: When agents emit candidates across multiple sessions, duplicates may accumulate before `/todo` batches them.
-4. **Teammate B findings missing**: Web research on AI memory best practices (RAG patterns, reflexion, memory streams) was not completed. These could inform quality filtering heuristics.
+1. **Memory invalidation**: No mechanism exists to detect or mark stale memories. Verification-at-retrieval (GitHub Copilot pattern) is the recommended approach over time-based decay.
+2. **Memory pruning**: Add `retrieval_count` field; memories never retrieved after N task cycles become archive candidates.
+3. **Cross-session deduplication**: AUDN cycle (Mem0 pattern) should govern all writes. Most candidates will be NOOP.
+4. **Embedding infrastructure**: Current system uses grep/keyword matching. Composite scoring with relevance requires either embedding support or enhanced keyword overlap scoring.
 
 ### Recommendations
 
@@ -136,7 +155,7 @@ Teammate D recommended making `--remember` default for `meta` tasks only. Teamma
 | Teammate | Angle | Status | Confidence |
 |----------|-------|--------|------------|
 | A | Primary architecture + implementation | completed | medium-high |
-| B | Alternative patterns + web research | timeout | n/a |
+| B | Prior art + web research (7 systems analyzed) | completed (late) | high |
 | C | Critic: risks and constraints | completed | high |
 | D | Strategic alignment + creative approaches | completed | high |
 
