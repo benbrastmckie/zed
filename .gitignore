@@ -5,3 +5,4 @@ specs/tmp/claude-tts-notify.log
 
 # Broader scratch directory (nothing else here is tracked)
 specs/tmp/
+**/.return-meta.json
