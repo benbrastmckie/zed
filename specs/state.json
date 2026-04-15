@@ -4,12 +4,18 @@
     {
       "project_number": 65,
       "project_name": "strip_nvim_references_post_sync",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-14T20:30:00Z",
-      "last_updated": "2026-04-14T20:30:00Z",
-      "artifacts": [],
-      "next_artifact_number": 1
+      "last_updated": "2026-04-14T21:00:00Z",
+      "artifacts": [
+        {
+          "path": "specs/065_strip_nvim_references_post_sync/reports/01_nvim-reference-audit.md",
+          "type": "research",
+          "summary": "Post-reload audit: 368 nvim/neovim + 21 neotex + 19 leader-ac references across 53 files. Syncprotect failed (8 of 9 files overwritten). Root CLAUDE.md gone. 6 categories: re-contaminated (8 files), broken config (6), incorrect routing (6), neovim guides to delete/rewrite (6), example rewrites (14), template mentions (14)"
+        }
+      ],
+      "next_artifact_number": 2
     },
     {
       "project_number": 64,

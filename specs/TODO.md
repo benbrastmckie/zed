@@ -6,25 +6,29 @@ next_project_number: 66
 
 ## Tasks
 
-### 65. Strip nvim/neovim references from .claude/ after sync reload
-- **Effort**: medium
-- **Status**: [NOT STARTED]
+### 65. Strip nvim/neovim references from 53 .claude/ files after sync reload
+- **Effort**: large
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_nvim-reference-audit.md](specs/065_strip_nvim_references_post_sync/reports/01_nvim-reference-audit.md)
 
-**Description**: The .claude/ directory was reloaded from the nvim config source, overwriting zed-specific customizations from task 63. Multiple files now contain nvim/neovim/neotex references that are incorrect for this Zed configuration repository. Fix the following:
+**Description**: 368 nvim/neovim occurrences across 53 `.claude/` files, plus 21 neotex and 19 `<leader>ac` references. The sync reload overwrote 8 of 9 `.syncprotect`-listed files (only `project-overview.md` survived via `CONTEXT_EXCLUDE_PATTERNS`, not `.syncprotect`). Root `CLAUDE.md` created by task 63 no longer exists. Full per-file audit in research report.
 
-**Critical:**
-1. Rewrite `context/repo/project-overview.md` for Zed (currently describes Neovim/Lua/lazy.nvim/treesitter). Cover: settings.json, keymap.json, themes/, talks/, scripts/, docs/, examples/, prompts/, tasks.json, specs/, .memory/
-2. Create root `CLAUDE.md` at repo root as central config index (matching nvim pattern but pointing to zed-specific content)
+**Prerequisite -- Fix sync protection**: `.syncprotect` is not honored by the sync mechanism. Options: fix the loader, add a post-sync fixup script, or use git stash/restore around syncs. Without this, cleanup will be undone on next reload.
 
-**Medium:**
-3. Remove or rewrite `docs/guides/neovim-integration.md` (336-line Neovim-specific guide with neotex/sidebar/TTS references)
-4. Remove `neovim` routing entry from `context/routing.md` line 17 (skill-neovim-research/implementation don't exist here)
-5. Audit and clean nvim/neovim/neotex references from ~75 core .claude/ files (CLAUDE.md lines 75/120/200/222, README.md lines 119/188, agents, commands, context, docs, rules, skills). For files that are synced from nvim, only clean references that name neovim as an *available* feature in this repo -- keep generic mentions in templates/examples that just list it as a possible task type
+**Category A+ -- Re-contaminated (Critical, 8 files, 36 refs):** Syncprotected files the reload overwrote: `CLAUDE.md`, `README.md`, `commands/fix-it.md`, `commands/learn.md`, `commands/review.md`, `commands/task.md`, `skills/skill-orchestrator/SKILL.md`, `rules/plan-format-enforcement.md`.
 
-**Low:**
-6. Clean up TODO.md Recommended Order (lists completed tasks 61, 62, 64)
-7. Verify .syncprotect at project root protects project-overview.md from future sync overwrites
+**Category A -- Broken Config (Critical, 6 files, 30 refs):** Paths to nonexistent nvim directories. `extensions.json` (7 source_dir), `settings.local.json` (12 nvim path permissions), `settings.json` (SessionStart hook), `systemd/claude-refresh.service`, `commands/todo.md` (health metrics), `scripts/validate-wiring.sh`.
+
+**Category B -- Incorrect Routing (High, 6 files, 12 refs):** Routes to nonexistent neovim agents/skills. `agents/meta-builder-agent.md`, `agents/code-reviewer-agent.md`, `agents/spawn-agent.md`, `skills/skill-fix-it/SKILL.md`, `context/architecture/system-overview.md`, `context/orchestration/orchestration-core.md`.
+
+**Category C -- Neovim-Centric Guides (Medium, 6 files, ~106 refs):** Delete `neovim-integration.md` and `tts-stt-integration.md`. Rewrite `user-installation.md`, `copy-claude-directory.md`, `user-guide.md`, `adding-domains.md`.
+
+**Category D -- Examples Using Neovim (Medium, 14 files, ~142 refs):** Replace `nvim/lua/` paths and neovim task types with Zed-appropriate examples across docs, standards, and context guides.
+
+**Category E -- Template/Generic (Low, 14 files, ~42 refs):** Neovim in editor lists or generic templates. Replace where easy, defer rest.
+
+**Also needed:** Recreate root `~/.config/zed/CLAUDE.md` (gone after reload). Replace 19 `<leader>ac` references with generic "extension loader" language across 10 files.
 
 ### 64. Narrow installation scripts and documentation to macOS-only, removing all Linux support
 - **Effort**: medium
@@ -83,4 +87,4 @@ Create `.claude/.syncprotect` listing files that have zed-specific customization
 
 ## Recommended Order
 
-1. **65** [NOT STARTED] -> research (independent)
+1. **65** [RESEARCHED] -> plan (independent)
