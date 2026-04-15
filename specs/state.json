@@ -4,10 +4,19 @@
     {
       "project_number": 67,
       "project_name": "strip_install_script_shortcuts",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "general",
       "created": "2026-04-15T19:15:27Z",
-      "last_updated": "2026-04-15T19:15:27Z"
+      "last_updated": "2026-04-15T19:25:00Z",
+      "session_id": "sess_1776280635_ae163f",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/067_strip_install_script_shortcuts/reports/01_install-script-audit.md",
+          "type": "research",
+          "summary": "Complete audit of all install script flags: 3 flags to remove (--yes/-y, --only, --preset), 2 to keep (--dry-run, --check), plus --help. Identified 8 script files and 8 documentation files requiring changes."
+        }
+      ]
     },
     {
       "project_number": 66,
