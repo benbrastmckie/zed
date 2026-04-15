@@ -6,17 +6,20 @@ A Zed editor configuration for macOS that pairs first-class **R** and **Python**
 
 ## Quick Start
 
-On a fresh system, the fastest path is the installation wizard:
+On a fresh system, the fastest path is the installation wizard (copy the following lines into the Terminal which you can open with Spotlight and then hit `Enter`):
 
 ```
-git clone <repo-url> ~/.config/zed
+git clone https://github.com/benbrastmckie/zed ~/.config/zed
 cd ~/.config/zed
 bash scripts/install/install.sh
 ```
 
-The wizard walks through six groups (base tools, shell utilities, Python, R, typesetting, MCP servers) with accept/skip/cancel prompts. Non-interactive shortcuts: `bash scripts/install/install.sh --dry-run` (preview), `--check` (health report), `--preset epi-demo`, `--preset writing`, `--preset everything`, or `--only base,python --yes`. See [docs/general/installation.md](docs/general/installation.md#installation-wizard-recommended) for the full walkthrough and [docs/toolchain/README.md](docs/toolchain/README.md) for per-group detail.
+The wizard walks through six groups (base tools, shell utilities, Python, R, typesetting, MCP servers) with accept/skip/cancel prompts.
+<!-- Non-interactive shortcuts: `bash scripts/install/install.sh --dry-run` (preview), `--check` (health report), `--preset epi-demo`, `--preset writing`, `--preset everything`, or `--only base,python --yes`. -->
 
-**Prefer to install by hand?**
+### Manual Installation
+
+Prefer to install everything by hand?
 
 1. Install Zed: `brew install --cask zed`
 2. Open Zed from Applications or Spotlight
@@ -24,9 +27,9 @@ The wizard walks through six groups (base tools, shell utilities, Python, R, typ
 4. Set up your languages: [Python](docs/toolchain/python.md) and [R](docs/toolchain/r.md)
 5. Theme is One Dark; font is Fira Code
 
-For the full installation walkthrough, including MCP tool setup for Office file editing, see [docs/general/installation.md](docs/general/installation.md).
+See [docs/general/installation.md](docs/general/installation.md#installation-wizard-recommended) for the full walkthrough and [docs/toolchain/README.md](docs/toolchain/README.md) for per-group detail.
 
-**Essential shortcuts to know right away**:
+### Essential Shortcuts
 
 | Shortcut | What it does |
 |----------|-------------|
@@ -41,7 +44,10 @@ For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/key
 
 ## How It Works
 
-The agent system turns development work into tracked tasks with a predictable lifecycle. You create a task with `/task`, investigate it with `/research` (which produces a report), design a solution with `/plan` (which produces a phased plan), and execute it with `/implement` (which works through each phase, committing as it goes). When you are done, `/todo` archives completed tasks. If something goes wrong, `/implement` resumes from the last incomplete phase.
+The agent system provides an intuitive task management system with a predictable lifecycle.
+You create a task with `/task` (which generates a task with a unique number `N`), investigate it with `/research N` (which produces a report), design a solution with `/plan N` (which produces a phased plan), and execute it with `/implement N` (which works through each phase, committing as it goes).
+When completed tasks pile up, `/todo` archives completed tasks.
+If something goes wrong, running `/implement N` resumes from the last incomplete phase of task `N`.
 
 ### Walkthrough: Adding a New Language Server
 
@@ -62,7 +68,18 @@ The agent system turns development work into tracked tasks with a predictable li
 /todo
 ```
 
-Each step produces artifacts in `specs/034_add_toml_language_server/` -- reports, plans, and summaries -- so you can always see what was investigated, decided, and built.
+Each step produces artifacts in `specs/034_add_toml_language_server/` organized into directories for `reports/`, `plans/`, and `summaries/` so you can always see what was investigated, decided, and built.
+You can run multiple rounds of research and planning as needed.
+
+The `/research`, `/plan`, and `/implement` commands take optional prompts in case you want to specify additional details, though this is often unnecessary.
+For instance:
+
+```
+# Create a phased plan with focus
+/plan 34 "Use Option A given in the last report."
+```
+
+This instructs the agent what kind of plan you want to create.
 
 ## Example Outputs
 
