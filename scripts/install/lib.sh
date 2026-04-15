@@ -14,7 +14,7 @@
 #     All install actions are hard-coded in bash. See install-mcp-servers.sh
 #     for the rationale (Lean MCP resurrection guard).
 #   - Every install action MUST be guarded by a presence check (idempotency).
-#   - Every script MUST support --dry-run, --check, --help, --yes.
+#   - Every script MUST support --dry-run, --check, --help.
 #
 # --check CONTRACT (co-designed with future /doctor command):
 #   When invoked with --check, a script:
@@ -76,10 +76,7 @@ is_headless() {
 
 # Flag state (populated by parse_common_flags).
 DRY_RUN=0
-ASSUME_YES=0
 CHECK_MODE=0
-ONLY_GROUPS=""
-PRESET=""
 SHOW_HELP=0
 
 # Summary accumulators (used by master wizard).
@@ -124,23 +121,12 @@ print_section() {
 
 # prompt_yn "Question" [default_y|default_n]
 # Returns 0 for yes, 1 for no.
-# Honors $ASSUME_YES.
 prompt_yn() {
   local question="$1"
   local default="${2:-default_y}"
   local suffix="[Y/n]"
   if [ "$default" = "default_n" ]; then
     suffix="[y/N]"
-  fi
-  if [ "$ASSUME_YES" = "1" ]; then
-    # Respect default_n even in --yes mode: these are opt-in extras (e.g. MacTeX
-    # 5 GB, epi bundle) where silently accepting would cause surprising behaviour.
-    if [ "$default" = "default_n" ]; then
-      log_info "$question $suffix (auto-no — default is N; use interactive mode to opt in)"
-      return 1
-    fi
-    log_info "$question $suffix (auto-yes)"
-    return 0
   fi
   local reply=""
   # Prompt on stderr; read from terminal.
@@ -161,7 +147,6 @@ prompt_yn() {
 
 # prompt_accept_skip_cancel "Group name" "Description"
 # Prints to stderr. Sets global PROMPT_ASC_RESULT to one of: accept, skip, cancel.
-# Honors $ASSUME_YES (auto-accept).
 PROMPT_ASC_RESULT=""
 prompt_accept_skip_cancel() {
   local name="$1"
@@ -169,11 +154,6 @@ prompt_accept_skip_cancel() {
   printf '\n' >&2
   printf '----- %s -----\n' "$name" >&2
   printf '%s\n' "$desc" >&2
-  if [ "$ASSUME_YES" = "1" ]; then
-    PROMPT_ASC_RESULT="accept"
-    log_info "auto-accept ($name)"
-    return 0
-  fi
   local reply=""
   printf '[a]ccept / [s]kip / [c]ancel wizard? [A/s/c] ' >&2
   if ! read -r reply </dev/tty 2>/dev/null; then
@@ -440,10 +420,7 @@ print_common_help_footer() {
 
 Common flags:
   --dry-run         Print actions without executing.
-  --yes, -y         Assume yes for all prompts (non-interactive).
   --check           Run presence checks only; exit 0 if all present, 1 otherwise.
-  --only <groups>   Comma-separated groups (master wizard only): base,shell-tools,python,r,typesetting,mcp-servers
-  --preset <name>   One of: minimal, epi-demo, writing, everything (master wizard only)
   --help, -h        Show this help.
 EOF
 }
@@ -452,18 +429,7 @@ parse_common_flags() {
   while [ "$#" -gt 0 ]; do
     case "$1" in
       --dry-run)  DRY_RUN=1 ;;
-      --yes|-y)   ASSUME_YES=1 ;;
       --check)    CHECK_MODE=1 ;;
-      --only)
-        shift
-        ONLY_GROUPS="${1:-}"
-        ;;
-      --only=*)   ONLY_GROUPS="${1#--only=}" ;;
-      --preset)
-        shift
-        PRESET="${1:-}"
-        ;;
-      --preset=*) PRESET="${1#--preset=}" ;;
       --help|-h)  SHOW_HELP=1 ;;
       --)         shift; break ;;
       *)
@@ -472,19 +438,6 @@ parse_common_flags() {
     esac
     shift || true
   done
-}
-
-# ----- preset expansion (master wizard) ----------------------------------
-
-# preset_groups <name> -> prints space-separated group list to stdout
-preset_groups() {
-  case "$1" in
-    minimal)    printf 'base shell-tools' ;;
-    epi-demo)   printf 'base shell-tools python r typesetting' ;;
-    writing)    printf 'base shell-tools typesetting' ;;
-    everything) printf 'base shell-tools python r typesetting mcp-servers' ;;
-    *)          return 1 ;;
-  esac
 }
 
 # ----- exit trap ---------------------------------------------------------

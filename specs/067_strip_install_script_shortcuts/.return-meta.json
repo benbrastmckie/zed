@@ -1,29 +1,11 @@
 {
-  "status": "planned",
-  "session_id": "sess_1776281380_d7f999",
-  "agent_type": "planner-agent",
-  "delegation_path": ["orchestrator", "plan", "planner-agent"],
-  "artifacts": [
-    {
-      "path": "specs/067_strip_install_script_shortcuts/plans/01_install-script-plan.md",
-      "type": "plan",
-      "summary": "3-phase plan to strip --yes, --only, --preset flags from install scripts and update documentation"
-    }
-  ],
-  "plan_metadata": {
-    "phases": 3,
-    "total_effort_hours": 1.5,
-    "complexity": "medium",
-    "research_integrated": true,
-    "plan_version": 1,
-    "dependency_waves": [[1], [2, 3]],
-    "reports_integrated": [
-      {
-        "path": "reports/01_install-script-audit.md",
-        "integrated_in_plan_version": 1,
-        "integrated_date": "2026-04-15"
-      }
-    ]
-  },
-  "next_steps": "Run /implement 67 to execute the plan"
+  "status": "in_progress",
+  "session_id": "sess_1776283034_071005",
+  "agent_type": "general-implementation-agent",
+  "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+  "artifacts": [],
+  "metadata": {
+    "phases_completed": 0,
+    "phases_total": 3
+  }
 }

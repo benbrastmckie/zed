@@ -1,7 +1,7 @@
 # Implementation Plan: Strip Install Script Shortcuts
 
 - **Task**: 67 - strip_install_script_shortcuts
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 1.5 hours
 - **Dependencies**: None
 - **Research Inputs**: reports/01_install-script-audit.md
@@ -56,7 +56,7 @@ No ROADMAP.md items are relevant (roadmap is empty).
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Strip Flags from lib.sh [NOT STARTED]
+### Phase 1: Strip Flags from lib.sh [COMPLETED]
 
 **Goal**: Remove all traces of `--yes`/`-y`, `--only`, `--preset` from the shared library, including variable initialization, flag parsing cases, help text lines, ASSUME_YES logic in prompt functions, and the `preset_groups` function.
 
