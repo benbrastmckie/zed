@@ -1,7 +1,7 @@
 # Implementation Plan: Strip Install Script Shortcuts
 
 - **Task**: 67 - strip_install_script_shortcuts
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 1.5 hours
 - **Dependencies**: None
 - **Research Inputs**: reports/01_install-script-audit.md

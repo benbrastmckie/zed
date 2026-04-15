@@ -8,10 +8,11 @@ next_project_number: 68
 
 ### 67. Remove non-interactive shortcuts from installation script except --dry-run and --check
 - **Effort**: small
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
 - **Task Type**: general
 - **Research**: [01_install-script-audit.md](specs/067_strip_install_script_shortcuts/reports/01_install-script-audit.md)
 - **Plan**: [067_strip_install_script_shortcuts/plans/01_install-script-plan.md]
+- **Summary**: [067_strip_install_script_shortcuts/summaries/01_install-script-summary.md]
 
 **Description**: Remove all non-interactive shortcuts from the installation script except `--dry-run` and `--check`, updating the documentation accordingly and revising `README.md` line 18 to briefly state what each of these two retained flags does.
 
