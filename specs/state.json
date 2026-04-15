@@ -1,6 +1,14 @@
 {
-  "next_project_number": 67,
+  "next_project_number": 68,
   "active_projects": [
+    {
+      "project_number": 67,
+      "project_name": "strip_install_script_shortcuts",
+      "status": "not_started",
+      "task_type": "general",
+      "created": "2026-04-15T19:15:27Z",
+      "last_updated": "2026-04-15T19:15:27Z"
+    },
     {
       "project_number": 66,
       "project_name": "update_docs_readme_post_refactor",

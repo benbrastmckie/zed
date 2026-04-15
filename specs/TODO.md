@@ -1,10 +1,17 @@
 ---
-next_project_number: 67
+next_project_number: 68
 ---
 
 # Task List
 
 ## Tasks
+
+### 67. Remove non-interactive shortcuts from installation script except --dry-run and --check
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: general
+
+**Description**: Remove all non-interactive shortcuts from the installation script except `--dry-run` and `--check`, updating the documentation accordingly and revising `README.md` line 18 to briefly state what each of these two retained flags does.
 
 ### 66. Update docs/ and README.md to reflect .claude/ refactoring
 - **Effort**: medium
