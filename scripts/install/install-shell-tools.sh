@@ -7,7 +7,7 @@
 #   - make         (GNU make -- optional upgrade on macOS; standard on Linux)
 #   - fontconfig   (fc-list, used by typesetting font checks)
 #
-# Flags: --dry-run --yes --check --help
+# Flags: --dry-run --check --help
 # Idempotent: every install guarded by presence check.
 
 set -eu

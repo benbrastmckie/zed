@@ -27,7 +27,7 @@
 #
 # install-base.sh already registers superdoc and openpyxl.
 #
-# Flags: --dry-run --yes --check --help
+# Flags: --dry-run --check --help
 # Idempotent: every install guarded by presence check.
 
 set -eu
@@ -104,7 +104,7 @@ do_obsidian_pointer() {
   fi
   log_info "obsidian-memory is not auto-installed."
   log_info "Setup docs: .claude/context/project/memory/memory-setup.md"
-  if [ "$DRY_RUN" = "0" ] && [ "$ASSUME_YES" = "0" ] \
+  if [ "$DRY_RUN" = "0" ] \
      && prompt_yn "Open the obsidian-memory setup guide?" default_n; then
     open .claude/context/project/memory/memory-setup.md 2>/dev/null || \
       log_warn "could not open the setup doc; navigate manually"

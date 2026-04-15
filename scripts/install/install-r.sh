@@ -9,7 +9,7 @@
 # All install.packages() calls force the cloud CRAN mirror to skip interactive
 # mirror-selection prompts.
 #
-# Flags: --dry-run --yes --check --help
+# Flags: --dry-run --check --help
 # Idempotent: every install guarded by presence check.
 
 set -eu

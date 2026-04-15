@@ -10,15 +10,11 @@
 # not abort the wizard; it's recorded in GROUPS_FAILED and the summary prints
 # a list at the end.
 #
-# Interactive mode prompts accept/skip/cancel per group. Presets and --only
-# run non-interactively.
+# Interactive mode prompts accept/skip/cancel per group.
 #
 # Flags:
 #   --dry-run            Print actions without executing (passed through).
-#   --yes, -y            Auto-accept every prompt (passed through).
 #   --check              Run each group's --check and print a consolidated report.
-#   --only <groups>      Comma-separated group list (e.g., --only base,python,r).
-#   --preset <name>      minimal | epi-demo | writing | everything
 #   --help, -h           Show this help.
 #
 # Hard invariant: this script never reads any markdown file at runtime.
@@ -42,8 +38,6 @@ Usage:
   bash scripts/install/install.sh              # interactive wizard
   bash scripts/install/install.sh --dry-run    # preview every action
   bash scripts/install/install.sh --check      # health report only
-  bash scripts/install/install.sh --preset epi-demo --dry-run
-  bash scripts/install/install.sh --only base,python --yes
 
 Groups (run in topological order):
   base          Build tools, package manager, Node.js, Zed, Claude Code CLI, SuperDoc+openpyxl MCP
@@ -52,12 +46,6 @@ Groups (run in topological order):
   r             R, languageserver/lintr/styler (+ optional renv, Quarto, epi bundle)
   typesetting   LaTeX, Typst, Pandoc, markitdown, fonts
   mcp-servers   rmcp, markitdown-mcp, mcp-pandoc (+ obsidian-memory pointer)
-
-Presets:
-  minimal       base + shell-tools
-  epi-demo      base + shell-tools + python + r + typesetting
-  writing       base + shell-tools + typesetting
-  everything    all six groups
 EOF
   print_common_help_footer
   cat >&2 <<'EOF'
@@ -100,21 +88,8 @@ describe_group() {
   esac
 }
 
-# Resolve which groups to run based on --preset, --only, or default (all).
+# Resolve which groups to run. Always returns all groups.
 resolve_groups() {
-  if [ -n "$PRESET" ]; then
-    if ! preset_groups "$PRESET" >/dev/null 2>&1; then
-      log_error "unknown preset: $PRESET (valid: minimal, epi-demo, writing, everything)"
-      exit 3
-    fi
-    preset_groups "$PRESET"
-    return 0
-  fi
-  if [ -n "$ONLY_GROUPS" ]; then
-    # Translate commas to spaces.
-    printf '%s' "$ONLY_GROUPS" | tr ',' ' '
-    return 0
-  fi
   printf '%s' "$ALL_GROUPS"
 }
 
@@ -132,11 +107,9 @@ append_group() {
 }
 
 # Build the argument vector we pass through to child scripts.
-# Strips master-only flags (--preset, --only), keeps the rest.
 build_child_args() {
   CHILD_ARGS=""
-  if [ "$DRY_RUN" = "1" ];    then CHILD_ARGS="$CHILD_ARGS --dry-run"; fi
-  if [ "$ASSUME_YES" = "1" ]; then CHILD_ARGS="$CHILD_ARGS --yes"; fi
+  if [ "$DRY_RUN" = "1" ]; then CHILD_ARGS="$CHILD_ARGS --dry-run"; fi
 }
 
 dispatch_group() {
@@ -231,21 +204,13 @@ main() {
   print_section "Zed + Claude Code toolchain wizard ($DETECTED_OS)"
   log_info "This wizard walks through 6 groups of installs. For each group you can"
   log_info "accept (a), skip (s), or cancel the wizard (c)."
-  log_info "Use --preset epi-demo / --preset minimal / --dry-run to run non-interactively."
+  log_info "Use --dry-run to preview every action, or --check for a health report."
 
   local groups
   groups="$(resolve_groups)"
   log_info "groups to process: $groups"
 
-  if [ -n "$PRESET" ] || [ -n "$ONLY_GROUPS" ]; then
-    # Non-interactive path -- dispatch unconditionally, honoring ASSUME_YES.
-    local g
-    for g in $groups; do
-      dispatch_group "$g"
-    done
-  else
-    interactive_wizard "$groups"
-  fi
+  interactive_wizard "$groups"
 
   # on_exit will print the final summary.
   if [ -n "$GROUPS_FAILED" ]; then

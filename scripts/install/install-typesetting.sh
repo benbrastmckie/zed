@@ -6,7 +6,7 @@
 # Note: .claude/settings.json 'Bash(typst *)' allowlist is a separate concern
 # and is NOT managed by this script.
 #
-# Flags: --dry-run --yes --check --help
+# Flags: --dry-run --check --help
 # Idempotent: every install guarded by presence check.
 
 set -eu
@@ -40,7 +40,7 @@ do_latex() {
   fi
 
   local choice="basic"
-  # default_n: MacTeX is 5 GB -- only opt in explicitly; --yes stays with BasicTeX
+  # default_n: MacTeX is 5 GB -- only opt in explicitly
   if prompt_yn "Install full MacTeX (~5 GB) instead of BasicTeX (~100 MB)?" default_n; then
     choice="full"
   fi

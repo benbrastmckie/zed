@@ -5,7 +5,7 @@
 #   Xcode Command Line Tools, Homebrew, Node.js, Zed (cask),
 #   Claude Code CLI (cask), SuperDoc + openpyxl MCP servers
 #
-# Flags: --dry-run --yes --check --help
+# Flags: --dry-run --check --help
 #
 # Idempotent: every action is guarded by a presence check.
 
@@ -49,10 +49,8 @@ install_xcode_clt() {
     return 0
   fi
   xcode-select --install 2>/dev/null || true
-  if [ "$ASSUME_YES" = "0" ]; then
-    printf 'Press Enter once the Xcode CLT install dialog has completed... ' >&2
-    if ! read -r _ </dev/tty 2>/dev/null; then read -r _ || true; fi
-  fi
+  printf 'Press Enter once the Xcode CLT install dialog has completed... ' >&2
+  if ! read -r _ </dev/tty 2>/dev/null; then read -r _ || true; fi
   if ! check_xcode_clt; then
     log_error "Xcode CLT still not detected; see docs/general/installation.md"
     return 4

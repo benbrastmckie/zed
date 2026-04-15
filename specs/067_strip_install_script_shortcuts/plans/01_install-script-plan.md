@@ -82,7 +82,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Strip Flags from install.sh and Child Scripts [NOT STARTED]
+### Phase 2: Strip Flags from install.sh and Child Scripts [COMPLETED]
 
 **Goal**: Remove flag references from the master dispatcher and all 6 child install scripts. Simplify `resolve_groups` and `build_child_args`. Remove the non-interactive dispatch path.
 
