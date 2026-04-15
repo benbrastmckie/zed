@@ -1,8 +1,0 @@
-{
-  "session_id": "sess_1776280635_ae163f",
-  "skill": "skill-researcher",
-  "task_number": 67,
-  "operation": "research",
-  "reason": "Postflight pending: status update, artifact linking, git commit",
-  "stop_hook_active": false
-}

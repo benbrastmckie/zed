@@ -4,19 +4,47 @@
     {
       "project_number": 67,
       "project_name": "strip_install_script_shortcuts",
-      "status": "researched",
+      "status": "planned",
       "task_type": "general",
       "created": "2026-04-15T19:15:27Z",
-      "last_updated": "2026-04-15T19:25:00Z",
-      "session_id": "sess_1776280635_ae163f",
+      "last_updated": "2026-04-15T19:33:02Z",
+      "session_id": "sess_1776281380_d7f999",
       "next_artifact_number": 2,
       "artifacts": [
         {
           "path": "specs/067_strip_install_script_shortcuts/reports/01_install-script-audit.md",
           "type": "research",
           "summary": "Complete audit of all install script flags: 3 flags to remove (--yes/-y, --only, --preset), 2 to keep (--dry-run, --check), plus --help. Identified 8 script files and 8 documentation files requiring changes."
+        },
+        {
+          "path": "specs/067_strip_install_script_shortcuts/plans/01_install-script-plan.md",
+          "type": "plan",
+          "summary": "3-phase plan to strip --yes, --only, --preset flags from install scripts and update documentation"
         }
-      ]
+      ],
+      "plan_metadata": {
+        "phases": 3,
+        "total_effort_hours": 1.5,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_install-script-audit.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-15"
+          }
+        ]
+      }
     },
     {
       "project_number": 66,

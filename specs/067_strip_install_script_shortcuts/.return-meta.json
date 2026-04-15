@@ -1,15 +1,29 @@
 {
-  "status": "researched",
-  "session_id": "sess_1776280635_ae163f",
-  "agent_type": "general-research-agent",
-  "delegation_path": ["orchestrator", "research", "general-research-agent"],
-  "findings_count": 3,
-  "next_steps": "Run /plan 67 to create implementation plan",
+  "status": "planned",
+  "session_id": "sess_1776281380_d7f999",
+  "agent_type": "planner-agent",
+  "delegation_path": ["orchestrator", "plan", "planner-agent"],
   "artifacts": [
     {
-      "path": "specs/067_strip_install_script_shortcuts/reports/01_install-script-audit.md",
-      "type": "research",
-      "summary": "Complete audit of all install script flags: 3 flags to remove (--yes/-y, --only, --preset), 2 to keep (--dry-run, --check), plus --help. Identified 8 script files and 8 documentation files requiring changes."
+      "path": "specs/067_strip_install_script_shortcuts/plans/01_install-script-plan.md",
+      "type": "plan",
+      "summary": "3-phase plan to strip --yes, --only, --preset flags from install scripts and update documentation"
     }
-  ]
+  ],
+  "plan_metadata": {
+    "phases": 3,
+    "total_effort_hours": 1.5,
+    "complexity": "medium",
+    "research_integrated": true,
+    "plan_version": 1,
+    "dependency_waves": [[1], [2, 3]],
+    "reports_integrated": [
+      {
+        "path": "reports/01_install-script-audit.md",
+        "integrated_in_plan_version": 1,
+        "integrated_date": "2026-04-15"
+      }
+    ]
+  },
+  "next_steps": "Run /implement 67 to execute the plan"
 }
