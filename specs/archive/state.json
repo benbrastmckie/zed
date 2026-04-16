@@ -2221,6 +2221,278 @@
       },
       "completion_summary": "Revised keybindings.md and cheat sheet to fix inline assist documentation conflict caused by task 56 secondary-enter migration. Added Open File to Quick Reference, documented the override, and updated cheat sheet to show Ctrl/Cmd+; as the working inline assist shortcut.",
       "archived": "2026-04-13T21:45:07Z"
+    },
+    {
+      "project_number": 68,
+      "project_name": "self_learning_memory_system",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-15T21:51:25Z",
+      "last_updated": "2026-04-16T04:51:33Z",
+      "session_id": "sess_1776314238_2cviz",
+      "next_artifact_number": 3,
+      "artifacts": [
+        {
+          "path": "specs/068_self_learning_memory_system/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research synthesis: auto-capture at /todo archival, auto-retrieval as default --remember, agent-side memory candidates in metadata"
+        },
+        {
+          "path": "specs/068_self_learning_memory_system/reports/02_memory-index-design.md",
+          "type": "research",
+          "summary": "Memory index schema design: two-phase retrieval with JSON manifest for token-efficient context loading"
+        },
+        {
+          "path": "specs/068_self_learning_memory_system/plans/02_memory-system-plan.md",
+          "type": "plan",
+          "summary": "Revised plan integrating round 2 memory index design research"
+        },
+        {
+          "path": "specs/068_self_learning_memory_system/summaries/02_memory-system-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for self-learning memory system with 6 completed phases"
+        }
+      ],
+      "researched": "2026-04-15T22:14:09Z",
+      "plan_metadata": {
+        "phases": 6,
+        "total_effort_hours": 9,
+        "complexity": "complex",
+        "research_integrated": true,
+        "plan_version": 2,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_team-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-15"
+          },
+          {
+            "path": "reports/02_memory-index-design.md",
+            "integrated_in_plan_version": 2,
+            "integrated_date": "2026-04-15"
+          }
+        ]
+      },
+      "completion_summary": "Implemented self-learning memory system with JSON index infrastructure, automatic two-phase retrieval for all lifecycle operations, memory candidate emission by agents, pre-classified batch harvest in /todo, passive Stop hook nudge, and complete documentation.",
+      "claudemd_suggestions": "Updated CLAUDE.md Memory Extension section with auto-retrieval docs, memory-index.json schema, candidate emission, and /todo harvest workflow. Updated return-metadata-file.md with memory_candidates schema. Modified 3 skills (researcher, planner, implementer) and 3 agents (research, implementation, planner) with memory retrieval and candidate emission. Updated skill-todo with pre-classification harvest. Added memory-nudge.sh hook to settings.json."
+    },
+    {
+      "project_number": 67,
+      "project_name": "strip_install_script_shortcuts",
+      "status": "completed",
+      "task_type": "general",
+      "created": "2026-04-15T19:15:27Z",
+      "last_updated": "2026-04-15T20:04:09Z",
+      "session_id": "sess_1776283034_071005",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/067_strip_install_script_shortcuts/reports/01_install-script-audit.md",
+          "type": "research",
+          "summary": "Complete audit of all install script flags: 3 flags to remove (--yes/-y, --only, --preset), 2 to keep (--dry-run, --check), plus --help. Identified 8 script files and 8 documentation files requiring changes."
+        },
+        {
+          "path": "specs/067_strip_install_script_shortcuts/plans/01_install-script-plan.md",
+          "type": "plan",
+          "summary": "3-phase plan to strip --yes, --only, --preset flags from install scripts and update documentation"
+        },
+        {
+          "path": "specs/067_strip_install_script_shortcuts/summaries/01_install-script-summary.md",
+          "type": "summary",
+          "summary": "Removed --yes/-y, --only, --preset flags from install system; updated 15 files across scripts and docs"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 3,
+        "total_effort_hours": 1.5,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_install-script-audit.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-15"
+          }
+        ]
+      },
+      "completion_summary": "Stripped --yes/-y, --only, and --preset flags from lib.sh, install.sh, 6 child scripts, and 8 documentation files. Revised README.md line 18 to describe --dry-run and --check."
+    },
+    {
+      "project_number": 64,
+      "project_name": "narrow_install_to_macos_only",
+      "status": "completed",
+      "task_type": "general",
+      "created": "2026-04-14T16:32:32Z",
+      "last_updated": "2026-04-14T18:30:00Z",
+      "session_id": "sess_1744651200_impl64",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/064_narrow_install_to_macos_only/reports/01_macos-narrowing-audit.md",
+          "type": "research",
+          "summary": "Comprehensive file-by-file audit of 63 files: 7 install scripts (lib.sh heaviest rewrite ~200 lines), 4 files to delete (systemd timer + units), 11 docs with Linux sections, ~40 .claude/ context files with cosmetic platform mentions. Estimated ~850 total lines changed."
+        },
+        {
+          "path": "specs/064_narrow_install_to_macos_only/plans/01_macos-narrowing-plan.md",
+          "type": "plan"
+        },
+        {
+          "path": "specs/064_narrow_install_to_macos_only/summaries/01_macos-narrowing-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for macOS-only narrowing across scripts and documentation"
+        }
+      ],
+      "completion_summary": "Removed all Linux platform support (Debian/Ubuntu, Arch/Manjaro, NixOS) from 8 install scripts, 11 documentation files, and 4 .claude/ context files. Deleted systemd timer/service files and PPM configuration. Simplified lib.sh from ~806 to ~535 lines by eliminating cross-platform dispatch and package name mapping infrastructure.",
+      "plan_metadata": {
+        "phases": 6,
+        "total_effort_hours": 5,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_macos-narrowing-audit.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-14"
+          }
+        ]
+      }
+    },
+    {
+      "project_number": 63,
+      "project_name": "zed_specific_claude_customizations_and_syncprotect",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-14T15:20:20Z",
+      "last_updated": "2026-04-14T16:25:10Z",
+      "session_id": "sess_1744649000_63impl",
+      "next_artifact_number": 4,
+      "artifacts": [
+        {
+          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/reports/01_zed-customizations-audit.md",
+          "type": "research",
+          "summary": "Comprehensive audit of zed .claude/ files: project-overview.md is entirely wrong (nvim template), CLAUDE.md needs slide-planner references updated, git-workflow.md accepts nvim canonical version, agents/README.md needs recreation, .syncprotect should protect only CLAUDE.md"
+        },
+        {
+          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/reports/02_docs-update-audit.md",
+          "type": "research",
+          "summary": "Audit of .claude/ changes since task 56 identifying 5 docs files and README.md needing updates for slide-critic system, Co-Authored-By removal, and pymupdf tool priority change"
+        },
+        {
+          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/plans/03_zed-customizations-plan.md",
+          "type": "plan"
+        },
+        {
+          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/summaries/03_zed-customizations-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for zed-specific customizations and syncprotect"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 7,
+        "total_effort_hours": 5.5,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 3,
+        "dependency_waves": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            6,
+            7
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_zed-customizations-audit.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-14"
+          },
+          {
+            "path": "reports/02_docs-update-audit.md",
+            "integrated_in_plan_version": 2,
+            "integrated_date": "2026-04-14"
+          }
+        ]
+      },
+      "completion_summary": "Stripped all neovim/NixOS/leader-ac references from .claude/ config, docs/, and README.md. Rewrote project-overview.md for Zed. Created .syncprotect and agents/README.md. Updated docs for slide-critic addition and accurate skill/agent counts.",
+      "claudemd_suggestions": "Updated CLAUDE.md core section (leader-ac, neovim, nix references removed). Updated README.md, commands/fix-it.md, commands/task.md, commands/learn.md, commands/review.md, skills/skill-orchestrator/SKILL.md, rules/plan-format-enforcement.md. Created agents/README.md and .syncprotect."
+    },
+    {
+      "project_number": 61,
+      "project_name": "revert_task_60_restore_slide_planner",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-13T23:19:25Z",
+      "last_updated": "2026-04-14T01:25:00Z",
+      "session_id": "sess_1776128744_1d56ce",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/061_revert_task_60_restore_slide_planner/reports/01_revert-audit.md",
+          "type": "research",
+          "summary": "Complete audit of task 60 commits, files affected, revert strategy, and CLAUDE.md table restoration requirements"
+        },
+        {
+          "path": "specs/061_revert_task_60_restore_slide_planner/plans/01_revert-plan.md",
+          "type": "plan",
+          "summary": "3-phase plan to revert task 60 commits, re-add slide-planner-agent to CLAUDE.md tables, and verify cross-references"
+        },
+        {
+          "path": "specs/061_revert_task_60_restore_slide_planner/summaries/01_revert-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary documenting compound revert of 4 task-60 commits and cross-reference verification"
+        }
+      ],
+      "completion_summary": "Reverted all 4 task-60 commits that incorrectly removed slide-planner-agent/skill-slide-planning references, restoring 17+ files across .claude/ and docs/. Verified all cross-references are consistent.",
+      "claudemd_suggestions": "Restored CLAUDE.md Hooks section, slide-planner-agent in 3 tables, and present:slides routing row. Restored Co-Authored-By note in git-workflow.md."
     }
   ]
 }
