@@ -3211,6 +3211,22 @@
       "line_count": 180
     },
     {
+      "description": "Usage guide for /distill command and memory vault maintenance",
+      "domain": "project",
+      "summary": "Scoring engine, distillation operations (purge/combine/compress/refine), tombstone pattern, /todo integration",
+      "load_when": {
+        "commands": [
+          "/distill"
+        ],
+        "skills": [
+          "skill-memory"
+        ]
+      },
+      "path": "project/memory/distill-usage.md",
+      "subdomain": "memory",
+      "line_count": 180
+    },
+    {
       "line_count": 120,
       "topics": [
         "grant",

@@ -92,6 +92,7 @@ All commands use checkpoint-based execution: GATE IN (preflight) -> DELEGATE (sk
 | `/todo` | `/todo` | Archive completed/abandoned tasks, sync repository metrics |
 | `/errors` | `/errors` | Analyze error patterns, create fix plans |
 | `/meta` | `/meta` | System builder for .claude/ changes |
+| `/distill` | `/distill [--purge\|--merge\|--compress\|--auto\|--gc]` | Memory vault health maintenance |
 | `/fix-it` | `/fix-it [PATH...]` | Scan for FIX:/NOTE:/TODO:/QUESTION: tags |
 | `/refresh` | `/refresh [--dry-run] [--force]` | Clean orphaned processes and old files |
 | `/tag` | `/tag [--patch|--minor|--major]` | Create semantic version tag (user-only) |
@@ -121,6 +122,14 @@ TODO.md and state.json must stay synchronized. Update state.json first (machine 
     "completion_summary": "Required when status=completed",
     "roadmap_items": ["Optional explicit roadmap items"]
   }],
+  "memory_health": {
+    "last_distilled": "ISO8601 timestamp or null",
+    "distill_count": 0,
+    "total_memories": 8,
+    "never_retrieved": 8,
+    "health_score": 100,
+    "status": "healthy"
+  },
   "repository_health": {
     "last_assessed": "ISO8601 timestamp",
     "status": "healthy"
@@ -479,6 +488,16 @@ Knowledge capture and retrieval via the memory vault. Supports text, file, direc
 | `/learn` | `/learn /path/to/file` | Add file content as memory |
 | `/learn` | `/learn /path/to/dir/` | Scan directory for learnable content |
 | `/learn` | `/learn --task N` | Review task artifacts and create memories |
+| `/distill` | `/distill` | Memory vault health report (read-only) |
+| `/distill` | `/distill --purge` | Tombstone stale/zero-retrieval memories |
+| `/distill` | `/distill --merge` | Merge overlapping memories with keyword superset guarantee |
+| `/distill` | `/distill --compress` | Reduce verbose memories to key points |
+| `/distill` | `/distill --auto` | Automatic safe metadata fixes (no interaction) |
+| `/distill` | `/distill --gc` | Hard-delete tombstoned memories past 7-day grace period |
+
+### Memory Lifecycle
+
+`/learn` (create) -> retrieval (use) -> `/todo` harvest (capture) -> `/distill` (maintain)
 
 ### Automatic Memory Retrieval
 
