@@ -152,21 +152,25 @@ Direct execution skill for archiving tasks, updating CHANGE_LOG.md, and suggesti
   </stage>
   
   <stage id="7" name="HarvestMemories">
-    <action>Scan artifacts for memory harvest suggestions</action>
+    <action>Collect memory candidates from completed task metadata and apply pre-classification</action>
     <process>
-      1. For each completed task:
-         - Scan reports/ for insights and findings
-         - Scan plans/ for reusable patterns
-         - Check summaries/ for key learnings
-      2. Extract potential memory candidates:
-         - Research findings with general applicability
-         - Implementation patterns documented
-         - Configuration examples
-         - Workflow descriptions
-      3. Generate suggestions list with:
-         - Source file path
-         - Brief description of insight
-         - Suggested memory category (TECHNIQUE, PATTERN, CONFIG, WORKFLOW, INSIGHT)
+      1. For each completed task being archived:
+         a. Read `memory_candidates` array from state.json task entry (populated by skill postflight)
+         b. If no memory_candidates field, fall back to artifact scanning:
+            - Scan reports/ for insights and findings
+            - Scan plans/ for reusable patterns
+            - Check summaries/ for key learnings
+      2. For each memory candidate, apply three-tier pre-classification:
+         - **Tier 1** (pre-selected): PATTERN or CONFIG category with confidence >= 0.8
+         - **Tier 2** (presented, not pre-selected): WORKFLOW or TECHNIQUE with confidence >= 0.5
+         - **Tier 3** (hidden by default): INSIGHT or confidence < 0.5
+      3. Deduplication step: For each candidate:
+         a. Read `.memory/memory-index.json` keywords for all existing entries
+         b. Compute keyword overlap = |candidate.suggested_keywords intersect entry.keywords| / |candidate.suggested_keywords|
+         c. If overlap > 90% with any entry: mark as NOOP (exclude from presentation)
+         d. If overlap > 60% with any entry: mark as potential UPDATE (note the matching entry)
+         e. Otherwise: mark as CREATE
+      4. Build `harvest_candidates` array with: content, category, tier, dedup_action (CREATE/UPDATE/NOOP), confidence, suggested_keywords, source_task_number, source_artifact
     </process>
   </stage>
   
@@ -192,7 +196,25 @@ Direct execution skill for archiving tasks, updating CHANGE_LOG.md, and suggesti
       1. **Orphaned directories**: track/skip options per directory
       2. **Misplaced directories**: move/skip options per directory
       3. **TODO.md orphans**: multiSelect list of completed/abandoned tasks not in state.json; store as `selected_todo_orphans`
-      4. **Memory harvest suggestions**: multiSelect with category-tagged options (e.g., "[PATTERN] Config from task 142"); store selected for creation
+      4. **Memory harvest** (pre-classified): If harvest_candidates is non-empty (after excluding NOOPs), present a single AskUserQuestion with pre-classified candidates:
+         ```json
+         {
+           "question": "Select memories to create from completed tasks:",
+           "header": "Memory Harvest",
+           "multiSelect": true,
+           "options": [
+             // Tier 1 items appear first, pre-selected (selected: true)
+             {"label": "[PATTERN] {content_preview} (task {N})", "description": "Confidence: {conf} | Action: CREATE", "selected": true},
+             // Tier 2 items appear next, not pre-selected
+             {"label": "[WORKFLOW] {content_preview} (task {N})", "description": "Confidence: {conf} | Action: CREATE"},
+             // Tier 3 items only shown if user explicitly requests via a "Show more..." option
+             {"label": "--- Show {N} low-confidence candidates ---", "description": "Tier 3: INSIGHT or confidence < 0.5"}
+           ]
+         }
+         ```
+         UPDATE candidates show the matching existing memory in description:
+         `"Confidence: {conf} | Action: UPDATE MEM-{slug} (keyword overlap: {pct}%)"`
+         Store selected candidates as `approved_memories`
     </process>
   </stage>
   
@@ -643,12 +665,52 @@ ${transition_comment}
   </stage>
 
   <stage id="14" name="CreateMemories">
-    <action>Create selected memories</action>
+    <action>Create approved memories autonomously (bypasses skill-memory interactive flow)</action>
     <process>
-      For each selected memory suggestion:
-      1. Generate memory ID (MEM-YYYY-MM-DD-NNN), create file in .opencode/memory/10-Memories/
-      2. Format with: title, category (TECHNIQUE|PATTERN|CONFIG|WORKFLOW|INSIGHT), source task, date, content
-      3. Update .opencode/memory/20-Indices/index.md
+      For each approved memory in `approved_memories`:
+      1. Generate semantic slug from content and category:
+         ```bash
+         # Extract 2-3 key words from content for slug
+         slug=$(echo "$content" | tr '[:upper:]' '[:lower:]' | \
+           sed 's/[^a-z0-9 ]/-/g' | tr ' ' '-' | cut -d'-' -f1-4 | sed 's/-$//')
+         filename="MEM-${slug}.md"
+         # Handle collision
+         counter=2
+         while [ -f ".memory/10-Memories/$filename" ]; do
+           filename="MEM-${slug}-${counter}.md"
+           counter=$((counter + 1))
+         done
+         ```
+      2. Write MEM file directly with complete frontmatter:
+         ```markdown
+         ---
+         title: "{content_summary}"
+         created: {today}
+         tags: [{category}, {inferred_tags}]
+         topic: "{inferred_topic}"
+         source: "task {N}: {source_artifact}"
+         modified: {today}
+         retrieval_count: 0
+         last_retrieved: null
+         keywords: {suggested_keywords}
+         summary: "{one-line summary}"
+         ---
+
+         # {content_summary}
+
+         {candidate.content}
+
+         ## Connections
+         <!-- Auto-harvested from task {N} -->
+         ```
+      3. If dedup_action is UPDATE: instead of creating new file, use EXTEND operation on the matching memory file (append dated extension section)
+      4. After all memories created, regenerate `.memory/memory-index.json`:
+         - Scan all MEM-*.md files in .memory/10-Memories/
+         - Extract frontmatter from each
+         - Compute token_count = word_count * 1.3
+         - Write complete JSON index
+      5. Regenerate `.memory/20-Indices/index.md` (full overwrite from filesystem state)
+      6. Regenerate `.memory/10-Memories/README.md` (full listing from filesystem state)
     </process>
   </stage>
   

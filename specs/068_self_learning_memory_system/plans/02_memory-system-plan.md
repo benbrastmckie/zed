@@ -180,7 +180,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Enhanced /todo HarvestMemories with Pre-Classification [NOT STARTED]
+### Phase 4: Enhanced /todo HarvestMemories with Pre-Classification [COMPLETED]
 
 **Goal**: Upgrade `/todo` Stage 7 (HarvestMemories) to collect memory candidates from completed task metadata, apply three-tier pre-classification, and present a single batch AskUserQuestion for user approval. Approved memories are created using a new autonomous code path with proper index regeneration.
 
