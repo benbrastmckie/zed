@@ -1,6 +1,6 @@
 # Command Catalog
 
-Quick-reference catalog of all 25 slash commands. For a workflow tutorial, see [agent-lifecycle.md](../workflows/agent-lifecycle.md). For full command reference with examples and edge cases, see [user-guide.md](../../.claude/docs/guides/user-guide.md). For how commands, skills, and agents connect, see [architecture.md](architecture.md).
+Quick-reference catalog of all 26 slash commands. For a workflow tutorial, see [agent-lifecycle.md](../workflows/agent-lifecycle.md). For full command reference with examples and edge cases, see [user-guide.md](../../.claude/docs/guides/user-guide.md). For how commands, skills, and agents connect, see [architecture.md](architecture.md).
 
 Each entry follows a standard template: 2-sentence explanation, up to 2 examples, flags, and source link.
 
@@ -23,14 +23,14 @@ See [`.claude/commands/task.md`](../../.claude/commands/task.md) · [user guide]
 
 ### /research
 
-Investigate a task and produce a research report, routing to the appropriate research agent based on task type. Use `--remember` to search the memory vault for prior relevant knowledge before researching.
+Investigate a task and produce a research report, routing to the appropriate research agent based on task type. Relevant memories are automatically injected from the vault; pass `--clean` to skip memory retrieval.
 
 ```
 /research 5
-/research 5, 7-9 --remember
+/research 5, 7-9 --clean
 ```
 
-**Flags**: `[focus]`, `--team`, `--remember`, multi-task syntax (`5, 7-9`)
+**Flags**: `[focus]`, `--team`, `--clean`, multi-task syntax (`5, 7-9`)
 
 See [`.claude/commands/research.md`](../../.claude/commands/research.md) · [user guide](../../.claude/docs/guides/user-guide.md#research-command).
 
@@ -75,7 +75,7 @@ See [`.claude/commands/revise.md`](../../.claude/commands/revise.md) · [user gu
 
 ### /todo
 
-Archive completed and abandoned tasks, update CHANGE_LOG.md and ROADMAP.md, and trigger vault operations when task numbers exceed 1000. Run `--dry-run` first to preview what will be archived.
+Archive completed and abandoned tasks, update CHANGE_LOG.md and ROADMAP.md, and trigger vault operations when task numbers exceed 1000. Also harvests memory candidates emitted by agents during research, planning, and implementation, presenting them for batch approval. Run `--dry-run` first to preview what will be archived.
 
 ```
 /todo
@@ -193,6 +193,19 @@ Add memories to the [`.memory/`](context-and-memory.md) vault using one of three
 ```
 
 See [`.claude/commands/learn.md`](../../.claude/commands/learn.md) · [context-and-memory.md](context-and-memory.md).
+
+### /distill
+
+Maintain memory vault health through scoring, purging, merging, compressing, and garbage collection. Run bare for a read-only health report, or with a flag to perform a specific maintenance operation.
+
+```
+/distill
+/distill --purge
+```
+
+**Flags**: `--purge` (tombstone stale memories), `--merge` (combine overlapping), `--compress` (reduce verbose), `--auto` (safe metadata fixes), `--gc` (hard-delete tombstoned past 7-day grace period)
+
+See [`.claude/commands/distill.md`](../../.claude/commands/distill.md) · [context-and-memory.md](context-and-memory.md).
 
 ## Documents
 

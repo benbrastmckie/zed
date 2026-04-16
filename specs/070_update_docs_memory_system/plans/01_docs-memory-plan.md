@@ -102,7 +102,7 @@ For `docs/agent-system/context-and-memory.md`:
 
 ---
 
-### Phase 2: Update command catalog (commands.md) [NOT STARTED]
+### Phase 2: Update command catalog (commands.md) [COMPLETED]
 
 **Goal**: Add `/distill` as a full command entry and fix `--remember` references in the command catalog.
 
