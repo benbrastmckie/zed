@@ -1,7 +1,7 @@
 # Implementation Plan: Update docs for current memory system
 
 - **Task**: 70 - Update documentation to reflect current memory system
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 2 hours
 - **Dependencies**: Task 69 (completed)
 - **Research Inputs**: reports/01_docs-memory-audit.md
@@ -61,7 +61,7 @@ Phases are sequenced to establish canonical terminology in the deep-content file
 
 ---
 
-### Phase 1: Update deep-content files (context-and-memory.md + memory-and-learning.md) [NOT STARTED]
+### Phase 1: Update deep-content files (context-and-memory.md + memory-and-learning.md) [COMPLETED]
 
 **Goal**: Bring the two files with the largest gaps up to date with the full memory system.
 
