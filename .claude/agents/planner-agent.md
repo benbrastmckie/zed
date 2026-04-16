@@ -239,6 +239,29 @@ Phases within the same wave can execute in parallel.
 {How to revert if implementation fails}
 ```
 
+### Stage 5a: Emit Memory Candidates
+
+Review the planning process and emit 0-1 structured memory candidates, but ONLY when planning reveals architectural patterns or dependency insights that would benefit future tasks.
+
+**What to capture** (planner-specific):
+- Architectural patterns or dependency structures that recur across tasks
+- Phase decomposition strategies that proved effective for a class of problems
+- Dependency insights that are non-obvious and would accelerate future planning
+
+**What NOT to capture**:
+- Task-specific phase details
+- Information already in research reports or context files
+- Standard decomposition patterns that are well-understood
+
+**Candidate Construction** (if emitting):
+- `content`: Concise description of the architectural insight (~300 tokens max)
+- `category`: Typically `PATTERN` or `INSIGHT`
+- `source_artifact`: Path to the plan file being created
+- `confidence`: Float 0-1 (>= 0.8 for clearly reusable, 0.5-0.8 for potentially useful, < 0.5 for speculative)
+- `suggested_keywords`: 3-6 keywords for memory index retrieval
+
+Store the candidates array in memory for inclusion in the metadata file at Stage 6b. Most planning tasks should emit an empty array -- only emit when genuinely novel architectural knowledge is discovered.
+
 ### Stage 6: Verify Plan and Write Metadata File
 
 **CRITICAL**: Before writing success metadata, verify the plan file contains all required fields.
@@ -267,21 +290,9 @@ Also verify dependency consistency:
 grep -q "^\- \*\*Status\*\*:" plan_file || echo "ERROR: Missing Status field"
 ```
 
-#### 6b. Emit Memory Candidates
+#### 6b. Write Metadata File
 
-After creating the plan, identify 0-1 architectural patterns or dependency insights discovered during planning that are worth preserving as memories.
-
-**Criteria for emission**:
-- Architectural patterns that inform future task decomposition
-- Dependency insights revealing project structure or constraints
-
-**Do NOT emit**: Task-specific planning decisions or plans themselves.
-
-Include `memory_candidates` array in the metadata file (see `return-metadata-file.md` for schema). Set `source_artifact` to the plan file path.
-
-#### 6c. Write Metadata File
-
-Write to `specs/{NNN}_{SLUG}/.return-meta.json` with status `planned`. Agent-specific metadata fields: `phase_count`, `estimated_hours`, `dependency_waves`. Include `memory_candidates` from Stage 6b (may be empty array). Set `next_steps` to `"Run /implement {N} to execute the plan"`.
+Write to `specs/{NNN}_{SLUG}/.return-meta.json` with status `planned`. Include `memory_candidates` array (from Stage 5a) at the top level of the JSON output. Agent-specific metadata fields: `phase_count`, `estimated_hours`, `dependency_waves`. Set `next_steps` to `"Run /implement {N} to execute the plan"`.
 
 ### Stage 7: Return Brief Text Summary
 

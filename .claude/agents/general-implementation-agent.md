@@ -138,20 +138,7 @@ Write to `specs/{NNN}_{SLUG}/summaries/{NN}_{short-slug}-summary.md`:
 {Any additional notes, follow-up items, or caveats}
 ```
 
-### Stage 6a: Emit Memory Candidates
-
-After all phases complete, identify 0-3 reusable patterns, configuration discoveries, or workflow insights found during implementation that are worth preserving as memories.
-
-**Criteria for emission**:
-- Reusable implementation patterns applicable to future tasks
-- Configuration discoveries (settings, tool options, workarounds)
-- Workflow insights (effective approaches, pitfalls to avoid)
-
-**Do NOT emit**: Task-specific implementation details, changes already documented in existing memories, or low-confidence observations.
-
-Include `memory_candidates` array in the metadata file (see `return-metadata-file.md` for schema). Set `source_artifact` to the implementation summary path.
-
-### Stage 6b: Generate Completion Data
+### Stage 6a: Generate Completion Data
 
 **CRITICAL**: Before writing metadata, prepare the `completion_data` object.
 
@@ -197,9 +184,34 @@ Include `memory_candidates` array in the metadata file (see `return-metadata-fil
 }
 ```
 
+### Stage 6b: Emit Memory Candidates
+
+Review work completed across all phases and emit 0-3 structured memory candidates for reusable knowledge discovered during implementation.
+
+**What to capture** (implementation-specific):
+- Reusable code patterns or architecture approaches that worked well
+- Configuration discoveries (tool settings, flags, build options)
+- Debugging techniques that resolved non-obvious issues
+- File organization or naming patterns worth preserving
+
+**What NOT to capture**:
+- Task-specific implementation details that only apply to this task
+- Information already documented in `.claude/context/` or `.memory/`
+- Obvious or well-known patterns
+
+**Candidate Construction**:
+For each candidate, create an object with:
+- `content`: Concise description of the reusable knowledge (~300 tokens max)
+- `category`: One of `TECHNIQUE`, `PATTERN`, `CONFIG`, `WORKFLOW`, `INSIGHT`
+- `source_artifact`: Path to the implementation summary being created
+- `confidence`: Float 0-1 (>= 0.8 for clearly reusable, 0.5-0.8 for potentially useful, < 0.5 for speculative)
+- `suggested_keywords`: 3-6 keywords for memory index retrieval
+
+Store the candidates array in memory for inclusion in the metadata file at Stage 7. If no candidates are worth emitting, use an empty array.
+
 ### Stage 7: Write Metadata File
 
-Write to `specs/{NNN}_{SLUG}/.return-meta.json` with status `implemented|partial|failed`. Include `completion_data` with `completion_summary` (all tasks) and `claudemd_suggestions` (meta) or `roadmap_items` (non-meta). Agent-specific metadata fields: `phases_completed`, `phases_total`.
+Write to `specs/{NNN}_{SLUG}/.return-meta.json` with status `implemented|partial|failed`. Include `completion_data` with `completion_summary` (all tasks) and `claudemd_suggestions` (meta) or `roadmap_items` (non-meta). Include `memory_candidates` array (from Stage 6b) at the top level of the JSON output. Agent-specific metadata fields: `phases_completed`, `phases_total`.
 
 ### Stage 8: Return Brief Text Summary
 

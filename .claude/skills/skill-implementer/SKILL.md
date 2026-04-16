@@ -134,29 +134,30 @@ artifact_padded=$(printf "%02d" "$artifact_number")
 
 ---
 
-### Stage 4: Prepare Delegation Context
+### Stage 4a: Memory Retrieval (Auto)
 
-**Memory Retrieval (Auto)**: Unless `--clean` flag is present, inject relevant memories into delegation context using two-phase retrieval:
+Retrieve relevant memories from the memory system to inject into the delegation context.
+
+**Skip if**: `clean_flag` is true in the delegation context (from `--clean` command flag).
 
 ```bash
-# Phase 1: Score index entries against task keywords
-# 1. Read .memory/memory-index.json (validate-on-read: check disk files match index entries)
-# 2. Extract keywords from task description (top 8 terms, exclude stop words)
-# 3. Score each index entry: 0.5 * keyword_overlap + 0.3 * topic_match + 0.2 * recency_bonus
-#    - keyword_overlap = |task_keywords intersect entry.keywords| / |task_keywords|
-#    - topic_match = 1.0 if task_type or description matches entry.topic, else 0.0
-#    - recency_bonus = 1.0 if modified within 30 days, 0.5 if 90 days, 0.0 otherwise
-# 4. Select top-K entries where score > 0.2 (K = min(5, entries above threshold))
-# 5. Budget check: sum(selected.token_count) < 3000 tokens; drop lowest-scored if over
+# Check clean_flag
+if [ "$clean_flag" != "true" ]; then
+  memory_context=$(bash .claude/scripts/memory-retrieve.sh "$description" "$task_type" "" 2>/dev/null) || memory_context=""
+fi
 
-# Phase 2: Retrieve and inject
-# 1. Read each selected memory file
-# 2. Update memory-index.json: increment retrieval_count, set last_retrieved to today
-# 3. Update memory file frontmatter: increment retrieval_count, set last_retrieved to today
-# 4. Inject content as <memory-context> block in delegation context
+# memory_context will be empty string if:
+# - clean_flag is true (skipped)
+# - memory-index.json missing or empty
+# - no keywords matched any entries
+# - script exited with error
 ```
 
-If `--clean` flag is present, skip memory retrieval entirely.
+If `memory_context` is non-empty, it will be injected into the Stage 5 prompt alongside the format specification from Stage 4b. If empty, no memory block is injected.
+
+---
+
+### Stage 4: Prepare Delegation Context
 
 Prepare delegation context for the subagent:
 
@@ -173,12 +174,16 @@ Prepare delegation context for the subagent:
     "task_type": "{task_type}"
   },
   "artifact_number": "{artifact_number from Stage 3a}",
+  "effort_flag": "{effort_flag from command, null if not set}",
+  "model_flag": "{model_flag from command, null if not set}",
   "plan_path": "specs/{NNN}_{SLUG}/plans/MM_{short-slug}.md",
   "metadata_file_path": "specs/{NNN}_{SLUG}/.return-meta.json"
 }
 ```
 
 **Note**: The `artifact_number` field tells the agent which sequence number to use for artifact naming (e.g., `01`, `02`). Summary uses the same round number as the research and plan that preceded it.
+
+**Model/Effort Flags**: If `model_flag` is set (haiku, sonnet, opus), pass it as the `model` parameter on the Task tool to override the agent's frontmatter default. If `effort_flag` is set (fast, hard), include it as prompt context for reasoning depth guidance.
 
 > **CRITICAL: No Source Reading Before Delegation** -- Between preparing the delegation context (Stage 4) and spawning the sub-agent (Stage 5), the lead skill MUST NOT read, grep, glob, or analyze source files. The plan file and state.json are the only files the lead reads. All codebase exploration (reading source files, grepping for patterns, using MCP tools) is the exclusive responsibility of the sub-agent after it is spawned.
 
@@ -224,6 +229,14 @@ Non-compliance will be caught by postflight validation.
 ```
 
 Place this section AFTER the delegation context JSON and BEFORE any other instructions.
+
+**Memory Context Injection**: If `memory_context` from Stage 4a is non-empty, include it in the prompt as a separate block:
+
+```
+{memory_context from Stage 4a -- already wrapped in <memory-context> tags}
+```
+
+Place the memory context block AFTER the format specification and BEFORE the task-specific instructions. Do NOT inject an empty `<memory-context>` block when no memories were retrieved.
 
 **DO NOT** use `Skill(general-implementation-agent)` - this will FAIL.
 
@@ -342,14 +355,18 @@ if [ "$task_type" != "meta" ] && [ "$roadmap_items" != "[]" ] && [ -n "$roadmap_
 fi
 ```
 
-**Step 4**: Propagate memory_candidates from .return-meta.json to state.json (non-blocking):
+**Step 4**: Propagate memory candidates (if any) with append semantics:
 ```bash
 if [ "$memory_candidates" != "[]" ] && [ -n "$memory_candidates" ]; then
-    jq --argjson candidates "$memory_candidates" \
-      '(.active_projects[] | select(.project_number == '$task_number')).memory_candidates = $candidates' \
+    # Append new candidates to existing array (append semantics, not overwrite)
+    jq --argjson new_candidates "$memory_candidates" \
+      '(.active_projects[] | select(.project_number == '$task_number')).memory_candidates =
+        ((.active_projects[] | select(.project_number == '$task_number')).memory_candidates // []) + $new_candidates' \
       specs/state.json > specs/tmp/state.json && mv specs/tmp/state.json specs/state.json
 fi
 ```
+
+**Note**: Uses `// []` fallback and `+` append so research candidates (from skill-researcher) and implementation candidates coexist on the same task entry.
 
 **Step 5**: Remove from Recommended Order section (non-blocking, not covered by centralized script):
 ```bash

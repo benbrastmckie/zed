@@ -84,15 +84,14 @@ All commands use checkpoint-based execution: GATE IN (preflight) -> DELEGATE (sk
 |---------|-------|-------------|
 | `/task` | `/task "Description"` | Create task |
 | `/task` | `/task --recover N`, `--expand N`, `--sync`, `--abandon N` | Manage tasks |
-| `/research` | `/research N[,N-N] [focus] [--team]` | Research task(s), route by task type |
-| `/plan` | `/plan N[,N-N] [--team]` | Create implementation plan(s) |
-| `/implement` | `/implement N[,N-N] [--team] [--force]` | Execute plan(s), resume from incomplete phase |
+| `/research` | `/research N[,N-N] [focus] [--team] [--clean] [--fast\|--hard] [--haiku\|--sonnet\|--opus]` | Research task(s), route by task type |
+| `/plan` | `/plan N[,N-N] [--team] [--clean] [--fast\|--hard] [--haiku\|--sonnet\|--opus]` | Create implementation plan(s) |
+| `/implement` | `/implement N[,N-N] [--team] [--force] [--clean] [--fast\|--hard] [--haiku\|--sonnet\|--opus]` | Execute plan(s), resume from incomplete phase |
 | `/revise` | `/revise N` | Create new plan version |
 | `/review` | `/review` | Analyze codebase |
 | `/todo` | `/todo` | Archive completed/abandoned tasks, sync repository metrics |
 | `/errors` | `/errors` | Analyze error patterns, create fix plans |
 | `/meta` | `/meta` | System builder for .claude/ changes |
-| `/distill` | `/distill [--purge\|--merge\|--compress\|--auto\|--gc]` | Memory vault health maintenance |
 | `/fix-it` | `/fix-it [PATH...]` | Scan for FIX:/NOTE:/TODO:/QUESTION: tags |
 | `/refresh` | `/refresh [--dry-run] [--force]` | Clean orphaned processes and old files |
 | `/tag` | `/tag [--patch|--minor|--major]` | Create semantic version tag (user-only) |
@@ -122,14 +121,6 @@ TODO.md and state.json must stay synchronized. Update state.json first (machine 
     "completion_summary": "Required when status=completed",
     "roadmap_items": ["Optional explicit roadmap items"]
   }],
-  "memory_health": {
-    "last_distilled": "ISO8601 timestamp or null",
-    "distill_count": 0,
-    "total_memories": 8,
-    "never_retrieved": 8,
-    "health_score": 100,
-    "status": "healthy"
-  },
   "repository_health": {
     "last_assessed": "ISO8601 timestamp",
     "status": "healthy"
@@ -174,7 +165,7 @@ Standard actions: `create`, `complete research`, `create implementation plan`, `
 |-------|-------|-------|---------|
 | skill-researcher | general-research-agent | opus | General web/codebase research |
 | skill-planner | planner-agent | opus | Implementation plan creation |
-| skill-implementer | general-implementation-agent | - | General file implementation |
+| skill-implementer | general-implementation-agent | opus | General file implementation |
 | skill-meta | meta-builder-agent | - | System building and task creation |
 | skill-status-sync | (direct execution) | - | Atomic status updates |
 | skill-refresh | (direct execution) | - | Process and file cleanup |
@@ -202,7 +193,7 @@ Standard actions: `create`, `complete research`, `create implementation plan`, `
 | reviser-agent | Plan revision with research synthesis |
 | spawn-agent | Blocker analysis and task decomposition |
 
-**Model Enforcement**: Agents declare preferred models via `model:` frontmatter field. Research and planning agents use `opus` for superior reasoning. Implementation agents use default model. See `.claude/docs/reference/standards/agent-frontmatter-standard.md` for details.
+**Model Enforcement**: Agents declare preferred models via `model:` frontmatter field. All agents default to Opus. Two independent flag dimensions override behavior at invocation time: effort flags (`--fast`, `--hard`) control reasoning depth, and model flags (`--haiku`, `--sonnet`, `--opus`) select the model family. These flags work on `/research`, `/plan`, and `/implement`. See `.claude/docs/reference/standards/agent-frontmatter-standard.md` for details.
 
 **User-Only Skills**: Skills marked as "user-only" cannot be invoked by agents. These are for human-controlled operations like deployment (`skill-tag`).
 
@@ -217,6 +208,53 @@ Standard actions: `create`, `complete research`, `create implementation plan`, `
 | `--team` | skill-team-implement | 2-4 | Parallel phase execution with debugger |
 
 **Note**: Team mode uses ~5x tokens compared to single-agent. Default team_size=2 minimizes cost.
+
+## Memory Extension
+
+When the memory extension is loaded, the following capabilities are available.
+
+### Memory Commands
+
+| Command | Usage | Description |
+|---------|-------|-------------|
+| `/learn` | `/learn "text"`, `/learn /path`, `/learn --task N` | Add text, file, directory, or task artifacts as memories |
+| `/distill` | `/distill` | Generate memory vault health report with scoring |
+| `/distill` | `/distill --purge` | Tombstone stale memories (interactive) |
+| `/distill` | `/distill --merge` | Combine duplicate memories by keyword overlap |
+| `/distill` | `/distill --compress` | Summarize oversized memories to key points |
+| `/distill` | `/distill --refine` | Improve memory metadata quality |
+| `/distill` | `/distill --gc` | Hard-delete tombstoned memories past 7-day grace period |
+| `/distill` | `/distill --auto` | Automated Tier 1 maintenance (non-interactive) |
+
+Flags: `--dry-run` (preview without changes), `--verbose` (detailed scoring).
+
+### Memory Skill Mapping
+
+| Skill | Agent | Purpose |
+|-------|-------|---------|
+| skill-memory | (direct execution) | Memory creation, distillation, and vault management |
+
+### Auto-Retrieval
+
+Memory retrieval is automatic in `/research`, `/plan`, and `/implement` preflight stages via `memory-retrieve.sh`. The script scores memory-index.json entries by keyword overlap with a TOKEN_BUDGET=2000 and MAX_ENTRIES=5 limit. The `--clean` flag on these commands suppresses auto-retrieval. Tombstoned memories are excluded from retrieval.
+
+### Memory Lifecycle
+
+1. **Create**: `/learn` captures knowledge into `.memory/` vault with content mapping and deduplication
+2. **Retrieve**: Auto-retrieval injects relevant memories into agent context during task operations
+3. **Harvest**: `/todo` Stage 7 collects `memory_candidates` from completed tasks for batch review
+4. **Maintain**: `/distill` scores vault health and runs maintenance (purge, merge, compress, refine, gc, auto)
+
+### Validate-on-Read
+
+There is no `--reindex` command. The memory system uses validate-on-read: before scoring or retrieval, `memory-index.json` is compared against the filesystem and auto-regenerated if stale.
+
+### State Integration
+
+The `memory_health` field in `state.json` tracks vault health metrics:
+- `last_distilled`: Timestamp of last distill operation
+- `distill_count`: Number of maintenance operations (report excluded)
+- `total_memories`, `never_retrieved`, `health_score`, `status`
 
 ## Rules References
 
@@ -472,13 +510,13 @@ This project includes LaTeX document development support via the latex extension
 <!-- SECTION: extension_memory -->
 ## Memory Extension
 
-Knowledge capture and retrieval via the memory vault. Supports text, file, directory, and task-based memory creation with MCP-backed search and deduplication. Automatic two-phase retrieval injects relevant memories into all lifecycle operations.
+Knowledge capture and retrieval via the memory vault. Supports text, file, directory, and task-based memory creation with MCP-backed search and deduplication. Includes vault distillation for scoring, health reporting, and automated maintenance.
 
 ### Skill-Agent Mapping
 
 | Skill | Agent | Purpose |
 |-------|-------|---------|
-| skill-memory | (direct execution) | Memory creation and management |
+| skill-memory | (direct execution) | Memory creation, distillation, and management |
 
 ### Commands
 
@@ -488,53 +526,29 @@ Knowledge capture and retrieval via the memory vault. Supports text, file, direc
 | `/learn` | `/learn /path/to/file` | Add file content as memory |
 | `/learn` | `/learn /path/to/dir/` | Scan directory for learnable content |
 | `/learn` | `/learn --task N` | Review task artifacts and create memories |
-| `/distill` | `/distill` | Memory vault health report (read-only) |
-| `/distill` | `/distill --purge` | Tombstone stale/zero-retrieval memories |
-| `/distill` | `/distill --merge` | Merge overlapping memories with keyword superset guarantee |
-| `/distill` | `/distill --compress` | Reduce verbose memories to key points |
-| `/distill` | `/distill --auto` | Automatic safe metadata fixes (no interaction) |
+| `/distill` | `/distill` | Generate memory vault health report with scoring |
+| `/distill` | `/distill --purge` | Tombstone stale memories (interactive purge) |
+| `/distill` | `/distill --merge` | Combine duplicate memories by keyword overlap |
+| `/distill` | `/distill --compress` | Summarize oversized memories to key points |
+| `/distill` | `/distill --refine` | Improve memory metadata quality (keywords, tags, topics) |
 | `/distill` | `/distill --gc` | Hard-delete tombstoned memories past 7-day grace period |
+| `/distill` | `/distill --auto` | Automated Tier 1 maintenance (non-interactive) |
+
+### Memory-Augmented Research
+
+Memory retrieval is automatic: when the memory extension is loaded, `/research`, `/plan`, and `/implement` preflight stages call `memory-retrieve.sh` to inject relevant memories as `<memory-context>` into the agent context. The `--clean` flag on these commands suppresses auto-retrieval.
 
 ### Memory Lifecycle
 
-`/learn` (create) -> retrieval (use) -> `/todo` harvest (capture) -> `/distill` (maintain)
-
-### Automatic Memory Retrieval
-
-Memory retrieval is **automatic** for all `/research`, `/plan`, and `/implement` operations. Relevant memories are injected into agent context using two-phase retrieval:
-
-1. **Score phase**: Read `.memory/memory-index.json`, score entries by keyword overlap with task description, select top-5 above threshold
-2. **Retrieve phase**: Read selected memory files (capped at 3000 tokens), inject as `<memory-context>` block
-
-Retrieval statistics (`retrieval_count`, `last_retrieved`) are tracked in both the JSON index and memory file frontmatter for natural decay scoring.
-
-**Opt-out**: Pass `--clean` to skip memory retrieval:
-```bash
-/research N --clean
+```
+/learn -> create memories -> auto-retrieval in /research, /plan, /implement
+                          -> /todo harvests memory candidates from completed tasks
+                          -> /distill scores, reports, and maintains the vault
 ```
 
-### Memory Index
+### Validate-on-Read
 
-The machine-queryable index at `.memory/memory-index.json` stores per-entry metadata for scoring:
-- `id`, `path`, `title`, `summary`, `topic`, `category`, `keywords`, `token_count`
-- `created`, `modified`, `last_retrieved`, `retrieval_count`
-
-The index is regenerated alongside `index.md` during `/learn` operations. The validate-on-read pattern detects stale indices before retrieval and triggers regeneration.
-
-**Manual recovery**: If the index becomes corrupted, delete `.memory/memory-index.json` and run `/learn` to regenerate from filesystem state.
-
-### Memory Candidate Emission
-
-Agents emit 0-3 structured memory candidates in `.return-meta.json` during `/research`, `/plan`, and `/implement` operations. Candidates include: content, category (TECHNIQUE/PATTERN/CONFIG/WORKFLOW/INSIGHT), confidence score, and suggested keywords. Skills propagate candidates to state.json during postflight. No memory writes occur at emission time.
-
-### Memory Harvest via /todo
-
-When `/todo` archives completed tasks, it collects memory candidates from state.json and presents them for batch approval using three-tier pre-classification:
-- **Tier 1** (pre-selected): High-confidence PATTERN/CONFIG candidates
-- **Tier 2** (presented): Medium-confidence WORKFLOW/TECHNIQUE candidates
-- **Tier 3** (hidden): Low-confidence or INSIGHT candidates
-
-Approved memories are created autonomously with proper frontmatter (including retrieval tracking fields) and the JSON index is regenerated. Deduplication prevents creation of memories with >90% keyword overlap with existing entries.
+There is no `--reindex` command. The memory system uses validate-on-read: before any scoring or retrieval operation, `memory-index.json` is compared against the filesystem. If stale (missing entries or orphaned entries), the index is automatically regenerated. This provides self-healing index consistency without explicit user intervention.
 
 <!-- END_SECTION: extension_memory -->
 

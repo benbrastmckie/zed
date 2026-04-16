@@ -139,29 +139,30 @@ artifact_padded=$(printf "%02d" "$artifact_number")
 
 ---
 
-### Stage 4: Prepare Delegation Context
+### Stage 4a: Memory Retrieval (Auto)
 
-**Memory Retrieval (Auto)**: Unless `--clean` flag is present, inject relevant memories into delegation context using two-phase retrieval:
+Retrieve relevant memories from the memory system to inject into the delegation context.
+
+**Skip if**: `clean_flag` is true in the delegation context (from `--clean` command flag).
 
 ```bash
-# Phase 1: Score index entries against task keywords
-# 1. Read .memory/memory-index.json (validate-on-read: check disk files match index entries)
-# 2. Extract keywords from task description (top 8 terms, exclude stop words)
-# 3. Score each index entry: 0.5 * keyword_overlap + 0.3 * topic_match + 0.2 * recency_bonus
-#    - keyword_overlap = |task_keywords intersect entry.keywords| / |task_keywords|
-#    - topic_match = 1.0 if task_type or description matches entry.topic, else 0.0
-#    - recency_bonus = 1.0 if modified within 30 days, 0.5 if 90 days, 0.0 otherwise
-# 4. Select top-K entries where score > 0.2 (K = min(5, entries above threshold))
-# 5. Budget check: sum(selected.token_count) < 3000 tokens; drop lowest-scored if over
+# Check clean_flag
+if [ "$clean_flag" != "true" ]; then
+  memory_context=$(bash .claude/scripts/memory-retrieve.sh "$description" "$task_type" "" 2>/dev/null) || memory_context=""
+fi
 
-# Phase 2: Retrieve and inject
-# 1. Read each selected memory file
-# 2. Update memory-index.json: increment retrieval_count, set last_retrieved to today
-# 3. Update memory file frontmatter: increment retrieval_count, set last_retrieved to today
-# 4. Inject content as <memory-context> block in delegation context
+# memory_context will be empty string if:
+# - clean_flag is true (skipped)
+# - memory-index.json missing or empty
+# - no keywords matched any entries
+# - script exited with error
 ```
 
-If `--clean` flag is present, skip memory retrieval entirely.
+If `memory_context` is non-empty, it will be injected into the Stage 5 prompt alongside the format specification from Stage 4b. If empty, no memory block is injected.
+
+---
+
+### Stage 4: Prepare Delegation Context
 
 **Prior plan discovery**: Find the latest existing plan file (if any) to pass as reference context.
 
@@ -187,6 +188,8 @@ Prepare delegation context for the subagent:
     "task_type": "{task_type}"
   },
   "artifact_number": "{artifact_number from Stage 3a}",
+  "effort_flag": "{effort_flag from command, null if not set}",
+  "model_flag": "{model_flag from command, null if not set}",
   "research_path": "{path to research report if exists}",
   "prior_plan_path": "{path to latest prior plan if exists}",
   "roadmap_path": "specs/ROADMAP.md",
@@ -195,6 +198,8 @@ Prepare delegation context for the subagent:
 ```
 
 **Note**: The `artifact_number` field tells the agent which sequence number to use for artifact naming (e.g., `01`, `02`). Plan uses `(next_artifact_number - 1)` to share the same round as the preceding research.
+
+**Model/Effort Flags**: If `model_flag` is set (haiku, sonnet, opus), pass it as the `model` parameter on the Task tool to override the agent's frontmatter default. If `effort_flag` is set (fast, hard), include it as prompt context for reasoning depth guidance.
 
 ---
 
@@ -238,6 +243,14 @@ Non-compliance will be caught by postflight validation.
 ```
 
 Place this section AFTER the delegation context JSON and BEFORE any other instructions.
+
+**Memory Context Injection**: If `memory_context` from Stage 4a is non-empty, include it in the prompt as a separate block:
+
+```
+{memory_context from Stage 4a -- already wrapped in <memory-context> tags}
+```
+
+Place the memory context block AFTER the format specification and BEFORE the task-specific instructions. Do NOT inject an empty `<memory-context>` block when no memories were retrieved.
 
 **DO NOT** use `Skill(planner-agent)` - this will FAIL.
 
