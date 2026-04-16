@@ -4,18 +4,24 @@
     {
       "project_number": 72,
       "project_name": "update_docs_for_agent_system_changes",
-      "status": "planned",
+      "status": "completed",
       "task_type": "markdown",
       "created": "2026-04-16T21:06:19Z",
-      "last_updated": "2026-04-16T21:19:27Z",
-      "session_id": "sess_1776374159_3e197f",
+      "last_updated": "2026-04-16T21:30:59Z",
+      "session_id": "sess_1776374746_8ecf05",
       "artifacts": [
         {
           "path": "specs/072_update_docs_for_agent_system_changes/plans/01_docs-update-plan.md",
           "type": "plan",
           "summary": "Implementation plan with 2 parallel phases for 11 edits across 4 docs files"
+        },
+        {
+          "path": "specs/072_update_docs_for_agent_system_changes/summaries/01_docs-update-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for docs update"
         }
-      ]
+      ],
+      "completion_summary": "Updated 4 docs files with 11 edits: added model/effort/clean flags to command entries, replaced stale two-phase memory retrieval with memory-retrieve.sh references, added --refine to distill tables, removed stale --remember flag."
     },
     {
       "project_number": 71,

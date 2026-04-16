@@ -1,7 +1,7 @@
 # Implementation Plan: Update docs/ for agent system changes
 
 - **Task**: 72 - Update docs/ to reflect agent system changes
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 1 hour
 - **Dependencies**: None
 - **Research Inputs**: reports/01_docs-update-audit.md
