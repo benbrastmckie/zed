@@ -1,6 +1,14 @@
 {
-  "next_project_number": 71,
+  "next_project_number": 72,
   "active_projects": [
+    {
+      "project_number": 71,
+      "project_name": "fix_doc_regressions_agent_update",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-16T20:22:43Z",
+      "last_updated": "2026-04-16T20:22:43Z"
+    },
     {
       "project_number": 70,
       "project_name": "update_docs_memory_system",

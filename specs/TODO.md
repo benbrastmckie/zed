@@ -1,10 +1,17 @@
 ---
-next_project_number: 71
+next_project_number: 72
 ---
 
 # Task List
 
 ## Tasks
+
+### 71. Fix documentation regressions from agent system update
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Fix documentation regressions from agent system update: restore return-metadata examples, plan-metadata JSON shape, and retrieval tracking field consistency
 
 ### 70. Update documentation to reflect current memory system
 - **Effort**: medium
