@@ -148,7 +148,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Memory Candidate Schema in Return Metadata [NOT STARTED]
+### Phase 3: Memory Candidate Schema in Return Metadata [COMPLETED]
 
 **Goal**: Extend the return metadata schema so agents can emit structured memory candidates alongside their normal output. No memory writes occur -- candidates are stored as data in `.return-meta.json` for later processing by `/todo`.
 

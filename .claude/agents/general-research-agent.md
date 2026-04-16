@@ -200,9 +200,22 @@ Create directory and write report:
 - References to documentation
 ```
 
+### Stage 5b: Emit Memory Candidates
+
+After synthesizing findings, identify 0-3 novel discoveries worth preserving as memories. Only emit candidates for findings with general applicability beyond the current task (not task-specific details).
+
+**Criteria for emission**:
+- Key research findings that apply to future tasks (e.g., API patterns, configuration approaches)
+- Discovered conventions or constraints not documented elsewhere
+- Reusable techniques or workflows uncovered during research
+
+**Do NOT emit**: Task-specific analysis, findings already in existing memories, or low-confidence observations.
+
+Include `memory_candidates` array in the metadata file (see `return-metadata-file.md` for schema). Set `source_artifact` to the research report path.
+
 ### Stage 6: Write Metadata File
 
-Write to `specs/{NNN}_{SLUG}/.return-meta.json` with status `researched`. Agent-specific metadata fields: `findings_count`. Set `next_steps` to `"Run /plan {N} to create implementation plan"`.
+Write to `specs/{NNN}_{SLUG}/.return-meta.json` with status `researched`. Agent-specific metadata fields: `findings_count`. Include `memory_candidates` from Stage 5b (may be empty array). Set `next_steps` to `"Run /plan {N} to create implementation plan"`.
 
 ### Stage 7: Return Brief Text Summary
 

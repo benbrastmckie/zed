@@ -267,9 +267,21 @@ Also verify dependency consistency:
 grep -q "^\- \*\*Status\*\*:" plan_file || echo "ERROR: Missing Status field"
 ```
 
-#### 6b. Write Metadata File
+#### 6b. Emit Memory Candidates
 
-Write to `specs/{NNN}_{SLUG}/.return-meta.json` with status `planned`. Agent-specific metadata fields: `phase_count`, `estimated_hours`, `dependency_waves`. Set `next_steps` to `"Run /implement {N} to execute the plan"`.
+After creating the plan, identify 0-1 architectural patterns or dependency insights discovered during planning that are worth preserving as memories.
+
+**Criteria for emission**:
+- Architectural patterns that inform future task decomposition
+- Dependency insights revealing project structure or constraints
+
+**Do NOT emit**: Task-specific planning decisions or plans themselves.
+
+Include `memory_candidates` array in the metadata file (see `return-metadata-file.md` for schema). Set `source_artifact` to the plan file path.
+
+#### 6c. Write Metadata File
+
+Write to `specs/{NNN}_{SLUG}/.return-meta.json` with status `planned`. Agent-specific metadata fields: `phase_count`, `estimated_hours`, `dependency_waves`. Include `memory_candidates` from Stage 6b (may be empty array). Set `next_steps` to `"Run /implement {N} to execute the plan"`.
 
 ### Stage 7: Return Brief Text Summary
 

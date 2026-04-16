@@ -138,7 +138,20 @@ Write to `specs/{NNN}_{SLUG}/summaries/{NN}_{short-slug}-summary.md`:
 {Any additional notes, follow-up items, or caveats}
 ```
 
-### Stage 6a: Generate Completion Data
+### Stage 6a: Emit Memory Candidates
+
+After all phases complete, identify 0-3 reusable patterns, configuration discoveries, or workflow insights found during implementation that are worth preserving as memories.
+
+**Criteria for emission**:
+- Reusable implementation patterns applicable to future tasks
+- Configuration discoveries (settings, tool options, workarounds)
+- Workflow insights (effective approaches, pitfalls to avoid)
+
+**Do NOT emit**: Task-specific implementation details, changes already documented in existing memories, or low-confidence observations.
+
+Include `memory_candidates` array in the metadata file (see `return-metadata-file.md` for schema). Set `source_artifact` to the implementation summary path.
+
+### Stage 6b: Generate Completion Data
 
 **CRITICAL**: Before writing metadata, prepare the `completion_data` object.
 

@@ -278,7 +278,7 @@ fi
 
 ### Stage 7: Update Task Status (Postflight)
 
-If status is "researched", update status and increment artifact number:
+If status is "researched", update status, increment artifact number, and propagate memory candidates:
 
 ```bash
 # Step 1: Update status (state.json, TODO.md task entry, TODO.md Task Order)
@@ -290,6 +290,14 @@ fi
 jq '(.active_projects[] | select(.project_number == '$task_number')).next_artifact_number =
     (((.active_projects[] | select(.project_number == '$task_number')).next_artifact_number // 1) + 1)' \
   specs/state.json > specs/tmp/state.json && mv specs/tmp/state.json specs/state.json
+
+# Step 3: Propagate memory_candidates from .return-meta.json to state.json
+memory_candidates=$(jq -c '.memory_candidates // []' "$metadata_file")
+if [ "$memory_candidates" != "[]" ]; then
+  jq --argjson candidates "$memory_candidates" \
+    '(.active_projects[] | select(.project_number == '$task_number')).memory_candidates = $candidates' \
+    specs/state.json > specs/tmp/state.json && mv specs/tmp/state.json specs/state.json
+fi
 ```
 
 **Note**: Research is the only operation that increments `next_artifact_number`. Plan and implement use `(current - 1)` to stay in the same "round".

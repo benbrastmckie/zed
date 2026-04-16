@@ -148,6 +148,40 @@ Contains fields needed for task completion processing. Skills extract this data 
 - `roadmap_items` is optional and only relevant for non-meta tasks
 - Skills propagate these fields to state.json for use by `/todo` command
 
+### memory_candidates (optional)
+
+**Type**: array of objects (0-3 entries)
+**Include if**: Agent discovers novel findings, reusable patterns, or workflow insights worth preserving as memories.
+
+Each memory candidate object:
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `content` | string | Yes | Memory content (max 300 tokens) |
+| `category` | enum | Yes | `TECHNIQUE`, `PATTERN`, `CONFIG`, `WORKFLOW`, or `INSIGHT` |
+| `source_artifact` | string | Yes | Path to the artifact that produced this candidate |
+| `confidence` | float | Yes | 0.0-1.0 confidence that this is worth preserving |
+| `suggested_keywords` | array | Yes | Array of 5-8 keyword strings for index entry |
+
+**Notes**:
+- Agents emit 0-3 candidates per operation (do not over-emit)
+- No memory writes occur at this stage -- candidates are data for `/todo` to process later
+- Skills propagate `memory_candidates` from `.return-meta.json` to state.json during postflight
+- The `/todo` command collects candidates from completed tasks and presents them for batch user approval
+
+**Example**:
+```json
+"memory_candidates": [
+  {
+    "content": "When configuring LSP servers in Zed, use the language_servers key in settings.json with server-specific initialization_options for custom behavior.",
+    "category": "CONFIG",
+    "source_artifact": "specs/070_configure_lsp/reports/01_lsp-research.md",
+    "confidence": 0.85,
+    "suggested_keywords": ["lsp", "settings", "zed", "language-server", "configuration"]
+  }
+]
+```
+
 ### errors (optional)
 
 **Type**: array of objects
