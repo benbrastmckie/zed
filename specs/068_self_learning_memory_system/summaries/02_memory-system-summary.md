@@ -30,7 +30,7 @@ Implemented the self-learning memory system comprising automatic two-phase retri
 
 ## Decisions
 
-- Memory retrieval is now always-on by default with `--no-remember` opt-out (previously opt-in with `--remember`)
+- Memory retrieval is now always-on by default with `--clean` opt-out (previously opt-in with `--remember`)
 - Two-phase retrieval uses keyword overlap scoring (0.5 weight) + topic match (0.3) + recency bonus (0.2) with 0.2 minimum threshold
 - Token budget capped at 3000 tokens and max 5 memories per retrieval
 - Three-tier classification for /todo harvest: Tier 1 (PATTERN/CONFIG, confidence >= 0.8) pre-selected, Tier 2 (WORKFLOW/TECHNIQUE, >= 0.5) presented, Tier 3 hidden
@@ -46,7 +46,7 @@ Implemented the self-learning memory system comprising automatic two-phase retri
 ## Follow-ups
 
 - Monitor token budget usage -- may need adjustment if vault grows beyond 50 entries
-- Consider adding `--no-remember` flag passthrough to team mode skills
+- Consider adding `--clean` flag passthrough to team mode skills
 - Future enhancement: grep-based fallback for retrieval when index is unavailable
 
 ## References

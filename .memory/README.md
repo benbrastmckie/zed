@@ -65,7 +65,7 @@ Memory retrieval is automatic for all `/research`, `/plan`, and `/implement` ope
 
 Retrieval statistics (`retrieval_count`, `last_retrieved`) are tracked in both the JSON index and memory file frontmatter for natural decay scoring.
 
-Pass `--no-remember` to any lifecycle command to skip memory retrieval.
+Pass `--clean` to any lifecycle command to skip memory retrieval.
 
 ## Memory Index
 

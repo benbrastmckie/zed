@@ -136,7 +136,7 @@ artifact_padded=$(printf "%02d" "$artifact_number")
 
 ### Stage 4: Prepare Delegation Context
 
-**Memory Retrieval (Auto)**: Unless `--no-remember` flag is present, inject relevant memories into delegation context using two-phase retrieval:
+**Memory Retrieval (Auto)**: Unless `--clean` flag is present, inject relevant memories into delegation context using two-phase retrieval:
 
 ```bash
 # Phase 1: Score index entries against task keywords
@@ -156,7 +156,7 @@ artifact_padded=$(printf "%02d" "$artifact_number")
 # 4. Inject content as <memory-context> block in delegation context
 ```
 
-If `--no-remember` flag is present, skip memory retrieval entirely.
+If `--clean` flag is present, skip memory retrieval entirely.
 
 Prepare delegation context for the subagent:
 

@@ -489,9 +489,9 @@ Memory retrieval is **automatic** for all `/research`, `/plan`, and `/implement`
 
 Retrieval statistics (`retrieval_count`, `last_retrieved`) are tracked in both the JSON index and memory file frontmatter for natural decay scoring.
 
-**Opt-out**: Pass `--no-remember` to skip memory retrieval:
+**Opt-out**: Pass `--clean` to skip memory retrieval:
 ```bash
-/research N --no-remember
+/research N --clean
 ```
 
 ### Memory Index

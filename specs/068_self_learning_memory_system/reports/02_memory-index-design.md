@@ -302,7 +302,7 @@ This mirrors the Generative Agents paper's recency-weighted scoring and GitHub C
 
 3. **Build the two-phase retrieval function** as a reusable pattern that can be called from skill-researcher, skill-planner, and skill-implementer delegation stages.
 
-4. **Make retrieval default for /research**: The index scan is cheap enough (~400 tokens for 8 memories) to always run. Add `--no-remember` for opt-out.
+4. **Make retrieval default for /research**: The index scan is cheap enough (~400 tokens for 8 memories) to always run. Add `--clean` for opt-out.
 
 5. **Set token budget at 3000 tokens**: This allows 3-5 full memories to be injected without significant context impact.
 

@@ -59,7 +59,7 @@ No ROADMAP.md items found (roadmap is empty placeholder).
 |------|--------|------------|------------|
 | Memory bloat from low-quality candidates | H | M | Three-tier classification gates Tier 1 items as pre-selected, Tier 3 as hidden; user confirms all |
 | Stale memories injecting false context | H | L | Add `retrieval_count`/`last_retrieved` frontmatter; low-retrieval memories flagged during `/todo` |
-| Auto-retrieval increasing token cost | M | M | Budget injection to top-3 memories, cap at 2000 tokens; `--no-remember` opt-out |
+| Auto-retrieval increasing token cost | M | M | Budget injection to top-3 memories, cap at 2000 tokens; `--clean` opt-out |
 | Circular learning (mistakes becoming patterns) | H | L | All captures require user confirmation; no autonomous writes |
 | Skill-memory interactive requirement conflict | H | M | New `autonomous-capture` code path in skill-todo, separate from skill-memory's interactive path |
 
@@ -80,11 +80,11 @@ Phases within the same wave can execute in parallel.
 
 **Tasks**:
 - [ ] Modify `skill-researcher/SKILL.md` Stage 4 (Prepare Delegation Context): add memory retrieval step that greps `.memory/10-Memories/*.md` frontmatter `topic:` and `tags:` fields against task description keywords, injecting top-3 matching memory file paths into delegation context
-- [ ] Add `--no-remember` flag handling to skill-researcher: when present, skip memory injection
+- [ ] Add `--clean` flag handling to skill-researcher: when present, skip memory injection
 - [ ] Update skill-researcher Stage 5 prompt template to include a `<memory-context>` block with injected memory content (read each matched file, truncate to 500 tokens each, cap total at 1500 tokens)
 - [ ] Add same memory retrieval step to `skill-planner/SKILL.md` Stage 1 (Parse Delegation Context): grep memory vault for task-relevant memories, inject into planner-agent prompt
 - [ ] Add same memory retrieval step to `skill-implementer/SKILL.md` delegation context preparation
-- [ ] Update CLAUDE.md Memory Extension section: document that `--remember` is now default, add `--no-remember` documentation
+- [ ] Update CLAUDE.md Memory Extension section: document that `--remember` is now default, add `--clean` documentation
 - [ ] Remove `--remember` flag logic from skill-researcher (it is now always-on)
 
 **Timing**: 1.5 hours
@@ -99,7 +99,7 @@ Phases within the same wave can execute in parallel.
 
 **Verification**:
 - Running `/research N` without `--remember` flag still injects relevant memories
-- Running `/research N --no-remember` skips memory injection
+- Running `/research N --clean` skips memory injection
 - Memory injection is bounded (max 3 files, max 1500 tokens)
 
 ---
@@ -228,7 +228,7 @@ Phases within the same wave can execute in parallel.
 ## Testing & Validation
 
 - [ ] Run `/research N` on a test task and verify memories are automatically injected into the agent context (no `--remember` flag)
-- [ ] Run `/research N --no-remember` and verify no memories are injected
+- [ ] Run `/research N --clean` and verify no memories are injected
 - [ ] Complete a research and implementation cycle, then run `/todo` and verify memory candidates appear with pre-classification
 - [ ] Approve memory candidates in `/todo` and verify MEM-*.md files are created with correct frontmatter (including retrieval_count, last_retrieved)
 - [ ] Verify that after retrieval, memory files have incremented retrieval_count
@@ -248,7 +248,7 @@ Phases within the same wave can execute in parallel.
 ## Rollback/Contingency
 
 All changes are to `.claude/` configuration files and `.memory/` templates. Rollback via `git revert` of the implementation commit(s). The system degrades gracefully:
-- If auto-retrieval causes token bloat, add `--no-remember` flag and revert to opt-in
+- If auto-retrieval causes token bloat, add `--clean` flag and revert to opt-in
 - If memory candidates produce noise, remove `memory_candidates` emission from agent definitions
 - If the Stop hook is annoying, remove its entry from `settings.json`
 - Memory frontmatter backfill is additive (extra fields) and does not break existing functionality

@@ -48,7 +48,7 @@ Currently this is a passive suggestion. Upgrading it to a pre-classified interac
 
 Making relevant memories available to agents is technically simpler and less risky than automatic capture. The current `--remember` flag uses MCP/grep search against the vault and injects matches into research context. Three approaches for making this automatic:
 
-**Approach A: Default --remember for all research** -- Make memory search the default behavior of `/research`, with `--no-remember` to opt out. Cheap to implement, no schema changes.
+**Approach A: Default --remember for all research** -- Make memory search the default behavior of `/research`, with `--clean` to opt out. Cheap to implement, no schema changes.
 
 **Approach B: Keyword-based injection at delegation** -- In skill-researcher Stage 4 (prepare delegation context), grep task description keywords against `.memory/10-Memories/*.md` frontmatter topics and inject top-3 matches. No MCP dependency, works offline.
 
@@ -91,7 +91,7 @@ Teammate A identified three candidate points; Teammate C ruled out postflight on
 
 **Conflict 3: Fully automatic retrieval vs. opt-in --remember flag**
 
-Teammate D recommended making `--remember` default for `meta` tasks only. Teammate A proposed making it default for all research. **Resolution**: Make retrieval default for all research operations (it's cheap and the vault is small). Add `--no-remember` flag for opt-out. For planning and implementation, use topic-based filtering (Approach B) to inject only highly relevant memories without full vault search.
+Teammate D recommended making `--remember` default for `meta` tasks only. Teammate A proposed making it default for all research. **Resolution**: Make retrieval default for all research operations (it's cheap and the vault is small). Add `--clean` flag for opt-out. For planning and implementation, use topic-based filtering (Approach B) to inject only highly relevant memories without full vault search.
 
 ### Prior Art Integration (from Teammate B -- late completion)
 
@@ -125,7 +125,7 @@ Teammate B's web research surfaced seven major systems with converging evidence:
 
 1. Make `--remember` the default behavior for `/research` (grep-based, no MCP dependency)
 2. Add lightweight memory injection to `/plan` and `/implement` delegation contexts using task description keyword matching against memory topics
-3. Add `--no-remember` flag for opt-out
+3. Add `--clean` flag for opt-out
 
 #### Tier 2: Agent-Side Capture Candidates (medium risk, medium value)
 

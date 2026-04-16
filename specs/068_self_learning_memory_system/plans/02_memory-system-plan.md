@@ -60,7 +60,7 @@ No ROADMAP.md items found (roadmap is empty placeholder).
 |------|--------|------------|------------|
 | Memory bloat from low-quality candidates | H | M | Three-tier classification gates Tier 1 items as pre-selected, Tier 3 as hidden; user confirms all |
 | Stale memories injecting false context | H | L | Retrieval stats in index enable natural decay; low-retrieval memories flagged during `/todo` |
-| Auto-retrieval increasing token cost | M | M | Two-phase retrieval limits injection to top-5 memories, capped at 3000 tokens; `--no-remember` opt-out |
+| Auto-retrieval increasing token cost | M | M | Two-phase retrieval limits injection to top-5 memories, capped at 3000 tokens; `--clean` opt-out |
 | Keyword matching misses relevant memories | M | M | Keywords + topic + summary fields provide 80% of embedding quality; grep fallback available as future enhancement |
 | Index drift from manual file edits | M | L | Validate-on-read detects mismatch and triggers regeneration before scoring |
 | Circular learning (mistakes becoming patterns) | H | L | All captures require user confirmation; no autonomous writes |
@@ -121,12 +121,12 @@ Phases within the same wave can execute in parallel.
   - Phase 1 (Score): Read `memory-index.json`, extract keywords from task description, score each entry using: `0.5 * keyword_overlap + 0.3 * topic_match + 0.2 * recency_bonus`, select top-K where score > 0.2 (K = min(5, entries above threshold)), budget check: sum(selected.token_count) < 3000 tokens
   - Phase 2 (Retrieve): Read each selected memory file, inject into delegation context as `<memory-context>` block
   - Update: increment `retrieval_count` and set `last_retrieved` to current date in `memory-index.json` for retrieved entries
-- [ ] Add `--no-remember` flag handling to skill-researcher: when present, skip memory retrieval entirely
+- [ ] Add `--clean` flag handling to skill-researcher: when present, skip memory retrieval entirely
 - [ ] Remove `--remember` flag logic from skill-researcher (retrieval is now always-on)
 - [ ] Add same two-phase retrieval pattern to `skill-planner/SKILL.md` Stage 1 (Parse Delegation Context)
 - [ ] Add same two-phase retrieval pattern to `skill-implementer/SKILL.md` delegation context preparation
 - [ ] Update memory file frontmatter on retrieval: when a memory is injected, also update that file's YAML frontmatter `retrieval_count` and `last_retrieved` fields to stay in sync with the index
-- [ ] Update CLAUDE.md Memory Extension section: document that `--remember` is now default, add `--no-remember` documentation, document the two-phase retrieval mechanism
+- [ ] Update CLAUDE.md Memory Extension section: document that `--remember` is now default, add `--clean` documentation, document the two-phase retrieval mechanism
 
 **Timing**: 2 hours
 
@@ -141,7 +141,7 @@ Phases within the same wave can execute in parallel.
 
 **Verification**:
 - Running `/research N` without `--remember` flag injects relevant memories via index scoring
-- Running `/research N --no-remember` skips memory retrieval
+- Running `/research N --clean` skips memory retrieval
 - Memory injection is bounded (max 5 files, max 3000 tokens)
 - After retrieval, `memory-index.json` shows updated retrieval_count and last_retrieved for injected memories
 - Memory file frontmatter stays in sync with index retrieval stats
@@ -245,7 +245,7 @@ Phases within the same wave can execute in parallel.
 **Goal**: Ensure all components work together end-to-end and documentation reflects the complete system.
 
 **Tasks**:
-- [ ] Update `.claude/CLAUDE.md` Memory Extension section with complete documentation: memory-index.json schema, two-phase retrieval, auto-retrieval default, --no-remember opt-out, memory candidate emission, /todo harvest workflow
+- [ ] Update `.claude/CLAUDE.md` Memory Extension section with complete documentation: memory-index.json schema, two-phase retrieval, auto-retrieval default, --clean opt-out, memory candidate emission, /todo harvest workflow
 - [ ] Add `/memory --reindex` documentation: force-regenerate `memory-index.json` from filesystem state for manual recovery
 - [ ] Run end-to-end validation: `/research N` -> verify index-based memory injection -> `/implement N` -> verify memory candidates emitted -> `/todo` -> verify harvest with pre-classification
 - [ ] Verify retrieval statistics accumulate correctly across multiple operations
@@ -269,7 +269,7 @@ Phases within the same wave can execute in parallel.
 ## Testing & Validation
 
 - [ ] Run `/research N` on a test task and verify memories are automatically injected via index-based two-phase retrieval (no `--remember` flag)
-- [ ] Run `/research N --no-remember` and verify no memories are injected
+- [ ] Run `/research N --clean` and verify no memories are injected
 - [ ] Verify `memory-index.json` is valid JSON with all required fields after initial generation
 - [ ] Verify validate-on-read detects stale index (add a memory file without running /learn, then trigger retrieval)
 - [ ] Complete a research and implementation cycle, then run `/todo` and verify memory candidates appear with pre-classification
@@ -296,7 +296,7 @@ Phases within the same wave can execute in parallel.
 All changes are to `.claude/` configuration files and `.memory/` templates. Rollback via `git revert` of the implementation commit(s). The system degrades gracefully:
 - If two-phase retrieval causes issues, fall back to no auto-retrieval (revert Phase 2, keep index for future use)
 - If index generation is unreliable, remove validate-on-read and rely on manual `/memory --reindex`
-- If auto-retrieval causes token bloat, add `--no-remember` flag and revert to opt-in
+- If auto-retrieval causes token bloat, add `--clean` flag and revert to opt-in
 - If memory candidates produce noise, remove `memory_candidates` emission from agent definitions
 - If the Stop hook is annoying, remove its entry from `settings.json`
 - Memory frontmatter backfill is additive (extra fields) and does not break existing functionality
