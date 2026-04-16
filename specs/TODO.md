@@ -8,8 +8,9 @@ next_project_number: 71
 
 ### 70. Update documentation to reflect current memory system
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: markdown
+- **Research**: [01_docs-memory-audit.md](specs/070_update_docs_memory_system/reports/01_docs-memory-audit.md)
 
 **Description**: Update docs/agent-system/context-and-memory.md, docs/agent-system/commands.md, docs/workflows/memory-and-learning.md, docs/README.md, and README.md to reflect the current memory system including /distill command, memory lifecycle (/learn -> retrieval -> /todo harvest -> /distill), tombstone pattern, memory_health state tracking, vault maintenance operations (purge/combine/compress/refine/auto/gc), and distill-log auditability.
 
