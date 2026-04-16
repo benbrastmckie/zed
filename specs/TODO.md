@@ -1,10 +1,17 @@
 ---
-next_project_number: 69
+next_project_number: 70
 ---
 
 # Task List
 
 ## Tasks
+
+### 69. Create /distill command for memory system refinement
+- **Effort**: large
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Research best practices online to create a `/distill` command that complements `/learn` by processing the `.memory/` system to compress, combine, purge, and refine stored memories. Investigate how Claude Code's own dreaming/consolidation functionality works for inspiration. Additionally, update `/todo` to suggest running `/distill` and `/review` commands when it finishes as helpful reminders.
 
 ### 66. Update docs/ and README.md to reflect .claude/ refactoring
 - **Effort**: medium
