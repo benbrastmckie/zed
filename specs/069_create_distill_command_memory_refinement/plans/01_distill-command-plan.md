@@ -133,7 +133,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Purge Operation with Tombstone Pattern [NOT STARTED]
+### Phase 2: Purge Operation with Tombstone Pattern [COMPLETED]
 
 **Goal**: Implement the PURGE operation that identifies stale memories, presents them for interactive selection, tombstones selected entries, and provides --gc for hard deletion after grace period.
 
@@ -190,7 +190,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Combine Operation with Keyword Guarantee [NOT STARTED]
+### Phase 3: Combine Operation with Keyword Guarantee [COMPLETED]
 
 **Goal**: Implement the COMBINE operation that identifies duplicate/overlapping memories, presents merge candidates by topic cluster, merges selected pairs with keyword superset enforcement, and updates cross-references.
 
@@ -250,7 +250,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Compress and Refine Operations [NOT STARTED]
+### Phase 4: Compress and Refine Operations [COMPLETED]
 
 **Goal**: Implement COMPRESS (reduce verbose memories to key points) and REFINE (fix metadata quality issues) operations, plus the --auto flag for safe automatic operations.
 
