@@ -130,6 +130,33 @@ summary: ""
 
 Filenames serve as unique identifiers. The `retrieval_count` and `last_retrieved` fields are updated automatically when a memory is injected into agent context. The `keywords` array and `summary` string are used by the JSON index for two-phase retrieval scoring.
 
+## Vault Maintenance (/distill)
+
+The `/distill` command maintains memory vault health:
+
+| Invocation | Effect |
+|------------|--------|
+| `/distill` | Health report (read-only) |
+| `/distill --purge` | Tombstone stale/zero-retrieval memories (soft delete) |
+| `/distill --merge` | Combine overlapping memories with keyword superset guarantee |
+| `/distill --compress` | Reduce verbose memories to key points |
+| `/distill --auto` | Safe metadata fixes (no interaction) |
+| `/distill --gc` | Hard-delete tombstoned memories past 7-day grace period |
+
+### Tombstone Pattern
+
+`--purge` performs soft deletion by adding `tombstoned: true` and `tombstoned_date` to frontmatter. Tombstoned memories are excluded from retrieval scoring. After a 7-day grace period, `--gc` permanently removes them from disk and regenerates the index.
+
+### Distill Log
+
+All `/distill` operations are recorded in `.memory/distill-log.json` for auditability. Each entry includes the operation type, affected memory IDs, and timestamp.
+
+### Memory Lifecycle
+
+```
+/learn (create) -> retrieval (use) -> /todo harvest (capture) -> /distill (maintain)
+```
+
 ## Best Practices
 
 - Use descriptive first lines for better titles
