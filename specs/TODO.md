@@ -1,10 +1,18 @@
 ---
-next_project_number: 72
+next_project_number: 73
 ---
 
 # Task List
 
 ## Tasks
+
+### 72. Update docs/ to reflect agent system changes (model flags, memory retrieval, distill refine)
+- **Effort**: medium
+- **Status**: [RESEARCHED]
+- **Task Type**: markdown
+- **Research**: [01_docs-update-audit.md](specs/072_update_docs_for_agent_system_changes/reports/01_docs-update-audit.md)
+
+**Description**: Update user-facing docs/ to reflect agent system changes: add --fast/--hard/--haiku/--sonnet/--opus flags to commands.md and agent-lifecycle.md, replace two-phase retrieval description with memory-retrieve.sh script in context-and-memory.md and memory-and-learning.md, add --refine sub-mode to /distill tables, remove stale --remember flag from agent-lifecycle.md, and update architecture.md model description from split opus/sonnet to all-opus-default
 
 ### 71. Fix documentation regressions from agent system update
 - **Effort**: small

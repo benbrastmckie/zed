@@ -1,6 +1,14 @@
 {
-  "next_project_number": 72,
+  "next_project_number": 73,
   "active_projects": [
+    {
+      "project_number": 72,
+      "project_name": "update_docs_for_agent_system_changes",
+      "status": "researched",
+      "task_type": "markdown",
+      "created": "2026-04-16T21:06:19Z",
+      "last_updated": "2026-04-16T21:07:56Z"
+    },
     {
       "project_number": 71,
       "project_name": "fix_doc_regressions_agent_update",
