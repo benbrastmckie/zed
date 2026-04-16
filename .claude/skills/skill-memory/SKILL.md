@@ -811,6 +811,348 @@ Route through standard pipeline.
 
 ---
 
+## Distill Mode Execution (mode=distill)
+
+Distill mode maintains vault health through scoring, reporting, and four distillation operations. Invoked via `/distill` command with flag routing.
+
+### Execution Modes
+
+| Mode | Flag | Description |
+|------|------|-------------|
+| `report` | (bare) | Read-only health report with vault metrics |
+| `purge` | `--purge` | Tombstone stale/zero-retrieval memories |
+| `combine` | `--merge` | Merge overlapping memories with keyword superset guarantee |
+| `compress` | `--compress` | Reduce verbose memories to key points |
+| `auto` | `--auto` | Automatic safe metadata fixes (no interaction) |
+| `gc` | `--gc` | Hard-delete tombstoned memories past grace period |
+
+### Scoring Engine
+
+Compute composite distillation score for each memory entry in memory-index.json.
+
+#### Score Components
+
+**Staleness Score** (weight: 0.30):
+```
+days_since = (today - last_retrieved_or_created) in days
+staleness = min(days_since / 90, 1.0)
+
+# FSRS-inspired adjustment: old-but-retrieved memories are valuable
+if retrieval_count > 0 AND days_since_created > 60:
+  staleness = max(0, staleness - 0.3)
+```
+
+**Zero-Retrieval Penalty** (weight: 0.25):
+```
+if retrieval_count == 0 AND days_since_created > 30:
+  zero_retrieval = 1.0
+else:
+  zero_retrieval = 0.0
+```
+
+**Size Penalty** (weight: 0.20):
+```
+size_penalty = max(0, (token_count - 600) / 600)
+# Linear penalty above 600 tokens; capped at 1.0 for display
+```
+
+**Duplicate Score** (weight: 0.25):
+```
+# For each memory, compute keyword overlap with every other memory
+# Use same overlap algorithm as Memory Search classification
+duplicate = max(overlap_score(memory, other) for other in all_memories if other != memory)
+```
+
+**Composite Score**:
+```
+composite = (staleness * 0.30) + (zero_retrieval * 0.25) + (size_penalty * 0.20) + (duplicate * 0.25)
+```
+
+#### Topic-Cluster Grouping
+
+Group memories by topic prefix (first path segment) before scoring:
+```
+clusters = {}
+for memory in memories:
+  prefix = memory.topic.split("/")[0] if "/" in memory.topic else memory.topic
+  clusters[prefix].append(memory)
+```
+
+Process clusters independently to limit comparison scope for duplicate detection.
+
+### Health Report Generation (bare invocation)
+
+Read memory-index.json and compute:
+
+1. **Overview metrics**: total memories, total tokens, average tokens/memory
+2. **Category distribution**: Count by category (PATTERN, CONFIG, WORKFLOW, TECHNIQUE, INSIGHT)
+3. **Topic cluster sizes**: Count memories per topic prefix
+4. **Retrieval statistics**: retrieved-at-least-once vs never-retrieved, most/least retrieved
+5. **Distillation candidates**:
+   - Purge candidates: `zero_retrieval_penalty == 1.0` OR `staleness > 0.8`
+   - Merge candidates: any pair with `overlap > 0.60`
+   - Compress candidates: `token_count > 600`
+6. **Health score**: `100 - (purge_candidates * 3) - (merge_candidates * 5) - (compress_candidates * 2)`, clamped to 0-100
+
+Update `memory_health` in state.json after computing (even for bare report).
+
+### Purge Operation (--purge)
+
+**Step 1: Identify candidates**
+Select memories where `zero_retrieval_penalty == 1.0` OR `staleness_score > 0.8`.
+
+**Step 2: Category-aware TTL advisory thresholds** (for ranking, not automatic action):
+- CONFIG: 180 days
+- WORKFLOW: 365 days
+- PATTERN: 540 days
+- TECHNIQUE: 270 days
+- INSIGHT: no TTL
+
+**Step 3: Present candidates via AskUserQuestion**:
+```json
+{
+  "question": "Select memories to purge ({N} candidates):",
+  "header": "Distill: Purge",
+  "multiSelect": true,
+  "options": [
+    {"label": "MEM-{slug}", "description": "Score: {score} | Created: {date} | Retrievals: {count} | {token_count} tokens"}
+  ]
+}
+```
+
+**Step 4: Tombstone selected memories**:
+- Add to memory file frontmatter:
+  ```yaml
+  status: tombstoned
+  tombstoned_at: {ISO8601}
+  tombstone_reason: "purge"
+  ```
+- Do NOT delete the file
+- Do NOT remove from memory-index.json (but set `status: "tombstoned"` in index entry)
+- Tombstoned memories are excluded from retrieval scoring
+
+**Step 5: Link scan**:
+After tombstoning, scan all non-tombstoned memories for `[[MEM-{affected-slug}]]` references in Connections sections. Warn user about stale links.
+
+**Step 6: Log to distill-log.json**:
+```json
+{
+  "timestamp": "ISO8601",
+  "operation": "purge",
+  "memories_affected": ["MEM-slug-1", "MEM-slug-2"],
+  "action": "tombstoned",
+  "scores": {"MEM-slug-1": 0.82, "MEM-slug-2": 0.91},
+  "pre_metrics": {"total_memories": 8, "total_tokens": 3751},
+  "post_metrics": {"total_memories": 8, "total_tokens": 3751, "tombstoned": 2}
+}
+```
+
+### Garbage Collection (--gc)
+
+**Step 1**: Scan for tombstoned memories where `tombstoned_at` is older than 7-day grace period.
+
+**Step 2**: Present list via AskUserQuestion for confirmation:
+```json
+{
+  "question": "Permanently delete {N} tombstoned memories past 7-day grace period?",
+  "header": "Distill: Garbage Collection",
+  "multiSelect": true,
+  "options": [
+    {"label": "MEM-{slug}", "description": "Tombstoned: {date} | Reason: {reason}"}
+  ]
+}
+```
+
+**Step 3**: On confirmation: delete memory files, remove from memory-index.json, regenerate index.md.
+
+**Step 4**: Log deletion to distill-log.json.
+
+### Combine Operation (--merge)
+
+**Step 1: Identify merge candidates**:
+For each topic cluster, compute pairwise keyword overlap. Pair memories with overlap > 60%. Rank pairs by overlap score descending.
+
+**Step 2: Present by topic cluster via AskUserQuestion**:
+```json
+{
+  "question": "Topic: {cluster_name} - Select pairs to merge ({N} candidates):",
+  "header": "Distill: Combine",
+  "multiSelect": true,
+  "options": [
+    {"label": "Merge: MEM-{a} + MEM-{b}", "description": "{overlap}% overlap | Shared: {shared_keywords}"}
+  ]
+}
+```
+
+**Step 3: Execute merge for each selected pair**:
+1. Determine primary memory (higher retrieval_count, or older if equal)
+2. Merge content: primary content + `## Merged From {secondary_id}` section with secondary content
+3. **Keyword superset guarantee**: `merged_keywords = union(primary.keywords, secondary.keywords)`
+   - Verify: `len(merged_keywords) >= len(union)` -- fail merge if not satisfied
+4. Update frontmatter: `modified = today`, combine `retrieval_count`, keep earliest `created` date
+5. Tombstone the secondary memory with `tombstone_reason: "merged_into:{primary_id}"`
+
+**Step 4: Update cross-references**:
+Scan all memories for `[[{secondary_id}]]` references, replace with `[[{primary_id}]]`.
+
+**Step 5: Regenerate memory-index.json and index.md**.
+
+**Step 6: Log each merge to distill-log.json**:
+```json
+{
+  "timestamp": "ISO8601",
+  "operation": "combine",
+  "primary": "MEM-primary-slug",
+  "secondary": "MEM-secondary-slug",
+  "overlap_score": 0.72,
+  "keywords_before": {"primary": [], "secondary": []},
+  "keywords_after": [],
+  "keyword_superset_verified": true,
+  "pre_metrics": {"total_memories": 8},
+  "post_metrics": {"total_memories": 7, "tombstoned": 1}
+}
+```
+
+### Compress Operation (--compress)
+
+**Step 1: Identify candidates**: Select memories where `token_count > 600`.
+
+**Step 2: Present via AskUserQuestion**:
+```json
+{
+  "question": "Select memories to compress ({N} candidates, all >600 tokens):",
+  "header": "Distill: Compress",
+  "multiSelect": true,
+  "options": [
+    {"label": "MEM-{slug}", "description": "{token_count} tokens | Topic: {topic} | Retrievals: {retrieval_count}"}
+  ]
+}
+```
+
+**Step 3: Execute compression**:
+1. Read full content
+2. Generate compressed version: extract key points, preserve code blocks and examples, remove redundant prose
+3. Move original content to `## History > ### Pre-Compression ({date})` section (same pattern as UPDATE operation)
+4. Recalculate `token_count` in frontmatter
+5. Preserve all keywords (compression must not drop keywords)
+
+**Step 4: Log to distill-log.json**:
+```json
+{
+  "timestamp": "ISO8601",
+  "operation": "compress",
+  "memory": "MEM-slug",
+  "tokens_before": 850,
+  "tokens_after": 340,
+  "compression_ratio": 0.60,
+  "keywords_preserved": true
+}
+```
+
+### Refine and Auto Operation (--auto)
+
+**Step 1: Identify refine candidates**:
+- Missing or sparse keywords: memories with < 4 keywords
+- Duplicate keywords within a single memory
+- Missing `summary` field in frontmatter
+- Missing or incorrect category classification
+- Topic path inconsistencies
+
+**Step 2: Automatic fixes (run with --auto, no confirmation needed)**:
+- Deduplicate keywords within each memory
+- Add missing `summary` field (generate from first line of content)
+- Normalize topic paths (lowercase, consistent separators)
+
+**Step 3: Interactive fixes (require confirmation, skipped with --auto)**:
+- Keyword enrichment: suggest additional keywords based on content analysis
+- Category reclassification: suggest category changes based on content
+- Topic path correction: suggest topic changes based on cluster analysis
+
+**Step 4: Rebuild memory-index.json from filesystem state**.
+
+**Step 5: Update `memory_health` in state.json**.
+
+**Step 6: Log all changes to distill-log.json**:
+```json
+{
+  "timestamp": "ISO8601",
+  "operation": "refine",
+  "fixes_applied": {
+    "keyword_dedup": 3,
+    "summary_added": 2,
+    "topic_normalized": 1
+  },
+  "memories_affected": ["MEM-slug-1", "MEM-slug-2"]
+}
+```
+
+### Distill Log Schema
+
+The distill log at `.memory/distill-log.json` records all operations for auditability:
+
+```json
+{
+  "version": 1,
+  "operations": [],
+  "summary": {
+    "total_operations": 0,
+    "last_distilled": null,
+    "memories_purged": 0,
+    "memories_merged": 0,
+    "memories_compressed": 0,
+    "memories_refined": 0
+  }
+}
+```
+
+The log file is created on first `/distill` invocation if it does not exist.
+
+### Tombstone Pattern
+
+Tombstoned memories are soft-deleted: they remain on disk but are excluded from retrieval.
+
+**Frontmatter fields added on tombstone**:
+```yaml
+status: tombstoned
+tombstoned_at: {ISO8601}
+tombstone_reason: "purge" | "merged_into:{primary_id}"
+```
+
+**Index entry update**: Set `"status": "tombstoned"` in memory-index.json entry.
+
+**Retrieval exclusion**: During two-phase retrieval scoring, filter out entries where `status == "tombstoned"`:
+```bash
+# When reading memory-index.json for retrieval
+jq '.entries[] | select(.status == "tombstoned" | not)' .memory/memory-index.json
+```
+
+**Grace period**: Tombstoned memories are eligible for hard deletion via `--gc` after 7 days.
+
+### Memory Health State (state.json)
+
+The `memory_health` field in state.json (parallel to `repository_health`):
+
+```json
+"memory_health": {
+  "last_distilled": null,
+  "distill_count": 0,
+  "total_memories": 8,
+  "never_retrieved": 8,
+  "health_score": 100,
+  "status": "healthy"
+}
+```
+
+**Status values**:
+- `"healthy"`: health_score >= 70
+- `"needs_attention"`: health_score 40-69
+- `"unhealthy"`: health_score < 40
+
+Updated after every `/distill` invocation (including bare report).
+For non-bare operations, `last_distilled` and `distill_count` are also updated.
+
+---
+
 ## Error Handling
 
 ### No Content Provided
