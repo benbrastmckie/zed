@@ -494,6 +494,29 @@ Retrieval statistics (`retrieval_count`, `last_retrieved`) are tracked in both t
 /research N --no-remember
 ```
 
+### Memory Index
+
+The machine-queryable index at `.memory/memory-index.json` stores per-entry metadata for scoring:
+- `id`, `path`, `title`, `summary`, `topic`, `category`, `keywords`, `token_count`
+- `created`, `modified`, `last_retrieved`, `retrieval_count`
+
+The index is regenerated alongside `index.md` during `/learn` operations. The validate-on-read pattern detects stale indices before retrieval and triggers regeneration.
+
+**Manual recovery**: If the index becomes corrupted, delete `.memory/memory-index.json` and run `/learn` to regenerate from filesystem state.
+
+### Memory Candidate Emission
+
+Agents emit 0-3 structured memory candidates in `.return-meta.json` during `/research`, `/plan`, and `/implement` operations. Candidates include: content, category (TECHNIQUE/PATTERN/CONFIG/WORKFLOW/INSIGHT), confidence score, and suggested keywords. Skills propagate candidates to state.json during postflight. No memory writes occur at emission time.
+
+### Memory Harvest via /todo
+
+When `/todo` archives completed tasks, it collects memory candidates from state.json and presents them for batch approval using three-tier pre-classification:
+- **Tier 1** (pre-selected): High-confidence PATTERN/CONFIG candidates
+- **Tier 2** (presented): Medium-confidence WORKFLOW/TECHNIQUE candidates
+- **Tier 3** (hidden): Low-confidence or INSIGHT candidates
+
+Approved memories are created autonomously with proper frontmatter (including retrieval tracking fields) and the JSON index is regenerated. Deduplication prevents creation of memories with >90% keyword overlap with existing entries.
+
 <!-- END_SECTION: extension_memory -->
 
 <!-- SECTION: extension_present -->
