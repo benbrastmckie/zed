@@ -1,10 +1,18 @@
 ---
-next_project_number: 73
+next_project_number: 74
 ---
 
 # Task List
 
 ## Tasks
+
+### 73. Port high-value Slidev resources from Vision repository into talk library
+- **Effort**: medium
+- **Status**: [RESEARCHED]
+- **Task Type**: meta
+- **Research**: [01_vision-slidev-port.md](specs/073_port_vision_slidev_resources/reports/01_vision-slidev-port.md)
+
+**Description**: Port high and medium value Slidev resources from /home/benjamin/Projects/Logos/Vision/.context/deck/ into the talk library at .claude/context/project/present/talk/. High value: (1) Animation pattern library — 6 reusable v-click/v-motion patterns (fade-in, slide-in-below, metric-cascade, rough-marks, scale-in-pop, staggered-list), (2) Composable style architecture — separate color, typography, and texture CSS files instead of monolithic themes, (3) Texture overlays (grid-overlay.css, noise-grain.css). Medium value: (4) ComparisonCol.vue — side-by-side comparison columns, (5) TimelineItem.vue — milestone timeline with status indicators, (6) MetricCard.vue — animated KPI/metric display. Adapt business-oriented components for academic/research use where needed. Update talk library index.json to catalog new resources.
 
 ### 72. Update docs/ to reflect agent system changes (model flags, memory retrieval, distill refine)
 - **Effort**: medium
@@ -79,3 +87,4 @@ next_project_number: 73
 ## Recommended Order
 
 1. **65** [RESEARCHED] -> plan (independent)
+2. **73** -> research (independent)

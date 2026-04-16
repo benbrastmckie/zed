@@ -1,6 +1,22 @@
 {
-  "next_project_number": 73,
+  "next_project_number": 74,
   "active_projects": [
+    {
+      "project_number": 73,
+      "project_name": "port_vision_slidev_resources",
+      "status": "researched",
+      "task_type": "meta",
+      "created": "2026-04-16T21:42:57Z",
+      "last_updated": "2026-04-16T21:48:09Z",
+      "artifacts": [
+        {
+          "path": "specs/073_port_vision_slidev_resources/reports/01_vision-slidev-port.md",
+          "type": "report",
+          "summary": "Gap analysis of Vision Slidev resources: 6 animations, 9 CSS styles, 3 Vue components to port"
+        }
+      ],
+      "next_artifact_number": 2
+    },
     {
       "project_number": 72,
       "project_name": "update_docs_for_agent_system_changes",
