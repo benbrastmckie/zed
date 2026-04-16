@@ -4,12 +4,12 @@
     {
       "project_number": 68,
       "project_name": "self_learning_memory_system",
-      "status": "planned",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-15T21:51:25Z",
-      "last_updated": "2026-04-16T00:08:15Z",
-      "session_id": "sess_1776297843_c36e31",
-      "next_artifact_number": 2,
+      "last_updated": "2026-04-16T00:32:32Z",
+      "session_id": "sess_1776298500_b7d4e1",
+      "next_artifact_number": 3,
       "artifacts": [
         {
           "path": "specs/068_self_learning_memory_system/reports/01_team-research.md",
@@ -20,6 +20,11 @@
           "path": "specs/068_self_learning_memory_system/plans/01_memory-system-plan.md",
           "type": "plan",
           "summary": "5-phase implementation plan for self-learning memory system with auto-retrieval, agent-side capture candidates, enhanced /todo harvest, and passive nudging"
+        },
+        {
+          "path": "specs/068_self_learning_memory_system/reports/02_memory-index-design.md",
+          "type": "research",
+          "summary": "Memory index schema design: two-phase retrieval with JSON manifest for token-efficient context loading"
         }
       ],
       "researched": "2026-04-15T22:14:09Z",
