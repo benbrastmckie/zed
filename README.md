@@ -159,6 +159,7 @@ Specialized commands that add domain-specific capabilities on top of the core li
 | Command | What it does |
 |---------|-------------|
 | `/learn` | Save knowledge to the memory vault for future sessions |
+| `/distill` | Maintain memory vault health (scoring, purging, merging, compressing) |
 
 ### Housekeeping
 
@@ -239,7 +240,7 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 
 ## AI Integration
 
-**Claude Code** (Ctrl+Shift+A): The primary AI interface. Provides a structured task lifecycle (`/task`, `/research`, `/plan`, `/implement`) for tracked, resumable development work. Domain extensions add specialized capabilities for epidemiology (`/epi`), grant and research development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), document tools (`/edit`, `/convert`, `/table`, `/scrape`), and persistent memory (`/learn`).
+**Claude Code** (Ctrl+Shift+A): The primary AI interface. Provides a structured task lifecycle (`/task`, `/research`, `/plan`, `/implement`) for tracked, resumable development work. Domain extensions add specialized capabilities for epidemiology (`/epi`), grant and research development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), document tools (`/edit`, `/convert`, `/table`, `/scrape`), and persistent memory (`/learn`, `/distill`).
 
 **Zed Agent Panel** (Ctrl+?): Built-in AI sidebar for quick questions and inline edits. See [docs/agent-system/zed-agent-panel.md](docs/agent-system/zed-agent-panel.md).
 

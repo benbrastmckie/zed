@@ -127,7 +127,7 @@ For `docs/agent-system/context-and-memory.md`:
 
 ---
 
-### Phase 3: Update surface-level references (README.md + docs/README.md) [NOT STARTED]
+### Phase 3: Update surface-level references (README.md + docs/README.md) [COMPLETED]
 
 **Goal**: Surface `/distill` in the root README command table and docs index.
 
