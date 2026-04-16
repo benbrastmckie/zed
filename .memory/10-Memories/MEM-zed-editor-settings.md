@@ -5,6 +5,10 @@ tags: [CONFIG, zed, settings, editor]
 topic: "zed/config"
 source: "settings.json"
 modified: 2026-04-15
+retrieval_count: 0
+last_retrieved: null
+keywords: [settings, theme, fonts, lsp, extensions, editor, configuration, zed]
+summary: "Zed editor settings configuration including theme, fonts, LSP, extensions, and agent_servers"
 ---
 
 # Zed Editor Settings Configuration

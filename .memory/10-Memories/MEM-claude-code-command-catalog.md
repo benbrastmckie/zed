@@ -5,6 +5,10 @@ tags: [WORKFLOW, claude-code, commands, reference]
 topic: "agent-system/commands"
 source: "docs/agent-system/commands.md, docs/workflows/"
 modified: 2026-04-15
+retrieval_count: 0
+last_retrieved: null
+keywords: [commands, research, plan, implement, todo, task, review, lifecycle]
+summary: "25 slash commands organized by category: lifecycle, documentation, grants, epidemiology, and memory"
 ---
 
 # Claude Code Command Catalog

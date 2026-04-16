@@ -5,6 +5,10 @@ tags: [CONFIG, zed, keybindings, shortcuts]
 topic: "zed/keybindings"
 source: "keymap.json"
 modified: 2026-04-15
+retrieval_count: 0
+last_retrieved: null
+keywords: [keybindings, shortcuts, keymap, modifiers, bindings, scheme, zed]
+summary: "Scheme A custom keybindings with 17 unique bindings across three modifier categories"
 ---
 
 # Zed Keybindings Scheme A

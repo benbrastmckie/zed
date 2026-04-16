@@ -5,6 +5,10 @@ tags: [TECHNIQUE, zed, claude-code, agent-panel, acp]
 topic: "zed/ai-modes"
 source: "docs/agent-system/zed-agent-panel.md"
 modified: 2026-04-15
+retrieval_count: 0
+last_retrieved: null
+keywords: [agent, panel, terminal, cli, acp, bridge, modes, zed]
+summary: "Terminal CLI vs agent panel modes with ACP bridge integration"
 ---
 
 # Zed AI Modes: Terminal CLI vs Agent Panel

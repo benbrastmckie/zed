@@ -5,6 +5,10 @@ tags: [PATTERN, context, memory, architecture]
 topic: "agent-system/context"
 source: "docs/agent-system/context-and-memory.md"
 modified: 2026-04-15
+retrieval_count: 0
+last_retrieved: null
+keywords: [context, memory, layers, extensions, project, auto-memory, vault]
+summary: "Five context layers and two memory layers with distinct owners and content routing rules"
 ---
 
 # Context and Memory Layers

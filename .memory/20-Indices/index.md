@@ -5,6 +5,22 @@
 - [Memories](10-Memories/) - All stored memory entries
 - [Templates](30-Templates/) - Memory entry templates
 
+## JSON Index
+
+The machine-queryable index at `.memory/memory-index.json` enables two-phase retrieval:
+1. **Score phase**: Read JSON index, score entries by keyword overlap, select top-K candidates
+2. **Retrieve phase**: Read only selected memory files into context
+
+The JSON index is regenerated alongside this file during `/learn` operations and validated before each retrieval via the validate-on-read pattern.
+
+### Retrieval Tracking Fields
+
+Each memory entry (both in JSON index and file frontmatter) tracks:
+- `retrieval_count` - Number of times this memory has been injected into agent context
+- `last_retrieved` - ISO date of most recent retrieval (null if never retrieved)
+- `keywords` - Array of 5-8 significant terms for scoring
+- `summary` - One-line description for quick scanning
+
 ## Recent Memories
 - [MEM-zed-editor-settings](../10-Memories/MEM-zed-editor-settings.md) - Zed editor settings configuration (2026-04-15)
 - [MEM-zed-keybindings-scheme](../10-Memories/MEM-zed-keybindings-scheme.md) - Zed keybindings Scheme A (2026-04-15)

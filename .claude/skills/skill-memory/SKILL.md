@@ -366,6 +366,10 @@ tags: {inferred_tags}
 topic: "{segment.topic}"
 source: "{segment.source_file or 'user input'}"
 modified: {today}
+retrieval_count: 0
+last_retrieved: null
+keywords: {segment.key_terms}
+summary: "{one-line summary of content}"
 ---
 
 # {segment.summary}
@@ -427,7 +431,7 @@ After each operation, update both `index.md` and `.memory/10-Memories/README.md`
 
 ### Index Regeneration Pattern
 
-To avoid concurrent write conflicts, regenerate index.md from filesystem state rather than append:
+To avoid concurrent write conflicts, regenerate both `index.md` and `memory-index.json` from filesystem state rather than append:
 
 ```bash
 # 1. List all memory files
@@ -443,12 +447,43 @@ done
 
 # 3. Regenerate index.md from extracted data
 # Sort by date descending, write complete file
+
+# 4. Regenerate memory-index.json (JSON manifest for two-phase retrieval)
+# For each memory file:
+#   - Extract frontmatter: title, topic, tags, summary, keywords, retrieval_count, last_retrieved
+#   - Compute token_count = word_count * 1.3
+#   - Derive category from first tag
+#   - Build JSON entry with all fields
+# Write complete .memory/memory-index.json with:
+#   version: 1, generated_at: ISO8601, entry_count: N, total_tokens: sum,
+#   entries: [{id, path, title, summary, topic, category, keywords, token_count, created, modified, last_retrieved, retrieval_count}]
 ```
 
 Benefits:
 - No append conflicts (complete overwrite)
 - Self-healing (missing entries recovered)
 - Idempotent (multiple regenerations produce same result)
+- JSON index enables two-phase retrieval (index scan + selective file read)
+
+### Validate-on-Read Pattern
+
+Before using `memory-index.json` for retrieval, validate that the index is fresh:
+
+```bash
+# 1. List all MEM-*.md files on disk
+disk_files=$(ls .memory/10-Memories/MEM-*.md 2>/dev/null | xargs -n1 basename | sed 's/.md$//')
+
+# 2. List all entries in memory-index.json
+index_ids=$(jq -r '.entries[].id' .memory/memory-index.json 2>/dev/null)
+
+# 3. Compare: if any file exists on disk but not in index, or vice versa, regenerate
+if [ "$(echo "$disk_files" | sort)" != "$(echo "$index_ids" | sort)" ]; then
+  echo "Memory index stale - regenerating..."
+  # Trigger full index regeneration (same as Index Regeneration Pattern step 4)
+fi
+```
+
+This detects when memory files are added or removed without running `/learn`, ensuring retrieval always operates on fresh data.
 
 ---
 

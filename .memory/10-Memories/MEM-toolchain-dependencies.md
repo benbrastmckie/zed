@@ -5,6 +5,10 @@ tags: [CONFIG, toolchain, dependencies, install]
 topic: "zed/toolchain"
 source: "docs/toolchain/"
 modified: 2026-04-15
+retrieval_count: 0
+last_retrieved: null
+keywords: [toolchain, dependencies, python, latex, typst, mcp, install, groups]
+summary: "Toolchain dependencies and install groups in topological order for Python, R, LaTeX, Typst, and MCP servers"
 ---
 
 # Zed Toolchain Dependencies

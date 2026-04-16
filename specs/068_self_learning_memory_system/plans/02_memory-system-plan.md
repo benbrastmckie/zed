@@ -1,7 +1,7 @@
 # Implementation Plan: Self-Learning Memory System
 
 - **Task**: 68 - Self-learning memory system
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 9 hours
 - **Dependencies**: None
 - **Research Inputs**:
@@ -78,7 +78,7 @@ No ROADMAP.md items found (roadmap is empty placeholder).
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Memory Index Infrastructure [NOT STARTED]
+### Phase 1: Memory Index Infrastructure [COMPLETED]
 
 **Goal**: Create the `memory-index.json` manifest and integrate its generation into the existing `/learn` index regeneration workflow. Simultaneously enhance memory frontmatter with retrieval tracking fields and keywords.
 

@@ -5,6 +5,10 @@ tags: [PATTERN, agent-system, architecture, claude-code]
 topic: "agent-system/architecture"
 source: "docs/agent-system/architecture.md, docs/agent-system/README.md"
 modified: 2026-04-15
+retrieval_count: 0
+last_retrieved: null
+keywords: [architecture, pipeline, checkpoint, lifecycle, routing, commands, skills, agents]
+summary: "Three-layer pipeline architecture with checkpoint execution, task lifecycle state machine, and task-type routing"
 ---
 
 # Claude Code Agent System Architecture

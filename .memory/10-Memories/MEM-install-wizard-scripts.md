@@ -5,6 +5,10 @@ tags: [WORKFLOW, install, scripts, zed]
 topic: "zed/install"
 source: "scripts/install/, .zed/tasks.json, .zed/scripts/"
 modified: 2026-04-15
+retrieval_count: 0
+last_retrieved: null
+keywords: [install, wizard, scripts, tasks, helpers, setup, automation]
+summary: "Installation wizard and Zed helper scripts for project setup and automation"
 ---
 
 # Installation Wizard and Zed Scripts
