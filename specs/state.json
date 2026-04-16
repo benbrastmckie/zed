@@ -4,20 +4,52 @@
     {
       "project_number": 68,
       "project_name": "self_learning_memory_system",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-15T21:51:25Z",
-      "last_updated": "2026-04-15T22:14:09Z",
-      "session_id": "sess_1776371200_a8f3d2",
+      "last_updated": "2026-04-16T00:08:15Z",
+      "session_id": "sess_1776297843_c36e31",
       "next_artifact_number": 2,
       "artifacts": [
         {
           "path": "specs/068_self_learning_memory_system/reports/01_team-research.md",
           "type": "research",
           "summary": "Team research synthesis: auto-capture at /todo archival, auto-retrieval as default --remember, agent-side memory candidates in metadata"
+        },
+        {
+          "path": "specs/068_self_learning_memory_system/plans/01_memory-system-plan.md",
+          "type": "plan",
+          "summary": "5-phase implementation plan for self-learning memory system with auto-retrieval, agent-side capture candidates, enhanced /todo harvest, and passive nudging"
         }
       ],
-      "researched": "2026-04-15T22:14:09Z"
+      "researched": "2026-04-15T22:14:09Z",
+      "plan_metadata": {
+        "phases": 5,
+        "total_effort_hours": 7,
+        "complexity": "complex",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_team-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-15"
+          }
+        ]
+      }
     },
     {
       "project_number": 67,

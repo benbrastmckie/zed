@@ -8,9 +8,10 @@ next_project_number: 69
 
 ### 68. Design self-learning memory system with automatic capture and retrieval
 - **Effort**: large
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: meta
 - **Research**: [01_team-research.md](specs/068_self_learning_memory_system/reports/01_team-research.md)
+- **Plan**: [068_self_learning_memory_system/plans/01_memory-system-plan.md]
 
 **Description**: Design a self-learning memory system that automatically captures useful knowledge at lifecycle checkpoints (implementation completion, /todo archival, /review runs, /research completion) and automatically retrieves relevant memories during agent operations without requiring the --remember flag. Research best practices for AI memory systems, study the current .memory/ vault and skill-memory architecture, and design an optimization that: (1) integrates learning steps into lifecycle commands (GATE OUT phases), (2) filters for genuinely useful repository knowledge vs noisy details, (3) enables automatic memory retrieval during research, planning, and implementation, and (4) ensures memories naturally guide agent behavior. The design should balance comprehensiveness with signal-to-noise ratio.
 
