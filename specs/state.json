@@ -4,13 +4,20 @@
     {
       "project_number": 69,
       "project_name": "create_distill_command_memory_refinement",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-16T17:00:33Z",
-      "last_updated": "2026-04-16T17:09:03Z",
-      "session_id": "sess_1776358874_528d37",
+      "last_updated": "2026-04-16T17:25:26Z",
+      "session_id": "sess_1776359828_006565",
       "researched": "2026-04-16T17:09:03Z",
-      "next_artifact_number": 2
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/069_create_distill_command_memory_refinement/plans/01_distill-command-plan.md",
+          "type": "plan",
+          "summary": "6-phase implementation plan for /distill command with scoring engine, four distillation operations, tombstone pattern, /todo integration, and documentation updates"
+        }
+      ]
     },
     {
       "project_number": 66,
