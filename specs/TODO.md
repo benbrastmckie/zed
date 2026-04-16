@@ -1,10 +1,17 @@
 ---
-next_project_number: 74
+next_project_number: 75
 ---
 
 # Task List
 
 ## Tasks
+
+### 74. Update documentation for extension dependency system and slidev resource-only extension
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Update documentation throughout .claude/ to reflect the new extension dependency system and slidev resource-only extension. Changes include: (1) CLAUDE.md addition of extension dependency paragraph, (2) extension-development.md new Dependencies section covering declaring dependencies, auto-loading behavior, circular detection, unload safety, resource-only extensions, and picker preview, (3) project-overview.md updated extension description mentioning dependencies and resource-only extensions, (4) extension-system.md updated load/unload flows with dependency resolution steps, (5) adding-domains.md updated extension description mentioning optional dependencies, (6) creating-extensions.md new Resource-Only Extensions section and updated dependency field description, (7) index.json key reordering and line_count updates, (8) extensions.json restructured with new slidev extension entry, (9) talk/index.json updated animations/styles paths to reference shared slidev extension context, (10) new .claude/context/project/slidev/ directory with animation and style subdirectories
 
 ### 73. Port high-value Slidev resources from Vision repository into talk library
 - **Effort**: medium
@@ -88,3 +95,4 @@ next_project_number: 74
 
 1. **65** [RESEARCHED] -> plan (independent)
 2. **73** -> research (independent)
+3. **74** -> research (independent)
