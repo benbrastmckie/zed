@@ -211,7 +211,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: Passive Stop Hook Nudge [NOT STARTED]
+### Phase 5: Passive Stop Hook Nudge [COMPLETED]
 
 **Goal**: Add a lightweight Stop hook that detects completed lifecycle operations and prints a one-line reminder about memory capture, increasing user awareness without any writes or state changes.
 
