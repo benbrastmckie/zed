@@ -4,10 +4,13 @@
     {
       "project_number": 69,
       "project_name": "create_distill_command_memory_refinement",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-16T17:00:33Z",
-      "last_updated": "2026-04-16T17:00:33Z"
+      "last_updated": "2026-04-16T17:09:03Z",
+      "session_id": "sess_1776358874_528d37",
+      "researched": "2026-04-16T17:09:03Z",
+      "next_artifact_number": 2
     },
     {
       "project_number": 66,

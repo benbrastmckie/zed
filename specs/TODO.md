@@ -8,8 +8,9 @@ next_project_number: 70
 
 ### 69. Create /distill command for memory system refinement
 - **Effort**: large
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [01_team-research.md](specs/069_create_distill_command_memory_refinement/reports/01_team-research.md)
 
 **Description**: Research best practices online to create a `/distill` command that complements `/learn` by processing the `.memory/` system to compress, combine, purge, and refine stored memories. Investigate how Claude Code's own dreaming/consolidation functionality works for inspiration. Additionally, update `/todo` to suggest running `/distill` and `/review` commands when it finishes as helpful reminders.
 
