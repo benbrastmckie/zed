@@ -463,7 +463,7 @@ This project includes LaTeX document development support via the latex extension
 <!-- SECTION: extension_memory -->
 ## Memory Extension
 
-Knowledge capture and retrieval via the memory vault. Supports text, file, directory, and task-based memory creation with MCP-backed search and deduplication.
+Knowledge capture and retrieval via the memory vault. Supports text, file, directory, and task-based memory creation with MCP-backed search and deduplication. Automatic two-phase retrieval injects relevant memories into all lifecycle operations.
 
 ### Skill-Agent Mapping
 
@@ -480,12 +480,18 @@ Knowledge capture and retrieval via the memory vault. Supports text, file, direc
 | `/learn` | `/learn /path/to/dir/` | Scan directory for learnable content |
 | `/learn` | `/learn --task N` | Review task artifacts and create memories |
 
-### Memory-Augmented Research
+### Automatic Memory Retrieval
 
-The `--remember` flag on `/research` searches the memory vault for relevant prior knowledge and includes matches in the research context. Requires this extension to be loaded; ignored gracefully if not.
+Memory retrieval is **automatic** for all `/research`, `/plan`, and `/implement` operations. Relevant memories are injected into agent context using two-phase retrieval:
 
+1. **Score phase**: Read `.memory/memory-index.json`, score entries by keyword overlap with task description, select top-5 above threshold
+2. **Retrieve phase**: Read selected memory files (capped at 3000 tokens), inject as `<memory-context>` block
+
+Retrieval statistics (`retrieval_count`, `last_retrieved`) are tracked in both the JSON index and memory file frontmatter for natural decay scoring.
+
+**Opt-out**: Pass `--no-remember` to skip memory retrieval:
 ```bash
-/research N --remember
+/research N --no-remember
 ```
 
 <!-- END_SECTION: extension_memory -->

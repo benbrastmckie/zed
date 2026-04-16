@@ -112,7 +112,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Two-Phase Auto-Retrieval [NOT STARTED]
+### Phase 2: Two-Phase Auto-Retrieval [COMPLETED]
 
 **Goal**: Memory retrieval becomes automatic for all research, planning, and implementation operations using two-phase retrieval: score the JSON index to select top-K candidates, then read only selected memory files into context.
 

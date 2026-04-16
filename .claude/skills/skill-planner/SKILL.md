@@ -141,6 +141,28 @@ artifact_padded=$(printf "%02d" "$artifact_number")
 
 ### Stage 4: Prepare Delegation Context
 
+**Memory Retrieval (Auto)**: Unless `--no-remember` flag is present, inject relevant memories into delegation context using two-phase retrieval:
+
+```bash
+# Phase 1: Score index entries against task keywords
+# 1. Read .memory/memory-index.json (validate-on-read: check disk files match index entries)
+# 2. Extract keywords from task description (top 8 terms, exclude stop words)
+# 3. Score each index entry: 0.5 * keyword_overlap + 0.3 * topic_match + 0.2 * recency_bonus
+#    - keyword_overlap = |task_keywords intersect entry.keywords| / |task_keywords|
+#    - topic_match = 1.0 if task_type or description matches entry.topic, else 0.0
+#    - recency_bonus = 1.0 if modified within 30 days, 0.5 if 90 days, 0.0 otherwise
+# 4. Select top-K entries where score > 0.2 (K = min(5, entries above threshold))
+# 5. Budget check: sum(selected.token_count) < 3000 tokens; drop lowest-scored if over
+
+# Phase 2: Retrieve and inject
+# 1. Read each selected memory file
+# 2. Update memory-index.json: increment retrieval_count, set last_retrieved to today
+# 3. Update memory file frontmatter: increment retrieval_count, set last_retrieved to today
+# 4. Inject content as <memory-context> block in delegation context
+```
+
+If `--no-remember` flag is present, skip memory retrieval entirely.
+
 **Prior plan discovery**: Find the latest existing plan file (if any) to pass as reference context.
 
 ```bash
