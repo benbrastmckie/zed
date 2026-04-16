@@ -1101,7 +1101,22 @@ Active tasks remaining: {N}
 Next Steps:
 1. Review archive at specs/archive/
 2. Run /review for codebase analysis
+{conditional /distill suggestion - see rules below}
 ```
+
+**Conditional /distill Suggestion Rules**:
+
+Before generating "Next Steps", read `memory_health` from state.json (or compute from memory-index.json if absent).
+
+| Condition | Suggestion |
+|-----------|------------|
+| `total_memories < 5` | Suppress all /distill suggestions |
+| `total_memories >= 10` | Add: `{N}. Run /distill for memory vault health report ({total_memories} memories)` |
+| `total_memories >= 30` | Add: `{N}. Run /distill to maintain memory vault ({total_memories} memories, {health_score}/100 health)` |
+| `never_retrieved / total_memories > 0.5` (and total >= 5) | Add: `{N}. Run /distill --purge to review {never_retrieved} never-retrieved memories` |
+| `last_distilled` is null and total >= 10, OR `last_distilled` older than 30 days | Add: `{N}. Run /distill for maintenance (last distilled: {date or "never"})` |
+
+When multiple conditions match, use the most specific suggestion (highest priority: purge > maintenance > health report). Only add one /distill line to Next Steps.
 
 **Section Inclusion Rules:**
 

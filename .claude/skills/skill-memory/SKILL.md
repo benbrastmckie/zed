@@ -30,6 +30,7 @@ Reference (do not load eagerly):
 | `file` | File path | Add single file content as memory |
 | `directory` | Directory path | Scan directory for learnable content |
 | `task` | Task number | Review task artifacts and create memories |
+| `distill` | Flags | Vault health maintenance (via /distill command) |
 
 All non-task modes flow through: **Content Mapping** -> **Memory Search** -> **Memory Operations**
 
@@ -453,10 +454,12 @@ done
 #   - Extract frontmatter: title, topic, tags, summary, keywords, retrieval_count, last_retrieved
 #   - Compute token_count = word_count * 1.3
 #   - Derive category from first tag
+#   - Extract status from frontmatter (default: "active", or "tombstoned" if present)
 #   - Build JSON entry with all fields
 # Write complete .memory/memory-index.json with:
 #   version: 1, generated_at: ISO8601, entry_count: N, total_tokens: sum,
-#   entries: [{id, path, title, summary, topic, category, keywords, token_count, created, modified, last_retrieved, retrieval_count}]
+#   entries: [{id, path, title, summary, topic, category, keywords, token_count, created, modified, last_retrieved, retrieval_count, status}]
+#   status field: "active" (default) or "tombstoned" (read from frontmatter)
 ```
 
 Benefits:

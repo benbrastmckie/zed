@@ -321,7 +321,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: /todo Integration and Retrieval Updates [NOT STARTED]
+### Phase 5: /todo Integration and Retrieval Updates [COMPLETED]
 
 **Goal**: Update /todo to conditionally suggest /distill and /review, update memory retrieval to skip tombstoned memories, and wire up memory_health state tracking.
 
