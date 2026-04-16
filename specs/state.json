@@ -4,10 +4,11 @@
     {
       "project_number": 71,
       "project_name": "fix_doc_regressions_agent_update",
-      "status": "researched",
+      "status": "completed",
       "task_type": "meta",
       "created": "2026-04-16T20:22:43Z",
-      "last_updated": "2026-04-16T20:24:07Z"
+      "last_updated": "2026-04-16T21:05:34Z",
+      "completion_summary": "Verified all 4 documentation regressions from agent system update were fixed: retrieval tracking fields restored in memory template, planning/partial JSON examples restored in return-metadata-file, plan_metadata JSON block preserved, sequential plan note added to dependency analysis."
     },
     {
       "project_number": 70,

@@ -8,7 +8,7 @@ next_project_number: 72
 
 ### 71. Fix documentation regressions from agent system update
 - **Effort**: small
-- **Status**: [RESEARCHED]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
 - **Research**: [01_doc-regression-review.md](specs/071_fix_doc_regressions_agent_update/reports/01_doc-regression-review.md)
 
