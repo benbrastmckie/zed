@@ -9,7 +9,7 @@ Save knowledge across sessions and draw on prior learnings during research. The 
 The memory system follows a four-stage lifecycle:
 
 1. **Create** (`/learn`) — Save text, files, directories, or task artifacts as memories in the vault.
-2. **Retrieve** (automatic) — Relevant memories are automatically injected into `/research`, `/plan`, and `/implement` contexts via two-phase retrieval. Pass `--clean` to skip retrieval.
+2. **Retrieve** (automatic) — Relevant memories are automatically injected into `/research`, `/plan`, and `/implement` contexts via `memory-retrieve.sh`. Pass `--clean` to skip retrieval.
 3. **Harvest** (`/todo`) — When archiving completed tasks, `/todo` collects memory candidates emitted by agents and presents them for batch approval.
 4. **Maintain** (`/distill`) — Score, purge, merge, compress, and garbage-collect vault entries to keep the vault healthy over time.
 
@@ -63,10 +63,7 @@ Reviews the research reports, plans, and summaries for a completed task and crea
 
 ## Automatic memory retrieval
 
-Memory retrieval is automatic for all `/research`, `/plan`, and `/implement` operations. Before running the normal workflow, the system performs two-phase retrieval:
-
-1. **Score phase** — Reads `.memory/memory-index.json`, scores entries by keyword overlap with the task description, and selects the top-5 entries above threshold.
-2. **Retrieve phase** — Reads selected memory files (capped at 3000 tokens) and injects them as a `<memory-context>` block into the agent context.
+Memory retrieval is automatic for all `/research`, `/plan`, and `/implement` operations via the `memory-retrieve.sh` script. The script scores `.memory/memory-index.json` entries by keyword overlap with the task description, selects the top matches (TOKEN_BUDGET=2000, MAX_ENTRIES=5), and injects them as a `<memory-context>` block into the agent context. Tombstoned memories are excluded from retrieval.
 
 This helps Claude build on prior work rather than rediscovering things from scratch. Pass `--clean` to any of these commands to skip memory retrieval entirely.
 
@@ -90,6 +87,7 @@ The `/distill` command maintains vault health over time. Run it bare for a read-
 | `/distill --purge` | Tombstone stale or zero-retrieval memories (soft delete) |
 | `/distill --merge` | Merge overlapping memories with keyword superset guarantee |
 | `/distill --compress` | Reduce verbose memories to key points |
+| `/distill --refine` | Improve memory metadata quality (keywords, tags, topics) |
 | `/distill --auto` | Automatic safe metadata fixes (no interaction required) |
 | `/distill --gc` | Hard-delete tombstoned memories past the 7-day grace period |
 

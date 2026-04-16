@@ -35,7 +35,7 @@ A real, populated [Obsidian](https://obsidian.md)-compatible vault managed by ag
 - `/learn /path/to/dir/` — scan a directory for learnable content
 - `/learn --task N` — review a completed task's artifacts and propose memories
 
-**Read path** — memory retrieval is automatic for all `/research`, `/plan`, and `/implement` operations. Before running the normal workflow, the system performs two-phase retrieval: a score phase (reads `.memory/memory-index.json`, scores entries by keyword overlap, selects top-5) followed by a retrieve phase (reads selected files, injects as `<memory-context>` block). Pass `--clean` to skip retrieval. Both AI systems fall back to grep when their respective MCP servers are unavailable.
+**Read path** — memory retrieval is automatic for all `/research`, `/plan`, and `/implement` operations. The `memory-retrieve.sh` script scores `.memory/memory-index.json` entries by keyword overlap with the task description (TOKEN_BUDGET=2000, MAX_ENTRIES=5) and injects the top matches as a `<memory-context>` block into the agent context. Pass `--clean` to skip retrieval. Tombstoned memories are excluded from retrieval.
 
 **What belongs here**: learned facts, discoveries, decisions, reusable patterns, project-specific lessons.
 
@@ -71,10 +71,7 @@ The memory system follows a four-stage lifecycle:
 
 ## Automatic memory retrieval
 
-Memory retrieval runs automatically for `/research`, `/plan`, and `/implement` operations. The system performs two-phase retrieval:
-
-1. **Score phase** — Reads `.memory/memory-index.json`, scores entries by keyword overlap with the task description, and selects the top-5 entries above threshold.
-2. **Retrieve phase** — Reads selected memory files (capped at 3000 tokens) and injects them as a `<memory-context>` block into the agent context.
+Memory retrieval runs automatically for `/research`, `/plan`, and `/implement` operations via the `memory-retrieve.sh` script. The script scores `.memory/memory-index.json` entries by keyword overlap with the task description, selects the top matches (TOKEN_BUDGET=2000, MAX_ENTRIES=5), and injects them as a `<memory-context>` block into the agent context. Tombstoned memories are excluded from retrieval.
 
 Pass `--clean` to any of these commands to skip memory retrieval entirely. This is useful when you want a fresh-start investigation without prior context.
 
@@ -98,6 +95,7 @@ The `/distill` command maintains vault health over time. Run it bare for a read-
 | `/distill --purge` | Tombstone stale or zero-retrieval memories (soft delete) |
 | `/distill --merge` | Merge overlapping memories with keyword superset guarantee |
 | `/distill --compress` | Reduce verbose memories to key points |
+| `/distill --refine` | Improve memory metadata quality (keywords, tags, topics) |
 | `/distill --auto` | Automatic safe metadata fixes (no interaction required) |
 | `/distill --gc` | Hard-delete tombstoned memories past the 7-day grace period |
 

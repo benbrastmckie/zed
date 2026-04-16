@@ -1,7 +1,7 @@
 # Implementation Plan: Update docs/ for agent system changes
 
 - **Task**: 72 - Update docs/ to reflect agent system changes
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 1 hour
 - **Dependencies**: None
 - **Research Inputs**: reports/01_docs-update-audit.md
@@ -56,7 +56,7 @@ No active roadmap items. ROADMAP.md is empty.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Update command flags and agent-lifecycle.md [NOT STARTED]
+### Phase 1: Update command flags and agent-lifecycle.md [COMPLETED]
 
 **Goal**: Add missing flags to commands.md and fix stale --remember flag in agent-lifecycle.md.
 
@@ -87,7 +87,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Update memory retrieval descriptions and distill tables [NOT STARTED]
+### Phase 2: Update memory retrieval descriptions and distill tables [COMPLETED]
 
 **Goal**: Replace stale two-phase retrieval descriptions with `memory-retrieve.sh` references and add `--refine` to distill tables.
 

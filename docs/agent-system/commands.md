@@ -30,7 +30,7 @@ Investigate a task and produce a research report, routing to the appropriate res
 /research 5, 7-9 --clean
 ```
 
-**Flags**: `[focus]`, `--team`, `--clean`, multi-task syntax (`5, 7-9`)
+**Flags**: `[focus]`, `--team`, `--clean`, `--fast|--hard`, `--haiku|--sonnet|--opus`, multi-task syntax (`5, 7-9`)
 
 See [`.claude/commands/research.md`](../../.claude/commands/research.md) · [user guide](../../.claude/docs/guides/user-guide.md#research-command).
 
@@ -43,7 +43,7 @@ Create a phased implementation plan from research findings. Supports multi-task 
 /plan 5, 7-9 --team
 ```
 
-**Flags**: `--team`, multi-task syntax
+**Flags**: `--team`, `--clean`, `--fast|--hard`, `--haiku|--sonnet|--opus`, multi-task syntax
 
 **Note**: For `present` tasks with `slides` subtype, `/plan` routes to `skill-slide-planning` instead of the generic planner, running an interactive 5-stage design review (narrative arc, per-slide feedback, visual layout) before producing the slide plan.
 
@@ -58,7 +58,7 @@ Execute a plan phase-by-phase. Automatically detects the first incomplete phase 
 /implement 5 --force
 ```
 
-**Flags**: `--team`, `--force`, multi-task syntax
+**Flags**: `--team`, `--force`, `--clean`, `--fast|--hard`, `--haiku|--sonnet|--opus`, multi-task syntax
 
 See [`.claude/commands/implement.md`](../../.claude/commands/implement.md) · [user guide](../../.claude/docs/guides/user-guide.md#implement-command).
 
@@ -203,7 +203,7 @@ Maintain memory vault health through scoring, purging, merging, compressing, and
 /distill --purge
 ```
 
-**Flags**: `--purge` (tombstone stale memories), `--merge` (combine overlapping), `--compress` (reduce verbose), `--auto` (safe metadata fixes), `--gc` (hard-delete tombstoned past 7-day grace period)
+**Flags**: `--purge` (tombstone stale memories), `--merge` (combine overlapping), `--compress` (reduce verbose), `--refine` (improve metadata quality), `--auto` (safe metadata fixes), `--gc` (hard-delete tombstoned past 7-day grace period), `--dry-run`, `--verbose`
 
 See [`.claude/commands/distill.md`](../../.claude/commands/distill.md) · [context-and-memory.md](context-and-memory.md).
 
