@@ -24,6 +24,32 @@
           "type": "summary",
           "summary": "Implementation summary for /distill command with scoring engine, four distillation operations, tombstone pattern, /todo integration, and documentation updates"
         }
+      ],
+      "memory_candidates": [
+        {
+          "content": "The /distill command extends skill-memory with mode=distill rather than creating a separate skill/agent. This follows the direct execution pattern where the command file handles argument parsing and the SKILL.md contains the full operation logic. Composite scoring uses weighted components (staleness 0.30, zero-retrieval 0.25, size 0.20, duplicate 0.25) with FSRS-inspired adjustments.",
+          "category": "PATTERN",
+          "confidence": 0.7,
+          "keywords": [
+            "distill",
+            "scoring-engine",
+            "memory-maintenance",
+            "direct-execution",
+            "composite-score"
+          ]
+        },
+        {
+          "content": "Tombstone pattern for safe memory deletion: add status:tombstoned and tombstoned_at to frontmatter, exclude from retrieval via status field in memory-index.json, hard-delete only via --gc after 7-day grace period. This preserves data safety while enabling cleanup.",
+          "category": "PATTERN",
+          "confidence": 0.65,
+          "keywords": [
+            "tombstone",
+            "soft-delete",
+            "memory-index",
+            "grace-period",
+            "garbage-collection"
+          ]
+        }
       ]
     },
     {
