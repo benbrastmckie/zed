@@ -4,11 +4,11 @@
     {
       "project_number": 74,
       "project_name": "update_docs_extension_deps_slidev",
-      "status": "planned",
+      "status": "implementing",
       "task_type": "meta",
       "created": "2026-04-16T23:56:29Z",
-      "last_updated": "2026-04-17T00:12:54Z",
-      "session_id": "sess_1776384591_5c0358",
+      "last_updated": "2026-04-17T00:14:19Z",
+      "session_id": "sess_1776384828_74006b",
       "next_artifact_number": 2,
       "memory_candidates": [
         {

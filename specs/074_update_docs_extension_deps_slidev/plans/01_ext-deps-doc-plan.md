@@ -1,7 +1,7 @@
 # Implementation Plan: Task #74
 
 - **Task**: 74 - Update documentation for extension dependency system and slidev resource-only extension
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 1 hour
 - **Dependencies**: None
 - **Research Inputs**: specs/074_update_docs_extension_deps_slidev/reports/01_ext-deps-doc-audit.md
@@ -59,7 +59,7 @@ No ROADMAP.md items to advance (roadmap is empty).
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Fix Bug and Verify Changes [NOT STARTED]
+### Phase 1: Fix Bug and Verify Changes [COMPLETED]
 
 **Goal**: Fix the step numbering bug in extension-system.md and verify all 10 change areas are correct.
 
@@ -85,7 +85,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Stage and Commit [NOT STARTED]
+### Phase 2: Stage and Commit [IN PROGRESS]
 
 **Goal**: Stage all documentation changes and commit as a single unit.
 

@@ -2,7 +2,7 @@
 
 [Back to Docs](../README.md) | [Adding Domains](../guides/adding-domains.md) | [Creating Extensions](../guides/creating-extensions.md)
 
-The extension system enables modular domain support that can be loaded and unloaded on demand. Extensions are self-contained packages containing agents, skills, rules, commands, and context files that integrate with the core .claude/ system when loaded.
+The extension system enables modular domain support that can be loaded and unloaded on demand. Extensions are self-contained packages containing agents, skills, rules, commands, and context files that integrate with the core .claude/ system when loaded. Extensions can optionally declare dependencies on other extensions for shared resources.
 
 ---
 
@@ -232,8 +232,13 @@ Configuration presets for different agent systems:
 
 ```
 1. Read manifest.json
-2. Check for conflicts (check_conflicts)
-3. Copy files:
+2. Resolve dependencies:
+   a. Check manifest dependencies array
+   b. Auto-load any unloaded dependencies recursively (confirm=false)
+   c. Circular detection via loading stack; depth limit of 5
+   d. Re-read state from disk after dependency loads complete
+3. Check for conflicts (check_conflicts)
+4. Copy files:
    a. copy_simple_files(agents, .md)
    b. copy_simple_files(commands, .md)
    c. copy_simple_files(rules, .md)
@@ -241,37 +246,41 @@ Configuration presets for different agent systems:
    e. copy_context_dirs()
    f. copy_scripts()
    g. copy_data_dirs() (merge-copy semantics)
-4. Pre-load index cleanup:
+5. Pre-load index cleanup:
    a. Collect provides.context prefixes from already-loaded extensions
    b. remove_orphaned_index_entries() - remove stale project/ entries
       not matching any loaded extension's prefix (or whose files don't
       exist on disk). The current extension is excluded from valid
       prefixes so its stale entries are removed before fresh ones are
       added, ensuring proper tracking.
-5. Load core index entries:
+6. Load core index entries:
    a. Read core-index-entries.json (always included, not extension-specific)
    b. append_index_entries() with deduplication
-6. Merge shared files:
+7. Merge shared files:
    a. inject_section() into CLAUDE.md
    b. append_index_entries() to index.json (extension entries, tracked)
    c. merge_settings() if mcp_servers defined
-7. Update state (mark_loaded)
-8. Write extensions.json
-9. Post-load verification
+8. Update state (mark_loaded)
+9. Write extensions.json
+10. Post-load verification
 ```
 
 ### Unloading an Extension
 
 ```
 1. Read state (get extension info)
-2. Remove merged content:
+2. Check reverse dependencies:
+   a. Scan loaded extensions for ones declaring this extension in dependencies
+   b. If dependents exist, show warning: "Extension 'X' is required by: Y, Z"
+   c. Proceed with unload if user confirms (dependents are NOT cascade-unloaded)
+3. Remove merged content:
    a. remove_section() from CLAUDE.md
    b. remove_index_entries_tracked() from index.json
    c. unmerge_settings() if settings were merged
-3. Remove files:
+4. Remove files:
    a. remove_installed_files() (files first, then empty dirs)
-4. Update state (mark_unloaded)
-5. Write extensions.json
+5. Update state (mark_unloaded)
+6. Write extensions.json
 ```
 
 ### Index Lifecycle

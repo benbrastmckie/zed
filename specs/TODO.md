@@ -8,7 +8,7 @@ next_project_number: 75
 
 ### 74. Update documentation for extension dependency system and slidev resource-only extension
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [IMPLEMENTING]
 - **Task Type**: meta
 - **Research**: [01_ext-deps-doc-audit.md](specs/074_update_docs_extension_deps_slidev/reports/01_ext-deps-doc-audit.md)
 - **Plan**: [074_update_docs_extension_deps_slidev/plans/01_ext-deps-doc-plan.md]
