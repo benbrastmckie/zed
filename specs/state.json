@@ -4,12 +4,14 @@
     {
       "project_number": 74,
       "project_name": "update_docs_extension_deps_slidev",
-      "status": "implementing",
+      "status": "completed",
       "task_type": "meta",
       "created": "2026-04-16T23:56:29Z",
-      "last_updated": "2026-04-17T00:14:19Z",
+      "last_updated": "2026-04-17T00:15:00Z",
       "session_id": "sess_1776384828_74006b",
       "next_artifact_number": 2,
+      "completion_summary": "Fixed step numbering bug in extension-system.md and committed all 27 documentation files covering extension dependency system and slidev resource-only extension.",
+      "claudemd_suggestions": "Added dependency paragraph to CLAUDE.md referencing extension-development.md for extension dependency details (auto-loading, circular detection, depth limit)",
       "memory_candidates": [
         {
           "content": "Extension dependencies in this system are declared in manifest.json via a dependencies array. The loader auto-loads dependencies recursively with circular detection (loading stack) and a depth limit of 5. The extensions.json state file does NOT track per-extension dependencies -- those live only in source manifests. Resource-only extensions omit task_type and EXTENSION.md entirely.",
@@ -36,6 +38,11 @@
           "path": "specs/074_update_docs_extension_deps_slidev/plans/01_ext-deps-doc-plan.md",
           "type": "plan",
           "summary": "Implementation plan with 2 phases: fix step numbering bug, then stage and commit all documentation changes"
+        },
+        {
+          "path": "specs/074_update_docs_extension_deps_slidev/summaries/01_ext-deps-doc-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary: fixed step numbering bug, committed 27 files for extension deps and slidev docs"
         }
       ]
     },
