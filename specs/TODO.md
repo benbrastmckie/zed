@@ -98,4 +98,3 @@ next_project_number: 75
 
 1. **65** [RESEARCHED] -> plan (independent)
 2. **73** -> research (independent)
-3. **74** -> research (independent)
