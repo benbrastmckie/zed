@@ -1,473 +1,474 @@
 {
   "entries": [
     {
-      "summary": "Component creation checklist for agent system",
-      "line_count": 363,
-      "topics": [
-        "system-design"
-      ],
-      "domain": "core",
-      "path": "architecture/component-checklist.md",
       "keywords": [
         "component",
         "checklist",
         "architecture"
       ],
+      "path": "architecture/component-checklist.md",
+      "topics": [
+        "system-design"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "architecture"
+      "subdomain": "architecture",
+      "summary": "Component creation checklist for agent system",
+      "line_count": 363
     },
     {
-      "summary": "Context layer architecture overview",
-      "line_count": 54,
-      "topics": [
-        "context-loading"
-      ],
-      "domain": "core",
-      "path": "architecture/context-layers.md",
       "keywords": [
         "context",
         "layers",
         "architecture"
       ],
+      "path": "architecture/context-layers.md",
+      "topics": [
+        "context-loading"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
+        "commands": []
       },
-      "subdomain": "architecture"
+      "subdomain": "architecture",
+      "summary": "Context layer architecture overview",
+      "line_count": 54
     },
     {
-      "summary": "Guidelines for generating agent system components",
-      "line_count": 454,
-      "topics": [
-        "system-design"
-      ],
-      "domain": "core",
-      "path": "architecture/generation-guidelines.md",
       "keywords": [
         "generation",
         "guidelines",
         "components"
       ],
+      "path": "architecture/generation-guidelines.md",
+      "topics": [
+        "system-design"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "architecture"
+      "subdomain": "architecture",
+      "summary": "Guidelines for generating agent system components",
+      "line_count": 454
     },
     {
-      "summary": "High-level agent system architecture overview",
-      "line_count": 492,
-      "topics": [
-        "system-design"
-      ],
-      "domain": "core",
-      "path": "architecture/system-overview.md",
       "keywords": [
         "architecture",
         "system",
         "overview"
       ],
+      "path": "architecture/system-overview.md",
+      "topics": [
+        "system-design"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
+        "commands": []
       },
-      "subdomain": "architecture"
+      "subdomain": "architecture",
+      "summary": "High-level agent system architecture overview",
+      "line_count": 492
     },
     {
-      "summary": "Git commit checkpoint pattern for commands",
-      "line_count": 116,
-      "topics": [
-        "workflow"
-      ],
-      "domain": "core",
-      "path": "checkpoints/checkpoint-commit.md",
       "keywords": [
         "checkpoint",
         "commit",
         "git"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "checkpoints"
-    },
-    {
-      "summary": "Preflight gate-in checkpoint pattern",
-      "line_count": 84,
+      "path": "checkpoints/checkpoint-commit.md",
       "topics": [
         "workflow"
       ],
       "domain": "core",
-      "path": "checkpoints/checkpoint-gate-in.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "checkpoints",
+      "summary": "Git commit checkpoint pattern for commands",
+      "line_count": 116
+    },
+    {
       "keywords": [
         "checkpoint",
         "preflight",
         "gate-in"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "checkpoints"
-    },
-    {
-      "summary": "Postflight gate-out checkpoint pattern",
-      "line_count": 101,
+      "path": "checkpoints/checkpoint-gate-in.md",
       "topics": [
         "workflow"
       ],
       "domain": "core",
-      "path": "checkpoints/checkpoint-gate-out.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "checkpoints",
+      "summary": "Preflight gate-in checkpoint pattern",
+      "line_count": 84
+    },
+    {
       "keywords": [
         "checkpoint",
         "postflight",
         "gate-out"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "checkpoints"
-    },
-    {
-      "summary": "Checkpoint system documentation index",
-      "line_count": 100,
+      "path": "checkpoints/checkpoint-gate-out.md",
       "topics": [
-        "documentation"
+        "workflow"
       ],
       "domain": "core",
-      "path": "checkpoints/README.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "checkpoints",
+      "summary": "Postflight gate-out checkpoint pattern",
+      "line_count": 101
+    },
+    {
       "keywords": [
         "checkpoints",
         "readme"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "always": true,
-        "task_types": []
-      },
-      "subdomain": "checkpoints"
-    },
-    {
-      "summary": "Standard output formats for commands",
-      "line_count": 467,
+      "path": "checkpoints/README.md",
       "topics": [
-        "standards"
+        "documentation"
       ],
       "domain": "core",
-      "path": "formats/command-output.md",
+      "load_when": {
+        "always": true,
+        "task_types": [],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "checkpoints",
+      "summary": "Checkpoint system documentation index",
+      "line_count": 100
+    },
+    {
       "keywords": [
         "format",
         "output",
         "command"
       ],
+      "path": "formats/command-output.md",
+      "topics": [
+        "standards"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "formats"
+      "subdomain": "formats",
+      "summary": "Standard output formats for commands",
+      "line_count": 467
     },
     {
-      "summary": "Slash command file structure and organization",
-      "line_count": 965,
-      "topics": [
-        "standards"
-      ],
-      "domain": "core",
-      "path": "formats/command-structure.md",
       "keywords": [
         "format",
         "command",
         "structure"
       ],
+      "path": "formats/command-structure.md",
+      "topics": [
+        "standards"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "formats"
+      "subdomain": "formats",
+      "summary": "Slash command file structure and organization",
+      "line_count": 965
     },
     {
-      "summary": "YAML frontmatter specification for agents and skills",
-      "line_count": 705,
-      "topics": [
-        "standards"
-      ],
-      "domain": "core",
-      "path": "formats/frontmatter.md",
       "keywords": [
         "format",
         "frontmatter",
         "yaml"
       ],
+      "path": "formats/frontmatter.md",
+      "topics": [
+        "standards"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "formats"
+      "subdomain": "formats",
+      "summary": "YAML frontmatter specification for agents and skills",
+      "line_count": 705
     },
     {
-      "summary": "Handoff artifact format between agents",
-      "line_count": 188,
-      "topics": [
-        "orchestration"
-      ],
-      "domain": "core",
-      "path": "formats/handoff-artifact.md",
       "keywords": [
         "format",
         "handoff",
         "artifact"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "formats"
-    },
-    {
-      "summary": "Implementation plan file format specification",
-      "line_count": 136,
+      "path": "formats/handoff-artifact.md",
       "topics": [
-        "planning"
+        "orchestration"
       ],
       "domain": "core",
-      "path": "formats/plan-format.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "formats",
+      "summary": "Handoff artifact format between agents",
+      "line_count": 188
+    },
+    {
       "keywords": [
         "format",
         "plan",
         "implementation"
       ],
+      "path": "formats/plan-format.md",
+      "topics": [
+        "planning"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "planner-agent"
         ],
         "commands": [
           "/plan"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "formats"
+      "subdomain": "formats",
+      "summary": "Implementation plan file format specification",
+      "line_count": 136
     },
     {
-      "summary": "Progress tracking file format",
-      "line_count": 250,
-      "topics": [
-        "implementation"
-      ],
-      "domain": "core",
-      "path": "formats/progress-file.md",
       "keywords": [
         "format",
         "progress",
         "tracking"
       ],
+      "path": "formats/progress-file.md",
+      "topics": [
+        "implementation"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-implementation-agent"
         ],
         "commands": [
           "/implement"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "formats"
+      "subdomain": "formats",
+      "summary": "Progress tracking file format",
+      "line_count": 250
     },
     {
-      "summary": "Research report file format specification",
-      "line_count": 131,
-      "topics": [
-        "research"
-      ],
-      "domain": "core",
-      "path": "formats/report-format.md",
       "keywords": [
         "format",
         "report",
         "research"
       ],
+      "path": "formats/report-format.md",
+      "topics": [
+        "research"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-research-agent"
         ],
         "commands": [
           "/research"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "formats"
+      "subdomain": "formats",
+      "summary": "Research report file format specification",
+      "line_count": 131
     },
     {
-      "summary": "Metadata file schema for subagent returns",
-      "line_count": 502,
-      "topics": [
-        "orchestration"
-      ],
-      "domain": "core",
-      "path": "formats/return-metadata-file.md",
       "keywords": [
         "format",
         "metadata",
         "return"
       ],
+      "path": "formats/return-metadata-file.md",
+      "topics": [
+        "orchestration"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-research-agent",
           "planner-agent",
           "general-implementation-agent"
         ],
-        "commands": [],
-        "task_types": []
+        "commands": []
       },
-      "subdomain": "formats"
+      "subdomain": "formats",
+      "summary": "Metadata file schema for subagent returns",
+      "line_count": 502
     },
     {
-      "summary": "ROADMAP.md file format specification",
-      "line_count": 65,
-      "topics": [
-        "planning"
-      ],
-      "domain": "core",
-      "path": "formats/roadmap-format.md",
       "keywords": [
         "format",
         "roadmap"
       ],
+      "path": "formats/roadmap-format.md",
+      "topics": [
+        "planning"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [],
         "commands": [
           "/todo"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "formats"
+      "subdomain": "formats",
+      "summary": "ROADMAP.md file format specification",
+      "line_count": 65
     },
     {
-      "summary": "Return format for subagent delegations",
-      "line_count": 323,
-      "topics": [
-        "orchestration"
-      ],
-      "domain": "core",
-      "path": "formats/subagent-return.md",
       "keywords": [
         "format",
         "subagent",
         "return"
       ],
+      "path": "formats/subagent-return.md",
+      "topics": [
+        "orchestration"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-research-agent",
           "planner-agent",
           "general-implementation-agent"
         ],
-        "commands": [],
-        "task_types": []
+        "commands": []
       },
-      "subdomain": "formats"
+      "subdomain": "formats",
+      "summary": "Return format for subagent delegations",
+      "line_count": 323
     },
     {
-      "summary": "Implementation summary file format",
-      "line_count": 59,
-      "topics": [
-        "implementation"
-      ],
-      "domain": "core",
-      "path": "formats/summary-format.md",
       "keywords": [
         "format",
         "summary",
         "implementation"
       ],
+      "path": "formats/summary-format.md",
+      "topics": [
+        "implementation"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-implementation-agent"
         ],
         "commands": [
           "/implement"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "formats"
+      "subdomain": "formats",
+      "summary": "Implementation summary file format",
+      "line_count": 59
     },
     {
-      "summary": "Task ordering and dependency format",
-      "line_count": 296,
-      "topics": [
-        "planning"
-      ],
-      "domain": "core",
-      "path": "formats/task-order-format.md",
       "keywords": [
         "format",
         "task",
         "order",
         "dependency"
       ],
+      "path": "formats/task-order-format.md",
+      "topics": [
+        "planning"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent",
           "spawn-agent"
@@ -475,1310 +476,1310 @@
         "commands": [
           "/meta",
           "/spawn"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "formats"
+      "subdomain": "formats",
+      "summary": "Task ordering and dependency format",
+      "line_count": 296
     },
     {
-      "summary": "Metadata extensions for team mode",
-      "line_count": 111,
-      "topics": [
-        "orchestration"
-      ],
-      "domain": "core",
-      "path": "formats/team-metadata-extension.md",
       "keywords": [
         "format",
         "team",
         "metadata"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "formats"
-    },
-    {
-      "summary": "Guide for creating new extensions",
-      "line_count": 191,
+      "path": "formats/team-metadata-extension.md",
       "topics": [
-        "development"
+        "orchestration"
       ],
       "domain": "core",
-      "path": "guides/extension-development.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "formats",
+      "summary": "Metadata extensions for team mode",
+      "line_count": 111
+    },
+    {
       "keywords": [
         "guide",
         "extension",
         "development"
       ],
+      "path": "guides/extension-development.md",
+      "topics": [
+        "development"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "guides"
+      "subdomain": "guides",
+      "summary": "Guide for creating new extensions",
+      "line_count": 191
     },
     {
-      "summary": "Core architecture principles for agent system",
-      "line_count": 270,
-      "topics": [
-        "system-design"
-      ],
-      "domain": "core",
-      "path": "meta/architecture-principles.md",
       "keywords": [
         "meta",
         "architecture",
         "principles"
       ],
+      "path": "meta/architecture-principles.md",
+      "topics": [
+        "system-design"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "meta"
+      "subdomain": "meta",
+      "summary": "Core architecture principles for agent system",
+      "line_count": 270
     },
     {
-      "summary": "Guide for revising context documentation",
-      "line_count": 323,
-      "topics": [
-        "documentation"
-      ],
-      "domain": "core",
-      "path": "meta/context-revision-guide.md",
       "keywords": [
         "meta",
         "context",
         "revision"
       ],
+      "path": "meta/context-revision-guide.md",
+      "topics": [
+        "documentation"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "meta"
+      "subdomain": "meta",
+      "summary": "Guide for revising context documentation",
+      "line_count": 323
     },
     {
-      "summary": "Domain-specific patterns for extensions",
-      "line_count": 259,
-      "topics": [
-        "extensions"
-      ],
-      "domain": "core",
-      "path": "meta/domain-patterns.md",
       "keywords": [
         "meta",
         "domain",
         "patterns"
       ],
+      "path": "meta/domain-patterns.md",
+      "topics": [
+        "extensions"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "meta"
+      "subdomain": "meta",
+      "summary": "Domain-specific patterns for extensions",
+      "line_count": 259
     },
     {
-      "summary": "User interview patterns for task gathering",
-      "line_count": 224,
-      "topics": [
-        "user-interaction"
-      ],
-      "domain": "core",
-      "path": "meta/interview-patterns.md",
       "keywords": [
         "meta",
         "interview",
         "patterns"
       ],
+      "path": "meta/interview-patterns.md",
+      "topics": [
+        "user-interaction"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "meta"
+      "subdomain": "meta",
+      "summary": "User interview patterns for task gathering",
+      "line_count": 224
     },
     {
-      "summary": "Comprehensive guide for meta tasks",
-      "line_count": 462,
-      "topics": [
-        "system-design"
-      ],
-      "domain": "core",
-      "path": "meta/meta-guide.md",
       "keywords": [
         "meta",
         "guide"
       ],
+      "path": "meta/meta-guide.md",
+      "topics": [
+        "system-design"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "meta"
+      "subdomain": "meta",
+      "summary": "Comprehensive guide for meta tasks",
+      "line_count": 462
     },
     {
-      "summary": "Checklist for applying system standards",
-      "line_count": 379,
-      "topics": [
-        "quality"
-      ],
-      "domain": "core",
-      "path": "meta/standards-checklist.md",
       "keywords": [
         "meta",
         "standards",
         "checklist"
       ],
+      "path": "meta/standards-checklist.md",
+      "topics": [
+        "quality"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "meta"
+      "subdomain": "meta",
+      "summary": "Checklist for applying system standards",
+      "line_count": 379
     },
     {
-      "summary": "Orchestration system architecture",
-      "line_count": 757,
-      "topics": [
-        "system-design"
-      ],
-      "domain": "core",
-      "path": "orchestration/architecture.md",
       "keywords": [
         "orchestration",
         "architecture"
       ],
+      "path": "orchestration/architecture.md",
+      "topics": [
+        "system-design"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
+        "commands": []
       },
-      "subdomain": "orchestration"
+      "subdomain": "orchestration",
+      "summary": "Orchestration system architecture",
+      "line_count": 757
     },
     {
-      "summary": "Agent delegation patterns and protocols",
-      "line_count": 859,
-      "topics": [
-        "orchestration"
-      ],
-      "domain": "core",
-      "path": "orchestration/delegation.md",
       "keywords": [
         "orchestration",
         "delegation"
       ],
-      "load_when": {
-        "agents": [
-          "meta-builder-agent"
-        ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "orchestration"
-    },
-    {
-      "summary": "Core orchestration concepts and patterns",
-      "line_count": 248,
+      "path": "orchestration/delegation.md",
       "topics": [
         "orchestration"
       ],
       "domain": "core",
-      "path": "orchestration/orchestration-core.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [
+          "meta-builder-agent"
+        ],
+        "commands": []
+      },
+      "subdomain": "orchestration",
+      "summary": "Agent delegation patterns and protocols",
+      "line_count": 859
+    },
+    {
       "keywords": [
         "orchestration",
         "core"
       ],
-      "load_when": {
-        "agents": [
-          "meta-builder-agent"
-        ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "orchestration"
-    },
-    {
-      "summary": "Quick reference for orchestration patterns",
-      "line_count": 309,
+      "path": "orchestration/orchestration-core.md",
       "topics": [
         "orchestration"
       ],
       "domain": "core",
-      "path": "orchestration/orchestration-reference.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [
+          "meta-builder-agent"
+        ],
+        "commands": []
+      },
+      "subdomain": "orchestration",
+      "summary": "Core orchestration concepts and patterns",
+      "line_count": 248
+    },
+    {
       "keywords": [
         "orchestration",
         "reference"
       ],
+      "path": "orchestration/orchestration-reference.md",
+      "topics": [
+        "orchestration"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
+        "commands": []
       },
-      "subdomain": "orchestration"
+      "subdomain": "orchestration",
+      "summary": "Quick reference for orchestration patterns",
+      "line_count": 309
     },
     {
-      "summary": "Validation rules for orchestration",
-      "line_count": 233,
-      "topics": [
-        "quality"
-      ],
-      "domain": "core",
-      "path": "orchestration/orchestration-validation.md",
       "keywords": [
         "orchestration",
         "validation"
       ],
-      "load_when": {
-        "agents": [
-          "meta-builder-agent"
-        ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "orchestration"
-    },
-    {
-      "summary": "Orchestrator agent pattern definition",
-      "line_count": 876,
-      "topics": [
-        "orchestration"
-      ],
-      "domain": "core",
-      "path": "orchestration/orchestrator.md",
-      "keywords": [
-        "orchestration",
-        "orchestrator"
-      ],
-      "load_when": {
-        "agents": [
-          "meta-builder-agent"
-        ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "orchestration"
-    },
-    {
-      "summary": "Postflight execution pattern for commands",
-      "line_count": 336,
-      "topics": [
-        "workflow"
-      ],
-      "domain": "core",
-      "path": "orchestration/postflight-pattern.md",
-      "keywords": [
-        "orchestration",
-        "postflight"
-      ],
-      "load_when": {
-        "agents": [
-          "meta-builder-agent"
-        ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "orchestration"
-    },
-    {
-      "summary": "Preflight execution pattern for commands",
-      "line_count": 217,
-      "topics": [
-        "workflow"
-      ],
-      "domain": "core",
-      "path": "orchestration/preflight-pattern.md",
-      "keywords": [
-        "orchestration",
-        "preflight"
-      ],
-      "load_when": {
-        "agents": [
-          "meta-builder-agent"
-        ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "orchestration"
-    },
-    {
-      "summary": "Task routing by language and type",
-      "line_count": 777,
-      "topics": [
-        "orchestration"
-      ],
-      "domain": "core",
-      "path": "orchestration/routing.md",
-      "keywords": [
-        "orchestration",
-        "routing"
-      ],
-      "load_when": {
-        "agents": [
-          "meta-builder-agent"
-        ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "orchestration"
-    },
-    {
-      "summary": "Session management for task execution",
-      "line_count": 166,
-      "topics": [
-        "orchestration"
-      ],
-      "domain": "core",
-      "path": "orchestration/sessions.md",
-      "keywords": [
-        "orchestration",
-        "sessions"
-      ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "orchestration"
-    },
-    {
-      "summary": "State management patterns and protocols",
-      "line_count": 337,
-      "topics": [
-        "state"
-      ],
-      "domain": "core",
-      "path": "orchestration/state-management.md",
-      "keywords": [
-        "orchestration",
-        "state"
-      ],
-      "load_when": {
-        "agents": [],
-        "commands": [
-          "/task",
-          "/todo"
-        ],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "orchestration"
-    },
-    {
-      "summary": "Validation rules for subagent returns",
-      "line_count": 313,
+      "path": "orchestration/orchestration-validation.md",
       "topics": [
         "quality"
       ],
       "domain": "core",
-      "path": "orchestration/subagent-validation.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [
+          "meta-builder-agent"
+        ],
+        "commands": []
+      },
+      "subdomain": "orchestration",
+      "summary": "Validation rules for orchestration",
+      "line_count": 233
+    },
+    {
+      "keywords": [
+        "orchestration",
+        "orchestrator"
+      ],
+      "path": "orchestration/orchestrator.md",
+      "topics": [
+        "orchestration"
+      ],
+      "domain": "core",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [
+          "meta-builder-agent"
+        ],
+        "commands": []
+      },
+      "subdomain": "orchestration",
+      "summary": "Orchestrator agent pattern definition",
+      "line_count": 876
+    },
+    {
+      "keywords": [
+        "orchestration",
+        "postflight"
+      ],
+      "path": "orchestration/postflight-pattern.md",
+      "topics": [
+        "workflow"
+      ],
+      "domain": "core",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [
+          "meta-builder-agent"
+        ],
+        "commands": []
+      },
+      "subdomain": "orchestration",
+      "summary": "Postflight execution pattern for commands",
+      "line_count": 336
+    },
+    {
+      "keywords": [
+        "orchestration",
+        "preflight"
+      ],
+      "path": "orchestration/preflight-pattern.md",
+      "topics": [
+        "workflow"
+      ],
+      "domain": "core",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [
+          "meta-builder-agent"
+        ],
+        "commands": []
+      },
+      "subdomain": "orchestration",
+      "summary": "Preflight execution pattern for commands",
+      "line_count": 217
+    },
+    {
+      "keywords": [
+        "orchestration",
+        "routing"
+      ],
+      "path": "orchestration/routing.md",
+      "topics": [
+        "orchestration"
+      ],
+      "domain": "core",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [
+          "meta-builder-agent"
+        ],
+        "commands": []
+      },
+      "subdomain": "orchestration",
+      "summary": "Task routing by language and type",
+      "line_count": 777
+    },
+    {
+      "keywords": [
+        "orchestration",
+        "sessions"
+      ],
+      "path": "orchestration/sessions.md",
+      "topics": [
+        "orchestration"
+      ],
+      "domain": "core",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "orchestration",
+      "summary": "Session management for task execution",
+      "line_count": 166
+    },
+    {
+      "keywords": [
+        "orchestration",
+        "state"
+      ],
+      "path": "orchestration/state-management.md",
+      "topics": [
+        "state"
+      ],
+      "domain": "core",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": [
+          "/task",
+          "/todo"
+        ]
+      },
+      "subdomain": "orchestration",
+      "summary": "State management patterns and protocols",
+      "line_count": 337
+    },
+    {
       "keywords": [
         "orchestration",
         "subagent",
         "validation"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "orchestration"
-    },
-    {
-      "summary": "General validation patterns for orchestration",
-      "line_count": 699,
+      "path": "orchestration/subagent-validation.md",
       "topics": [
         "quality"
       ],
       "domain": "core",
-      "path": "orchestration/validation.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "orchestration",
+      "summary": "Validation rules for subagent returns",
+      "line_count": 313
+    },
+    {
       "keywords": [
         "orchestration",
         "validation"
       ],
+      "path": "orchestration/validation.md",
+      "topics": [
+        "quality"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
+        "commands": []
       },
-      "subdomain": "orchestration"
+      "subdomain": "orchestration",
+      "summary": "General validation patterns for orchestration",
+      "line_count": 699
     },
     {
-      "summary": "Patterns to avoid premature task stopping",
-      "line_count": 174,
-      "topics": [
-        "workflow"
-      ],
-      "domain": "core",
-      "path": "patterns/anti-stop-patterns.md",
       "keywords": [
         "patterns",
         "anti-stop"
       ],
+      "path": "patterns/anti-stop-patterns.md",
+      "topics": [
+        "workflow"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-research-agent",
           "planner-agent",
           "general-implementation-agent"
         ],
-        "commands": [],
-        "task_types": []
+        "commands": []
       },
-      "subdomain": "patterns"
+      "subdomain": "patterns",
+      "summary": "Patterns to avoid premature task stopping",
+      "line_count": 174
     },
     {
-      "summary": "Checkpoint-based execution pattern",
-      "line_count": 254,
-      "topics": [
-        "workflow"
-      ],
-      "domain": "core",
-      "path": "patterns/checkpoint-execution.md",
       "keywords": [
         "patterns",
         "checkpoint",
         "execution"
       ],
+      "path": "patterns/checkpoint-execution.md",
+      "topics": [
+        "workflow"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-implementation-agent"
         ],
         "commands": [
           "/implement"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "patterns"
+      "subdomain": "patterns",
+      "summary": "Checkpoint-based execution pattern",
+      "line_count": 254
     },
     {
-      "summary": "Context discovery query patterns",
-      "line_count": 209,
-      "topics": [
-        "context-loading"
-      ],
-      "domain": "core",
-      "path": "patterns/context-discovery.md",
       "keywords": [
         "patterns",
         "context",
         "discovery"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "always": true,
-        "task_types": []
-      },
-      "subdomain": "patterns"
-    },
-    {
-      "summary": "Early metadata creation for interruption recovery",
-      "line_count": 260,
+      "path": "patterns/context-discovery.md",
       "topics": [
-        "recovery"
+        "context-loading"
       ],
       "domain": "core",
-      "path": "patterns/early-metadata-pattern.md",
+      "load_when": {
+        "always": true,
+        "task_types": [],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "patterns",
+      "summary": "Context discovery query patterns",
+      "line_count": 209
+    },
+    {
       "keywords": [
         "patterns",
         "metadata",
         "early"
       ],
+      "path": "patterns/early-metadata-pattern.md",
+      "topics": [
+        "recovery"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-research-agent",
           "planner-agent",
           "general-implementation-agent"
         ],
-        "commands": [],
-        "task_types": []
+        "commands": []
       },
-      "subdomain": "patterns"
+      "subdomain": "patterns",
+      "summary": "Early metadata creation for interruption recovery",
+      "line_count": 260
     },
     {
-      "summary": "File-based metadata exchange between agents",
-      "line_count": 301,
-      "topics": [
-        "orchestration"
-      ],
-      "domain": "core",
-      "path": "patterns/file-metadata-exchange.md",
       "keywords": [
         "patterns",
         "metadata",
         "exchange"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "patterns"
-    },
-    {
-      "summary": "Inline status update pattern for plans",
-      "line_count": 278,
+      "path": "patterns/file-metadata-exchange.md",
       "topics": [
-        "workflow"
+        "orchestration"
       ],
       "domain": "core",
-      "path": "patterns/inline-status-update.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "patterns",
+      "summary": "File-based metadata exchange between agents",
+      "line_count": 301
+    },
+    {
       "keywords": [
         "patterns",
         "status",
         "inline"
       ],
+      "path": "patterns/inline-status-update.md",
+      "topics": [
+        "workflow"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-implementation-agent"
         ],
         "commands": [
           "/implement"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "patterns"
+      "subdomain": "patterns",
+      "summary": "Inline status update pattern for plans",
+      "line_count": 278
     },
     {
-      "summary": "Workarounds for jq escaping issues",
-      "line_count": 262,
-      "topics": [
-        "troubleshooting"
-      ],
-      "domain": "core",
-      "path": "patterns/jq-escaping-workarounds.md",
       "keywords": [
         "patterns",
         "jq",
         "escaping"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "always": true,
-        "task_types": []
-      },
-      "subdomain": "patterns"
-    },
-    {
-      "summary": "Recovery patterns for MCP tool failures",
-      "line_count": 254,
+      "path": "patterns/jq-escaping-workarounds.md",
       "topics": [
-        "recovery"
+        "troubleshooting"
       ],
       "domain": "core",
-      "path": "patterns/mcp-tool-recovery.md",
+      "load_when": {
+        "always": true,
+        "task_types": [],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "patterns",
+      "summary": "Workarounds for jq escaping issues",
+      "line_count": 262
+    },
+    {
       "keywords": [
         "patterns",
         "mcp",
         "recovery"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "patterns"
-    },
-    {
-      "summary": "Metadata file return pattern for subagents",
-      "line_count": 147,
+      "path": "patterns/mcp-tool-recovery.md",
       "topics": [
-        "orchestration"
+        "recovery"
       ],
       "domain": "core",
-      "path": "patterns/metadata-file-return.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "patterns",
+      "summary": "Recovery patterns for MCP tool failures",
+      "line_count": 254
+    },
+    {
       "keywords": [
         "patterns",
         "metadata",
         "return"
       ],
+      "path": "patterns/metadata-file-return.md",
+      "topics": [
+        "orchestration"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-research-agent",
           "planner-agent",
           "general-implementation-agent"
         ],
-        "commands": [],
-        "task_types": []
+        "commands": []
       },
-      "subdomain": "patterns"
+      "subdomain": "patterns",
+      "summary": "Metadata file return pattern for subagents",
+      "line_count": 147
     },
     {
-      "summary": "Postflight control flow patterns",
-      "line_count": 265,
-      "topics": [
-        "workflow"
-      ],
-      "domain": "core",
-      "path": "patterns/postflight-control.md",
       "keywords": [
         "patterns",
         "postflight",
         "control"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "patterns"
-    },
-    {
-      "summary": "Roadmap update pattern for task completion",
-      "line_count": 100,
+      "path": "patterns/postflight-control.md",
       "topics": [
         "workflow"
       ],
       "domain": "core",
-      "path": "patterns/roadmap-update.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "patterns",
+      "summary": "Postflight control flow patterns",
+      "line_count": 265
+    },
+    {
       "keywords": [
         "patterns",
         "roadmap",
         "update"
       ],
+      "path": "patterns/roadmap-update.md",
+      "topics": [
+        "workflow"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [],
         "commands": [
           "/todo"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "patterns"
+      "subdomain": "patterns",
+      "summary": "Roadmap update pattern for task completion",
+      "line_count": 100
     },
     {
-      "summary": "Skill lifecycle management pattern",
-      "line_count": 165,
-      "topics": [
-        "orchestration"
-      ],
-      "domain": "core",
-      "path": "patterns/skill-lifecycle.md",
       "keywords": [
         "patterns",
         "skill",
         "lifecycle"
       ],
-      "load_when": {
-        "agents": [
-          "meta-builder-agent"
-        ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "patterns"
-    },
-    {
-      "summary": "Team mode orchestration patterns",
-      "line_count": 146,
+      "path": "patterns/skill-lifecycle.md",
       "topics": [
         "orchestration"
       ],
       "domain": "core",
-      "path": "patterns/team-orchestration.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [
+          "meta-builder-agent"
+        ],
+        "commands": []
+      },
+      "subdomain": "patterns",
+      "summary": "Skill lifecycle management pattern",
+      "line_count": 165
+    },
+    {
       "keywords": [
         "patterns",
         "team",
         "orchestration"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "patterns"
-    },
-    {
-      "summary": "Thin wrapper skill pattern for delegation",
-      "line_count": 184,
+      "path": "patterns/team-orchestration.md",
       "topics": [
         "orchestration"
       ],
       "domain": "core",
-      "path": "patterns/thin-wrapper-skill.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "patterns",
+      "summary": "Team mode orchestration patterns",
+      "line_count": 146
+    },
+    {
       "keywords": [
         "patterns",
         "skill",
         "wrapper"
       ],
+      "path": "patterns/thin-wrapper-skill.md",
+      "topics": [
+        "orchestration"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "patterns"
+      "subdomain": "patterns",
+      "summary": "Thin wrapper skill pattern for delegation",
+      "line_count": 184
     },
     {
-      "summary": "Implementation phase workflow details",
-      "line_count": 576,
-      "topics": [
-        "implementation"
-      ],
-      "domain": "core",
-      "path": "processes/implementation-workflow.md",
       "keywords": [
         "process",
         "implementation",
         "workflow"
       ],
+      "path": "processes/implementation-workflow.md",
+      "topics": [
+        "implementation"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-implementation-agent"
         ],
         "commands": [
           "/implement"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "processes"
+      "subdomain": "processes",
+      "summary": "Implementation phase workflow details",
+      "line_count": 576
     },
     {
-      "summary": "Planning phase workflow details",
-      "line_count": 540,
-      "topics": [
-        "planning"
-      ],
-      "domain": "core",
-      "path": "processes/planning-workflow.md",
       "keywords": [
         "process",
         "planning",
         "workflow"
       ],
+      "path": "processes/planning-workflow.md",
+      "topics": [
+        "planning"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "planner-agent"
         ],
         "commands": [
           "/plan"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "processes"
+      "subdomain": "processes",
+      "summary": "Planning phase workflow details",
+      "line_count": 540
     },
     {
-      "summary": "Research phase workflow details",
-      "line_count": 628,
-      "topics": [
-        "research"
-      ],
-      "domain": "core",
-      "path": "processes/research-workflow.md",
       "keywords": [
         "process",
         "research",
         "workflow"
       ],
+      "path": "processes/research-workflow.md",
+      "topics": [
+        "research"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-research-agent"
         ],
         "commands": [
           "/research"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "processes"
+      "subdomain": "processes",
+      "summary": "Research phase workflow details",
+      "line_count": 628
     },
     {
-      "summary": "Context directory documentation index",
-      "line_count": 202,
-      "topics": [
-        "documentation"
-      ],
-      "domain": "core",
-      "path": "README.md",
       "keywords": [
         "readme",
         "index",
         "documentation"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "always": true,
-        "task_types": []
-      },
-      "subdomain": "root"
-    },
-    {
-      "summary": "Error report template (other artifact types use format files directly)",
-      "line_count": 50,
+      "path": "README.md",
       "topics": [
         "documentation"
       ],
       "domain": "core",
-      "path": "reference/artifact-templates.md",
+      "load_when": {
+        "always": true,
+        "task_types": [],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "root",
+      "summary": "Context directory documentation index",
+      "line_count": 202
+    },
+    {
       "keywords": [
         "reference",
         "artifact",
         "templates",
         "error-report"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": []
-      },
-      "subdomain": "reference"
-    },
-    {
-      "summary": "Reference documentation index",
-      "line_count": 29,
+      "path": "reference/artifact-templates.md",
       "topics": [
         "documentation"
       ],
       "domain": "core",
-      "path": "reference/README.md",
+      "load_when": {
+        "task_types": [],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "reference",
+      "summary": "Error report template (other artifact types use format files directly)",
+      "line_count": 50
+    },
+    {
       "keywords": [
         "reference",
         "readme",
         "index"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "always": true,
-        "task_types": []
-      },
-      "subdomain": "reference"
-    },
-    {
-      "summary": "Mapping of skills to agents",
-      "line_count": 156,
+      "path": "reference/README.md",
       "topics": [
-        "orchestration"
+        "documentation"
       ],
       "domain": "core",
-      "path": "reference/skill-agent-mapping.md",
+      "load_when": {
+        "always": true,
+        "task_types": [],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "reference",
+      "summary": "Reference documentation index",
+      "line_count": 29
+    },
+    {
       "keywords": [
         "reference",
         "skill",
         "agent",
         "mapping"
       ],
+      "path": "reference/skill-agent-mapping.md",
+      "topics": [
+        "orchestration"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
+        "commands": []
       },
-      "subdomain": "reference"
+      "subdomain": "reference",
+      "summary": "Mapping of skills to agents",
+      "line_count": 156
     },
     {
-      "summary": "Schema for state.json and TODO.md",
-      "line_count": 352,
-      "topics": [
-        "state"
-      ],
-      "domain": "core",
-      "path": "reference/state-management-schema.md",
       "keywords": [
         "reference",
         "state",
         "schema"
       ],
+      "path": "reference/state-management-schema.md",
+      "topics": [
+        "state"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [],
         "commands": [
           "/task",
           "/todo"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "reference"
+      "subdomain": "reference",
+      "summary": "Schema for state.json and TODO.md",
+      "line_count": 352
     },
     {
-      "summary": "Visual workflow diagrams",
-      "line_count": 197,
-      "topics": [
-        "documentation"
-      ],
-      "domain": "core",
-      "path": "reference/workflow-diagrams.md",
       "keywords": [
         "reference",
         "workflow",
         "diagrams"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "reference"
-    },
-    {
-      "summary": "Project-specific repository overview",
-      "line_count": 144,
+      "path": "reference/workflow-diagrams.md",
       "topics": [
-        "project"
+        "documentation"
       ],
       "domain": "core",
-      "path": "repo/project-overview.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "reference",
+      "summary": "Visual workflow diagrams",
+      "line_count": 197
+    },
+    {
       "keywords": [
         "repo",
         "project",
         "overview"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "always": true,
-        "task_types": []
-      },
-      "subdomain": "repo"
-    },
-    {
-      "summary": "Self-healing system implementation details",
-      "line_count": 599,
+      "path": "repo/project-overview.md",
       "topics": [
-        "recovery"
+        "project"
       ],
       "domain": "core",
-      "path": "repo/self-healing-implementation-details.md",
+      "load_when": {
+        "always": true,
+        "task_types": [],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "repo",
+      "summary": "Project-specific repository overview",
+      "line_count": 144
+    },
+    {
       "keywords": [
         "repo",
         "self-healing",
         "implementation"
       ],
+      "path": "repo/self-healing-implementation-details.md",
+      "topics": [
+        "recovery"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [],
         "commands": [
           "/errors",
           "/fix-it"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "repo"
+      "subdomain": "repo",
+      "summary": "Self-healing system implementation details",
+      "line_count": 599
     },
     {
-      "summary": "Guide for updating project overview",
-      "line_count": 142,
-      "topics": [
-        "documentation"
-      ],
-      "domain": "core",
-      "path": "repo/update-project.md",
       "keywords": [
         "repo",
         "update",
         "project"
       ],
+      "path": "repo/update-project.md",
+      "topics": [
+        "documentation"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
+        "commands": []
       },
-      "subdomain": "repo"
+      "subdomain": "repo",
+      "summary": "Guide for updating project overview",
+      "line_count": 142
     },
     {
-      "summary": "Quick routing reference",
-      "line_count": 43,
-      "topics": [
-        "orchestration"
-      ],
-      "domain": "core",
-      "path": "routing.md",
       "keywords": [
         "routing",
         "reference"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "root"
-    },
-    {
-      "summary": "Framework for code analysis tasks",
-      "line_count": 152,
+      "path": "routing.md",
       "topics": [
-        "code-review"
+        "orchestration"
       ],
       "domain": "core",
-      "path": "standards/analysis-framework.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "root",
+      "summary": "Quick routing reference",
+      "line_count": 43
+    },
+    {
       "keywords": [
         "standards",
         "analysis",
         "framework"
       ],
+      "path": "standards/analysis-framework.md",
+      "topics": [
+        "code-review"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "code-reviewer-agent"
         ],
         "commands": [
           "/review"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "standards"
+      "subdomain": "standards",
+      "summary": "Framework for code analysis tasks",
+      "line_count": 152
     },
     {
-      "summary": "CI/CD workflow standards",
-      "line_count": 144,
-      "topics": [
-        "devops"
-      ],
-      "domain": "core",
-      "path": "standards/ci-workflow.md",
       "keywords": [
         "standards",
         "ci",
         "workflow"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "standards"
-    },
-    {
-      "summary": "Code pattern standards for reviews",
-      "line_count": 377,
+      "path": "standards/ci-workflow.md",
       "topics": [
-        "code-review"
+        "devops"
       ],
       "domain": "core",
-      "path": "standards/code-patterns.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "standards",
+      "summary": "CI/CD workflow standards",
+      "line_count": 144
+    },
+    {
       "keywords": [
         "standards",
         "code",
         "patterns"
       ],
+      "path": "standards/code-patterns.md",
+      "topics": [
+        "code-review"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "code-reviewer-agent"
         ],
         "commands": [
           "/review"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "standards"
+      "subdomain": "standards",
+      "summary": "Code pattern standards for reviews",
+      "line_count": 377
     },
     {
-      "summary": "Documentation standards: formatting, naming, README requirements, prohibited content",
-      "line_count": 300,
-      "topics": [
-        "documentation"
-      ],
-      "domain": "core",
-      "path": "standards/documentation-standards.md",
       "keywords": [
         "standards",
         "documentation",
         "formatting",
         "readme"
       ],
+      "path": "standards/documentation-standards.md",
+      "topics": [
+        "documentation"
+      ],
+      "domain": "core",
       "load_when": {
-        "agents": [
-          "meta-builder-agent"
-        ],
-        "commands": [],
         "task_types": [
           "meta",
           "markdown"
-        ]
+        ],
+        "agents": [
+          "meta-builder-agent"
+        ],
+        "commands": []
       },
-      "subdomain": "standards"
+      "subdomain": "standards",
+      "summary": "Documentation standards: formatting, naming, README requirements, prohibited content",
+      "line_count": 300
     },
     {
-      "summary": "Error handling standards and patterns",
-      "line_count": 1056,
-      "topics": [
-        "recovery"
-      ],
-      "domain": "core",
-      "path": "standards/error-handling.md",
       "keywords": [
         "standards",
         "error",
         "handling"
       ],
+      "path": "standards/error-handling.md",
+      "topics": [
+        "recovery"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [],
         "commands": [
           "/errors"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "standards"
+      "subdomain": "standards",
+      "summary": "Error handling standards and patterns",
+      "line_count": 1056
     },
     {
-      "summary": "Git integration standards",
-      "line_count": 212,
-      "topics": [
-        "devops"
-      ],
-      "domain": "core",
-      "path": "standards/git-integration.md",
       "keywords": [
         "standards",
         "git",
         "integration"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "standards"
-    },
-    {
-      "summary": "Git safety guidelines and patterns",
-      "line_count": 571,
+      "path": "standards/git-integration.md",
       "topics": [
         "devops"
       ],
       "domain": "core",
-      "path": "standards/git-safety.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "standards",
+      "summary": "Git integration standards",
+      "line_count": 212
+    },
+    {
       "keywords": [
         "standards",
         "git",
         "safety"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "standards"
-    },
-    {
-      "summary": "Interactive selection UI patterns",
-      "line_count": 272,
+      "path": "standards/git-safety.md",
       "topics": [
-        "user-interaction"
+        "devops"
       ],
       "domain": "core",
-      "path": "standards/interactive-selection.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "standards",
+      "summary": "Git safety guidelines and patterns",
+      "line_count": 571
+    },
+    {
       "keywords": [
         "standards",
         "interactive",
         "selection"
       ],
+      "path": "standards/interactive-selection.md",
+      "topics": [
+        "user-interaction"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
@@ -1786,49 +1787,47 @@
           "/meta",
           "/fix-it",
           "/review"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "standards"
+      "subdomain": "standards",
+      "summary": "Interactive selection UI patterns",
+      "line_count": 272
     },
     {
-      "summary": "Tool restrictions in postflight phase",
-      "line_count": 202,
-      "topics": [
-        "workflow"
-      ],
-      "domain": "core",
-      "path": "standards/postflight-tool-restrictions.md",
       "keywords": [
         "standards",
         "postflight",
         "tools"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "standards"
-    },
-    {
-      "summary": "Task status marker conventions",
-      "line_count": 373,
+      "path": "standards/postflight-tool-restrictions.md",
       "topics": [
-        "state"
+        "workflow"
       ],
       "domain": "core",
-      "path": "standards/status-markers.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "standards",
+      "summary": "Tool restrictions in postflight phase",
+      "line_count": 202
+    },
+    {
       "keywords": [
         "standards",
         "status",
         "markers"
       ],
+      "path": "standards/status-markers.md",
+      "topics": [
+        "state"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "planner-agent",
           "general-implementation-agent"
@@ -1837,391 +1836,391 @@
           "/task",
           "/plan",
           "/implement"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "standards"
+      "subdomain": "standards",
+      "summary": "Task status marker conventions",
+      "line_count": 373
     },
     {
-      "summary": "Task management standards",
-      "line_count": 375,
-      "topics": [
-        "state"
-      ],
-      "domain": "core",
-      "path": "standards/task-management.md",
       "keywords": [
         "standards",
         "task",
         "management"
       ],
+      "path": "standards/task-management.md",
+      "topics": [
+        "state"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [],
         "commands": [
           "/task",
           "/todo"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "standards"
+      "subdomain": "standards",
+      "summary": "Task management standards",
+      "line_count": 375
     },
     {
-      "summary": "Testing standards for implementations",
-      "line_count": 127,
-      "topics": [
-        "quality"
-      ],
-      "domain": "core",
-      "path": "standards/testing.md",
       "keywords": [
         "standards",
         "testing"
       ],
+      "path": "standards/testing.md",
+      "topics": [
+        "quality"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "general-implementation-agent"
         ],
         "commands": [
           "/implement"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "standards"
+      "subdomain": "standards",
+      "summary": "Testing standards for implementations",
+      "line_count": 127
     },
     {
-      "summary": "XML structure standards for prompts",
-      "line_count": 709,
-      "topics": [
-        "standards"
-      ],
-      "domain": "core",
-      "path": "standards/xml-structure.md",
       "keywords": [
         "standards",
         "xml",
         "structure"
       ],
+      "path": "standards/xml-structure.md",
+      "topics": [
+        "standards"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "standards"
+      "subdomain": "standards",
+      "summary": "XML structure standards for prompts",
+      "line_count": 709
     },
     {
-      "summary": "Template for creating new agents",
-      "line_count": 334,
-      "topics": [
-        "system-design"
-      ],
-      "domain": "core",
-      "path": "templates/agent-template.md",
       "keywords": [
         "template",
         "agent"
       ],
-      "load_when": {
-        "agents": [
-          "meta-builder-agent"
-        ],
-        "commands": [
-          "/meta"
-        ],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "templates"
-    },
-    {
-      "summary": "Template for creating new commands",
-      "line_count": 135,
+      "path": "templates/agent-template.md",
       "topics": [
         "system-design"
       ],
       "domain": "core",
-      "path": "templates/command-template.md",
-      "keywords": [
-        "template",
-        "command"
-      ],
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "templates"
+      "subdomain": "templates",
+      "summary": "Template for creating new agents",
+      "line_count": 334
     },
     {
-      "summary": "Template for delegation context objects",
-      "line_count": 82,
+      "keywords": [
+        "template",
+        "command"
+      ],
+      "path": "templates/command-template.md",
       "topics": [
-        "orchestration"
+        "system-design"
       ],
       "domain": "core",
-      "path": "templates/delegation-context.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [
+          "meta-builder-agent"
+        ],
+        "commands": [
+          "/meta"
+        ]
+      },
+      "subdomain": "templates",
+      "summary": "Template for creating new commands",
+      "line_count": 135
+    },
+    {
       "keywords": [
         "template",
         "delegation",
         "context"
       ],
+      "path": "templates/delegation-context.md",
+      "topics": [
+        "orchestration"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
+        "commands": []
       },
-      "subdomain": "templates"
+      "subdomain": "templates",
+      "summary": "Template for delegation context objects",
+      "line_count": 82
     },
     {
-      "summary": "Template for creating orchestrators",
-      "line_count": 273,
-      "topics": [
-        "system-design"
-      ],
-      "domain": "core",
-      "path": "templates/orchestrator-template.md",
       "keywords": [
         "template",
         "orchestrator"
       ],
+      "path": "templates/orchestrator-template.md",
+      "topics": [
+        "system-design"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "templates"
+      "subdomain": "templates",
+      "summary": "Template for creating orchestrators",
+      "line_count": 273
     },
     {
-      "summary": "Template for creating subagents",
-      "line_count": 223,
-      "topics": [
-        "system-design"
-      ],
-      "domain": "core",
-      "path": "templates/subagent-template.md",
       "keywords": [
         "template",
         "subagent"
       ],
+      "path": "templates/subagent-template.md",
+      "topics": [
+        "system-design"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "templates"
+      "subdomain": "templates",
+      "summary": "Template for creating subagents",
+      "line_count": 223
     },
     {
-      "summary": "Template for thin wrapper skills",
-      "line_count": 273,
-      "topics": [
-        "system-design"
-      ],
-      "domain": "core",
-      "path": "templates/thin-wrapper-skill.md",
       "keywords": [
         "template",
         "skill",
         "wrapper"
       ],
+      "path": "templates/thin-wrapper-skill.md",
+      "topics": [
+        "system-design"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
         "commands": [
           "/meta"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "templates"
+      "subdomain": "templates",
+      "summary": "Template for thin wrapper skills",
+      "line_count": 273
     },
     {
-      "summary": "Troubleshooting workflow interruptions",
-      "line_count": 337,
-      "topics": [
-        "recovery"
-      ],
-      "domain": "core",
-      "path": "troubleshooting/workflow-interruptions.md",
       "keywords": [
         "troubleshooting",
         "workflow",
         "interruptions"
       ],
+      "path": "troubleshooting/workflow-interruptions.md",
+      "topics": [
+        "recovery"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [],
         "commands": [
           "/errors",
           "/fix-it"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "troubleshooting"
+      "subdomain": "troubleshooting",
+      "summary": "Troubleshooting workflow interruptions",
+      "line_count": 337
     },
     {
-      "summary": "Validation quick reference",
-      "line_count": 46,
-      "topics": [
-        "quality"
-      ],
-      "domain": "core",
-      "path": "validation.md",
       "keywords": [
         "validation",
         "reference"
       ],
-      "load_when": {
-        "agents": [],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "root"
-    },
-    {
-      "summary": "Complete command lifecycle documentation",
-      "line_count": 452,
+      "path": "validation.md",
       "topics": [
-        "workflow"
+        "quality"
       ],
       "domain": "core",
-      "path": "workflows/command-lifecycle.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [],
+        "commands": []
+      },
+      "subdomain": "root",
+      "summary": "Validation quick reference",
+      "line_count": 46
+    },
+    {
       "keywords": [
         "workflows",
         "command",
         "lifecycle"
       ],
-      "load_when": {
-        "agents": [
-          "meta-builder-agent"
-        ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
-      },
-      "subdomain": "workflows"
-    },
-    {
-      "summary": "Preflight and postflight workflow details",
-      "line_count": 589,
+      "path": "workflows/command-lifecycle.md",
       "topics": [
         "workflow"
       ],
       "domain": "core",
-      "path": "workflows/preflight-postflight.md",
+      "load_when": {
+        "task_types": [
+          "meta"
+        ],
+        "agents": [
+          "meta-builder-agent"
+        ],
+        "commands": []
+      },
+      "subdomain": "workflows",
+      "summary": "Complete command lifecycle documentation",
+      "line_count": 452
+    },
+    {
       "keywords": [
         "workflows",
         "preflight",
         "postflight"
       ],
+      "path": "workflows/preflight-postflight.md",
+      "topics": [
+        "workflow"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [
           "meta-builder-agent"
         ],
-        "commands": [],
-        "task_types": [
-          "meta"
-        ]
+        "commands": []
       },
-      "subdomain": "workflows"
+      "subdomain": "workflows",
+      "summary": "Preflight and postflight workflow details",
+      "line_count": 589
     },
     {
-      "summary": "Code review workflow process",
-      "line_count": 164,
-      "topics": [
-        "code-review"
-      ],
-      "domain": "core",
-      "path": "workflows/review-process.md",
       "keywords": [
         "workflows",
         "review",
         "process"
       ],
+      "path": "workflows/review-process.md",
+      "topics": [
+        "code-review"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "code-reviewer-agent"
         ],
         "commands": [
           "/review"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "workflows"
+      "subdomain": "workflows",
+      "summary": "Code review workflow process",
+      "line_count": 164
     },
     {
-      "summary": "Valid task status transitions",
-      "line_count": 86,
-      "topics": [
-        "state"
-      ],
-      "domain": "core",
-      "path": "workflows/status-transitions.md",
       "keywords": [
         "workflows",
         "status",
         "transitions"
       ],
+      "path": "workflows/status-transitions.md",
+      "topics": [
+        "state"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [
+          "meta"
+        ],
         "agents": [],
         "commands": [
           "/task"
-        ],
-        "task_types": [
-          "meta"
         ]
       },
-      "subdomain": "workflows"
+      "subdomain": "workflows",
+      "summary": "Valid task status transitions",
+      "line_count": 86
     },
     {
-      "summary": "Task breakdown and decomposition workflow",
-      "line_count": 270,
-      "topics": [
-        "planning"
-      ],
-      "domain": "core",
-      "path": "workflows/task-breakdown.md",
       "keywords": [
         "workflows",
         "task",
         "breakdown"
       ],
+      "path": "workflows/task-breakdown.md",
+      "topics": [
+        "planning"
+      ],
+      "domain": "core",
       "load_when": {
+        "task_types": [],
         "agents": [
           "planner-agent",
           "spawn-agent"
@@ -2229,45 +2228,50 @@
         "commands": [
           "/plan",
           "/spawn"
-        ],
-        "task_types": []
+        ]
       },
-      "subdomain": "workflows"
+      "subdomain": "workflows",
+      "summary": "Task breakdown and decomposition workflow",
+      "line_count": 270
     },
     {
-      "summary": "Epidemiology domain overview and R-based research workflows",
-      "line_count": 79,
-      "topics": [
-        "epidemiology",
-        "r-modeling",
-        "infectious-disease"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/README.md",
       "keywords": [
         "epidemiology",
         "EpiModel",
         "Stan",
         "R"
       ],
+      "path": "project/epidemiology/README.md",
+      "topics": [
+        "epidemiology",
+        "r-modeling",
+        "infectious-disease"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent",
           "epi-implement-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "Epidemiology domain overview and R-based research workflows",
+      "line_count": 79
     },
     {
-      "summary": "Comprehensive documentation for key R epidemiology packages",
-      "line_count": 323,
+      "keywords": [
+        "packages",
+        "r-packages",
+        "modeling-tools"
+      ],
+      "path": "project/epidemiology/tools/r-packages.md",
       "topics": [
         "EpiModel",
         "epidemia",
@@ -2275,68 +2279,54 @@
         "EpiEstim"
       ],
       "domain": "project",
-      "path": "project/epidemiology/tools/r-packages.md",
-      "keywords": [
-        "packages",
-        "r-packages",
-        "modeling-tools"
-      ],
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent",
           "epi-implement-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "Comprehensive documentation for key R epidemiology packages",
+      "line_count": 323
     },
     {
-      "summary": "MCP server integration for R-based analysis",
-      "line_count": 78,
+      "keywords": [
+        "mcp",
+        "server",
+        "r-integration"
+      ],
+      "path": "project/epidemiology/tools/mcp-guide.md",
       "topics": [
         "mcp",
         "r",
         "integration"
       ],
       "domain": "project",
-      "path": "project/epidemiology/tools/mcp-guide.md",
-      "keywords": [
-        "mcp",
-        "server",
-        "r-integration"
-      ],
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent",
           "epi-implement-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "MCP server integration for R-based analysis",
+      "line_count": 78
     },
     {
-      "summary": "Statistical modeling patterns for epidemiology analysis",
-      "line_count": 303,
-      "topics": [
-        "statistical",
-        "modeling",
-        "regression",
-        "bayesian"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/patterns/statistical-modeling.md",
       "keywords": [
         "statistical-modeling",
         "regression",
@@ -2344,32 +2334,32 @@
         "glm",
         "mixed-effects"
       ],
+      "path": "project/epidemiology/patterns/statistical-modeling.md",
+      "topics": [
+        "statistical",
+        "modeling",
+        "regression",
+        "bayesian"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent",
           "epi-implement-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "Statistical modeling patterns for epidemiology analysis",
+      "line_count": 303
     },
     {
-      "summary": "Study design reference with R packages and statistical models",
-      "line_count": 239,
-      "topics": [
-        "study-design",
-        "cohort",
-        "case-control",
-        "rct"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/domain/study-designs.md",
       "keywords": [
         "study-design",
         "cohort",
@@ -2377,31 +2367,31 @@
         "cross-sectional",
         "rct"
       ],
+      "path": "project/epidemiology/domain/study-designs.md",
+      "topics": [
+        "study-design",
+        "cohort",
+        "case-control",
+        "rct"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "Study design reference with R packages and statistical models",
+      "line_count": 239
     },
     {
-      "summary": "Causal inference methods including DAGs, propensity scores, and mediation",
-      "line_count": 195,
-      "topics": [
-        "causal-inference",
-        "dag",
-        "propensity-score",
-        "iv"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/domain/causal-inference.md",
       "keywords": [
         "causal-inference",
         "dag",
@@ -2409,31 +2399,31 @@
         "instrumental-variable",
         "mediation"
       ],
+      "path": "project/epidemiology/domain/causal-inference.md",
+      "topics": [
+        "causal-inference",
+        "dag",
+        "propensity-score",
+        "iv"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "Causal inference methods including DAGs, propensity scores, and mediation",
+      "line_count": 195
     },
     {
-      "summary": "Missing data handling strategies and multiple imputation workflows",
-      "line_count": 144,
-      "topics": [
-        "missing-data",
-        "imputation",
-        "mice",
-        "sensitivity"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/domain/missing-data.md",
       "keywords": [
         "missing-data",
         "multiple-imputation",
@@ -2442,31 +2432,31 @@
         "mar",
         "mnar"
       ],
+      "path": "project/epidemiology/domain/missing-data.md",
+      "topics": [
+        "missing-data",
+        "imputation",
+        "mice",
+        "sensitivity"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "Missing data handling strategies and multiple imputation workflows",
+      "line_count": 144
     },
     {
-      "summary": "Data management workflows for epidemiology datasets",
-      "line_count": 265,
-      "topics": [
-        "data-management",
-        "tidyverse",
-        "cleaning",
-        "validation"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/domain/data-management.md",
       "keywords": [
         "data-management",
         "tidyverse",
@@ -2474,31 +2464,31 @@
         "validation",
         "codebook"
       ],
+      "path": "project/epidemiology/domain/data-management.md",
+      "topics": [
+        "data-management",
+        "tidyverse",
+        "cleaning",
+        "validation"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "Data management workflows for epidemiology datasets",
+      "line_count": 265
     },
     {
-      "summary": "Epidemiology reporting guidelines and checklist references",
-      "line_count": 98,
-      "topics": [
-        "reporting",
-        "strobe",
-        "consort",
-        "prisma"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/domain/reporting-standards.md",
       "keywords": [
         "reporting-standards",
         "strobe",
@@ -2506,31 +2496,31 @@
         "prisma",
         "guidelines"
       ],
+      "path": "project/epidemiology/domain/reporting-standards.md",
+      "topics": [
+        "reporting",
+        "strobe",
+        "consort",
+        "prisma"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "Epidemiology reporting guidelines and checklist references",
+      "line_count": 98
     },
     {
-      "summary": "R project workflow patterns with renv, targets, and Quarto",
-      "line_count": 162,
-      "topics": [
-        "r-workflow",
-        "renv",
-        "targets",
-        "reproducibility"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/domain/r-workflow.md",
       "keywords": [
         "r-workflow",
         "renv",
@@ -2538,31 +2528,31 @@
         "quarto",
         "reproducible-research"
       ],
+      "path": "project/epidemiology/domain/r-workflow.md",
+      "topics": [
+        "r-workflow",
+        "renv",
+        "targets",
+        "reproducibility"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "R project workflow patterns with renv, targets, and Quarto",
+      "line_count": 162
     },
     {
-      "summary": "Observational study method patterns for bias control and effect estimation",
-      "line_count": 228,
-      "topics": [
-        "observational",
-        "confounding",
-        "bias",
-        "effect-modification"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/patterns/observational-methods.md",
       "keywords": [
         "observational-methods",
         "confounding",
@@ -2570,32 +2560,32 @@
         "effect-modification",
         "stratification"
       ],
+      "path": "project/epidemiology/patterns/observational-methods.md",
+      "topics": [
+        "observational",
+        "confounding",
+        "bias",
+        "effect-modification"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent",
           "epi-implement-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "Observational study method patterns for bias control and effect estimation",
+      "line_count": 228
     },
     {
-      "summary": "Structured analysis phase patterns from descriptive to sensitivity",
-      "line_count": 149,
-      "topics": [
-        "analysis-phases",
-        "workflow",
-        "descriptive",
-        "multivariable"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/patterns/analysis-phases.md",
       "keywords": [
         "analysis-phases",
         "descriptive",
@@ -2603,92 +2593,93 @@
         "multivariable",
         "sensitivity"
       ],
+      "path": "project/epidemiology/patterns/analysis-phases.md",
+      "topics": [
+        "analysis-phases",
+        "workflow",
+        "descriptive",
+        "multivariable"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent",
           "epi-implement-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "Structured analysis phase patterns from descriptive to sensitivity",
+      "line_count": 149
     },
     {
-      "summary": "STROBE checklist for observational study reporting",
-      "line_count": 63,
-      "topics": [
-        "strobe",
-        "checklist",
-        "reporting"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/patterns/strobe-checklist.md",
       "keywords": [
         "strobe",
         "checklist",
         "observational-study",
         "reporting"
       ],
+      "path": "project/epidemiology/patterns/strobe-checklist.md",
+      "topics": [
+        "strobe",
+        "checklist",
+        "reporting"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-research-agent",
           "epi-implement-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "STROBE checklist for observational study reporting",
+      "line_count": 63
     },
     {
-      "summary": "Analysis plan template for structuring epidemiology study protocols",
-      "line_count": 156,
-      "topics": [
-        "template",
-        "analysis-plan",
-        "protocol"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/templates/analysis-plan.md",
       "keywords": [
         "analysis-plan",
         "template",
         "protocol",
         "sap"
       ],
+      "path": "project/epidemiology/templates/analysis-plan.md",
+      "topics": [
+        "template",
+        "analysis-plan",
+        "protocol"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-implement-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "Analysis plan template for structuring epidemiology study protocols",
+      "line_count": 156
     },
     {
-      "summary": "Findings report template for presenting epidemiology results",
-      "line_count": 129,
-      "topics": [
-        "template",
-        "findings",
-        "report"
-      ],
-      "domain": "project",
-      "path": "project/epidemiology/templates/findings-report.md",
       "keywords": [
         "findings-report",
         "template",
@@ -2696,51 +2687,59 @@
         "tables",
         "figures"
       ],
+      "path": "project/epidemiology/templates/findings-report.md",
+      "topics": [
+        "template",
+        "findings",
+        "report"
+      ],
+      "domain": "project",
       "load_when": {
+        "task_types": [
+          "epi",
+          "epi:study"
+        ],
         "agents": [
           "epi-implement-agent"
         ],
         "commands": [
           "/epi"
-        ],
-        "task_types": [
-          "epi",
-          "epi:study"
         ]
       },
-      "subdomain": "epidemiology"
+      "subdomain": "epidemiology",
+      "summary": "Findings report template for presenting epidemiology results",
+      "line_count": 129
     },
     {
-      "summary": "Shared tool detection patterns for all filetypes agents",
-      "domain": "project",
+      "subdomain": "filetypes",
       "description": "Shared tool detection patterns for all filetypes agents",
+      "domain": "project",
+      "load_when": {
+        "languages": [],
+        "agents": [
+          "filetypes-router-agent",
+          "document-agent",
+          "filetypes-spreadsheet-agent",
+          "presentation-agent",
+          "scrape-agent",
+          "docx-edit-agent"
+        ],
+        "commands": [
+          "/convert",
+          "/table",
+          "/edit"
+        ]
+      },
       "path": "project/filetypes/tools/tool-detection.md",
-      "line_count": 180,
-      "load_when": {
-        "agents": [
-          "filetypes-router-agent",
-          "document-agent",
-          "filetypes-spreadsheet-agent",
-          "presentation-agent",
-          "scrape-agent",
-          "docx-edit-agent"
-        ],
-        "commands": [
-          "/convert",
-          "/table",
-          "/edit"
-        ],
-        "languages": []
-      },
-      "subdomain": "filetypes"
+      "summary": "Shared tool detection patterns for all filetypes agents",
+      "line_count": 180
     },
     {
-      "summary": "Platform-specific installation instructions for conversion tools",
-      "domain": "project",
+      "subdomain": "filetypes",
       "description": "Platform-specific installation instructions for conversion tools",
-      "path": "project/filetypes/tools/dependency-guide.md",
-      "line_count": 120,
+      "domain": "project",
       "load_when": {
+        "languages": [],
         "agents": [
           "filetypes-router-agent",
           "document-agent",
@@ -2753,93 +2752,95 @@
           "/convert",
           "/table",
           "/edit"
-        ],
-        "languages": []
+        ]
       },
-      "subdomain": "filetypes"
+      "path": "project/filetypes/tools/dependency-guide.md",
+      "summary": "Platform-specific installation instructions for conversion tools",
+      "line_count": 120
     },
     {
-      "summary": "MCP server integration patterns for format conversion",
-      "domain": "project",
+      "subdomain": "filetypes",
       "description": "MCP server integration patterns for format conversion",
-      "path": "project/filetypes/tools/mcp-integration.md",
-      "line_count": 80,
+      "domain": "project",
       "load_when": {
+        "languages": [],
         "agents": [
           "filetypes-router-agent",
           "document-agent"
         ],
         "commands": [
           "/convert"
-        ],
-        "languages": []
+        ]
       },
-      "subdomain": "filetypes"
+      "path": "project/filetypes/tools/mcp-integration.md",
+      "summary": "MCP server integration patterns for format conversion",
+      "line_count": 80
     },
     {
-      "summary": "Spreadsheet to LaTeX/Typst table conversion patterns",
-      "domain": "project",
+      "subdomain": "filetypes",
       "description": "Spreadsheet to LaTeX/Typst table conversion patterns",
-      "path": "project/filetypes/patterns/spreadsheet-tables.md",
-      "line_count": 150,
+      "domain": "project",
       "load_when": {
+        "languages": [],
         "agents": [
           "filetypes-spreadsheet-agent"
         ],
         "commands": [
           "/table"
-        ],
-        "languages": []
+        ]
       },
-      "subdomain": "filetypes"
+      "path": "project/filetypes/patterns/spreadsheet-tables.md",
+      "summary": "Spreadsheet to LaTeX/Typst table conversion patterns",
+      "line_count": 150
     },
     {
-      "summary": "Presentation extraction and slide generation patterns",
-      "domain": "project",
+      "subdomain": "filetypes",
       "description": "Presentation extraction and slide generation patterns",
-      "path": "project/filetypes/patterns/presentation-slides.md",
-      "line_count": 180,
+      "domain": "project",
       "load_when": {
+        "languages": [],
         "agents": [
           "presentation-agent"
         ],
         "commands": [
           "/convert"
-        ],
-        "languages": []
+        ]
       },
-      "subdomain": "filetypes"
+      "path": "project/filetypes/patterns/presentation-slides.md",
+      "summary": "Presentation extraction and slide generation patterns",
+      "line_count": 180
     },
     {
-      "summary": "Pitch deck structure and 10-slide framework for investor presentations",
-      "domain": "project",
+      "subdomain": "filetypes",
       "description": "Pitch deck structure and 10-slide framework for investor presentations",
+      "domain": "project",
+      "load_when": {
+        "languages": [
+          "deck"
+        ],
+        "agents": [
+          "presentation-agent",
+          "deck-research-agent",
+          "deck-planner-agent",
+          "deck-builder-agent"
+        ],
+        "commands": [
+          "/convert",
+          "/deck"
+        ]
+      },
       "path": "project/filetypes/patterns/pitch-deck-structure.md",
-      "line_count": 408,
-      "load_when": {
-        "agents": [
-          "presentation-agent",
-          "deck-research-agent",
-          "deck-planner-agent",
-          "deck-builder-agent"
-        ],
-        "commands": [
-          "/convert",
-          "/deck"
-        ],
-        "languages": [
-          "deck"
-        ]
-      },
-      "subdomain": "filetypes"
+      "summary": "Pitch deck structure and 10-slide framework for investor presentations",
+      "line_count": 408
     },
     {
-      "summary": "Touying typst template for pitch deck slide generation",
-      "domain": "project",
+      "subdomain": "filetypes",
       "description": "Touying typst template for pitch deck slide generation",
-      "path": "project/filetypes/patterns/touying-pitch-deck-template.md",
-      "line_count": 423,
+      "domain": "project",
       "load_when": {
+        "languages": [
+          "deck"
+        ],
         "agents": [
           "presentation-agent",
           "deck-research-agent",
@@ -2849,20 +2850,18 @@
         "commands": [
           "/convert",
           "/deck"
-        ],
-        "languages": [
-          "deck"
         ]
       },
-      "subdomain": "filetypes"
+      "path": "project/filetypes/patterns/touying-pitch-deck-template.md",
+      "summary": "Touying typst template for pitch deck slide generation",
+      "line_count": 423
     },
     {
-      "summary": "Format conversion support matrices, usage examples, prerequisites, dependency summary",
-      "domain": "project",
+      "subdomain": "filetypes",
       "description": "Format conversion support matrices, usage examples, prerequisites, dependency summary",
-      "path": "project/filetypes/domain/conversion-tables.md",
-      "line_count": 117,
+      "domain": "project",
       "load_when": {
+        "languages": [],
         "agents": [
           "filetypes-router-agent",
           "document-agent",
@@ -2874,64 +2873,63 @@
           "/convert",
           "/table",
           "/scrape"
-        ],
-        "languages": []
+        ]
       },
-      "subdomain": "filetypes"
+      "path": "project/filetypes/domain/conversion-tables.md",
+      "summary": "Format conversion support matrices, usage examples, prerequisites, dependency summary",
+      "line_count": 117
     },
     {
-      "summary": "Filetypes extension overview and navigation",
-      "domain": "project",
+      "subdomain": "filetypes",
       "description": "Filetypes extension overview and navigation",
-      "path": "project/filetypes/README.md",
-      "line_count": 60,
+      "domain": "project",
       "load_when": {
+        "languages": [],
         "agents": [],
-        "commands": [],
-        "languages": []
+        "commands": []
       },
-      "subdomain": "filetypes"
+      "path": "project/filetypes/README.md",
+      "summary": "Filetypes extension overview and navigation",
+      "line_count": 60
     },
     {
-      "summary": "SuperDoc MCP server configuration and tool inventory for DOCX editing",
-      "domain": "project",
+      "subdomain": "filetypes",
       "description": "SuperDoc MCP server configuration and tool inventory for DOCX editing",
+      "domain": "project",
+      "load_when": {
+        "languages": [],
+        "agents": [
+          "docx-edit-agent"
+        ],
+        "commands": [
+          "/edit"
+        ]
+      },
       "path": "project/filetypes/tools/superdoc-integration.md",
-      "line_count": 120,
-      "load_when": {
-        "agents": [
-          "docx-edit-agent"
-        ],
-        "commands": [
-          "/edit"
-        ],
-        "languages": []
-      },
-      "subdomain": "filetypes"
+      "summary": "SuperDoc MCP server configuration and tool inventory for DOCX editing",
+      "line_count": 120
     },
     {
-      "summary": "Office document editing patterns: Word AppleScript integration, tracked changes, batch editing",
-      "domain": "project",
+      "subdomain": "filetypes",
       "description": "Office document editing patterns: Word AppleScript integration, tracked changes, batch editing",
-      "path": "project/filetypes/patterns/office-edit-patterns.md",
-      "line_count": 150,
+      "domain": "project",
       "load_when": {
+        "languages": [],
         "agents": [
           "docx-edit-agent"
         ],
         "commands": [
           "/edit"
-        ],
-        "languages": []
+        ]
       },
-      "subdomain": "filetypes"
+      "path": "project/filetypes/patterns/office-edit-patterns.md",
+      "summary": "Office document editing patterns: Word AppleScript integration, tracked changes, batch editing",
+      "line_count": 150
     },
     {
-      "summary": "LaTeX document organization patterns",
-      "domain": "project",
-      "description": "LaTeX document organization patterns",
-      "path": "project/latex/patterns/document-structure.md",
       "subdomain": "latex",
+      "description": "LaTeX document organization patterns",
+      "domain": "project",
       "load_when": {
         "languages": [
           "latex"
@@ -2940,6 +2938,8 @@
           "latex-implementation-agent"
         ]
       },
+      "path": "project/latex/patterns/document-structure.md",
+      "summary": "LaTeX document organization patterns",
       "tags": [
         "latex",
         "structure",
@@ -2947,11 +2947,9 @@
       ]
     },
     {
-      "summary": "LaTeX theorem environment patterns",
-      "domain": "project",
-      "description": "LaTeX theorem environment patterns",
-      "path": "project/latex/patterns/theorem-environments.md",
       "subdomain": "latex",
+      "description": "LaTeX theorem environment patterns",
+      "domain": "project",
       "load_when": {
         "languages": [
           "latex"
@@ -2960,6 +2958,8 @@
           "latex-implementation-agent"
         ]
       },
+      "path": "project/latex/patterns/theorem-environments.md",
+      "summary": "LaTeX theorem environment patterns",
       "tags": [
         "latex",
         "theorems",
@@ -2967,11 +2967,9 @@
       ]
     },
     {
-      "summary": "Cross-reference patterns for LaTeX documents",
-      "domain": "project",
-      "description": "Cross-reference patterns for LaTeX documents",
-      "path": "project/latex/patterns/cross-references.md",
       "subdomain": "latex",
+      "description": "Cross-reference patterns for LaTeX documents",
+      "domain": "project",
       "load_when": {
         "languages": [
           "latex"
@@ -2981,6 +2979,8 @@
           "latex-research-agent"
         ]
       },
+      "path": "project/latex/patterns/cross-references.md",
+      "summary": "Cross-reference patterns for LaTeX documents",
       "tags": [
         "latex",
         "references",
@@ -2988,11 +2988,9 @@
       ]
     },
     {
-      "summary": "Document structure standards for LaTeX projects",
-      "domain": "project",
-      "description": "Document structure standards for LaTeX projects",
-      "path": "project/latex/standards/document-structure.md",
       "subdomain": "latex",
+      "description": "Document structure standards for LaTeX projects",
+      "domain": "project",
       "load_when": {
         "languages": [
           "latex"
@@ -3001,6 +2999,8 @@
           "latex-implementation-agent"
         ]
       },
+      "path": "project/latex/standards/document-structure.md",
+      "summary": "Document structure standards for LaTeX projects",
       "tags": [
         "latex",
         "structure",
@@ -3008,11 +3008,9 @@
       ]
     },
     {
-      "summary": "LaTeX style guide and formatting conventions",
-      "domain": "project",
-      "description": "LaTeX style guide and formatting conventions",
-      "path": "project/latex/standards/latex-style-guide.md",
       "subdomain": "latex",
+      "description": "LaTeX style guide and formatting conventions",
+      "domain": "project",
       "load_when": {
         "languages": [
           "latex"
@@ -3022,6 +3020,8 @@
           "latex-research-agent"
         ]
       },
+      "path": "project/latex/standards/latex-style-guide.md",
+      "summary": "LaTeX style guide and formatting conventions",
       "tags": [
         "latex",
         "style",
@@ -3029,11 +3029,9 @@
       ]
     },
     {
-      "summary": "Mathematical notation conventions for LaTeX",
-      "domain": "project",
-      "description": "Mathematical notation conventions for LaTeX",
-      "path": "project/latex/standards/notation-conventions.md",
       "subdomain": "latex",
+      "description": "Mathematical notation conventions for LaTeX",
+      "domain": "project",
       "load_when": {
         "languages": [
           "latex"
@@ -3042,6 +3040,8 @@
           "latex-implementation-agent"
         ]
       },
+      "path": "project/latex/standards/notation-conventions.md",
+      "summary": "Mathematical notation conventions for LaTeX",
       "tags": [
         "latex",
         "notation",
@@ -3049,11 +3049,9 @@
       ]
     },
     {
-      "summary": "Custom macro patterns and conventions",
-      "domain": "project",
-      "description": "Custom macro patterns and conventions",
-      "path": "project/latex/standards/custom-macros.md",
       "subdomain": "latex",
+      "description": "Custom macro patterns and conventions",
+      "domain": "project",
       "load_when": {
         "languages": [
           "latex"
@@ -3062,6 +3060,8 @@
           "latex-implementation-agent"
         ]
       },
+      "path": "project/latex/standards/custom-macros.md",
+      "summary": "Custom macro patterns and conventions",
       "tags": [
         "latex",
         "macros",
@@ -3069,11 +3069,9 @@
       ]
     },
     {
-      "summary": "Subfile template for modular LaTeX documents",
-      "domain": "project",
-      "description": "Subfile template for modular LaTeX documents",
-      "path": "project/latex/templates/subfile-template.md",
       "subdomain": "latex",
+      "description": "Subfile template for modular LaTeX documents",
+      "domain": "project",
       "load_when": {
         "languages": [
           "latex"
@@ -3082,6 +3080,8 @@
           "latex-implementation-agent"
         ]
       },
+      "path": "project/latex/templates/subfile-template.md",
+      "summary": "Subfile template for modular LaTeX documents",
       "tags": [
         "latex",
         "templates",
@@ -3089,11 +3089,9 @@
       ]
     },
     {
-      "summary": "LaTeX compilation workflow and troubleshooting",
-      "domain": "project",
-      "description": "LaTeX compilation workflow and troubleshooting",
-      "path": "project/latex/tools/compilation-guide.md",
       "subdomain": "latex",
+      "description": "LaTeX compilation workflow and troubleshooting",
+      "domain": "project",
       "load_when": {
         "languages": [
           "latex"
@@ -3103,6 +3101,8 @@
           "latex-research-agent"
         ]
       },
+      "path": "project/latex/tools/compilation-guide.md",
+      "summary": "LaTeX compilation workflow and troubleshooting",
       "tags": [
         "latex",
         "compilation",
@@ -3110,11 +3110,9 @@
       ]
     },
     {
-      "summary": "LaTeX extension overview and navigation",
-      "domain": "project",
-      "description": "LaTeX extension overview and navigation",
-      "path": "project/latex/README.md",
       "subdomain": "latex",
+      "description": "LaTeX extension overview and navigation",
+      "domain": "project",
       "load_when": {
         "languages": [
           "latex"
@@ -3124,6 +3122,8 @@
           "latex-research-agent"
         ]
       },
+      "path": "project/latex/README.md",
+      "summary": "LaTeX extension overview and navigation",
       "tags": [
         "latex",
         "overview",
@@ -3131,21 +3131,19 @@
       ]
     },
     {
-      "summary": "Usage guide for /learn command and memory management",
-      "line_count": 150,
-      "topics": [
-        "memory",
-        "learn",
-        "knowledge-capture"
-      ],
-      "domain": "project",
-      "path": "project/memory/learn-usage.md",
       "keywords": [
         "learn",
         "memory",
         "vault",
         "content-mapping"
       ],
+      "path": "project/memory/learn-usage.md",
+      "topics": [
+        "memory",
+        "learn",
+        "knowledge-capture"
+      ],
+      "domain": "project",
       "load_when": {
         "commands": [
           "/learn"
@@ -3154,24 +3152,24 @@
           "skill-memory"
         ]
       },
-      "subdomain": "memory"
+      "subdomain": "memory",
+      "summary": "Usage guide for /learn command and memory management",
+      "line_count": 150
     },
     {
-      "summary": "MCP server setup for Obsidian memory vault",
-      "line_count": 120,
-      "topics": [
-        "memory",
-        "mcp",
-        "setup"
-      ],
-      "domain": "project",
-      "path": "project/memory/memory-setup.md",
       "keywords": [
         "obsidian",
         "mcp",
         "setup",
         "configuration"
       ],
+      "path": "project/memory/memory-setup.md",
+      "topics": [
+        "memory",
+        "mcp",
+        "setup"
+      ],
+      "domain": "project",
       "load_when": {
         "commands": [
           "/learn"
@@ -3180,42 +3178,34 @@
           "skill-memory"
         ]
       },
-      "subdomain": "memory"
+      "subdomain": "memory",
+      "summary": "MCP server setup for Obsidian memory vault",
+      "line_count": 120
     },
     {
-      "summary": "Troubleshooting guide for memory system issues",
-      "line_count": 250,
-      "topics": [
-        "memory",
-        "troubleshooting",
-        "debugging"
-      ],
-      "domain": "project",
-      "path": "project/memory/memory-troubleshooting.md",
       "keywords": [
         "troubleshooting",
         "errors",
         "memory",
         "mcp"
       ],
+      "path": "project/memory/memory-troubleshooting.md",
+      "topics": [
+        "memory",
+        "troubleshooting",
+        "debugging"
+      ],
+      "domain": "project",
       "load_when": {
         "skills": [
           "skill-memory"
         ]
       },
-      "subdomain": "memory"
+      "subdomain": "memory",
+      "summary": "Troubleshooting guide for memory system issues",
+      "line_count": 250
     },
     {
-      "summary": "Memory vault reference: MCP integration, vault structure, classification, scoring engine, maintenance operations",
-      "line_count": 57,
-      "topics": [
-        "memory",
-        "reference",
-        "vault",
-        "distill"
-      ],
-      "domain": "project",
-      "path": "project/memory/domain/memory-reference.md",
       "keywords": [
         "memory",
         "vault",
@@ -3223,30 +3213,31 @@
         "scoring",
         "distill"
       ],
+      "path": "project/memory/domain/memory-reference.md",
+      "topics": [
+        "memory",
+        "reference",
+        "vault",
+        "distill"
+      ],
+      "domain": "project",
       "load_when": {
+        "skills": [
+          "skill-memory"
+        ],
         "agents": [
           "general-research-agent"
         ],
         "commands": [
           "/learn",
           "/distill"
-        ],
-        "skills": [
-          "skill-memory"
         ]
       },
-      "subdomain": "memory"
+      "subdomain": "memory",
+      "summary": "Memory vault reference: MCP integration, vault structure, classification, scoring engine, maintenance operations",
+      "line_count": 57
     },
     {
-      "summary": "Example workflows for knowledge capture system",
-      "line_count": 180,
-      "topics": [
-        "memory",
-        "knowledge-capture",
-        "workflows"
-      ],
-      "domain": "project",
-      "path": "project/memory/knowledge-capture-usage.md",
       "keywords": [
         "knowledge",
         "capture",
@@ -3254,6 +3245,13 @@
         "todo",
         "harvest"
       ],
+      "path": "project/memory/knowledge-capture-usage.md",
+      "topics": [
+        "memory",
+        "knowledge-capture",
+        "workflows"
+      ],
+      "domain": "project",
       "load_when": {
         "commands": [
           "/learn"
@@ -3262,19 +3260,11 @@
           "skill-memory"
         ]
       },
-      "subdomain": "memory"
+      "subdomain": "memory",
+      "summary": "Example workflows for knowledge capture system",
+      "line_count": 180
     },
     {
-      "summary": "Usage guide for /distill command: sub-mode workflows, scoring formula, maintenance cadence",
-      "line_count": 180,
-      "topics": [
-        "memory",
-        "distill",
-        "maintenance",
-        "scoring"
-      ],
-      "domain": "project",
-      "path": "project/memory/distill-usage.md",
       "keywords": [
         "distill",
         "purge",
@@ -3284,22 +3274,31 @@
         "scoring",
         "health"
       ],
+      "path": "project/memory/distill-usage.md",
+      "topics": [
+        "memory",
+        "distill",
+        "maintenance",
+        "scoring"
+      ],
+      "domain": "project",
       "load_when": {
+        "skills": [
+          "skill-memory"
+        ],
         "agents": [
           "general-research-agent"
         ],
         "commands": [
           "/distill"
-        ],
-        "skills": [
-          "skill-memory"
         ]
       },
-      "subdomain": "memory"
+      "subdomain": "memory",
+      "summary": "Usage guide for /distill command: sub-mode workflows, scoring formula, maintenance cadence",
+      "line_count": 180
     },
     {
-      "summary": "CSS fade entrance via v-click opacity transition",
-      "line_count": 44,
+      "subdomain": "slidev",
       "path": "project/slidev/animation/fade-in.md",
       "domain": "project",
       "load_when": {
@@ -3315,11 +3314,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "CSS fade entrance via v-click opacity transition",
+      "line_count": 44
     },
     {
-      "summary": "v-motion y-axis entrance with optional spring physics",
-      "line_count": 50,
+      "subdomain": "slidev",
       "path": "project/slidev/animation/slide-in-below.md",
       "domain": "project",
       "load_when": {
@@ -3335,11 +3334,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "v-motion y-axis entrance with optional spring physics",
+      "line_count": 50
     },
     {
-      "summary": "Staggered v-motion entrance for KPI slides with scale and opacity",
-      "line_count": 60,
+      "subdomain": "slidev",
       "path": "project/slidev/animation/metric-cascade.md",
       "domain": "project",
       "load_when": {
@@ -3355,11 +3354,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "Staggered v-motion entrance for KPI slides with scale and opacity",
+      "line_count": 60
     },
     {
-      "summary": "v-mark emphasis patterns for hand-drawn style text highlighting",
-      "line_count": 55,
+      "subdomain": "slidev",
       "path": "project/slidev/animation/rough-marks.md",
       "domain": "project",
       "load_when": {
@@ -3375,11 +3374,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "v-mark emphasis patterns for hand-drawn style text highlighting",
+      "line_count": 55
     },
     {
-      "summary": "v-clicks with depth and every parameters for progressive list reveal",
-      "line_count": 40,
+      "subdomain": "slidev",
       "path": "project/slidev/animation/staggered-list.md",
       "domain": "project",
       "load_when": {
@@ -3395,11 +3394,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "v-clicks with depth and every parameters for progressive list reveal",
+      "line_count": 40
     },
     {
-      "summary": "v-motion spring scale entrance for CTAs and emphasis elements",
-      "line_count": 50,
+      "subdomain": "slidev",
       "path": "project/slidev/animation/scale-in-pop.md",
       "domain": "project",
       "load_when": {
@@ -3415,11 +3414,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "v-motion spring scale entrance for CTAs and emphasis elements",
+      "line_count": 50
     },
     {
-      "summary": "White background with blue/navy accents color variables",
-      "line_count": 30,
+      "subdomain": "slidev",
       "path": "project/slidev/style/colors/light-blue-corp.css",
       "domain": "project",
       "load_when": {
@@ -3435,11 +3434,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "White background with blue/navy accents color variables",
+      "line_count": 30
     },
     {
-      "summary": "Navy background with blue accents color variables",
-      "line_count": 30,
+      "subdomain": "slidev",
       "path": "project/slidev/style/colors/dark-blue-navy.css",
       "domain": "project",
       "load_when": {
@@ -3455,11 +3454,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "Navy background with blue accents color variables",
+      "line_count": 30
     },
     {
-      "summary": "Near-black background with gold accents color variables",
-      "line_count": 30,
+      "subdomain": "slidev",
       "path": "project/slidev/style/colors/dark-gold-premium.css",
       "domain": "project",
       "load_when": {
@@ -3475,11 +3474,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "Near-black background with gold accents color variables",
+      "line_count": 30
     },
     {
-      "summary": "Mint/white background with green accents color variables",
-      "line_count": 30,
+      "subdomain": "slidev",
       "path": "project/slidev/style/colors/light-green-growth.css",
       "domain": "project",
       "load_when": {
@@ -3495,11 +3494,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "Mint/white background with green accents color variables",
+      "line_count": 30
     },
     {
-      "summary": "Montserrat headings with Inter body text",
-      "line_count": 25,
+      "subdomain": "slidev",
       "path": "project/slidev/style/typography/montserrat-inter.css",
       "domain": "project",
       "load_when": {
@@ -3515,11 +3514,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "Montserrat headings with Inter body text",
+      "line_count": 25
     },
     {
-      "summary": "Playfair Display serif headings with Inter body text",
-      "line_count": 25,
+      "subdomain": "slidev",
       "path": "project/slidev/style/typography/playfair-inter.css",
       "domain": "project",
       "load_when": {
@@ -3535,11 +3534,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "Playfair Display serif headings with Inter body text",
+      "line_count": 25
     },
     {
-      "summary": "All-sans clean look using Inter for everything",
-      "line_count": 20,
+      "subdomain": "slidev",
       "path": "project/slidev/style/typography/inter-only.css",
       "domain": "project",
       "load_when": {
@@ -3555,11 +3554,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "All-sans clean look using Inter for everything",
+      "line_count": 20
     },
     {
-      "summary": "Subtle grid background for technical/structured feel",
-      "line_count": 25,
+      "subdomain": "slidev",
       "path": "project/slidev/style/textures/grid-overlay.css",
       "domain": "project",
       "load_when": {
@@ -3575,11 +3574,11 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "Subtle grid background for technical/structured feel",
+      "line_count": 25
     },
     {
-      "summary": "Film grain SVG overlay for premium/editorial feel",
-      "line_count": 30,
+      "subdomain": "slidev",
       "path": "project/slidev/style/textures/noise-grain.css",
       "domain": "project",
       "load_when": {
@@ -3595,11 +3594,12 @@
           "/slides"
         ]
       },
-      "subdomain": "slidev"
+      "summary": "Film grain SVG overlay for premium/editorial feel",
+      "line_count": 30
     },
     {
-      "summary": "Grant writing domain overview and extension capabilities",
-      "line_count": 120,
+      "subdomain": "present",
+      "path": "project/present/README.md",
       "topics": [
         "grant",
         "proposal",
@@ -3607,29 +3607,29 @@
         "research"
       ],
       "domain": "project",
-      "path": "project/present/README.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "grant",
         "proposal",
         "funder",
         "budget"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Grant writing domain overview and extension capabilities",
+      "line_count": 120
     },
     {
-      "summary": "Funder categories including AI Safety, SBIR, Foundation, and Academic funders",
-      "line_count": 95,
+      "subdomain": "present",
+      "path": "project/present/domain/funder-types.md",
       "topics": [
         "funders",
         "ai-safety",
@@ -3639,7 +3639,17 @@
         "foundations"
       ],
       "domain": "project",
-      "path": "project/present/domain/funder-types.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "funder",
         "foundation",
@@ -3648,22 +3658,12 @@
         "sff",
         "ltff"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Funder categories including AI Safety, SBIR, Foundation, and Academic funders",
+      "line_count": 95
     },
     {
-      "summary": "Standard grant proposal sections with purpose and content guidance",
-      "line_count": 140,
+      "subdomain": "present",
+      "path": "project/present/domain/proposal-components.md",
       "topics": [
         "proposal",
         "sections",
@@ -3672,7 +3672,17 @@
         "evaluation"
       ],
       "domain": "project",
-      "path": "project/present/domain/proposal-components.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "proposal",
         "narrative",
@@ -3680,22 +3690,12 @@
         "timeline",
         "evaluation"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Standard grant proposal sections with purpose and content guidance",
+      "line_count": 140
     },
     {
-      "summary": "Key grant writing terms, definitions, and common acronyms",
-      "line_count": 110,
+      "subdomain": "present",
+      "path": "project/present/domain/grant-terminology.md",
       "topics": [
         "terminology",
         "definitions",
@@ -3703,7 +3703,17 @@
         "federal"
       ],
       "domain": "project",
-      "path": "project/present/domain/grant-terminology.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "terminology",
         "glossary",
@@ -3712,22 +3722,12 @@
         "cfda",
         "sam"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Key grant writing terms, definitions, and common acronyms",
+      "line_count": 110
     },
     {
-      "summary": "Proposal structural patterns by funder type with section hierarchy",
-      "line_count": 165,
+      "subdomain": "present",
+      "path": "project/present/patterns/proposal-structure.md",
       "topics": [
         "structure",
         "organization",
@@ -3735,7 +3735,17 @@
         "formatting"
       ],
       "domain": "project",
-      "path": "project/present/patterns/proposal-structure.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "structure",
         "outline",
@@ -3744,22 +3754,12 @@
         "nih",
         "foundation"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Proposal structural patterns by funder type with section hierarchy",
+      "line_count": 165
     },
     {
-      "summary": "Budget formats and justification templates for NSF, NIH, SBIR, Foundation",
-      "line_count": 210,
+      "subdomain": "present",
+      "path": "project/present/patterns/budget-patterns.md",
       "topics": [
         "budget",
         "personnel",
@@ -3768,7 +3768,17 @@
         "indirect"
       ],
       "domain": "project",
-      "path": "project/present/patterns/budget-patterns.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "budget",
         "justification",
@@ -3777,22 +3787,12 @@
         "indirect",
         "mtdc"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Budget formats and justification templates for NSF, NIH, SBIR, Foundation",
+      "line_count": 210
     },
     {
-      "summary": "Evaluation frameworks including logic models and measurement approaches",
-      "line_count": 175,
+      "subdomain": "present",
+      "path": "project/present/patterns/evaluation-patterns.md",
       "topics": [
         "evaluation",
         "logic-model",
@@ -3801,7 +3801,17 @@
         "measurement"
       ],
       "domain": "project",
-      "path": "project/present/patterns/evaluation-patterns.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "evaluation",
         "logic-model",
@@ -3810,22 +3820,12 @@
         "process",
         "impact"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Evaluation frameworks including logic models and measurement approaches",
+      "line_count": 175
     },
     {
-      "summary": "Writing patterns for impact statements, problem framing, and persuasion",
-      "line_count": 145,
+      "subdomain": "present",
+      "path": "project/present/patterns/narrative-patterns.md",
       "topics": [
         "narrative",
         "writing",
@@ -3833,7 +3833,17 @@
         "problem-framing"
       ],
       "domain": "project",
-      "path": "project/present/patterns/narrative-patterns.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "narrative",
         "impact",
@@ -3841,22 +3851,12 @@
         "specificity",
         "evidence"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Writing patterns for impact statements, problem framing, and persuasion",
+      "line_count": 145
     },
     {
-      "summary": "Grant writing style guide covering voice, precision, and formatting",
-      "line_count": 135,
+      "subdomain": "present",
+      "path": "project/present/standards/writing-standards.md",
       "topics": [
         "writing",
         "style",
@@ -3864,7 +3864,17 @@
         "formatting"
       ],
       "domain": "project",
-      "path": "project/present/standards/writing-standards.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "writing",
         "style",
@@ -3872,22 +3882,12 @@
         "formatting",
         "consistency"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Grant writing style guide covering voice, precision, and formatting",
+      "line_count": 135
     },
     {
-      "summary": "Funder-specific character and page limits for proposal sections",
-      "line_count": 115,
+      "subdomain": "present",
+      "path": "project/present/standards/character-limits.md",
       "topics": [
         "limits",
         "character-count",
@@ -3895,7 +3895,17 @@
         "formatting"
       ],
       "domain": "project",
-      "path": "project/present/standards/character-limits.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "character-limit",
         "page-limit",
@@ -3904,29 +3914,29 @@
         "sbir",
         "word-count"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Funder-specific character and page limits for proposal sections",
+      "line_count": 115
     },
     {
-      "summary": "Executive summary templates for Foundation, Research, AI Safety, SBIR",
-      "line_count": 155,
+      "subdomain": "present",
+      "path": "project/present/templates/executive-summary.md",
       "topics": [
         "executive-summary",
         "abstract",
         "template"
       ],
       "domain": "project",
-      "path": "project/present/templates/executive-summary.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "executive-summary",
         "abstract",
@@ -3934,22 +3944,12 @@
         "template",
         "ai-safety"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Executive summary templates for Foundation, Research, AI Safety, SBIR",
+      "line_count": 155
     },
     {
-      "summary": "Budget justification templates for all standard cost categories",
-      "line_count": 200,
+      "subdomain": "present",
+      "path": "project/present/templates/budget-justification.md",
       "topics": [
         "budget",
         "justification",
@@ -3958,7 +3958,17 @@
         "travel"
       ],
       "domain": "project",
-      "path": "project/present/templates/budget-justification.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "budget",
         "justification",
@@ -3967,22 +3977,12 @@
         "equipment",
         "travel"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Budget justification templates for all standard cost categories",
+      "line_count": 200
     },
     {
-      "summary": "Evaluation plan templates with logic model and data collection guidance",
-      "line_count": 180,
+      "subdomain": "present",
+      "path": "project/present/templates/evaluation-plan.md",
       "topics": [
         "evaluation",
         "plan",
@@ -3990,7 +3990,17 @@
         "data-collection"
       ],
       "domain": "project",
-      "path": "project/present/templates/evaluation-plan.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "evaluation",
         "plan",
@@ -3998,22 +4008,12 @@
         "indicators",
         "data-collection"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Evaluation plan templates with logic model and data collection guidance",
+      "line_count": 180
     },
     {
-      "summary": "Pre-submission verification checklists for federal and foundation grants",
-      "line_count": 175,
+      "subdomain": "present",
+      "path": "project/present/templates/submission-checklist.md",
       "topics": [
         "checklist",
         "submission",
@@ -4021,7 +4021,17 @@
         "attachments"
       ],
       "domain": "project",
-      "path": "project/present/templates/submission-checklist.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "checklist",
         "submission",
@@ -4030,22 +4040,12 @@
         "sbir",
         "foundation"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Pre-submission verification checklists for federal and foundation grants",
+      "line_count": 175
     },
     {
-      "summary": "Systematic funder research process with tracking templates",
-      "line_count": 165,
+      "subdomain": "present",
+      "path": "project/present/tools/funder-research.md",
       "topics": [
         "research",
         "funders",
@@ -4054,7 +4054,17 @@
         "due-diligence"
       ],
       "domain": "project",
-      "path": "project/present/tools/funder-research.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "funder",
         "research",
@@ -4063,22 +4073,12 @@
         "candid",
         "grants-gov"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Systematic funder research process with tracking templates",
+      "line_count": 165
     },
     {
-      "summary": "Grant command usage, draft/budget/revise modes, revision workflow, output directory",
-      "line_count": 153,
+      "subdomain": "present",
+      "path": "project/present/domain/grant-workflow.md",
       "topics": [
         "grant",
         "workflow",
@@ -4087,7 +4087,17 @@
         "revise"
       ],
       "domain": "project",
-      "path": "project/present/domain/grant-workflow.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "grant",
         "workflow",
@@ -4096,22 +4106,12 @@
         "revise",
         "legacy"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Grant command usage, draft/budget/revise modes, revision workflow, output directory",
+      "line_count": 153
     },
     {
-      "summary": "Curated list of grant research databases, writing tools, and training",
-      "line_count": 125,
+      "subdomain": "present",
+      "path": "project/present/tools/web-resources.md",
       "topics": [
         "resources",
         "databases",
@@ -4119,7 +4119,17 @@
         "training"
       ],
       "domain": "project",
-      "path": "project/present/tools/web-resources.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "grant-agent"
+        ],
+        "commands": [
+          "/grant"
+        ]
+      },
       "keywords": [
         "resources",
         "grants-gov",
@@ -4128,22 +4138,12 @@
         "nih",
         "training"
       ],
-      "load_when": {
-        "agents": [
-          "grant-agent"
-        ],
-        "commands": [
-          "/grant"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Curated list of grant research databases, writing tools, and training",
+      "line_count": 125
     },
     {
-      "summary": "Grant budget cost structures, F&A calculation, salary caps, multi-year conventions",
-      "line_count": 215,
+      "subdomain": "present",
+      "path": "project/present/domain/grant-budget-frameworks.md",
       "topics": [
         "budget",
         "frameworks",
@@ -4152,7 +4152,17 @@
         "mtdc"
       ],
       "domain": "project",
-      "path": "project/present/domain/grant-budget-frameworks.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "budget-agent"
+        ],
+        "commands": [
+          "/budget"
+        ]
+      },
       "keywords": [
         "budget",
         "framework",
@@ -4162,22 +4172,12 @@
         "modular",
         "detailed"
       ],
-      "load_when": {
-        "agents": [
-          "budget-agent"
-        ],
-        "commands": [
-          "/budget"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Grant budget cost structures, F&A calculation, salary caps, multi-year conventions",
+      "line_count": 215
     },
     {
-      "summary": "Grant-adapted forcing question framework with push-back patterns for budgets",
-      "line_count": 260,
+      "subdomain": "present",
+      "path": "project/present/patterns/budget-forcing-questions.md",
       "topics": [
         "budget",
         "forcing-questions",
@@ -4185,7 +4185,17 @@
         "validation"
       ],
       "domain": "project",
-      "path": "project/present/patterns/budget-forcing-questions.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "budget-agent"
+        ],
+        "commands": [
+          "/budget"
+        ]
+      },
       "keywords": [
         "forcing",
         "questions",
@@ -4194,22 +4204,12 @@
         "validation",
         "grant"
       ],
-      "load_when": {
-        "agents": [
-          "budget-agent"
-        ],
-        "commands": [
-          "/budget"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Grant-adapted forcing question framework with push-back patterns for budgets",
+      "line_count": 260
     },
     {
-      "summary": "Research timeline domain: specific aims WBS, regulatory milestones, reporting schedules",
-      "line_count": 266,
+      "subdomain": "present",
+      "path": "project/present/domain/research-timelines.md",
       "topics": [
         "timeline",
         "specific-aims",
@@ -4218,7 +4218,17 @@
         "pert"
       ],
       "domain": "project",
-      "path": "project/present/domain/research-timelines.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "timeline-agent"
+        ],
+        "commands": [
+          "/timeline"
+        ]
+      },
       "keywords": [
         "timeline",
         "gantt",
@@ -4229,22 +4239,12 @@
         "dsmb",
         "reporting"
       ],
-      "load_when": {
-        "agents": [
-          "timeline-agent"
-        ],
-        "commands": [
-          "/timeline"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Research timeline domain: specific aims WBS, regulatory milestones, reporting schedules",
+      "line_count": 266
     },
     {
-      "summary": "Timeline validation rules, PERT formulas, effort conversion, milestone estimates",
-      "line_count": 151,
+      "subdomain": "present",
+      "path": "project/present/patterns/timeline-patterns.md",
       "topics": [
         "timeline",
         "validation",
@@ -4253,7 +4253,17 @@
         "milestones"
       ],
       "domain": "project",
-      "path": "project/present/patterns/timeline-patterns.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "timeline-agent"
+        ],
+        "commands": [
+          "/timeline"
+        ]
+      },
       "keywords": [
         "timeline",
         "validation",
@@ -4262,22 +4272,12 @@
         "milestone",
         "lead-time"
       ],
-      "load_when": {
-        "agents": [
-          "timeline-agent"
-        ],
-        "commands": [
-          "/timeline"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Timeline validation rules, PERT formulas, effort conversion, milestone estimates",
+      "line_count": 151
     },
     {
-      "summary": "Structured timeline report template with JSON data block for Typst rendering",
-      "line_count": 197,
+      "subdomain": "present",
+      "path": "project/present/templates/timeline-template.md",
       "topics": [
         "timeline",
         "template",
@@ -4285,7 +4285,17 @@
         "typst"
       ],
       "domain": "project",
-      "path": "project/present/templates/timeline-template.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "timeline-agent"
+        ],
+        "commands": [
+          "/timeline"
+        ]
+      },
       "keywords": [
         "timeline",
         "template",
@@ -4294,22 +4304,12 @@
         "typst",
         "gantt"
       ],
-      "load_when": {
-        "agents": [
-          "timeline-agent"
-        ],
-        "commands": [
-          "/timeline"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Structured timeline report template with JSON data block for Typst rendering",
+      "line_count": 197
     },
     {
-      "summary": "Research funding lifecycle, federal mechanisms, F&A rates, effort reporting",
-      "line_count": 275,
+      "subdomain": "present",
+      "path": "project/present/domain/funding-analysis.md",
       "topics": [
         "funding",
         "landscape",
@@ -4318,7 +4318,17 @@
         "foundation"
       ],
       "domain": "project",
-      "path": "project/present/domain/funding-analysis.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "funds-agent"
+        ],
+        "commands": [
+          "/funds"
+        ]
+      },
       "keywords": [
         "funding",
         "nih",
@@ -4328,22 +4338,12 @@
         "effort",
         "subaward"
       ],
-      "load_when": {
-        "agents": [
-          "funds-agent"
-        ],
-        "commands": [
-          "/funds"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Research funding lifecycle, federal mechanisms, F&A rates, effort reporting",
+      "line_count": 275
     },
     {
-      "summary": "Mode-specific funding analysis questions with push-back patterns and output schemas",
-      "line_count": 337,
+      "subdomain": "present",
+      "path": "project/present/patterns/funding-forcing-questions.md",
       "topics": [
         "funding",
         "forcing-questions",
@@ -4353,7 +4353,17 @@
         "gap"
       ],
       "domain": "project",
-      "path": "project/present/patterns/funding-forcing-questions.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "funds-agent"
+        ],
+        "commands": [
+          "/funds"
+        ]
+      },
       "keywords": [
         "forcing",
         "questions",
@@ -4363,22 +4373,12 @@
         "justify",
         "gap"
       ],
-      "load_when": {
-        "agents": [
-          "funds-agent"
-        ],
-        "commands": [
-          "/funds"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Mode-specific funding analysis questions with push-back patterns and output schemas",
+      "line_count": 337
     },
     {
-      "summary": "Academic presentation types: conference, seminar, defense, poster, journal club",
-      "line_count": 113,
+      "subdomain": "present",
+      "path": "project/present/domain/presentation-types.md",
       "topics": [
         "talk",
         "presentation",
@@ -4387,7 +4387,21 @@
         "defense"
       ],
       "domain": "project",
-      "path": "project/present/domain/presentation-types.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "slides-research-agent",
+          "pptx-assembly-agent",
+          "slidev-assembly-agent",
+          "slide-planner-agent",
+          "slide-critic-agent"
+        ],
+        "commands": [
+          "/slides"
+        ]
+      },
       "keywords": [
         "talk",
         "presentation",
@@ -4397,26 +4411,12 @@
         "poster",
         "journal-club"
       ],
-      "load_when": {
-        "agents": [
-          "slides-research-agent",
-          "pptx-assembly-agent",
-          "slidev-assembly-agent",
-          "slide-planner-agent",
-          "slide-critic-agent"
-        ],
-        "commands": [
-          "/slides"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Academic presentation types: conference, seminar, defense, poster, journal club",
+      "line_count": 113
     },
     {
-      "summary": "Talk structure guidelines and cross-mode slide organization patterns",
-      "line_count": 111,
+      "subdomain": "present",
+      "path": "project/present/patterns/talk-structure.md",
       "topics": [
         "talk",
         "structure",
@@ -4425,7 +4425,21 @@
         "flow"
       ],
       "domain": "project",
-      "path": "project/present/patterns/talk-structure.md",
+      "load_when": {
+        "languages": [
+          "present"
+        ],
+        "agents": [
+          "slides-research-agent",
+          "pptx-assembly-agent",
+          "slidev-assembly-agent",
+          "slide-planner-agent",
+          "slide-critic-agent"
+        ],
+        "commands": [
+          "/slides"
+        ]
+      },
       "keywords": [
         "talk",
         "structure",
@@ -4434,26 +4448,12 @@
         "seminar",
         "content"
       ],
-      "load_when": {
-        "agents": [
-          "slides-research-agent",
-          "pptx-assembly-agent",
-          "slidev-assembly-agent",
-          "slide-planner-agent",
-          "slide-critic-agent"
-        ],
-        "commands": [
-          "/slides"
-        ],
-        "languages": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "Talk structure guidelines and cross-mode slide organization patterns",
+      "line_count": 111
     },
     {
-      "summary": "Slidev implementation gotchas (footer, Mermaid, PDF export, lz-string)",
-      "line_count": 254,
+      "subdomain": "present",
+      "path": "project/present/talk/patterns/slidev-pitfalls.md",
       "topics": [
         "slidev",
         "pitfalls",
@@ -4462,13 +4462,10 @@
         "pdf-export"
       ],
       "domain": "project",
-      "path": "project/present/talk/patterns/slidev-pitfalls.md",
-      "keywords": [
-        "slidev",
-        "pitfalls",
-        "footer"
-      ],
       "load_when": {
+        "task_types": [
+          "present"
+        ],
         "agents": [
           "slides-research-agent",
           "slidev-assembly-agent",
@@ -4476,16 +4473,19 @@
         ],
         "commands": [
           "/slides"
-        ],
-        "task_types": [
-          "present"
         ]
       },
-      "subdomain": "present"
+      "keywords": [
+        "slidev",
+        "pitfalls",
+        "footer"
+      ],
+      "summary": "Slidev implementation gotchas (footer, Mermaid, PDF export, lz-string)",
+      "line_count": 254
     },
     {
-      "summary": "python-pptx API patterns for PPTX slide creation, theme application, component helpers, speaker notes, and error handling",
-      "line_count": 829,
+      "subdomain": "present",
+      "path": "project/present/talk/patterns/pptx-generation.md",
       "topics": [
         "pptx",
         "python-pptx",
@@ -4493,28 +4493,28 @@
         "generation"
       ],
       "domain": "project",
-      "path": "project/present/talk/patterns/pptx-generation.md",
-      "keywords": [
-        "pptx",
-        "python-pptx",
-        "powerpoint"
-      ],
       "load_when": {
+        "task_types": [
+          "present"
+        ],
         "agents": [
           "pptx-assembly-agent"
         ],
         "commands": [
           "/slides"
-        ],
-        "task_types": [
-          "present"
         ]
       },
-      "subdomain": "present"
+      "keywords": [
+        "pptx",
+        "python-pptx",
+        "powerpoint"
+      ],
+      "summary": "python-pptx API patterns for PPTX slide creation, theme application, component helpers, speaker notes, and error handling",
+      "line_count": 829
     },
     {
-      "summary": "Talk library index with theme, pattern, component, and template registrations",
-      "line_count": 70,
+      "subdomain": "present",
+      "path": "project/present/talk/index.json",
       "topics": [
         "talk",
         "library",
@@ -4523,13 +4523,10 @@
         "patterns"
       ],
       "domain": "project",
-      "path": "project/present/talk/index.json",
-      "keywords": [
-        "talk",
-        "library",
-        "index"
-      ],
       "load_when": {
+        "task_types": [
+          "present"
+        ],
         "agents": [
           "slides-research-agent",
           "pptx-assembly-agent",
@@ -4539,16 +4536,19 @@
         ],
         "commands": [
           "/slides"
-        ],
-        "task_types": [
-          "present"
         ]
       },
-      "subdomain": "present"
+      "keywords": [
+        "talk",
+        "library",
+        "index"
+      ],
+      "summary": "Talk library index with theme, pattern, component, and template registrations",
+      "line_count": 70
     },
     {
-      "summary": "Playwright slide verification script for Slidev decks",
-      "line_count": 128,
+      "subdomain": "present",
+      "path": "project/present/talk/templates/playwright-verify.mjs",
       "topics": [
         "playwright",
         "verification",
@@ -4556,28 +4556,28 @@
         "testing"
       ],
       "domain": "project",
-      "path": "project/present/talk/templates/playwright-verify.mjs",
-      "keywords": [
-        "playwright",
-        "verify",
-        "slides"
-      ],
       "load_when": {
+        "task_types": [
+          "present"
+        ],
         "agents": [
           "slidev-assembly-agent"
         ],
         "commands": [
           "/slides"
-        ],
-        "task_types": [
-          "present"
         ]
       },
-      "subdomain": "present"
+      "keywords": [
+        "playwright",
+        "verify",
+        "slides"
+      ],
+      "summary": "Playwright slide verification script for Slidev decks",
+      "line_count": 128
     },
     {
-      "summary": "Theme constants for python-pptx generation (colors, fonts, sizes for all themes)",
-      "line_count": 125,
+      "subdomain": "present",
+      "path": "project/present/talk/templates/pptx-project/theme_mappings.json",
       "topics": [
         "pptx",
         "theme",
@@ -4586,28 +4586,28 @@
         "mappings"
       ],
       "domain": "project",
-      "path": "project/present/talk/templates/pptx-project/theme_mappings.json",
-      "keywords": [
-        "pptx",
-        "theme",
-        "colors"
-      ],
       "load_when": {
+        "task_types": [
+          "present"
+        ],
         "agents": [
           "pptx-assembly-agent"
         ],
         "commands": [
           "/slides"
-        ],
-        "task_types": [
-          "present"
         ]
       },
-      "subdomain": "present"
+      "keywords": [
+        "pptx",
+        "theme",
+        "colors"
+      ],
+      "summary": "Theme constants for python-pptx generation (colors, fonts, sizes for all themes)",
+      "line_count": 125
     },
     {
-      "summary": "Skeleton PowerPoint generation script with theme-aware helpers",
-      "line_count": 291,
+      "subdomain": "present",
+      "path": "project/present/talk/templates/pptx-project/generate_deck.py",
       "topics": [
         "pptx",
         "generate",
@@ -4615,28 +4615,28 @@
         "skeleton"
       ],
       "domain": "project",
-      "path": "project/present/talk/templates/pptx-project/generate_deck.py",
-      "keywords": [
-        "pptx",
-        "generate",
-        "python-pptx"
-      ],
       "load_when": {
+        "task_types": [
+          "present"
+        ],
         "agents": [
           "pptx-assembly-agent"
         ],
         "commands": [
           "/slides"
-        ],
-        "task_types": [
-          "present"
         ]
       },
-      "subdomain": "present"
+      "keywords": [
+        "pptx",
+        "generate",
+        "python-pptx"
+      ],
+      "summary": "Skeleton PowerPoint generation script with theme-aware helpers",
+      "line_count": 291
     },
     {
-      "summary": "PowerPoint generation template usage instructions and component equivalents",
-      "line_count": 84,
+      "subdomain": "present",
+      "path": "project/present/talk/templates/pptx-project/README.md",
       "topics": [
         "pptx",
         "project",
@@ -4644,28 +4644,28 @@
         "usage"
       ],
       "domain": "project",
-      "path": "project/present/talk/templates/pptx-project/README.md",
-      "keywords": [
-        "pptx",
-        "project",
-        "template"
-      ],
       "load_when": {
+        "task_types": [
+          "present"
+        ],
         "agents": [
           "pptx-assembly-agent"
         ],
         "commands": [
           "/slides"
-        ],
-        "task_types": [
-          "present"
         ]
       },
-      "subdomain": "present"
+      "keywords": [
+        "pptx",
+        "project",
+        "template"
+      ],
+      "summary": "PowerPoint generation template usage instructions and component equivalents",
+      "line_count": 84
     },
     {
-      "summary": "Slidev project scaffold template with pnpm/vite/lz-string configuration",
-      "line_count": 37,
+      "subdomain": "present",
+      "path": "project/present/talk/templates/slidev-project/README.md",
       "topics": [
         "slidev",
         "project",
@@ -4673,28 +4673,28 @@
         "scaffold"
       ],
       "domain": "project",
-      "path": "project/present/talk/templates/slidev-project/README.md",
-      "keywords": [
-        "slidev",
-        "project",
-        "template"
-      ],
       "load_when": {
+        "task_types": [
+          "present"
+        ],
         "agents": [
           "slidev-assembly-agent"
         ],
         "commands": [
           "/slides"
-        ],
-        "task_types": [
-          "present"
         ]
       },
-      "subdomain": "present"
+      "keywords": [
+        "slidev",
+        "project",
+        "template"
+      ],
+      "summary": "Slidev project scaffold template with pnpm/vite/lz-string configuration",
+      "line_count": 37
     },
     {
-      "summary": "UCSF institutional theme constants for slide generation (colors, fonts, logos)",
-      "line_count": 50,
+      "subdomain": "present",
+      "path": "project/present/talk/themes/ucsf-institutional.json",
       "topics": [
         "theme",
         "ucsf",
@@ -4703,14 +4703,10 @@
         "branding"
       ],
       "domain": "project",
-      "path": "project/present/talk/themes/ucsf-institutional.json",
-      "keywords": [
-        "ucsf",
-        "theme",
-        "institutional",
-        "branding"
-      ],
       "load_when": {
+        "task_types": [
+          "present"
+        ],
         "agents": [
           "pptx-assembly-agent",
           "slidev-assembly-agent",
@@ -4718,16 +4714,20 @@
         ],
         "commands": [
           "/slides"
-        ],
-        "task_types": [
-          "present"
         ]
       },
-      "subdomain": "present"
+      "keywords": [
+        "ucsf",
+        "theme",
+        "institutional",
+        "branding"
+      ],
+      "summary": "UCSF institutional theme constants for slide generation (colors, fonts, logos)",
+      "line_count": 50
     },
     {
-      "summary": "6-category critique rubric with severity definitions, talk-type priority matrix, and structured output format",
-      "line_count": 248,
+      "subdomain": "present",
+      "path": "project/present/talk/critique-rubric.md",
       "topics": [
         "critique",
         "rubric",
@@ -4736,7 +4736,17 @@
         "review"
       ],
       "domain": "project",
-      "path": "project/present/talk/critique-rubric.md",
+      "load_when": {
+        "task_types": [
+          "present"
+        ],
+        "agents": [
+          "slide-critic-agent"
+        ],
+        "commands": [
+          "/slides"
+        ]
+      },
       "keywords": [
         "critique",
         "rubric",
@@ -4747,25 +4757,13 @@
         "evidence",
         "visual"
       ],
-      "load_when": {
-        "agents": [
-          "slide-critic-agent"
-        ],
-        "commands": [
-          "/slides"
-        ],
-        "task_types": [
-          "present"
-        ]
-      },
-      "subdomain": "present"
+      "summary": "6-category critique rubric with severity definitions, talk-type priority matrix, and structured output format",
+      "line_count": 248
     },
     {
-      "summary": "Python coding style and conventions",
-      "domain": "project",
-      "description": "Python coding style and conventions",
-      "path": "project/python/standards/code-style.md",
       "subdomain": "python",
+      "description": "Python coding style and conventions",
+      "domain": "project",
       "load_when": {
         "languages": [
           "python"
@@ -4774,6 +4772,8 @@
           "python-implementation-agent"
         ]
       },
+      "path": "project/python/standards/code-style.md",
+      "summary": "Python coding style and conventions",
       "tags": [
         "python",
         "style",
@@ -4781,11 +4781,9 @@
       ]
     },
     {
-      "summary": "Pytest patterns and fixtures",
-      "domain": "project",
-      "description": "Pytest patterns and fixtures",
-      "path": "project/python/patterns/testing-patterns.md",
       "subdomain": "python",
+      "description": "Pytest patterns and fixtures",
+      "domain": "project",
       "load_when": {
         "languages": [
           "python"
@@ -4794,6 +4792,8 @@
           "python-implementation-agent"
         ]
       },
+      "path": "project/python/patterns/testing-patterns.md",
+      "summary": "Pytest patterns and fixtures",
       "tags": [
         "python",
         "pytest",
@@ -4801,11 +4801,9 @@
       ]
     },
     {
-      "summary": "ModelChecker framework API - package structure, key classes, import patterns",
-      "domain": "project",
-      "description": "ModelChecker framework API - package structure, key classes, import patterns",
-      "path": "project/python/domain/model-checker-api.md",
       "subdomain": "python",
+      "description": "ModelChecker framework API - package structure, key classes, import patterns",
+      "domain": "project",
       "load_when": {
         "languages": [
           "python"
@@ -4815,6 +4813,8 @@
           "python-research-agent"
         ]
       },
+      "path": "project/python/domain/model-checker-api.md",
+      "summary": "ModelChecker framework API - package structure, key classes, import patterns",
       "tags": [
         "python",
         "modelchecker",
@@ -4824,11 +4824,9 @@
       ]
     },
     {
-      "summary": "Theory library file structure and conventions for semantic theories",
-      "domain": "project",
-      "description": "Theory library file structure and conventions for semantic theories",
-      "path": "project/python/domain/theory-lib-patterns.md",
       "subdomain": "python",
+      "description": "Theory library file structure and conventions for semantic theories",
+      "domain": "project",
       "load_when": {
         "languages": [
           "python"
@@ -4838,6 +4836,8 @@
           "python-research-agent"
         ]
       },
+      "path": "project/python/domain/theory-lib-patterns.md",
+      "summary": "Theory library file structure and conventions for semantic theories",
       "tags": [
         "python",
         "modelchecker",
@@ -4846,11 +4846,9 @@
       ]
     },
     {
-      "summary": "Tree-walking evaluation patterns",
-      "domain": "project",
-      "description": "Tree-walking evaluation patterns",
-      "path": "project/python/patterns/semantic-evaluation.md",
       "subdomain": "python",
+      "description": "Tree-walking evaluation patterns",
+      "domain": "project",
       "load_when": {
         "languages": [
           "python"
@@ -4859,6 +4857,8 @@
           "python-implementation-agent"
         ]
       },
+      "path": "project/python/patterns/semantic-evaluation.md",
+      "summary": "Tree-walking evaluation patterns",
       "tags": [
         "python",
         "evaluation",
@@ -4866,11 +4866,9 @@
       ]
     },
     {
-      "summary": "Python extension overview and navigation",
-      "domain": "project",
-      "description": "Python extension overview and navigation",
-      "path": "project/python/README.md",
       "subdomain": "python",
+      "description": "Python extension overview and navigation",
+      "domain": "project",
       "load_when": {
         "languages": [
           "python"
@@ -4880,6 +4878,8 @@
           "python-research-agent"
         ]
       },
+      "path": "project/python/README.md",
+      "summary": "Python extension overview and navigation",
       "tags": [
         "python",
         "overview",
@@ -4887,11 +4887,9 @@
       ]
     },
     {
-      "summary": "Theorem, definition, and proof environments",
-      "domain": "project",
-      "description": "Theorem, definition, and proof environments",
-      "path": "project/typst/patterns/theorem-environments.md",
       "subdomain": "typst",
+      "description": "Theorem, definition, and proof environments",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -4900,6 +4898,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/patterns/theorem-environments.md",
+      "summary": "Theorem, definition, and proof environments",
       "tags": [
         "typst",
         "theorems",
@@ -4907,11 +4907,9 @@
       ]
     },
     {
-      "summary": "Cross-reference patterns in Typst",
-      "domain": "project",
-      "description": "Cross-reference patterns in Typst",
-      "path": "project/typst/patterns/cross-references.md",
       "subdomain": "typst",
+      "description": "Cross-reference patterns in Typst",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -4921,6 +4919,8 @@
           "typst-research-agent"
         ]
       },
+      "path": "project/typst/patterns/cross-references.md",
+      "summary": "Cross-reference patterns in Typst",
       "tags": [
         "typst",
         "references",
@@ -4928,11 +4928,9 @@
       ]
     },
     {
-      "summary": "Fletcher package for flowcharts and diagrams",
-      "domain": "project",
-      "description": "Fletcher package for flowcharts and diagrams",
-      "path": "project/typst/patterns/fletcher-diagrams.md",
       "subdomain": "typst",
+      "description": "Fletcher package for flowcharts and diagrams",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -4941,6 +4939,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/patterns/fletcher-diagrams.md",
+      "summary": "Fletcher package for flowcharts and diagrams",
       "tags": [
         "typst",
         "diagrams",
@@ -4948,11 +4948,9 @@
       ]
     },
     {
-      "summary": "Inference rule and typing rule environments",
-      "domain": "project",
-      "description": "Inference rule and typing rule environments",
-      "path": "project/typst/patterns/rule-environments.md",
       "subdomain": "typst",
+      "description": "Inference rule and typing rule environments",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -4961,6 +4959,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/patterns/rule-environments.md",
+      "summary": "Inference rule and typing rule environments",
       "tags": [
         "typst",
         "rules",
@@ -4968,11 +4968,9 @@
       ]
     },
     {
-      "summary": "Bibliography and citation management",
-      "domain": "project",
-      "description": "Bibliography and citation management",
-      "path": "project/typst/patterns/bibliography.md",
       "subdomain": "typst",
+      "description": "Bibliography and citation management",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -4981,6 +4979,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/patterns/bibliography.md",
+      "summary": "Bibliography and citation management",
       "tags": [
         "typst",
         "bibliography",
@@ -4988,11 +4988,9 @@
       ]
     },
     {
-      "summary": "Document structure patterns and organization",
-      "domain": "project",
-      "description": "Document structure patterns and organization",
-      "path": "project/typst/patterns/document-structure.md",
       "subdomain": "typst",
+      "description": "Document structure patterns and organization",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5001,6 +4999,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/patterns/document-structure.md",
+      "summary": "Document structure patterns and organization",
       "tags": [
         "typst",
         "structure",
@@ -5008,11 +5008,9 @@
       ]
     },
     {
-      "summary": "Mathematical typesetting patterns",
-      "domain": "project",
-      "description": "Mathematical typesetting patterns",
-      "path": "project/typst/patterns/math-typesetting.md",
       "subdomain": "typst",
+      "description": "Mathematical typesetting patterns",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5021,6 +5019,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/patterns/math-typesetting.md",
+      "summary": "Mathematical typesetting patterns",
       "tags": [
         "typst",
         "math",
@@ -5028,11 +5028,9 @@
       ]
     },
     {
-      "summary": "Styling and theming patterns",
-      "domain": "project",
-      "description": "Styling and theming patterns",
-      "path": "project/typst/patterns/styling-patterns.md",
       "subdomain": "typst",
+      "description": "Styling and theming patterns",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5041,6 +5039,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/patterns/styling-patterns.md",
+      "summary": "Styling and theming patterns",
       "tags": [
         "typst",
         "styling",
@@ -5048,11 +5048,9 @@
       ]
     },
     {
-      "summary": "Tables and figures layout patterns",
-      "domain": "project",
-      "description": "Tables and figures layout patterns",
-      "path": "project/typst/patterns/tables-and-figures.md",
       "subdomain": "typst",
+      "description": "Tables and figures layout patterns",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5061,6 +5059,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/patterns/tables-and-figures.md",
+      "summary": "Tables and figures layout patterns",
       "tags": [
         "typst",
         "tables",
@@ -5068,11 +5068,9 @@
       ]
     },
     {
-      "summary": "Document structure and organization standards",
-      "domain": "project",
-      "description": "Document structure and organization standards",
-      "path": "project/typst/standards/document-structure.md",
       "subdomain": "typst",
+      "description": "Document structure and organization standards",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5081,6 +5079,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/standards/document-structure.md",
+      "summary": "Document structure and organization standards",
       "tags": [
         "typst",
         "structure",
@@ -5088,11 +5088,9 @@
       ]
     },
     {
-      "summary": "Mathematical notation conventions in Typst",
-      "domain": "project",
-      "description": "Mathematical notation conventions in Typst",
-      "path": "project/typst/standards/notation-conventions.md",
       "subdomain": "typst",
+      "description": "Mathematical notation conventions in Typst",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5101,6 +5099,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/standards/notation-conventions.md",
+      "summary": "Mathematical notation conventions in Typst",
       "tags": [
         "typst",
         "math",
@@ -5108,11 +5108,9 @@
       ]
     },
     {
-      "summary": "Textbook authoring standards and conventions",
-      "domain": "project",
-      "description": "Textbook authoring standards and conventions",
-      "path": "project/typst/standards/textbook-standards.md",
       "subdomain": "typst",
+      "description": "Textbook authoring standards and conventions",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5122,6 +5120,8 @@
           "typst-research-agent"
         ]
       },
+      "path": "project/typst/standards/textbook-standards.md",
+      "summary": "Textbook authoring standards and conventions",
       "tags": [
         "typst",
         "textbook",
@@ -5129,11 +5129,9 @@
       ]
     },
     {
-      "summary": "Typst coding style and conventions",
-      "domain": "project",
-      "description": "Typst coding style and conventions",
-      "path": "project/typst/standards/typst-style-guide.md",
       "subdomain": "typst",
+      "description": "Typst coding style and conventions",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5143,6 +5141,8 @@
           "typst-research-agent"
         ]
       },
+      "path": "project/typst/standards/typst-style-guide.md",
+      "summary": "Typst coding style and conventions",
       "tags": [
         "typst",
         "style",
@@ -5150,11 +5150,9 @@
       ]
     },
     {
-      "summary": "Type theory foundations and DTT conventions",
-      "domain": "project",
-      "description": "Type theory foundations and DTT conventions",
-      "path": "project/typst/standards/type-theory-foundations.md",
       "subdomain": "typst",
+      "description": "Type theory foundations and DTT conventions",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5163,6 +5161,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/standards/type-theory-foundations.md",
+      "summary": "Type theory foundations and DTT conventions",
       "tags": [
         "typst",
         "type-theory",
@@ -5170,11 +5170,9 @@
       ]
     },
     {
-      "summary": "Compilation and build standards",
-      "domain": "project",
-      "description": "Compilation and build standards",
-      "path": "project/typst/standards/compilation-standards.md",
       "subdomain": "typst",
+      "description": "Compilation and build standards",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5183,6 +5181,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/standards/compilation-standards.md",
+      "summary": "Compilation and build standards",
       "tags": [
         "typst",
         "compilation",
@@ -5190,11 +5190,9 @@
       ]
     },
     {
-      "summary": "Package usage and import standards",
-      "domain": "project",
-      "description": "Package usage and import standards",
-      "path": "project/typst/standards/package-usage.md",
       "subdomain": "typst",
+      "description": "Package usage and import standards",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5204,6 +5202,8 @@
           "typst-research-agent"
         ]
       },
+      "path": "project/typst/standards/package-usage.md",
+      "summary": "Package usage and import standards",
       "tags": [
         "typst",
         "packages",
@@ -5211,11 +5211,9 @@
       ]
     },
     {
-      "summary": "Chapter template for Typst documents",
-      "domain": "project",
-      "description": "Chapter template for Typst documents",
-      "path": "project/typst/templates/chapter-template.md",
       "subdomain": "typst",
+      "description": "Chapter template for Typst documents",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5224,6 +5222,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/templates/chapter-template.md",
+      "summary": "Chapter template for Typst documents",
       "tags": [
         "typst",
         "templates",
@@ -5231,11 +5231,9 @@
       ]
     },
     {
-      "summary": "Article template for Typst documents",
-      "domain": "project",
-      "description": "Article template for Typst documents",
-      "path": "project/typst/templates/article-template.md",
       "subdomain": "typst",
+      "description": "Article template for Typst documents",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5244,6 +5242,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/templates/article-template.md",
+      "summary": "Article template for Typst documents",
       "tags": [
         "typst",
         "templates",
@@ -5251,11 +5251,9 @@
       ]
     },
     {
-      "summary": "Presentation/slides template",
-      "domain": "project",
-      "description": "Presentation/slides template",
-      "path": "project/typst/templates/presentation-template.md",
       "subdomain": "typst",
+      "description": "Presentation/slides template",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5264,6 +5262,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/templates/presentation-template.md",
+      "summary": "Presentation/slides template",
       "tags": [
         "typst",
         "templates",
@@ -5271,11 +5271,9 @@
       ]
     },
     {
-      "summary": "Report template for Typst documents",
-      "domain": "project",
-      "description": "Report template for Typst documents",
-      "path": "project/typst/templates/report-template.md",
       "subdomain": "typst",
+      "description": "Report template for Typst documents",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5284,6 +5282,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/templates/report-template.md",
+      "summary": "Report template for Typst documents",
       "tags": [
         "typst",
         "templates",
@@ -5291,11 +5291,9 @@
       ]
     },
     {
-      "summary": "Thesis/dissertation template",
-      "domain": "project",
-      "description": "Thesis/dissertation template",
-      "path": "project/typst/templates/thesis-template.md",
       "subdomain": "typst",
+      "description": "Thesis/dissertation template",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5304,6 +5302,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/templates/thesis-template.md",
+      "summary": "Thesis/dissertation template",
       "tags": [
         "typst",
         "templates",
@@ -5311,11 +5311,9 @@
       ]
     },
     {
-      "summary": "Typst compilation and tooling",
-      "domain": "project",
-      "description": "Typst compilation and tooling",
-      "path": "project/typst/tools/compilation-guide.md",
       "subdomain": "typst",
+      "description": "Typst compilation and tooling",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5324,6 +5322,8 @@
           "typst-implementation-agent"
         ]
       },
+      "path": "project/typst/tools/compilation-guide.md",
+      "summary": "Typst compilation and tooling",
       "tags": [
         "typst",
         "compile",
@@ -5331,11 +5331,9 @@
       ]
     },
     {
-      "summary": "Typst extension overview and navigation",
-      "domain": "project",
-      "description": "Typst extension overview and navigation",
-      "path": "project/typst/README.md",
       "subdomain": "typst",
+      "description": "Typst extension overview and navigation",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5345,6 +5343,8 @@
           "typst-research-agent"
         ]
       },
+      "path": "project/typst/README.md",
+      "summary": "Typst extension overview and navigation",
       "tags": [
         "typst",
         "overview",
@@ -5352,11 +5352,9 @@
       ]
     },
     {
-      "summary": "Typst language overview and introduction",
-      "domain": "project",
-      "description": "Typst language overview and introduction",
-      "path": "project/typst/typst-overview.md",
       "subdomain": "typst",
+      "description": "Typst language overview and introduction",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5365,6 +5363,8 @@
           "typst-research-agent"
         ]
       },
+      "path": "project/typst/typst-overview.md",
+      "summary": "Typst language overview and introduction",
       "tags": [
         "typst",
         "overview",
@@ -5372,11 +5372,9 @@
       ]
     },
     {
-      "summary": "Available Typst packages and ecosystem",
-      "domain": "project",
-      "description": "Available Typst packages and ecosystem",
-      "path": "project/typst/typst-packages.md",
       "subdomain": "typst",
+      "description": "Available Typst packages and ecosystem",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5385,6 +5383,8 @@
           "typst-research-agent"
         ]
       },
+      "path": "project/typst/typst-packages.md",
+      "summary": "Available Typst packages and ecosystem",
       "tags": [
         "typst",
         "packages",
@@ -5392,11 +5392,9 @@
       ]
     },
     {
-      "summary": "Comparison of Typst vs LaTeX",
-      "domain": "project",
-      "description": "Comparison of Typst vs LaTeX",
-      "path": "project/typst/typst-vs-latex.md",
       "subdomain": "typst",
+      "description": "Comparison of Typst vs LaTeX",
+      "domain": "project",
       "load_when": {
         "languages": [
           "typst"
@@ -5405,6 +5403,8 @@
           "typst-research-agent"
         ]
       },
+      "path": "project/typst/typst-vs-latex.md",
+      "summary": "Comparison of Typst vs LaTeX",
       "tags": [
         "typst",
         "latex",
