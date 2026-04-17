@@ -4,11 +4,11 @@
     {
       "project_number": 74,
       "project_name": "update_docs_extension_deps_slidev",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-16T23:56:29Z",
-      "last_updated": "2026-04-17T00:08:28Z",
-      "session_id": "sess_1776384071_1304f2",
+      "last_updated": "2026-04-17T00:12:54Z",
+      "session_id": "sess_1776384591_5c0358",
       "next_artifact_number": 2,
       "memory_candidates": [
         {
@@ -31,6 +31,11 @@
           "path": "specs/074_update_docs_extension_deps_slidev/reports/01_ext-deps-doc-audit.md",
           "type": "report",
           "summary": "Audit of 10 changed documentation files for extension dependency system and slidev resource-only extension; identified 3 additional files needing updates"
+        },
+        {
+          "path": "specs/074_update_docs_extension_deps_slidev/plans/01_ext-deps-doc-plan.md",
+          "type": "plan",
+          "summary": "Implementation plan with 2 phases: fix step numbering bug, then stage and commit all documentation changes"
         }
       ]
     },
