@@ -30,6 +30,7 @@ next_project_number: 76
   - [specs/065_strip_nvim_references_post_sync/reports/01_nvim-reference-audit.md]
   - [specs/065_strip_nvim_references_post_sync/reports/02_relevance-reaudit.md]
   - [specs/065_strip_nvim_references_post_sync/reports/03_post-reload-audit.md]
+  - [specs/065_strip_nvim_references_post_sync/reports/04_post-reload-diff-review.md]
 
 **Description**: 368 nvim/neovim occurrences across 53 `.claude/` files, plus 21 neotex and 19 `<leader>ac` references. The sync reload overwrote 8 of 9 `.syncprotect`-listed files (only `project-overview.md` survived via `CONTEXT_EXCLUDE_PATTERNS`, not `.syncprotect`). Root `CLAUDE.md` created by task 63 no longer exists. Full per-file audit in research report.
 
