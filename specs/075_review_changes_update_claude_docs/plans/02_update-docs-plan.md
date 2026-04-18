@@ -1,7 +1,7 @@
 # Implementation Plan: Update Claude Code Documentation (v2)
 
 - **Task**: 75 - Review recent changes and update Claude Code documentation
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Effort**: 1 hour
 - **Dependencies**: None
 - **Research Inputs**: specs/075_review_changes_update_claude_docs/reports/02_review-new-changes.md
@@ -58,7 +58,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: Fix Remaining Broken Cross-References [NOT STARTED]
+### Phase 1: Fix Remaining Broken Cross-References [COMPLETED]
 
 **Goal**: Update the 2 remaining references to deleted `.claude/README.md` to point to `.claude/docs/README.md`.
 
@@ -81,7 +81,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Generalize Neovim-Specific Content [NOT STARTED]
+### Phase 2: Generalize Neovim-Specific Content [COMPLETED]
 
 **Goal**: Replace neovim/Lua loader-specific content with generic extension system descriptions appropriate for the zed repository.
 
@@ -108,7 +108,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Stage and Commit All Changes [NOT STARTED]
+### Phase 3: Stage and Commit All Changes [COMPLETED]
 
 **Goal**: Stage the already-correct `.claude/` file changes plus the Phase 1 and 2 edits, and commit with a descriptive message.
 

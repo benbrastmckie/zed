@@ -140,7 +140,7 @@ See `.claude/rules/error-handling.md` for the general patterns.
 
 ### Step 7: Register the Command
 
-1. Add the command to the command reference table in `.claude/README.md`
+1. Add the command to the command reference table in `.claude/docs/README.md`
 2. Add the command to the command reference table in `.claude/CLAUDE.md`
 3. If the command introduces a new skill or agent, update the skill-to-agent mapping in `.claude/context/reference/skill-agent-mapping.md`
 

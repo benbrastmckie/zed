@@ -8,8 +8,8 @@ This file describes the repository structure for agent context. When extensions 
 
 This repository uses a two-layer extension system:
 
-- **Layer 1 -- Neovim Lua loader** (`lua/neotex/plugins/ai/shared/extensions/`): Manages which agent files, skills, rules, and context exist in the `.claude/` runtime. The extension picker (`<leader>ac`) triggers the loader, which copies files from `.claude/extensions/*/` sources into the `.claude/` runtime and regenerates `.claude/CLAUDE.md`.
-- **Layer 2 -- .claude/ agent system** (`.claude/`): The runtime read by Claude Code. Contains only the files that have been loaded by the Lua loader. Claude Code does not know about the extension system; it sees a standard `.claude/` directory structure.
+- **Layer 1 -- Extension loader**: Manages which agent files, skills, rules, and context exist in the `.claude/` runtime. The extension picker triggers the loader, which copies files from `.claude/extensions/*/` sources into the `.claude/` runtime and regenerates `.claude/CLAUDE.md`.
+- **Layer 2 -- .claude/ agent system** (`.claude/`): The runtime read by Claude Code. Contains only the files that have been loaded by the extension loader. Claude Code does not know about the extension system; it sees a standard `.claude/` directory structure.
 
 See `.claude/docs/architecture/extension-system.md` for the full two-layer architecture documentation.
 
