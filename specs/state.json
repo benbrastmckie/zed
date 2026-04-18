@@ -4,22 +4,22 @@
     {
       "project_number": 75,
       "project_name": "review_changes_update_claude_docs",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-18T18:51:53Z",
-      "last_updated": "2026-04-18T19:52:00Z",
-      "session_id": "sess_1776541613_074fa4",
+      "last_updated": "2026-04-18T19:56:23Z",
+      "session_id": "sess_1776542019_8a6796",
       "next_artifact_number": 3,
       "artifacts": [
-        {
-          "path": "specs/075_review_changes_update_claude_docs/plans/01_update-docs-plan.md",
-          "type": "plan",
-          "summary": "3-phase implementation plan to fix broken cross-references, remove neovim-specific content, and stage all changes"
-        },
         {
           "path": "specs/075_review_changes_update_claude_docs/reports/02_review-new-changes.md",
           "type": "research",
           "summary": "Second-round research: confirmed remaining changes are mostly cosmetic (JSON key reordering), 2 broken README.md refs remain, neovim content still needs generalization"
+        },
+        {
+          "path": "specs/075_review_changes_update_claude_docs/plans/02_update-docs-plan.md",
+          "type": "plan",
+          "summary": "Implementation plan v2 for remaining documentation updates: fix 2 broken README.md cross-references, generalize neovim-specific content in 4 files, and commit all changes"
         }
       ]
     },
