@@ -1,6 +1,14 @@
 {
-  "next_project_number": 75,
+  "next_project_number": 76,
   "active_projects": [
+    {
+      "project_number": 75,
+      "project_name": "review_changes_update_claude_docs",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-18T18:51:53Z",
+      "last_updated": "2026-04-18T18:51:53Z"
+    },
     {
       "project_number": 74,
       "project_name": "update_docs_extension_deps_slidev",

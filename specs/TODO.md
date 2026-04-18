@@ -1,10 +1,17 @@
 ---
-next_project_number: 75
+next_project_number: 76
 ---
 
 # Task List
 
 ## Tasks
+
+### 75. Review recent changes and update Claude Code documentation accordingly
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Review the recent changes by running a git diff to see all the unstaged changes in order to update the documentation for Claude Code accordingly.
 
 ### 74. Update documentation for extension dependency system and slidev resource-only extension
 - **Effort**: medium
