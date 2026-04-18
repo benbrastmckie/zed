@@ -8,10 +8,12 @@ next_project_number: 76
 
 ### 75. Review recent changes and update Claude Code documentation accordingly
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
-- **Research**: [specs/075_review_changes_update_claude_docs/reports/01_review-changes-docs.md]
-- **Plan**: [075_review_changes_update_claude_docs/plans/01_update-docs-plan.md]
+- **Research**:
+  - [specs/075_review_changes_update_claude_docs/reports/01_review-changes-docs.md]
+  - [specs/075_review_changes_update_claude_docs/reports/02_review-new-changes.md]
+- **Plan**: [specs/075_review_changes_update_claude_docs/plans/01_update-docs-plan.md]
 
 **Description**: Review the recent changes by running a git diff to see all the unstaged changes in order to update the documentation for Claude Code accordingly.
 
