@@ -4,11 +4,18 @@
     {
       "project_number": 75,
       "project_name": "review_changes_update_claude_docs",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-04-18T18:51:53Z",
-      "last_updated": "2026-04-18T18:55:00Z",
-      "session_id": "sess_1776538353_632f2e"
+      "last_updated": "2026-04-18T19:06:53Z",
+      "session_id": "sess_1776539011_5ef242",
+      "artifacts": [
+        {
+          "path": "specs/075_review_changes_update_claude_docs/plans/01_update-docs-plan.md",
+          "type": "plan",
+          "summary": "3-phase implementation plan to fix broken cross-references, remove neovim-specific content, and stage all changes"
+        }
+      ]
     },
     {
       "project_number": 74,
