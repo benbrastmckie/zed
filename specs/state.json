@@ -39,7 +39,7 @@
       "status": "researched",
       "task_type": "meta",
       "created": "2026-04-14T20:30:00Z",
-      "last_updated": "2026-04-18T20:20:00Z",
+      "last_updated": "2026-04-18T21:25:00Z",
       "artifacts": [
         {
           "path": "specs/065_strip_nvim_references_post_sync/reports/01_nvim-reference-audit.md",
@@ -50,10 +50,15 @@
           "path": "specs/065_strip_nvim_references_post_sync/reports/02_relevance-reaudit.md",
           "type": "research",
           "summary": "Re-audit showing 84% reduction (368->59 occurrences, 53->19 files). Only 3 files have genuinely broken references. Recommends dramatic scope reduction or abandonment."
+        },
+        {
+          "path": "specs/065_strip_nvim_references_post_sync/reports/03_post-reload-audit.md",
+          "type": "research",
+          "summary": "Post-reload audit: reload re-introduced 4 nvim/neotex refs in previously cleaned files, removed 2 leader-ac refs. 3 substantive broken files unchanged. 76 total refs across 23 files."
         }
       ],
-      "next_artifact_number": 3,
-      "session_id": "sess_1776543292_b5571c"
+      "next_artifact_number": 4,
+      "session_id": "sess_1776546929_f1edae"
     }
   ],
   "memory_health": {
