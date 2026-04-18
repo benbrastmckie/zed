@@ -2,80 +2,6 @@
   "next_project_number": 76,
   "active_projects": [
     {
-      "project_number": 75,
-      "project_name": "review_changes_update_claude_docs",
-      "status": "completed",
-      "task_type": "meta",
-      "created": "2026-04-18T18:51:53Z",
-      "last_updated": "2026-04-18T20:07:51Z",
-      "session_id": "sess_1776542619_2f4e6e",
-      "next_artifact_number": 3,
-      "artifacts": [
-        {
-          "path": "specs/075_review_changes_update_claude_docs/reports/02_review-new-changes.md",
-          "type": "research",
-          "summary": "Second-round research: confirmed remaining changes are mostly cosmetic (JSON key reordering), 2 broken README.md refs remain, neovim content still needs generalization"
-        },
-        {
-          "path": "specs/075_review_changes_update_claude_docs/plans/02_update-docs-plan.md",
-          "type": "plan",
-          "summary": "Implementation plan v2 for remaining documentation updates: fix 2 broken README.md cross-references, generalize neovim-specific content in 4 files, and commit all changes"
-        },
-        {
-          "path": "specs/075_review_changes_update_claude_docs/summaries/02_implementation-summary.md",
-          "type": "summary",
-          "summary": "Team implementation: fixed cross-references, generalized neovim content, committed all changes"
-        }
-      ],
-      "completed": "2026-04-18T20:07:51Z",
-      "completion_summary": "Updated Claude Code documentation: fixed 2 broken README.md cross-references, generalized neovim-specific content in 8 files, committed CLAUDE.md fixes and index normalization"
-    },
-    {
-      "project_number": 74,
-      "project_name": "update_docs_extension_deps_slidev",
-      "status": "completed",
-      "task_type": "meta",
-      "created": "2026-04-16T23:56:29Z",
-      "last_updated": "2026-04-17T00:15:00Z",
-      "session_id": "sess_1776384828_74006b",
-      "next_artifact_number": 2,
-      "completion_summary": "Fixed step numbering bug in extension-system.md and committed all 27 documentation files covering extension dependency system and slidev resource-only extension.",
-      "claudemd_suggestions": "Added dependency paragraph to CLAUDE.md referencing extension-development.md for extension dependency details (auto-loading, circular detection, depth limit)",
-      "memory_candidates": [
-        {
-          "content": "Extension dependencies in this system are declared in manifest.json via a dependencies array. The loader auto-loads dependencies recursively with circular detection (loading stack) and a depth limit of 5. The extensions.json state file does NOT track per-extension dependencies -- those live only in source manifests. Resource-only extensions omit task_type and EXTENSION.md entirely.",
-          "category": "PATTERN",
-          "source_artifact": "specs/074_update_docs_extension_deps_slidev/reports/01_ext-deps-doc-audit.md",
-          "confidence": 0.85,
-          "suggested_keywords": [
-            "extension",
-            "dependencies",
-            "manifest",
-            "auto-load",
-            "resource-only",
-            "slidev"
-          ]
-        }
-      ],
-      "artifacts": [
-        {
-          "path": "specs/074_update_docs_extension_deps_slidev/reports/01_ext-deps-doc-audit.md",
-          "type": "report",
-          "summary": "Audit of 10 changed documentation files for extension dependency system and slidev resource-only extension; identified 3 additional files needing updates"
-        },
-        {
-          "path": "specs/074_update_docs_extension_deps_slidev/plans/01_ext-deps-doc-plan.md",
-          "type": "plan",
-          "summary": "Implementation plan with 2 phases: fix step numbering bug, then stage and commit all documentation changes"
-        },
-        {
-          "path": "specs/074_update_docs_extension_deps_slidev/summaries/01_ext-deps-doc-summary.md",
-          "type": "summary",
-          "summary": "Implementation summary: fixed step numbering bug, committed 27 files for extension deps and slidev docs"
-        }
-      ]
-    },
-    {
       "project_number": 73,
       "project_name": "port_vision_slidev_resources",
       "status": "researched",
@@ -90,116 +16,6 @@
         }
       ],
       "next_artifact_number": 2
-    },
-    {
-      "project_number": 72,
-      "project_name": "update_docs_for_agent_system_changes",
-      "status": "completed",
-      "task_type": "markdown",
-      "created": "2026-04-16T21:06:19Z",
-      "last_updated": "2026-04-16T21:30:59Z",
-      "session_id": "sess_1776374746_8ecf05",
-      "artifacts": [
-        {
-          "path": "specs/072_update_docs_for_agent_system_changes/plans/01_docs-update-plan.md",
-          "type": "plan",
-          "summary": "Implementation plan with 2 parallel phases for 11 edits across 4 docs files"
-        },
-        {
-          "path": "specs/072_update_docs_for_agent_system_changes/summaries/01_docs-update-summary.md",
-          "type": "summary",
-          "summary": "Implementation summary for docs update"
-        }
-      ],
-      "completion_summary": "Updated 4 docs files with 11 edits: added model/effort/clean flags to command entries, replaced stale two-phase memory retrieval with memory-retrieve.sh references, added --refine to distill tables, removed stale --remember flag."
-    },
-    {
-      "project_number": 71,
-      "project_name": "fix_doc_regressions_agent_update",
-      "status": "completed",
-      "task_type": "meta",
-      "created": "2026-04-16T20:22:43Z",
-      "last_updated": "2026-04-16T21:05:34Z",
-      "completion_summary": "Verified all 4 documentation regressions from agent system update were fixed: retrieval tracking fields restored in memory template, planning/partial JSON examples restored in return-metadata-file, plan_metadata JSON block preserved, sequential plan note added to dependency analysis."
-    },
-    {
-      "project_number": 70,
-      "project_name": "update_docs_memory_system",
-      "status": "completed",
-      "task_type": "markdown",
-      "created": "2026-04-16T18:32:09Z",
-      "last_updated": "2026-04-16T19:30:00Z",
-      "session_id": "sess_1776365491_8cfad3",
-      "next_artifact_number": 2,
-      "completion_summary": "Updated 5 documentation files to reflect the current memory system: added /distill command documentation, replaced --remember with automatic retrieval + --clean opt-out, documented memory lifecycle, vault maintenance, tombstone pattern, and memory harvest.",
-      "artifacts": [
-        {
-          "path": "specs/070_update_docs_memory_system/reports/01_docs-memory-audit.md",
-          "type": "research",
-          "summary": "File-by-file gap analysis of 5 documentation files against current memory system. 18 specific gaps identified across /distill command, memory lifecycle, automatic retrieval, tombstone pattern, memory_health, and distill-log.json."
-        },
-        {
-          "path": "specs/070_update_docs_memory_system/plans/01_docs-memory-plan.md",
-          "type": "plan",
-          "summary": "3-phase plan to update 5 documentation files with current memory system (distill, lifecycle, automatic retrieval, tombstone pattern)"
-        },
-        {
-          "path": "specs/070_update_docs_memory_system/summaries/01_docs-memory-summary.md",
-          "type": "summary",
-          "summary": "Implementation summary for updating 5 documentation files to reflect current memory system"
-        }
-      ]
-    },
-    {
-      "project_number": 69,
-      "project_name": "create_distill_command_memory_refinement",
-      "status": "completed",
-      "task_type": "meta",
-      "created": "2026-04-16T17:00:33Z",
-      "last_updated": "2026-04-16T18:45:00Z",
-      "session_id": "sess_1776362203_2b5392",
-      "researched": "2026-04-16T17:09:03Z",
-      "next_artifact_number": 2,
-      "completion_summary": "Created /distill command for memory vault health maintenance with scoring engine, four operations (purge/combine/compress/refine), tombstone pattern, distill-log auditability, /todo conditional suggestions, and comprehensive documentation across CLAUDE.md, skill README, context index, and usage guide.",
-      "claudemd_suggestions": "Added /distill to CLAUDE.md command reference table, added /distill commands to Memory Extension section with memory lifecycle description, added memory_health to state.json structure documentation",
-      "artifacts": [
-        {
-          "path": "specs/069_create_distill_command_memory_refinement/plans/01_distill-command-plan.md",
-          "type": "plan",
-          "summary": "6-phase implementation plan for /distill command with scoring engine, four distillation operations, tombstone pattern, /todo integration, and documentation updates"
-        },
-        {
-          "path": "specs/069_create_distill_command_memory_refinement/summaries/01_distill-command-summary.md",
-          "type": "summary",
-          "summary": "Implementation summary for /distill command with scoring engine, four distillation operations, tombstone pattern, /todo integration, and documentation updates"
-        }
-      ],
-      "memory_candidates": [
-        {
-          "content": "The /distill command extends skill-memory with mode=distill rather than creating a separate skill/agent. This follows the direct execution pattern where the command file handles argument parsing and the SKILL.md contains the full operation logic. Composite scoring uses weighted components (staleness 0.30, zero-retrieval 0.25, size 0.20, duplicate 0.25) with FSRS-inspired adjustments.",
-          "category": "PATTERN",
-          "confidence": 0.7,
-          "keywords": [
-            "distill",
-            "scoring-engine",
-            "memory-maintenance",
-            "direct-execution",
-            "composite-score"
-          ]
-        },
-        {
-          "content": "Tombstone pattern for safe memory deletion: add status:tombstoned and tombstoned_at to frontmatter, exclude from retrieval via status field in memory-index.json, hard-delete only via --gc after 7-day grace period. This preserves data safety while enabling cleanup.",
-          "category": "PATTERN",
-          "confidence": 0.65,
-          "keywords": [
-            "tombstone",
-            "soft-delete",
-            "memory-index",
-            "grace-period",
-            "garbage-collection"
-          ]
-        }
-      ]
     },
     {
       "project_number": 66,
@@ -243,10 +59,7 @@
     "status": "healthy"
   },
   "repository_health": {
-    "last_assessed": "2026-04-16T16:39:16Z",
-    "todo_count": 103,
-    "fixme_count": 0,
-    "build_errors": 0,
+    "last_assessed": "2026-04-18T20:13:53Z",
     "status": "healthy"
   }
 }
