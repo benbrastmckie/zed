@@ -4,10 +4,11 @@
     {
       "project_number": 75,
       "project_name": "review_changes_update_claude_docs",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-18T18:51:53Z",
-      "last_updated": "2026-04-18T18:51:53Z"
+      "last_updated": "2026-04-18T18:55:00Z",
+      "session_id": "sess_1776538353_632f2e"
     },
     {
       "project_number": 74,
