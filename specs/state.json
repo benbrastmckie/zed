@@ -1,6 +1,14 @@
 {
-  "next_project_number": 76,
+  "next_project_number": 77,
   "active_projects": [
+    {
+      "project_number": 76,
+      "project_name": "generalize_extension_docs_remove_nvim",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-04-19T23:17:51Z",
+      "last_updated": "2026-04-19T23:17:51Z"
+    },
     {
       "project_number": 73,
       "project_name": "port_vision_slidev_resources",
