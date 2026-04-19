@@ -39,7 +39,7 @@
       "status": "researched",
       "task_type": "meta",
       "created": "2026-04-14T20:30:00Z",
-      "last_updated": "2026-04-18T22:25:00Z",
+      "last_updated": "2026-04-19T21:25:00Z",
       "artifacts": [
         {
           "path": "specs/065_strip_nvim_references_post_sync/reports/01_nvim-reference-audit.md",
@@ -62,13 +62,13 @@
           "summary": "Post-reload diff review: 60 refs remain across 18 files. 17 actionable in 6 files (VimTeX, code-reviewer, docs READMEs, systemd). 33 are memory doc examples. 9 are functional extensions.json paths."
         },
         {
-          "path": "specs/065_strip_nvim_references_post_sync/reports/04_post-reload-diff-review.md",
+          "path": "specs/065_strip_nvim_references_post_sync/reports/05_post-reload-diff-review.md",
           "type": "research",
-          "summary": "Post-reload diff review: 60 nvim/neovim refs remain across 18 files. 17 refs in 6 files are actionable fixes. 33 refs are legitimate memory documentation examples. 9 refs are functional extensions.json source paths."
+          "summary": "Post-reload diff review v5: 25 files fixed removing 59 refs. 22 remain in 5 files, all legitimate (functional paths or tool references). Zero actionable fixes needed."
         }
       ],
-      "next_artifact_number": 5,
-      "session_id": "sess_1776566400_r65git"
+      "next_artifact_number": 6,
+      "session_id": "sess_1776566500_r65v5"
     }
   ],
   "memory_health": {

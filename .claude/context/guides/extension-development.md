@@ -8,7 +8,7 @@ Extensions provide task-type-specific and domain-specific capabilities to the co
 
 ## Two-Layer Architecture
 
-The extension system splits across an extension loader (Layer 1) that manages which files exist in the `.claude/` runtime, and the `.claude/` agent system (Layer 2) that Claude Code reads. The loader copies files from extension sources into the runtime on load, merges context index entries, and regenerates `.claude/CLAUDE.md`. On unload, it removes those files and regenerates. Claude Code has no knowledge of the extension system itself -- it only sees the resulting runtime.
+The extension system splits across an extension loader (Layer 1) that manages which files exist in the `.claude/` runtime, and the `.claude/` agent system (Layer 2) that Claude Code reads. The loader copies files from extension sources into the runtime on load, merges context index entries, and calls `generate_claudemd()` to rebuild `.claude/CLAUDE.md`. On unload, it removes those files and regenerates. Claude Code has no knowledge of the extension system itself -- it only sees the resulting runtime.
 
 For complete architecture details, see [Extension System Architecture](../../docs/architecture/extension-system.md).
 
@@ -140,7 +140,7 @@ For a complete step-by-step creation guide with file templates, agent templates,
 3. Create `EXTENSION.md` with routing tables and skill-agent mapping
 4. Create `index-entries.json` with context load conditions
 5. Create agents in `agents/` and skills in `skills/`
-6. Load via the extension picker (`<leader>ac`)
+6. Load via the extension picker
 
 ## Dependencies
 
