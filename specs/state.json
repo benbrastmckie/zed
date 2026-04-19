@@ -4,10 +4,19 @@
     {
       "project_number": 76,
       "project_name": "generalize_extension_docs_remove_nvim",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-04-19T23:17:51Z",
-      "last_updated": "2026-04-19T23:17:51Z"
+      "last_updated": "2026-04-19T23:30:00Z",
+      "session_id": "sess_1776567200_r76doc",
+      "artifacts": [
+        {
+          "path": "specs/076_generalize_extension_docs_remove_nvim/reports/01_nvim-loader-doc-audit.md",
+          "type": "research",
+          "summary": "Audit of nvim/Lua references across 4 extension docs. Recommends deleting loader-reference.md, ~22 edits across 3 files."
+        }
+      ],
+      "next_artifact_number": 2
     },
     {
       "project_number": 73,

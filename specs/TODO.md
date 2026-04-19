@@ -8,8 +8,9 @@ next_project_number: 77
 
 ### 76. Generalize extension system documentation to remove nvim loader references
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
+- **Research**: [specs/076_generalize_extension_docs_remove_nvim/reports/01_nvim-loader-doc-audit.md]
 
 **Description**: Three documentation files contain references to the nvim Lua extension loader implementation that should be generalized to be implementation-agnostic. (1) `.claude/context/guides/loader-reference.md` is entirely a Lua API reference with function signatures, `vim.fn` calls, and Telescope picker details -- rewrite as a conceptual loader operations reference or delete. (2) `.claude/docs/architecture/extension-system.md` heavily references Lua source files (`init.lua`, `loader.lua`, `merge.lua`, etc.), `vim.fn.filereadable()`, and "Telescope picker" -- generalize to describe what each component does without naming Lua files or vim APIs. (3) `.claude/context/guides/extension-development.md` has a few Lua-specific leaks (`copy_context_dirs()` in `loader.lua`, `vim.fn.isdirectory()`) -- replace with conceptual descriptions.
 
