@@ -94,6 +94,24 @@ Parameters:
 **DO NOT** use `Skill({agent-name})` - this will FAIL.
 Agents live in `.claude/agents/`, not `.claude/skills/`.
 
+### 3b. Self-Execution Fallback
+
+If the skill executor performed work inline (without spawning a subagent via Task tool), it MUST write a `.return-meta.json` file before proceeding to postflight. This ensures postflight stages can read metadata regardless of execution path.
+
+**Why this is needed**: The postflight stages (status update, artifact linking, git commit) depend on reading `.return-meta.json`. When work is done by a subagent, the subagent writes this file. When work is done inline, the skill executor must write it manually using the schema from `return-metadata-file.md`.
+
+**Template** (add after Stage 5 / subagent invocation in each skill):
+```markdown
+### Stage 5b: Self-Execution Fallback
+
+**CRITICAL**: If you performed the work above WITHOUT using the Task tool (i.e., you read files,
+wrote artifacts, or updated metadata directly instead of spawning a subagent), you MUST write a
+`.return-meta.json` file now before proceeding to postflight. Use the schema from
+`return-metadata-file.md` with the appropriate status value for this operation.
+
+If you DID use the Task tool (Stage 5), skip this stage -- the subagent already wrote the metadata.
+```
+
 ### 4. Return Validation
 
 Validate subagent return:
@@ -113,20 +131,20 @@ Return validated result to caller without modification.
 
 ```markdown
 ---
-name: skill-neovim-research
-description: Research Neovim plugins and configuration patterns tasks.
+name: skill-{extension}-research
+description: Research {extension} patterns and conventions.
 allowed-tools: Task
 context: fork
-agent: neovim-research-agent
+agent: {extension}-research-agent
 ---
 
-# Neovim Research Skill
+# {Extension} Research Skill
 
-Specialized research for Neovim configuration tasks.
+Specialized research for {extension} tasks.
 
 ## Trigger Conditions
-- Task language is "neovim"
-- Research involves plugins, LSP, or configuration patterns
+- Task type is "{extension}"
+- Research involves {extension}-specific patterns and tools
 
 ## Execution
 
@@ -137,7 +155,7 @@ Extract task_number. Validate task exists.
 Generate session_id. Prepare delegation context.
 
 ### 3. Invoke Subagent
-Use Task tool with subagent_type: neovim-research-agent
+Use Task tool with subagent_type: {extension}-research-agent
 
 ### 4. Return Validation
 Validate return matches subagent-return.md schema.
@@ -160,9 +178,11 @@ Direct execution skills use:
 allowed-tools: Bash, Edit, Read
 ```
 
-### Neovim Skills (Standard Pattern)
+**Note**: Direct-execution skills do not need the Stage 5b self-execution fallback since they do not delegate to subagents and handle their own metadata directly.
 
-The Neovim skills (`skill-neovim-research`, `skill-neovim-implementation`) follow the standard thin wrapper pattern, delegating to `neovim-research-agent` and `neovim-implementation-agent` respectively.
+### Extension Skills (Standard Pattern)
+
+Extension skills follow the standard thin wrapper pattern, delegating to extension-provided agents. For example, an extension may provide `skill-{ext}-research` and `skill-{ext}-implementation` that delegate to `{ext}-research-agent` and `{ext}-implementation-agent` respectively.
 
 ---
 

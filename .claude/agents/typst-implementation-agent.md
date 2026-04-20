@@ -90,8 +90,6 @@ Phase status lives ONLY in the heading. Do NOT add or edit a separate `**Status*
 git add -A && git commit -m "task {N} phase {P}: {phase_name}
 
 Session: {session_id}
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 ```
 
 ### Stage 5: Final Compilation Verification
@@ -106,24 +104,6 @@ Write to `specs/{N}_{SLUG}/summaries/MM_{short-slug}-summary.md`
 Write to `specs/{N}_{SLUG}/.return-meta.json`
 
 ### Stage 8: Return Brief Text Summary
-
-## Phase Checkpoint Protocol
-
-For each phase in the implementation plan:
-
-1. **Read plan file**, identify current phase
-2. **Update phase status** to `[IN PROGRESS]` in plan file
-3. **Execute phase steps** as documented
-4. **Update phase status** to `[COMPLETED]` or `[BLOCKED]` or `[PARTIAL]`
-5. **Git commit** with message: `task {N} phase {P}: {phase_name}`
-6. **Proceed to next phase** or return if blocked
-
-**This ensures**:
-- Resume point is always discoverable from plan file
-- Git history reflects phase-level progress
-- Failed phases can be retried from beginning
-
----
 
 ## Typst vs LaTeX Differences
 
@@ -142,8 +122,7 @@ For each phase in the implementation plan:
 2. Write final metadata to `specs/{N}_{SLUG}/.return-meta.json`
 3. Return brief text summary, NOT JSON
 4. Run `typst compile` to verify compilation
-5. Update plan file phase markers with Edit tool
-6. Include PDF in artifacts if compilation succeeds
+5. Include PDF in artifacts if compilation succeeds
 
 **MUST NOT**:
 1. Return JSON to console

@@ -56,7 +56,7 @@ if [ -z "$task_data" ]; then
 fi
 
 # Extract fields
-task_type=$(echo "$task_data" | jq -r '.task_type // .language // "general"')
+task_type=$(echo "$task_data" | jq -r '.task_type // "general"')
 status=$(echo "$task_data" | jq -r '.status')
 project_name=$(echo "$task_data" | jq -r '.project_name')
 description=$(echo "$task_data" | jq -r '.description // ""')
@@ -139,6 +139,29 @@ artifact_padded=$(printf "%02d" "$artifact_number")
 
 ---
 
+### Stage 4a: Memory Retrieval (Auto)
+
+Retrieve relevant memories from the memory system to inject into the delegation context.
+
+**Skip if**: `clean_flag` is true in the delegation context (from `--clean` command flag).
+
+```bash
+# Check clean_flag
+if [ "$clean_flag" != "true" ]; then
+  memory_context=$(bash .claude/scripts/memory-retrieve.sh "$description" "$task_type" "" 2>/dev/null) || memory_context=""
+fi
+
+# memory_context will be empty string if:
+# - clean_flag is true (skipped)
+# - memory-index.json missing or empty
+# - no keywords matched any entries
+# - script exited with error
+```
+
+If `memory_context` is non-empty, it will be injected into the Stage 5 prompt alongside the format specification from Stage 4b. If empty, no memory block is injected.
+
+---
+
 ### Stage 4: Prepare Delegation Context
 
 **Prior plan discovery**: Find the latest existing plan file (if any) to pass as reference context.
@@ -165,6 +188,8 @@ Prepare delegation context for the subagent:
     "task_type": "{task_type}"
   },
   "artifact_number": "{artifact_number from Stage 3a}",
+  "effort_flag": "{effort_flag from command, null if not set}",
+  "model_flag": "{model_flag from command, null if not set}",
   "research_path": "{path to research report if exists}",
   "prior_plan_path": "{path to latest prior plan if exists}",
   "roadmap_path": "specs/ROADMAP.md",
@@ -173,6 +198,8 @@ Prepare delegation context for the subagent:
 ```
 
 **Note**: The `artifact_number` field tells the agent which sequence number to use for artifact naming (e.g., `01`, `02`). Plan uses `(next_artifact_number - 1)` to share the same round as the preceding research.
+
+**Model/Effort Flags**: If `model_flag` is set (haiku, sonnet, opus), pass it as the `model` parameter on the Task tool to override the agent's frontmatter default. If `effort_flag` is set (fast, hard), include it as prompt context for reasoning depth guidance.
 
 ---
 
@@ -217,6 +244,14 @@ Non-compliance will be caught by postflight validation.
 
 Place this section AFTER the delegation context JSON and BEFORE any other instructions.
 
+**Memory Context Injection**: If `memory_context` from Stage 4a is non-empty, include it in the prompt as a separate block:
+
+```
+{memory_context from Stage 4a -- already wrapped in <memory-context> tags}
+```
+
+Place the memory context block AFTER the format specification and BEFORE the task-specific instructions. Do NOT inject an empty `<memory-context>` block when no memories were retrieved.
+
 **DO NOT** use `Skill(planner-agent)` - this will FAIL.
 
 The subagent will:
@@ -230,9 +265,25 @@ The subagent will:
 
 ---
 
+### Stage 5b: Self-Execution Fallback
+
+**CRITICAL**: If you performed the work above WITHOUT using the Task tool (i.e., you read files,
+wrote artifacts, or updated metadata directly instead of spawning a subagent), you MUST write a
+`.return-meta.json` file now before proceeding to postflight. Use the schema from
+`return-metadata-file.md` with status value `"planned"` and the appropriate artifact information.
+
+If you DID use the Task tool (Stage 5), skip this stage -- the subagent already wrote the metadata.
+
+---
+
+## Postflight (ALWAYS EXECUTE)
+
+The following stages MUST execute after work is complete, whether the work was done by a
+subagent (Stage 5) or inline (Stage 5b). Do NOT skip these stages for any reason.
+
 ### Stage 6: Parse Subagent Return (Read Metadata File)
 
-After subagent returns, read the metadata file:
+Read the metadata file:
 
 ```bash
 metadata_file="specs/${padded_num}_${project_name}/.return-meta.json"
@@ -303,30 +354,13 @@ if [ -n "$artifact_path" ]; then
 fi
 ```
 
-**Update TODO.md**: Add plan artifact link using count-aware format.
+**Update TODO.md**: Link artifact using the automated script:
 
-See `.claude/rules/state-management.md` "Artifact Linking Format" for canonical rules. Use Edit tool:
+```bash
+bash .claude/scripts/link-artifact-todo.sh $task_number '**Plan**' '**Description**' "$artifact_path"
+```
 
-1. **Read existing task entry** to detect current plan links
-2. **If no `- **Plan**:` line exists**: Insert inline format:
-   ```markdown
-   - **Plan**: [MM_{short-slug}.md]({artifact_path})
-   ```
-3. **If existing inline (single link)**: Convert to multi-line:
-   ```markdown
-   old_string: - **Plan**: [existing.md](existing/path)
-   new_string: - **Plan**:
-     - [existing.md](existing/path)
-     - [MM_{short-slug}.md]({artifact_path})
-   ```
-4. **If existing multi-line**: Append new item before next field:
-   ```markdown
-   old_string:   - [last-item.md](last/path)
-   **Description**:
-   new_string:   - [last-item.md](last/path)
-     - [MM_{short-slug}.md]({artifact_path})
-   **Description**:
-   ```
+If the script exits non-zero, log a warning but continue (linking errors are non-blocking).
 
 ---
 
@@ -339,8 +373,6 @@ git add -A
 git commit -m "task ${task_number}: create implementation plan
 
 Session: ${session_id}
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 ```
 
 ---

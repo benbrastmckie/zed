@@ -1,198 +1,66 @@
 {
-  "next_project_number": 36,
+  "next_project_number": 76,
   "active_projects": [
     {
-      "project_number": 35,
-      "project_name": "zed_keybindings_cheat_sheet",
-      "status": "completed",
-      "task_type": "typst",
-      "created": "2026-04-12T01:17:35Z",
-      "last_updated": "2026-04-12T05:55:38Z",
-      "session_id": "sess_1775972945_f3ab44",
-      "researched": "2026-04-12T01:23:54Z",
-      "next_artifact_number": 2,
+      "project_number": 73,
+      "project_name": "port_vision_slidev_resources",
+      "status": "researched",
+      "task_type": "meta",
+      "created": "2026-04-16T21:42:57Z",
+      "last_updated": "2026-04-16T21:48:09Z",
       "artifacts": [
         {
-          "path": "specs/035_zed_keybindings_cheat_sheet/plans/01_keybindings-cheat-sheet.md",
-          "type": "plan",
-          "summary": "3-phase implementation plan for Typst keybindings cheat sheet"
-        },
-        {
-          "path": "specs/035_zed_keybindings_cheat_sheet/summaries/01_keybindings-cheat-sheet-summary.md",
-          "type": "summary",
-          "summary": "Implementation summary for Typst cheat sheet"
+          "path": "specs/073_port_vision_slidev_resources/reports/01_vision-slidev-port.md",
+          "type": "report",
+          "summary": "Gap analysis of Vision Slidev resources: 6 animations, 9 CSS styles, 3 Vue components to port"
         }
       ],
-      "completion_summary": "Created two-page landscape A4 Typst cheat sheet at docs/general/keybindings-cheat-sheet.typ with 57 curated Zed keybindings organized from essential to specialized, hand-rolled key chip styling, and Linux-native Ctrl notation. Updated keybindings.md with cross-reference."
+      "next_artifact_number": 2
     },
     {
-      "project_number": 34,
-      "project_name": "improve_slidev_review_pipeline",
-      "status": "completed",
+      "project_number": 66,
+      "project_name": "update_docs_readme_post_refactor",
+      "status": "researched",
       "task_type": "meta",
-      "created": "2026-04-11T18:45:55Z",
-      "last_updated": "2026-04-11T19:32:59Z",
-      "session_id": "sess_1775935551_3b789f",
-      "researched": "2026-04-11T18:59:01Z",
+      "created": "2026-04-15T02:41:52Z",
+      "last_updated": "2026-04-15T02:43:50Z",
       "next_artifact_number": 2,
       "artifacts": [
         {
-          "path": "specs/034_improve_slidev_review_pipeline/plans/01_improve-slidev-pipeline.md",
-          "type": "plan",
-          "summary": "4-phase plan to create Slidev template scaffold, update pitfalls doc with 7 issue classes, fix Playwright script bugs, and verify integration"
-        },
-        {
-          "path": "specs/034_improve_slidev_review_pipeline/summaries/01_implementation-summary.md",
-          "type": "summary",
-          "summary": "Team implementation with 2 max concurrent teammates"
-        }
-      ],
-      "completion_summary": "Created Slidev project template directory (5 files), expanded slidev-pitfalls.md to cover 7 issue classes with prevention guidance, fixed npx slidev bug in Playwright script and pitfalls doc, added console.error capture to Playwright, updated index.json entries"
-    },
-    {
-      "project_number": 33,
-      "project_name": "improve_docs_core_system_extensions",
-      "status": "completed",
-      "task_type": "meta",
-      "created": "2026-04-11T16:34:38Z",
-      "last_updated": "2026-04-11T17:06:27Z",
-      "session_id": "sess_1775926627_17fd67",
-      "next_artifact_number": 2,
-      "artifacts": [
-        {
-          "type": "research_report",
-          "path": "specs/033_improve_docs_core_system_extensions/reports/01_teammate-a-findings.md",
-          "summary": "Structural improvements: lifecycle-first README, grouped extensions, architecture prose"
-        },
-        {
-          "type": "research_report",
-          "path": "specs/033_improve_docs_core_system_extensions/reports/01_teammate-b-findings.md",
-          "summary": "Alternative approaches: audience-first guides, capabilities overview, visual command map, progressive disclosure"
-        },
-        {
-          "type": "research_report",
-          "path": "specs/033_improve_docs_core_system_extensions/reports/01_teammate-c-findings.md",
-          "summary": "Critic: stale Neovim refs in CLAUDE.md, Python not an extension, audience confusion, scope risk"
-        },
-        {
-          "type": "research_report",
-          "path": "specs/033_improve_docs_core_system_extensions/reports/01_teammate-d-findings.md",
-          "summary": "Horizons: wrong project identity, platform-first narrative, project-overview.md factually wrong"
-        },
-        {
-          "type": "research_report",
-          "path": "specs/033_improve_docs_core_system_extensions/reports/01_team-research.md",
-          "summary": "Team synthesis: 8 findings across correctness, narrative, and structure; 3-tier priority recommendations"
-        },
-        {
-          "path": "specs/033_improve_docs_core_system_extensions/plans/01_improve-docs-extensions.md",
-          "type": "plan",
-          "summary": "4-phase plan: fix stale Neovim references, restructure README around task lifecycle, update supporting docs, verify cross-file consistency"
-        },
-        {
-          "path": "specs/033_improve_docs_core_system_extensions/summaries/01_improve-docs-summary.md",
-          "type": "summary",
-          "summary": "Removed stale Neovim refs, restructured README around task lifecycle, fixed supporting docs"
-        }
-      ],
-      "completion_summary": "Removed stale Neovim references from machine-facing files, rewrote project-overview.md for Zed, restructured README.md around the task lifecycle with three command groups and walkthrough example, and fixed supporting docs for consistency.",
-      "claudemd_suggestions": "Updated .claude/CLAUDE.md (removed VimTeX, <leader>ac, neovim refs, manifest.json path), updated .claude/README.md (removed nvim extension, fixed broken link), rewrote .claude/context/repo/project-overview.md, fixed 6 skill SKILL.md files"
-    },
-    {
-      "project_number": 32,
-      "project_name": "update_docs_from_claude_diff",
-      "status": "completed",
-      "task_type": "meta",
-      "created": "2026-04-11T04:13:59Z",
-      "last_updated": "2026-04-11T16:30:00Z",
-      "session_id": "sess_1775924737_8ffc92",
-      "next_artifact_number": 2,
-      "completion_summary": "Updated 15+ documentation files to remove stale Python extension references, replaced Python examples with Rust, migrated Task 29 task_type from present:talk to slides, and deleted contradictory memory file.",
-      "claudemd_suggestions": "none",
-      "artifacts": [
-        {
-          "type": "research_report",
-          "path": "specs/032_update_docs_from_claude_diff/reports/01_teammate-a-findings.md",
-          "summary": "7 files with stale Python extension references catalogued with exact edits; no talk/slides or Zed issues found"
-        },
-        {
-          "type": "research_report",
-          "path": "specs/032_update_docs_from_claude_diff/reports/01_team-research.md",
-          "summary": "Team synthesis: 7 files need Python extension reference removal/replacement; all other stale-reference categories already clean"
-        },
-        {
-          "type": "research_report",
-          "path": "specs/032_update_docs_from_claude_diff/reports/01_teammate-d-findings.md",
-          "summary": "Horizons analysis: strategic scope confirmed, lean MCP scripts undocumented, breadcrumb mismatch in docs/README.md, guide examples should use generic placeholder to prevent future drift"
-        },
-        {
-          "path": "specs/032_update_docs_from_claude_diff/plans/01_update-docs-config.md",
-          "type": "plan",
-          "summary": "4-phase implementation plan to update documentation after Python removal and talk-to-slides rename"
-        },
-        {
-          "type": "summary",
-          "path": "specs/032_update_docs_from_claude_diff/summaries/01_update-docs-summary.md",
-          "summary": "Implementation summary: 4 phases completed, 15+ files updated, all verification checks passed"
+          "path": "specs/066_update_docs_readme_post_refactor/reports/01_refactoring-diff-audit.md",
+          "type": "research",
+          "summary": "Comprehensive audit of 42 changed .claude/ files across 8 categories. docs/ and README.md already clean - zero neovim/nvim/<leader>ac references found. No urgent updates required."
         }
       ]
     },
     {
-      "project_number": 29,
-      "project_name": "talk_epi_study_walkthrough",
-      "status": "completed",
-      "language": "present",
-      "task_type": "slides",
-      "description": "Conference talk walking through the zed/examples/epi-study synthetic RCT demo (KAT vs TAU, adjusted OR 3.29) as an end-to-end showcase of the /epi Claude Code workflow for a mixed clinical/informatics audience",
-      "forcing_data": {
-        "talk_type": "CONFERENCE",
-        "source_materials": [
-          "/home/benjamin/.config/zed/examples/epi-study/ (systematic review of entire directory: README.md, EPI_ANSWERS.md, scripts/, data/, reports/consort_report.md, reports/tables/*, logs/)"
-        ],
-        "audience_context": "Mixed clinical/informatics audience. Topic: demonstrating the Claude Code /epi extension via a synthetic RCT (ketamine-assisted therapy vs treatment-as-usual for methamphetamine use disorder, N=200, primary adjusted OR=3.29 for 12-week abstinence). Conference format, 15-20 min. Balance tooling narrative, methods/CONSORT rigor, and the headline clinical finding. Emphasize reproducibility (deterministic seeds, base-R fallbacks) and the four-step /epi -> /research -> /plan -> /implement workflow.",
-        "gathered_at": "2026-04-11T01:48:33Z"
-      },
-      "created": "2026-04-11T01:48:33Z",
-      "last_updated": "2026-04-11T10:35:00Z",
-      "session_id": "sess_1760000029_i1",
+      "project_number": 65,
+      "project_name": "strip_nvim_references_post_sync",
+      "status": "researched",
+      "task_type": "meta",
+      "created": "2026-04-14T20:30:00Z",
+      "last_updated": "2026-04-19T21:25:00Z",
       "artifacts": [
         {
-          "type": "research_report",
-          "path": "specs/029_talk_epi_study_walkthrough/reports/02_talk-research.md",
-          "summary": "Round-2 14-slide CONFERENCE talk-map updated after task 28: byte-identical reproduction across R stack upgrade, coxph HR 0.426, pooled mice OR 3.262, Quarto render — strengthens slides 10/11/12"
-        },
-        {
-          "path": "specs/029_talk_epi_study_walkthrough/plans/02_talk-assembly.md",
-          "type": "plan",
-          "summary": "Slidev-based 7-phase plan with academic-clean theme; all build artifacts under examples/epi-slides/, specs/029 retains only plan and summary"
-        },
-        {
-          "type": "summary",
-          "path": "specs/029_talk_epi_study_walkthrough/summaries/02_talk-assembly-summary.md",
-          "summary": "Slidev 14-slide deck assembled under examples/epi-slides/; Phase 6 [PARTIAL] (slidev build OK, slidev export PDF blocked on NixOS Playwright chromium libglib)"
+          "path": "specs/065_strip_nvim_references_post_sync/reports/05_post-reload-diff-review.md",
+          "type": "research",
+          "summary": "Post-reload diff review: 25 files modified with fixes removing 59 refs. 22 remain in 5 files, all legitimate (functional paths or tool references). Zero actionable fixes needed."
         }
       ],
-      "design_decisions": {
-        "theme": "academic-clean",
-        "message_order": "1-2-3 (workflow -> rigor -> reproducibility)",
-        "section_emphasis": [
-          "results_cox_mice_tipping_point",
-          "reproducibility_provenance",
-          "tooling_epi_workflow",
-          "methods_consort"
-        ],
-        "confirmed_at": "2026-04-11T02:32:57Z",
-        "based_on_report": "specs/029_talk_epi_study_walkthrough/reports/02_talk-research.md",
-        "session_id": "sess_1760000029_d1"
-      },
-      "planned": "2026-04-10T00:00:00Z",
-      "estimated_hours": 9.5,
-      "next_artifact_number": 3,
-      "completion_summary": "14-slide Slidev conference deck with working PDF export via Playwright. Fixed slide 14 footer overlap and confirmed all Mermaid diagrams (slides 3, 5, 8) render correctly. Build and export both exit 0."
+      "next_artifact_number": 6,
+      "session_id": "sess_1776566500_r65v5"
     }
   ],
+  "memory_health": {
+    "last_distilled": null,
+    "distill_count": 0,
+    "total_memories": 8,
+    "never_retrieved": 8,
+    "health_score": 100,
+    "status": "healthy"
+  },
   "repository_health": {
-    "last_assessed": "2026-04-11T04:10:55Z",
+    "last_assessed": "2026-04-18T20:13:53Z",
     "status": "healthy"
   }
 }

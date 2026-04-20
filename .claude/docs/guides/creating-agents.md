@@ -1,6 +1,6 @@
 # Creating Agents Guide
 
-This guide explains how to create new agents in the Neovim Configuration agent system that handle full workflow execution and artifact creation.
+This guide explains how to create new agents in the agent system that handle full workflow execution and artifact creation.
 
 ---
 
@@ -72,10 +72,10 @@ Agents are located in `.claude/agents/{name}-agent.md`:
 ```
 .claude/agents/
 ├── general-research-agent.md
-├── neovim-research-agent.md
+
 ├── planner-agent.md
 ├── general-implementation-agent.md
-├── neovim-implementation-agent.md
+
 └── meta-builder-agent.md
 ```
 
@@ -254,7 +254,7 @@ List context files to load on-demand:
 **Load When Needed**:
 - `@.claude/context/formats/report-format.md` (for research)
 - `@.claude/context/standards/plan.md` (for planning)
-- `@.claude/context/project/neovim/tools/lazy-nvim-guide.md` (for Lean)
+- `@.claude/context/project/{domain}/tools/tool-guide.md` (for domain tools)
 ```
 
 ### Step 4: Implement 8-Stage Workflow
@@ -273,14 +273,14 @@ Extract from input:
     "task_number": 450,
     "task_name": "add_async_runtime",
     "description": "Add async runtime support to API client",
-    "language": "rust"
+    "task_type": "rust"
   },
   "metadata": {
     "session_id": "sess_1736700000_abc123",
     "delegation_depth": 1,
     "delegation_path": ["orchestrator", "research", "{name}-agent"]
   },
-  "focus_prompt": "asyncio best practices"
+  "focus_prompt": "tokio best practices"
 }
 ```
 ```
@@ -290,12 +290,12 @@ Extract from input:
 ```markdown
 ### Stage 2: Context Loading
 
-Load context based on task language:
+Load context based on task task_type:
 
 | Task Type | Context Files |
 |----------|---------------|
 | rust | `project/rust/tools.md` |
-| neovim | `project/neovim/tools/lazy-nvim-guide.md` |
+| {domain} | `project/{domain}/tools/tool-guide.md` |
 | general | `project/repo/project-overview.md` |
 ```
 
@@ -419,7 +419,6 @@ This stage is mandatory. Missing status updates cause synchronization issues.
 4. **Create Git Commit** (if appropriate):
    - Stage artifact files
    - Commit with message: `task {N}: {action}`
-   - Include Co-Authored-By line
 
 **Error Handling**:
 - Artifact validation failure -> Return failed status
@@ -668,10 +667,8 @@ Research completed successfully. Found 5 patterns. See report at ...
 | Agent | Purpose | Invoked By |
 |-------|---------|------------|
 | `general-research-agent` | Web/codebase research | skill-researcher |
-| `neovim-research-agent` | Neovim/plugin research | skill-neovim-research |
 | `planner-agent` | Implementation planning | skill-planner |
 | `general-implementation-agent` | General file implementation | skill-implementer |
-| `neovim-implementation-agent` | Neovim configuration implementation | skill-neovim-implementation |
 | `meta-builder-agent` | System building and task creation | skill-meta |
 
 **Note**: Additional agents (latex, typst, filetypes) are available via extensions in `.claude/extensions/`.
@@ -690,4 +687,4 @@ Research completed successfully. Found 5 patterns. See report at ...
 
 **Document Version**: 1.0
 **Created**: 2026-01-12
-**Maintained By**: Neovim Configuration Development Team
+**Maintained By**: Development Team

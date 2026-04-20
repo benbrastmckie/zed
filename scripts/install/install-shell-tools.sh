@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # install-shell-tools.sh - Shell utilities used by .claude/ agents
 #
-# Mirrors docs/toolchain/shell-tools.md (excluding git, which install-base
-# covers via Xcode CLT):
-#   - jq           (JSON processor — hooks, status-sync, context queries)
-#   - gh           (GitHub CLI — /merge PR creation)
-#   - make         (GNU make via brew, installed as gmake — optional upgrade
-#                   to system make from Xcode CLT)
+# Tools installed:
+#   - jq           (JSON processor -- hooks, status-sync, context queries)
+#   - gh           (GitHub CLI -- /merge PR creation)
+#   - make         (GNU make -- optional upgrade on macOS; standard on Linux)
 #   - fontconfig   (fc-list, used by typesetting font checks)
 #
-# Flags: --dry-run --yes --check --help
+# Flags: --dry-run --check --help
 # Idempotent: every install guarded by presence check.
 
 set -eu
@@ -25,15 +23,23 @@ install-shell-tools.sh - Shell utilities (jq, gh, make, fontconfig)
 Installs via Homebrew:
   - jq          (JSON processor)
   - gh          (GitHub CLI)
-  - make        (GNU make as gmake — optional, Xcode CLT make is usually fine)
+  - make        (GNU make -- optional upgrade)
   - fontconfig  (fc-list; used by typesetting font checks)
 EOF
   print_common_help_footer
 }
 
-do_jq()         { brew_install_formula jq; }
-do_gh()         { brew_install_formula gh; }
-do_make()       {
+do_jq() { brew_install_formula jq; }
+
+do_gh() {
+  if check_command gh; then
+    log_ok "gh already installed"
+    return 0
+  fi
+  brew_install_formula gh
+}
+
+do_make() {
   if check_command gmake || check_brew_formula make; then
     log_ok "gnu make already installed"
     return 0
@@ -44,6 +50,7 @@ do_make()       {
     log_info "skipping GNU make (system make from Xcode CLT remains)"
   fi
 }
+
 do_fontconfig() { brew_install_formula fontconfig; }
 
 run_check_mode() {
@@ -58,15 +65,15 @@ run_check_mode() {
 main() {
   parse_common_flags "$@"
   if [ "$SHOW_HELP" = "1" ]; then print_help; exit 0; fi
-  assert_macos
-  print_section "install-shell-tools: jq, gh, make, fontconfig"
+  assert_supported_os
+  print_section "install-shell-tools: jq, gh, make, fontconfig ($DETECTED_OS)"
 
   if [ "$CHECK_MODE" = "1" ]; then
     run_check_mode
     exit $?
   fi
 
-  require_brew
+  require_pkg_manager
 
   do_jq
   do_gh

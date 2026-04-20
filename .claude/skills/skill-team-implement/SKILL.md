@@ -6,7 +6,7 @@ allowed-tools: Task, Bash, Edit, Read, Write, Glob
 # Context loaded by lead during coordination:
 #   - .claude/context/patterns/team-orchestration.md
 #   - .claude/context/formats/team-metadata-extension.md
-#   - .claude/utils/team-wave-helpers.md
+#   - .claude/context/reference/team-wave-helpers.md
 ---
 
 # Team Implement Skill
@@ -21,7 +21,7 @@ Reference (load as needed during coordination):
 - Path: `.claude/context/patterns/team-orchestration.md` - Wave coordination patterns
 - Path: `.claude/context/formats/team-metadata-extension.md` - Team result schema
 - Path: `.claude/context/formats/return-metadata-file.md` - Base metadata schema
-- Path: `.claude/utils/team-wave-helpers.md` - Reusable wave patterns
+- Path: `.claude/context/reference/team-wave-helpers.md` - Reusable wave patterns
 
 ## Trigger Conditions
 
@@ -39,6 +39,15 @@ This skill activates when:
 | `resume_phase` | integer | No | Phase to resume from |
 | `team_size` | integer | No | Max concurrent teammates (2-4, default 2) |
 | `session_id` | string | Yes | Session ID for tracking |
+| `model_flag` | string | No | Model override (haiku, sonnet, opus). If set, use instead of default |
+| `effort_flag` | string | No | Effort level (fast, hard). Passed as prompt context |
+
+**Model Selection**: Determine teammate model early:
+```bash
+# Use model_flag if provided, otherwise default to sonnet (cost-effective for team mode)
+teammate_model="${model_flag:-sonnet}"
+model_preference_line="Model preference: Use Claude ${teammate_model^} 4.6 for this task."
+```
 
 ---
 
@@ -62,7 +71,7 @@ if [ -z "$task_data" ]; then
 fi
 
 # Extract fields
-task_type=$(echo "$task_data" | jq -r '.task_type // .language // "general"')
+task_type=$(echo "$task_data" | jq -r '.task_type // "general"')
 status=$(echo "$task_data" | jq -r '.status')
 project_name=$(echo "$task_data" | jq -r '.project_name')
 
@@ -222,6 +231,8 @@ if not has_explicit_deps:
 - Implicit dependencies from file modifications (phases modifying same files are dependent)
 - Cross-phase imports or references
 
+> **CRITICAL: Plan-Text-Only Analysis** -- Stage 5 analyzes dependencies using file paths and phase descriptions extracted from the plan text. The lead agent MUST NOT read, grep, or glob source files to infer dependencies. All signals come from parsing the plan document itself. Actual source file reading is the exclusive responsibility of phase implementer sub-agents.
+
 ---
 
 ### Stage 6: Calculate Implementation Waves
@@ -263,6 +274,8 @@ if waves is empty:
 ### Stage 7: Spawn Phase Implementers
 
 For each wave, spawn teammates for parallelizable phases (up to team_size):
+
+> **CRITICAL: Template Population from Plan Text Only** -- All template variables (`{phase_details}`, `{files_list}`, `{steps_from_plan}`, `{verification_criteria}`) MUST be populated by extracting text from the plan file. The lead agent MUST NOT read source files, run grep/glob, or use MCP tools to populate these fields. The sub-agent will read source files after it is spawned.
 
 **Phase Implementer Prompt Template**:
 ```
@@ -394,8 +407,6 @@ git add \
 git commit -m "task ${task_number}: complete wave ${wave_num} (phases ${phase_list})
 
 Session: ${session_id}
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 ```
 
 ---
@@ -484,30 +495,13 @@ jq --arg path "specs/${padded_num}_${project_name}/summaries/${run_padded}_imple
   specs/state.json > specs/tmp/state.json && mv specs/tmp/state.json specs/state.json
 ```
 
-**Update TODO.md**: Add summary artifact link using count-aware format.
+**Update TODO.md**: Link artifact using the automated script:
 
-See `.claude/rules/state-management.md` "Artifact Linking Format" for canonical rules. Use Edit tool:
+```bash
+bash .claude/scripts/link-artifact-todo.sh $task_number '**Summary**' '**Description**' "$artifact_path"
+```
 
-1. **Read existing task entry** to detect current summary links
-2. **If no `- **Summary**:` line exists**: Insert inline format:
-   ```markdown
-   - **Summary**: [{NN}_implementation-summary.md]({artifact_path})
-   ```
-3. **If existing inline (single link)**: Convert to multi-line:
-   ```markdown
-   old_string: - **Summary**: [existing.md](existing/path)
-   new_string: - **Summary**:
-     - [existing.md](existing/path)
-     - [{NN}_implementation-summary.md]({artifact_path})
-   ```
-4. **If existing multi-line**: Append new item before next field:
-   ```markdown
-   old_string:   - [last-item.md](last/path)
-   **Description**:
-   new_string:   - [last-item.md](last/path)
-     - [{NN}_implementation-summary.md]({artifact_path})
-   **Description**:
-   ```
+If the script exits non-zero, log a warning but continue (linking errors are non-blocking).
 
 ---
 
@@ -565,8 +559,6 @@ git add \
 git commit -m "task ${task_number}: complete team implementation
 
 Session: ${session_id}
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 ```
 
 ---
@@ -664,13 +656,15 @@ Team implementation partially completed for task 412:
 
 ## MUST NOT (Postflight Boundary)
 
-After teammates complete phase execution, this skill MUST NOT:
+After teammates complete phase execution -- whether with status implemented, partial, or failed -- this skill MUST proceed immediately to postflight operations. The skill MUST NOT:
 
 1. **Edit source files** - All implementation work is done by teammates
 2. **Run build/test commands** - Verification is done by teammates
 3. **Use MCP tools** - Domain tools are for teammate use only
 4. **Analyze or grep source** - Analysis is teammate work
 5. **Write summary/reports** - Artifact creation is done by teammates
+
+> **PROHIBITION**: If a teammate returned partial or failed status, the lead skill MUST NOT attempt to continue, complete, or "fill in" the teammate's work. Report the partial/failed status and let the user re-run `/implement` to resume.
 
 The postflight phase is LIMITED TO:
 - Reading teammate metadata files
@@ -681,3 +675,22 @@ The postflight phase is LIMITED TO:
 - Cleanup of temp/marker files
 
 Reference: @.claude/context/standards/postflight-tool-restrictions.md
+
+---
+
+## MUST NOT (Pre-Delegation Boundary)
+
+Before spawning phase implementer teammates, this skill MUST NOT:
+
+1. **Read source files** - Source files are read by sub-agents, not the lead
+2. **Grep or glob the codebase** - Codebase exploration is sub-agent work
+3. **Use MCP tools** - Domain tools (LSP, build, etc.) are for sub-agent use only
+4. **Analyze source code** - Code analysis belongs to phase implementers
+5. **Run build or test commands** - Verification is done by sub-agents
+
+The pre-delegation phase is LIMITED TO:
+- Reading the plan file to extract phases, dependencies, and template variables
+- Reading state.json and TODO.md for status updates
+- Parsing phase dependency graphs from plan text
+- Populating prompt templates with plan-extracted content
+- Spawning sub-agents with delegation context

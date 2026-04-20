@@ -77,8 +77,8 @@ It does NOT handle:
    **Performance**: ~12ms for state.json vs ~100ms for TODO.md (8x faster)
 
 2. Map language to agent:
-   - /research: neovim → neovim-research-agent, default → researcher
-   - /implement: neovim → neovim-implementation-agent, default → implementer
+   - /research: Extension type → extension agent, default → general-research-agent
+   - /implement: Extension type → extension agent, default → general-implementation-agent
 
 **For Direct Routing** (routing.task_type_based: false):
 - Use routing.target_agent from command frontmatter
@@ -105,7 +105,7 @@ It does NOT handle:
     "task_context": {
       "task_number": 244,
       "description": "...",
-      "task_type": "neovim"
+      "task_type": "general"
     }
   }
   ```
@@ -194,7 +194,7 @@ Without loading:
 ```json
 {
   "task_number": 244,
-  "task_type": "neovim",
+  "task_type": "general",
   ...
 }
 ```
@@ -211,7 +211,7 @@ Without loading:
 **Example**:
 ```markdown
 ### 244. Implement feature X
-- **Task Type**: neovim
+- **Task Type**: general
 ```
 
 **When to use**: Task exists in TODO.md (always)
@@ -243,9 +243,8 @@ routing:
 ### Task-Type-Based Routing
 ```yaml
 routing:
-  language_based: true
-  neovim: neovim-research-agent
-  default: researcher
+  task_type_based: true
+  default: general-research-agent
 ```
 
 **Used by**: /research, /implement
@@ -462,7 +461,7 @@ function register_delegation(session_id, context) {
     "command": context.command,
     "subagent": context.target_agent,
     "task_number": context.task_number,
-    "language": context.task_type,
+    "task_type": context.task_type,
     "start_time": new Date().toISOString(),
     "timeout": context.timeout,
     "deadline": new Date(Date.now() + context.timeout * 1000).toISOString(),
@@ -680,7 +679,7 @@ Validate all subagent returns against standardized format to ensure consistent p
 ### Validation Steps
 
 1. Check return is valid JSON/structured format
-2. Validate against `subagent-return-format.md` schema
+2. Validate against `subagent-return.md` schema
 3. Check session_id matches expected
 4. Validate all required fields present
 5. Check status is valid enum value
@@ -780,7 +779,7 @@ If validation fails:
 **Cause**: Subagent not following standard format
 
 **Fix**:
-1. Update subagent to follow subagent-return-format.md
+1. Update subagent to follow subagent-return.md
 2. Add validation before returning
 3. Test subagent independently
 4. Check session_id matches
@@ -816,11 +815,11 @@ User: /research 197
 
 Orchestrator:
 1. Load command file: .claude/command/research.md
-2. Extract language from TODO.md: "neovim"
-3. Route to: neovim-research-agent
+2. Extract task_type from state.json: "general"
+3. Route to: general-research-agent
 4. Generate session_id: sess_1703606400_a1b2c3
 5. Register delegation in registry
-6. Invoke neovim-research-agent with context
+6. Invoke general-research-agent with context
 7. Monitor timeout (3600s)
 8. Receive return, validate format
 9. Complete delegation, remove from registry

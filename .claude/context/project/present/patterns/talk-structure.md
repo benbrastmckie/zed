@@ -105,6 +105,7 @@ Paper review and critique for journal club meetings.
 - Manuscripts and papers can be provided as file path source materials
 - Multiple talks can reference the same source materials with different modes
 
-### Slidev Implementation Notes
-- See `talk/patterns/slidev-pitfalls.md` for Slidev-specific gotchas (footer positioning, Mermaid rendering, PDF export verification)
-- Theme JSON files include a `footer` section with correct positioning guidance
+### Format-Specific Implementation Notes
+- **Slidev**: See `talk/patterns/slidev-pitfalls.md` for setup, footer positioning, and mermaid gotchas
+- **PowerPoint**: See `talk/patterns/pptx-generation.md` for python-pptx API patterns and component helpers
+- Theme JSON files include a `footer` section with correct positioning guidance for custom footers

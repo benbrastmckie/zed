@@ -1,0 +1,285 @@
+/* UCSF Institutional Theme - HIV Grand Rounds */
+/* Derived from ucsf-institutional.json */
+
+:root {
+  --slidev-theme-primary: #052049;
+  --slidev-theme-accent: #0093D0;
+  --slidev-theme-accent-light: #e6f2fa;
+  --slidev-theme-highlight: #16A0AC;
+  --slidev-theme-text: #1a202c;
+  --slidev-theme-muted: #5f6b7a;
+  --slidev-theme-success: #32A03E;
+  --slidev-theme-warning: #d97706;
+  --slidev-theme-error: #dc2626;
+  --slidev-theme-bg: #ffffff;
+}
+
+/* Global typography */
+.slidev-layout {
+  font-family: Arial, 'Helvetica Neue', sans-serif;
+  color: var(--slidev-theme-text);
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  font-family: Garamond, Georgia, 'Times New Roman', serif;
+  color: var(--slidev-theme-primary);
+  font-weight: 700;
+}
+
+.slidev-layout h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.slidev-layout h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.slidev-layout h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Content spacing */
+.slidev-layout ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.slidev-layout li {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin: 0.25rem 0;
+}
+
+.slidev-layout strong {
+  color: var(--slidev-theme-primary);
+}
+
+/* Accent bar for content slides */
+.slidev-layout.default {
+  border-top: 3px solid var(--slidev-theme-accent);
+}
+
+/* Inline code override (prevent Shiki black boxes) */
+:not(pre) > code {
+  background-color: transparent !important;
+  color: inherit !important;
+  padding: 0.1em 0.3em !important;
+  border-radius: 3px !important;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+/* Teaching point callout boxes */
+.teaching-point {
+  background: var(--slidev-theme-accent-light);
+  border-left: 4px solid var(--slidev-theme-accent);
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+  border-radius: 0 6px 6px 0;
+}
+
+.teaching-point strong {
+  color: var(--slidev-theme-primary);
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.teaching-point p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--slidev-theme-text);
+}
+
+/* Stat hero styling (used in stat-callout layout) */
+.stat-hero {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: var(--slidev-theme-primary);
+  text-align: center;
+  margin: 0.5rem 0;
+  line-height: 1.1;
+}
+
+.stat-hero .accent {
+  color: var(--slidev-theme-highlight);
+}
+
+.stat-subtitle {
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--slidev-theme-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Timeline styling for Patient 2 */
+.timeline-container {
+  position: relative;
+  padding: 1rem 0;
+}
+
+.timeline-track {
+  position: relative;
+  height: 4px;
+  background: #d1d5db;
+  margin: 2rem 0;
+  border-radius: 2px;
+}
+
+.timeline-phase {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.timeline-phase.phase-1 {
+  border-left: 4px solid #7c3aed;
+}
+
+.timeline-phase.phase-decision {
+  border-left: 4px solid var(--slidev-theme-warning);
+  background: #fef3c7;
+}
+
+.timeline-phase.phase-geno {
+  border-left: 4px solid var(--slidev-theme-error);
+  background: #fef2f2;
+}
+
+.timeline-phase.phase-2 {
+  border-left: 4px solid var(--slidev-theme-success);
+  background: #f0fdf4;
+}
+
+.timeline-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-detail {
+  font-size: 0.85rem;
+  color: var(--slidev-theme-muted);
+}
+
+.timeline-vl {
+  font-weight: 700;
+}
+
+.timeline-vl.suppressed {
+  color: var(--slidev-theme-success);
+}
+
+.timeline-vl.viremic {
+  color: var(--slidev-theme-error);
+}
+
+/* Caveat/disclaimer styling */
+.caveat {
+  background: #fef3c7;
+  border-left: 4px solid var(--slidev-theme-warning);
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+  color: #92400e;
+}
+
+/* Silver lining / hypothesis box */
+.hypothesis-box {
+  background: #f0fdf4;
+  border-left: 4px solid var(--slidev-theme-success);
+  padding: 0.5rem 1rem;
+  margin: 0.75rem 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.95rem;
+}
+
+/* Takeaway numbered list */
+.takeaways ol {
+  counter-reset: takeaway;
+  list-style: none;
+  padding: 0;
+}
+
+.takeaways li {
+  counter-increment: takeaway;
+  padding: 0.5rem 0 0.5rem 2.5rem;
+  position: relative;
+  font-size: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.takeaways li:last-child {
+  border-bottom: none;
+}
+
+.takeaways li::before {
+  content: counter(takeaway);
+  position: absolute;
+  left: 0;
+  width: 2rem;
+  height: 2rem;
+  background: var(--slidev-theme-highlight);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Citations list */
+.citations {
+  font-size: 0.75rem;
+  color: var(--slidev-theme-muted);
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.citations p {
+  margin: 0.15rem 0;
+}
+
+/* Markdown table styling */
+.slidev-layout table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+  margin: 0.75rem 0;
+}
+
+.slidev-layout th {
+  background: #f0f4f8;
+  border-bottom: 2px solid var(--slidev-theme-primary);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-weight: 700;
+  color: var(--slidev-theme-primary);
+}
+
+.slidev-layout td {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.4rem 0.75rem;
+}
+
+/* Key message box */
+.key-message {
+  background: var(--slidev-theme-accent-light);
+  border: 2px solid var(--slidev-theme-accent);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--slidev-theme-primary);
+}

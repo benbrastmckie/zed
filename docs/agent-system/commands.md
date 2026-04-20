@@ -1,6 +1,6 @@
 # Command Catalog
 
-Quick-reference catalog of all 25 slash commands. For a workflow tutorial, see [agent-lifecycle.md](../workflows/agent-lifecycle.md). For full command reference with examples and edge cases, see [user-guide.md](../../.claude/docs/guides/user-guide.md). For how commands, skills, and agents connect, see [architecture.md](architecture.md).
+Quick-reference catalog of all 26 slash commands. For a workflow tutorial, see [agent-lifecycle.md](../workflows/agent-lifecycle.md). For full command reference with examples and edge cases, see [user-guide.md](../../.claude/docs/guides/user-guide.md). For how commands, skills, and agents connect, see [architecture.md](architecture.md).
 
 Each entry follows a standard template: 2-sentence explanation, up to 2 examples, flags, and source link.
 
@@ -23,14 +23,14 @@ See [`.claude/commands/task.md`](../../.claude/commands/task.md) · [user guide]
 
 ### /research
 
-Investigate a task and produce a research report, routing to the appropriate research agent based on task type. Use `--remember` to search the memory vault for prior relevant knowledge before researching.
+Investigate a task and produce a research report, routing to the appropriate research agent based on task type. Relevant memories are automatically injected from the vault; pass `--clean` to skip memory retrieval.
 
 ```
 /research 5
-/research 5, 7-9 --remember
+/research 5, 7-9 --clean
 ```
 
-**Flags**: `[focus]`, `--team`, `--remember`, multi-task syntax (`5, 7-9`)
+**Flags**: `[focus]`, `--team`, `--clean`, `--fast|--hard`, `--haiku|--sonnet|--opus`, multi-task syntax (`5, 7-9`)
 
 See [`.claude/commands/research.md`](../../.claude/commands/research.md) · [user guide](../../.claude/docs/guides/user-guide.md#research-command).
 
@@ -43,7 +43,9 @@ Create a phased implementation plan from research findings. Supports multi-task 
 /plan 5, 7-9 --team
 ```
 
-**Flags**: `--team`, multi-task syntax
+**Flags**: `--team`, `--clean`, `--fast|--hard`, `--haiku|--sonnet|--opus`, multi-task syntax
+
+**Note**: For `present` tasks with `slides` subtype, `/plan` routes to `skill-slide-planning` instead of the generic planner, running an interactive 5-stage design review (narrative arc, per-slide feedback, visual layout) before producing the slide plan.
 
 See [`.claude/commands/plan.md`](../../.claude/commands/plan.md) · [user guide](../../.claude/docs/guides/user-guide.md#plan-command).
 
@@ -56,7 +58,7 @@ Execute a plan phase-by-phase. Automatically detects the first incomplete phase 
 /implement 5 --force
 ```
 
-**Flags**: `--team`, `--force`, multi-task syntax
+**Flags**: `--team`, `--force`, `--clean`, `--fast|--hard`, `--haiku|--sonnet|--opus`, multi-task syntax
 
 See [`.claude/commands/implement.md`](../../.claude/commands/implement.md) · [user guide](../../.claude/docs/guides/user-guide.md#implement-command).
 
@@ -73,7 +75,7 @@ See [`.claude/commands/revise.md`](../../.claude/commands/revise.md) · [user gu
 
 ### /todo
 
-Archive completed and abandoned tasks, update CHANGE_LOG.md and ROADMAP.md, and trigger vault operations when task numbers exceed 1000. Run `--dry-run` first to preview what will be archived.
+Archive completed and abandoned tasks, update CHANGE_LOG.md and ROADMAP.md, and trigger vault operations when task numbers exceed 1000. Also harvests memory candidates emitted by agents during research, planning, and implementation, presenting them for batch approval. Run `--dry-run` first to preview what will be archived.
 
 ```
 /todo
@@ -191,6 +193,19 @@ Add memories to the [`.memory/`](context-and-memory.md) vault using one of three
 ```
 
 See [`.claude/commands/learn.md`](../../.claude/commands/learn.md) · [context-and-memory.md](context-and-memory.md).
+
+### /distill
+
+Maintain memory vault health through scoring, purging, merging, compressing, and garbage collection. Run bare for a read-only health report, or with a flag to perform a specific maintenance operation.
+
+```
+/distill
+/distill --purge
+```
+
+**Flags**: `--purge` (tombstone stale memories), `--merge` (combine overlapping), `--compress` (reduce verbose), `--refine` (improve metadata quality), `--auto` (safe metadata fixes), `--gc` (hard-delete tombstoned past 7-day grace period), `--dry-run`, `--verbose`
+
+See [`.claude/commands/distill.md`](../../.claude/commands/distill.md) · [context-and-memory.md](context-and-memory.md).
 
 ## Documents
 
@@ -310,6 +325,8 @@ Create a research talk task with three input modes: a description string, an exi
 ```
 
 Five talk modes: CONFERENCE, SEMINAR, DEFENSE, POSTER, JOURNAL_CLUB. PPTX-to-slide conversion has moved to `/convert --format beamer|polylux|touying`.
+
+**Flags**: `--critic [path|prompt]` -- Run interactive slide critique with rubric evaluation on existing slide materials.
 
 See [`.claude/commands/slides.md`](../../.claude/commands/slides.md).
 

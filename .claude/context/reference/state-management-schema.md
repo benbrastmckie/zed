@@ -44,12 +44,12 @@ Complete schema reference for state.json, TODO.md, and artifact formats. For beh
 ### {NUMBER}. {TITLE}
 - **Effort**: {estimate}
 - **Status**: [{STATUS}]
-- **Task Type**: {neovim|general|meta|markdown|latex|typst}
+- **Task Type**: {general|meta|markdown} or extension-provided type
 - **Dependencies**: Task #{N}, Task #{N}  OR  None
 - **Started**: {ISO timestamp}
 - **Completed**: {ISO timestamp}
-- **Research**: [link to report]
-- **Plan**: [link to plan]
+- **Research**: [{NNN}_{SLUG}/reports/01_slug.md]
+- **Plan**: [{NNN}_{SLUG}/plans/01_slug.md]
 
 **Description**: {full description}
 ```
@@ -63,7 +63,7 @@ Complete schema reference for state.json, TODO.md, and artifact formats. For beh
 | `project_number` | number | Yes | Unique task identifier |
 | `project_name` | string | Yes | Snake_case slug from title |
 | `status` | string | Yes | Current status (see Status Values) |
-| `task_type` | string | Yes | Task type for routing (see Task Type Values). Bare values (`meta`, `neovim`) or compound `extension:subtype` (`present:grant`, `founder:deck`) |
+| `task_type` | string | Yes | Task type for routing (see Task Type Values). Bare values (`meta`, `general`) or compound `extension:subtype` (`present:grant`, `founder:deck`) |
 | `effort` | string | No | Estimated effort |
 | `created` | string | Yes | ISO8601 creation timestamp |
 | `last_updated` | string | Yes | ISO8601 last update timestamp |
@@ -80,7 +80,7 @@ The `task_type` field is the unified routing field for all tasks. It replaces th
 | `task_type` | string | Yes | - | Routing key: bare value or compound `extension:subtype` |
 
 **Values**:
-- **Bare values**: `meta`, `general`, `markdown`, `neovim`, `lean4`, `latex`, etc.
+- **Bare values**: `meta`, `general`, `markdown`, plus extension-provided types (e.g., `lean4`, `latex`, etc.)
 - **Compound values**: `present:grant`, `founder:deck`, `present:slides`, etc.
 - Compound format: `{extension}:{subtype}` -- the extension prefix is used for routing to the correct extension, the subtype for sub-routing within the extension.
 
@@ -90,14 +90,12 @@ The `task_type` field is the unified routing field for all tasks. It replaces th
 3. Route to extension matching base key, then to skill matching subtype
 4. If bare value, route directly to matching extension or core skill
 
-**Backward Compatibility**: If a legacy task has a `language` field but no `task_type`, treat `language` as `task_type`. This shim will be removed in task 394.
-
 **Format Conversion**:
 
 | state.json | TODO.md |
 |------------|---------|
 | `"meta"` | `- **Task Type**: meta` |
-| `"neovim"` | `- **Task Type**: neovim` |
+| `"general"` | `- **Task Type**: general` |
 | `"present:grant"` | `- **Task Type**: present:grant` |
 
 ### Task Type Values
@@ -166,6 +164,24 @@ artifact_number=$((count + 1))
 | `completion_summary` | string | Yes (when completed) | 1-3 sentence summary of accomplishment |
 | `roadmap_items` | array | No | Explicit ROADMAP.md item texts (non-meta only) |
 | `claudemd_suggestions` | string | Yes (meta only) | .claude/ changes made, or "none" |
+| `memory_candidates` | array | No | Structured memory candidates emitted by agents (see below) |
+
+### Memory Candidates Field
+
+The `memory_candidates` array on task entries accumulates structured memory candidates emitted by agents during research and implementation. Candidates are appended (not overwritten) so research and implementation candidates coexist.
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `content` | string | Yes | Description of reusable knowledge (~300 tokens max) |
+| `category` | string | Yes | One of: `TECHNIQUE`, `PATTERN`, `CONFIG`, `WORKFLOW`, `INSIGHT` |
+| `source_artifact` | string | Yes | Path to the artifact that produced this candidate |
+| `confidence` | number | Yes | Float 0-1 indicating reusability confidence |
+| `suggested_keywords` | array of strings | Yes | Keywords for memory index retrieval |
+
+**Lifecycle**:
+- **Producer**: Skill postflight extracts `memory_candidates` from `.return-meta.json` and appends to the task entry
+- **Consumer**: `/todo` processes candidates during task archival (writes memory files, updates index)
+- **Semantics**: Append-only during task lifecycle; consumed and removed during archival
 
 **Responsibility Split**:
 - **`/implement` (Producer)**: Reports what was changed factually
@@ -247,23 +263,25 @@ The vault system manages task number cycling when `next_project_number` exceeds 
 
 ## Artifact Linking Formats
 
+Links use bracket-only format `[path]` (not markdown `[text](url)` format).
+
 ### Research Completion
 ```markdown
 - **Status**: [RESEARCHED]
-- **Research**: [01_research-findings.md]({NNN}_{SLUG}/reports/01_research-findings.md)
+- **Research**: [{NNN}_{SLUG}/reports/01_research-findings.md]
 ```
 
 ### Plan Completion
 ```markdown
 - **Status**: [PLANNED]
-- **Plan**: [02_implementation-plan.md]({NNN}_{SLUG}/plans/02_implementation-plan.md)
+- **Plan**: [{NNN}_{SLUG}/plans/02_implementation-plan.md]
 ```
 
 ### Implementation Completion
 ```markdown
 - **Status**: [COMPLETED]
 - **Completed**: 2026-01-08
-- **Summary**: [03_execution-summary.md]({NNN}_{SLUG}/summaries/03_execution-summary.md)
+- **Summary**: [{NNN}_{SLUG}/summaries/03_execution-summary.md]
 ```
 
 ### Count-Aware Linking
@@ -272,20 +290,22 @@ The vault system manages task number cycling when `next_project_number` exceeds 
 
 **Single artifact**:
 ```markdown
-- **Research**: [01_research-findings.md]({NNN}_{SLUG}/reports/01_research-findings.md)
+- **Research**: [{NNN}_{SLUG}/reports/01_research-findings.md]
 ```
 
 **Multiple artifacts**:
 ```markdown
 - **Research**:
-  - [01_research-findings.md]({NNN}_{SLUG}/reports/01_research-findings.md)
-  - [02_supplemental.md]({NNN}_{SLUG}/reports/02_supplemental.md)
+  - [{NNN}_{SLUG}/reports/01_research-findings.md]
+  - [{NNN}_{SLUG}/reports/02_supplemental.md]
 ```
 
 **Detection Patterns**:
 - **No existing line**: `- **{Type}**:` not found in task entry
-- **Existing inline**: Line matches `- **{Type}**: \[.*\]\(.*\)` (has link on same line)
+- **Existing inline**: Line matches `- **{Type}**: \[.*\]` (has link on same line)
 - **Existing multi-line**: Line matches `- **{Type}**:$` (ends with colon, no link)
+
+**Implementation Reference**: For the full four-case Edit tool logic used by skills during postflight, see `.claude/context/patterns/artifact-linking-todo.md`.
 
 ## Directory Creation
 

@@ -1,0 +1,15 @@
+{
+  "status": "in_progress",
+  "started_at": "2026-04-13T00:06:30Z",
+  "artifacts": [],
+  "partial_progress": {
+    "stage": "initializing",
+    "details": "Agent started, parsing delegation context"
+  },
+  "metadata": {
+    "session_id": "sess_1776041410_dd3b65",
+    "agent_type": "slides-agent",
+    "delegation_depth": 1,
+    "delegation_path": ["orchestrator", "slides", "skill-slides", "slides-agent"]
+  }
+}

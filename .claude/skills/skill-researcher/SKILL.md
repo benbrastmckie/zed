@@ -55,7 +55,7 @@ if [ -z "$task_data" ]; then
 fi
 
 # Extract fields
-task_type=$(echo "$task_data" | jq -r '.task_type // .language // "general"')
+task_type=$(echo "$task_data" | jq -r '.task_type // "general"')
 status=$(echo "$task_data" | jq -r '.status')
 project_name=$(echo "$task_data" | jq -r '.project_name')
 description=$(echo "$task_data" | jq -r '.description // ""')
@@ -121,6 +121,29 @@ artifact_padded=$(printf "%02d" "$artifact_number")
 
 ---
 
+### Stage 4a: Memory Retrieval (Auto)
+
+Retrieve relevant memories from the memory system to inject into the delegation context.
+
+**Skip if**: `clean_flag` is true in the delegation context (from `--clean` command flag).
+
+```bash
+# Check clean_flag
+if [ "$clean_flag" != "true" ]; then
+  memory_context=$(bash .claude/scripts/memory-retrieve.sh "$description" "$task_type" "$focus_prompt" 2>/dev/null) || memory_context=""
+fi
+
+# memory_context will be empty string if:
+# - clean_flag is true (skipped)
+# - memory-index.json missing or empty
+# - no keywords matched any entries
+# - script exited with error
+```
+
+If `memory_context` is non-empty, it will be injected into the Stage 5 prompt alongside the format specification from Stage 4b. If empty, no memory block is injected.
+
+---
+
 ### Stage 4: Prepare Delegation Context
 
 Prepare delegation context for the subagent:
@@ -139,12 +162,16 @@ Prepare delegation context for the subagent:
   },
   "artifact_number": "{artifact_number from Stage 3a}",
   "focus_prompt": "{optional focus}",
+  "effort_flag": "{effort_flag from command, null if not set}",
+  "model_flag": "{model_flag from command, null if not set}",
   "roadmap_path": "specs/ROADMAP.md",
   "metadata_file_path": "specs/{NNN}_{SLUG}/.return-meta.json"
 }
 ```
 
 **Note**: The `artifact_number` field tells the agent which sequence number to use for artifact naming (e.g., `01`, `02`).
+
+**Model/Effort Flags**: If `model_flag` is set (haiku, sonnet, opus), pass it as the `model` parameter on the Task tool to override the agent's frontmatter default. If `effort_flag` is set (fast, hard), include it as prompt context for reasoning depth guidance.
 
 ---
 
@@ -189,6 +216,14 @@ Non-compliance will be caught by postflight validation.
 
 Place this section AFTER the delegation context JSON and BEFORE any other instructions.
 
+**Memory Context Injection**: If `memory_context` from Stage 4a is non-empty, include it in the prompt as a separate block:
+
+```
+{memory_context from Stage 4a -- already wrapped in <memory-context> tags}
+```
+
+Place the memory context block AFTER the format specification and BEFORE the task-specific instructions. Do NOT inject an empty `<memory-context>` block when no memories were retrieved.
+
 **DO NOT** use `Skill(general-research-agent)` - this will FAIL.
 
 The subagent will:
@@ -201,9 +236,25 @@ The subagent will:
 
 ---
 
+### Stage 5b: Self-Execution Fallback
+
+**CRITICAL**: If you performed the work above WITHOUT using the Task tool (i.e., you read files,
+wrote artifacts, or updated metadata directly instead of spawning a subagent), you MUST write a
+`.return-meta.json` file now before proceeding to postflight. Use the schema from
+`return-metadata-file.md` with status value `"researched"` and the appropriate artifact information.
+
+If you DID use the Task tool (Stage 5), skip this stage -- the subagent already wrote the metadata.
+
+---
+
+## Postflight (ALWAYS EXECUTE)
+
+The following stages MUST execute after work is complete, whether the work was done by a
+subagent (Stage 5) or inline (Stage 5b). Do NOT skip these stages for any reason.
+
 ### Stage 6: Parse Subagent Return (Read Metadata File)
 
-After subagent returns, read the metadata file:
+Read the metadata file:
 
 ```bash
 metadata_file="specs/${padded_num}_${project_name}/.return-meta.json"
@@ -213,6 +264,7 @@ if [ -f "$metadata_file" ] && jq empty "$metadata_file" 2>/dev/null; then
     artifact_path=$(jq -r '.artifacts[0].path // ""' "$metadata_file")
     artifact_type=$(jq -r '.artifacts[0].type // ""' "$metadata_file")
     artifact_summary=$(jq -r '.artifacts[0].summary // ""' "$metadata_file")
+    memory_candidates=$(jq -c '.memory_candidates // []' "$metadata_file")
 else
     echo "Error: Invalid or missing metadata file"
     status="failed"
@@ -260,6 +312,24 @@ jq '(.active_projects[] | select(.project_number == '$task_number')).next_artifa
 
 ---
 
+### Stage 7a: Propagate Memory Candidates
+
+If the agent emitted memory candidates, append them to the task's state.json entry using append semantics (merge with any existing candidates from prior operations).
+
+```bash
+if [ "$memory_candidates" != "[]" ] && [ -n "$memory_candidates" ]; then
+    # Append new candidates to existing array (append semantics, not overwrite)
+    jq --argjson new_candidates "$memory_candidates" \
+      '(.active_projects[] | select(.project_number == '$task_number')).memory_candidates =
+        ((.active_projects[] | select(.project_number == '$task_number')).memory_candidates // []) + $new_candidates' \
+      specs/state.json > specs/tmp/state.json && mv specs/tmp/state.json specs/state.json
+fi
+```
+
+**Note**: Uses `// []` fallback so this works whether or not the task already has candidates. Append semantics ensure research and implementation candidates coexist.
+
+---
+
 ### Stage 8: Link Artifacts
 
 Add artifact to state.json with summary.
@@ -282,30 +352,13 @@ if [ -n "$artifact_path" ]; then
 fi
 ```
 
-**Update TODO.md**: Add research artifact link using count-aware format.
+**Link artifact in TODO.md**: Use the `link-artifact-todo.sh` script (REQUIRED -- do NOT manually edit artifact links in TODO.md):
 
-See `.claude/rules/state-management.md` "Artifact Linking Format" for canonical rules. Use Edit tool:
+```bash
+bash .claude/scripts/link-artifact-todo.sh $task_number '**Research**' '**Plan**' "$artifact_path"
+```
 
-1. **Read existing task entry** to detect current research links
-2. **If no `- **Research**:` line exists**: Insert inline format:
-   ```markdown
-   - **Research**: [MM_{short-slug}.md]({artifact_path})
-   ```
-3. **If existing inline (single link)**: Convert to multi-line:
-   ```markdown
-   old_string: - **Research**: [existing.md](existing/path)
-   new_string: - **Research**:
-     - [existing.md](existing/path)
-     - [MM_{short-slug}.md]({artifact_path})
-   ```
-4. **If existing multi-line**: Append new item before next field:
-   ```markdown
-   old_string:   - [last-item.md](last/path)
-   - **Plan**:
-   new_string:   - [last-item.md](last/path)
-     - [MM_{short-slug}.md]({artifact_path})
-   - **Plan**:
-   ```
+The script produces bracket-only `[path]` format. Never use markdown `[name](path)` format for artifact links. If the script exits non-zero, log a warning but continue (linking errors are non-blocking).
 
 ---
 

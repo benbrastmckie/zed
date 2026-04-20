@@ -51,7 +51,7 @@ Creates a new entry in `specs/TODO.md` and `specs/state.json`, assigns the next 
 /research 1
 /research 1 "focus on accessibility implications"
 /research 1 --team       # parallel multi-agent investigation
-/research 1 --remember   # search the .memory/ vault first
+/research 1 --clean      # skip automatic memory retrieval
 ```
 
 Investigates a task. Routes by the task's `task_type` to the matching research skill and agent (for `general`/`meta`/`markdown`, that is `skill-researcher` -> `general-research-agent`). Produces a report at `reports/MM_{short-slug}.md`. Transitions `[NOT STARTED]` -> `[RESEARCHING]` -> `[RESEARCHED]`.
@@ -102,9 +102,20 @@ runs tasks 5, 7, 8, and 9 in parallel, each with its own agent. Flags apply to a
 
 Passing `--team` to `/research`, `/plan`, or `/implement` spawns multiple parallel teammates (2-4) for diverse investigation or parallel phase execution. Team mode requires `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` in the environment, uses roughly 5× the tokens of single-agent mode, and gracefully degrades to single-agent if the harness does not support it.
 
-### --remember
+### --clean
 
-Only on `/research`. Searches the [`.memory/`](../agent-system/context-and-memory.md) vault for relevant prior knowledge and injects matches into the research context.
+Pass `--clean` to `/research`, `/plan`, or `/implement` to suppress automatic memory retrieval from the `.memory/` vault. Useful when you want a fresh-start investigation without prior context influencing the results.
+
+### Model and effort flags
+
+Two independent flag dimensions override agent behavior at invocation time:
+
+| Dimension | Flags | Effect |
+|-----------|-------|--------|
+| Effort | `--fast`, `--hard` | Controls reasoning depth (lighter or deeper) |
+| Model | `--haiku`, `--sonnet`, `--opus` | Selects the model family |
+
+These flags work on `/research`, `/plan`, and `/implement`. They can be combined (e.g., `/research 5 --fast --haiku`). See the [agent frontmatter standard](../../.claude/docs/reference/standards/agent-frontmatter-standard.md) for how agents declare default models.
 
 ## Revising a plan
 

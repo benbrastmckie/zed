@@ -1,7 +1,7 @@
 ---
 description: Create research talk tasks with pre-task forcing questions for academic presentations
-allowed-tools: Skill, Bash(jq:*), Bash(git:*), Bash(date:*), Bash(sed:*), Read, Edit, AskUserQuestion
-argument-hint: "description" | TASK_NUMBER | /path/to/file.md
+allowed-tools: Skill, Task, Bash(jq:*), Bash(git:*), Bash(date:*), Bash(sed:*), Read, Edit, AskUserQuestion
+argument-hint: "description" | TASK_NUMBER | /path/to/file.md | TASK_NUMBER --critic [/path | prompt] | --critic /path/to/file
 model: opus
 ---
 
@@ -11,14 +11,17 @@ Research presentation creation command with material synthesis and task system i
 
 ## Overview
 
-This command initiates research talk creation through structured material gathering. It asks essential questions BEFORE creating the task, storing gathered data in task metadata. After task creation, the user runs `/research`, `/plan`, and `/implement` to complete the workflow. The command focuses on collecting source materials and presentation context for synthesis into Slidev-based research talks.
+This command initiates research talk creation through structured material gathering. It asks essential questions BEFORE creating the task, storing gathered data in task metadata. After task creation, the user runs `/research`, `/plan`, and `/implement` to complete the workflow. The command focuses on collecting source materials and presentation context for synthesis into research talks. Output format is user-selectable: Slidev (default) or PowerPoint (PPTX).
 
 ## Syntax
 
 - `/slides "Conference talk on survival analysis methods"` - Ask questions, create task with gathered data
 - `/slides 500` - Resume research on existing task
 - `/slides /path/to/manuscript.md` - Use file as primary source material, create task
-- `/slides 500 --design` - Design confirmation after research (themes, ordering, emphasis)
+- `/slides N --critic` - Critique existing task's slide materials
+- `/slides N --critic /path/to/rubric.md` - Critique with custom rubric file
+- `/slides N --critic "Focus on narrative flow"` - Critique with focus prompt
+- `/slides --critic /path/to/slides.md` - Critique a standalone file (no task)
 
 **Note**: This command was previously named `/talk`. For PPTX slide file conversion (not research talk creation), use `/convert --format beamer|polylux|touying` in the `filetypes` extension.
 
@@ -28,8 +31,9 @@ This command initiates research talk creation through structured material gather
 |-------|----------|
 | Description string | Ask forcing questions, create task with forcing_data, stop at [NOT STARTED] |
 | Task number | Load existing task, run research, stop at [RESEARCHED] |
-| Task number `--design` | Read research report, confirm design choices, store as design_decisions |
 | File path | Read file as primary source material, ask questions, create task |
+| `N --critic [path\|prompt]` | Route to skill-slide-critic for interactive critique loop |
+| `--critic /path/to/file` | Read file, create temporary context, route to skill-slide-critic |
 
 ## Modes
 
@@ -48,6 +52,19 @@ This command initiates research talk creation through structured material gather
 **This stage runs BEFORE task creation for new tasks (description or file path input).**
 
 **Skip this stage if**: task number input.
+
+### Step 0.0: Output Format
+
+Use AskUserQuestion to present output format options:
+
+```
+What output format do you want for the presentation?
+
+- SLIDEV (default): Slidev markdown-based slides
+- PPTX: PowerPoint presentation file
+```
+
+Store response as `forcing_data.output_format`. If the user does not specify or is ambiguous, default to `"slidev"`.
 
 ### Step 0.1: Talk Type
 
@@ -101,6 +118,7 @@ Store response as `forcing_data.audience_context`.
 Capture all responses in a forcing_data object:
 ```json
 {
+  "output_format": "{selected_format}",
   "talk_type": "{selected_type}",
   "source_materials": ["{material_1}", "{material_2}"],
   "audience_context": "{audience description}",
@@ -126,12 +144,31 @@ session_id="sess_$(date +%s)_$(od -An -N3 -tx1 /dev/urandom | tr -d ' ')"
 ### Step 2: Detect Input Type
 
 ```bash
-# Check for --design flag with task number
-if echo "$ARGUMENTS" | grep -qE '^[0-9]+.*--design'; then
-  input_type="design"
-  task_number=$(echo "$ARGUMENTS" | grep -oE '^[0-9]+')
+# Check for --critic flag (before other checks, following grant.md flag-first pattern)
+if echo "$ARGUMENTS" | grep -q '\-\-critic'; then
+  # Extract task number before --critic (if present)
+  task_number=$(echo "$ARGUMENTS" | grep -oE '^[0-9]+' || echo "")
 
-# Check for task number (no flags)
+  # Extract critic input after --critic
+  critic_input=$(echo "$ARGUMENTS" | sed 's/.*--critic\s*//')
+
+  if [ -n "$critic_input" ]; then
+    # Detect if it's a file path or prompt text
+    if echo "$critic_input" | grep -qE '^\.|^/|^~|\.md$|\.txt$'; then
+      critic_type="file_path"
+      critic_file="$critic_input"
+    elif echo "$critic_input" | grep -qE '^[0-9]+$'; then
+      critic_type="task_number"
+      critic_task="$critic_input"
+    else
+      critic_type="prompt"
+      critic_prompt="$critic_input"
+    fi
+  fi
+
+  input_type="critic"
+
+# Check for task number
 elif echo "$ARGUMENTS" | grep -qE '^[0-9]+$'; then
   input_type="task_number"
   task_number="$ARGUMENTS"
@@ -150,11 +187,33 @@ fi
 
 ### Step 3: Handle Input Type
 
-**If task number**:
-Load existing task, validate language is "present" and task_type is "slides", then delegate to skill-slides for research.
+**If critic** (`input_type="critic"`):
+Skip Stage 0 forcing questions. Route directly to critique workflow:
 
-**If --design**:
-Load existing task, validate status is "researched" or later, then proceed to STAGE 3: DESIGN CONFIRMATION.
+1. **Validate task** (if `task_number` is set):
+   ```bash
+   task_data=$(jq -r --argjson num "$task_number" \
+     '.active_projects[] | select(.project_number == $num)' \
+     specs/state.json)
+   # Validate task_type is "present:slides"
+   ```
+
+2. **Build delegation context** for skill-slide-critic:
+   - `workflow_type`: `"slides_critique"`
+   - `forcing_data.talk_type`: from task's forcing_data (or default "CONFERENCE")
+   - `forcing_data.materials_to_review`: task's existing reports/plans/slides, or `critic_file`
+   - `forcing_data.focus_categories`: parsed from `critic_prompt` if provided
+   - `forcing_data.audience_context`: from task's forcing_data if available
+
+3. **Delegate** to skill-slide-critic:
+   ```
+   Skill("skill-slide-critic", "task_number={N} session_id={session_id}")
+   ```
+
+4. **Gate Out**: Verify critique completed, report results.
+
+**If task number**:
+Load existing task, validate task_type is "present:slides", then delegate to skill-slides for research.
 
 **If file path**:
 Read the file as primary source material. Run Stage 0 forcing questions (Steps 0.1-0.3) with the file content as context. Then proceed to task creation.
@@ -180,19 +239,40 @@ next_num=$(jq -r '.next_project_number' specs/state.json)
 - Remove special characters
 - Max 50 characters
 
+### Step 2.5: Enrich Description
+
+Construct an enriched description incorporating forcing data:
+
+1. Start with the base description:
+   - If `input_type="description"`: use the user's original text
+   - If `input_type="file_path"`: synthesize from file content (first heading or basename) and audience_context
+
+2. Append talk type, duration, and output format in parentheses.
+
+3. The enriched description replaces `$desc` for both state.json and TODO.md.
+
+**Target format**:
+```
+{base_description} ({talk_type} talk, {duration}, {output_format})
+```
+
+```bash
+# Example enrichment
+enriched_description="${description} (${talk_type} talk, ${duration}, ${output_format})"
+```
+
 ### Step 3: Update state.json
 
 ```bash
 jq --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-  --arg desc "$description" \
+  --arg desc "$enriched_description" \
   --argjson forcing "$forcing_data_json" \
   '.next_project_number = ($next_num + 1) |
    .active_projects = [{
      "project_number": $next_num,
      "project_name": "slug",
      "status": "not_started",
-     "task_type": "present",
-     "task_type": "slides",
+     "task_type": "present:slides",
      "description": $desc,
      "forcing_data": $forcing,
      "created": $ts,
@@ -215,9 +295,20 @@ sed -i 's/^next_project_number: [0-9]*/next_project_number: {NEW_NUMBER}/' \
 ### {N}. {Title}
 - **Effort**: TBD
 - **Status**: [NOT STARTED]
-- **Task Type**: present
+- **Task Type**: present:slides
 
-**Description**: {description}
+**Description**: {enriched_description}
+
+**Sources**:
+- {full_absolute_path_1}
+- {full_absolute_path_2}
+- task:{N} (for task references)
+
+**Forcing Data Gathered**:
+- Output format: {forcing_data.output_format}
+- Talk type: {forcing_data.talk_type}
+- Source materials: {forcing_data.source_materials}
+- Audience context: {forcing_data.audience_context}
 ```
 
 ### Step 5: Git commit
@@ -227,8 +318,6 @@ git add specs/
 git commit -m "task {N}: create {title}
 
 Session: {session_id}
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 ```
 
 ### Step 6: Output
@@ -236,14 +325,21 @@ Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 ```
 Talk task #{N} created: {TITLE}
 Status: [NOT STARTED]
-Language: present
+Task Type: present
 Talk Type: {talk_type}
+Output Format: {output_format}
 Artifacts path: specs/{NNN}_{SLUG}/ (created on first artifact)
+
+Forcing Data Gathered:
+- Output format: {forcing_data.output_format}
+- Talk type: {forcing_data.talk_type}
+- Source materials: {forcing_data.source_materials}
+- Audience context: {forcing_data.audience_context}
 
 Recommended workflow:
 1. /research {N} - Synthesize source materials into slide-mapped report
 2. /plan {N} - Create implementation plan
-3. /implement {N} - Generate Slidev presentation to talks/{N}_{slug}/
+3. /implement {N} - Generate {output_format} presentation to talks/{N}_{slug}/
 ```
 
 ---
@@ -260,8 +356,7 @@ task_data=$(jq -r --argjson num "$task_number" \
   specs/state.json)
 
 # Validate exists
-# Validate language is "present"
-# Validate task_type is "slides"
+# Validate task_type is "present:slides"
 # Validate status allows research (not_started or researched for re-research)
 ```
 
@@ -285,149 +380,19 @@ Talk research completed for Task #{N}
 Status: [RESEARCHED]
 Report: specs/{NNN}_{SLUG}/reports/{MM}_slides-research.md
 
-Next: /slides {N} --design (optional: confirm design choices before planning)
-      /plan {N} (skip design, go directly to planning)
+Next: /plan {N} (create implementation plan with design questions)
 ```
-
----
-
-## STAGE 3: DESIGN CONFIRMATION (--design flag)
-
-**Only reached when input_type is "design".**
-
-This stage runs after research is complete. It reads the research report, presents design choices
-to the user, and stores their decisions in task metadata for the planner to use.
-
-### Step 1: Validate Task
-
-```bash
-task_data=$(jq -r --argjson num "$task_number" \
-  '.active_projects[] | select(.project_number == $num)' \
-  specs/state.json)
-
-# Validate exists, language is "present", task_type is "slides"
-# Validate status is "researched" or "planned"
-status=$(echo "$task_data" | jq -r '.status')
-if [ "$status" != "researched" ] && [ "$status" != "planned" ]; then
-  echo "Error: Task must be researched before design confirmation. Current status: [$status]"
-  echo "Run /slides $task_number first to complete research."
-  exit 1
-fi
-```
-
-### Step 2: Read Research Report
-
-```bash
-padded_num=$(printf "%03d" "$task_number")
-project_name=$(echo "$task_data" | jq -r '.project_name')
-report_path=$(ls specs/${padded_num}_${project_name}/reports/*_slides-research.md 2>/dev/null | tail -1)
-```
-
-Read the research report to extract key messages, suggested structure, and themes.
-
-### Step 3: Design Questions
-
-**D1: Visual Theme**
-
-Use AskUserQuestion:
-
-```
-Based on the research report, which visual theme fits best?
-
-A) Academic Clean - Minimal, high-contrast, serif headings (department seminars)
-B) Clinical Teal - Medical/clinical palette, clean data presentation (clinical audiences)
-C) Conference Bold - Strong colors, large type, designed for projection (conference talks)
-D) Minimal Dark - Dark background, high contrast, code-friendly (technical audiences)
-```
-
-Store response as `design_decisions.theme`.
-
-**D2: Key Message Ordering**
-
-Present the 3 key messages identified in the research report and ask:
-
-```
-The research identified these key messages. Confirm or reorder:
-
-1. {key_message_1}
-2. {key_message_2}
-3. {key_message_3}
-
-Enter the preferred order (e.g., "2, 1, 3") or "confirm" to keep as-is.
-Add any messages to emphasize or de-emphasize.
-```
-
-Store response as `design_decisions.message_order`.
-
-**D3: Section Emphasis**
-
-```
-Which sections should receive extra slides or depth?
-
-Select all that apply:
-- Methods/approach (show technical detail)
-- Results/data (more data slides)
-- Background/motivation (broader context)
-- Clinical implications (translational focus)
-- Future directions (forward-looking)
-
-Which sections to expand?
-```
-
-Store response as `design_decisions.section_emphasis`.
-
-### Step 4: Store Design Decisions
-
-Update task metadata in state.json:
-
-```bash
-jq --arg theme "$theme" \
-   --arg order "$message_order" \
-   --arg emphasis "$section_emphasis" \
-   --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-  '(.active_projects[] | select(.project_number == '$task_number')).design_decisions = {
-    "theme": $theme,
-    "message_order": $order,
-    "section_emphasis": $emphasis,
-    "confirmed_at": $ts
-  }' specs/state.json > specs/tmp/state.json && mv specs/tmp/state.json specs/state.json
-```
-
-### Step 5: Git Commit
-
-```bash
-git add specs/state.json
-git commit -m "task ${task_number}: confirm talk design
-
-Session: ${session_id}"
-```
-
-### Step 6: Output
-
-```
-Talk design confirmed for Task #{N}
-
-Design Decisions:
-- Theme: {theme}
-- Message Order: {message_order}
-- Section Emphasis: {section_emphasis}
-
-Status: [RESEARCHED] (unchanged)
-
-Next: /plan {N} - Create implementation plan (will use design_decisions)
-```
-
----
 
 ## Core Command Integration
 
-Tasks with language="present" and task_type="slides" route through core commands:
+Tasks with task_type="present:slides" route through core commands:
 
 | Command | Routes To | Purpose |
 |---------|-----------|---------|
 | `/research N` | skill-slides | Synthesize materials into slide-mapped report |
-| `/plan N` | skill-planner | Create implementation plan |
-| `/implement N` | skill-slides (assemble) | Generate Slidev presentation |
+| `/plan N` | skill-slides (plan workflow) | Ask design questions, then delegate to planner-agent |
+| `/implement N` | skill-slides (assemble) | Generate presentation (Slidev or PPTX per output_format) |
+| `/slides N --critic` | skill-slide-critic | Interactive critique loop with accept/reject decisions |
 
 ---
 
@@ -454,13 +419,20 @@ Tasks with language="present" and task_type="slides" route through core commands
 ```
 Talk task #{N} created: {TITLE}
 Status: [NOT STARTED]
-Language: present
+Task Type: present
 Talk Type: {talk_type}
+Output Format: {output_format}
+
+Forcing Data Gathered:
+- Output format: {forcing_data.output_format}
+- Talk type: {forcing_data.talk_type}
+- Source materials: {forcing_data.source_materials}
+- Audience context: {forcing_data.audience_context}
 
 Recommended workflow:
 1. /research {N} - Synthesize source materials
 2. /plan {N} - Create implementation plan
-3. /implement {N} - Generate Slidev presentation
+3. /implement {N} - Generate {output_format} presentation
 ```
 
 ### Research Success

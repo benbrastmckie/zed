@@ -1,109 +1,70 @@
-# Zed Configuration Project
+<!-- GENERIC TEMPLATE: This file provides a default project overview for new repositories.
+     To generate a project-specific version, run:
+       /task "Generate project-overview.md for this repository"
+     Then add context/repo/project-overview.md to your .syncprotect file to prevent
+     future syncs from overwriting it. -->
 
-## Project Overview
+# Project Overview
 
-This is a Zed IDE configuration for R and Python development, built on top of a Claude Code agent system that provides structured task management, extension-based domain support, and automated development workflows.
+## Purpose
 
-**Purpose**: Maintain a productive Zed development environment with an integrated AI-assisted task lifecycle for research, planning, and implementation.
+This file describes the repository structure for agent context. When extensions are loaded, they provide project-specific domain knowledge (technology stack, development workflows, verification commands).
 
-## Technology Stack
+## Two-Layer Extension Architecture
 
-**Editor:** Zed
-**Development Languages:** R, Python
-**AI Integration:** Claude Code agent system (`.claude/`)
-**Task Management:** Structured lifecycle via `/task`, `/research`, `/plan`, `/implement`
+This repository uses a two-layer extension system:
 
-## Project Structure
+- **Layer 1 -- Editor loader**: Manages which agent files, skills, rules, and context exist in the agent runtime directory. The extension picker triggers the loader, which copies files from extension sources into the runtime and regenerates the main configuration file.
+- **Layer 2 -- Agent system** (`.claude/` or `.opencode/`): The runtime read by the AI coding assistant. Contains only the files that have been loaded by the editor loader. The assistant does not know about the extension system; it sees a standard directory structure.
+
+See `.claude/docs/architecture/extension-system.md` for the full two-layer architecture documentation.
+
+## Repository Structure
 
 ```
-.                            # Repository root (~/.config/zed/)
-├── settings.json           # Zed editor settings
-├── keymap.json             # Zed keybindings
-├── tasks.json              # Zed task runner definitions
-├── themes/                 # Custom color themes
-├── README.md               # User-facing documentation
-├── docs/                   # Documentation
-│   ├── README.md           # Documentation index
-│   ├── general/            # Installation, keybindings
-│   ├── agent-system/       # Agent system user docs
-│   ├── toolchain/          # Tool guides (Slidev, extensions)
-│   └── workflows/          # Workflow decision guides
-├── examples/               # Example configurations
-├── scripts/                # Utility scripts
-├── specs/                  # Task management artifacts
-│   ├── TODO.md             # Task list
-│   ├── state.json          # Machine-readable task state
-│   └── {NNN}_{SLUG}/       # Per-task directories
-│       ├── reports/        # Research reports
-│       ├── plans/          # Implementation plans
-│       └── summaries/      # Completion summaries
-├── .claude/                # Claude Code agent system
-│   ├── CLAUDE.md           # Session-loaded reference
-│   ├── README.md           # Architecture navigation hub
-│   ├── extensions.json     # Extension registry
-│   ├── commands/           # Slash commands
-│   ├── skills/             # Skill definitions
-│   ├── agents/             # Agent definitions
-│   ├── rules/              # Auto-applied rules
-│   ├── context/            # Domain knowledge and patterns
-│   ├── docs/               # System documentation
-│   ├── hooks/              # Git/lifecycle hooks
-│   ├── scripts/            # Utility scripts
-│   └── templates/          # Artifact templates
-├── .memory/                # Learned project knowledge
-└── .context/               # Project conventions
+specs/                       # Task management
+├── TODO.md                 # Task list
+├── state.json              # Task state
+└── {NNN}_{SLUG}/           # Task artifacts
+    ├── reports/
+    ├── plans/
+    └── summaries/
+
+.claude/                     # Claude Code configuration
+├── CLAUDE.md               # Main reference
+├── commands/               # Slash commands
+├── skills/                 # Skill definitions
+├── agents/                 # Agent definitions
+├── rules/                  # Auto-applied rules
+├── context/                # Domain knowledge
+└── extensions/             # Extension modules
+    └── */                  # Per-extension directories
+        ├── manifest.json   # Extension metadata
+        ├── index-entries.json  # Context index entries
+        └── context/        # Extension-specific context
 ```
 
-## Core Systems
+## Extension-Provided Context
 
-### Zed Configuration
+Extensions supply project-specific knowledge:
+- Technology stack and language details
+- Development workflows and verification commands
+- Coding standards and patterns
+- Tool-specific guides
 
-The Zed editor configuration includes:
-- `settings.json` -- Editor preferences, LSP settings, language-specific configuration
-- `keymap.json` -- Custom keybindings (standard mode, no vim emulation)
-- `tasks.json` -- Task runner definitions for common operations
-- `themes/` -- Custom color themes
+Extensions can declare dependencies on other extensions. Resource-only extensions provide only context files with no agents, skills, or routing.
 
-### Claude Code Agent System
+See `.claude/extensions/*/manifest.json` for available extensions, their capabilities, and dependency declarations.
 
-The `.claude/` directory contains a structured agent system for AI-assisted development:
-- **Commands** parse user input and route to skills
-- **Skills** validate context and invoke agents
-- **Agents** execute work and produce artifacts
-- **Extensions** add domain-specific capabilities (epidemiology, LaTeX, Typst, grants, etc.)
+## AI-Assisted Workflow
 
-Extensions are registered in `.claude/extensions.json` and their context is pre-merged into the agent system.
-
-### Task Lifecycle
-
-Tasks flow through a structured lifecycle:
-```
-[NOT STARTED] -> [RESEARCHING] -> [RESEARCHED]
-    -> [PLANNING] -> [PLANNED]
-    -> [IMPLEMENTING] -> [COMPLETED]
-```
-
-Each phase produces artifacts (reports, plans, summaries) stored in `specs/{NNN}_{SLUG}/`.
-
-## Development Workflow
-
-### Standard Workflow
-
-1. Edit Zed configuration files (settings, keybindings, themes)
-2. Test changes by reloading Zed
-3. Document in `docs/` as needed
-
-### AI-Assisted Workflow
-
-1. `/task "Description"` -- Create tracked work item
-2. `/research N` -- Investigate approaches
-3. `/plan N` -- Create phased implementation plan
-4. `/implement N` -- Execute plan with git commits
-5. `/todo` -- Archive completed tasks
+1. **Research**: `/research` - Gather documentation and patterns
+2. **Planning**: `/plan` - Create implementation plan
+3. **Implementation**: `/implement` - Execute the plan
+4. **Review**: `/review` - Analyze changes
 
 ## Related Documentation
 
-- `README.md` -- User-facing project overview
-- `.claude/CLAUDE.md` -- Agent system quick reference
-- `.claude/README.md` -- Agent system architecture
-- `docs/README.md` -- Documentation index
+- `.claude/CLAUDE.md` - Agent system configuration
+- `.claude/extensions/` - Extension modules with project-specific context
+- `CLAUDE.md` (project root) - Project-specific coding standards

@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
-# install-base.sh - Base macOS developer environment
+# install-base.sh - Base developer environment (macOS)
 #
 # Installs everything in docs/general/installation.md:
-#   - Xcode Command Line Tools (git, make, compilers)
-#   - Homebrew
-#   - Node.js (required by SuperDoc / openpyxl MCP, Slidev)
-#   - Zed (cask)
-#   - Claude Code CLI (cask)
-#   - SuperDoc + openpyxl MCP servers (claude mcp add --scope user)
+#   Xcode Command Line Tools, Homebrew, Node.js, Zed (cask),
+#   Claude Code CLI (cask), SuperDoc + openpyxl MCP servers
 #
-# Flags: --dry-run --yes --check --help
+# Flags: --dry-run --check --help
 #
 # Idempotent: every action is guarded by a presence check.
 
@@ -21,19 +17,21 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 print_help() {
   cat >&2 <<'EOF'
-install-base.sh - Install base macOS developer tools
+install-base.sh - Install base developer tools (macOS)
 
 Installs:
-  - Xcode Command Line Tools (prints GUI handoff prompt if missing)
+  - Xcode Command Line Tools
   - Homebrew
-  - Node.js (brew formula)
-  - Zed (brew cask)
-  - Claude Code CLI (brew cask)
+  - Node.js
+  - Zed editor
+  - Claude Code CLI
   - SuperDoc MCP server (claude mcp add, user scope)
   - openpyxl MCP server (claude mcp add, user scope)
 EOF
   print_common_help_footer
 }
+
+# ----- macOS-specific helpers -----------------------------------------------
 
 check_xcode_clt() {
   xcode-select -p >/dev/null 2>&1 && check_command git
@@ -51,10 +49,8 @@ install_xcode_clt() {
     return 0
   fi
   xcode-select --install 2>/dev/null || true
-  if [ "$ASSUME_YES" = "0" ]; then
-    printf 'Press Enter once the Xcode CLT install dialog has completed... ' >&2
-    if ! read -r _ </dev/tty 2>/dev/null; then read -r _ || true; fi
-  fi
+  printf 'Press Enter once the Xcode CLT install dialog has completed... ' >&2
+  if ! read -r _ </dev/tty 2>/dev/null; then read -r _ || true; fi
   if ! check_xcode_clt; then
     log_error "Xcode CLT still not detected; see docs/general/installation.md"
     return 4
@@ -84,6 +80,16 @@ install_homebrew() {
     log_error "brew not found after install — restart your terminal and re-run"
     return 4
   fi
+}
+
+# ----- install functions ----------------------------------------------------
+
+install_build_tools() {
+  install_xcode_clt
+}
+
+install_pkg_manager() {
+  install_homebrew
 }
 
 install_node() {
@@ -136,12 +142,11 @@ install_mcp_openpyxl() {
 
 run_check_mode() {
   local missing=0
-  check_xcode_clt   && log_ok "xcode-clt"   || { log_warn "[missing] xcode-clt"; missing=1; }
-  check_command brew   && log_ok "brew"     || { log_warn "[missing] brew"; missing=1; }
-  check_command node   && log_ok "node"     || { log_warn "[missing] node"; missing=1; }
-  { check_app_bundle "Zed.app" || check_brew_cask zed; } \
-    && log_ok "zed" || { log_warn "[missing] zed"; missing=1; }
-  check_command claude && log_ok "claude"   || { log_warn "[missing] claude"; missing=1; }
+  check_xcode_clt && log_ok "xcode-clt" || { log_warn "[missing] xcode-clt"; missing=1; }
+  check_command brew && log_ok "brew" || { log_warn "[missing] brew"; missing=1; }
+  check_command node   && log_ok "node"   || { log_warn "[missing] node"; missing=1; }
+  check_command zed    && log_ok "zed"    || { check_app_bundle "Zed.app" && log_ok "zed" || { log_warn "[missing] zed"; missing=1; }; }
+  check_command claude && log_ok "claude" || { log_warn "[missing] claude"; missing=1; }
   claude_mcp_has superdoc && log_ok "mcp:superdoc" || { log_warn "[missing] mcp:superdoc"; missing=1; }
   claude_mcp_has openpyxl && log_ok "mcp:openpyxl" || { log_warn "[missing] mcp:openpyxl"; missing=1; }
   return "$missing"
@@ -150,16 +155,16 @@ run_check_mode() {
 main() {
   parse_common_flags "$@"
   if [ "$SHOW_HELP" = "1" ]; then print_help; exit 0; fi
-  assert_macos
-  print_section "install-base: macOS base developer environment"
+  assert_supported_os
+  print_section "install-base: base developer environment ($DETECTED_OS)"
 
   if [ "$CHECK_MODE" = "1" ]; then
     run_check_mode
     exit $?
   fi
 
-  install_xcode_clt
-  install_homebrew
+  install_build_tools
+  install_pkg_manager
   install_node
   install_zed
   install_claude_cli

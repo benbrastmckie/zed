@@ -1,28 +1,29 @@
 // Zed Keybindings Cheat Sheet
-// Synced with keybindings.md and keymap.json on 2026-04-11
+// Synced with keybindings.md and keymap.json on 2026-04-13
 
 #set page(
-  paper: "a4",
+  paper: "us-letter",
   flipped: true,
   margin: (top: 1.2cm, bottom: 1.4cm, left: 1cm, right: 1cm),
-  columns: 2,
+  columns: 3,
   footer: context {
-    set text(7pt, fill: luma(120))
+    set text(8.5pt, fill: luma(70))
     line(length: 100%, stroke: 0.4pt + luma(180))
-    v(2pt)
+    v(3pt)
     grid(
-      columns: (1fr, 1fr),
-      [#text(weight: "bold")[Legend:]
-        #text(
-          fill: luma(80),
-        )[ #sym.star.filled = custom binding (keymap.json) #h(1em) #sym.arrow.r = sequential press (chord)]],
-      align(right)[Linux notation. On macOS, substitute Cmd for Ctrl. #h(1em) _April 2026_],
+      columns: (1fr, 1fr, 1fr, 1fr),
+      column-gutter: 1.5em,
+      align: horizon,
+      [#sym.star.filled#h(4pt)Custom binding (keymap.json)],
+      [#sym.arrow.r#h(4pt)Sequential press (chord)],
+      [#sym.dagger#h(4pt)Platform-adaptive (Ctrl#sym.space.thin/#sym.space.thin Cmd)],
+      align(right)[Ctrl = fixed on all platforms #h(1em) _April 2026_],
     )
   },
 )
 
-#set text(8.5pt, font: "Liberation Sans")
-#set par(leading: 0.5em, spacing: 0.65em)
+#set text(7.5pt, font: "Liberation Sans")
+#set par(leading: 0.45em, spacing: 0.55em)
 
 // --- Color palette for section headers ---
 #let clr-essentials = rgb("#2563eb")   // blue
@@ -46,7 +47,7 @@
     stroke: 0.5pt + luma(175),
     radius: 2pt,
     inset: (x: 3pt, y: 1.5pt),
-    text(7.5pt, font: "Liberation Mono", weight: "medium", k),
+    text(6.5pt, font: "Liberation Mono", weight: "medium", k),
   )
 }
 
@@ -74,7 +75,7 @@
 /// Render a shortcut row: keys + description + optional custom marker
 #let shortcut(keys, description, custom: false, ctx: none) = {
   grid(
-    columns: (5.2cm, 1fr),
+    columns: (3.6cm, 1fr),
     column-gutter: 4pt,
     align(left, keys),
     {
@@ -99,7 +100,7 @@
     fill: color.lighten(85%),
     stroke: (left: 2.5pt + color),
     inset: (x: 6pt, y: 3pt),
-    text(9pt, weight: "bold", fill: color.darken(15%), title),
+    text(8pt, weight: "bold", fill: color.darken(15%), title),
   )
   v(2pt)
 }
@@ -108,17 +109,20 @@
 // HEADER
 // ====================================================================
 
-#align(center)[
-  #text(16pt, weight: "bold", fill: luma(30))[Zed Keybindings Cheat Sheet]
-  #h(1em)
-  #text(9pt, fill: luma(100))[Organized from essential to specialized]
-]
-#v(2pt)
-#line(length: 100%, stroke: 0.6pt + luma(200))
-#v(4pt)
+#place(
+  top,
+  scope: "parent",
+  float: true,
+  {
+    text(13pt, weight: "bold", fill: luma(30))[Zed Keybindings Cheat Sheet]
+    v(2pt)
+    line(length: 100%, stroke: 0.6pt + luma(200))
+    v(4pt)
+  },
+)
 
 // ====================================================================
-// PAGE 1 -- Everyday Use
+// CONTENT
 // ====================================================================
 
 #section("Essentials", clr-essentials)
@@ -145,7 +149,18 @@
 #shortcut(key-combo("Ctrl", "Tab"), [Next tab])
 #shortcut(key-combo("Ctrl", "Shift", "Tab"), [Previous tab])
 #shortcut(key-combo("Ctrl", "Shift", "T"), [Reopen closed tab])
-#shortcut(key-combo("Ctrl", "Enter"), [Open file under cursor], custom: true)
+#shortcut(key-combo("Ctrl", "H"), [Focus pane left], custom: true)
+#shortcut(key-combo("Ctrl", "L"), [Focus pane right], custom: true)
+#shortcut(key-combo("Ctrl/Cmd", "Enter"), [Open file under cursor #sym.dagger], custom: true)
+
+#section("File Explorer", clr-explorer)
+
+#shortcut(key-combo("h"), [Collapse / go to parent], ctx: "project panel")
+#shortcut(key-combo("j"), [Select next entry], ctx: "project panel")
+#shortcut(key-combo("k"), [Select previous entry], ctx: "project panel")
+#shortcut(key-combo("l"), [Open / expand], ctx: "project panel")
+
+#colbreak()
 
 #section("Editing", clr-editing)
 
@@ -155,10 +170,9 @@
 #shortcut(key-combo("Ctrl", "Shift", "K"), [Delete line])
 #shortcut(key-combo("Alt", "K"), [Move line up], custom: true)
 #shortcut(key-combo("Alt", "J"), [Move line down], custom: true)
-#shortcut(key-combo("Ctrl", "]"), [Indent])
-#shortcut(key-combo("Ctrl", "["), [Outdent])
-
-#colbreak()
+#shortcut(key-combo("Ctrl", ">"), [Indent], custom: true)
+#shortcut(key-combo("Ctrl", "<"), [Outdent], custom: true)
+#shortcut(key-combo("Alt", "R"), [Reload file from disk], custom: true)
 
 #section("Search & Replace", clr-search)
 
@@ -169,20 +183,23 @@
 #section("Panels & Layout", clr-panels)
 
 #shortcut(key-combo("Ctrl", "B"), [Toggle left sidebar])
-#shortcut(key-combo("Ctrl", "Shift", "E"), [File explorer], custom: true)
-#shortcut(key-combo("Ctrl", "?"), [Toggle right dock / agent panel], custom: true)
+#shortcut(key-combo("Ctrl/Cmd", "Shift", "E"), [File explorer #sym.dagger], custom: true)
+#shortcut(key-combo("Ctrl/Cmd", "?"), [Toggle right dock / agent panel #sym.dagger], custom: true)
 #shortcut(key-combo("Ctrl", "`"), [Toggle terminal])
 #shortcut(key-combo("Ctrl", "\\"), [Split pane right])
 #shortcut(key-combo("Ctrl", "Shift", "\\"), [Split pane down])
 #shortcut(key-combo("Ctrl", "H"), [Focus pane left], custom: true)
 #shortcut(key-combo("Ctrl", "L"), [Focus pane right], custom: true)
-#shortcut(key-combo("Ctrl", "Shift", "C"), [Copy file path], custom: true)
+#shortcut(key-combo("Ctrl/Cmd", "Shift", "C"), [Copy file path #sym.dagger], custom: true)
 
-// ====================================================================
-// PAGE 2 -- Specialized
-// ====================================================================
+#section("Preview", clr-markdown)
 
-#pagebreak()
+#shortcut(chord(("Ctrl", "K"), ("V",)), [Markdown side-by-side])
+#shortcut(key-combo("Ctrl", "Shift", "V"), [Markdown full tab])
+#shortcut(key-combo("Alt", "Shift", "E"), [Build PDF (Typst / Slidev)], custom: true)
+#shortcut(key-combo("Alt", "Shift", "P"), [Preview in browser (Typst / Slidev)], custom: true)
+
+#colbreak()
 
 #section("AI & Agent Panel", clr-ai)
 
@@ -193,44 +210,14 @@
 #shortcut(key-combo("Ctrl", "Shift", "R"), [Review agent changes])
 #shortcut(key-combo("Enter"), [Send message], ctx: "agent panel")
 #shortcut(key-combo("Shift", "Alt", "Escape"), [Expand message editor])
-#shortcut(key-combo("Ctrl", ">"), [Add selection to thread])
+#shortcut(key-combo("Ctrl", ">"), [Add selection to thread], ctx: "agent panel")
 #shortcut(key-combo("Ctrl", "Alt", "/"), [Toggle model selector])
 #shortcut(key-combo("Alt", "L"), [Cycle favorite models], ctx: "agent panel")
 #shortcut(key-combo("Ctrl", "Alt", "P"), [Manage profiles])
 #shortcut(key-combo("Shift", "Tab"), [Cycle profiles], ctx: "agent panel")
-#shortcut(key-combo("Ctrl", "Enter"), [Inline assist], ctx: "editor")
-
-#section("Edit Predictions", clr-ai)
-
-#shortcut(key-combo("Tab"), [Accept prediction])
-#shortcut(key-combo("Alt", "L"), [Accept prediction (alt)], ctx: "editor")
-#shortcut(key-combo("Alt", "]"), [Next prediction])
-#shortcut(key-combo("Alt", "["), [Previous prediction])
-
-#colbreak()
-
-#section("Git", clr-git)
-
-#shortcut(key-combo("Ctrl", "Shift", "G"), [Git panel])
-#shortcut(chord(("Alt", "G"), ("B",)), [Git blame])
-
-#section("Markdown", clr-markdown)
-
-#shortcut(chord(("Ctrl", "K"), ("V",)), [Preview side-by-side])
-#shortcut(key-combo("Ctrl", "Shift", "V"), [Preview full tab])
-
-#section("Build / Preview (Typst + Slidev)", clr-slidev)
-
-#shortcut(key-combo("Alt", "Shift", "E"), [Build PDF], custom: true)
-#shortcut(key-combo("Alt", "Shift", "P"), [Preview in browser], custom: true)
-#shortcut([], text(7.5pt, fill: luma(120))[Dispatches by file extension: .typ #sym.arrow.r Typst, .md #sym.arrow.r Slidev])
-
-#section("File Explorer", clr-explorer)
-
-#shortcut(key-combo("h"), [Collapse / go to parent], ctx: "project panel")
-#shortcut(key-combo("j"), [Select next entry], ctx: "project panel")
-#shortcut(key-combo("k"), [Select previous entry], ctx: "project panel")
-#shortcut(key-combo("l"), [Open / expand], ctx: "project panel")
+#shortcut(key-combo("Ctrl/Cmd", ";"), [Inline assist #sym.dagger], ctx: "editor")
+// Note: Ctrl/Cmd+Enter is the Zed default for inline assist but is
+// overridden by the custom "Open file under cursor" binding above.
 
 #section("Optional / Advanced", clr-advanced)
 

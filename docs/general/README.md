@@ -1,6 +1,6 @@
 # General
 
-Core reference documentation for this Zed configuration on macOS, focused on working in **R** and **Python** with **Claude Code**: how to install the editor, set up each language, what keys to press, and what every setting means. Start here if you are setting up the editor for the first time, or come back when you want to look up a shortcut or tweak a configuration value.
+Core reference documentation for this Zed configuration, focused on working in **R** and **Python** with **Claude Code**: how to install the editor, set up each language, what keys to press, and what every setting means. Start here if you are setting up the editor for the first time, or come back when you want to look up a shortcut or tweak a configuration value.
 
 ## Navigation
 

@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
-# install-python.sh - Python toolchain
+# install-python.sh - Python toolchain (macOS)
 #
-# Mirrors docs/toolchain/python.md:
-#   Core:    python (brew), uv (brew), ruff (brew)
-#   Tools:   pytest, mypy, ipython (uv tool install)
-#   Filetypes packages (pip3): pandas openpyxl python-pptx python-docx
-#                              markitdown xlsx2csv pymupdf pdfannots
+# Core:       python3, uv, ruff
+# Tools:      pytest, mypy, ipython (uv tool install)
+# Filetypes:  pandas openpyxl python-pptx python-docx markitdown xlsx2csv
+#             pymupdf pdfannots
 #
-# Flags: --dry-run --yes --check --help
+# Flags: --dry-run --check --help
 # Idempotent: every install guarded by presence check.
 
 set -eu
@@ -18,13 +17,13 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 print_help() {
   cat >&2 <<'EOF'
-install-python.sh - Python toolchain
+install-python.sh - Python toolchain (macOS)
 
 Installs:
-  Core (Homebrew):
-    - python (python3)
-    - uv (package manager; provides uvx)
-    - ruff (linter/formatter)
+  Core:
+    - python3 (Homebrew)
+    - uv (Homebrew)
+    - ruff (Homebrew)
   Optional sub-groups (prompted):
     - uv tools: pytest, mypy, ipython
     - filetypes packages (pip3): pandas openpyxl python-pptx python-docx
@@ -34,16 +33,21 @@ EOF
 }
 
 do_core() {
+  # Python
   if ! check_command python3; then
     brew_install_formula python
   else
     log_ok "python3 already installed: $(python3 --version 2>&1)"
   fi
+
+  # uv
   if ! check_command uv; then
     brew_install_formula uv
   else
     log_ok "uv already installed: $(uv --version 2>&1)"
   fi
+
+  # ruff
   if ! check_command ruff; then
     brew_install_formula ruff
   else
@@ -109,15 +113,15 @@ run_check_mode() {
 main() {
   parse_common_flags "$@"
   if [ "$SHOW_HELP" = "1" ]; then print_help; exit 0; fi
-  assert_macos
-  print_section "install-python: python, uv, ruff + optional tools"
+  assert_supported_os
+  print_section "install-python: python, uv, ruff + optional tools ($DETECTED_OS)"
 
   if [ "$CHECK_MODE" = "1" ]; then
     run_check_mode
     exit $?
   fi
 
-  require_brew
+  require_pkg_manager
 
   do_core
   do_uv_tools

@@ -161,7 +161,23 @@ For phased plans, invoke subagent per-phase with phase context. Commit after eac
 
 ---
 
-### Stage 6: Parse Subagent Return (Read Metadata File)
+### Stage 5b: Self-Execution Fallback
+
+**CRITICAL**: If you performed the work above WITHOUT using the Task tool (i.e., you read files,
+wrote artifacts, or updated metadata directly instead of spawning a subagent), you MUST write a
+`.return-meta.json` file now before proceeding to postflight. Use the schema from
+`return-metadata-file.md` with the appropriate status value for this operation.
+
+If you DID use the Task tool, skip this stage -- the subagent already wrote the metadata.
+
+---
+
+## Postflight (ALWAYS EXECUTE)
+
+The following stages MUST execute after work is complete, whether the work was done by a
+subagent or inline (Stage 5b). Do NOT skip these stages for any reason.
+
+### Stage 6: Read Metadata File
 
 ```bash
 metadata_file="specs/${padded_num}_${project_name}/.return-meta.json"
@@ -196,6 +212,8 @@ Only this skill performs postflight status transitions.
 
 Add artifact to state.json with summary. Use the two-step jq pattern to avoid Issue #1132.
 Artifact type: "summary" (implementation summary with R script paths).
+
+**Update TODO.md**: Link artifact using count-aware format. Apply the four-case Edit logic from `@.claude/context/patterns/artifact-linking-todo.md` with `field_name=**Summary**`, `next_field=**Description**`.
 
 ---
 
@@ -254,6 +272,30 @@ Keep status at preflight level for resume.
 
 ### Git commit failure
 Non-blocking. Log failure but continue.
+
+---
+
+## MUST NOT (Postflight Boundary)
+
+After the agent returns -- whether with status implemented, partial, or failed -- this skill MUST proceed immediately to postflight (Stage 6). The skill MUST NOT:
+
+1. **Edit R/Python files** - All analysis work is done by agent
+2. **Run R scripts** - Execution is done by agent
+3. **Use MCP tools** - Domain tools are for agent use only
+4. **Analyze or grep source** - Analysis is agent work
+5. **Write summary/reports** - Artifact creation is done by agent
+
+> **PROHIBITION**: If the subagent returned partial or failed status, the lead skill MUST NOT attempt to continue, complete, or "fill in" the subagent's work. Report the partial/failed status and let the user re-run `/implement` to resume.
+
+The postflight phase is LIMITED TO:
+- Reading agent metadata file
+- Updating state.json via jq
+- Updating TODO.md status marker via Edit
+- Linking artifacts in state.json
+- Git commit
+- Cleanup of temp/marker files
+
+Reference: @.claude/context/standards/postflight-tool-restrictions.md
 
 ---
 

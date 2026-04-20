@@ -2,31 +2,34 @@
 
 A Zed editor configuration for macOS that pairs first-class **R** and **Python** language support with a **Claude Code agent system** -- a structured task lifecycle that turns research, planning, and implementation into tracked, resumable workflows. Domain extensions for epidemiology, grant development, document conversion, and memory capture layer on top of the core system.
 
-**Platform**: macOS 11 (Big Sur) or newer.
+**Platform**: macOS 11+.
 
 ## Quick Start
 
-On a fresh Mac, the fastest path is the installation wizard:
+On a fresh system, the fastest path is the installation wizard (copy the following lines into the Terminal which you can open with Spotlight and then hit `Enter`):
 
 ```
-git clone <repo-url> ~/.config/zed
+git clone https://github.com/benbrastmckie/zed ~/.config/zed
 cd ~/.config/zed
 bash scripts/install/install.sh
 ```
 
-The wizard walks through six groups (base tools, shell utilities, Python, R, typesetting, MCP servers) with accept/skip/cancel prompts. Non-interactive shortcuts: `bash scripts/install/install.sh --dry-run` (preview), `--check` (health report), `--preset epi-demo`, `--preset writing`, `--preset everything`, or `--only base,python --yes`. See [docs/general/installation.md](docs/general/installation.md#installation-wizard-recommended) for the full walkthrough and [docs/toolchain/README.md](docs/toolchain/README.md) for per-group detail.
+The wizard walks through six groups (base tools, shell utilities, Python, R, typesetting, MCP servers) with accept/skip/cancel prompts.
+Add `--dry-run` following `bash scripts/install/install.sh` to preview every action without installing, or add `--check` to print a health report of which tools are present or missing.
 
-**Prefer to install by hand?**
+### Manual Installation
 
-1. Install [Homebrew](https://brew.sh), then `brew install --cask zed`
-2. Open Zed from Applications or Spotlight (Cmd+Space, type "Zed")
+Prefer to install everything by hand?
+
+1. Install Zed: `brew install --cask zed`
+2. Open Zed from Applications or Spotlight
 3. Extensions install automatically on first launch (including `python`, `ruff`, `r`)
 4. Set up your languages: [Python](docs/toolchain/python.md) and [R](docs/toolchain/r.md)
 5. Theme is One Dark; font is Fira Code
 
-For the full installation walkthrough, including MCP tool setup for Office file editing, see [docs/general/installation.md](docs/general/installation.md).
+See [docs/general/installation.md](docs/general/installation.md#installation-wizard-recommended) for the full walkthrough and [docs/toolchain/README.md](docs/toolchain/README.md) for per-group detail.
 
-**Essential shortcuts to know right away**:
+### Essential Shortcuts
 
 | Shortcut | What it does |
 |----------|-------------|
@@ -37,11 +40,14 @@ For the full installation walkthrough, including MCP tool setup for Office file 
 | Cmd+` | Toggle terminal |
 | Cmd+Shift+P | Command palette (search for any command) |
 
-For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/keybindings.md).
+For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/keybindings.md) | ([pdf](https://github.com/benbrastmckie/zed/blob/master/docs/general/keybindings-cheat-sheet.pdf)).
 
 ## How It Works
 
-The agent system turns development work into tracked tasks with a predictable lifecycle. You create a task with `/task`, investigate it with `/research` (which produces a report), design a solution with `/plan` (which produces a phased plan), and execute it with `/implement` (which works through each phase, committing as it goes). When you are done, `/todo` archives completed tasks. If something goes wrong, `/implement` resumes from the last incomplete phase.
+The agent system provides an intuitive task management system with a predictable lifecycle.
+You create a task with `/task` (which generates a task with a unique number `N`), investigate it with `/research N` (which produces a report), design a solution with `/plan N` (which produces a phased plan), and execute it with `/implement N` (which works through each phase, committing as it goes).
+When completed tasks pile up, `/todo` archives completed tasks.
+If something goes wrong, running `/implement N` resumes from the last incomplete phase of task `N`.
 
 ### Walkthrough: Adding a New Language Server
 
@@ -62,7 +68,18 @@ The agent system turns development work into tracked tasks with a predictable li
 /todo
 ```
 
-Each step produces artifacts in `specs/034_add_toml_language_server/` -- reports, plans, and summaries -- so you can always see what was investigated, decided, and built.
+Each step produces artifacts in `specs/034_add_toml_language_server/` organized into directories for `reports/`, `plans/`, and `summaries/` so you can always see what was investigated, decided, and built.
+You can run multiple rounds of research and planning as needed.
+
+The `/research`, `/plan`, and `/implement` commands take optional prompts in case you want to specify additional details, though this is often unnecessary.
+For instance:
+
+```
+# Create a phased plan with focus
+/plan 34 "Use Option A given in the last report."
+```
+
+This instructs the agent what kind of plan you want to create.
 
 ## Example Outputs
 
@@ -126,7 +143,7 @@ Specialized commands that add domain-specific capabilities on top of the core li
 | `/budget` | Generate grant budgets with justification |
 | `/funds` | Analyze funding landscape and funder portfolios |
 | `/timeline` | Plan research project timelines |
-| `/slides` | Create research talks and presentations |
+| `/slides` | Create research talks and presentations (`/plan` triggers interactive slide design; `--critic` for rubric-based critique) |
 
 **Document Tools** -- Convert, edit, and extract from Office and PDF files:
 
@@ -142,6 +159,7 @@ Specialized commands that add domain-specific capabilities on top of the core li
 | Command | What it does |
 |---------|-------------|
 | `/learn` | Save knowledge to the memory vault for future sessions |
+| `/distill` | Maintain memory vault health (scoring, purging, merging, compressing) |
 
 ### Housekeeping
 
@@ -191,9 +209,9 @@ For the complete decision guide, see [docs/workflows/README.md](docs/workflows/R
 
 | Document | Description |
 |----------|-------------|
-| [General](docs/general/README.md) | Installation, keybindings, settings, and R/Python setup for this Zed configuration on macOS |
-| [Python Setup](docs/toolchain/python.md) | Python + uv + ruff + pyright configuration for Zed on macOS |
-| [R Setup](docs/toolchain/r.md) | R + languageserver + lintr + styler configuration for Zed on macOS |
+| [General](docs/general/README.md) | Installation, keybindings, settings, and R/Python setup for this Zed configuration |
+| [Python Setup](docs/toolchain/python.md) | Python + uv + ruff + pyright configuration for Zed |
+| [R Setup](docs/toolchain/r.md) | R + languageserver + lintr + styler configuration for Zed |
 | [Agent System](docs/agent-system/README.md) | Zed agent + Claude Code overview, workflows, command catalog, memory, and architecture |
 | [Workflows](docs/workflows/README.md) | Agent task lifecycle for R/Python development, plus epidemiology, grant, and Office file workflows |
 | [Agent System Config](.claude/README.md) | Claude Code framework architecture, skills, agents, and extension system |
@@ -222,14 +240,13 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 
 ## AI Integration
 
-**Claude Code** (Ctrl+Shift+A): The primary AI interface. Provides a structured task lifecycle (`/task`, `/research`, `/plan`, `/implement`) for tracked, resumable development work. Domain extensions add specialized capabilities for epidemiology (`/epi`), grant and research development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), document tools (`/edit`, `/convert`, `/table`, `/scrape`), and persistent memory (`/learn`).
+**Claude Code** (Ctrl+Shift+A): The primary AI interface. Provides a structured task lifecycle (`/task`, `/research`, `/plan`, `/implement`) for tracked, resumable development work. Domain extensions add specialized capabilities for epidemiology (`/epi`), grant and research development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), document tools (`/edit`, `/convert`, `/table`, `/scrape`), and persistent memory (`/learn`, `/distill`).
 
 **Zed Agent Panel** (Ctrl+?): Built-in AI sidebar for quick questions and inline edits. See [docs/agent-system/zed-agent-panel.md](docs/agent-system/zed-agent-panel.md).
 
 ## Platform Notes
 
-- **macOS**: Install via Homebrew (`brew install --cask zed`). Open from Applications or Spotlight.
-- **macOS keybindings**: All shortcuts use Cmd (shown as in menus). The Option key corresponds to Alt in custom bindings.
+- **macOS**: Install Zed via Homebrew (`brew install --cask zed`). Open from Applications or Spotlight. All shortcuts use Cmd; the Option key corresponds to Alt in custom bindings.
 - **Config location**: `~/.config/zed/` -- standard for Zed on macOS.
 - **Extensions**: Auto-installed on launch via `auto_install_extensions` in settings.json (`python`, `ruff`, `r`, and more).
 - **Language tooling**: Install Python and R via Homebrew; see [docs/toolchain/python.md](docs/toolchain/python.md) and [docs/toolchain/r.md](docs/toolchain/r.md).

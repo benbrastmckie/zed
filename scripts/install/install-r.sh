@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
-# install-r.sh - R toolchain
+# install-r.sh - R toolchain (macOS)
 #
-# Mirrors docs/toolchain/r.md:
-#   Core:       R (brew), languageserver, lintr, styler (install.packages)
-#   renv:       install.packages("renv")
-#   Quarto:     brew install --cask quarto
-#   Epi bundle: broader list of R packages for the epidemiology extension
+# Core:       R, languageserver, lintr, styler
+# renv:       install.packages("renv")
+# Quarto:     brew cask
+# Epi bundle: broader list of R packages for the epidemiology extension
 #
 # All install.packages() calls force the cloud CRAN mirror to skip interactive
 # mirror-selection prompts.
 #
-# Flags: --dry-run --yes --check --help
+# Flags: --dry-run --check --help
 # Idempotent: every install guarded by presence check.
 
 set -eu
@@ -23,19 +22,16 @@ CRAN_REPO="https://cloud.r-project.org"
 
 print_help() {
   cat >&2 <<'EOF'
-install-r.sh - R toolchain
+install-r.sh - R toolchain (macOS)
 
 Installs:
   Core:
-    - R (brew install r)
+    - R (Homebrew)
     - languageserver, lintr, styler (install.packages via Rscript)
   Optional sub-groups (prompted):
     - renv    (project-local package manager)
-    - Quarto  (brew install --cask quarto)
+    - Quarto  (brew cask)
     - Epi bundle (broader R packages for the epidemiology extension)
-
-All install.packages() calls pin repos=https://cloud.r-project.org to skip
-the CRAN mirror prompt.
 EOF
   print_common_help_footer
 }
@@ -47,7 +43,11 @@ r_install_pkg() {
     log_ok "R package already installed: $pkg"
     return 0
   fi
-  run_or_dry Rscript -e "install.packages('$pkg', repos='$CRAN_REPO')"
+  if [ "$DRY_RUN" = "1" ]; then
+    log_dry "Rscript -e \"install.packages('$pkg', repos='$CRAN_REPO')\""
+    return 0
+  fi
+  Rscript -e "install.packages('$pkg', repos='$CRAN_REPO')"
 }
 
 cleanup_r_locks() {
@@ -68,6 +68,7 @@ cleanup_r_locks() {
 }
 
 do_core() {
+  # Install R
   if ! check_command R; then
     brew_install_formula r
   else
@@ -77,6 +78,7 @@ do_core() {
     log_warn "Rscript missing after R install; aborting R package installs"
     return 0
   fi
+
   cleanup_r_locks
   r_install_pkg languageserver
   r_install_pkg lintr
@@ -97,7 +99,7 @@ do_quarto() {
     log_ok "quarto already installed: $(quarto --version 2>&1)"
     return 0
   fi
-  if ! prompt_yn "Install Quarto (brew --cask quarto)?"; then
+  if ! prompt_yn "Install Quarto?"; then
     log_info "skipping Quarto"
     return 0
   fi
@@ -116,13 +118,23 @@ EPI_PKGS="survival survminer broom broom.mixed emmeans sandwich lmtest
 
 do_epi_bundle() {
   if ! check_command Rscript; then return 0; fi
-  if ! prompt_yn "Install epidemiology R package bundle (~30 packages, slow)?" default_n; then
+
+  if ! prompt_yn "Install epidemiology R package bundle (~30 packages, may be slow)?" default_n; then
     log_info "skipping epi bundle"
     return 0
   fi
+
+  # Count packages for progress logging.
+  local total=0 count=0
   local pkg
   for pkg in $EPI_PKGS; do
-    r_install_pkg "$pkg"
+    total=$((total + 1))
+  done
+
+  for pkg in $EPI_PKGS; do
+    count=$((count + 1))
+    log_info "Installing $count/$total: $pkg"
+    r_install_pkg "$pkg" || log_warn "failed to install $pkg; continuing with remaining packages"
   done
 }
 
@@ -142,15 +154,15 @@ run_check_mode() {
 main() {
   parse_common_flags "$@"
   if [ "$SHOW_HELP" = "1" ]; then print_help; exit 0; fi
-  assert_macos
-  print_section "install-r: R + languageserver/lintr/styler + optional extras"
+  assert_supported_os
+  print_section "install-r: R + languageserver/lintr/styler + optional extras ($DETECTED_OS)"
 
   if [ "$CHECK_MODE" = "1" ]; then
     run_check_mode
     exit $?
   fi
 
-  require_brew
+  require_pkg_manager
 
   do_core
   do_renv

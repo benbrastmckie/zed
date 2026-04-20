@@ -6,7 +6,7 @@ allowed-tools: Task, Bash, Edit, Read, Write
 # Context loaded by lead during synthesis:
 #   - .claude/context/patterns/team-orchestration.md
 #   - .claude/context/formats/team-metadata-extension.md
-#   - .claude/utils/team-wave-helpers.md
+#   - .claude/context/reference/team-wave-helpers.md
 ---
 
 # Team Plan Skill
@@ -21,7 +21,7 @@ Reference (load as needed during synthesis):
 - Path: `.claude/context/patterns/team-orchestration.md` - Wave coordination patterns
 - Path: `.claude/context/formats/team-metadata-extension.md` - Team result schema
 - Path: `.claude/context/formats/return-metadata-file.md` - Base metadata schema
-- Path: `.claude/utils/team-wave-helpers.md` - Reusable wave patterns
+- Path: `.claude/context/reference/team-wave-helpers.md` - Reusable wave patterns
 
 ## Trigger Conditions
 
@@ -38,6 +38,15 @@ This skill activates when:
 | `research_path` | string | No | Path to research report |
 | `team_size` | integer | No | Number of teammates (2-3, default 2) |
 | `session_id` | string | Yes | Session ID for tracking |
+| `model_flag` | string | No | Model override (haiku, sonnet, opus). If set, use instead of default |
+| `effort_flag` | string | No | Effort level (fast, hard). Passed as prompt context |
+
+**Model Selection**: Determine teammate model early:
+```bash
+# Use model_flag if provided, otherwise default to sonnet (cost-effective for team mode)
+teammate_model="${model_flag:-sonnet}"
+model_preference_line="Model preference: Use Claude ${teammate_model^} 4.6 for this task."
+```
 
 ---
 
@@ -60,7 +69,7 @@ if [ -z "$task_data" ]; then
 fi
 
 # Extract fields
-task_type=$(echo "$task_data" | jq -r '.task_type // .language // "general"')
+task_type=$(echo "$task_data" | jq -r '.task_type // "general"')
 status=$(echo "$task_data" | jq -r '.status')
 project_name=$(echo "$task_data" | jq -r '.project_name')
 description=$(echo "$task_data" | jq -r '.description // ""')
@@ -459,30 +468,13 @@ jq --arg path "specs/${padded_num}_${project_name}/plans/${run_padded}_implement
   specs/state.json > specs/tmp/state.json && mv specs/tmp/state.json specs/state.json
 ```
 
-**Update TODO.md**: Add plan artifact link using count-aware format.
+**Update TODO.md**: Link artifact using the automated script:
 
-See `.claude/rules/state-management.md` "Artifact Linking Format" for canonical rules. Use Edit tool:
+```bash
+bash .claude/scripts/link-artifact-todo.sh $task_number '**Plan**' '**Description**' "$artifact_path"
+```
 
-1. **Read existing task entry** to detect current plan links
-2. **If no `- **Plan**:` line exists**: Insert inline format:
-   ```markdown
-   - **Plan**: [{NN}_implementation-plan.md]({artifact_path})
-   ```
-3. **If existing inline (single link)**: Convert to multi-line:
-   ```markdown
-   old_string: - **Plan**: [existing.md](existing/path)
-   new_string: - **Plan**:
-     - [existing.md](existing/path)
-     - [{NN}_implementation-plan.md]({artifact_path})
-   ```
-4. **If existing multi-line**: Append new item before next field:
-   ```markdown
-   old_string:   - [last-item.md](last/path)
-   **Description**:
-   new_string:   - [last-item.md](last/path)
-     - [{NN}_implementation-plan.md]({artifact_path})
-   **Description**:
-   ```
+If the script exits non-zero, log a warning but continue (linking errors are non-blocking).
 
 ---
 
@@ -535,8 +527,6 @@ git add \
 git commit -m "task ${task_number}: complete team planning (${team_size} teammates)
 
 Session: ${session_id}
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 ```
 
 ---

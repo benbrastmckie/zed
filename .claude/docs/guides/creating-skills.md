@@ -1,6 +1,6 @@
 # Creating Skills Guide
 
-This guide explains how to create new skills in the Neovim Configuration agent system using the thin wrapper pattern.
+This guide explains how to create new skills in the agent system using the thin wrapper pattern.
 
 ---
 
@@ -367,7 +367,7 @@ Prepare delegation context:
     "task_number": 450,
     "task_name": "add_async_runtime",
     "description": "Add async runtime support to API client",
-    "language": "rust"
+    "task_type": "rust"
   },
   "focus_prompt": "tokio best practices"
 }
@@ -376,7 +376,7 @@ Prepare delegation context:
 ### 3. Invoke Subagent
 
 Invoke `rust-research-agent` via Task tool with:
-- Task context (number, name, description, language)
+- Task context (number, name, description, task_type)
 - Delegation context (session_id, depth, path)
 - Focus prompt (if provided)
 
@@ -534,4 +534,4 @@ allowed-tools: Task
 
 **Document Version**: 1.0
 **Created**: 2026-01-12
-**Maintained By**: Neovim Configuration Development Team
+**Maintained By**: Development Team

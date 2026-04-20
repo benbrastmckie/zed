@@ -6,31 +6,30 @@
 bash scripts/install/install-typesetting.sh              # interactive
 bash scripts/install/install-typesetting.sh --dry-run    # preview only
 bash scripts/install/install-typesetting.sh --check      # presence report
-bash scripts/install/install-typesetting.sh --yes        # non-interactive
 ```
 
 Prompts for LaTeX (BasicTeX by default, MacTeX on opt-in), Typst, Pandoc, `markitdown` (via `uv tool install`), and the Latin Modern / Computer Modern / Noto font family. `.claude/settings.json`'s `Bash(typst *)` allowlist is a separate concern and is **not** managed by this script. Every action is guarded by a presence check and is safe to re-run. See [`scripts/install/install-typesetting.sh`](../../scripts/install/install-typesetting.sh) for the exact invocations. The manual walkthrough below is the source of truth for what the script automates.
 
 ## Manual installation (advanced)
 
-This guide installs the typesetting tools used by the `latex`, `typst`, `filetypes`, and `present` extensions on macOS. These tools are grouped here because they are usually installed together for document output: LaTeX and Typst as the two PDF-producing engines, Pandoc as the universal format bridge, markitdown for "anything to Markdown" extraction, and a minimal set of fonts that LaTeX and Typst expect to find on disk.
+This guide installs the typesetting tools used by the `latex`, `typst`, `filetypes`, and `present` extensions. These tools are grouped here because they are usually installed together for document output: LaTeX and Typst as the two PDF-producing engines, Pandoc as the universal format bridge, markitdown for "anything to Markdown" extraction, and a minimal set of fonts that LaTeX and Typst expect to find on disk.
 
 If you are only using one of these (e.g. just Typst), you can install just that tool — the sections are independent.
 
 ## Before you begin
 
-Homebrew is required for every install command below. If you do not have it, follow [docs/general/installation.md](../general/installation.md) first.
+Homebrew is required. If you do not have it set up, follow [docs/general/installation.md](../general/installation.md) first.
 
 Some tools (notably `markitdown`) are installed with `uv tool install`, which requires `uv`. See [python.md](python.md#install-uv) for the install.
 
 ## LaTeX (MacTeX or BasicTeX)
 
-The `latex` extension, VimTeX-equivalent workflows, and Beamer slide output all assume a working LaTeX distribution with `pdflatex`, `latexmk`, `bibtex`, and `biber`.
+The `latex` extension, LaTeX compilation workflows, and Beamer slide output all assume a working LaTeX distribution with `pdflatex`, `latexmk`, `bibtex`, and `biber`.
 
-macOS has two Homebrew-friendly LaTeX distributions:
+**macOS** has two Homebrew-friendly LaTeX distributions:
 
-- **BasicTeX** — small (~100 MB), minimal, install extra packages later via `tlmgr`. Recommended unless you know you need the full MacTeX.
-- **MacTeX** — full (~5 GB), installs everything. Use if you are processing third-party LaTeX documents with unknown package requirements.
+- **BasicTeX** -- small (~100 MB), minimal, install extra packages later via `tlmgr`. Recommended unless you know you need the full MacTeX.
+- **MacTeX** -- full (~5 GB), installs everything. Use if you are processing third-party LaTeX documents with unknown package requirements.
 
 ### Check
 
@@ -43,7 +42,7 @@ If both print version numbers, skip to [Typst](#typst).
 
 ### Install
 
-BasicTeX (recommended):
+**macOS -- BasicTeX** (recommended):
 
 ```
 brew install --cask basictex
@@ -57,14 +56,14 @@ eval "$(/usr/libexec/path_helper)"
 
 Open a new terminal to pick up the change persistently.
 
-Then install the extra packages that Beamer / VimTeX workflows expect:
+Then install the extra packages that Beamer / LaTeX workflows expect:
 
 ```
 sudo tlmgr update --self
 sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra biber
 ```
 
-Full MacTeX (alternative):
+**macOS -- Full MacTeX** (alternative):
 
 ```
 brew install --cask mactex
@@ -199,7 +198,7 @@ fc-list | grep -i "noto"
 
 ### Install
 
-Homebrew provides these fonts via the `homebrew/cask-fonts` tap (now core in newer Homebrew):
+**macOS** -- Homebrew provides these fonts via casks (now in core, no separate tap needed):
 
 ```
 brew install --cask font-latin-modern font-latin-modern-math

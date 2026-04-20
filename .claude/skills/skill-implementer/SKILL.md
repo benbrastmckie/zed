@@ -51,7 +51,7 @@ if [ -z "$task_data" ]; then
 fi
 
 # Extract fields
-task_type=$(echo "$task_data" | jq -r '.task_type // .language // "general"')
+task_type=$(echo "$task_data" | jq -r '.task_type // "general"')
 status=$(echo "$task_data" | jq -r '.status')
 project_name=$(echo "$task_data" | jq -r '.project_name')
 description=$(echo "$task_data" | jq -r '.description // ""')
@@ -134,6 +134,29 @@ artifact_padded=$(printf "%02d" "$artifact_number")
 
 ---
 
+### Stage 4a: Memory Retrieval (Auto)
+
+Retrieve relevant memories from the memory system to inject into the delegation context.
+
+**Skip if**: `clean_flag` is true in the delegation context (from `--clean` command flag).
+
+```bash
+# Check clean_flag
+if [ "$clean_flag" != "true" ]; then
+  memory_context=$(bash .claude/scripts/memory-retrieve.sh "$description" "$task_type" "" 2>/dev/null) || memory_context=""
+fi
+
+# memory_context will be empty string if:
+# - clean_flag is true (skipped)
+# - memory-index.json missing or empty
+# - no keywords matched any entries
+# - script exited with error
+```
+
+If `memory_context` is non-empty, it will be injected into the Stage 5 prompt alongside the format specification from Stage 4b. If empty, no memory block is injected.
+
+---
+
 ### Stage 4: Prepare Delegation Context
 
 Prepare delegation context for the subagent:
@@ -151,12 +174,18 @@ Prepare delegation context for the subagent:
     "task_type": "{task_type}"
   },
   "artifact_number": "{artifact_number from Stage 3a}",
+  "effort_flag": "{effort_flag from command, null if not set}",
+  "model_flag": "{model_flag from command, null if not set}",
   "plan_path": "specs/{NNN}_{SLUG}/plans/MM_{short-slug}.md",
   "metadata_file_path": "specs/{NNN}_{SLUG}/.return-meta.json"
 }
 ```
 
 **Note**: The `artifact_number` field tells the agent which sequence number to use for artifact naming (e.g., `01`, `02`). Summary uses the same round number as the research and plan that preceded it.
+
+**Model/Effort Flags**: If `model_flag` is set (haiku, sonnet, opus), pass it as the `model` parameter on the Task tool to override the agent's frontmatter default. If `effort_flag` is set (fast, hard), include it as prompt context for reasoning depth guidance.
+
+> **CRITICAL: No Source Reading Before Delegation** -- Between preparing the delegation context (Stage 4) and spawning the sub-agent (Stage 5), the lead skill MUST NOT read, grep, glob, or analyze source files. The plan file and state.json are the only files the lead reads. All codebase exploration (reading source files, grepping for patterns, using MCP tools) is the exclusive responsibility of the sub-agent after it is spawned.
 
 ---
 
@@ -201,6 +230,14 @@ Non-compliance will be caught by postflight validation.
 
 Place this section AFTER the delegation context JSON and BEFORE any other instructions.
 
+**Memory Context Injection**: If `memory_context` from Stage 4a is non-empty, include it in the prompt as a separate block:
+
+```
+{memory_context from Stage 4a -- already wrapped in <memory-context> tags}
+```
+
+Place the memory context block AFTER the format specification and BEFORE the task-specific instructions. Do NOT inject an empty `<memory-context>` block when no memories were retrieved.
+
 **DO NOT** use `Skill(general-implementation-agent)` - this will FAIL.
 
 The subagent will:
@@ -220,9 +257,25 @@ If the subagent's text return parses as valid JSON, log a warning (v1 pattern in
 
 ---
 
+### Stage 5b: Self-Execution Fallback
+
+**CRITICAL**: If you performed the work above WITHOUT using the Task tool (i.e., you read files,
+wrote artifacts, or updated metadata directly instead of spawning a subagent), you MUST write a
+`.return-meta.json` file now before proceeding to postflight. Use the schema from
+`return-metadata-file.md` with status value `"implemented"` and the appropriate artifact information.
+
+If you DID use the Task tool (Stage 5), skip this stage -- the subagent already wrote the metadata.
+
+---
+
+## Postflight (ALWAYS EXECUTE)
+
+The following stages MUST execute after work is complete, whether the work was done by a
+subagent (Stage 5) or inline (Stage 5b). Do NOT skip these stages for any reason.
+
 ### Stage 6: Parse Subagent Return (Read Metadata File)
 
-After subagent returns, read the metadata file:
+Read the metadata file:
 
 ```bash
 metadata_file="specs/${padded_num}_${project_name}/.return-meta.json"
@@ -239,6 +292,7 @@ if [ -f "$metadata_file" ] && jq empty "$metadata_file" 2>/dev/null; then
     completion_summary=$(jq -r '.completion_data.completion_summary // ""' "$metadata_file")
     claudemd_suggestions=$(jq -r '.completion_data.claudemd_suggestions // ""' "$metadata_file")
     roadmap_items=$(jq -c '.completion_data.roadmap_items // []' "$metadata_file")
+    memory_candidates=$(jq -c '.memory_candidates // []' "$metadata_file")
 else
     echo "Error: Invalid or missing metadata file"
     status="failed"
@@ -301,7 +355,20 @@ if [ "$task_type" != "meta" ] && [ "$roadmap_items" != "[]" ] && [ -n "$roadmap_
 fi
 ```
 
-**Step 4**: Remove from Recommended Order section (non-blocking, not covered by centralized script):
+**Step 4**: Propagate memory candidates (if any) with append semantics:
+```bash
+if [ "$memory_candidates" != "[]" ] && [ -n "$memory_candidates" ]; then
+    # Append new candidates to existing array (append semantics, not overwrite)
+    jq --argjson new_candidates "$memory_candidates" \
+      '(.active_projects[] | select(.project_number == '$task_number')).memory_candidates =
+        ((.active_projects[] | select(.project_number == '$task_number')).memory_candidates // []) + $new_candidates' \
+      specs/state.json > specs/tmp/state.json && mv specs/tmp/state.json specs/state.json
+fi
+```
+
+**Note**: Uses `// []` fallback and `+` append so research candidates (from skill-researcher) and implementation candidates coexist on the same task entry.
+
+**Step 5**: Remove from Recommended Order section (non-blocking, not covered by centralized script):
 ```bash
 if source "$PROJECT_ROOT/.claude/scripts/update-recommended-order.sh" 2>/dev/null; then
     remove_from_recommended_order "$task_number" || echo "Note: Failed to update Recommended Order"
@@ -354,30 +421,13 @@ if [ -n "$artifact_path" ]; then
 fi
 ```
 
-**Update TODO.md** (if implemented): Add summary artifact link using count-aware format.
+**Update TODO.md** (if implemented): Link artifact using the automated script:
 
-See `.claude/rules/state-management.md` "Artifact Linking Format" for canonical rules. Use Edit tool:
+```bash
+bash .claude/scripts/link-artifact-todo.sh $task_number '**Summary**' '**Description**' "$artifact_path"
+```
 
-1. **Read existing task entry** to detect current summary links
-2. **If no `- **Summary**:` line exists**: Insert inline format:
-   ```markdown
-   - **Summary**: [MM_{short-slug}-summary.md]({artifact_path})
-   ```
-3. **If existing inline (single link)**: Convert to multi-line:
-   ```markdown
-   old_string: - **Summary**: [existing.md](existing/path)
-   new_string: - **Summary**:
-     - [existing.md](existing/path)
-     - [MM_{short-slug}-summary.md]({artifact_path})
-   ```
-4. **If existing multi-line**: Append new item before next field:
-   ```markdown
-   old_string:   - [last-item.md](last/path)
-   **Description**:
-   new_string:   - [last-item.md](last/path)
-     - [MM_{short-slug}-summary.md]({artifact_path})
-   **Description**:
-   ```
+If the script exits non-zero, log a warning but continue (linking errors are non-blocking).
 
 ---
 
@@ -390,8 +440,6 @@ git add -A
 git commit -m "task ${task_number}: complete implementation
 
 Session: ${session_id}
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
 ```
 
 ---
@@ -432,6 +480,42 @@ See `rules/error-handling.md` for general patterns. Skill-specific behaviors:
 - **Git commit failure**: Non-blocking (log and continue)
 - **Subagent timeout**: Return partial status, keep "implementing" for resume
 
-## Postflight Boundary
+## Pre-Delegation Boundary
 
-After the agent returns, this skill is LIMITED TO: reading metadata, updating state.json/TODO.md, linking artifacts, git commit, cleanup. No source edits, builds, MCP tools, or analysis. See `@.claude/context/standards/postflight-tool-restrictions.md`.
+Before spawning the implementation sub-agent, this skill MUST NOT:
+
+1. **Read source files** - Source files are read by the sub-agent, not the lead
+2. **Grep or glob the codebase** - Codebase exploration is sub-agent work
+3. **Use MCP tools** - Domain tools (LSP, build, etc.) are for sub-agent use only
+4. **Analyze source code** - Code analysis belongs to the implementation agent
+5. **Run build or test commands** - Verification is done by the sub-agent
+
+The pre-delegation phase is LIMITED TO:
+- Reading the plan file to locate phases and extract the plan path
+- Reading state.json and TODO.md for status updates
+- Preparing the delegation context JSON
+- Reading the summary format file for injection (Stage 4b)
+- Spawning the sub-agent with the Task tool
+
+## MUST NOT (Postflight Boundary)
+
+After the agent returns -- whether with status implemented, partial, or failed -- this skill MUST proceed immediately to Stage 6 (read metadata file). The skill MUST NOT:
+
+1. **Read source files** - Source files were the subagent's responsibility
+2. **Edit source files** - All implementation work is done by the subagent
+3. **Run build/test commands** - Verification is done by the subagent
+4. **Use MCP tools** - Domain tools are for subagent use only
+5. **Grep or glob the codebase** - Analysis is subagent work
+6. **Write summary/reports** - Artifact creation is done by the subagent
+
+> **PROHIBITION**: If the subagent returned partial or failed status, the lead skill MUST NOT attempt to continue, complete, or "fill in" the subagent's work. Report the partial/failed status and let the user re-run `/implement` to resume.
+
+The postflight phase is LIMITED TO:
+- Reading agent metadata file (.return-meta.json)
+- Updating state.json via jq
+- Updating TODO.md status marker via Edit or script
+- Linking artifacts in state.json
+- Git commit
+- Cleanup of temp/marker files
+
+Reference: @.claude/context/standards/postflight-tool-restrictions.md

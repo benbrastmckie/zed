@@ -33,7 +33,7 @@ Follow the Verify sections of the linked files, then re-run the Check command ab
 
 ## latex
 
-The `latex` extension provides research + implementation support for LaTeX documents (VimTeX-equivalent compile/view/clean workflows, subfile management, bibliography handling).
+The `latex` extension provides research + implementation support for LaTeX documents (compile/view/clean workflows, subfile management, bibliography handling).
 
 **Prerequisites**:
 
@@ -80,7 +80,7 @@ The `epidemiology` extension provides research + implementation support for R-ba
 - **Quarto** for analysis reports — see [r.md#quarto](r.md#quarto).
 - **`uv` / `uvx`** for running the rmcp MCP server — see [python.md#uvx-ephemeral-tool-runner](python.md#uvx-ephemeral-tool-runner).
 - **`rmcp` MCP server** (optional) — see [mcp-servers.md#rmcp-r-statistical-modeling-epidemiology](mcp-servers.md#rmcp-r-statistical-modeling-epidemiology).
-- **C++ toolchain** (Xcode Command Line Tools) for Stan-backed packages — already required by the base install.
+- **C++ toolchain** for Stan-backed packages: Xcode Command Line Tools -- already required by the base install.
 
 **Extension-specific extras**: a broad set of R packages for survival analysis, Bayesian modeling, causal inference, and missing data. The authoritative reference is [`.claude/context/project/epidemiology/tools/r-packages.md`](../../.claude/context/project/epidemiology/tools/r-packages.md).
 

@@ -1,16 +1,37 @@
 # Toolchain Reference
 
-> **Quick install**: all dependencies below can be installed non-interactively via the wizard at [`scripts/install/install.sh`](../../scripts/install/) — see [docs/general/installation.md](../general/installation.md#installation-wizard-recommended) for the step-by-step walkthrough. Each per-group script (`install-<group>.sh`) can also be run directly and supports `--dry-run`, `--check`, `--yes`, and `--help`. The sections in this directory remain the authoritative manual walkthrough and are the source of truth for what the wizard automates.
+> **Quick install**: all dependencies below can be installed non-interactively via the wizard at [`scripts/install/install.sh`](../../scripts/install/) — see [docs/general/installation.md](../general/installation.md#installation-wizard-recommended) for the step-by-step walkthrough. Each per-group script (`install-<group>.sh`) can also be run directly and supports `--dry-run`, `--check`, and `--help`. The sections in this directory remain the authoritative manual walkthrough and are the source of truth for what the wizard automates.
 
 This directory documents every **external dependency** assumed by the active `.claude/` extensions in this repository. It is the single authoritative source for "what do I need to install so that the extensions in this repo actually work."
 
-The parent [docs/general/installation.md](../general/installation.md) covers the base environment (Zed, Claude Code CLI, Homebrew, Node.js, the two MCP tools required by `filetypes`). Everything here is **in addition to** that base install: language runtimes (R, Python), typesetting tools (LaTeX, Typst, Pandoc), additional MCP servers, extension-specific prerequisites, and the small set of shell utilities the agents assume are present.
+The parent [docs/general/installation.md](../general/installation.md) covers the base environment (Zed, Claude Code CLI, package manager, Node.js, the two MCP tools required by `filetypes`). Everything here is **in addition to** that base install: language runtimes (R, Python), typesetting tools (LaTeX, Typst, Pandoc), additional MCP servers, extension-specific prerequisites, and the small set of shell utilities the agents assume are present.
 
 ## Platform scope
 
-This documentation is **macOS / Homebrew only**. Linux install paths (apt, nix, pacman, dnf) are explicitly out of scope per the task-21 "macOS Zed IDE" reframing. If you are installing on another platform, consult the relevant upstream docs directly; the Check / Verify sections below still apply regardless of platform.
+All tools are documented with macOS (Homebrew) install commands. The install wizard (`scripts/install/install.sh`) automates these installs; these docs are the manual equivalent.
 
-Homebrew itself is a prerequisite for every install step below. If you do not have it yet, follow [docs/general/installation.md](../general/installation.md) first.
+### Homebrew package reference
+
+| Tool | Homebrew formula/cask |
+|------|-----------------------|
+| jq | `jq` |
+| gh | `gh` |
+| fontconfig | `fontconfig` |
+| make | `make` |
+| Node.js | `node` |
+| Python | `python` |
+| R | `r` |
+| Pandoc | `pandoc` |
+| Typst | `typst` |
+| C++ toolchain | Xcode CLT |
+| git | `git` |
+| curl | `curl` |
+| LaTeX (basic) | `basictex` (cask) |
+| LaTeX (full) | `mactex` (cask) |
+| Fonts (Latin Modern) | `font-latin-modern` + `font-latin-modern-math` (cask) |
+| Fonts (Noto) | `font-noto-sans` + `font-noto-serif` + `font-noto-sans-mono` (cask) |
+
+Homebrew is a prerequisite for every install step below. See [docs/general/installation.md](../general/installation.md) for the base setup.
 
 ## File index
 
@@ -38,7 +59,7 @@ command -v <tool> && <tool> --version
 
 ### Install
 
-The Homebrew command (or, for Python/R packages, the in-runtime install command). Always a single runnable block the reader can copy.
+The Homebrew install command. Always a single runnable block the reader can copy.
 
 ```
 brew install <formula>
@@ -68,13 +89,13 @@ Individual toolchain docs note this per tool where relevant.
 
 ## Optional author-personal tooling
 
-A few pieces of infrastructure referenced from `.claude/` are **not project dependencies** — they are the author's personal UX layer shared with the Neovim config repository. These are intentionally not documented here:
+A few pieces of infrastructure referenced from `.claude/` are **not project dependencies** — they are the author's personal UX layer. These are intentionally not documented here:
 
 - WezTerm hooks (`.claude/hooks/wezterm-*.sh`) — require WezTerm specifically; no-op on other terminals.
 - Piper TTS (`.claude/hooks/tts-notify.sh`) — requires `piper` binary + a voice model file at a hardcoded path.
-- The `SessionStart` hook reference to `~/.config/nvim/scripts/claude-ready-signal.sh` — only works when the author's Neovim config is co-installed.
+- Some hooks reference external scripts not included in this repository.
 
-If you want any of these, consult the author's dotfiles / nvim config repositories. None of the agent-system functionality in this repo depends on them.
+None of the agent-system functionality in this repo depends on them.
 
 ## Follow-on work
 

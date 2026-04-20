@@ -80,7 +80,7 @@ task 12 phase 2: implement modal semantics evaluator
 Session: sess_1736701234_d4e5f6
 ```
 
-This workspace omits the `Co-Authored-By` trailer per user preference; see [Zed adaptations](README.md#zed-adaptations).
+See [Zed adaptations](README.md#zed-adaptations) for workspace-specific deviations from the upstream configuration.
 
 Any commit, error log entry, or artifact can be traced back to the command invocation that produced it.
 
@@ -106,8 +106,8 @@ TODO.md and state.json must stay synchronized; both are updated atomically. See 
     ├── CLAUDE.md            # Always-loaded quick reference
     ├── README.md            # Architecture navigation hub
     ├── commands/            # slash command definitions
-    ├── skills/              # 32 skill routers
-    ├── agents/              # 25 agent specifications
+    ├── skills/              # 33 skill routers
+    ├── agents/              # 30 agent specifications
     ├── rules/               # Auto-applied behavioral rules
     ├── context/             # Core agent context (patterns, formats)
     ├── docs/                # Guides, examples, standards

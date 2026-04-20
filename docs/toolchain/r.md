@@ -6,23 +6,19 @@
 bash scripts/install/install-r.sh              # interactive
 bash scripts/install/install-r.sh --dry-run    # preview only
 bash scripts/install/install-r.sh --check      # presence report
-bash scripts/install/install-r.sh --yes        # non-interactive
 ```
 
 Installs R via Homebrew and the editor packages `languageserver`, `lintr`, and `styler` (forcing `repos="https://cloud.r-project.org"` so CRAN does not prompt for a mirror). Optional sub-groups cover `renv`, Quarto, and the epidemiology R package bundle. Every action is guarded by a presence check and is safe to re-run. See [`scripts/install/install-r.sh`](../../scripts/install/install-r.sh) for the exact invocations. The manual walkthrough below is the source of truth for what the script automates.
 
 ## Manual installation (advanced)
 
-This guide walks through installing R and its development tools on macOS for use with Zed. By the end, you will have a working R environment with linting, formatting, and intelligent code completion.
+This guide walks through installing R and its development tools for use with Zed. By the end, you will have a working R environment with linting, formatting, and intelligent code completion.
 
 ## Before you begin
 
-You need two tools that are covered in the main [Installation](../general/installation.md) guide:
+You need Xcode Command Line Tools (compilers for R package installation) and Homebrew.
 
-- **Xcode Command Line Tools** -- provides the compilers that some R packages need during installation
-- **Homebrew** -- the package manager used to install R itself
-
-If you followed [Installation](../general/installation.md), you already have these. If not, complete the "Install Xcode Command Line Tools" and "Install Homebrew" sections there before continuing.
+If you followed [Installation](../general/installation.md), you already have these. If not, complete the prerequisites sections there before continuing.
 
 ## Install R
 
@@ -42,7 +38,7 @@ If this prints a version number (e.g. `R version 4.4.1`), skip to [Install R pac
 brew install r
 ```
 
-Homebrew downloads and installs R. This takes a few minutes because R includes many built-in components. When you see your terminal prompt again, it is finished.
+The package manager downloads and installs R. This takes a few minutes because R includes many built-in components. When you see your terminal prompt again, it is finished.
 
 ### Verify
 
@@ -263,11 +259,11 @@ Full install and config instructions are in [mcp-servers.md](mcp-servers.md#rmcp
 
 The epidemiology extension assumes a broad set of R packages (survival analysis, Bayesian modeling, causal inference, missing data, etc.). These are documented with purpose and example usage in [`.claude/context/project/epidemiology/tools/r-packages.md`](../../.claude/context/project/epidemiology/tools/r-packages.md); see [extensions.md](extensions.md#epidemiology) for the install snippet.
 
-> **Stan / C++ toolchain**: packages that use Stan under the hood (`brms`, `EpiNow2`, `epidemia`) require the Xcode Command Line Tools C++ compiler. If you followed [docs/general/installation.md](../general/installation.md), you already have Xcode CLT installed.
+> **Stan / C++ toolchain**: packages that use Stan under the hood (`brms`, `EpiNow2`, `epidemia`) require a C++ compiler, provided by the Xcode Command Line Tools. If you followed [docs/general/installation.md](../general/installation.md), you already have these.
 
 ## See also
 
-- [docs/general/installation.md](../general/installation.md) -- Prerequisites (Homebrew, Xcode CLT) and Zed setup
+- [docs/general/installation.md](../general/installation.md) -- Prerequisites (build tools, package manager) and Zed setup
 - [python.md](python.md) -- Python development environment guide
 - [typesetting.md](typesetting.md) -- LaTeX, Typst, Pandoc for rendering R/Quarto output
 - [mcp-servers.md](mcp-servers.md) -- rmcp MCP server install

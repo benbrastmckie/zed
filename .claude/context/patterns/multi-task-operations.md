@@ -334,8 +334,6 @@ After all agents complete, the batch skill produces a single git commit covering
 
 Tasks: {comma-separated list}
 Session: {batch_session_id}
-
-Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 ```
 
 **Example**:
@@ -345,8 +343,6 @@ research tasks 7, 22-24, 59: complete research
 
 Tasks: 7, 22, 23, 24, 59
 Session: sess_1743523200_abc123
-
-Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 ```
 
 ### Partial Success
@@ -357,8 +353,6 @@ Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 Tasks completed: {comma-separated}
 Tasks failed: {num} ({reason})[, {num} ({reason})]
 Session: {batch_session_id}
-
-Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 ```
 
 **Example**:
@@ -369,8 +363,6 @@ research tasks 7, 22-24: complete research (3/4 succeeded)
 Tasks completed: 7, 22, 24
 Tasks failed: 23 (invalid status [IMPLEMENTING])
 Session: sess_1743523200_abc123
-
-Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 ```
 
 ### Commit Scope
@@ -508,27 +500,17 @@ Tasks 351-353 apply this pattern to each workflow command. This section summariz
 | `/plan` | researched | planner agent | "create implementation plan" |
 | `/implement` | planned, implementing | implementation agent (by language) | "complete implementation" |
 
-### Batch Skill Integration
+### Batch Dispatch Architecture
 
-Each command invokes a single batch skill entry point:
+Multi-task dispatch is handled by the orchestrator loop built into each command file (`/research`, `/plan`, `/implement`), not by a separate `skill-batch-dispatch` skill. Each command's MULTI-TASK DISPATCH section implements:
 
-```
-Tool: Skill
-Parameters:
-  skill: "skill-batch-dispatch"  # or integrated into skill-orchestrator
-  args: |
-    command={command}
-    task_numbers={validated_tasks}
-    session_id={batch_session_id}
-    remaining_args={remaining_args}
-```
-
-The batch skill handles:
-- Language extraction per task (from state.json)
-- Agent routing per task (using existing task-type-based routing)
-- Parallel Task tool spawning
+- Task type extraction per task (from state.json)
+- Agent routing per task (using existing task-type-based routing from extension manifests)
+- Parallel Task tool spawning (one agent per task)
 - Result collection
-- Consolidated status update
+- Consolidated status update and batch git commit
+
+This approach keeps dispatch logic co-located with each command's validation and routing rules, avoiding an additional indirection layer.
 
 ---
 

@@ -8,10 +8,10 @@ Step-by-step guide for creating a new domain extension for the .claude/ system.
 
 ## Overview
 
-Extensions are self-contained packages that add domain-specific support (agents, skills, rules, context) to the .claude/ system. Extensions can be loaded/unloaded via Neovim picker (`<leader>ac`) without modifying core files.
+Extensions are self-contained packages that add domain-specific support (agents, skills, rules, context) to the .claude/ system. Extensions can be loaded/unloaded via the extension picker without modifying core files. Extensions can optionally declare dependencies on other extensions for shared resources.
 
 **When to Create an Extension**:
-- Adding support for a new language/framework (Python, React, Rust)
+- Adding support for a new language/framework (Rust, React, Go)
 - Adding support for a specialized tool (Lean, Z3, Typst)
 - Creating portable domain knowledge that can be shared across projects
 
@@ -52,7 +52,7 @@ Follow the templates below for each file type.
   "name": "your-domain",
   "version": "1.0.0",
   "description": "Your domain description for picker display",
-  "language": "your-domain",
+  "task_type": "your-domain",
   "dependencies": [],
   "provides": {
     "agents": [
@@ -71,7 +71,20 @@ Follow the templates below for each file type.
       "project/your-domain"
     ],
     "scripts": [],
-    "hooks": []
+    "hooks": [],
+    "docs": [],
+    "templates": [],
+    "systemd": [],
+    "root_files": [],
+    "data": []
+  },
+  "routing": {
+    "research": {
+      "your-domain": "skill-your-domain-research"
+    },
+    "implement": {
+      "your-domain": "skill-your-domain-implement"
+    }
   },
   "merge_targets": {
     "claudemd": {
@@ -95,15 +108,17 @@ Follow the templates below for each file type.
 | `name` | Yes | Extension name (matches directory name) |
 | `version` | Yes | Semantic version for update tracking |
 | `description` | Yes | Shown in picker UI |
-| `task_type` | Yes | Language code for orchestrator routing |
-| `dependencies` | No | Extensions that must load first |
+| `task_type` | No | Language code for orchestrator routing (omit for resource-only extensions) |
+| `dependencies` | No | Extensions that must load first (auto-loaded silently) |
 | `provides` | Yes | Lists all files/directories provided |
 | `merge_targets` | Yes | Defines CLAUDE.md and index.json merging |
 | `mcp_servers` | No | MCP server configs to merge |
 
+For the complete manifest schema with all field descriptions and examples, see [Extension System Architecture](../architecture/extension-system.md#manifest-schema).
+
 ### EXTENSION.md (Required)
 
-Content injected into CLAUDE.md when loaded:
+Content included in CLAUDE.md via `generate_claudemd()` when loaded:
 
 ```markdown
 ## Your Domain Extension
@@ -132,11 +147,11 @@ This project includes [Your Domain] support via the your-domain extension.
 
 ### README.md (Required)
 
-Every extension must provide a `README.md` file in its root directory. This is the user-facing overview of the extension, distinct from `EXTENSION.md` (which is a snippet injected into `.claude/CLAUDE.md` when the extension is loaded).
+Every extension must provide a `README.md` file in its root directory. This is the user-facing overview of the extension, distinct from `EXTENSION.md` (which is included in `.claude/CLAUDE.md` via `generate_claudemd()` when the extension is loaded).
 
 Start from the canonical template: `.claude/templates/extension-readme-template.md`.
 
-The template includes a **section-applicability matrix** that distinguishes simple extensions (latex, typst, z3) from complex extensions (filetypes, lean, formal, nvim, nix, web, epidemiology). Simple extensions omit sections they do not need (MCP Setup, Workflow diagram, Output Artifacts) and produce README files under ~120 lines. Complex extensions use the full structure.
+The template includes a **section-applicability matrix** that distinguishes simple extensions (latex, python, typst, z3) from complex extensions (filetypes, lean, formal, nix, web, epidemiology). Simple extensions omit sections they do not need (MCP Setup, Workflow diagram, Output Artifacts) and produce README files under ~120 lines. Complex extensions use the full structure.
 
 **Required sections for all extensions**:
 - Overview (with a task type / command table)
@@ -193,6 +208,41 @@ Context file metadata for agent discovery:
   ]
 }
 ```
+
+---
+
+## Resource-Only Extensions
+
+Extensions that provide only shared context (no agents, skills, commands, or routing) are called resource-only extensions. They exist to share resources between other extensions.
+
+**Example**: The `slidev` extension provides Slidev animation patterns and CSS style presets consumed by `founder` and `present`:
+
+```json
+{
+  "name": "slidev",
+  "version": "1.0.0",
+  "description": "Shared Slidev animation patterns and CSS style presets",
+  "dependencies": [],
+  "provides": {
+    "agents": [], "skills": [], "commands": [],
+    "rules": [], "context": ["project/slidev"],
+    "scripts": [], "hooks": []
+  },
+  "merge_targets": {
+    "index": { "source": "index-entries.json", "target": ".claude/context/index.json" }
+  }
+}
+```
+
+Consuming extensions declare the dependency: `"dependencies": ["slidev"]`. When founder or present is loaded, slidev is auto-loaded first if not already present.
+
+**Key characteristics**:
+- No `task_type` field (no routing)
+- No `EXTENSION.md` or `claudemd` merge target (nothing included in CLAUDE.md)
+- Only `provides.context` populated
+- Loaded automatically as a dependency, not typically selected directly
+
+For complete resource-only extension patterns, see [Extension System Architecture](../architecture/extension-system.md).
 
 ---
 
@@ -545,7 +595,7 @@ Domain knowledge for [Your Domain] development.
 
 ### 1. Load the Extension
 
-Press `<leader>ac` and select your extension from the picker.
+Press the extension picker and select your extension from the picker.
 
 ### 2. Verify Files are Installed
 
@@ -562,8 +612,8 @@ ls .claude/rules/your-domain.md
 # Check context
 ls .claude/context/project/your-domain/
 
-# Check CLAUDE.md injection
-grep "extension_your_domain" .claude/CLAUDE.md
+# Check CLAUDE.md content was included
+grep "Your Domain Extension" .claude/CLAUDE.md
 
 # Check index entries
 grep "your-domain" .claude/context/index.json
@@ -588,7 +638,7 @@ Verify:
 
 ### 4. Test Unload
 
-Press `<leader>ac` and select your extension again to unload.
+Press the extension picker and select your extension again to unload.
 
 Verify:
 - All copied files are removed
@@ -613,19 +663,20 @@ Verify:
 
 ### Load Fails with Conflicts
 
-The loader detected existing files that would be overwritten. Either:
-- Rename conflicting files in your extension
+The loader detected existing files that would be overwritten and showed a confirmation dialog. If you chose not to override, the load was cancelled. To resolve:
+- Rename conflicting files in your extension to avoid the collision
 - Remove conflicting files from core (if safe)
 - Check if another extension provides the same files
+- Re-run the load and confirm the override if the conflict is acceptable
 
 ### Routing Not Working After Load
 
-1. Check CLAUDE.md section was injected:
+1. Check CLAUDE.md includes your extension content:
    ```bash
-   grep "extension_your_domain" .claude/CLAUDE.md
+   grep "Your Domain Extension" .claude/CLAUDE.md
    ```
 
-2. Verify orchestrator knows about your language routing
+2. Verify orchestrator knows about your language routing (check `task_type` in manifest and routing entries)
 
 3. Check skill files exist:
    ```bash

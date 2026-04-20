@@ -6,18 +6,17 @@
 bash scripts/install/install-shell-tools.sh              # interactive
 bash scripts/install/install-shell-tools.sh --dry-run    # preview only
 bash scripts/install/install-shell-tools.sh --check      # presence report
-bash scripts/install/install-shell-tools.sh --yes        # non-interactive
 ```
 
 Installs `jq`, `gh`, `fontconfig`, and optionally GNU `make`. Every action is guarded by a presence check and is safe to re-run. See [`scripts/install/install-shell-tools.sh`](../../scripts/install/install-shell-tools.sh) for the exact invocations. The manual walkthrough below is the source of truth for what the script automates.
 
 ## Manual installation (advanced)
 
-The `.claude/` agent system, its hooks, and several commands assume a small set of shell utilities are on PATH. Most are part of a standard Homebrew developer environment; this file documents them for completeness and so a missing utility can be diagnosed quickly.
+The `.claude/` agent system, its hooks, and several commands assume a small set of shell utilities are on PATH. Most are part of a standard developer environment; this file documents them for completeness and so a missing utility can be diagnosed quickly.
 
 ## Before you begin
 
-Homebrew is required. See [docs/general/installation.md](../general/installation.md) if you do not have it.
+Homebrew is required. See [docs/general/installation.md](../general/installation.md) if you do not have it set up.
 
 ## git
 
@@ -29,19 +28,17 @@ Version control — used by every skill that commits task artifacts, and by `/me
 git --version
 ```
 
-If this prints a version, you are done. `git` is provided by the Xcode Command Line Tools covered in [docs/general/installation.md#install-xcode-command-line-tools](../general/installation.md#install-xcode-command-line-tools).
+If this prints a version, you are done. On macOS, `git` is provided by the Xcode Command Line Tools.
 
 ### Install
+
+**macOS**:
 
 ```
 xcode-select --install
 ```
 
-Or, if you prefer Homebrew's newer git:
-
-```
-brew install git
-```
+Or via Homebrew: `brew install git`
 
 ### Verify
 
@@ -111,23 +108,17 @@ Some projects and epidemiology analyses use a `Makefile` for reproducible pipeli
 make --version
 ```
 
-On macOS, `make` is provided by the Xcode Command Line Tools, so if you ran `xcode-select --install` from [docs/general/installation.md](../general/installation.md#install-xcode-command-line-tools), you already have it.
+On macOS, `make` is provided by the Xcode Command Line Tools.
 
 ### Install
 
-If `make` is missing:
+**macOS** -- if `make` is missing:
 
 ```
 xcode-select --install
 ```
 
-Or a newer GNU make via Homebrew:
-
-```
-brew install make
-```
-
-Note: Homebrew's GNU make is installed as `gmake` to avoid shadowing the system `make`. Use `gmake` or add `$(brew --prefix make)/libexec/gnubin` to your PATH if you need GNU-specific features.
+Or a newer GNU make via Homebrew: `brew install make` (installs as `gmake` to avoid shadowing the system `make`).
 
 ### Verify
 
@@ -159,7 +150,7 @@ fc-list | head -1
 
 ## od / date (already present)
 
-Several scripts use `od` and `date` for session ID generation (see [`.claude/rules/git-workflow.md`](../../.claude/rules/git-workflow.md)). Both are part of base macOS; no install needed.
+Several scripts use `od` and `date` for session ID generation (see [`.claude/rules/git-workflow.md`](../../.claude/rules/git-workflow.md)). Both are part of macOS; no install needed.
 
 ### Check
 

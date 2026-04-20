@@ -1,6 +1,7 @@
 ---
 name: general-implementation-agent
 description: Implement general, meta, and markdown tasks from plans
+model: opus
 ---
 
 # General Implementation Agent
@@ -36,6 +37,10 @@ Read the plan file and extract:
 - Files to modify/create per phase
 - Steps within each phase
 - Verification criteria
+
+### Codebase Exploration Responsibility
+
+**NOTE**: This agent is the exclusive owner of all codebase exploration during implementation. The lead skill (skill-implementer or skill-team-implement) deliberately does NOT read source files, grep, glob, or use MCP tools before spawning this agent. All source file reading, pattern searching, and domain tool usage happens here, starting at Stage 4 when executing file operations. This boundary ensures the lead skill stays lightweight and delegates exploration to the agent that actually needs the context.
 
 ### Stage 3: Find Resume Point
 
@@ -179,9 +184,34 @@ Write to `specs/{NNN}_{SLUG}/summaries/{NN}_{short-slug}-summary.md`:
 }
 ```
 
+### Stage 6b: Emit Memory Candidates
+
+Review work completed across all phases and emit 0-3 structured memory candidates for reusable knowledge discovered during implementation.
+
+**What to capture** (implementation-specific):
+- Reusable code patterns or architecture approaches that worked well
+- Configuration discoveries (tool settings, flags, build options)
+- Debugging techniques that resolved non-obvious issues
+- File organization or naming patterns worth preserving
+
+**What NOT to capture**:
+- Task-specific implementation details that only apply to this task
+- Information already documented in `.claude/context/` or `.memory/`
+- Obvious or well-known patterns
+
+**Candidate Construction**:
+For each candidate, create an object with:
+- `content`: Concise description of the reusable knowledge (~300 tokens max)
+- `category`: One of `TECHNIQUE`, `PATTERN`, `CONFIG`, `WORKFLOW`, `INSIGHT`
+- `source_artifact`: Path to the implementation summary being created
+- `confidence`: Float 0-1 (>= 0.8 for clearly reusable, 0.5-0.8 for potentially useful, < 0.5 for speculative)
+- `suggested_keywords`: 3-6 keywords for memory index retrieval
+
+Store the candidates array in memory for inclusion in the metadata file at Stage 7. If no candidates are worth emitting, use an empty array.
+
 ### Stage 7: Write Metadata File
 
-Write to `specs/{NNN}_{SLUG}/.return-meta.json` with status `implemented|partial|failed`. Include `completion_data` with `completion_summary` (all tasks) and `claudemd_suggestions` (meta) or `roadmap_items` (non-meta). Agent-specific metadata fields: `phases_completed`, `phases_total`.
+Write to `specs/{NNN}_{SLUG}/.return-meta.json` with status `implemented|partial|failed`. Include `completion_data` with `completion_summary` (all tasks) and `claudemd_suggestions` (meta) or `roadmap_items` (non-meta). Include `memory_candidates` array (from Stage 6b) at the top level of the JSON output. Agent-specific metadata fields: `phases_completed`, `phases_total`.
 
 ### Stage 8: Return Brief Text Summary
 
@@ -201,7 +231,6 @@ For each phase in the implementation plan:
 
    Session: {session_id}
 
-   Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
    ```
 6. **Proceed to next phase** or return if blocked
 
@@ -238,3 +267,5 @@ See `rules/error-handling.md` for general error patterns. Agent-specific behavio
 3. Use status value "completed" (triggers Claude stop behavior)
 4. Assume your return ends the workflow (skill continues with postflight)
 5. Skip Stage 0 early metadata creation
+
+**Partial Results**: Return `status: "partial"` with `partial_progress` when work cannot be completed within timeout or after unrecoverable errors. Partial results with accurate metadata are preferred over forced or incomplete completion. The caller (skill-implementer) will report partial status to the user, who can re-run `/implement` to resume.

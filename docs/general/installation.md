@@ -2,9 +2,11 @@
 
 ## Installation wizard (recommended)
 
-If you are setting up a new Mac, the fastest path is the interactive installation wizard at `scripts/install/install.sh`. It walks through six groups of installs (base tools, shell utilities, Python, R, typesetting, MCP servers), lets you accept or skip each group, and is safe to re-run — every step is guarded by a presence check.
+The interactive installation wizard at `scripts/install/install.sh` walks through six groups of installs (base tools, shell utilities, Python, R, typesetting, MCP servers), lets you accept or skip each group, and is safe to re-run -- every step is guarded by a presence check.
 
-**Step by step** (for a fresh Mac):
+**Supported platform**: macOS (Homebrew).
+
+**Step by step** (macOS):
 
 1. Press **Cmd+Space** to open Spotlight, type **Terminal**, and press Enter to open the Terminal app.
 2. Install the Xcode Command Line Tools (provides `git`). A dialog will appear; click **Install** and wait for it to finish:
@@ -26,25 +28,20 @@ If you are setting up a new Mac, the fastest path is the interactive installatio
    bash scripts/install/install.sh
    ```
 
-   For each group, press **a** to accept (install it), **s** to skip, or **c** to cancel the wizard. Accepted groups are dispatched in a safe topological order (`base` runs first so Homebrew and git are available for later groups).
+   For each group, press **a** to accept (install it), **s** to skip, or **c** to cancel the wizard. Accepted groups are dispatched in a safe topological order (`base` runs first so build tools and the package manager are available for later groups).
 
 **Non-interactive shortcuts**:
 
 - `bash scripts/install/install.sh --dry-run` — preview every action without installing anything.
 - `bash scripts/install/install.sh --check` — health report only (prints which tools are present or missing).
-- `bash scripts/install/install.sh --preset minimal` — base + shell-tools only.
-- `bash scripts/install/install.sh --preset epi-demo` — base + shell-tools + Python + R + typesetting (everything except the extension MCP servers).
-- `bash scripts/install/install.sh --preset writing` — base + shell-tools + typesetting.
-- `bash scripts/install/install.sh --preset everything` — all six groups.
-- `bash scripts/install/install.sh --only base,python --yes` — pick specific groups and auto-accept prompts.
 
-Each group script (`scripts/install/install-<group>.sh`) can also be run directly and supports the same flags. See [docs/toolchain/README.md](../toolchain/README.md) for a per-group breakdown.
+Each group script (`scripts/install/install-<group>.sh`) can also be run directly and supports `--dry-run`, `--check`, and `--help`. See [docs/toolchain/README.md](../toolchain/README.md) for a per-group breakdown.
 
 If you prefer to install everything by hand, keep reading — the rest of this page is the authoritative manual walkthrough and is the source of truth for what the wizard automates.
 
 ## Manual installation (advanced)
 
-This guide walks through installing Zed, the Claude Code CLI, the `claude-acp` bridge that connects them, and the MCP tools used for Word and Excel editing. The target platform is macOS 11 (Big Sur) or newer. All instructions are intended to be accessible.
+This guide walks through installing Zed, the Claude Code CLI, the `claude-acp` bridge that connects them, and the MCP tools used for Word and Excel editing. For a fully automated install, use the wizard above instead.
 
 > **Already comfortable with the terminal?** Here is the full sequence of install commands. Skip any tool you already have, then jump to [Configure claude-acp](#configure-claude-acp).
 >
@@ -63,7 +60,7 @@ This guide walks through installing Zed, the Claude Code CLI, the `claude-acp` b
 
 ## Before you begin
 
-You will run every command in this guide inside a program called **Terminal**. To open it, press **Cmd+Space** to open Spotlight, type **Terminal**, and press Enter. (You can also find Terminal in Applications > Utilities.)
+You will run every command in this guide inside a **terminal emulator**. On macOS, press **Cmd+Space** to open Spotlight, type **Terminal**, and press Enter (you can also find Terminal in Applications > Utilities).
 
 When the terminal opens, you see a prompt -- a short line ending in `$` or `%`. To run a command, paste or type it after the prompt and press **Enter**. The examples in this guide show only the command itself, not the prompt character.
 
@@ -71,16 +68,16 @@ If a command produces a lot of output, wait until the prompt appears again befor
 
 ## Prerequisites
 
-- macOS 11 (Big Sur) or newer
+- **macOS**: macOS 11 (Big Sur) or newer
 - An internet connection
 - About 20-30 minutes for initial setup
 - An Anthropic account for the Claude Code CLI
 
 Every dependency section below follows the same three-step pattern: **Check if already installed**, **Install**, **Verify**. Run the detection command first; if it prints a version number, skip to the next section.
 
-## Install Xcode Command Line Tools
+## Install build tools and git
 
-These provide basic developer tools (like `git`) that other installers in this guide depend on. Most Macs already have them installed.
+These provide basic developer tools (like `git` and a C/C++ compiler) that other installers in this guide depend on.
 
 ### Check if already installed
 
@@ -92,11 +89,11 @@ If this prints a version number (e.g. `git version 2.39.5`), skip to [Install Ho
 
 ### Install
 
+**macOS** -- Install the Xcode Command Line Tools. A dialog box appears; click **Install** and wait a few minutes:
+
 ```
 xcode-select --install
 ```
-
-A dialog box appears. Click **Install** and wait a few minutes. When the dialog says the installation is complete, you can close it.
 
 ### Verify
 
@@ -108,7 +105,7 @@ You should see a line like `git version 2.39.5`. The exact number does not matte
 
 ## Install Homebrew
 
-Homebrew is a tool that lets you install software from the terminal with a single command, similar to an app store but for developer tools. Every remaining install in this guide uses it.
+Homebrew is the macOS package manager used by the remaining install steps in this guide.
 
 ### Check if already installed
 
@@ -156,7 +153,7 @@ If this prints a version number (e.g. `v20.17.0`), skip to [Install Zed](#instal
 brew install node
 ```
 
-Homebrew downloads and installs Node. This takes a minute or two. When you see your terminal prompt again, it is finished.
+The package manager downloads and installs Node. This takes a minute or two. When you see your terminal prompt again, it is finished.
 
 ### Verify
 
@@ -176,23 +173,17 @@ If Zed is already in your Applications folder, skip to [Install the Claude Code 
 
 ### Install
 
+**macOS**:
+
 ```
 brew install --cask zed
 ```
 
-Homebrew downloads Zed and places it in your Applications folder. You will see progress output; wait for the prompt to return.
-
-Optional: to track the preview channel (nightly-ish builds with newer features), install `zed@preview` alongside (or instead of) stable:
-
-```
-brew install --cask zed@preview
-```
-
-Both channels can be installed simultaneously; they use separate config directories.
+Optional: to track the preview channel, install `zed@preview` alongside (or instead of) stable: `brew install --cask zed@preview`. Both channels can be installed simultaneously.
 
 ### Verify
 
-Open Zed from Applications or Spotlight (**Cmd+Space**, type "Zed") to confirm it launches.
+Open Zed from Applications or Spotlight to confirm it launches.
 
 ## Install the Claude Code CLI
 
@@ -208,11 +199,13 @@ If this prints a version number, skip the install command below and go directly 
 
 ### Install
 
+**macOS**:
+
 ```
 brew install --cask claude-code
 ```
 
-The `claude-code` cask tracks the stable channel (recommended). If you prefer the latest channel, use `brew install --cask claude-code@latest` instead; the two casks cannot usually be installed simultaneously.
+The `claude-code` cask tracks the stable channel (recommended). If you prefer the latest channel, use `brew install --cask claude-code@latest` instead.
 
 ### First-run authentication
 
@@ -347,8 +340,8 @@ If any step fails, see [Troubleshooting in the agent panel doc](../agent-system/
 ## See also
 
 - [../toolchain/README.md](../toolchain/README.md) — Toolchain reference: every external dependency assumed by the `.claude/` extensions (LaTeX, Typst, Pandoc, MCP servers, epi R packages, shell tools)
-- [../toolchain/python.md](../toolchain/python.md) — Python setup guide for macOS (interpreter, uv, ruff, Zed configuration)
-- [../toolchain/r.md](../toolchain/r.md) — R setup guide for macOS (interpreter, languageserver, lintr, styler, Zed configuration)
+- [../toolchain/python.md](../toolchain/python.md) — Python setup guide (interpreter, uv, ruff, Zed configuration)
+- [../toolchain/r.md](../toolchain/r.md) — R setup guide (interpreter, languageserver, lintr, styler, Zed configuration)
 - [settings.md](settings.md#agent_servers) — `agent_servers` configuration reference
 - [../agent-system/zed-agent-panel.md](../agent-system/zed-agent-panel.md) — How the Agent Panel and claude-acp bridge work at runtime
 - [../toolchain/slidev.md](../toolchain/slidev.md) — Slidev CLI, Playwright browsers, and Zed keybindings

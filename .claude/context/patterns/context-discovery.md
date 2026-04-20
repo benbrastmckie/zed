@@ -32,7 +32,7 @@ jq -r '.entries[] |
 
 ```bash
 jq -r '.entries[] |
-  select(.load_when.task_types[]? == "neovim") |
+  select(.load_when.task_types[]? == "meta") |
   .path' .claude/context/index.json
 ```
 
@@ -138,7 +138,7 @@ jq -r '.entries[] |
 
 ```bash
 jq -r '.entries[] |
-  select(.load_when.task_types[]? == "neovim") |
+  select(.load_when.task_types[]? == "meta") |
   select(.line_count < 300) |
   .path' .claude/context/index.json
 ```
@@ -176,7 +176,7 @@ jq -r --arg agent "general-implementation-agent" \
 **Priority Order**:
 1. `always: true` - Universal files loaded for all contexts
 2. `agents[]?` - Agent-specific context
-3. `languages[]?` - Language-specific context
+3. `task_types[]?` - Task-type-specific context
 4. `commands[]?` - Command-specific context
 
 **Empty Array Semantics**:
@@ -184,13 +184,13 @@ jq -r --arg agent "general-implementation-agent" \
 - To load unconditionally, use `"always": true`
 - Entries must match at least one dimension to be discoverable
 
-### Agent + Language
+### Agent + Task Type
 
 ```bash
 jq -r '.entries[] |
   select(
     any(.load_when.agents[]?; . == "general-implementation-agent") or
-    any(.load_when.task_types[]?; . == "neovim")
+    any(.load_when.task_types[]?; . == "meta")
   ) |
   select(.deprecated == true | not) |
   .path' .claude/context/index.json
@@ -241,7 +241,7 @@ done
 
 Domain-specific context files (paths under `project/*`) should never have generic workflow
 commands in their `load_when.commands` arrays. These files should only be discovered via
-their domain-specific agents, languages, and domain-specific commands.
+their domain-specific agents, task types, and domain-specific commands.
 
 **Generic commands (must NOT appear in project/* entries)**:
 `/plan`, `/implement`, `/research`, `/task`, `/revise`, `/review`, `/errors`, `/todo`, `/spawn`
@@ -269,7 +269,7 @@ workflows.
 
 ### Check for Orphaned Entries
 
-Entries with empty `load_when` arrays (no agents, languages, commands) and without `always: true` are orphaned and will never be loaded:
+Entries with empty `load_when` arrays (no agents, task_types, commands) and without `always: true` are orphaned and will never be loaded:
 
 ```bash
 jq '[.entries[] | select(

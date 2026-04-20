@@ -1,7 +1,7 @@
 ---
 description: Research a task and create reports
 allowed-tools: Skill, Bash(jq:*), Bash(git:*), Read, Edit
-argument-hint: TASK_NUMBERS [FOCUS] [--team [--team-size N]]
+argument-hint: TASK_NUMBERS [FOCUS] [--team [--team-size N]] [--fast|--hard] [--haiku|--sonnet|--opus]
 model: opus
 ---
 
@@ -31,10 +31,24 @@ When multiple tasks are specified, each task is researched independently in para
 |------|-------------|---------|
 | `--team` | Enable multi-agent parallel research with multiple teammates | false |
 | `--team-size N` | Number of teammates to spawn (2-4) | 2 |
+| `--fast` | Low-effort mode: lighter reasoning, faster responses | false |
+| `--hard` | High-effort mode: deeper reasoning, more thorough analysis | false |
+| `--haiku` | Use Haiku model (fastest, lowest cost) | false |
+| `--sonnet` | Use Sonnet model (balanced cost/quality) | false |
+| `--opus` | Use Opus model (highest quality, same as agent default) | false |
+| `--clean` | Skip automatic memory retrieval | false |
 
 When `--team` is specified, research is delegated to `skill-team-research` which spawns multiple research agents working in parallel on different aspects of the task. Each teammate produces a research report, and the lead synthesizes findings into a final comprehensive report.
 
 **Note**: Team mode requires `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` environment variable. If unavailable, gracefully degrades to single-agent research.
+
+## Anti-Bypass Constraint
+
+**PROHIBITION**: You MUST NOT write research report artifacts directly using Write or Edit tools. All report files MUST be created by invoking the appropriate skill (skill-researcher or skill-team-research) via the Skill tool.
+
+**Why**: Direct writes bypass format enforcement (validate-artifact.sh), produce non-conforming artifacts missing required metadata fields and sections, and circumvent the delegation chain that ensures quality. A PostToolUse hook monitors all Write/Edit operations to artifact paths and will flag violations with corrective context.
+
+**Required**: Always delegate to the Skill tool. Never write to `specs/*/reports/*.md` directly from this command.
 
 ## Execution
 
@@ -139,29 +153,19 @@ Report skipped tasks as warnings. If no validated tasks remain, ABORT.
 batch_session_id="sess_$(date +%s)_$(od -An -N3 -tx1 /dev/urandom | tr -d ' ')"
 ```
 
-#### Step 3: Invoke Batch Dispatch
+#### Step 3: Dispatch Agents
 
-Invoke the batch dispatch skill with the validated task list:
+For each validated task, spawn an independent research agent using the orchestrator's built-in batch loop:
 
-```
-Tool: Skill
-Parameters:
-  skill: "skill-batch-dispatch"
-  args: |
-    command=research
-    task_numbers={validated_tasks}
-    session_id={batch_session_id}
-    remaining_args={remaining_args}
-```
-
-The batch skill internally:
-1. Extracts task_type per task from state.json
-2. Routes to the appropriate research skill per task (extension routing or default)
-3. Spawns one agent per task via parallel Task tool calls
+1. Extract task_type per task from state.json
+2. Route to the appropriate research skill per task (extension routing or default `skill-researcher`)
+3. Spawn one agent per task via parallel Task tool calls
 4. Each agent runs the full single-task research lifecycle independently (preflight, research, postflight)
-5. Collects results from all agents
+5. Collect results from all agents
 
-**Team mode interaction**: If `--team` is in `remaining_args`, the batch skill applies team mode to ALL tasks. Total agents spawned = `N_tasks * team_size`. Use with care due to cost multiplication.
+**Note**: Batch dispatch is handled directly by this command's orchestrator loop, not by a separate skill.
+
+**Team mode interaction**: If `--team` is in `remaining_args`, team mode is applied to ALL tasks. Total agents spawned = `N_tasks * team_size`. Use with care due to cost multiplication.
 
 #### Step 4: Batch Git Commit
 
@@ -173,8 +177,6 @@ research tasks {range_summary}: complete research
 
 Tasks: {comma-separated list}
 Session: {batch_session_id}
-
-Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 ```
 
 **Partial success**:
@@ -184,8 +186,6 @@ research tasks {range_summary}: complete research ({succeeded}/{total} succeeded
 Tasks completed: {comma-separated}
 Tasks failed: {num} ({reason})[, {num} ({reason})]
 Session: {batch_session_id}
-
-Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 ```
 
 #### Step 5: Consolidated Output
@@ -250,8 +250,7 @@ Skipped: {count}
      '.active_projects[] | select(.project_number == ($num | tonumber))' \
      specs/state.json)
 
-   # Extract task_type for routing (backward compat: fall back to language field)
-   task_type=$(echo "$task_data" | jq -r '.task_type // .language // "general"')
+   task_type=$(echo "$task_data" | jq -r '.task_type // "general"')
    ```
 
 3. **Validate**
@@ -282,10 +281,36 @@ Skipped: {count}
    [ "$team_size" -gt 4 ] && team_size=4
    ```
 
-3. **Extract Focus Prompt**
+3. **Extract Effort Flags**
+   Check remaining args for effort flags:
+   - `--fast` -> `effort_flag = "fast"` (low-effort mode: lighter reasoning)
+   - `--hard` -> `effort_flag = "hard"` (high-effort mode: deeper reasoning)
+
+   If multiple are provided, last one wins.
+   If none: `effort_flag = null` (normal effort)
+
+4. **Extract Model Flags**
+   Check remaining args for model flags:
+   - `--haiku` -> `model_flag = "haiku"` (use Haiku model)
+   - `--sonnet` -> `model_flag = "sonnet"` (use Sonnet model)
+   - `--opus` -> `model_flag = "opus"` (use Opus model)
+
+   If multiple are provided, last one wins.
+   If none: `model_flag = null` (use agent default, currently opus for all agents)
+
+5. **Extract Clean Flag**
+   Check remaining args for memory retrieval suppression:
+   - `--clean` -> `clean_flag = true` (skip automatic memory retrieval)
+
+   If not present: `clean_flag = false`
+
+6. **Extract Focus Prompt**
    Remove all recognized flags from remaining args:
    - Remove `--team`
    - Remove `--team-size N` (flag and its value)
+   - Remove `--fast`, `--hard`
+   - Remove `--haiku`, `--sonnet`, `--opus`
+   - Remove `--clean`
 
    Remaining text is `focus_prompt`.
 
@@ -307,8 +332,7 @@ Check extension manifests for task-type-specific research routing:
 
 ```bash
 # Get task_type (may be simple "founder" or compound "founder:deck")
-# Backward compat: fall back to language field for legacy tasks
-task_type=$(echo "$task_data" | jq -r '.task_type // .language // "general"')
+task_type=$(echo "$task_data" | jq -r '.task_type // "general"')
 
 # Check extension routing for research (skill_name starts empty)
 skill_name=""
@@ -365,12 +389,20 @@ else:
 ```
 # For team mode:
 skill: "skill-team-research"
-args: "task_number={N} focus={focus_prompt} team_size={team_size} session_id={session_id}"
+args: "task_number={N} focus={focus_prompt} team_size={team_size} session_id={session_id} effort_flag={effort_flag} model_flag={model_flag} clean_flag={clean_flag}"
 
 # For single-agent mode:
 skill: "{skill-name from table above}"
-args: "task_number={N} focus={focus_prompt} session_id={session_id}"
+args: "task_number={N} focus={focus_prompt} session_id={session_id} effort_flag={effort_flag} model_flag={model_flag} clean_flag={clean_flag}"
 ```
+
+If `model_flag` is set, pass the `model` parameter to override the agent's default model:
+- `model_flag="haiku"` -> pass `model: haiku`
+- `model_flag="sonnet"` -> pass `model: sonnet`
+- `model_flag="opus"` -> pass `model: opus`
+- `model_flag=null` -> omit `model` parameter (use agent default, currently opus for all agents)
+
+If `effort_flag` is set, pass it as prompt context to the skill/agent for reasoning depth guidance.
 
 The skill will spawn the appropriate agent(s) to conduct research and create a report.
 
@@ -436,7 +468,6 @@ task {N}: complete research
 
 Session: {session_id}
 
-Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 EOF
 )"
 ```

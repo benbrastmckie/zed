@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# lib.sh - Shared helper library for scripts/install/*.sh
+# lib.sh - Shared helper library for macOS install scripts (scripts/install/*.sh)
 #
 # BASH 3.2 COMPATIBILITY CONSTRAINTS (macOS ships bash 3.2 by default):
 #   - No `mapfile` / `readarray` (use while-read loops)
@@ -14,7 +14,7 @@
 #     All install actions are hard-coded in bash. See install-mcp-servers.sh
 #     for the rationale (Lean MCP resurrection guard).
 #   - Every install action MUST be guarded by a presence check (idempotency).
-#   - Every script MUST support --dry-run, --check, --help, --yes.
+#   - Every script MUST support --dry-run, --check, --help.
 #
 # --check CONTRACT (co-designed with future /doctor command):
 #   When invoked with --check, a script:
@@ -47,12 +47,36 @@ _INSTALL_LIB_SOURCED=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ENV_HINTS=1
 
+# ----- platform detection ---------------------------------------------------
+# DETECTED_OS is set once at source time. Valid value: macos
+DETECTED_OS=""
+
+detect_os() {
+  local kernel
+  kernel="$(uname -s)"
+  if [ "$kernel" = "Darwin" ]; then
+    DETECTED_OS="macos"
+  else
+    DETECTED_OS="unsupported"
+  fi
+}
+
+# Run detection at source time (after double-source guard).
+detect_os
+
+# ----- headless detection ---------------------------------------------------
+
+is_headless() {
+  # Returns 0 if no interactive tty is available and FORCE_INTERACTIVE is not set.
+  if [ -n "${FORCE_INTERACTIVE:-}" ]; then
+    return 1
+  fi
+  ! tty -s 2>/dev/null
+}
+
 # Flag state (populated by parse_common_flags).
 DRY_RUN=0
-ASSUME_YES=0
 CHECK_MODE=0
-ONLY_GROUPS=""
-PRESET=""
 SHOW_HELP=0
 
 # Summary accumulators (used by master wizard).
@@ -97,23 +121,12 @@ print_section() {
 
 # prompt_yn "Question" [default_y|default_n]
 # Returns 0 for yes, 1 for no.
-# Honors $ASSUME_YES.
 prompt_yn() {
   local question="$1"
   local default="${2:-default_y}"
   local suffix="[Y/n]"
   if [ "$default" = "default_n" ]; then
     suffix="[y/N]"
-  fi
-  if [ "$ASSUME_YES" = "1" ]; then
-    # Respect default_n even in --yes mode: these are opt-in extras (e.g. MacTeX
-    # 5 GB, epi bundle) where silently accepting would cause surprising behaviour.
-    if [ "$default" = "default_n" ]; then
-      log_info "$question $suffix (auto-no — default is N; use interactive mode to opt in)"
-      return 1
-    fi
-    log_info "$question $suffix (auto-yes)"
-    return 0
   fi
   local reply=""
   # Prompt on stderr; read from terminal.
@@ -134,7 +147,6 @@ prompt_yn() {
 
 # prompt_accept_skip_cancel "Group name" "Description"
 # Prints to stderr. Sets global PROMPT_ASC_RESULT to one of: accept, skip, cancel.
-# Honors $ASSUME_YES (auto-accept).
 PROMPT_ASC_RESULT=""
 prompt_accept_skip_cancel() {
   local name="$1"
@@ -142,11 +154,6 @@ prompt_accept_skip_cancel() {
   printf '\n' >&2
   printf '----- %s -----\n' "$name" >&2
   printf '%s\n' "$desc" >&2
-  if [ "$ASSUME_YES" = "1" ]; then
-    PROMPT_ASC_RESULT="accept"
-    log_info "auto-accept ($name)"
-    return 0
-  fi
   local reply=""
   printf '[a]ccept / [s]kip / [c]ancel wizard? [A/s/c] ' >&2
   if ! read -r reply </dev/tty 2>/dev/null; then
@@ -204,6 +211,119 @@ claude_mcp_has() {
   if ! check_command claude; then return 1; fi
   claude mcp list 2>/dev/null | grep -q "^$1" \
     || claude mcp list 2>/dev/null | grep -qi "^$1 "
+}
+
+# ----- platform abstraction ----------------------------------------------
+
+assert_supported_os() {
+  if [ "$DETECTED_OS" = "macos" ]; then
+    return 0
+  fi
+  log_error "Unsupported platform: $(uname -s). This wizard supports macOS only."
+  exit 3
+}
+
+# require_pkg_manager: ensure Homebrew is available.
+# In dry-run mode, warn and continue.
+require_pkg_manager() {
+  require_brew
+}
+
+# ----- brew package helpers -------------------------------------------------
+
+# pkg_install <brew-formula>
+# Thin wrapper around brew_install_formula for backward compatibility.
+pkg_install() {
+  brew_install_formula "$1"
+}
+
+# check_pkg_installed <brew-formula>
+# Check if a Homebrew formula is installed.
+check_pkg_installed() {
+  check_brew_formula "$1"
+}
+
+# ----- interactive_step ---------------------------------------------------
+# interactive_step "description" "manual_command" "verify_command" "why_needed"
+#
+# Idempotent: runs verify_command first; returns 0 if already satisfied.
+# Interactive: prints instructions, waits for user, verifies, retries up to 3.
+# Headless: defers to DEFERRED_HINTS.
+interactive_step() {
+  local description="$1"
+  local manual_command="$2"
+  local verify_command="$3"
+  local why_needed="${4:-}"
+
+  # Already satisfied?
+  if eval "$verify_command" >/dev/null 2>&1; then
+    log_ok "$description (already satisfied)"
+    return 0
+  fi
+
+  if [ "$DRY_RUN" = "1" ]; then
+    log_dry "interactive_step: $manual_command"
+    return 0
+  fi
+
+  # Headless: defer.
+  if is_headless; then
+    log_warn "$description requires interactive setup; deferring."
+    defer_hint "$manual_command" "$description${why_needed:+ — $why_needed}"
+    return 0
+  fi
+
+  # Interactive: instruct, wait, verify, retry.
+  local attempt=0
+  local max_attempts=3
+  while [ "$attempt" -lt "$max_attempts" ]; do
+    attempt=$((attempt + 1))
+    printf '\n' >&2
+    log_info "Manual step required: $description"
+    log_info "Run this command in a terminal:"
+    printf '  %s\n' "$manual_command" >&2
+    [ -n "$why_needed" ] && log_info "Why: $why_needed"
+    printf 'Press Enter when done (or type "skip" to skip)... ' >&2
+    local reply=""
+    if ! read -r reply </dev/tty 2>/dev/null; then
+      read -r reply || reply="skip"
+    fi
+    reply="$(printf '%s' "$reply" | tr '[:upper:]' '[:lower:]')"
+    if [ "$reply" = "skip" ] || [ "$reply" = "s" ]; then
+      log_info "skipped: $description"
+      return 0
+    fi
+    if eval "$verify_command" >/dev/null 2>&1; then
+      log_ok "$description (verified)"
+      return 0
+    fi
+    if [ "$attempt" -lt "$max_attempts" ]; then
+      log_warn "verification failed; attempt $attempt/$max_attempts"
+    fi
+  done
+  log_warn "$description: verification failed after $max_attempts attempts; deferring"
+  defer_hint "$manual_command" "$description${why_needed:+ — $why_needed}"
+  return 0
+}
+
+# defer_hint "command" "description"
+# Standalone helper extracted from brew_install_pkg_cask for reuse.
+defer_hint() {
+  local cmd="$1"
+  local desc="${2:-}"
+  if [ -n "$DEFERRED_HINTS" ]; then
+    DEFERRED_HINTS="${DEFERRED_HINTS}
+${cmd}	${desc}"
+  else
+    DEFERRED_HINTS="${cmd}	${desc}"
+  fi
+}
+
+# sudo_install <formula> [why_needed]
+# On macOS, sudo installs are rare; fall through to brew_install_formula.
+sudo_install() {
+  local formula="$1"
+  brew_install_formula "$formula"
 }
 
 # ----- runners -----------------------------------------------------------
@@ -274,20 +394,21 @@ ${cmd}	${desc}"
 }
 
 # print_deferred_hints
-# Prints a "finish manually" section for any pkg-cask installs that were
-# skipped because no interactive tty was available.  Call at end of main().
+# Prints a "finish manually" section for any installs that were skipped
+# because no interactive tty was available or sudo was needed.
+# Call at end of main().
 print_deferred_hints() {
   [ -z "$DEFERRED_HINTS" ] && return 0
   printf '\n' >&2
   printf '===== Manual steps required =====\n' >&2
-  printf 'The following tools need a .pkg installer and must be run from a\n' >&2
-  printf 'terminal where sudo is available (open Terminal.app and paste):\n' >&2
+  printf 'The following tools require manual installation. Open a terminal\n' >&2
+  printf 'and run these commands:\n' >&2
   printf '\n' >&2
   local line cmd desc
   printf '%s\n' "$DEFERRED_HINTS" | while IFS="	" read -r cmd desc; do
     [ -z "$cmd" ] && continue
     printf '  %s\n' "$cmd" >&2
-    [ -n "$desc" ] && printf '    → %s\n' "$desc" >&2
+    [ -n "$desc" ] && printf '    -> %s\n' "$desc" >&2
   done
   printf '\n' >&2
 }
@@ -299,10 +420,7 @@ print_common_help_footer() {
 
 Common flags:
   --dry-run         Print actions without executing.
-  --yes, -y         Assume yes for all prompts (non-interactive).
   --check           Run presence checks only; exit 0 if all present, 1 otherwise.
-  --only <groups>   Comma-separated groups (master wizard only): base,shell-tools,python,r,typesetting,mcp-servers
-  --preset <name>   One of: minimal, epi-demo, writing, everything (master wizard only)
   --help, -h        Show this help.
 EOF
 }
@@ -311,18 +429,7 @@ parse_common_flags() {
   while [ "$#" -gt 0 ]; do
     case "$1" in
       --dry-run)  DRY_RUN=1 ;;
-      --yes|-y)   ASSUME_YES=1 ;;
       --check)    CHECK_MODE=1 ;;
-      --only)
-        shift
-        ONLY_GROUPS="${1:-}"
-        ;;
-      --only=*)   ONLY_GROUPS="${1#--only=}" ;;
-      --preset)
-        shift
-        PRESET="${1:-}"
-        ;;
-      --preset=*) PRESET="${1#--preset=}" ;;
       --help|-h)  SHOW_HELP=1 ;;
       --)         shift; break ;;
       *)
@@ -331,19 +438,6 @@ parse_common_flags() {
     esac
     shift || true
   done
-}
-
-# ----- preset expansion (master wizard) ----------------------------------
-
-# preset_groups <name> -> prints space-separated group list to stdout
-preset_groups() {
-  case "$1" in
-    minimal)    printf 'base shell-tools' ;;
-    epi-demo)   printf 'base shell-tools python r typesetting' ;;
-    writing)    printf 'base shell-tools typesetting' ;;
-    everything) printf 'base shell-tools python r typesetting mcp-servers' ;;
-    *)          return 1 ;;
-  esac
 }
 
 # ----- exit trap ---------------------------------------------------------
@@ -365,12 +459,9 @@ on_exit() {
 
 # ----- macOS gate --------------------------------------------------------
 
+# DEPRECATED: use assert_supported_os instead. Kept for backward compatibility.
 assert_macos() {
-  if [ "$(uname -s)" != "Darwin" ]; then
-    log_error "this script only supports macOS (uname -s = $(uname -s))"
-    log_error "for non-macOS development, install tools manually"
-    exit 3
-  fi
+  assert_supported_os
 }
 
 assert_git_or_hint() {

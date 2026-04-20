@@ -1,6 +1,1033 @@
 {
   "completed_projects": [
     {
+      "project_number": 62,
+      "project_name": "triage_nvim_sync_changes",
+      "status": "abandoned",
+      "task_type": "meta",
+      "created": "2026-04-14T02:55:04Z",
+      "last_updated": "2026-04-14T03:20:41Z",
+      "session_id": "sess_1776136456_4b8f4f",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/062_triage_nvim_sync_changes/reports/01_sync-triage-audit.md",
+          "type": "research",
+          "summary": "Audit of 19 files: 5 DISCARD (regressions), 14 KEEP (improvements). Per-file verdicts with justification."
+        }
+      ],
+      "abandoned": "2026-04-14T04:14:45Z"
+    },
+    {
+      "project_number": 60,
+      "project_name": "update_docs_for_claude_changes",
+      "status": "abandoned",
+      "task_type": "meta",
+      "created": "2026-04-13T22:29:44Z",
+      "last_updated": "2026-04-13T22:29:44Z",
+      "abandoned": "2026-04-14T01:13:56Z"
+    },
+    {
+      "project_number": 52,
+      "project_name": "hiv_grand_rounds_la_art_prep",
+      "status": "completed",
+      "task_type": "present",
+      "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for UCSF/ZSFG (CONFERENCE talk, 20-25 min, pptx)",
+      "forcing_data": {
+        "output_format": "pptx",
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "/home/benjamin/.config/zed/examples/test-files/HIV_Grand_Rounds.md"
+        ],
+        "audience_context": "ID faculty + HIV clinic community members/staff at UCSF/ZSFG. Presenter: Nicky Mehtani, MD MPH. ~20-25 min, casual but thoughtful clinical voice, street medicine/public health perspective.",
+        "gathered_at": "2026-04-13T12:34:51Z"
+      },
+      "created": "2026-04-13T12:34:51Z",
+      "last_updated": "2026-04-13T16:12:03Z",
+      "session_id": "sess_1776096126_4d13b2",
+      "design_decisions": {
+        "theme": "ucsf-institutional",
+        "message_order": "1,2,3,4",
+        "section_emphasis": "patient-cases",
+        "confirmed_at": "2026-04-13T15:21:40Z"
+      },
+      "completion_summary": "Built 23-slide PPTX presentation for HIV Grand Rounds talk using python-pptx with UCSF institutional theming, patient case studies, poll placeholders, and complete speaker notes",
+      "artifacts": [
+        {
+          "path": "specs/052_hiv_grand_rounds_la_art_prep/summaries/01_execution-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for HIV Grand Rounds PPTX"
+        }
+      ],
+      "archived": "2026-04-13T18:08:00Z"
+    },
+    {
+      "project_number": 53,
+      "project_name": "hiv_grand_rounds_slidev",
+      "status": "completed",
+      "task_type": "present",
+      "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for UCSF/ZSFG (CONFERENCE talk, 20-25 min, slidev)",
+      "forcing_data": {
+        "output_format": "slidev",
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "/home/benjamin/.config/zed/examples/test-files/HIV_Grand_Rounds.md"
+        ],
+        "audience_context": "ID faculty + HIV clinic community members/staff at UCSF/ZSFG. Presenter: Nicky Mehtani, MD MPH. ~20-25 min, casual but thoughtful clinical voice, street medicine/public health perspective.",
+        "gathered_at": "2026-04-13T16:17:33Z"
+      },
+      "created": "2026-04-13T16:17:33Z",
+      "last_updated": "2026-04-13T16:52:53Z",
+      "session_id": "sess_1776097099_577f37",
+      "plan_metadata": {
+        "phases": 5,
+        "total_effort_hours": 5,
+        "complexity": "complex",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_slides-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      },
+      "artifacts": [
+        {
+          "path": "specs/053_hiv_grand_rounds_slidev/reports/01_slides-research.md",
+          "type": "report",
+          "summary": "Slide-mapped research report for CONFERENCE talk (23 slides, case-based grand rounds)"
+        },
+        {
+          "path": "specs/053_hiv_grand_rounds_slidev/plans/01_implementation-plan.md",
+          "type": "plan",
+          "summary": "5-phase implementation plan for 23-slide Slidev presentation with UCSF institutional theme"
+        },
+        {
+          "path": "talks/53_hiv_grand_rounds_slidev/slides.md",
+          "type": "presentation",
+          "summary": "Slidev presentation (23 slides, ucsf-institutional theme)"
+        }
+      ],
+      "design_decisions": {
+        "theme": "ucsf-institutional",
+        "message_order": "1,2,3",
+        "section_emphasis": "patient-cases",
+        "confirmed_at": "2026-04-13T16:40:34Z"
+      },
+      "completion_summary": "23-slide Slidev presentation with UCSF institutional theme, 4 patient cases, Poll Everywhere placeholders, animated Patient 2 timeline",
+      "archived": "2026-04-13T18:08:00Z"
+    },
+    {
+      "project_number": 54,
+      "project_name": "hiv_grand_rounds_pptx_v2",
+      "status": "abandoned",
+      "task_type": "present",
+      "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for UCSF/ZSFG (CONFERENCE talk, 20-25 min, pptx)",
+      "forcing_data": {
+        "output_format": "pptx",
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "/home/benjamin/.config/zed/examples/test-files/HIV_Grand_Rounds.md"
+        ],
+        "audience_context": "ID faculty + HIV clinic community members/staff at UCSF/ZSFG. Presenter: Nicky Mehtani, MD MPH. ~20-25 min, casual but thoughtful clinical voice, street medicine/public health perspective.",
+        "gathered_at": "2026-04-13T17:37:47Z"
+      },
+      "created": "2026-04-13T17:37:47Z",
+      "last_updated": "2026-04-13T18:00:02Z",
+      "session_id": "sess_1776102634_13fae1",
+      "artifacts": [
+        {
+          "path": "specs/054_hiv_grand_rounds_pptx_v2/reports/01_slides-research.md",
+          "type": "report",
+          "summary": "Slide-mapped research report for CONFERENCE talk (23 slides, PPTX format)"
+        },
+        {
+          "path": "specs/054_hiv_grand_rounds_pptx_v2/plans/01_implementation-plan.md",
+          "type": "plan",
+          "summary": "4-phase implementation plan for 23-slide PPTX presentation with UCSF institutional theme"
+        }
+      ],
+      "design_decisions": {
+        "theme": "ucsf-institutional",
+        "message_order": "1,2,3",
+        "section_emphasis": "patient-cases",
+        "confirmed_at": "2026-04-13T17:57:44Z"
+      },
+      "plan_metadata": {
+        "phases": 4,
+        "total_effort_hours": 4,
+        "complexity": "complex",
+        "research_integrated": true,
+        "plan_version": 1
+      },
+      "abandoned": "2026-04-13T18:07:03Z"
+    },
+    {
+      "project_number": 50,
+      "project_name": "hiv_grand_rounds_slidev",
+      "status": "completed",
+      "task_type": "slides",
+      "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation (Slidev). CONFERENCE talk (15-20 min), slidev output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty and HIV clinic community members at UCSF/ZSFG, ~20-25 min with 4 patient cases and audience polls.",
+      "forcing_data": {
+        "output_format": "slidev",
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "examples/test-files/HIV_Grand_Rounds.md"
+        ],
+        "audience_context": "Primarily ID faculty + some HIV clinic community members/staff at UCSF/ZSFG. ~20-25 min presentation with 4 patient cases, audience polls via Poll Everywhere, and LA-ART/LA-PrEP program data. Presenter: Nicky Mehtani, MD MPH.",
+        "gathered_at": "2026-04-13T06:34:45Z"
+      },
+      "created": "2026-04-13T06:34:45Z",
+      "last_updated": "2026-04-13T06:59:23Z",
+      "session_id": "sess_1776062069_3e3464",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/050_hiv_grand_rounds_slidev/reports/01_slides-research.md",
+          "type": "research_report",
+          "summary": "Slide-mapped research report for CONFERENCE talk (23 slides, Slidev output)"
+        },
+        {
+          "path": "specs/050_hiv_grand_rounds_slidev/plans/01_slides-plan.md",
+          "type": "plan",
+          "summary": "5-phase implementation plan for 23-slide Slidev presentation with UCSF institutional theme"
+        },
+        {
+          "path": "talks/50_hiv_grand_rounds_slidev/slides.md",
+          "type": "presentation",
+          "summary": "Slidev presentation (24 slides, ucsf-institutional theme)"
+        }
+      ],
+      "design_decisions": {
+        "theme": "ucsf-institutional",
+        "message_order": "1,2,3,4",
+        "section_emphasis": "clinical-cases-polls,results-data",
+        "confirmed_at": "2026-04-13T06:45:13Z"
+      },
+      "completion_summary": "24-slide Slidev presentation with UCSF institutional theme, 4 patient cases, interactive polls, and speaker notes",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 49,
+      "project_name": "hiv_grand_rounds_la_art_prep",
+      "status": "completed",
+      "task_type": "slides",
+      "description": "HIV Grand Rounds presentation on MXM LA-ART & LA-PrEP program. CONFERENCE talk (15-20 min), PPTX output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty and HIV clinic community members at UCSF/ZSFG, ~20-25 min with 4 patient cases and audience polls.",
+      "forcing_data": {
+        "output_format": "pptx",
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "examples/test-files/HIV_Grand_Rounds.md"
+        ],
+        "audience_context": "Primarily ID faculty + some HIV clinic community members/staff at UCSF/ZSFG. ~20-25 min presentation with 4 patient cases, audience polls via Poll Everywhere, and LA-ART/LA-PrEP program data. Presenter: Nicky Mehtani, MD MPH.",
+        "gathered_at": "2026-04-13T04:54:08Z"
+      },
+      "created": "2026-04-13T04:54:08Z",
+      "last_updated": "2026-04-13T05:40:35Z",
+      "next_artifact_number": 2,
+      "session_id": "sess_1776056029_950ced",
+      "artifacts": [
+        {
+          "path": "specs/049_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md",
+          "type": "research_report",
+          "summary": "Slide-mapped research report for CONFERENCE talk (23 slides) with 4 patient cases and interactive polls"
+        },
+        {
+          "path": "specs/049_hiv_grand_rounds_la_art_prep/plans/01_slides-plan.md",
+          "type": "plan",
+          "summary": "5-phase implementation plan for 23-slide HIV Grand Rounds PPTX using python-pptx and UCSF template"
+        },
+        {
+          "path": "talks/49_hiv_grand_rounds_la_art_prep/hiv_grand_rounds_mxm.pptx",
+          "type": "presentation",
+          "summary": "PPTX presentation (24 slides, UCSF/ZSFG template with navy/teal theme)"
+        },
+        {
+          "path": "talks/49_hiv_grand_rounds_la_art_prep/generate_deck.py",
+          "type": "script",
+          "summary": "Reproducible python-pptx assembly script"
+        }
+      ],
+      "design_decisions": {
+        "theme": "ucsf-institutional",
+        "message_order": "1-2-3 (outcomes -> LEN strategy -> low-barrier philosophy)",
+        "section_emphasis": [
+          "patient_cases_polls",
+          "results_data"
+        ],
+        "confirmed_at": "2026-04-13T05:05:45Z",
+        "based_on_report": "specs/049_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md",
+        "session_id": "sess_1776056029_950ced"
+      },
+      "planned": "2026-04-13T05:08:47Z",
+      "plan_metadata": {
+        "phases": 5,
+        "total_effort_hours": 5,
+        "complexity": "complex",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_slides-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      },
+      "completion_summary": "24-slide PPTX presentation assembled using python-pptx with UCSF/ZSFG navy/teal template. 4 patient cases with poll slides, LA-ART (n=34, 100% suppression) and LA-PrEP (n=52) program data, timeline visualizations for Patient 2, and speaker notes in presenter voice.",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 48,
+      "project_name": "slides_theme_in_planning",
+      "status": "completed",
+      "task_type": "meta",
+      "description": "Move visual theme selection into /slides planning phase. Currently theme (Academic Clean, Clinical Teal, Conference Bold, Minimal Dark, UCSF Institutional) is only selectable via a separate /slides N --design invocation (STAGE 3). Refactor so theme and design questions are asked interactively during /plan N for slides tasks. Remove --design as a separate entry point from slides.md. Update skill-slides planning routing to include interactive design questions (theme, message ordering, section emphasis) before delegating to planner-agent. Store results in design_decisions on state.json. Verify assembly agents read design_decisions correctly.",
+      "created": "2026-04-13T05:00:00Z",
+      "last_updated": "2026-04-13T04:49:00Z",
+      "next_artifact_number": 2,
+      "session_id": "sess_1776055046_77ae42",
+      "artifacts": [
+        {
+          "path": "specs/048_slides_theme_in_planning/reports/01_slides-theme-planning.md",
+          "type": "research_report",
+          "summary": "Full analysis of design_decisions flow, 5 architecture options evaluated, Option C recommended with 5-phase implementation plan"
+        },
+        {
+          "path": "specs/048_slides_theme_in_planning/plans/01_slides-theme-planning.md",
+          "type": "plan",
+          "summary": "4-phase implementation plan: add plan workflow to skill-slides, enable extension routing, remove --design from slides.md, update documentation"
+        },
+        {
+          "path": "specs/048_slides_theme_in_planning/summaries/01_slides-theme-planning-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for moving theme selection into planning phase"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 4,
+        "total_effort_hours": 2.5,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_slides-theme-planning.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      },
+      "completion_summary": "Moved visual theme selection into /plan workflow for slides tasks. Added plan workflow type to skill-slides with design questions stage, installed extension manifest for routing, removed --design flag and STAGE 3 from slides.md.",
+      "claudemd_suggestions": "Updated skill-slides SKILL.md (added plan workflow, planner-agent subagent), installed .claude/extensions/present/manifest.json with slides plan routing, updated .claude/extensions.json installed_files, modified slides.md command definition",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 44,
+      "project_name": "refactor_slides_agent_split",
+      "status": "completed",
+      "task_type": "meta",
+      "description": "Refactor slides system: split slides-agent into three focused agents (slides-research-agent, pptx-assembly-agent, slidev-assembly-agent) to reduce context window usage and improve consistency. The current slides-agent.md (553 lines) combines format-agnostic research with format-specific assembly, loading all context regardless of workflow. Split research workflow (Stages 0-8) into slides-research-agent, PPTX assembly (Stages A1-A8) into pptx-assembly-agent, and create a new slidev-assembly-agent for Slidev markdown generation. Update skill-slides routing to dispatch to the correct agent based on workflow_type and output_format. Update the /slides command, context index, extensions.json, and CLAUDE.md documentation. Each agent should only load the context it needs, progressively.",
+      "created": "2026-04-12T23:54:34Z",
+      "last_updated": "2026-04-12T21:00:00Z",
+      "session_id": "sess_1776051010_fdcaec",
+      "next_artifact_number": 3,
+      "artifacts": [
+        {
+          "path": "specs/044_refactor_slides_agent_split/reports/01_slides-agent-split.md",
+          "type": "research_report",
+          "summary": "Complete analysis of slides-agent split: stage mapping, context references, routing changes, and file modification list"
+        },
+        {
+          "path": "specs/044_refactor_slides_agent_split/reports/02_task46-integration.md",
+          "type": "research_report",
+          "summary": "Round 2 analysis: task 46 integration feasibility and concrete merge plan for slides-agent split"
+        },
+        {
+          "path": "specs/044_refactor_slides_agent_split/plans/02_slides-agent-split.md",
+          "type": "plan",
+          "summary": "Implementation plan for splitting slides-agent into three focused agents with task 46 integration"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 6,
+        "total_effort_hours": 4,
+        "complexity": "complex",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_slides-agent-split.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-12"
+          },
+          {
+            "path": "reports/02_task46-integration.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-12"
+          }
+        ]
+      },
+      "completion_summary": "Split slides-agent.md into three focused agents (slides-research-agent, pptx-assembly-agent, slidev-assembly-agent), updated skill-slides routing, context index, extensions.json, and CLAUDE.md. Absorbed task 46 description enrichment into /slides command.",
+      "claudemd_suggestions": "Updated CLAUDE.md Present Extension skill-to-agent table from 1 row to 3 rows. Updated context/index.json with 5 new entries for PPTX assembly context.",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 43,
+      "project_name": "disable_system_wide_auto_memories",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-12T21:05:02Z",
+      "last_updated": "2026-04-12T21:05:02Z",
+      "next_artifact_number": 2,
+      "session_id": "sess_1776029035_1b3bdf",
+      "researched": "2026-04-12T21:24:00Z",
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/043_disable_system_wide_auto_memories/reports/01_auto-memory-research.md",
+          "summary": "Two official mechanisms: autoMemoryEnabled setting and env var; migrate 2 existing memories to .memory/ before disabling"
+        },
+        {
+          "type": "plan",
+          "path": "specs/043_disable_system_wide_auto_memories/plans/01_disable-auto-memory.md",
+          "summary": "3-phase plan: migrate memories, disable via settings.json, verify and document"
+        },
+        {
+          "type": "summary",
+          "path": "specs/043_disable_system_wide_auto_memories/summaries/01_disable-auto-memory-summary.md",
+          "summary": "3-phase implementation: migrate memories, disable setting, verify and document"
+        }
+      ],
+      "planned": "2026-04-12T21:35:00Z",
+      "completion_summary": "Migrated 4 auto-memory entries to .memory/10-Memories/ (MEM-001 through MEM-004), added autoMemoryEnabled:false to dotfiles settings, updated CLAUDE.md context architecture table, created decision record MEM-005.",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 42,
+      "project_name": "fix_meta_researched_status",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-12T21:30:00Z",
+      "last_updated": "2026-04-12T21:30:00Z",
+      "session_id": "sess_1776029035_1b3bdf",
+      "next_artifact_number": 2,
+      "researched": "2026-04-12T21:24:00Z",
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/042_fix_meta_researched_status/reports/01_meta-research-fix.md",
+          "summary": "17 edit locations across 3 files; remove Stage 5.5, change status to not_started, remove artifact arrays"
+        },
+        {
+          "type": "plan",
+          "path": "specs/042_fix_meta_researched_status/plans/01_meta-status-fix.md",
+          "summary": "4-phase plan: remove Stage 5.5, update Stage 6, fix skill-meta and multi-task standard"
+        },
+        {
+          "type": "summary",
+          "path": "specs/042_fix_meta_researched_status/summaries/01_meta-status-fix-summary.md",
+          "summary": "4-phase implementation: removed Stage 5.5, updated all status references to not_started"
+        }
+      ],
+      "planned": "2026-04-12T21:35:00Z",
+      "completion_summary": "Removed Stage 5.5 (GenerateResearchArtifacts) from meta-builder-agent, changed task creation to NOT STARTED status, updated skill-meta and multi-task-creation-standard. 3 files modified, zero stale references remain.",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 41,
+      "project_name": "slides_pptx_documentation",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-12T21:00:00Z",
+      "last_updated": "2026-04-12T23:13:29Z",
+      "session_id": "sess_1776035180_5e2112",
+      "next_artifact_number": 2,
+      "dependencies": [
+        38,
+        39,
+        40
+      ],
+      "artifacts": [
+        {
+          "path": "specs/041_slides_pptx_documentation/reports/01_pptx-docs.md",
+          "type": "research_report",
+          "summary": "Research report identifying 3 files needing PPTX documentation updates"
+        },
+        {
+          "path": "specs/041_slides_pptx_documentation/plans/01_pptx-docs.md",
+          "type": "plan",
+          "summary": "Single-phase plan to update 3 documentation files for PowerPoint support"
+        },
+        {
+          "path": "specs/041_slides_pptx_documentation/summaries/01_pptx-docs-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for task 41 documentation updates"
+        }
+      ],
+      "completion_summary": "Updated talk/index.json, talk-structure.md, and CLAUDE.md to reflect dual-format (Slidev + PowerPoint) support, removing stale PPTX support planned references.",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 40,
+      "project_name": "skill_slides_format_routing",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-12T21:00:00Z",
+      "last_updated": "2026-04-12T23:05:51Z",
+      "session_id": "sess_1776034438_fdf684",
+      "next_artifact_number": 2,
+      "dependencies": [
+        39
+      ],
+      "artifacts": [
+        {
+          "path": "specs/040_skill_slides_format_routing/reports/01_format-routing.md",
+          "type": "research_report",
+          "summary": "Research report on format-specific assembly routing in skill-slides"
+        },
+        {
+          "path": "specs/040_skill_slides_format_routing/plans/01_format-routing.md",
+          "type": "plan",
+          "summary": "Implementation plan for format-aware routing in skill-slides with 3 phases across 2 waves"
+        },
+        {
+          "path": "specs/040_skill_slides_format_routing/summaries/01_format-routing-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for format-specific assembly routing in skill-slides"
+        }
+      ],
+      "completion_summary": "Added output_format extraction and format-specific routing to skill-slides SKILL.md (Stages 2, 4, 9, 11) and updated present manifest with :assemble suffix for slides implement routing.",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 39,
+      "project_name": "pptx_agent_assembly",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-12T21:00:00Z",
+      "last_updated": "2026-04-12T22:53:29Z",
+      "session_id": "sess_1776033618_54db5d",
+      "next_artifact_number": 2,
+      "dependencies": [
+        37,
+        38
+      ],
+      "artifacts": [
+        {
+          "path": "specs/039_pptx_agent_assembly/reports/01_pptx-assembly.md",
+          "type": "research_report",
+          "summary": "Research report covering slides-agent structure, PPTX generation patterns, theme mappings, slide patterns, and implementation recommendations for assemble_pptx workflow"
+        },
+        {
+          "path": "specs/039_pptx_agent_assembly/plans/01_pptx-assembly.md",
+          "type": "plan",
+          "summary": "Implementation plan for adding PPTX assembly workflow branch to slides-agent with 8 new stages"
+        },
+        {
+          "path": "specs/039_pptx_agent_assembly/summaries/01_pptx-assembly-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for PPTX assembly workflow addition to slides-agent"
+        }
+      ],
+      "completion_summary": "Added assemble_pptx workflow branch (Stages A1-A8) to slides-agent.md with conditional routing, PPTX context references, assembly-specific error handling, and slide type reference table.",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 38,
+      "project_name": "pptx_context_files",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-12T21:00:00Z",
+      "last_updated": "2026-04-12T22:37:19Z",
+      "session_id": "sess_1776033054_9e1440_t38",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/038_pptx_context_files/reports/01_pptx-context.md",
+          "type": "research",
+          "summary": "Research report covering talk library structure, theme-to-PPTX mappings, python-pptx API patterns, and implementation recommendations"
+        },
+        {
+          "path": "specs/038_pptx_context_files/plans/01_pptx-context.md",
+          "type": "plan",
+          "summary": "3-phase plan for creating PPTX context files that guide the slides-agent for PowerPoint output generation"
+        },
+        {
+          "path": "specs/038_pptx_context_files/summaries/01_pptx-context-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for PPTX context files creation"
+        }
+      ],
+      "completion_summary": "Created pptx-generation.md pattern document, theme_mappings.json for 3 themes, generate_deck.py skeleton, and README.md in talk/templates/pptx-project/. Updated talk/index.json with new entries.",
+      "claudemd_suggestions": "Added pptx-generation pattern and pptx-project template to talk library index.json. No CLAUDE.md changes needed -- present extension CLAUDE.md section was auto-updated to mention PowerPoint formats.",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 37,
+      "project_name": "slides_format_selection",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-12T21:00:00Z",
+      "last_updated": "2026-04-12T22:35:18Z",
+      "session_id": "sess_1776033054_9e1440_t37",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/037_slides_format_selection/reports/01_format-selection.md",
+          "type": "research",
+          "summary": "Research report covering current /slides Stage 0 structure, forcing_data flow through skill/agent pipeline, 7 Slidev references across 4 files needing updates, and recommended Step 0.0 question format"
+        },
+        {
+          "path": "specs/037_slides_format_selection/plans/01_format-selection.md",
+          "type": "plan",
+          "summary": "3-phase plan to add output format selection (Slidev/PPTX) to /slides command"
+        },
+        {
+          "path": "specs/037_slides_format_selection/summaries/01_format-selection-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for slides format selection task"
+        }
+      ],
+      "completion_summary": "Added Step 0.0 output format selection (Slidev/PPTX) to /slides command with forcing_data.output_format propagation through output messages, CLAUDE.md, and slides-agent.md.",
+      "claudemd_suggestions": "Updated CLAUDE.md Present Extension description to include PowerPoint, updated Talk Library note for PPTX template support",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 36,
+      "project_name": "ucsf_institutional_theme_slides",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-12T19:46:50Z",
+      "last_updated": "2026-04-12T19:57:36Z",
+      "session_id": "sess_1776023277_f2a70f",
+      "next_artifact_number": 2,
+      "researched": "2026-04-12T19:57:36Z",
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/036_ucsf_institutional_theme_slides/reports/01_teammate-a-findings.md",
+          "summary": "Primary implementation approach with theme JSON draft"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/036_ucsf_institutional_theme_slides/reports/01_teammate-b-findings.md",
+          "summary": "Alternative approaches: PPTX layout taxonomy, CSS consumption patterns, extended properties"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/036_ucsf_institutional_theme_slides/reports/01_teammate-c-findings.md",
+          "summary": "Critic: Garamond unavailable on Linux, phantom themes C/D, naming convention shift"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/036_ucsf_institutional_theme_slides/reports/01_teammate-d-findings.md",
+          "summary": "Horizons: institutional category field, title-institutional.md compatibility, scalability"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/036_ucsf_institutional_theme_slides/reports/01_team-research.md",
+          "summary": "Team synthesis: 4 integration points, resolved schema/color/font conflicts, concrete recommendations"
+        },
+        {
+          "type": "plan",
+          "path": "specs/036_ucsf_institutional_theme_slides/plans/01_ucsf-theme.md",
+          "summary": "3-phase plan: create theme JSON, register in indexes, add to /slides design question"
+        },
+        {
+          "type": "summary",
+          "path": "specs/036_ucsf_institutional_theme_slides/summaries/01_ucsf-theme-summary.md",
+          "summary": "3-phase implementation: theme JSON, registration, slides command"
+        }
+      ],
+      "planned": "2026-04-12T21:35:00Z",
+      "completion_summary": "Created ucsf-institutional.json theme with UCSF brand palette (navy/Pacific Blue/teal), Garamond headings with Georgia fallback. Registered in talk/index.json, extensions.json, and added as option E in /slides design question.",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 35,
+      "project_name": "zed_keybindings_cheat_sheet",
+      "status": "completed",
+      "task_type": "typst",
+      "created": "2026-04-12T01:17:35Z",
+      "last_updated": "2026-04-12T05:55:38Z",
+      "session_id": "sess_1775972945_f3ab44",
+      "researched": "2026-04-12T01:23:54Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/035_zed_keybindings_cheat_sheet/plans/01_keybindings-cheat-sheet.md",
+          "type": "plan",
+          "summary": "3-phase implementation plan for Typst keybindings cheat sheet"
+        },
+        {
+          "path": "specs/035_zed_keybindings_cheat_sheet/summaries/01_keybindings-cheat-sheet-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for Typst cheat sheet"
+        }
+      ],
+      "completion_summary": "Created two-page landscape A4 Typst cheat sheet at docs/general/keybindings-cheat-sheet.typ with 57 curated Zed keybindings organized from essential to specialized, hand-rolled key chip styling, and Linux-native Ctrl notation. Updated keybindings.md with cross-reference.",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 34,
+      "project_name": "improve_slidev_review_pipeline",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-11T18:45:55Z",
+      "last_updated": "2026-04-11T19:32:59Z",
+      "session_id": "sess_1775935551_3b789f",
+      "researched": "2026-04-11T18:59:01Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/034_improve_slidev_review_pipeline/plans/01_improve-slidev-pipeline.md",
+          "type": "plan",
+          "summary": "4-phase plan to create Slidev template scaffold, update pitfalls doc with 7 issue classes, fix Playwright script bugs, and verify integration"
+        },
+        {
+          "path": "specs/034_improve_slidev_review_pipeline/summaries/01_implementation-summary.md",
+          "type": "summary",
+          "summary": "Team implementation with 2 max concurrent teammates"
+        }
+      ],
+      "completion_summary": "Created Slidev project template directory (5 files), expanded slidev-pitfalls.md to cover 7 issue classes with prevention guidance, fixed npx slidev bug in Playwright script and pitfalls doc, added console.error capture to Playwright, updated index.json entries",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 33,
+      "project_name": "improve_docs_core_system_extensions",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-11T16:34:38Z",
+      "last_updated": "2026-04-11T17:06:27Z",
+      "session_id": "sess_1775926627_17fd67",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/033_improve_docs_core_system_extensions/reports/01_teammate-a-findings.md",
+          "summary": "Structural improvements: lifecycle-first README, grouped extensions, architecture prose"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/033_improve_docs_core_system_extensions/reports/01_teammate-b-findings.md",
+          "summary": "Alternative approaches: audience-first guides, capabilities overview, visual command map, progressive disclosure"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/033_improve_docs_core_system_extensions/reports/01_teammate-c-findings.md",
+          "summary": "Critic: stale Neovim refs in CLAUDE.md, Python not an extension, audience confusion, scope risk"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/033_improve_docs_core_system_extensions/reports/01_teammate-d-findings.md",
+          "summary": "Horizons: wrong project identity, platform-first narrative, project-overview.md factually wrong"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/033_improve_docs_core_system_extensions/reports/01_team-research.md",
+          "summary": "Team synthesis: 8 findings across correctness, narrative, and structure; 3-tier priority recommendations"
+        },
+        {
+          "path": "specs/033_improve_docs_core_system_extensions/plans/01_improve-docs-extensions.md",
+          "type": "plan",
+          "summary": "4-phase plan: fix stale Neovim references, restructure README around task lifecycle, update supporting docs, verify cross-file consistency"
+        },
+        {
+          "path": "specs/033_improve_docs_core_system_extensions/summaries/01_improve-docs-summary.md",
+          "type": "summary",
+          "summary": "Removed stale Neovim refs, restructured README around task lifecycle, fixed supporting docs"
+        }
+      ],
+      "completion_summary": "Removed stale Neovim references from machine-facing files, rewrote project-overview.md for Zed, restructured README.md around the task lifecycle with three command groups and walkthrough example, and fixed supporting docs for consistency.",
+      "claudemd_suggestions": "Updated .claude/CLAUDE.md (removed VimTeX, <leader>ac, neovim refs, manifest.json path), updated .claude/README.md (removed nvim extension, fixed broken link), rewrote .claude/context/repo/project-overview.md, fixed 6 skill SKILL.md files",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 32,
+      "project_name": "update_docs_from_claude_diff",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-11T04:13:59Z",
+      "last_updated": "2026-04-11T16:30:00Z",
+      "session_id": "sess_1775924737_8ffc92",
+      "next_artifact_number": 2,
+      "completion_summary": "Updated 15+ documentation files to remove stale Python extension references, replaced Python examples with Rust, migrated Task 29 task_type from present:talk to slides, and deleted contradictory memory file.",
+      "claudemd_suggestions": "none",
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/032_update_docs_from_claude_diff/reports/01_teammate-a-findings.md",
+          "summary": "7 files with stale Python extension references catalogued with exact edits; no talk/slides or Zed issues found"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/032_update_docs_from_claude_diff/reports/01_team-research.md",
+          "summary": "Team synthesis: 7 files need Python extension reference removal/replacement; all other stale-reference categories already clean"
+        },
+        {
+          "type": "research_report",
+          "path": "specs/032_update_docs_from_claude_diff/reports/01_teammate-d-findings.md",
+          "summary": "Horizons analysis: strategic scope confirmed, lean MCP scripts undocumented, breadcrumb mismatch in docs/README.md, guide examples should use generic placeholder to prevent future drift"
+        },
+        {
+          "path": "specs/032_update_docs_from_claude_diff/plans/01_update-docs-config.md",
+          "type": "plan",
+          "summary": "4-phase implementation plan to update documentation after Python removal and talk-to-slides rename"
+        },
+        {
+          "type": "summary",
+          "path": "specs/032_update_docs_from_claude_diff/summaries/01_update-docs-summary.md",
+          "summary": "Implementation summary: 4 phases completed, 15+ files updated, all verification checks passed"
+        }
+      ],
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 29,
+      "project_name": "talk_epi_study_walkthrough",
+      "status": "completed",
+      "language": "present",
+      "task_type": "slides",
+      "description": "Conference talk walking through the zed/examples/epi-study synthetic RCT demo (KAT vs TAU, adjusted OR 3.29) as an end-to-end showcase of the /epi Claude Code workflow for a mixed clinical/informatics audience",
+      "forcing_data": {
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "/home/benjamin/.config/zed/examples/epi-study/ (systematic review of entire directory: README.md, EPI_ANSWERS.md, scripts/, data/, reports/consort_report.md, reports/tables/*, logs/)"
+        ],
+        "audience_context": "Mixed clinical/informatics audience. Topic: demonstrating the Claude Code /epi extension via a synthetic RCT (ketamine-assisted therapy vs treatment-as-usual for methamphetamine use disorder, N=200, primary adjusted OR=3.29 for 12-week abstinence). Conference format, 15-20 min. Balance tooling narrative, methods/CONSORT rigor, and the headline clinical finding. Emphasize reproducibility (deterministic seeds, base-R fallbacks) and the four-step /epi -> /research -> /plan -> /implement workflow.",
+        "gathered_at": "2026-04-11T01:48:33Z"
+      },
+      "created": "2026-04-11T01:48:33Z",
+      "last_updated": "2026-04-11T10:35:00Z",
+      "session_id": "sess_1760000029_i1",
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/029_talk_epi_study_walkthrough/reports/02_talk-research.md",
+          "summary": "Round-2 14-slide CONFERENCE talk-map updated after task 28: byte-identical reproduction across R stack upgrade, coxph HR 0.426, pooled mice OR 3.262, Quarto render — strengthens slides 10/11/12"
+        },
+        {
+          "path": "specs/029_talk_epi_study_walkthrough/plans/02_talk-assembly.md",
+          "type": "plan",
+          "summary": "Slidev-based 7-phase plan with academic-clean theme; all build artifacts under examples/epi-slides/, specs/029 retains only plan and summary"
+        },
+        {
+          "type": "summary",
+          "path": "specs/029_talk_epi_study_walkthrough/summaries/02_talk-assembly-summary.md",
+          "summary": "Slidev 14-slide deck assembled under examples/epi-slides/; Phase 6 [PARTIAL] (slidev build OK, slidev export PDF blocked on NixOS Playwright chromium libglib)"
+        }
+      ],
+      "design_decisions": {
+        "theme": "academic-clean",
+        "message_order": "1-2-3 (workflow -> rigor -> reproducibility)",
+        "section_emphasis": [
+          "results_cox_mice_tipping_point",
+          "reproducibility_provenance",
+          "tooling_epi_workflow",
+          "methods_consort"
+        ],
+        "confirmed_at": "2026-04-11T02:32:57Z",
+        "based_on_report": "specs/029_talk_epi_study_walkthrough/reports/02_talk-research.md",
+        "session_id": "sess_1760000029_d1"
+      },
+      "planned": "2026-04-10T00:00:00Z",
+      "estimated_hours": 9.5,
+      "next_artifact_number": 3,
+      "completion_summary": "14-slide Slidev conference deck with working PDF export via Playwright. Fixed slide 14 footer overlap and confirmed all Mermaid diagrams (slides 3, 5, 8) render correctly. Build and export both exit 0.",
+      "archived": "2026-04-13T08:39:13Z"
+    },
+    {
+      "project_number": 46,
+      "project_name": "enrich_slides_task_description",
+      "status": "abandoned",
+      "task_type": "meta",
+      "description": "Enrich /slides task description to include source material file paths, template references, and key forcing data details. Currently, /slides creates a task whose description omits the file paths passed as input and gathered during forcing questions — these end up only in forcing_data.source_materials in state.json but not in the user-facing description or TODO.md entry. Changes target .claude/commands/slides.md Stage 1 (Steps 2-4): construct the description by incorporating the primary source file path, any example template paths from source_materials, talk type, audience context summary, and output format. Ensure the TODO.md Description block includes the same detail.",
+      "created": "2026-04-13T00:57:35Z",
+      "last_updated": "2026-04-12T21:00:00Z",
+      "session_id": "sess_1776041962_c74ca5",
+      "next_artifact_number": 2,
+      "researched": "2026-04-13T01:03:10Z",
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/046_enrich_slides_task_description/reports/01_enrich-slides-description.md",
+          "summary": "6 findings on slides.md description construction; fix is new Step 2.5 enriching $desc with forcing_data fields"
+        }
+      ],
+      "abandoned_reason": "Scope absorbed into task 44 (slides-agent refactor)",
+      "abandoned": "2026-04-13T08:37:57Z"
+    },
+    {
+      "project_number": 51,
+      "project_name": "hiv_grand_rounds_pptx",
+      "status": "abandoned",
+      "task_type": "slides",
+      "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation (PPTX). CONFERENCE talk (15-20 min), pptx output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty and HIV clinic community members at UCSF/ZSFG, ~20-25 min with 4 patient cases and audience polls.",
+      "forcing_data": {
+        "output_format": "pptx",
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "examples/test-files/HIV_Grand_Rounds.md"
+        ],
+        "audience_context": "Primarily ID faculty + some HIV clinic community members/staff at UCSF/ZSFG. ~20-25 min presentation with 4 patient cases, audience polls via Poll Everywhere, and LA-ART/LA-PrEP program data. Presenter: Nicky Mehtani, MD MPH.",
+        "gathered_at": "2026-04-13T08:31:55Z"
+      },
+      "created": "2026-04-13T08:31:55Z",
+      "last_updated": "2026-04-13T08:32:33Z",
+      "session_id": "sess_1776069100_0fa1c2",
+      "abandoned": "2026-04-13T08:37:57Z"
+    },
+    {
+      "project_number": 47,
+      "project_name": "hiv_grand_rounds_la_art_prep",
+      "status": "abandoned",
+      "task_type": "slides",
+      "language": "present",
+      "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for Dr. Nicky Mehtani. CONFERENCE talk (20-25 min), PPTX output. Source: examples/test-files/HIV_Grand_Rounds.md. Audience: ID faculty + HIV clinic staff at UCSF/ZSFG, clinical cases with interactive Poll Everywhere polls, low-barrier street medicine framing.",
+      "forcing_data": {
+        "output_format": "pptx",
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "examples/test-files/HIV_Grand_Rounds.md"
+        ],
+        "audience_context": "ID faculty + HIV clinic community members/staff at UCSF/ZSFG. ~20-25 min. Clinical cases with interactive Poll Everywhere polls. Low-barrier street medicine and public health framing.",
+        "gathered_at": "2026-04-13T03:56:57Z"
+      },
+      "created": "2026-04-13T03:56:57Z",
+      "last_updated": "2026-04-13T04:09:25Z",
+      "next_artifact_number": 2,
+      "session_id": "sess_1776053115_de588a",
+      "researched": "2026-04-13T04:03:40Z",
+      "artifacts": [
+        {
+          "type": "research_report",
+          "path": "specs/047_hiv_grand_rounds_la_art_prep/reports/01_slides-research.md",
+          "summary": "Slide-mapped research report for CONFERENCE talk (23 slides, all fully mapped from source)"
+        },
+        {
+          "path": "specs/047_hiv_grand_rounds_la_art_prep/plans/01_slides-plan.md",
+          "type": "plan",
+          "summary": "5-phase PPTX implementation plan: template scaffold, data slides, patient cases, assembly, documentation"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 5,
+        "total_effort_hours": 4,
+        "complexity": "complex",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_slides-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      },
+      "abandoned": "2026-04-13T04:50:49Z"
+    },
+    {
+      "project_number": 45,
+      "project_name": "hiv_grand_rounds_la_art_prep",
+      "status": "abandoned",
+      "task_type": "slides",
+      "language": "present",
+      "description": "HIV Grand Rounds: MXM LA-ART & LA-PrEP presentation for UCSF/ZSFG (~22-23 slides, ~20-25 min). Four patient cases with Poll Everywhere interaction, program outcome data (n=34 LA-ART, n=52 LA-PrEP), and discussion of LEN+CAB/RPV as population-level harm reduction strategy.",
+      "forcing_data": {
+        "output_format": "pptx",
+        "talk_type": "CONFERENCE",
+        "source_materials": [
+          "/home/benjamin/.config/zed/examples/test-files/HIV_Grand_Rounds.md",
+          "/home/benjamin/.config/zed/examples/test-files/UCSF_ZSFG_Template_16x9.pptx"
+        ],
+        "audience_context": "ID faculty + HIV clinic community members/staff at UCSF/ZSFG. ~20-25 min conference talk. Clinical cases with Poll Everywhere audience interaction. Emphasis on LA-ART/LA-PrEP program data and 4 patient cases with genuine discussion questions. Presenter: Nicky Mehtani, MD MPH.",
+        "gathered_at": "2026-04-13T00:06:21Z"
+      },
+      "created": "2026-04-13T00:06:21Z",
+      "last_updated": "2026-04-13T00:50:59Z",
+      "session_id": "sess_1776041410_dd3b65",
+      "abandoned": "2026-04-13T03:22:12Z"
+    },
+    {
       "project_number": 31,
       "project_name": "toolchain_installation_scripts",
       "status": "completed",
@@ -934,6 +1961,722 @@
         }
       ],
       "abandoned": "2026-04-10T18:28:22Z"
+    },
+    {
+      "project_number": 55,
+      "project_name": "update_claude_and_project_docs",
+      "status": "completed",
+      "completion_summary": "Updated CLAUDE.md tables, agents/README.md, docs/, git-workflow.md, and README.md to reflect slide-planner-agent, present:slides compound task type, validate-plan-write.sh hook, and corrected Co-Authored-By examples.",
+      "claudemd_suggestions": "Added slide-planner-agent to 3 CLAUDE.md tables, added Hooks subsection under Rules References, updated Present Extension routing to use present:slides compound value, removed stale Co-Authored-By from git-workflow.md examples",
+      "task_type": "meta",
+      "created": "2026-04-13T19:23:01Z",
+      "last_updated": "2026-04-13T19:41:13Z",
+      "session_id": "sess_1776109261_decc37",
+      "researched": "2026-04-13T19:30:45Z",
+      "planned": "2026-04-13T19:45:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/055_update_claude_and_project_docs/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research with 4 teammates"
+        },
+        {
+          "path": "specs/055_update_claude_and_project_docs/plans/01_update-docs.md",
+          "type": "plan",
+          "summary": "4-phase plan: CLAUDE.md tables, agents README, docs/, housekeeping"
+        },
+        {
+          "path": "specs/055_update_claude_and_project_docs/summaries/01_update-docs-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary: 7 docs updated across 4 phases"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 4,
+        "total_effort_hours": 2.5,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_team-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      },
+      "archived": "2026-04-13T21:45:07Z"
+    },
+    {
+      "project_number": 56,
+      "project_name": "refactor_keymap_platform_adaptive",
+      "status": "completed",
+      "completion_summary": "Migrated 4 safe keybindings from ctrl- to secondary- for platform-adaptive behavior. Updated keymap.json header, keybindings.md (platform-neutral notation), and cheat sheet (dagger legend for adaptive bindings).",
+      "task_type": "general",
+      "created": "2026-04-13T19:56:21Z",
+      "last_updated": "2026-04-13T20:45:00Z",
+      "session_id": "sess_1776110236_8ede20",
+      "researched": "2026-04-13T20:00:00Z",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/056_refactor_keymap_platform_adaptive/reports/01_platform-adaptive-keybindings.md",
+          "type": "research",
+          "summary": "Collision analysis of 17 custom keybindings against Zed macOS/Linux defaults for secondary- migration"
+        },
+        {
+          "path": "specs/056_refactor_keymap_platform_adaptive/plans/01_platform-adaptive-keybindings.md",
+          "type": "plan",
+          "summary": "Implementation plan: migrate 4 bindings to secondary-, update 3 docs files"
+        },
+        {
+          "path": "specs/056_refactor_keymap_platform_adaptive/summaries/01_platform-adaptive-keybindings-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for platform-adaptive keybinding refactor"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 4,
+        "total_effort_hours": 2,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_platform-adaptive-keybindings.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      },
+      "archived": "2026-04-13T21:45:07Z"
+    },
+    {
+      "project_number": 57,
+      "project_name": "cross_platform_install_wizard",
+      "status": "completed",
+      "completion_summary": "Made the 8-script install wizard cross-platform (macOS, Debian/Ubuntu, Arch Linux) by adding OS detection, package manager abstraction with parallel-array package name mapping, interactive_step pattern for sudo operations, PPM binary repo for R on Linux, and NixOS detect-and-skip. All existing macOS behavior preserved.",
+      "claudemd_suggestions": "none",
+      "task_type": "meta",
+      "created": "2026-04-13T20:12:04Z",
+      "last_updated": "2026-04-13T21:15:00Z",
+      "session_id": "sess_1776112889_d15f36",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/057_cross_platform_install_wizard/reports/01_cross-platform-install.md",
+          "type": "research",
+          "summary": "Comprehensive analysis of cross-platform install wizard: current architecture (8 scripts, 750 lines, all macOS-specific), complete package mapping across brew/apt/pacman for ~30 tools, TTY/headless interaction inventory (8 interaction points categorized), generalized interactive_step pattern extending DEFERRED_HINTS, R compilation timeout strategies (PPM binaries + per-package timeouts), task 31 design decisions to preserve (13 invariants), and NixOS detect-and-skip recommendation"
+        },
+        {
+          "path": "specs/057_cross_platform_install_wizard/plans/01_cross-platform-install.md",
+          "type": "plan",
+          "summary": "6-phase implementation plan for cross-platform install wizard supporting macOS, Debian, and Arch Linux with OS detection, package manager abstraction, interactive_step pattern, R timeout handling, and NixOS detect-and-skip"
+        },
+        {
+          "path": "specs/057_cross_platform_install_wizard/summaries/01_cross-platform-install-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary: 8 scripts made cross-platform across 6 phases"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 6,
+        "total_effort_hours": 10,
+        "complexity": "complex",
+        "research_integrated": true,
+        "plan_version": 1,
+        "reports_integrated": [
+          {
+            "path": "reports/01_cross-platform-install.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      },
+      "archived": "2026-04-13T21:45:07Z"
+    },
+    {
+      "project_number": 58,
+      "project_name": "cross_platform_docs_update",
+      "status": "completed",
+      "task_type": "markdown",
+      "created": "2026-04-13T20:59:02Z",
+      "last_updated": "2026-04-13T21:42:01Z",
+      "session_id": "sess_1776114098_1df5e9",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/058_cross_platform_docs_update/reports/01_cross-platform-docs.md",
+          "type": "research",
+          "summary": "Comprehensive inventory of ~50 edits needed across 8 documentation files to reflect cross-platform install wizard support"
+        },
+        {
+          "path": "specs/058_cross_platform_docs_update/plans/01_cross-platform-docs.md",
+          "type": "plan",
+          "summary": "4-phase plan for updating 8 docs files to reflect cross-platform install wizard"
+        },
+        {
+          "path": "specs/058_cross_platform_docs_update/summaries/01_cross-platform-docs-summary.md",
+          "type": "summary",
+          "summary": "Updated 10 docs files with cross-platform install instructions"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 4,
+        "total_effort_hours": 4,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_cross-platform-docs.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      },
+      "completion_summary": "Updated 10 documentation files to reflect cross-platform support: removed all macOS-only declarations, added Debian/Ubuntu and Arch/Manjaro package alternatives alongside every brew install command, documented Linux-specific features (PPM, uv curl installer, Typst via cargo/snap), and added a cross-platform package reference table to toolchain/README.md.",
+      "archived": "2026-04-13T21:45:07Z"
+    },
+    {
+      "project_number": 59,
+      "project_name": "revise_keybindings_docs_post_task_56",
+      "status": "completed",
+      "task_type": "markdown",
+      "created": "2026-04-13T21:00:25Z",
+      "last_updated": "2026-04-13T21:42:01Z",
+      "session_id": "sess_1776114098_1df5e9",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/059_revise_keybindings_docs_post_task_56/reports/01_keybindings-docs-review.md",
+          "type": "research",
+          "summary": "Reviewed keybindings docs post task 56; found inline assist/open-file conflict and cheat sheet notation issue"
+        },
+        {
+          "path": "specs/059_revise_keybindings_docs_post_task_56/plans/01_keybindings-docs-review.md",
+          "type": "plan",
+          "summary": "2-phase plan to fix inline assist docs conflict from task 56 secondary-enter migration"
+        },
+        {
+          "path": "specs/059_revise_keybindings_docs_post_task_56/summaries/01_keybindings-docs-summary.md",
+          "type": "summary",
+          "summary": "Revised keybindings docs to fix inline assist conflict after task 56"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 2,
+        "total_effort_hours": 0.5,
+        "complexity": "simple",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1,
+            2
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_keybindings-docs-review.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-13"
+          }
+        ]
+      },
+      "completion_summary": "Revised keybindings.md and cheat sheet to fix inline assist documentation conflict caused by task 56 secondary-enter migration. Added Open File to Quick Reference, documented the override, and updated cheat sheet to show Ctrl/Cmd+; as the working inline assist shortcut.",
+      "archived": "2026-04-13T21:45:07Z"
+    },
+    {
+      "project_number": 68,
+      "project_name": "self_learning_memory_system",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-15T21:51:25Z",
+      "last_updated": "2026-04-16T04:51:33Z",
+      "session_id": "sess_1776314238_2cviz",
+      "next_artifact_number": 3,
+      "artifacts": [
+        {
+          "path": "specs/068_self_learning_memory_system/reports/01_team-research.md",
+          "type": "research",
+          "summary": "Team research synthesis: auto-capture at /todo archival, auto-retrieval as default --remember, agent-side memory candidates in metadata"
+        },
+        {
+          "path": "specs/068_self_learning_memory_system/reports/02_memory-index-design.md",
+          "type": "research",
+          "summary": "Memory index schema design: two-phase retrieval with JSON manifest for token-efficient context loading"
+        },
+        {
+          "path": "specs/068_self_learning_memory_system/plans/02_memory-system-plan.md",
+          "type": "plan",
+          "summary": "Revised plan integrating round 2 memory index design research"
+        },
+        {
+          "path": "specs/068_self_learning_memory_system/summaries/02_memory-system-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for self-learning memory system with 6 completed phases"
+        }
+      ],
+      "researched": "2026-04-15T22:14:09Z",
+      "plan_metadata": {
+        "phases": 6,
+        "total_effort_hours": 9,
+        "complexity": "complex",
+        "research_integrated": true,
+        "plan_version": 2,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_team-research.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-15"
+          },
+          {
+            "path": "reports/02_memory-index-design.md",
+            "integrated_in_plan_version": 2,
+            "integrated_date": "2026-04-15"
+          }
+        ]
+      },
+      "completion_summary": "Implemented self-learning memory system with JSON index infrastructure, automatic two-phase retrieval for all lifecycle operations, memory candidate emission by agents, pre-classified batch harvest in /todo, passive Stop hook nudge, and complete documentation.",
+      "claudemd_suggestions": "Updated CLAUDE.md Memory Extension section with auto-retrieval docs, memory-index.json schema, candidate emission, and /todo harvest workflow. Updated return-metadata-file.md with memory_candidates schema. Modified 3 skills (researcher, planner, implementer) and 3 agents (research, implementation, planner) with memory retrieval and candidate emission. Updated skill-todo with pre-classification harvest. Added memory-nudge.sh hook to settings.json."
+    },
+    {
+      "project_number": 67,
+      "project_name": "strip_install_script_shortcuts",
+      "status": "completed",
+      "task_type": "general",
+      "created": "2026-04-15T19:15:27Z",
+      "last_updated": "2026-04-15T20:04:09Z",
+      "session_id": "sess_1776283034_071005",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/067_strip_install_script_shortcuts/reports/01_install-script-audit.md",
+          "type": "research",
+          "summary": "Complete audit of all install script flags: 3 flags to remove (--yes/-y, --only, --preset), 2 to keep (--dry-run, --check), plus --help. Identified 8 script files and 8 documentation files requiring changes."
+        },
+        {
+          "path": "specs/067_strip_install_script_shortcuts/plans/01_install-script-plan.md",
+          "type": "plan",
+          "summary": "3-phase plan to strip --yes, --only, --preset flags from install scripts and update documentation"
+        },
+        {
+          "path": "specs/067_strip_install_script_shortcuts/summaries/01_install-script-summary.md",
+          "type": "summary",
+          "summary": "Removed --yes/-y, --only, --preset flags from install system; updated 15 files across scripts and docs"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 3,
+        "total_effort_hours": 1.5,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_install-script-audit.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-15"
+          }
+        ]
+      },
+      "completion_summary": "Stripped --yes/-y, --only, and --preset flags from lib.sh, install.sh, 6 child scripts, and 8 documentation files. Revised README.md line 18 to describe --dry-run and --check."
+    },
+    {
+      "project_number": 64,
+      "project_name": "narrow_install_to_macos_only",
+      "status": "completed",
+      "task_type": "general",
+      "created": "2026-04-14T16:32:32Z",
+      "last_updated": "2026-04-14T18:30:00Z",
+      "session_id": "sess_1744651200_impl64",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/064_narrow_install_to_macos_only/reports/01_macos-narrowing-audit.md",
+          "type": "research",
+          "summary": "Comprehensive file-by-file audit of 63 files: 7 install scripts (lib.sh heaviest rewrite ~200 lines), 4 files to delete (systemd timer + units), 11 docs with Linux sections, ~40 .claude/ context files with cosmetic platform mentions. Estimated ~850 total lines changed."
+        },
+        {
+          "path": "specs/064_narrow_install_to_macos_only/plans/01_macos-narrowing-plan.md",
+          "type": "plan"
+        },
+        {
+          "path": "specs/064_narrow_install_to_macos_only/summaries/01_macos-narrowing-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for macOS-only narrowing across scripts and documentation"
+        }
+      ],
+      "completion_summary": "Removed all Linux platform support (Debian/Ubuntu, Arch/Manjaro, NixOS) from 8 install scripts, 11 documentation files, and 4 .claude/ context files. Deleted systemd timer/service files and PPM configuration. Simplified lib.sh from ~806 to ~535 lines by eliminating cross-platform dispatch and package name mapping infrastructure.",
+      "plan_metadata": {
+        "phases": 6,
+        "total_effort_hours": 5,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 1,
+        "dependency_waves": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_macos-narrowing-audit.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-14"
+          }
+        ]
+      }
+    },
+    {
+      "project_number": 63,
+      "project_name": "zed_specific_claude_customizations_and_syncprotect",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-14T15:20:20Z",
+      "last_updated": "2026-04-14T16:25:10Z",
+      "session_id": "sess_1744649000_63impl",
+      "next_artifact_number": 4,
+      "artifacts": [
+        {
+          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/reports/01_zed-customizations-audit.md",
+          "type": "research",
+          "summary": "Comprehensive audit of zed .claude/ files: project-overview.md is entirely wrong (nvim template), CLAUDE.md needs slide-planner references updated, git-workflow.md accepts nvim canonical version, agents/README.md needs recreation, .syncprotect should protect only CLAUDE.md"
+        },
+        {
+          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/reports/02_docs-update-audit.md",
+          "type": "research",
+          "summary": "Audit of .claude/ changes since task 56 identifying 5 docs files and README.md needing updates for slide-critic system, Co-Authored-By removal, and pymupdf tool priority change"
+        },
+        {
+          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/plans/03_zed-customizations-plan.md",
+          "type": "plan"
+        },
+        {
+          "path": "specs/063_zed_specific_claude_customizations_and_syncprotect/summaries/03_zed-customizations-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for zed-specific customizations and syncprotect"
+        }
+      ],
+      "plan_metadata": {
+        "phases": 7,
+        "total_effort_hours": 5.5,
+        "complexity": "medium",
+        "research_integrated": true,
+        "plan_version": 3,
+        "dependency_waves": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            6,
+            7
+          ]
+        ],
+        "reports_integrated": [
+          {
+            "path": "reports/01_zed-customizations-audit.md",
+            "integrated_in_plan_version": 1,
+            "integrated_date": "2026-04-14"
+          },
+          {
+            "path": "reports/02_docs-update-audit.md",
+            "integrated_in_plan_version": 2,
+            "integrated_date": "2026-04-14"
+          }
+        ]
+      },
+      "completion_summary": "Stripped all neovim/NixOS/leader-ac references from .claude/ config, docs/, and README.md. Rewrote project-overview.md for Zed. Created .syncprotect and agents/README.md. Updated docs for slide-critic addition and accurate skill/agent counts.",
+      "claudemd_suggestions": "Updated CLAUDE.md core section (leader-ac, neovim, nix references removed). Updated README.md, commands/fix-it.md, commands/task.md, commands/learn.md, commands/review.md, skills/skill-orchestrator/SKILL.md, rules/plan-format-enforcement.md. Created agents/README.md and .syncprotect."
+    },
+    {
+      "project_number": 61,
+      "project_name": "revert_task_60_restore_slide_planner",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-13T23:19:25Z",
+      "last_updated": "2026-04-14T01:25:00Z",
+      "session_id": "sess_1776128744_1d56ce",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/061_revert_task_60_restore_slide_planner/reports/01_revert-audit.md",
+          "type": "research",
+          "summary": "Complete audit of task 60 commits, files affected, revert strategy, and CLAUDE.md table restoration requirements"
+        },
+        {
+          "path": "specs/061_revert_task_60_restore_slide_planner/plans/01_revert-plan.md",
+          "type": "plan",
+          "summary": "3-phase plan to revert task 60 commits, re-add slide-planner-agent to CLAUDE.md tables, and verify cross-references"
+        },
+        {
+          "path": "specs/061_revert_task_60_restore_slide_planner/summaries/01_revert-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary documenting compound revert of 4 task-60 commits and cross-reference verification"
+        }
+      ],
+      "completion_summary": "Reverted all 4 task-60 commits that incorrectly removed slide-planner-agent/skill-slide-planning references, restoring 17+ files across .claude/ and docs/. Verified all cross-references are consistent.",
+      "claudemd_suggestions": "Restored CLAUDE.md Hooks section, slide-planner-agent in 3 tables, and present:slides routing row. Restored Co-Authored-By note in git-workflow.md."
+    },
+    {
+      "project_number": 75,
+      "project_name": "review_changes_update_claude_docs",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-18T18:51:53Z",
+      "last_updated": "2026-04-18T20:07:51Z",
+      "session_id": "sess_1776542619_2f4e6e",
+      "next_artifact_number": 3,
+      "artifacts": [
+        {
+          "path": "specs/075_review_changes_update_claude_docs/reports/02_review-new-changes.md",
+          "type": "research",
+          "summary": "Second-round research: confirmed remaining changes are mostly cosmetic (JSON key reordering), 2 broken README.md refs remain, neovim content still needs generalization"
+        },
+        {
+          "path": "specs/075_review_changes_update_claude_docs/plans/02_update-docs-plan.md",
+          "type": "plan",
+          "summary": "Implementation plan v2 for remaining documentation updates: fix 2 broken README.md cross-references, generalize neovim-specific content in 4 files, and commit all changes"
+        },
+        {
+          "path": "specs/075_review_changes_update_claude_docs/summaries/02_implementation-summary.md",
+          "type": "summary",
+          "summary": "Team implementation: fixed cross-references, generalized neovim content, committed all changes"
+        }
+      ],
+      "completed": "2026-04-18T20:07:51Z",
+      "completion_summary": "Updated Claude Code documentation: fixed 2 broken README.md cross-references, generalized neovim-specific content in 8 files, committed CLAUDE.md fixes and index normalization"
+    },
+    {
+      "project_number": 74,
+      "project_name": "update_docs_extension_deps_slidev",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-16T23:56:29Z",
+      "last_updated": "2026-04-17T00:15:00Z",
+      "session_id": "sess_1776384828_74006b",
+      "next_artifact_number": 2,
+      "completion_summary": "Fixed step numbering bug in extension-system.md and committed all 27 documentation files covering extension dependency system and slidev resource-only extension.",
+      "claudemd_suggestions": "Added dependency paragraph to CLAUDE.md referencing extension-development.md for extension dependency details (auto-loading, circular detection, depth limit)",
+      "memory_candidates": [
+        {
+          "content": "Extension dependencies in this system are declared in manifest.json via a dependencies array. The loader auto-loads dependencies recursively with circular detection (loading stack) and a depth limit of 5. The extensions.json state file does NOT track per-extension dependencies -- those live only in source manifests. Resource-only extensions omit task_type and EXTENSION.md entirely.",
+          "category": "PATTERN",
+          "source_artifact": "specs/074_update_docs_extension_deps_slidev/reports/01_ext-deps-doc-audit.md",
+          "confidence": 0.85,
+          "suggested_keywords": [
+            "extension",
+            "dependencies",
+            "manifest",
+            "auto-load",
+            "resource-only",
+            "slidev"
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "path": "specs/074_update_docs_extension_deps_slidev/reports/01_ext-deps-doc-audit.md",
+          "type": "report",
+          "summary": "Audit of 10 changed documentation files for extension dependency system and slidev resource-only extension; identified 3 additional files needing updates"
+        },
+        {
+          "path": "specs/074_update_docs_extension_deps_slidev/plans/01_ext-deps-doc-plan.md",
+          "type": "plan",
+          "summary": "Implementation plan with 2 phases: fix step numbering bug, then stage and commit all documentation changes"
+        },
+        {
+          "path": "specs/074_update_docs_extension_deps_slidev/summaries/01_ext-deps-doc-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary: fixed step numbering bug, committed 27 files for extension deps and slidev docs"
+        }
+      ]
+    },
+    {
+      "project_number": 72,
+      "project_name": "update_docs_for_agent_system_changes",
+      "status": "completed",
+      "task_type": "markdown",
+      "created": "2026-04-16T21:06:19Z",
+      "last_updated": "2026-04-16T21:30:59Z",
+      "session_id": "sess_1776374746_8ecf05",
+      "artifacts": [
+        {
+          "path": "specs/072_update_docs_for_agent_system_changes/plans/01_docs-update-plan.md",
+          "type": "plan",
+          "summary": "Implementation plan with 2 parallel phases for 11 edits across 4 docs files"
+        },
+        {
+          "path": "specs/072_update_docs_for_agent_system_changes/summaries/01_docs-update-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for docs update"
+        }
+      ],
+      "completion_summary": "Updated 4 docs files with 11 edits: added model/effort/clean flags to command entries, replaced stale two-phase memory retrieval with memory-retrieve.sh references, added --refine to distill tables, removed stale --remember flag."
+    },
+    {
+      "project_number": 71,
+      "project_name": "fix_doc_regressions_agent_update",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-16T20:22:43Z",
+      "last_updated": "2026-04-16T21:05:34Z",
+      "completion_summary": "Verified all 4 documentation regressions from agent system update were fixed: retrieval tracking fields restored in memory template, planning/partial JSON examples restored in return-metadata-file, plan_metadata JSON block preserved, sequential plan note added to dependency analysis."
+    },
+    {
+      "project_number": 70,
+      "project_name": "update_docs_memory_system",
+      "status": "completed",
+      "task_type": "markdown",
+      "created": "2026-04-16T18:32:09Z",
+      "last_updated": "2026-04-16T19:30:00Z",
+      "session_id": "sess_1776365491_8cfad3",
+      "next_artifact_number": 2,
+      "completion_summary": "Updated 5 documentation files to reflect the current memory system: added /distill command documentation, replaced --remember with automatic retrieval + --clean opt-out, documented memory lifecycle, vault maintenance, tombstone pattern, and memory harvest.",
+      "artifacts": [
+        {
+          "path": "specs/070_update_docs_memory_system/reports/01_docs-memory-audit.md",
+          "type": "research",
+          "summary": "File-by-file gap analysis of 5 documentation files against current memory system. 18 specific gaps identified across /distill command, memory lifecycle, automatic retrieval, tombstone pattern, memory_health, and distill-log.json."
+        },
+        {
+          "path": "specs/070_update_docs_memory_system/plans/01_docs-memory-plan.md",
+          "type": "plan",
+          "summary": "3-phase plan to update 5 documentation files with current memory system (distill, lifecycle, automatic retrieval, tombstone pattern)"
+        },
+        {
+          "path": "specs/070_update_docs_memory_system/summaries/01_docs-memory-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for updating 5 documentation files to reflect current memory system"
+        }
+      ]
+    },
+    {
+      "project_number": 69,
+      "project_name": "create_distill_command_memory_refinement",
+      "status": "completed",
+      "task_type": "meta",
+      "created": "2026-04-16T17:00:33Z",
+      "last_updated": "2026-04-16T18:45:00Z",
+      "session_id": "sess_1776362203_2b5392",
+      "researched": "2026-04-16T17:09:03Z",
+      "next_artifact_number": 2,
+      "completion_summary": "Created /distill command for memory vault health maintenance with scoring engine, four operations (purge/combine/compress/refine), tombstone pattern, distill-log auditability, /todo conditional suggestions, and comprehensive documentation across CLAUDE.md, skill README, context index, and usage guide.",
+      "claudemd_suggestions": "Added /distill to CLAUDE.md command reference table, added /distill commands to Memory Extension section with memory lifecycle description, added memory_health to state.json structure documentation",
+      "artifacts": [
+        {
+          "path": "specs/069_create_distill_command_memory_refinement/plans/01_distill-command-plan.md",
+          "type": "plan",
+          "summary": "6-phase implementation plan for /distill command with scoring engine, four distillation operations, tombstone pattern, /todo integration, and documentation updates"
+        },
+        {
+          "path": "specs/069_create_distill_command_memory_refinement/summaries/01_distill-command-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for /distill command with scoring engine, four distillation operations, tombstone pattern, /todo integration, and documentation updates"
+        }
+      ],
+      "memory_candidates": [
+        {
+          "content": "The /distill command extends skill-memory with mode=distill rather than creating a separate skill/agent. This follows the direct execution pattern where the command file handles argument parsing and the SKILL.md contains the full operation logic. Composite scoring uses weighted components (staleness 0.30, zero-retrieval 0.25, size 0.20, duplicate 0.25) with FSRS-inspired adjustments.",
+          "category": "PATTERN",
+          "confidence": 0.7,
+          "keywords": [
+            "distill",
+            "scoring-engine",
+            "memory-maintenance",
+            "direct-execution",
+            "composite-score"
+          ]
+        },
+        {
+          "content": "Tombstone pattern for safe memory deletion: add status:tombstoned and tombstoned_at to frontmatter, exclude from retrieval via status field in memory-index.json, hard-delete only via --gc after 7-day grace period. This preserves data safety while enabling cleanup.",
+          "category": "PATTERN",
+          "confidence": 0.65,
+          "keywords": [
+            "tombstone",
+            "soft-delete",
+            "memory-index",
+            "grace-period",
+            "garbage-collection"
+          ]
+        }
+      ]
     }
   ]
 }

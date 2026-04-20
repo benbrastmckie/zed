@@ -6,7 +6,6 @@
 bash scripts/install/install-mcp-servers.sh              # interactive
 bash scripts/install/install-mcp-servers.sh --dry-run    # preview only
 bash scripts/install/install-mcp-servers.sh --check      # presence report
-bash scripts/install/install-mcp-servers.sh --yes        # non-interactive
 ```
 
 Registers `rmcp`, `markitdown-mcp`, and `mcp-pandoc` via `claude mcp add --scope user` (all three launch via `uvx`). `superdoc` and `openpyxl` are handled by [`install-base.sh`](../../scripts/install/install-base.sh). `obsidian-memory` is a pointer-only install (Obsidian desktop + plugin setup cannot be automated sensibly) and the script offers to `open` the setup guide.
@@ -172,7 +171,7 @@ Should show a `pandoc` entry.
 **Rationale**:
 
 - `.claude/extensions.json` does not list a `lean` extension. The only references to Lean MCP outside `settings.json` are the two setup/verify scripts (`.claude/scripts/setup-lean-mcp.sh`, `.claude/scripts/verify-lean-mcp.sh`). No active agent, skill, command, or workflow invokes Lean MCP tools.
-- Task 21 explicitly reframed this repository as a **macOS Zed IDE for R and Python** work. Lean is a theorem-prover toolchain used in the author's Neovim config repo, not here.
+- Task 21 explicitly reframed this repository as a **macOS Zed IDE for R and Python** work. Lean is a theorem-prover toolchain not used in this repository.
 - Keeping a dormant allowlist entry for a tool that cannot be reached is worse than either state: it signals an unmet dependency while providing no benefit.
 
 **What was pruned** (applied in Phase 6 of this task):

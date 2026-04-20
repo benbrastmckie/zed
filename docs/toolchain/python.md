@@ -6,14 +6,13 @@
 bash scripts/install/install-python.sh              # interactive
 bash scripts/install/install-python.sh --dry-run    # preview only
 bash scripts/install/install-python.sh --check      # presence report
-bash scripts/install/install-python.sh --yes        # non-interactive
 ```
 
 Installs `python3`, `uv` (with `uvx`), and `ruff` via Homebrew, then prompts for optional uv tools (`pytest`, `mypy`, `ipython`) and the filetypes packages (`pandas`, `openpyxl`, `python-pptx`, `python-docx`, `markitdown`, `xlsx2csv`, `pymupdf`, `pdfannots`). Every action is guarded by a presence check and is safe to re-run. See [`scripts/install/install-python.sh`](../../scripts/install/install-python.sh) for the exact invocations. The manual walkthrough below is the source of truth for what the script automates.
 
 ## Manual installation (advanced)
 
-This guide walks through installing Python and its development tools on macOS for use with Zed. By the end, you will have a working Python environment with linting, formatting, and intelligent code completion.
+This guide walks through installing Python and its development tools for use with Zed. By the end, you will have a working Python environment with linting, formatting, and intelligent code completion.
 
 ## Before you begin
 
@@ -21,7 +20,7 @@ You need Homebrew and Xcode Command Line Tools installed. If you followed [Insta
 
 ## Install Python
 
-Python is the programming language itself. Homebrew installs the latest Python 3.x release.
+Python is the programming language itself. Your package manager installs the latest Python 3.x release.
 
 ### Check if already installed
 
@@ -37,7 +36,7 @@ If this prints a version number (e.g. `Python 3.12.8`), skip to [Install uv](#in
 brew install python
 ```
 
-Homebrew downloads Python and its dependencies. When you see your terminal prompt again, it is finished.
+The package manager downloads Python and its dependencies. When you see your terminal prompt again, it is finished.
 
 ### Verify
 
@@ -332,7 +331,7 @@ npx --version
 ## See also
 
 - [docs/general/installation.md](../general/installation.md) -- Prerequisites and base tool setup
-- [r.md](r.md) -- R language setup for macOS
+- [r.md](r.md) -- R language setup
 - [typesetting.md](typesetting.md) -- LaTeX, Typst, Pandoc install
 - [mcp-servers.md](mcp-servers.md) -- MCP servers launched via uvx
 - [docs/toolchain/README.md](README.md) -- Toolchain directory index

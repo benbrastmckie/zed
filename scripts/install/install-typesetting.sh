@@ -1,18 +1,12 @@
 #!/usr/bin/env bash
-# install-typesetting.sh - LaTeX, Typst, Pandoc, markitdown, fonts
+# install-typesetting.sh - LaTeX, Typst, Pandoc, markitdown, fonts (macOS)
 #
-# Mirrors docs/toolchain/typesetting.md:
-#   - LaTeX (BasicTeX default, MacTeX on opt-in)
-#   - Typst
-#   - Pandoc
-#   - markitdown (via uv tool install)
-#   - Fonts (font-latin-modern, font-latin-modern-math, font-computer-modern,
-#            font-noto-sans, font-noto-serif, font-noto-sans-mono)
+# BasicTeX/MacTeX (brew cask), Typst (brew), fonts (brew cask)
 #
 # Note: .claude/settings.json 'Bash(typst *)' allowlist is a separate concern
 # and is NOT managed by this script.
 #
-# Flags: --dry-run --yes --check --help
+# Flags: --dry-run --check --help
 # Idempotent: every install guarded by presence check.
 
 set -eu
@@ -23,14 +17,14 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 print_help() {
   cat >&2 <<'EOF'
-install-typesetting.sh - LaTeX, Typst, Pandoc, markitdown, fonts
+install-typesetting.sh - LaTeX, Typst, Pandoc, markitdown, fonts (macOS)
 
 Optional sub-groups (each prompted):
-  - BasicTeX (default) or MacTeX (opt-in) + tlmgr extras
-  - Typst
-  - Pandoc
+  - LaTeX: BasicTeX or MacTeX (brew cask)
+  - Typst (brew)
+  - Pandoc (brew)
   - markitdown (uv tool install)
-  - Fonts: latin modern, computer modern, noto family
+  - Fonts: Latin Modern, Computer Modern, Noto family (brew cask)
 EOF
   print_common_help_footer
 }
@@ -44,8 +38,9 @@ do_latex() {
     log_info "skipping LaTeX"
     return 0
   fi
+
   local choice="basic"
-  # default_n: MacTeX is 5 GB — only opt in explicitly; --yes stays with BasicTeX
+  # default_n: MacTeX is 5 GB -- only opt in explicitly
   if prompt_yn "Install full MacTeX (~5 GB) instead of BasicTeX (~100 MB)?" default_n; then
     choice="full"
   fi
@@ -57,15 +52,13 @@ do_latex() {
     brew_install_pkg_cask basictex \
       "brew install --cask basictex && sudo tlmgr update --self && sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra biber" \
       "Minimal LaTeX (~100 MB): compile .tex documents to PDF; required by the /convert and typesetting workflows"
+    # Run tlmgr to add extras via interactive_step (requires sudo).
     if check_command tlmgr || [ -x /Library/TeX/texbin/tlmgr ]; then
       log_info "BasicTeX installed. Running tlmgr to add latexmk and common packages..."
-      if [ "$DRY_RUN" = "0" ]; then
-        export PATH="/Library/TeX/texbin:$PATH"
-        sudo tlmgr update --self || true
-        sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra biber || true
-      else
-        log_dry "sudo tlmgr update --self && sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra biber"
-      fi
+      interactive_step "Install LaTeX extras via tlmgr" \
+        "export PATH=\"/Library/TeX/texbin:\$PATH\" && sudo tlmgr update --self && sudo tlmgr install latexmk collection-fontsrecommended collection-latexextra biber" \
+        "check_command latexmk" \
+        "latexmk and common LaTeX packages are needed for document compilation"
     else
       log_warn "BasicTeX installed. Open a new terminal (PATH update) then run:"
       log_warn "  sudo tlmgr update --self"
@@ -89,7 +82,7 @@ do_pandoc() {
     return 0
   fi
   if ! prompt_yn "Install Pandoc?"; then return 0; fi
-  brew_install_formula pandoc
+  pkg_install pandoc
 }
 
 check_markitdown() {
@@ -119,20 +112,19 @@ do_markitdown() {
   run_or_dry uv tool install markitdown
 }
 
-FONT_CASKS="font-latin-modern font-latin-modern-math font-computer-modern font-noto-sans font-noto-serif font-noto-sans-mono"
-
 do_fonts() {
   if ! prompt_yn "Install typesetting fonts (Latin Modern, Computer Modern, Noto)?"; then
     log_info "skipping fonts"
     return 0
   fi
   local cask
-  for cask in $FONT_CASKS; do
+  local font_casks="font-latin-modern font-latin-modern-math font-computer-modern font-noto-sans font-noto-serif font-noto-sans-mono"
+  for cask in $font_casks; do
     if check_brew_cask "$cask"; then
       log_ok "font cask already installed: $cask"
     else
       run_or_dry brew install --cask "$cask" || \
-        log_warn "font cask $cask not found — try 'brew search font-<name>'"
+        log_warn "font cask $cask not found -- try 'brew search font-<name>'"
     fi
   done
 }
@@ -156,15 +148,15 @@ run_check_mode() {
 main() {
   parse_common_flags "$@"
   if [ "$SHOW_HELP" = "1" ]; then print_help; exit 0; fi
-  assert_macos
-  print_section "install-typesetting: LaTeX, Typst, Pandoc, markitdown, fonts"
+  assert_supported_os
+  print_section "install-typesetting: LaTeX, Typst, Pandoc, markitdown, fonts ($DETECTED_OS)"
 
   if [ "$CHECK_MODE" = "1" ]; then
     run_check_mode
     exit $?
   fi
 
-  require_brew
+  require_pkg_manager
 
   do_latex
   do_typst

@@ -1,85 +1,57 @@
 ---
-next_project_number: 36
+next_project_number: 76
 ---
 
 # Task List
 
 ## Tasks
 
-### 35. Create Zed keybindings cheat sheet in Typst
-- **Effort**: 2 hours
-- **Status**: [COMPLETED]
-- **Task Type**: typst
-- **Research**:
-  - [01_teammate-a-findings.md](035_zed_keybindings_cheat_sheet/reports/01_teammate-a-findings.md)
-  - [01_teammate-b-findings.md](035_zed_keybindings_cheat_sheet/reports/01_teammate-b-findings.md)
-  - [01_teammate-c-findings.md](035_zed_keybindings_cheat_sheet/reports/01_teammate-c-findings.md)
-  - [01_teammate-d-findings.md](035_zed_keybindings_cheat_sheet/reports/01_teammate-d-findings.md)
-  - [01_team-research.md](035_zed_keybindings_cheat_sheet/reports/01_team-research.md)
-- **Plan**: [01_keybindings-cheat-sheet.md](035_zed_keybindings_cheat_sheet/plans/01_keybindings-cheat-sheet.md)
-- **Summary**: [01_keybindings-cheat-sheet-summary.md](035_zed_keybindings_cheat_sheet/summaries/01_keybindings-cheat-sheet-summary.md)
+### 73. Port high-value Slidev resources from Vision repository into talk library
+- **Effort**: medium
+- **Status**: [RESEARCHED]
+- **Task Type**: meta
+- **Research**: [01_vision-slidev-port.md](specs/073_port_vision_slidev_resources/reports/01_vision-slidev-port.md)
 
-**Description**: Use docs/general/keybindings.md to create a cheat sheet for learning Zed keybindings, organized from most basic/fundamental to less used or specific. Output as a Typst document following a natural and well-organized legend of different keybindings and their abilities
+**Description**: Port high and medium value Slidev resources from /home/benjamin/Projects/Logos/Vision/.context/deck/ into the talk library at .claude/context/project/present/talk/. High value: (1) Animation pattern library — 6 reusable v-click/v-motion patterns (fade-in, slide-in-below, metric-cascade, rough-marks, scale-in-pop, staggered-list), (2) Composable style architecture — separate color, typography, and texture CSS files instead of monolithic themes, (3) Texture overlays (grid-overlay.css, noise-grain.css). Medium value: (4) ComparisonCol.vue — side-by-side comparison columns, (5) TimelineItem.vue — milestone timeline with status indicators, (6) MetricCard.vue — animated KPI/metric display. Adapt business-oriented components for academic/research use where needed. Update talk library index.json to catalog new resources.
 
-### 34. Improve Slidev review pipeline to catch rendering issues during first implementation
-- **Effort**: 3 hours
-- **Status**: [COMPLETED]
+### 66. Update docs/ and README.md to reflect .claude/ refactoring
+- **Effort**: medium
+- **Status**: [RESEARCHED]
+- **Task Type**: meta
+- **Research**: [01_refactoring-diff-audit.md](specs/066_update_docs_readme_post_refactor/reports/01_refactoring-diff-audit.md)
+
+**Description**: Update all relevant documentation in `docs/` and `README.md` to reflect the .claude/ directory refactoring: remove neovim-specific references, replace `<leader>ac` with "extension picker", genericize examples (nvim/lua/ paths to src/ paths, neovim task types to general), and fix any stale cross-references from deleted files (neovim-integration.md, tts-stt-integration.md).
+
+### 65. Strip nvim/neovim references from 53 .claude/ files after sync reload
+- **Effort**: large
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
 - **Research**:
-  - [01_teammate-a-findings.md](034_improve_slidev_review_pipeline/reports/01_teammate-a-findings.md)
-  - [01_teammate-b-findings.md](034_improve_slidev_review_pipeline/reports/01_teammate-b-findings.md)
-  - [01_teammate-c-findings.md](034_improve_slidev_review_pipeline/reports/01_teammate-c-findings.md)
-  - [01_teammate-d-findings.md](034_improve_slidev_review_pipeline/reports/01_teammate-d-findings.md)
-  - [01_team-research.md](034_improve_slidev_review_pipeline/reports/01_team-research.md)
-- **Plan**: [01_improve-slidev-pipeline.md](034_improve_slidev_review_pipeline/plans/01_improve-slidev-pipeline.md)
-- **Summary**: [01_implementation-summary.md](034_improve_slidev_review_pipeline/summaries/01_implementation-summary.md)
+  - [specs/065_strip_nvim_references_post_sync/reports/01_nvim-reference-audit.md]
+  - [specs/065_strip_nvim_references_post_sync/reports/02_relevance-reaudit.md]
+  - [specs/065_strip_nvim_references_post_sync/reports/03_post-reload-audit.md]
+  - [specs/065_strip_nvim_references_post_sync/reports/04_post-reload-diff-review.md]
+  - [specs/065_strip_nvim_references_post_sync/reports/05_post-reload-diff-review.md]
 
-**Description**: Improve the Slidev implementation pipeline to catch rendering issues during first implementation rather than requiring manual post-hoc debugging. Based on troubleshooting of examples/epi-slides, the following issues were only caught post-implementation: (1) lz-string CJS/ESM incompatibility under pnpm strict layout crashing all mermaid slides, (2) Slidev CLI version mismatch between global nix binary (v52) and project package.json (v0.49), (3) Shiki syntax highlighter overriding custom theme inline code styles with dark backgrounds, (4) Vue components inside markdown pipe tables failing silently, (5) `<br/>` tags in mermaid node labels consumed by Vue/MDC parser before reaching mermaid, (6) `npx slidev` fails because the npm package name is `@slidev/cli` not `slidev` — Zed tasks and export scripts must use `npx @slidev/cli`. Update the slides implementation agent, planner context, Playwright verification template, and project scaffolding so these classes of errors are prevented or caught automatically during implementation. Deliverables should include: a Slidev project template (package.json, .npmrc, vite.config.ts, lz-string-esm.js) that the implementation agent copies when scaffolding new decks; updated slidev-pitfalls.md with all six issue classes; and an enhanced Playwright verification script that checks for console errors (not just visible error text)
+**Description**: 368 nvim/neovim occurrences across 53 `.claude/` files, plus 21 neotex and 19 `<leader>ac` references. The sync reload overwrote 8 of 9 `.syncprotect`-listed files (only `project-overview.md` survived via `CONTEXT_EXCLUDE_PATTERNS`, not `.syncprotect`). Root `CLAUDE.md` created by task 63 no longer exists. Full per-file audit in research report.
 
-### 33. Improve documentation to present core agent system and extension architecture
-- **Effort**: 4 hours
-- **Status**: [COMPLETED]
-- **Task Type**: meta
-- **Research**:
-  - [01_teammate-a-findings.md](033_improve_docs_core_system_extensions/reports/01_teammate-a-findings.md)
-  - [01_teammate-b-findings.md](033_improve_docs_core_system_extensions/reports/01_teammate-b-findings.md)
-  - [01_teammate-c-findings.md](033_improve_docs_core_system_extensions/reports/01_teammate-c-findings.md)
-  - [01_teammate-d-findings.md](033_improve_docs_core_system_extensions/reports/01_teammate-d-findings.md)
-  - [01_team-research.md](033_improve_docs_core_system_extensions/reports/01_team-research.md)
-- **Plan**: [01_improve-docs-extensions.md](033_improve_docs_core_system_extensions/plans/01_improve-docs-extensions.md)
+**Prerequisite -- Fix sync protection**: `.syncprotect` is not honored by the sync mechanism. Options: fix the loader, add a post-sync fixup script, or use git stash/restore around syncs. Without this, cleanup will be undone on next reload.
 
-**Description**: Improve README.md and supporting documentation to better present the Claude Code core system and the extensions used to augment it for writing grants, developing epi studies, building presentation slides, and other utilities. Documentation should highlight the range of commands the .claude/ agent system provides with the task management workflow system at the core
+**Category A+ -- Re-contaminated (Critical, 8 files, 36 refs):** Syncprotected files the reload overwrote: `CLAUDE.md`, `README.md`, `commands/fix-it.md`, `commands/learn.md`, `commands/review.md`, `commands/task.md`, `skills/skill-orchestrator/SKILL.md`, `rules/plan-format-enforcement.md`.
 
-### 32. Update documentation to reflect current .claude/ configuration
-- **Effort**: 3 hours
-- **Status**: [COMPLETED]
-- **Task Type**: meta
-- **Research**:
-  - [01_teammate-a-findings.md](032_update_docs_from_claude_diff/reports/01_teammate-a-findings.md)
-  - [01_teammate-b-findings.md](032_update_docs_from_claude_diff/reports/01_teammate-b-findings.md)
-  - [01_teammate-c-findings.md](032_update_docs_from_claude_diff/reports/01_teammate-c-findings.md)
-  - [01_teammate-d-findings.md](032_update_docs_from_claude_diff/reports/01_teammate-d-findings.md)
-  - [01_team-research.md](032_update_docs_from_claude_diff/reports/01_team-research.md)
-- **Plan**: [01_update-docs-config.md](032_update_docs_from_claude_diff/plans/01_update-docs-config.md)
-- **Summary**: [01_update-docs-summary.md](032_update_docs_from_claude_diff/summaries/01_update-docs-summary.md)
+**Category A -- Broken Config (Critical, 6 files, 30 refs):** Paths to nonexistent nvim directories. `extensions.json` (7 source_dir), `settings.local.json` (12 nvim path permissions), `settings.json` (SessionStart hook), `systemd/claude-refresh.service`, `commands/todo.md` (health metrics), `scripts/validate-wiring.sh`.
 
-**Description**: Review git diff of .claude/ changes and update all documentation to accurately reflect the current state without historical declarations (documentation should describe current reality, not mention what changed)
+**Category B -- Incorrect Routing (High, 6 files, 12 refs):** Routes to nonexistent neovim agents/skills. `agents/meta-builder-agent.md`, `agents/code-reviewer-agent.md`, `agents/spawn-agent.md`, `skills/skill-fix-it/SKILL.md`, `context/architecture/system-overview.md`, `context/orchestration/orchestration-core.md`.
 
-### 29. Conference talk walkthrough of the epi-study demo
-- **Effort**: 9.5 hours
-- **Status**: [COMPLETED]
-- **Completed**: 2026-04-11
-- **Summary**: 14-slide Slidev conference deck with working PDF export via Playwright. Fixed slide 14 footer overlap and confirmed all Mermaid diagrams render correctly.
-- **Task Type**: slides
-- **Research**:
-  - [01_talk-research.md](029_talk_epi_study_walkthrough/reports/01_talk-research.md)
-  - [02_talk-research.md](029_talk_epi_study_walkthrough/reports/02_talk-research.md)
-- **Plan**: [02_talk-assembly.md](029_talk_epi_study_walkthrough/plans/02_talk-assembly.md)
-- **Summary**: [02_talk-assembly-summary.md](029_talk_epi_study_walkthrough/summaries/02_talk-assembly-summary.md)
+**Category C -- Neovim-Centric Guides (Medium, 6 files, ~106 refs):** Delete `neovim-integration.md` and `tts-stt-integration.md`. Rewrite `user-installation.md`, `copy-claude-directory.md`, `user-guide.md`, `adding-domains.md`.
 
-**Description**: Conference talk (15-20 min) walking through `zed/examples/epi-study/` — the synthetic RCT demo (ketamine-assisted therapy vs TAU for methamphetamine use disorder, N=200, adjusted OR=3.29) — as an end-to-end showcase of the `/epi` Claude Code workflow for a mixed clinical/informatics audience. Balance tooling narrative, CONSORT/methods rigor, and the headline finding; emphasize reproducibility (deterministic seeds, base-R fallbacks).
+**Category D -- Examples Using Neovim (Medium, 14 files, ~142 refs):** Replace `nvim/lua/` paths and neovim task types with Zed-appropriate examples across docs, standards, and context guides.
 
+**Category E -- Template/Generic (Low, 14 files, ~42 refs):** Neovim in editor lists or generic templates. Replace where easy, defer rest.
+
+**Also needed:** Recreate root `~/.config/zed/CLAUDE.md` (gone after reload). Replace 19 `<leader>ac` references with generic "extension loader" language across 10 files.
 
 ## Recommended Order
 
-1. **33** -> research (independent)
+1. **65** [RESEARCHED] -> plan (independent)
+2. **73** -> research (independent)
