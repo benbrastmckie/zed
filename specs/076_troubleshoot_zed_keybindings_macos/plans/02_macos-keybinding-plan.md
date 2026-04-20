@@ -113,7 +113,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Rewrite cheat sheet (Typst) [NOT STARTED]
+### Phase 3: Rewrite cheat sheet (Typst) [COMPLETED]
 
 **Goal**: Complete macOS rewrite of keybindings-cheat-sheet.typ following the entry-by-entry mapping in research report section B2
 
