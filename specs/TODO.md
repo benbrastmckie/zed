@@ -1,10 +1,17 @@
 ---
-next_project_number: 77
+next_project_number: 78
 ---
 
 # Task List
 
 ## Tasks
+
+### 77. Fix claude-sleep-inhibitor Nix derivation broken sh path causing tight failure loop
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: nix
+
+**Description**: The claude-sleep-inhibitor Nix derivation uses a bare `sh` in `systemd-inhibit ... sh -c '...'` which fails to resolve in the Nix environment ("No such file or directory"). This causes ~110 process spawns/sec, driving polkitd (8.4%), nsncd (8.3%), and dbus-daemon (4.1%) CPU usage, heating thermal zones to 89.8°C and ramping fans. Fix by replacing bare `sh` with a full Nix store path (e.g., `${pkgs.bash}/bin/bash`) and add a sleep-on-failure guard to the outer loop. Source is in `/home/benjamin/.dotfiles/` repo.
 
 ### 76. Generalize extension system documentation to remove nvim loader references
 - **Effort**: medium
@@ -64,3 +71,4 @@ next_project_number: 77
 1. **65** [RESEARCHED] -> plan (independent)
 2. **73** -> research (independent)
 3. **76** -> research (independent)
+4. **77** -> research (independent)
