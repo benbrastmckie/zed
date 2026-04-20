@@ -7,10 +7,17 @@
       "status": "researched",
       "task_type": "general",
       "created": "2026-04-20T00:12:38Z",
-      "last_updated": "2026-04-20T00:27:23Z",
-      "session_id": "sess_1745107958_team76",
+      "last_updated": "2026-04-20T00:37:59Z",
+      "session_id": "sess_1745108800_r2",
       "researched": "2026-04-20T00:27:23Z",
-      "next_artifact_number": 2
+      "next_artifact_number": 3,
+      "artifacts": [
+        {
+          "path": "specs/076_troubleshoot_zed_keybindings_macos/reports/02_macos-keybinding-spec.md",
+          "type": "research",
+          "summary": "macOS keybinding specification with concrete changes"
+        }
+      ]
     },
     {
       "project_number": 73,
