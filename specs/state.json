@@ -2,14 +2,6 @@
   "next_project_number": 78,
   "active_projects": [
     {
-      "project_number": 77,
-      "project_name": "fix_claude_sleep_inhibitor_nix",
-      "status": "not_started",
-      "task_type": "nix",
-      "created": "2026-04-20T00:38:23Z",
-      "last_updated": "2026-04-20T00:38:23Z"
-    },
-    {
       "project_number": 76,
       "project_name": "generalize_extension_docs_remove_nvim",
       "status": "researched",

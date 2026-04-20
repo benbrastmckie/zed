@@ -1,6 +1,15 @@
 {
   "completed_projects": [
     {
+      "project_number": 77,
+      "project_name": "fix_claude_sleep_inhibitor_nix",
+      "status": "abandoned",
+      "task_type": "nix",
+      "created": "2026-04-20T00:38:23Z",
+      "last_updated": "2026-04-20T00:38:23Z",
+      "abandoned": "2026-04-20T00:40:52Z"
+    },
+    {
       "project_number": 62,
       "project_name": "triage_nvim_sync_changes",
       "status": "abandoned",
