@@ -1,18 +1,30 @@
 ---
-next_project_number: 78
+next_project_number: 79
 ---
 
 # Task List
 
 ## Tasks
 
-### 76. Generalize extension system documentation to remove nvim loader references
+### 78. Generalize extension system documentation to remove nvim loader references
 - **Effort**: medium
 - **Status**: [RESEARCHED]
 - **Task Type**: meta
-- **Research**: [specs/076_generalize_extension_docs_remove_nvim/reports/01_nvim-loader-doc-audit.md]
+- **Research**: [specs/078_generalize_extension_docs_remove_nvim/reports/01_nvim-loader-doc-audit.md]
 
 **Description**: Three documentation files contain references to the nvim Lua extension loader implementation that should be generalized to be implementation-agnostic. (1) `.claude/context/guides/loader-reference.md` is entirely a Lua API reference with function signatures, `vim.fn` calls, and Telescope picker details -- rewrite as a conceptual loader operations reference or delete. (2) `.claude/docs/architecture/extension-system.md` heavily references Lua source files (`init.lua`, `loader.lua`, `merge.lua`, etc.), `vim.fn.filereadable()`, and "Telescope picker" -- generalize to describe what each component does without naming Lua files or vim APIs. (3) `.claude/context/guides/extension-development.md` has a few Lua-specific leaks (`copy_context_dirs()` in `loader.lua`, `vim.fn.isdirectory()`) -- replace with conceptual descriptions.
+
+### 76. Troubleshoot Zed keybindings on macOS and update cheat sheet
+- **Effort**: medium
+- **Status**: [COMPLETED]
+- **Completed**: 2026-04-19
+- **Task Type**: general
+- **Summary**: Fixed two keybinding bugs (ctrl-shift-a in Editor, secondary-shift-c in Workspace), removed redundant indent/outdent blocks from keymap.json, and rewrote Typst cheat sheet and markdown guide for macOS-only notation (Cmd/Opt instead of Ctrl/Cmd/Alt).
+- **Research**:
+  - [specs/076_troubleshoot_zed_keybindings_macos/reports/01_team-research.md]
+  - [specs/076_troubleshoot_zed_keybindings_macos/reports/02_macos-keybinding-spec.md]
+
+**Description**: Many keybindings in `docs/general/keybindings-cheat-sheet.typ` do not work as expected on macOS. For instance, `ctrl+shift+a` only works when the PDF is open, not when the `.typ` file is open. `cmd+shift+c` is also inconsistent. Troubleshoot the issues, prefer `cmd` over `ctrl` where there are no conflicts with macOS system keybindings (open to changing macOS keybindings if it makes sense), fix the Zed configuration, and update `keybindings-cheat-sheet.typ` accordingly.
 
 ### 73. Port high-value Slidev resources from Vision repository into talk library
 - **Effort**: medium
@@ -63,4 +75,4 @@ next_project_number: 78
 
 1. **65** [RESEARCHED] -> plan (independent)
 2. **73** -> research (independent)
-3. **76** -> research (independent)
+3. **78** -> plan (independent)
