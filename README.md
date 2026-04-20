@@ -224,8 +224,8 @@ This setup uses **Scheme A** -- a minimal set of custom shortcuts. Everything el
 | Shortcut | Action |
 |----------|--------|
 | Ctrl+Shift+A | Launch Claude Code CLI (primary AI interface) |
-| Ctrl+H/L | Move focus between split panes (left/right) |
-| Alt+J/K | Move current line down/up |
+| Cmd+H/L | Move focus between split panes (left/right) |
+| Ctrl+J/K | Move current line down/up |
 
 (The pane-navigation bindings intentionally use Ctrl so they do not collide with macOS system shortcuts.)
 
@@ -246,7 +246,7 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 
 ## Platform Notes
 
-- **macOS**: Install Zed via Homebrew (`brew install --cask zed`). Open from Applications or Spotlight. All shortcuts use Cmd; the Option key corresponds to Alt in custom bindings.
+- **macOS**: Install Zed via Homebrew (`brew install --cask zed`). Open from Applications or Spotlight. All shortcuts use Cmd; custom bindings use Opt for the Option key.
 - **Config location**: `~/.config/zed/` -- standard for Zed on macOS.
 - **Extensions**: Auto-installed on launch via `auto_install_extensions` in settings.json (`python`, `ruff`, `r`, and more).
 - **Language tooling**: Install Python and R via Homebrew; see [docs/toolchain/python.md](docs/toolchain/python.md) and [docs/toolchain/r.md](docs/toolchain/r.md).

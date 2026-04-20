@@ -24,18 +24,22 @@ summary: "Scheme A custom keybindings with 17 unique bindings across three modif
 - **Secondary+Enter** — Open file under cursor (Editor)
 
 ### ctrl- (fixed Ctrl on ALL platforms, including macOS)
-- **Ctrl+H / Ctrl+L** — Pane navigation left/right (Workspace + Editor)
-- **Ctrl+O / Ctrl+I** — Jump list back/forward (Workspace + Editor)
+- **Cmd+H / Cmd+L** — Pane navigation left/right (Workspace + Editor; overrides macOS Hide)
+- **Cmd+O / Cmd+I** — Jump list back/forward (Workspace + Editor; Cmd+O overrides Open file)
 - **Ctrl+Q** — Close tab (Workspace + Editor)
 - **Ctrl+Shift+A** — Launch Claude Code CLI (Workspace + Terminal)
 - **Ctrl+> / Ctrl+<** — Indent/outdent (Editor; nulled at Workspace to override agent::AddSelectionToThread)
 
-### alt- (fixed Alt on all platforms)
-- **Alt+V** — Toggle vim mode (Workspace)
-- **Alt+J / Alt+K** — Move line down/up (Editor)
-- **Alt+R** — Reload file from disk (Editor)
-- **Alt+Shift+E** — Build PDF via task::Spawn (Typst/Slidev dispatcher)
-- **Alt+Shift+P** — Preview in browser via task::Spawn (Typst/Slidev dispatcher)
+### cmd- (Cmd on macOS)
+- **Cmd+H / Cmd+L** — Focus pane left/right (Workspace + Editor + Terminal; overrides macOS Hide)
+- **Cmd+J / Cmd+K** — Explorer navigation down/up (ProjectPanel)
+
+### alt- (Opt on macOS)
+- **Opt+V** — Toggle vim mode (Workspace)
+- **Ctrl+J / Ctrl+K** — Move line down/up (Editor)
+- **Opt+R** — Reload file from disk (Editor)
+- **Opt+Shift+E** — Preview in browser via task::Spawn (Typst/Slidev dispatcher)
+- **Opt+Shift+P** — Build PDF via task::Spawn (Typst/Slidev dispatcher)
 
 ## Project Panel Navigation (hjkl without vim mode)
 Context: `ProjectPanel && not_editing`

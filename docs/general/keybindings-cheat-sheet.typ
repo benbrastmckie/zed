@@ -16,7 +16,7 @@
       align: horizon,
       [#sym.star.filled#h(4pt)Custom binding (keymap.json)],
       [#sym.arrow.r#h(4pt)Sequential press (chord)],
-      align(right)[Ctrl bindings use the Control key (not Cmd) #h(1em) _April 2026_],
+      align(right)[_April 2026_],
     )
   },
 )
@@ -140,16 +140,13 @@
 #section("Navigation", clr-navigation)
 
 #shortcut(key-combo("Ctrl", "G"), [Go to line])
-#shortcut(key-combo("F12"), [Go to definition])
-#shortcut(key-combo("Ctrl", "O"), [Jump back], custom: true)
-#shortcut(key-combo("Ctrl", "I"), [Jump forward], custom: true)
-#shortcut(key-combo("Opt", "Left"), [Go back])
-#shortcut(key-combo("Opt", "Right"), [Go forward])
+#shortcut(key-combo("Cmd", "O"), [Jump back], custom: true)
+#shortcut(key-combo("Cmd", "I"), [Jump forward], custom: true)
 #shortcut(key-combo("Ctrl", "Tab"), [Next tab])
 #shortcut(key-combo("Ctrl", "Shift", "Tab"), [Previous tab])
 #shortcut(key-combo("Cmd", "Shift", "T"), [Reopen closed tab])
-#shortcut(key-combo("Ctrl", "H"), [Focus pane left], custom: true)
-#shortcut(key-combo("Ctrl", "L"), [Focus pane right], custom: true)
+#shortcut(key-combo("Cmd", "H"), [Focus pane left], custom: true)
+#shortcut(key-combo("Cmd", "L"), [Focus pane right], custom: true)
 #shortcut(key-combo("Cmd", "Enter"), [Open file under cursor], custom: true)
 
 #section("File Explorer", clr-explorer)
@@ -167,10 +164,8 @@
 #shortcut(key-combo("Cmd", "D"), [Select next occurrence])
 #shortcut(key-combo("Cmd", "/"), [Toggle comment])
 #shortcut(key-combo("Cmd", "Shift", "K"), [Delete line])
-#shortcut(key-combo("Opt", "K"), [Move line up], custom: true)
-#shortcut(key-combo("Opt", "J"), [Move line down], custom: true)
-#shortcut(key-combo("Cmd", "]"), [Indent line])
-#shortcut(key-combo("Cmd", "["), [Outdent line])
+#shortcut(key-combo("Cmd", ">"), [Indent line], custom: true)
+#shortcut(key-combo("Cmd", "<"), [Outdent line], custom: true)
 #shortcut(key-combo("Opt", "R"), [Reload file from disk], custom: true)
 
 #section("Search & Replace", clr-search)
@@ -183,7 +178,9 @@
 
 #shortcut(key-combo("Cmd", "B"), [Toggle left sidebar])
 #shortcut(key-combo("Cmd", "Shift", "E"), [File explorer], custom: true)
-#shortcut(key-combo("Cmd", "?"), [Toggle right dock / agent panel], custom: true)
+#shortcut(key-combo("Cmd", "R"), [Toggle right dock])
+#shortcut(key-combo("Cmd", "?"), [Open agent panel])
+#shortcut(key-combo("Cmd", "Shift", "A"), [Launch Claude Code CLI], custom: true)
 #shortcut(key-combo("Ctrl", "`"), [Toggle terminal])
 #shortcut(key-combo("Cmd", "\\"), [Split pane right])
 #shortcut(key-combo("Cmd", "Shift", "\\"), [Split pane down])
@@ -191,16 +188,16 @@
 
 #section("Preview", clr-markdown)
 
-#shortcut(chord(("Cmd", "K"), ("V",)), [Markdown side-by-side])
+// Cmd+K chord disabled (Cmd+K is now MoveLineUp)
+// #shortcut(chord(("Cmd", "K"), ("V",)), [Markdown side-by-side])
 #shortcut(key-combo("Cmd", "Shift", "V"), [Markdown full tab])
-#shortcut(key-combo("Opt", "Shift", "E"), [Build PDF (Typst / Slidev)], custom: true)
-#shortcut(key-combo("Opt", "Shift", "P"), [Preview in browser (Typst / Slidev)], custom: true)
+#shortcut(key-combo("Opt", "Shift", "E"), [Preview in browser (Typst / Slidev)], custom: true)
+#shortcut(key-combo("Opt", "Shift", "P"), [Build PDF (Typst / Slidev)], custom: true)
 
 #colbreak()
 
-#section("AI & Agent Panel", clr-ai)
+#section("Agent Panel", clr-ai)
 
-#shortcut(key-combo("Ctrl", "Shift", "A"), [Launch Claude Code CLI], custom: true)
 #shortcut(key-combo("Cmd", "N"), [New thread], ctx: "agent panel")
 #shortcut(key-combo("Shift", "Opt", "J"), [Recent threads])
 #shortcut(key-combo("Cmd", "Shift", "H"), [Thread history], ctx: "agent panel")

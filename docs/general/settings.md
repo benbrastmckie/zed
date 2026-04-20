@@ -192,14 +192,12 @@ We use a minimal set of 6 custom bindings:
 
 | Shortcut | Action | Context |
 |----------|--------|---------|
-| Ctrl+H | Focus pane left | Workspace |
-| Ctrl+J | Focus pane down | Workspace |
-| Ctrl+K | Focus pane up | Workspace |
-| Ctrl+L | Focus pane right | Workspace |
-| Alt+J | Move line down | Editor |
-| Alt+K | Move line up | Editor |
+| Cmd+H | Focus pane left | Workspace |
+| Cmd+L | Focus pane right | Workspace |
+| Ctrl+J | Move line down | Editor |
+| Ctrl+K | Move line up | Editor |
 
-The pane-navigation bindings intentionally use Ctrl (not Cmd) so they do not collide with macOS system-wide shortcuts. On macOS keyboards, Alt is labeled Option.
+The pane-navigation bindings intentionally use Ctrl (not Cmd) so they do not collide with macOS system-wide shortcuts.
 
 ### Adding More Bindings
 
@@ -212,7 +210,7 @@ To find action names, open the command palette (Cmd+Shift+P) and note the action
 
 ### Context Scoping
 
-Bindings are scoped by context. For example, Ctrl+H means "focus pane left" in the Workspace context but has a different meaning in the Editor context (Zed default). This avoids conflicts.
+Bindings are scoped by context. For example, Cmd+H means "focus pane left" in the Workspace and Editor contexts, overriding the macOS default (hide application).
 
 Common contexts:
 - `Workspace` -- applies everywhere in Zed
