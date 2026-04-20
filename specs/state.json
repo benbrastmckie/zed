@@ -4,11 +4,11 @@
     {
       "project_number": 76,
       "project_name": "troubleshoot_zed_keybindings_macos",
-      "status": "researched",
+      "status": "planned",
       "task_type": "general",
       "created": "2026-04-20T00:12:38Z",
-      "last_updated": "2026-04-20T00:37:59Z",
-      "session_id": "sess_1745108800_r2",
+      "last_updated": "2026-04-20T00:43:54Z",
+      "session_id": "sess_1745109600_plan76",
       "researched": "2026-04-20T00:27:23Z",
       "next_artifact_number": 3,
       "artifacts": [
@@ -16,6 +16,11 @@
           "path": "specs/076_troubleshoot_zed_keybindings_macos/reports/02_macos-keybinding-spec.md",
           "type": "research",
           "summary": "macOS keybinding specification with concrete changes"
+        },
+        {
+          "path": "specs/076_troubleshoot_zed_keybindings_macos/plans/02_macos-keybinding-plan.md",
+          "type": "plan",
+          "summary": "5-phase implementation plan for macOS keybinding fixes and documentation rewrite"
         }
       ]
     },

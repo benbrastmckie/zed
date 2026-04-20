@@ -8,7 +8,7 @@ next_project_number: 77
 
 ### 76. Troubleshoot Zed keybindings on macOS and update cheat sheet
 - **Effort**: medium
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: general
 - **Research**:
   - [specs/076_troubleshoot_zed_keybindings_macos/reports/01_team-research.md]
