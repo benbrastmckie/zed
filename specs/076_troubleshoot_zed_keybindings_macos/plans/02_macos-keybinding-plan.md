@@ -147,7 +147,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Update keybindings.md [NOT STARTED]
+### Phase 4: Update keybindings.md [COMPLETED]
 
 **Goal**: Update all references in the markdown guide to match macOS-only notation
 
