@@ -1,10 +1,17 @@
 ---
-next_project_number: 76
+next_project_number: 77
 ---
 
 # Task List
 
 ## Tasks
+
+### 76. Troubleshoot Zed keybindings on macOS and update cheat sheet
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: general
+
+**Description**: Many keybindings in `docs/general/keybindings-cheat-sheet.typ` do not work as expected on macOS. For instance, `ctrl+shift+a` only works when the PDF is open, not when the `.typ` file is open. `cmd+shift+c` is also inconsistent. Troubleshoot the issues, prefer `cmd` over `ctrl` where there are no conflicts with macOS system keybindings (open to changing macOS keybindings if it makes sense), fix the Zed configuration, and update `keybindings-cheat-sheet.typ` accordingly.
 
 ### 73. Port high-value Slidev resources from Vision repository into talk library
 - **Effort**: medium
