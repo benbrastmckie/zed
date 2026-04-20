@@ -2,7 +2,7 @@
   // =====================================================
   // CUSTOM BINDINGS (Scheme A -- Minimal)
   // =====================================================
-  // 17 unique custom bindings (26 entries across contexts).
+  // 15 unique custom bindings (26 entries across contexts).
   //
   // Modifier categories:
   //
@@ -16,8 +16,7 @@
   //     - 2 pane navigation (Ctrl+H, Ctrl+L), Workspace + Editor
   //     - 2 jump list (Ctrl+O, Ctrl+I), Workspace + Editor
   //     - 1 close tab (Ctrl+Q), Workspace + Editor
-  //     - 1 Claude Code launcher (Ctrl+Shift+A), Workspace + Terminal
-  //     - 2 indent/outdent (Ctrl+>, Ctrl+<), Editor + null at Workspace
+  //     - 1 Claude Code launcher (Ctrl+Shift+A), Workspace + Editor + Terminal
   //
   //   alt- (fixed Alt on all platforms)
   //     - 1 vim toggle (Alt+V), Workspace
@@ -41,6 +40,7 @@
       "ctrl-l": "workspace::ActivatePaneRight",
       "secondary-?": "workspace::ToggleRightDock",
       "secondary-shift-e": "workspace::ToggleLeftDock",
+      "secondary-shift-c": "workspace::CopyPath",
       "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }],
       "ctrl-q": "pane::CloseActiveItem",
       "ctrl-o": "pane::GoBack",
@@ -74,33 +74,13 @@
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-o": "pane::GoBack",
       "ctrl-i": "pane::GoForward",
+      "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }],
       "secondary-shift-c": "workspace::CopyPath",
       "secondary-shift-e": "workspace::ToggleLeftDock",
       "alt-shift-e": ["task::Spawn", { "task_name": "Build PDF" }],
       "alt-shift-p": ["task::Spawn", { "task_name": "Preview in Browser" }],
       "secondary-enter": "editor::OpenFile",
-      "alt-r": "editor::ReloadFile",
-      "ctrl->": "editor::Indent",
-      "ctrl-<": "editor::Outdent"
-    }
-  },
-
-  // Defeat Zed's default ctrl-> (agent::AddSelectionToThread) which
-  // is bound in Editor&&mode==full, AgentPanel, AcpThread>Editor,
-  // and Terminal contexts.  Null it out everywhere, then let the
-  // Editor-context bindings above provide indent/outdent.
-  {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl->": null,
-      "ctrl-<": null
-    }
-  },
-  {
-    "context": "Editor && mode == full",
-    "bindings": {
-      "ctrl->": "editor::Indent",
-      "ctrl-<": "editor::Outdent"
+      "alt-r": "editor::ReloadFile"
     }
   },
 
