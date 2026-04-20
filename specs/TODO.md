@@ -8,8 +8,10 @@ next_project_number: 77
 
 ### 76. Troubleshoot Zed keybindings on macOS and update cheat sheet
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
+- **Completed**: 2026-04-19
 - **Task Type**: general
+- **Summary**: Fixed two keybinding bugs (ctrl-shift-a in Editor, secondary-shift-c in Workspace), removed redundant indent/outdent blocks from keymap.json, and rewrote Typst cheat sheet and markdown guide for macOS-only notation (Cmd/Opt instead of Ctrl/Cmd/Alt).
 - **Research**:
   - [specs/076_troubleshoot_zed_keybindings_macos/reports/01_team-research.md]
   - [specs/076_troubleshoot_zed_keybindings_macos/reports/02_macos-keybinding-spec.md]

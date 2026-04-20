@@ -4,11 +4,11 @@
     {
       "project_number": 76,
       "project_name": "troubleshoot_zed_keybindings_macos",
-      "status": "planned",
+      "status": "completed",
       "task_type": "general",
       "created": "2026-04-20T00:12:38Z",
-      "last_updated": "2026-04-20T00:43:54Z",
-      "session_id": "sess_1745109600_plan76",
+      "last_updated": "2026-04-20T00:57:39Z",
+      "session_id": "sess_1745020800_f3a1b2",
       "researched": "2026-04-20T00:27:23Z",
       "next_artifact_number": 3,
       "artifacts": [
@@ -21,6 +21,28 @@
           "path": "specs/076_troubleshoot_zed_keybindings_macos/plans/02_macos-keybinding-plan.md",
           "type": "plan",
           "summary": "5-phase implementation plan for macOS keybinding fixes and documentation rewrite"
+        },
+        {
+          "path": "specs/076_troubleshoot_zed_keybindings_macos/summaries/02_macos-keybinding-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for macOS keybinding overhaul across keymap.json, cheat sheet, and markdown guide"
+        }
+      ],
+      "completion_summary": "Fixed two keybinding bugs (ctrl-shift-a in Editor, secondary-shift-c in Workspace), removed redundant indent/outdent blocks from keymap.json, and rewrote Typst cheat sheet and markdown guide for macOS-only notation (Cmd/Opt instead of Ctrl/Cmd/Alt).",
+      "memory_candidates": [
+        {
+          "content": "Zed keybinding architecture on macOS: Zed defaults use cmd- internally but keymap.json uses secondary- for platform-adaptive bindings (Cmd on macOS, Ctrl on Linux). Custom bindings that need fixed Ctrl use explicit ctrl- prefix. When documenting for macOS-only, resolve secondary- to Cmd, keep ctrl- as Ctrl, and use Opt instead of Alt. Zed keeps Ctrl+G, Ctrl+Tab, and Ctrl+` as Ctrl even on macOS (not Cmd).",
+          "category": "PATTERN",
+          "source_artifact": "specs/076_troubleshoot_zed_keybindings_macos/summaries/02_macos-keybinding-summary.md",
+          "confidence": 0.85,
+          "suggested_keywords": [
+            "zed",
+            "keybindings",
+            "macOS",
+            "secondary",
+            "keymap",
+            "modifier"
+          ]
         }
       ]
     },
