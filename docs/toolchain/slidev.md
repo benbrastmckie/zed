@@ -59,8 +59,8 @@ Two Zed tasks (in `.zed/tasks.json`) expose Slidev from the editor:
 
 | Task | Keybinding | What it does |
 |------|------------|--------------|
-| Slidev Preview | Alt+Shift+P | `slidev --open $ZED_FILE` — dev server + browser |
-| Slidev Export PDF | Alt+Shift+E | `slidev export $ZED_FILE` — headless PDF export |
+| Slidev Preview | Opt+Shift+E | `slidev --open $ZED_FILE` — dev server + browser |
+| Slidev Export PDF | Opt+Shift+P | `slidev export $ZED_FILE` — headless PDF export |
 
 Both are bound in the Editor context in `keymap.json`.
 

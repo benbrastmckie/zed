@@ -164,7 +164,7 @@ and follow the prompts. This is distinct from `claude auth login` in the termina
 | Ctrl+Shift+R | Review agent changes (diff) | Agent panel |
 | Ctrl+; | Inline assist | Text selected in editor |
 | Tab | Accept edit prediction | Editor |
-| Alt+] / Alt+[ | Next/previous edit prediction | Editor |
+| Opt+] / Opt+[ | Next/previous edit prediction | Editor |
 
 For the full keymap, see [../general/keybindings.md](../general/keybindings.md).
 

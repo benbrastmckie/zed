@@ -2,50 +2,52 @@
   // =====================================================
   // CUSTOM BINDINGS (Scheme A -- Minimal)
   // =====================================================
-  // 15 unique custom bindings (26 entries across contexts).
+  // 14 unique custom bindings (25 entries across contexts).
   //
   // Modifier categories:
   //
   //   secondary- (platform-adaptive: Ctrl on Linux, Cmd on macOS)
-  //     - 1 dock toggle (Secondary+?)
   //     - 1 left dock / explorer (Secondary+Shift+E), Workspace + Editor
   //     - 1 copy path (Secondary+Shift+C)
   //     - 1 open file under cursor (Secondary+Enter)
   //
-  //   ctrl- (fixed Ctrl on ALL platforms, including macOS)
-  //     - 2 pane navigation (Ctrl+H, Ctrl+L), Workspace + Editor
-  //     - 2 jump list (Ctrl+O, Ctrl+I), Workspace + Editor
-  //     - 1 close tab (Ctrl+Q), Workspace + Editor
-  //     - 1 Claude Code launcher (Ctrl+Shift+A), Workspace + Editor + Terminal
+  //   cmd- (Cmd on macOS)
+  //     - 2 pane navigation (Cmd+H, Cmd+L), Workspace + Editor + Terminal
+  //     - 2 jump list (Cmd+O, Cmd+I), Workspace + Editor (overrides Cmd+O Open)
+  //     - 1 Claude Code launcher (Cmd+Shift+A), Workspace + Editor + Terminal
   //
-  //   alt- (fixed Alt on all platforms)
-  //     - 1 vim toggle (Alt+V), Workspace
-  //     - 2 line movers (Alt+J, Alt+K)
-  //     - 1 reload file from disk (Alt+R)
-  //     - 1 build PDF (Alt+Shift+E) -- Typst/Slidev dispatcher
-  //     - 1 preview in browser (Alt+Shift+P) -- Typst/Slidev dispatcher
+  //   ctrl- (fixed Ctrl on ALL platforms, including macOS)
+  //     - 2 line movers (Ctrl+J, Ctrl+K), Editor
+  //     - 1 close tab (Ctrl+Q), Workspace + Editor
+  //
+  //   alt- (Opt on macOS)
+  //     - 1 vim toggle (Opt+V), Workspace
+  //     (line movers Ctrl+J, Ctrl+K are under ctrl- below)
+  //     - 1 reload file from disk (Opt+R)
+  //     - 1 preview in browser (Opt+Shift+E) -- Typst/Slidev dispatcher
+  //     - 1 build PDF (Opt+Shift+P) -- Typst/Slidev dispatcher
   //
   // The ctrl- bindings intentionally remain Ctrl (not Cmd) on
   // macOS to avoid collisions with Zed defaults (e.g. Cmd+Q
-  // quits the app, Cmd+H hides it). See ZED DEFAULT REFERENCE
-  // below for the macOS defaults this config leaves intact.
+  // quits the app). See ZED DEFAULT REFERENCE below for the
+  // macOS defaults this config leaves intact.
 
   // Pane navigation (move focus between split panes)
-  // Jump list: Ctrl+O / Ctrl+I (vim-style back/forward without vim mode)
-  // Vim toggle: Alt+V
+  // Jump list: Cmd+O / Cmd+I (vim-style back/forward without vim mode)
+  // Vim toggle: Opt+V
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "secondary-?": "workspace::ToggleRightDock",
+      "cmd-h": "workspace::ActivatePaneLeft",
+      "cmd-l": "workspace::ActivatePaneRight",
       "secondary-shift-e": "workspace::ToggleLeftDock",
       "secondary-shift-c": "workspace::CopyPath",
-      "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }],
+      "cmd-shift-a": ["task::Spawn", { "task_name": "Claude Code" }],
       "ctrl-q": "pane::CloseActiveItem",
-      "ctrl-o": "pane::GoBack",
-      "ctrl-i": "pane::GoForward",
-      "alt-v": "workspace::ToggleVimMode"
+      "cmd-o": "pane::GoBack",
+      "cmd-i": "pane::GoForward",
+      "alt-v": "workspace::ToggleVimMode",
+      "cmd-shift-b": "editor::ToggleGitBlame"
     }
   },
 
@@ -53,34 +55,36 @@
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }]
+      "cmd-shift-a": ["task::Spawn", { "task_name": "Claude Code" }],
+      "cmd-h": "workspace::ActivatePaneLeft",
+      "cmd-l": "workspace::ActivatePaneRight"
     }
   },
 
   // Editor-context overrides
   //
-  // Ctrl+H and Ctrl+L are re-declared here so that Zed's default
-  // Editor-context Ctrl+H (Find and replace in file) does not
+  // Cmd+H and Cmd+L are re-declared here so that Zed's default
+  // Cmd+H (hide application) and any Editor-context bindings do not
   // shadow the Workspace-context pane-navigation binding above.
-  // Without these overrides, pressing Ctrl+H inside an editor
-  // opens find/replace instead of activating the left pane.
   {
     "context": "Editor",
     "bindings": {
-      "alt-j": "editor::MoveLineDown",
-      "alt-k": "editor::MoveLineUp",
+      "ctrl-j": "editor::MoveLineDown",
+      "ctrl-k": "editor::MoveLineUp",
       "ctrl-q": "pane::CloseActiveItem",
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-o": "pane::GoBack",
-      "ctrl-i": "pane::GoForward",
-      "ctrl-shift-a": ["task::Spawn", { "task_name": "Claude Code" }],
+      "cmd-h": "workspace::ActivatePaneLeft",
+      "cmd-l": "workspace::ActivatePaneRight",
+      "cmd-o": "pane::GoBack",
+      "cmd-i": "pane::GoForward",
+      "cmd-shift-a": ["task::Spawn", { "task_name": "Claude Code" }],
       "secondary-shift-c": "workspace::CopyPath",
       "secondary-shift-e": "workspace::ToggleLeftDock",
-      "alt-shift-e": ["task::Spawn", { "task_name": "Build PDF" }],
-      "alt-shift-p": ["task::Spawn", { "task_name": "Preview in Browser" }],
+      "alt-shift-e": ["task::Spawn", { "task_name": "Preview in Browser" }],
+      "alt-shift-p": ["task::Spawn", { "task_name": "Build PDF" }],
       "secondary-enter": "editor::OpenFile",
-      "alt-r": "editor::ReloadFile"
+      "alt-r": "editor::ReloadFile",
+      "cmd->": "editor::Indent",
+      "cmd-<": "editor::Outdent"
     }
   },
 
@@ -99,7 +103,7 @@
       "h": "project_panel::CollapseSelectedEntry",
       "j": "menu::SelectNext",
       "k": "menu::SelectPrevious",
-      "l": "project_panel::Open"
+      "l": "project_panel::Open",
     }
   }
 
@@ -129,8 +133,8 @@
   // Ctrl+G            Go to line number
   // Cmd+Shift+O       Go to symbol in file
   // F12               Go to definition
-  // Ctrl+O            Go back in jump list (custom; vim-style)
-  // Ctrl+I            Go forward in jump list (custom; vim-style)
+  // Cmd+O             Go back in jump list (custom; overrides Open file)
+  // Cmd+I             Go forward in jump list (custom)
   // Ctrl+-            Go back (previous location) (verify)
   // Ctrl+Shift+-      Go forward (next location) (verify)
   //
@@ -143,14 +147,14 @@
   //
   // --- Search ---
   // Cmd+F             Find in file
-  // Cmd+Alt+F         Find and replace in file (verify)
+  // Cmd+Opt+F         Find and replace in file (verify)
   // Cmd+Shift+F       Search across all files
   // Cmd+Shift+H       Replace across all files (verify)
   //
   // --- Agent / AI ---
-  // Ctrl+Shift+A      Launch Claude Code CLI (custom; terminal task)
-  // Secondary+?       Toggle right dock (custom; secondary- = Ctrl on Linux, Cmd on macOS)
-  // Cmd+?             Toggle agent panel (verify; overridden by custom binding on macOS)
+  // Cmd+Shift+A       Launch Claude Code CLI (custom; terminal task)
+  // Cmd+R             Toggle right dock (Zed default)
+  // Cmd+?             Toggle agent panel (verify)
   // Cmd+N             New conversation (in agent panel) (verify)
   // Cmd+Enter         Send message (in agent panel) (verify)
   // Cmd+;             Toggle inline assist (verify)
@@ -159,11 +163,11 @@
   // Secondary+Enter   Open file under cursor (custom; secondary- = Ctrl on Linux, Cmd on macOS)
   //
   // --- Build / Preview (Typst + Slidev) ---
-  // Alt+Shift+E         Build PDF (custom; dispatches by file extension)
-  // Alt+Shift+P         Preview in Browser (custom; dispatches by file extension)
+  // Opt+Shift+E         Preview in Browser (custom; dispatches by file extension)
+  // Opt+Shift+P         Build PDF (custom; dispatches by file extension)
   //
   // --- Mode ---
-  // Alt+V             Toggle vim mode (custom)
+  // Opt+V             Toggle vim mode (custom)
   //
   // --- Editing ---
   // Cmd+Z             Undo
@@ -174,10 +178,10 @@
   // Cmd+D             Select next occurrence
   // Ctrl+Shift+K      Delete line (verify; may be Cmd+Shift+K)
   // Cmd+/             Toggle comment
-  // Cmd+]             Indent line
-  // Cmd+[             Outdent line
-  // Cmd+Alt+Up        Add cursor above (verify)
-  // Cmd+Alt+Down      Add cursor below (verify)
+  // Cmd+>             Indent line (custom; replaces Cmd+])
+  // Cmd+<             Outdent line (custom; replaces Cmd+[)
+  // Cmd+Opt+Up        Add cursor above (verify)
+  // Cmd+Opt+Down      Add cursor below (verify)
   // Secondary+Shift+C Copy path (custom; secondary- = Ctrl on Linux, Cmd on macOS)
   //
   // --- Code Actions ---
@@ -187,15 +191,15 @@
   // Cmd+Shift+I       Format document (verify)
   //
   // --- Pane Navigation ---
-  // Ctrl+H            ActivatePaneLeft (custom; see Workspace bindings)
-  // Ctrl+L            ActivatePaneRight (custom; see Workspace bindings)
+  // Cmd+H             ActivatePaneLeft (custom; overrides macOS Hide)
+  // Cmd+L             ActivatePaneRight (custom)
   //
   // --- Git ---
-  // Alt+G B           Toggle git blame
+  // Cmd+Shift+B       Toggle git blame (custom; replaces Opt+G B chord)
   //
   // --- Markdown ---
-  // Cmd+K V           Markdown preview (side-by-side) (verify)
   // Cmd+Shift+V       Markdown preview (full tab) (verify)
+  // (Cmd+K V chord removed -- use command palette instead)
   //
   // --- Window Management ---
   // Cmd+\             Split pane right (verify)

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Live preview for the current file in the browser.
-#   .typ  -> tinymist preview (live reload web server)
+# Live preview for the current file in the browser/viewer.
+#   .typ  -> typst compile + open PDF (use typst watch for live reload)
 #   .md   -> slidev dev server
 set -euo pipefail
 
@@ -9,7 +9,9 @@ ext="${file##*.}"
 
 case "$ext" in
   typ)
-    exec tinymist preview --open "$file"
+    # Compile and open the PDF; use typst watch in a terminal for live reload
+    pdf="${file%.typ}.pdf"
+    typst compile "$file" && open "$pdf"
     ;;
   md)
     dir="$(dirname "$file")"

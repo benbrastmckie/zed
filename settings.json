@@ -14,6 +14,7 @@
   "show_whitespaces": "none",
   "relative_line_numbers": "disabled",
   "cursor_blink": true,
+  "auto_reload": true,
   "scrollbar": {
     "show": "auto"
   },

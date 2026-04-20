@@ -5,7 +5,7 @@ A practical guide to the most useful keyboard shortcuts in Zed on macOS. Shortcu
 ### Modifier Key Reference
 
 - **Cmd** -- The Command key. Used by most Zed defaults (Cmd+S to save, Cmd+P to open files, etc.).
-- **Ctrl** -- The Control key. Used for specific custom bindings that intentionally avoid Cmd to prevent collisions with macOS system shortcuts (e.g., Cmd+Q quits the app, Cmd+H hides it). Includes: `Ctrl+H`, `Ctrl+L`, `Ctrl+O`, `Ctrl+I`, `Ctrl+Q`, `Ctrl+Shift+A`.
+- **Ctrl** -- The Control key. Used for specific custom bindings that intentionally avoid Cmd to prevent collisions with macOS system shortcuts (e.g., Cmd+Q quits the app). Includes: `Ctrl+Q`, `Ctrl+J`, `Ctrl+K`, `Ctrl+Shift+A`.
 - **Opt** -- The Option key. Used for custom and Zed default bindings that need a third modifier.
 
 ## Quick Reference
@@ -24,16 +24,16 @@ A practical guide to the most useful keyboard shortcuts in Zed on macOS. Shortcu
 | Cmd+W                | Close the current tab                          |
 | Ctrl+Tab             | Switch to the next tab                         |
 | Ctrl+`               | Open or close the terminal                     |
-| Ctrl+O \*            | Jump back (vim-style jump list)                |
-| Ctrl+I \*            | Jump forward (vim-style jump list)             |
+| Cmd+O \*             | Jump back (vim-style jump list)                |
+| Cmd+I \*             | Jump forward (vim-style jump list)             |
 | Cmd+Enter \*         | Open file under cursor (overrides inline assist default) |
 | Opt+V \*             | Toggle vim mode on/off                         |
 | Ctrl+Shift+A \*      | Launch Claude Code CLI                         |
 | Cmd+? \*             | Toggle the right sidebar (agent panel)         |
 | Cmd+B                | Show or hide the left sidebar                  |
 | Cmd+Shift+C \*       | Copy full path of the active file to clipboard |
-| Opt+J \*             | Move the current line down                     |
-| Opt+K \*             | Move the current line up                       |
+| Ctrl+J \*            | Move the current line down                     |
+| Ctrl+K \*            | Move the current line up                       |
 | Opt+Shift+E \*       | Build PDF (Typst compile or Slidev export)     |
 | Opt+Shift+P \*       | Preview in browser (Typst PDF or Slidev dev)   |
 
@@ -56,8 +56,8 @@ A practical guide to the most useful keyboard shortcuts in Zed on macOS. Shortcu
 
 If you have split panes (two files side by side), use these custom shortcuts to move between them:
 
-- **Ctrl+H** \* -- Focus the pane to the left
-- **Ctrl+L** \* -- Focus the pane to the right
+- **Cmd+H** \* -- Focus the pane to the left (overrides macOS Hide)
+- **Cmd+L** \* -- Focus the pane to the right
 
 To create a split: **Cmd+\\** splits the current view to the right. **Cmd+Shift+\\** splits it downward.
 
@@ -74,8 +74,8 @@ All the standard shortcuts work:
 
 ### Moving lines
 
-- **Opt+J** \* -- Move the current line down
-- **Opt+K** \* -- Move the current line up
+- **Ctrl+J** \* -- Move the current line down
+- **Ctrl+K** \* -- Move the current line up
 
 These are handy for reordering items in a list or moving a paragraph.
 
@@ -87,7 +87,7 @@ These are handy for reordering items in a list or moving a paragraph.
 
 **In the current file**: Press **Cmd+F**. Type your search term and press Enter to jump through matches. Press Escape to close the search bar.
 
-**Find and replace** (current file): Use the command palette (**Cmd+Shift+P**) and search for "find and replace". Ctrl+H is used for pane navigation, so use the command palette instead.
+**Find and replace** (current file): Use the command palette (**Cmd+Shift+P**) and search for "find and replace", or use **Cmd+Opt+F**.
 
 **Across all files in the project**: Press **Cmd+Shift+F**. This opens a project-wide search panel. Type your term and results appear from every file.
 
@@ -185,15 +185,15 @@ Press **Ctrl+`** (backtick, the key below Escape) to toggle the terminal panel a
 
 ## How do I preview Markdown files?
 
-- **Cmd+K V** opens a side-by-side preview (press Cmd+K, release, then press V)
 - **Cmd+Shift+V** opens the preview in a full tab
+- For side-by-side preview, use the command palette (Cmd+Shift+P) and search "markdown preview"
 
 ## How do I use Git?
 
 Zed has built-in Git support:
 
 - **Cmd+Shift+G** opens the Git panel (stage, commit, push)
-- **Opt+G B** shows who last edited each line (git blame)
+- **Cmd+Shift+B** \* shows who last edited each line (git blame)
 
 For more control, use the terminal (Ctrl+`) and run git commands directly.
 
@@ -208,8 +208,8 @@ Press **Ctrl+G**, type the line number, and press Enter.
 ## How do I navigate code?
 
 - **F12** jumps to where something is defined
-- **Ctrl+O** \* goes back to where you were before (jump list, like vim)
-- **Ctrl+I** \* goes forward again (jump list, like vim)
+- **Cmd+O** \* goes back to where you were before (jump list; overrides Open file)
+- **Cmd+I** \* goes forward again (jump list)
 - **Opt+Left** goes back (Zed default, same effect)
 - **Opt+Right** goes forward (Zed default, same effect)
 

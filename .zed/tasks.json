@@ -14,7 +14,7 @@
   {
     // Build PDF from the current file (Typst or Slidev).
     // Dispatches by file extension: .typ -> typst compile, .md -> slidev export.
-    // Bound to Alt+Shift+E in keymap.json.
+    // Bound to Opt+Shift+P in keymap.json.
     "label": "Build PDF",
     "command": ".zed/scripts/build-pdf.sh \"$ZED_FILE\"",
     "args": [],
@@ -27,7 +27,7 @@
   {
     // Live preview in browser (long-running server).
     // Dispatches by file extension: .typ -> tinymist preview, .md -> slidev dev.
-    // Bound to Alt+Shift+P in keymap.json.
+    // Bound to Opt+Shift+E in keymap.json.
     "label": "Preview in Browser",
     "command": ".zed/scripts/preview.sh \"$ZED_FILE\"",
     "args": [],
