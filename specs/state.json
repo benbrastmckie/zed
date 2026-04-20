@@ -4,10 +4,13 @@
     {
       "project_number": 76,
       "project_name": "troubleshoot_zed_keybindings_macos",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "general",
       "created": "2026-04-20T00:12:38Z",
-      "last_updated": "2026-04-20T00:12:38Z"
+      "last_updated": "2026-04-20T00:27:23Z",
+      "session_id": "sess_1745107958_team76",
+      "researched": "2026-04-20T00:27:23Z",
+      "next_artifact_number": 2
     },
     {
       "project_number": 73,

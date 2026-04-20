@@ -8,8 +8,9 @@ next_project_number: 77
 
 ### 76. Troubleshoot Zed keybindings on macOS and update cheat sheet
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: general
+- **Research**: [specs/076_troubleshoot_zed_keybindings_macos/reports/01_team-research.md]
 
 **Description**: Many keybindings in `docs/general/keybindings-cheat-sheet.typ` do not work as expected on macOS. For instance, `ctrl+shift+a` only works when the PDF is open, not when the `.typ` file is open. `cmd+shift+c` is also inconsistent. Troubleshoot the issues, prefer `cmd` over `ctrl` where there are no conflicts with macOS system keybindings (open to changing macOS keybindings if it makes sense), fix the Zed configuration, and update `keybindings-cheat-sheet.typ` accordingly.
 
