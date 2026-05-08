@@ -1,7 +1,7 @@
 # Implementation Plan: Task #79
 
 - **Task**: 79 - Create skill-xlsx and xlsx-agent
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 2 hours
 - **Dependencies**: None (filetypes extension already loaded)
 - **Research Inputs**: specs/079_create_skill_xlsx_and_agent/reports/01_xlsx-skill-agent.md
@@ -68,7 +68,7 @@ No actionable roadmap items found. ROADMAP.md contains placeholder entries only.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Create skill-xlsx SKILL.md [NOT STARTED]
+### Phase 1: Create skill-xlsx SKILL.md [COMPLETED]
 
 **Goal**: Create the thin-wrapper skill file that delegates xlsx operations to xlsx-agent via the Task tool
 
@@ -100,7 +100,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Create xlsx-agent.md [NOT STARTED]
+### Phase 2: Create xlsx-agent.md [IN PROGRESS]
 
 **Goal**: Create the implementation agent with full openpyxl workflow for xlsx creation, editing, and analysis
 
