@@ -120,7 +120,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Update `opencode-agents.json` and `.opencode/` EXTENSION.md [NOT STARTED]
+### Phase 3: Update `opencode-agents.json` and `.opencode/` EXTENSION.md [COMPLETED]
 
 **Goal**: Register the xlsx-agent in `opencode-agents.json` for OpenCode agent discovery and update the `.opencode/` EXTENSION.md with xlsx entries.
 
