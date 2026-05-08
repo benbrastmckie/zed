@@ -24,9 +24,10 @@ next_project_number: 82
 
 ### 79. Create skill-xlsx and xlsx-agent for filetypes extension
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
 - **Plan**: [079_create_skill_xlsx_and_agent/plans/01_xlsx-skill-agent.md]
+- **Summary**: [079_create_skill_xlsx_and_agent/summaries/01_xlsx-skill-agent-summary.md]
 
 **Description**: Create `skill-xlsx` and `xlsx-agent` following the thin-wrapper delegation pattern used by existing filetypes skills. (1) Create `.claude/skills/skill-xlsx/SKILL.md` -- adapt Anthropic xlsx skill content with thin-wrapper frontmatter (allowed-tools: Task), trigger conditions (direct: `/xlsx` command, implicit: plan steps mentioning "create spreadsheet", "edit xlsx", "add formulas", and .xlsx/.xlsm/.csv/.tsv extensions), context pointers to subagent-return.md, and Task-tool delegation to xlsx-agent. (2) Create `.claude/agents/xlsx-agent.md` -- the implementation agent with allowed-tools (Read, Write, Edit, Bash, Glob, Grep), context references to tool-detection.md and depedency-guide.md, and the full Anthropic xlsx creation/editing/analysis workflow (pandas for analysis, openpyxl for formulas/formatting, recalc.py for formula verification, color coding standards, formula error prevention, etc.).
 - **Effort**: medium

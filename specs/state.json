@@ -32,11 +32,11 @@
     {
       "project_number": 79,
       "project_name": "create_skill_xlsx_and_agent",
-      "status": "planned",
+      "status": "completed",
       "task_type": "meta",
       "created": "2026-05-07T00:00:00Z",
-      "last_updated": "2026-05-08T16:17:16Z",
-      "session_id": "sess_1778256780_915321",
+      "last_updated": "2026-05-08T16:28:09Z",
+      "session_id": "sess_1778257071_02c40f",
       "next_artifact_number": 2,
       "artifacts": [
         {
@@ -48,6 +48,11 @@
           "path": "specs/079_create_skill_xlsx_and_agent/plans/01_xlsx-skill-agent.md",
           "type": "plan",
           "summary": "Implementation plan with 4 phases covering skill-xlsx SKILL.md, xlsx-agent.md, /xlsx command, /edit update, and extension registration"
+        },
+        {
+          "path": "specs/079_create_skill_xlsx_and_agent/summaries/01_xlsx-skill-agent-summary.md",
+          "type": "summary",
+          "summary": "Created skill-xlsx thin-wrapper skill, xlsx-agent implementation agent, /xlsx command, updated /edit command xlsx routing, and updated filetypes extension registration"
         }
       ],
       "memory_candidates": [
@@ -75,8 +80,24 @@
             "frontmatter",
             "execution-flow"
           ]
+        },
+        {
+          "content": "Filetypes extension skills follow a rigid thin-wrapper pattern: frontmatter with allowed-tools: Task, context pointer to subagent-return.md (lazy), trigger conditions (direct/implicit/exclusions), 5-step execution (validate -> context prep -> Task tool invoke -> return validate -> propagate), return format, error handling, MUST NOT section. Agents follow: frontmatter without model:/mcp-servers:, 6-stage execution (parse -> validate -> detect tools -> execute -> validate output -> return JSON). The closest analogs for new skills are skill-docx-edit (create/edit/analyze scope) and filetypes-spreadsheet-agent (same format domain).",
+          "category": "PATTERN",
+          "source_artifact": "specs/079_create_skill_xlsx_and_agent/summaries/01_xlsx-skill-agent-summary.md",
+          "confidence": 0.85,
+          "suggested_keywords": [
+            "filetypes",
+            "thin-wrapper",
+            "skill-pattern",
+            "agent-pattern",
+            "delegation",
+            "xlsx"
+          ]
         }
-      ]
+      ],
+      "completion_summary": "Created skill-xlsx and xlsx-agent following the filetypes thin-wrapper delegation pattern, plus /xlsx command and /edit routing update, with full extension registration in manifest.json, EXTENSION.md, and index-entries.json.",
+      "claudemd_suggestions": "Filetypes extension section in CLAUDE.md needs regeneration to include skill-xlsx/xlsx-agent mapping row and /xlsx command entry"
     },
     {
       "project_number": 78,
