@@ -146,7 +146,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Update `.opencode/` manifest and index entries [NOT STARTED]
+### Phase 4: Update `.opencode/` manifest and index entries [COMPLETED]
 
 **Goal**: Update the `.opencode/` manifest.json to include xlsx in agents, skills, commands, and routing arrays, and verify index-entries.json consistency.
 
