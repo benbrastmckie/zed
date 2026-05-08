@@ -4,30 +4,72 @@
     {
       "project_number": 81,
       "project_name": "setup_opencode_xlsx_system",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "dependencies": [
         79
       ],
       "created": "2026-05-07T00:00:00Z",
-      "last_updated": "2026-05-07T00:00:00Z",
-      "session_id": "sess_1746576000_meta",
-      "next_artifact_number": 1,
-      "artifacts": []
+      "last_updated": "2026-05-08T16:38:18Z",
+      "session_id": "sess_1778257760_fb88ed",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/081_setup_opencode_xlsx_system/reports/01_opencode-xlsx-setup.md",
+          "type": "research",
+          "summary": "Research on .opencode/ directory structure differences from .claude/ and what needs to be created/updated to mirror xlsx skill support"
+        }
+      ],
+      "memory_candidates": [
+        {
+          "content": "The extension loader uses config.lua presets to map .claude/ paths to .opencode/ equivalents. Key differences: agents go to agent/subagents/ (not agents/), config file is AGENTS.md (not CLAUDE.md), section prefix is extension_oc_ (not extension_), and merge_target_key is opencode_md (not claudemd).",
+          "category": "PATTERN",
+          "source_artifact": "specs/081_setup_opencode_xlsx_system/reports/01_opencode-xlsx-setup.md",
+          "confidence": 0.9,
+          "suggested_keywords": [
+            "opencode",
+            "extension-loader",
+            "config-preset",
+            "agent-subdir"
+          ]
+        }
+      ]
     },
     {
       "project_number": 80,
       "project_name": "integrate_xlsx_filetypes_routing",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "dependencies": [
         79
       ],
       "created": "2026-05-07T00:00:00Z",
-      "last_updated": "2026-05-07T00:00:00Z",
-      "session_id": "sess_1746576000_meta",
-      "next_artifact_number": 1,
-      "artifacts": []
+      "last_updated": "2026-05-08T16:34:11Z",
+      "session_id": "sess_1778257760_fb88ed",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/080_integrate_xlsx_filetypes_routing/reports/01_xlsx-routing-audit.md",
+          "type": "research",
+          "summary": "Audit of xlsx integration state: task 79 created files in zed project but not in source extension directory, extensions.json/CLAUDE.md/index.json not updated"
+        }
+      ],
+      "memory_candidates": [
+        {
+          "content": "When creating new skills/agents/commands for an extension, the files must be placed in the SOURCE extension directory (e.g., ~/.config/nvim/.claude/extensions/{name}/) not just in the target project. The extension loader installs from source to target; files created only in the target will be lost on re-sync and won't be available to other projects.",
+          "category": "WORKFLOW",
+          "source_artifact": "specs/080_integrate_xlsx_filetypes_routing/reports/01_xlsx-routing-audit.md",
+          "confidence": 0.95,
+          "suggested_keywords": [
+            "extension",
+            "source-directory",
+            "loader",
+            "sync",
+            "installation",
+            "filetypes"
+          ]
+        }
+      ]
     },
     {
       "project_number": 79,
