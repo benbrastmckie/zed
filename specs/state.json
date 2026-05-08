@@ -32,17 +32,22 @@
     {
       "project_number": 79,
       "project_name": "create_skill_xlsx_and_agent",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-05-07T00:00:00Z",
-      "last_updated": "2026-05-08T16:12:00Z",
-      "session_id": "sess_1778256253_fe96c5",
+      "last_updated": "2026-05-08T16:17:16Z",
+      "session_id": "sess_1778256780_915321",
       "next_artifact_number": 2,
       "artifacts": [
         {
           "path": "specs/079_create_skill_xlsx_and_agent/reports/01_xlsx-skill-agent.md",
           "type": "research",
           "summary": "Research report documenting thin-wrapper skill pattern, agent pattern, budget-agent xlsx workflow, extension registration structure, and implementation recommendations for skill-xlsx and xlsx-agent"
+        },
+        {
+          "path": "specs/079_create_skill_xlsx_and_agent/plans/01_xlsx-skill-agent.md",
+          "type": "plan",
+          "summary": "Implementation plan with 4 phases covering skill-xlsx SKILL.md, xlsx-agent.md, /xlsx command, /edit update, and extension registration"
         }
       ],
       "memory_candidates": [
