@@ -1,6 +1,41 @@
 {
-  "next_project_number": 79,
+  "next_project_number": 82,
   "active_projects": [
+    {
+      "project_number": 81,
+      "project_name": "setup_opencode_xlsx_system",
+      "status": "not_started",
+      "task_type": "meta",
+      "dependencies": [79],
+      "created": "2026-05-07T00:00:00Z",
+      "last_updated": "2026-05-07T00:00:00Z",
+      "session_id": "sess_1746576000_meta",
+      "next_artifact_number": 1,
+      "artifacts": []
+    },
+    {
+      "project_number": 80,
+      "project_name": "integrate_xlsx_filetypes_routing",
+      "status": "not_started",
+      "task_type": "meta",
+      "dependencies": [79],
+      "created": "2026-05-07T00:00:00Z",
+      "last_updated": "2026-05-07T00:00:00Z",
+      "session_id": "sess_1746576000_meta",
+      "next_artifact_number": 1,
+      "artifacts": []
+    },
+    {
+      "project_number": 79,
+      "project_name": "create_skill_xlsx_and_agent",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-05-07T00:00:00Z",
+      "last_updated": "2026-05-07T00:00:00Z",
+      "session_id": "sess_1746576000_meta",
+      "next_artifact_number": 1,
+      "artifacts": []
+    },
     {
       "project_number": 78,
       "project_name": "generalize_extension_docs_remove_nvim",

@@ -1,12 +1,33 @@
 ---
-next_project_number: 79
+next_project_number: 82
 ---
 
 # Task List
 
 ## Tasks
 
-### 78. Generalize extension system documentation to remove nvim loader references
+### 81. Set up .opencode/ directory with xlsx skill mirroring
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+- **Depends On**: 79
+
+**Description**: Create .opencode/ directory structure with xlsx skill support. Mirror or symlink the skill-xlsx from .claude/skills/ into .opencode/skills/skill-xlsx/. If .opencode/ supports a different agent model (e.g., embedded agent logic vs separate agent files), adapt accordingly. Set up .opencode/skills/skill-xlsx/SKILL.md and any required agent configuration. Ensure .opencode/ discovery picks up the xlsx skill for tasks involving spreadsheet files.
+
+### 80. Integrate xlsx skill into filetypes extension routing
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+- **Depends On**: 79
+
+**Description**: Update filetypes extension configuration to route .xlsx/.xls/.xlsm/.csv/.tsv files to the new skill-xlsx/xlsx-agent. Changes needed: (1) `.claude/extensions.json` -- add skill-xlsx as installed_dirs entry and add context paths; (2) `.claude/skills/skill-filetypes/SKILL.md` -- add xlsx as a routed format with `--xlsx` flag or delegate-to-skill-xlsx logic; (3) `.claude/commands/convert.md` -- add xlsx operation mode to supported conversions table; (4) `.claude/CLAUDE.md` -- add skill-xlsx to the filetypes extension section; (5) Create `/xlsx` command that delegates to skill-xlsx for full create/edit/analyze operations. Distinguish between existing `/convert .xlsx` (extract to markdown) and new `/xlsx file.xlsx "add column with..."` (full creation/editing/analysis/formulas/charting).
+
+### 79. Create skill-xlsx and xlsx-agent for filetypes extension
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Create `skill-xlsx` and `xlsx-agent` following the thin-wrapper delegation pattern used by existing filetypes skills. (1) Create `.claude/skills/skill-xlsx/SKILL.md` -- adapt Anthropic xlsx skill content with thin-wrapper frontmatter (allowed-tools: Task), trigger conditions (direct: `/xlsx` command, implicit: plan steps mentioning "create spreadsheet", "edit xlsx", "add formulas", and .xlsx/.xlsm/.csv/.tsv extensions), context pointers to subagent-return.md, and Task-tool delegation to xlsx-agent. (2) Create `.claude/agents/xlsx-agent.md` -- the implementation agent with allowed-tools (Read, Write, Edit, Bash, Glob, Grep), context references to tool-detection.md and depedency-guide.md, and the full Anthropic xlsx creation/editing/analysis workflow (pandas for analysis, openpyxl for formulas/formatting, recalc.py for formula verification, color coding standards, formula error prevention, etc.).
 - **Effort**: medium
 - **Status**: [RESEARCHED]
 - **Task Type**: meta
