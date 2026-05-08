@@ -1,7 +1,7 @@
 # Implementation Plan: Task #80
 
 - **Task**: 80 - integrate_xlsx_filetypes_routing
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 1 hour
 - **Dependencies**: Task 79 (completed)
 - **Research Inputs**: specs/080_integrate_xlsx_filetypes_routing/reports/01_xlsx-routing-audit.md
@@ -62,7 +62,7 @@ No active roadmap items. The ROADMAP.md contains no items relevant to this task.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Copy Source Files to Extension Directory [NOT STARTED]
+### Phase 1: Copy Source Files to Extension Directory [COMPLETED]
 
 **Goal**: Place the three xlsx files in the source extension directory so the loader can install them properly.
 
