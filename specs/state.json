@@ -4,20 +4,25 @@
     {
       "project_number": 81,
       "project_name": "setup_opencode_xlsx_system",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "dependencies": [
         79
       ],
       "created": "2026-05-07T00:00:00Z",
-      "last_updated": "2026-05-08T16:38:18Z",
-      "session_id": "sess_1778257760_fb88ed",
+      "last_updated": "2026-05-08T16:42:27Z",
+      "session_id": "sess_1778258325_4bd90b",
       "next_artifact_number": 2,
       "artifacts": [
         {
           "path": "specs/081_setup_opencode_xlsx_system/reports/01_opencode-xlsx-setup.md",
           "type": "research",
           "summary": "Research on .opencode/ directory structure differences from .claude/ and what needs to be created/updated to mirror xlsx skill support"
+        },
+        {
+          "path": "specs/081_setup_opencode_xlsx_system/plans/01_opencode-xlsx-plan.md",
+          "type": "plan",
+          "summary": "4-phase implementation plan for copying xlsx extension source files to nvim and creating .opencode/ variants with agent registration"
         }
       ],
       "memory_candidates": [
@@ -38,20 +43,25 @@
     {
       "project_number": 80,
       "project_name": "integrate_xlsx_filetypes_routing",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "dependencies": [
         79
       ],
       "created": "2026-05-07T00:00:00Z",
-      "last_updated": "2026-05-08T16:34:11Z",
-      "session_id": "sess_1778257760_fb88ed",
+      "last_updated": "2026-05-08T16:42:45Z",
+      "session_id": "sess_1778258325_4bd90b",
       "next_artifact_number": 2,
       "artifacts": [
         {
           "path": "specs/080_integrate_xlsx_filetypes_routing/reports/01_xlsx-routing-audit.md",
           "type": "research",
           "summary": "Audit of xlsx integration state: task 79 created files in zed project but not in source extension directory, extensions.json/CLAUDE.md/index.json not updated"
+        },
+        {
+          "path": "specs/080_integrate_xlsx_filetypes_routing/plans/01_xlsx-routing-plan.md",
+          "type": "plan",
+          "summary": "3-phase plan to copy xlsx source files to extension directory, re-run loader, and clarify routing"
         }
       ],
       "memory_candidates": [
