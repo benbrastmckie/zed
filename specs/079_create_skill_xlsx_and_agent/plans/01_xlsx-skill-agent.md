@@ -142,7 +142,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Create /xlsx command and update /edit command [NOT STARTED]
+### Phase 3: Create /xlsx command and update /edit command [COMPLETED]
 
 **Goal**: Create a standalone `/xlsx` command and update the `/edit` command xlsx stub to route to skill-xlsx
 

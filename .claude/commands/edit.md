@@ -29,8 +29,8 @@ Edit Office documents in-place by delegating to the docx-edit skill/agent chain.
 # Create a new document from scratch
 /edit --new memo.docx "Create Q2 Budget Review memo with executive summary, department breakdown table, and recommendations section"
 
-# Future: spreadsheet editing (not yet available)
-# /edit budget.xlsx "Change Marketing Q2 from 5000 to 7500"
+# Edit an XLSX spreadsheet
+/edit budget.xlsx "Change Marketing Q2 from 5000 to 7500"
 ```
 
 ## Supported Operations
@@ -40,7 +40,7 @@ Edit Office documents in-place by delegating to the docx-edit skill/agent chain.
 | Edit existing DOCX | .docx | Available |
 | Batch edit DOCX directory | directory of .docx | Available |
 | Create new DOCX | .docx (--new) | Available |
-| Edit existing XLSX | .xlsx | Not yet available |
+| Edit existing XLSX | .xlsx, .xlsm | Available |
 
 ## Execution
 
@@ -118,15 +118,12 @@ Edit Office documents in-place by delegating to the docx-edit skill/agent chain.
      docx)
        target_skill="skill-docx-edit"
        ;;
-     xlsx)
-       echo "Error: XLSX editing is not yet available."
-       echo "The openpyxl MCP server is declared but skill-xlsx-edit has not been implemented."
-       echo "You can use the openpyxl MCP tools directly in conversation for spreadsheet editing."
-       exit 1
+     xlsx|xlsm)
+       target_skill="skill-xlsx"
        ;;
      *)
        echo "Error: Unsupported file type: .$file_type"
-       echo "Supported: .docx (edit/create), .xlsx (planned)"
+       echo "Supported: .docx (edit/create), .xlsx/.xlsm (edit/create)"
        exit 1
        ;;
    esac
@@ -142,11 +139,11 @@ Edit Office documents in-place by delegating to the docx-edit skill/agent chain.
 
 **Invoke the Skill tool NOW** with:
 ```
-skill: "skill-docx-edit"
+skill: "{target_skill}"
 args: "file_path={file_path} instruction={instruction} mode={mode} session_id={session_id}"
 ```
 
-The skill will spawn the docx-edit-agent, which performs the actual editing.
+The skill will spawn the appropriate agent (docx-edit-agent or xlsx-agent), which performs the actual operation.
 
 **On DELEGATE success**: Editing attempted. **IMMEDIATELY CONTINUE** to CHECKPOINT 2 below.
 
@@ -261,7 +258,7 @@ Error: Unsupported file type: .{ext}
 
 Supported formats:
   - .docx: Edit, create, batch edit (available)
-  - .xlsx: Spreadsheet editing (planned, not yet available)
+  - .xlsx/.xlsm: Spreadsheet editing, creation (available)
 ```
 
 ### DELEGATE Failure
