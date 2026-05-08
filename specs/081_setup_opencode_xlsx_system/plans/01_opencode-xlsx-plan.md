@@ -94,7 +94,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Create `.opencode/` variants [NOT STARTED]
+### Phase 2: Create `.opencode/` variants [COMPLETED]
 
 **Goal**: Create `.opencode/`-adjusted copies of the xlsx skill, agent, and command in the nvim `.opencode/` extension directory, following the established pattern of separate copies with `.opencode/` path references.
 
