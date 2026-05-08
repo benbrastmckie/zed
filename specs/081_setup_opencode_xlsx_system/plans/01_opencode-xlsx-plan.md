@@ -1,7 +1,7 @@
 # Implementation Plan: Task #81
 
 - **Task**: 81 - Set up .opencode/ directory with xlsx skill mirroring
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 2 hours
 - **Dependencies**: 79 (completed)
 - **Research Inputs**: specs/081_setup_opencode_xlsx_system/reports/01_opencode-xlsx-setup.md
@@ -68,7 +68,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 1: Copy source files to nvim `.claude/` extension [NOT STARTED]
+### Phase 1: Copy source files to nvim `.claude/` extension [COMPLETED]
 
 **Goal**: Populate the nvim `.claude/` extension source directory with the xlsx files that Task 79 created only in the zed project.
 
