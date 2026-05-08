@@ -123,7 +123,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Clarify Routing in skill-filetypes [NOT STARTED]
+### Phase 3: Clarify Routing in skill-filetypes [COMPLETED]
 
 **Goal**: Update skill-filetypes SKILL.md to explicitly document the routing distinction between xlsx table extraction and full xlsx operations.
 
