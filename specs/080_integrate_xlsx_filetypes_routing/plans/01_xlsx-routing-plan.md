@@ -90,7 +90,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Re-run Extension Loader [NOT STARTED]
+### Phase 2: Re-run Extension Loader [COMPLETED]
 
 **Goal**: Regenerate extensions.json, context/index.json, and CLAUDE.md to include xlsx entries.
 
