@@ -173,7 +173,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Update extension registration [NOT STARTED]
+### Phase 4: Update extension registration [COMPLETED]
 
 **Goal**: Register xlsx-agent and skill-xlsx in the filetypes extension manifest, documentation, and context index
 
