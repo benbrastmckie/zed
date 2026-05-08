@@ -4,14 +4,14 @@
     {
       "project_number": 81,
       "project_name": "setup_opencode_xlsx_system",
-      "status": "planned",
+      "status": "completed",
       "task_type": "meta",
       "dependencies": [
         79
       ],
       "created": "2026-05-07T00:00:00Z",
-      "last_updated": "2026-05-08T16:42:27Z",
-      "session_id": "sess_1778258325_4bd90b",
+      "last_updated": "2026-05-08T16:50:27Z",
+      "session_id": "sess_1778258585_5fca36",
       "next_artifact_number": 2,
       "artifacts": [
         {
@@ -23,6 +23,11 @@
           "path": "specs/081_setup_opencode_xlsx_system/plans/01_opencode-xlsx-plan.md",
           "type": "plan",
           "summary": "4-phase implementation plan for copying xlsx extension source files to nvim and creating .opencode/ variants with agent registration"
+        },
+        {
+          "path": "specs/081_setup_opencode_xlsx_system/summaries/01_opencode-xlsx-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for opencode xlsx system setup"
         }
       ],
       "memory_candidates": [
@@ -37,20 +42,33 @@
             "config-preset",
             "agent-subdir"
           ]
+        },
+        {
+          "content": "When mirroring .claude/ extension files to .opencode/, the key path adjustments are: (1) .claude/context/formats/ becomes .opencode/context/core/formats/, (2) .claude/agents/ becomes .opencode/agent/subagents/, (3) .claude/skills/ stays .opencode/skills/. The opencode-agents.json exists in both .claude/ and .opencode/ extension directories and both need updating.",
+          "category": "PATTERN",
+          "source_artifact": "specs/081_setup_opencode_xlsx_system/summaries/01_opencode-xlsx-summary.md",
+          "confidence": 0.85,
+          "suggested_keywords": [
+            "opencode",
+            "extension-mirroring",
+            "path-adjustment",
+            "filetypes"
+          ]
         }
-      ]
+      ],
+      "completion_summary": "Copied xlsx-agent, skill-xlsx, and /xlsx command to nvim .claude/ extension source, created .opencode/ variants with adjusted path references, updated opencode-agents.json, EXTENSION.md, manifest.json, and index-entries.json for both systems."
     },
     {
       "project_number": 80,
       "project_name": "integrate_xlsx_filetypes_routing",
-      "status": "planned",
+      "status": "completed",
       "task_type": "meta",
       "dependencies": [
         79
       ],
       "created": "2026-05-07T00:00:00Z",
-      "last_updated": "2026-05-08T16:42:45Z",
-      "session_id": "sess_1778258325_4bd90b",
+      "last_updated": "2026-05-08T16:49:29Z",
+      "session_id": "sess_1778258585_5fca36",
       "next_artifact_number": 2,
       "artifacts": [
         {
@@ -62,6 +80,11 @@
           "path": "specs/080_integrate_xlsx_filetypes_routing/plans/01_xlsx-routing-plan.md",
           "type": "plan",
           "summary": "3-phase plan to copy xlsx source files to extension directory, re-run loader, and clarify routing"
+        },
+        {
+          "path": "specs/080_integrate_xlsx_filetypes_routing/summaries/01_xlsx-routing-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for xlsx filetypes extension integration"
         }
       ],
       "memory_candidates": [
@@ -78,8 +101,23 @@
             "installation",
             "filetypes"
           ]
+        },
+        {
+          "content": "When extension files are created directly in a project, they must also be copied to the source extension directory to ensure other projects can load them. After placing files in the source, update the project extensions.json, context/index.json, and CLAUDE.md to register them.",
+          "category": "WORKFLOW",
+          "source_artifact": "specs/080_integrate_xlsx_filetypes_routing/summaries/01_xlsx-routing-summary.md",
+          "confidence": 0.85,
+          "suggested_keywords": [
+            "extension",
+            "filetypes",
+            "source-directory",
+            "registration",
+            "xlsx"
+          ]
         }
-      ]
+      ],
+      "completion_summary": "Copied xlsx source files to the filetypes extension directory, registered xlsx in extensions.json/index.json/CLAUDE.md, and clarified routing between skill-filetypes (content extraction) and skill-xlsx (create/edit/analyze).",
+      "claudemd_suggestions": "Updated CLAUDE.md Filetypes Extension section with skill-xlsx agent mapping and /xlsx command entry"
     },
     {
       "project_number": 79,

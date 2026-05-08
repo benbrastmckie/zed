@@ -1,7 +1,7 @@
 # Implementation Plan: Task #80
 
 - **Task**: 80 - integrate_xlsx_filetypes_routing
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 1 hour
 - **Dependencies**: Task 79 (completed)
 - **Research Inputs**: specs/080_integrate_xlsx_filetypes_routing/reports/01_xlsx-routing-audit.md

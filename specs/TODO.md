@@ -8,21 +8,23 @@ next_project_number: 82
 
 ### 81. Set up .opencode/ directory with xlsx skill mirroring
 - **Effort**: small
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
 - **Depends On**: 79
 - **Research**: [081_setup_opencode_xlsx_system/reports/01_opencode-xlsx-setup.md]
 - **Plan**: [081_setup_opencode_xlsx_system/plans/01_opencode-xlsx-plan.md]
+- **Summary**: [081_setup_opencode_xlsx_system/summaries/01_opencode-xlsx-summary.md]
 
 **Description**: Create .opencode/ directory structure with xlsx skill support. Mirror or symlink the skill-xlsx from .claude/skills/ into .opencode/skills/skill-xlsx/. If .opencode/ supports a different agent model (e.g., embedded agent logic vs separate agent files), adapt accordingly. Set up .opencode/skills/skill-xlsx/SKILL.md and any required agent configuration. Ensure .opencode/ discovery picks up the xlsx skill for tasks involving spreadsheet files.
 
 ### 80. Integrate xlsx skill into filetypes extension routing
 - **Effort**: medium
-- **Status**: [PLANNED]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
 - **Depends On**: 79
 - **Research**: [080_integrate_xlsx_filetypes_routing/reports/01_xlsx-routing-audit.md]
 - **Plan**: [080_integrate_xlsx_filetypes_routing/plans/01_xlsx-routing-plan.md]
+- **Summary**: [080_integrate_xlsx_filetypes_routing/summaries/01_xlsx-routing-summary.md]
 
 **Description**: Update filetypes extension configuration to route .xlsx/.xls/.xlsm/.csv/.tsv files to the new skill-xlsx/xlsx-agent. Changes needed: (1) `.claude/extensions.json` -- add skill-xlsx as installed_dirs entry and add context paths; (2) `.claude/skills/skill-filetypes/SKILL.md` -- add xlsx as a routed format with `--xlsx` flag or delegate-to-skill-xlsx logic; (3) `.claude/commands/convert.md` -- add xlsx operation mode to supported conversions table; (4) `.claude/CLAUDE.md` -- add skill-xlsx to the filetypes extension section; (5) Create `/xlsx` command that delegates to skill-xlsx for full create/edit/analyze operations. Distinguish between existing `/convert .xlsx` (extract to markdown) and new `/xlsx file.xlsx "add column with..."` (full creation/editing/analysis/formulas/charting).
 

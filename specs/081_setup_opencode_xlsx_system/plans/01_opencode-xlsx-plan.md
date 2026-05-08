@@ -1,7 +1,7 @@
 # Implementation Plan: Task #81
 
 - **Task**: 81 - Set up .opencode/ directory with xlsx skill mirroring
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 2 hours
 - **Dependencies**: 79 (completed)
 - **Research Inputs**: specs/081_setup_opencode_xlsx_system/reports/01_opencode-xlsx-setup.md
