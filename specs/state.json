@@ -6,7 +6,9 @@
       "project_name": "setup_opencode_xlsx_system",
       "status": "not_started",
       "task_type": "meta",
-      "dependencies": [79],
+      "dependencies": [
+        79
+      ],
       "created": "2026-05-07T00:00:00Z",
       "last_updated": "2026-05-07T00:00:00Z",
       "session_id": "sess_1746576000_meta",
@@ -18,7 +20,9 @@
       "project_name": "integrate_xlsx_filetypes_routing",
       "status": "not_started",
       "task_type": "meta",
-      "dependencies": [79],
+      "dependencies": [
+        79
+      ],
       "created": "2026-05-07T00:00:00Z",
       "last_updated": "2026-05-07T00:00:00Z",
       "session_id": "sess_1746576000_meta",
@@ -28,13 +32,46 @@
     {
       "project_number": 79,
       "project_name": "create_skill_xlsx_and_agent",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "meta",
       "created": "2026-05-07T00:00:00Z",
-      "last_updated": "2026-05-07T00:00:00Z",
-      "session_id": "sess_1746576000_meta",
-      "next_artifact_number": 1,
-      "artifacts": []
+      "last_updated": "2026-05-08T16:12:00Z",
+      "session_id": "sess_1778256253_fe96c5",
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/079_create_skill_xlsx_and_agent/reports/01_xlsx-skill-agent.md",
+          "type": "research",
+          "summary": "Research report documenting thin-wrapper skill pattern, agent pattern, budget-agent xlsx workflow, extension registration structure, and implementation recommendations for skill-xlsx and xlsx-agent"
+        }
+      ],
+      "memory_candidates": [
+        {
+          "content": "Filetypes extension thin-wrapper skill pattern: frontmatter has exactly 3 fields (name, description, allowed-tools: Task). Structure is always: Context Pointers (lazy ref to subagent-return.md), Trigger Conditions (direct/implicit/when-not), Execution (5 steps: validate -> context prep -> invoke agent via Task -> return validation -> propagation), Return Format, Error Handling. Agent invocation MUST use Task tool, never Skill tool.",
+          "category": "PATTERN",
+          "source_artifact": "specs/079_create_skill_xlsx_and_agent/reports/01_xlsx-skill-agent.md",
+          "confidence": 0.9,
+          "suggested_keywords": [
+            "filetypes",
+            "thin-wrapper",
+            "skill-pattern",
+            "Task-tool",
+            "delegation"
+          ]
+        },
+        {
+          "content": "Filetypes agents use simpler frontmatter than domain agents: only name and description (no model: or mcp-servers: fields). Their structure is: Overview, Agent Metadata (4 bullets), Allowed Tools (File Ops + Execution), Context References (@-refs), Supported Operations table, Execution Flow (6 stages: parse -> validate -> detect tools -> execute -> validate output -> return JSON), Error Handling, Critical Requirements (MUST DO / MUST NOT).",
+          "category": "PATTERN",
+          "source_artifact": "specs/079_create_skill_xlsx_and_agent/reports/01_xlsx-skill-agent.md",
+          "confidence": 0.85,
+          "suggested_keywords": [
+            "filetypes",
+            "agent-pattern",
+            "frontmatter",
+            "execution-flow"
+          ]
+        }
+      ]
     },
     {
       "project_number": 78,

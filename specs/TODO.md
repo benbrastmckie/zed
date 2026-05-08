@@ -24,14 +24,16 @@ next_project_number: 82
 
 ### 79. Create skill-xlsx and xlsx-agent for filetypes extension
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: meta
 
 **Description**: Create `skill-xlsx` and `xlsx-agent` following the thin-wrapper delegation pattern used by existing filetypes skills. (1) Create `.claude/skills/skill-xlsx/SKILL.md` -- adapt Anthropic xlsx skill content with thin-wrapper frontmatter (allowed-tools: Task), trigger conditions (direct: `/xlsx` command, implicit: plan steps mentioning "create spreadsheet", "edit xlsx", "add formulas", and .xlsx/.xlsm/.csv/.tsv extensions), context pointers to subagent-return.md, and Task-tool delegation to xlsx-agent. (2) Create `.claude/agents/xlsx-agent.md` -- the implementation agent with allowed-tools (Read, Write, Edit, Bash, Glob, Grep), context references to tool-detection.md and depedency-guide.md, and the full Anthropic xlsx creation/editing/analysis workflow (pandas for analysis, openpyxl for formulas/formatting, recalc.py for formula verification, color coding standards, formula error prevention, etc.).
 - **Effort**: medium
 - **Status**: [RESEARCHED]
 - **Task Type**: meta
-- **Research**: [specs/078_generalize_extension_docs_remove_nvim/reports/01_nvim-loader-doc-audit.md]
+- **Research**:
+  - [specs/078_generalize_extension_docs_remove_nvim/reports/01_nvim-loader-doc-audit.md]
+  - [079_create_skill_xlsx_and_agent/reports/01_xlsx-skill-agent.md]
 
 **Description**: Three documentation files contain references to the nvim Lua extension loader implementation that should be generalized to be implementation-agnostic. (1) `.claude/context/guides/loader-reference.md` is entirely a Lua API reference with function signatures, `vim.fn` calls, and Telescope picker details -- rewrite as a conceptual loader operations reference or delete. (2) `.claude/docs/architecture/extension-system.md` heavily references Lua source files (`init.lua`, `loader.lua`, `merge.lua`, etc.), `vim.fn.filereadable()`, and "Telescope picker" -- generalize to describe what each component does without naming Lua files or vim APIs. (3) `.claude/context/guides/extension-development.md` has a few Lua-specific leaks (`copy_context_dirs()` in `loader.lua`, `vim.fn.isdirectory()`) -- replace with conceptual descriptions.
 
