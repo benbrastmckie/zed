@@ -4,9 +4,9 @@ allowed-tools: Skill, Bash(date:*), Bash(od:*), Bash(tr:*), Bash(test:*), Bash(d
 argument-hint: FILE_PATH "instruction" [--create|--edit|--analyze]
 ---
 
-# /xlsx Command
+# /sheet Command
 
-Create, edit, or analyze XLSX spreadsheets by delegating to the xlsx skill/agent chain.
+Create, edit, or analyze XLSX spreadsheets by delegating to the sheet skill/agent chain.
 
 ## Arguments
 
@@ -20,19 +20,19 @@ Create, edit, or analyze XLSX spreadsheets by delegating to the xlsx skill/agent
 
 ```bash
 # Create a new spreadsheet
-/xlsx budget.xlsx "Create a monthly budget tracker with categories for rent, utilities, food, and transportation. Include SUM formulas for totals."
+/sheet budget.xlsx "Create a monthly budget tracker with categories for rent, utilities, food, and transportation. Include SUM formulas for totals."
 
 # Edit an existing spreadsheet
-/xlsx data.xlsx "Add a new column for Q4 with SUM formulas at the bottom"
+/sheet data.xlsx "Add a new column for Q4 with SUM formulas at the bottom"
 
 # Analyze spreadsheet contents
-/xlsx report.xlsx "Summarize the data and identify trends" --analyze
+/sheet report.xlsx "Summarize the data and identify trends" --analyze
 
 # Create with explicit flag
-/xlsx --create inventory.xlsx "Create an inventory tracking sheet with columns for item, quantity, unit price, and total cost with formulas"
+/sheet --create inventory.xlsx "Create an inventory tracking sheet with columns for item, quantity, unit price, and total cost with formulas"
 
 # Edit with explicit flag
-/xlsx --edit budget.xlsx "Change the Marketing row values for March and April"
+/sheet --edit budget.xlsx "Change the Marketing row values for March and April"
 ```
 
 ## Execution
@@ -68,14 +68,14 @@ Create, edit, or analyze XLSX spreadsheets by delegating to the xlsx skill/agent
    # Validate file path provided
    if [ -z "$file_path" ]; then
      echo "Error: File path required"
-     echo "Usage: /xlsx FILE_PATH \"instruction\" [--create|--edit|--analyze]"
+     echo "Usage: /sheet FILE_PATH \"instruction\" [--create|--edit|--analyze]"
      exit 1
    fi
 
    # Validate instruction provided
    if [ -z "$instruction" ]; then
      echo "Error: Instruction required"
-     echo "Usage: /xlsx FILE_PATH \"instruction\" [--create|--edit|--analyze]"
+     echo "Usage: /sheet FILE_PATH \"instruction\" [--create|--edit|--analyze]"
      exit 1
    fi
 
@@ -137,11 +137,11 @@ Create, edit, or analyze XLSX spreadsheets by delegating to the xlsx skill/agent
 
 **Invoke the Skill tool NOW** with:
 ```
-skill: "skill-xlsx"
+skill: "skill-sheet"
 args: "file_path={file_path} instruction={instruction} mode={mode} session_id={session_id}"
 ```
 
-The skill will spawn the xlsx-agent to perform the operation.
+The skill will spawn the sheet-agent to perform the operation.
 
 **On DELEGATE success**: Operation attempted. **IMMEDIATELY CONTINUE** to CHECKPOINT 2 below.
 
@@ -239,7 +239,7 @@ Recommendation: {recommendation from error}
 Error: File not found: {path}
 
 Use --create flag to create a new spreadsheet:
-  /xlsx --create {path} "instruction"
+  /sheet --create {path} "instruction"
 ```
 
 **Unsupported extension**:
@@ -259,5 +259,5 @@ Error: Required tools not available for XLSX operations.
 Install with:
   pip install openpyxl pandas
 
-Then retry: /xlsx {file_path} "instruction"
+Then retry: /sheet {file_path} "instruction"
 ```

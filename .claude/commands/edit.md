@@ -119,7 +119,7 @@ Edit Office documents in-place by delegating to the docx-edit skill/agent chain.
        target_skill="skill-docx-edit"
        ;;
      xlsx|xlsm)
-       target_skill="skill-xlsx"
+       target_skill="skill-sheet"
        ;;
      *)
        echo "Error: Unsupported file type: .$file_type"
@@ -143,7 +143,7 @@ skill: "{target_skill}"
 args: "file_path={file_path} instruction={instruction} mode={mode} session_id={session_id}"
 ```
 
-The skill will spawn the appropriate agent (docx-edit-agent or xlsx-agent), which performs the actual operation.
+The skill will spawn the appropriate agent (docx-edit-agent or sheet-agent), which performs the actual operation.
 
 **On DELEGATE success**: Editing attempted. **IMMEDIATELY CONTINUE** to CHECKPOINT 2 below.
 

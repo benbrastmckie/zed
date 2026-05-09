@@ -2997,14 +2997,14 @@
           "presentation-agent",
           "scrape-agent",
           "docx-edit-agent",
-          "xlsx-agent"
+          "sheet-agent"
         ],
         "languages": [],
         "commands": [
           "/convert",
           "/table",
           "/edit",
-          "/xlsx"
+          "/sheet"
         ]
       },
       "summary": "Shared tool detection patterns for all filetypes agents",
@@ -3023,14 +3023,14 @@
           "presentation-agent",
           "scrape-agent",
           "docx-edit-agent",
-          "xlsx-agent"
+          "sheet-agent"
         ],
         "languages": [],
         "commands": [
           "/convert",
           "/table",
           "/edit",
-          "/xlsx"
+          "/sheet"
         ]
       },
       "summary": "Platform-specific installation instructions for conversion tools",

@@ -1,12 +1,12 @@
 ---
-name: skill-xlsx
-description: XLSX creation, editing, and analysis routing to xlsx-agent
+name: skill-sheet
+description: XLSX creation, editing, and analysis routing to sheet-agent
 allowed-tools: Task
 ---
 
 # XLSX Skill
 
-Thin wrapper that routes XLSX creation, editing, and analysis requests to the `xlsx-agent`, which manipulates spreadsheets using openpyxl and pandas via Bash.
+Thin wrapper that routes XLSX creation, editing, and analysis requests to the `sheet-agent`, which manipulates spreadsheets using openpyxl and pandas via Bash.
 
 ## Context Pointers
 
@@ -22,7 +22,7 @@ Note: This skill is a thin wrapper. Context is loaded by the delegated agent, no
 This skill activates when:
 
 ### Direct Invocation
-- User explicitly runs `/xlsx` command
+- User explicitly runs `/sheet` command
 - User runs `/edit` command with a .xlsx file
 
 ### Implicit Invocation (during task implementation)
@@ -110,25 +110,25 @@ Prepare delegation context:
   "metadata": {
     "session_id": "sess_{timestamp}_{random}",
     "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "xlsx", "skill-xlsx"]
+    "delegation_path": ["orchestrator", "sheet", "skill-sheet"]
   }
 }
 ```
 
 ### 3. Invoke Agent
 
-**CRITICAL**: You MUST use the **Task** tool to spawn the xlsx-agent.
+**CRITICAL**: You MUST use the **Task** tool to spawn the sheet-agent.
 
 **Required Tool Invocation**:
 ```
 Tool: Task (NOT Skill)
 Parameters:
-  - subagent_type: "xlsx-agent"
+  - subagent_type: "sheet-agent"
   - prompt: [Include file_path, instruction, mode, metadata]
   - description: "{mode} {file_path}: {instruction}"
 ```
 
-**DO NOT** use `Skill(xlsx-agent)` - this will FAIL.
+**DO NOT** use `Skill(sheet-agent)` - this will FAIL.
 Agents live in `.claude/agents/` or extension agent directories, not `.claude/skills/`.
 The Skill tool can only invoke skills from `.claude/skills/`.
 
@@ -178,9 +178,9 @@ Expected successful return:
   ],
   "metadata": {
     "session_id": "sess_...",
-    "agent_type": "xlsx-agent",
+    "agent_type": "sheet-agent",
     "delegation_depth": 2,
-    "delegation_path": ["orchestrator", "xlsx", "skill-xlsx", "xlsx-agent"],
+    "delegation_path": ["orchestrator", "sheet", "skill-sheet", "sheet-agent"],
     "tool_used": "openpyxl",
     "mode": "create",
     "sheets": 1,
@@ -212,6 +212,6 @@ Return failed status with installation instructions for openpyxl and pandas.
 ## MUST NOT
 
 - Run the postflight step (git commit, status update) -- that is the command's responsibility
-- Modify the return from xlsx-agent before propagating
+- Modify the return from sheet-agent before propagating
 - Load context files eagerly -- only reference them when needed
-- Use the Skill tool to invoke xlsx-agent (use Task tool instead)
+- Use the Skill tool to invoke sheet-agent (use Task tool instead)

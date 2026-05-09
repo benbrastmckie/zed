@@ -1,5 +1,5 @@
 ---
-name: xlsx-agent
+name: sheet-agent
 description: XLSX creation, editing, and analysis using openpyxl and pandas
 ---
 
@@ -7,13 +7,13 @@ description: XLSX creation, editing, and analysis using openpyxl and pandas
 
 ## Overview
 
-Spreadsheet manipulation agent that creates, edits, and analyzes XLSX files using openpyxl for workbook operations and pandas for data analysis. Invoked by `skill-xlsx` via the Task tool. Supports three modes: create (build new workbooks from scratch with formulas, formatting, and multi-sheet layouts), edit (modify existing workbooks preserving formulas and styles), and analyze (read and summarize spreadsheet data).
+Spreadsheet manipulation agent that creates, edits, and analyzes XLSX files using openpyxl for workbook operations and pandas for data analysis. Invoked by `skill-sheet` via the Task tool. Supports three modes: create (build new workbooks from scratch with formulas, formatting, and multi-sheet layouts), edit (modify existing workbooks preserving formulas and styles), and analyze (read and summarize spreadsheet data).
 
 ## Agent Metadata
 
-- **Name**: xlsx-agent
+- **Name**: sheet-agent
 - **Purpose**: XLSX creation, editing, and analysis using openpyxl and pandas
-- **Invoked By**: skill-xlsx (via Task tool)
+- **Invoked By**: skill-sheet (via Task tool)
 - **Return Format**: JSON (see subagent-return.md)
 
 ## Allowed Tools
@@ -62,7 +62,7 @@ Extract from input:
   "metadata": {
     "session_id": "sess_...",
     "delegation_depth": 2,
-    "delegation_path": ["orchestrator", "xlsx", "skill-xlsx"]
+    "delegation_path": ["orchestrator", "sheet", "skill-sheet"]
   }
 }
 ```
@@ -367,9 +367,9 @@ for sheet_name in wb.sheetnames:
   "metadata": {
     "session_id": "{from delegation context}",
     "duration_seconds": 3,
-    "agent_type": "xlsx-agent",
+    "agent_type": "sheet-agent",
     "delegation_depth": 2,
-    "delegation_path": ["orchestrator", "xlsx", "skill-xlsx", "xlsx-agent"],
+    "delegation_path": ["orchestrator", "sheet", "skill-sheet", "sheet-agent"],
     "tool_used": "openpyxl",
     "mode": "create",
     "sheets": 1,
@@ -396,9 +396,9 @@ for sheet_name in wb.sheetnames:
   "metadata": {
     "session_id": "{from delegation context}",
     "duration_seconds": 2,
-    "agent_type": "xlsx-agent",
+    "agent_type": "sheet-agent",
     "delegation_depth": 2,
-    "delegation_path": ["orchestrator", "xlsx", "skill-xlsx", "xlsx-agent"],
+    "delegation_path": ["orchestrator", "sheet", "skill-sheet", "sheet-agent"],
     "tool_used": "openpyxl",
     "mode": "edit",
     "sheets": 1,
@@ -419,9 +419,9 @@ for sheet_name in wb.sheetnames:
   "metadata": {
     "session_id": "{from delegation context}",
     "duration_seconds": 1,
-    "agent_type": "xlsx-agent",
+    "agent_type": "sheet-agent",
     "delegation_depth": 2,
-    "delegation_path": ["orchestrator", "xlsx", "skill-xlsx", "xlsx-agent"],
+    "delegation_path": ["orchestrator", "sheet", "skill-sheet", "sheet-agent"],
     "tool_used": "pandas",
     "mode": "analyze",
     "sheets": 3,
@@ -432,7 +432,7 @@ for sheet_name in wb.sheetnames:
       {"name": "Summary", "rows": 25, "columns": 4}
     ]
   },
-  "next_steps": "Use /xlsx to edit specific sheets based on analysis"
+  "next_steps": "Use /sheet to edit specific sheets based on analysis"
 }
 ```
 
@@ -447,7 +447,7 @@ for sheet_name in wb.sheetnames:
   "artifacts": [],
   "metadata": {
     "session_id": "{from delegation context}",
-    "agent_type": "xlsx-agent",
+    "agent_type": "sheet-agent",
     "mode": "create"
   },
   "errors": [
@@ -471,7 +471,7 @@ for sheet_name in wb.sheetnames:
   "artifacts": [],
   "metadata": {
     "session_id": "{from delegation context}",
-    "agent_type": "xlsx-agent",
+    "agent_type": "sheet-agent",
     "mode": "edit"
   },
   "errors": [
@@ -495,7 +495,7 @@ for sheet_name in wb.sheetnames:
   "artifacts": [],
   "metadata": {
     "session_id": "{from delegation context}",
-    "agent_type": "xlsx-agent",
+    "agent_type": "sheet-agent",
     "mode": "create"
   },
   "errors": [
