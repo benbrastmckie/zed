@@ -1,6 +1,14 @@
 {
-  "next_project_number": 82,
+  "next_project_number": 83,
   "active_projects": [
+    {
+      "project_number": 82,
+      "project_name": "improve_docs_and_install_script",
+      "status": "not_started",
+      "task_type": "general",
+      "created": "2026-05-11T17:41:12Z",
+      "last_updated": "2026-05-11T17:41:12Z"
+    },
     {
       "project_number": 81,
       "project_name": "setup_opencode_xlsx_system",
