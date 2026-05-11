@@ -150,7 +150,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Rewrite README.md and docs/README.md [NOT STARTED]
+### Phase 4: Rewrite README.md and docs/README.md [COMPLETED]
 
 **Goal**: Update the top-level README.md and docs hub to present both agent systems, fix broken links, correct platform claims, and update the directory layout.
 

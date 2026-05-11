@@ -1,8 +1,8 @@
-# Zed IDE Configuration with Claude Code Agent System
+# Zed IDE Configuration with AI Agent Systems
 
-A Zed editor configuration for macOS that pairs first-class **R** and **Python** language support with a **Claude Code agent system** -- a structured task lifecycle that turns research, planning, and implementation into tracked, resumable workflows. Domain extensions for epidemiology, grant development, document conversion, and memory capture layer on top of the core system.
+A Zed editor configuration that pairs first-class **R** and **Python** language support with two **AI agent systems** -- **Claude Code** and **OpenCode** -- providing structured task lifecycles that turn research, planning, and implementation into tracked, resumable workflows. Both systems share the same 9 domain extensions for epidemiology, grant development, document conversion, and memory capture.
 
-**Platform**: macOS 11+.
+**Platforms**: macOS 11+ (primary), Linux/NixOS (supported).
 
 ## Quick Start
 
@@ -14,7 +14,7 @@ cd ~/.config/zed
 bash scripts/install/install.sh
 ```
 
-The wizard walks through six groups (base tools, shell utilities, Python, R, typesetting, MCP servers) with accept/skip/cancel prompts.
+The wizard walks through seven groups (base tools, agent systems, shell utilities, Python, R, typesetting, MCP servers) with accept/skip/cancel prompts. The agent systems group lets you choose between Claude Code, OpenCode, or both.
 Add `--dry-run` following `bash scripts/install/install.sh` to preview every action without installing, or add `--check` to print a health report of which tools are present or missing.
 
 ### Manual Installation
@@ -108,9 +108,9 @@ This configuration is built around first-class R and Python development inside Z
 - **Auto-formatting**: on save via r-language-server
 - **Setup guide**: [docs/toolchain/r.md](docs/toolchain/r.md)
 
-## Claude Code Commands
+## Agent Commands
 
-Claude Code provides structured research and development workflows. Open it with **Ctrl+Shift+A**, then use these commands.
+Both Claude Code and OpenCode provide structured research and development workflows. Open Claude Code with **Ctrl+Shift+A**, or run `opencode` in a terminal. Most commands are available in both systems; see [docs/agent-system/extensions.md](docs/agent-system/extensions.md) for per-system differences.
 
 ### Task Lifecycle
 
@@ -200,9 +200,10 @@ For the complete decision guide, see [docs/workflows/README.md](docs/workflows/R
 │   ├── general/            # Installation, keybindings, settings, R and Python setup
 │   ├── agent-system/       # AI systems overview, commands, architecture
 │   └── workflows/          # Agent lifecycle, epi, grants, Office file workflows
-├── specs/                  # Claude Code task management
+├── specs/                  # Task management (shared by both agent systems)
 ├── .claude/                # Claude Code agent system config
-└── .memory/                # AI memory vault
+├── .opencode/              # OpenCode agent system config
+└── .memory/                # AI memory vault (shared by both agent systems)
 ```
 
 ## Documentation
@@ -212,9 +213,10 @@ For the complete decision guide, see [docs/workflows/README.md](docs/workflows/R
 | [General](docs/general/README.md) | Installation, keybindings, settings, and R/Python setup for this Zed configuration |
 | [Python Setup](docs/toolchain/python.md) | Python + uv + ruff + pyright configuration for Zed |
 | [R Setup](docs/toolchain/r.md) | R + languageserver + lintr + styler configuration for Zed |
-| [Agent System](docs/agent-system/README.md) | Zed agent + Claude Code overview, workflows, command catalog, memory, and architecture |
+| [Agent System](docs/agent-system/README.md) | Claude Code + OpenCode overview, command catalog, extensions, memory, and architecture |
 | [Workflows](docs/workflows/README.md) | Agent task lifecycle for R/Python development, plus epidemiology, grant, and Office file workflows |
-| [Agent System Config](.claude/README.md) | Claude Code framework architecture, skills, agents, and extension system |
+| [Claude Code Config](.claude/docs/README.md) | Claude Code framework architecture, skills, agents, and extension system |
+| [OpenCode Config](.opencode/README.md) | OpenCode framework architecture, skills, agents, and extension system |
 | [Memory Vault](.memory/README.md) | Shared AI memory vault for persistent knowledge across sessions |
 
 ## Custom Keybindings
@@ -240,19 +242,24 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 
 ## AI Integration
 
-**Claude Code** (Ctrl+Shift+A): The primary AI interface. Provides a structured task lifecycle (`/task`, `/research`, `/plan`, `/implement`) for tracked, resumable development work. Domain extensions add specialized capabilities for epidemiology (`/epi`), grant and research development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), document tools (`/edit`, `/convert`, `/table`, `/scrape`), and persistent memory (`/learn`, `/distill`).
+**Claude Code** (Ctrl+Shift+A): Terminal-based AI assistant with a structured task lifecycle (`/task`, `/research`, `/plan`, `/implement`) for tracked, resumable development work. Domain extensions add specialized capabilities for epidemiology (`/epi`), grant and research development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), document tools (`/edit`, `/convert`, `/table`, `/scrape`), and persistent memory (`/learn`, `/distill`).
+
+**OpenCode** (terminal: `opencode`): A parallel AI assistant sharing the same task management, memory vault, and 9 extensions as Claude Code. Provides its own command set with unique capabilities like `/deck` and `/project-overview`. See [docs/agent-system/opencode.md](docs/agent-system/opencode.md).
 
 **Zed Agent Panel** (Ctrl+?): Built-in AI sidebar for quick questions and inline edits. See [docs/agent-system/zed-agent-panel.md](docs/agent-system/zed-agent-panel.md).
 
 ## Platform Notes
 
-- **macOS**: Install Zed via Homebrew (`brew install --cask zed`). Open from Applications or Spotlight. All shortcuts use Cmd; custom bindings use Opt for the Option key.
-- **Config location**: `~/.config/zed/` -- standard for Zed on macOS.
+- **macOS**: Install Zed via Homebrew (`brew install --cask zed`). Open from Applications or Spotlight. All shortcuts use Cmd; custom bindings use Opt for the Option key. Claude Code installs via `brew install --cask claude-code`.
+- **Linux/NixOS**: Install Zed via your system package manager or the official installer. OpenCode is typically available via NixOS system configuration or Nix profile. Claude Code may be installed via npm or the official installer.
+- **Config location**: `~/.config/zed/` -- standard for Zed on all platforms.
 - **Extensions**: Auto-installed on launch via `auto_install_extensions` in settings.json (`python`, `ruff`, `r`, and more).
-- **Language tooling**: Install Python and R via Homebrew; see [docs/toolchain/python.md](docs/toolchain/python.md) and [docs/toolchain/r.md](docs/toolchain/r.md).
+- **Language tooling**: Install Python and R via your package manager; see [docs/toolchain/python.md](docs/toolchain/python.md) and [docs/toolchain/r.md](docs/toolchain/r.md).
 - **Office editing**: Requires SuperDoc and openpyxl MCP tools. See [docs/general/installation.md](docs/general/installation.md#install-mcp-tools) for setup and [docs/workflows/](docs/workflows/README.md) for workflows.
 
 ## Related
 
-- [Claude Code System](.claude/CLAUDE.md) -- Full agent system reference (commands, skills, agents)
+- [Claude Code System](.claude/CLAUDE.md) -- Full Claude Code agent system reference (commands, skills, agents)
+- [OpenCode System](.opencode/AGENTS.md) -- Full OpenCode agent system reference
+- [Extensions](docs/agent-system/extensions.md) -- Extension feature matrix for both systems
 - [Task List](specs/TODO.md) -- Current project tasks

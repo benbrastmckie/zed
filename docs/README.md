@@ -1,8 +1,8 @@
 # Documentation
 
-Human-readable documentation for this Zed configuration, focused on working in **R** and **Python** with **Claude Code** as the integrated AI assistant. The Claude Code agent system provides a structured task lifecycle for research, planning, and implementation, with domain extensions that add specialized capabilities for epidemiology, grant development, document tools, and more. These guides explain how to install, use, and extend the editor and its AI integrations. See the [main README](../README.md) for a quick-start overview.
+Human-readable documentation for this Zed configuration, focused on working in **R** and **Python** with two AI agent systems -- **Claude Code** and **OpenCode**. Both systems provide a structured task lifecycle for research, planning, and implementation, sharing the same 9 domain extensions for epidemiology, grant development, document tools, and more. These guides explain how to install, use, and extend the editor and its AI integrations. See the [main README](../README.md) for a quick-start overview.
 
-**Audience**: These docs are written for day-to-day users of this configuration. For the machine-facing agent system internals (commands, skills, agents, routing), see [`.claude/README.md`](../.claude/README.md). For persistent AI knowledge, see [`.memory/README.md`](../.memory/README.md).
+**Audience**: These docs are written for day-to-day users of this configuration. For the machine-facing agent system internals, see [`.claude/docs/README.md`](../.claude/docs/README.md) (Claude Code) or [`.opencode/README.md`](../.opencode/README.md) (OpenCode). For persistent AI knowledge, see [`.memory/README.md`](../.memory/README.md).
 
 **For R/Python development**: Jump straight to [general/python.md](general/python.md) and [general/R.md](general/R.md) for language setup (pyright + ruff + uv for Python; r-language-server + lintr + styler for R).
 
@@ -16,7 +16,7 @@ Installation, keybindings, settings reference, and language setup. Start here if
 
 ### [Agent System](agent-system/README.md)
 
-Claude Code and Zed AI integration: the Agent Panel, the Claude Code terminal interface, the command catalog, context and memory layers, and the three-layer execution architecture. Domain extensions (epidemiology, grant development, document tools, memory, LaTeX/Typst) are first-class capabilities of the agent system, each providing specialized commands, agents, and context.
+Claude Code, OpenCode, and Zed Agent Panel: the three AI access methods, the command catalog, context and memory layers, and the three-layer execution architecture. Domain extensions (epidemiology, grant development, document tools, memory, LaTeX/Typst) are first-class capabilities shared by both agent systems, each providing specialized commands, agents, and context.
 
 ### [Workflows](workflows/README.md)
 
@@ -27,5 +27,6 @@ End-to-end usage narratives organized by domain. Covers the agent task lifecycle
 ## See also
 
 - [Main README](../README.md) -- Repository overview, quick start, and directory layout
-- [`.claude/README.md`](../.claude/README.md) -- Claude Code framework architecture (agent-facing)
-- [`.memory/README.md`](../.memory/README.md) -- Shared AI memory vault
+- [`.claude/docs/README.md`](../.claude/docs/README.md) -- Claude Code framework architecture (agent-facing)
+- [`.opencode/README.md`](../.opencode/README.md) -- OpenCode framework architecture (agent-facing)
+- [`.memory/README.md`](../.memory/README.md) -- Shared AI memory vault (used by both systems)

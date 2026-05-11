@@ -2,9 +2,9 @@
 
 ## Installation wizard (recommended)
 
-The interactive installation wizard at `scripts/install/install.sh` walks through six groups of installs (base tools, shell utilities, Python, R, typesetting, MCP servers), lets you accept or skip each group, and is safe to re-run -- every step is guarded by a presence check.
+The interactive installation wizard at `scripts/install/install.sh` walks through seven groups of installs (base tools, agent systems, shell utilities, Python, R, typesetting, MCP servers), lets you accept or skip each group, and is safe to re-run -- every step is guarded by a presence check.
 
-**Supported platform**: macOS (Homebrew).
+**Supported platform**: macOS (Homebrew). Linux/NixOS users should install packages via their system package manager and use the wizard for reference only.
 
 **Step by step** (macOS):
 
@@ -68,10 +68,10 @@ If a command produces a lot of output, wait until the prompt appears again befor
 
 ## Prerequisites
 
-- **macOS**: macOS 11 (Big Sur) or newer
+- **macOS**: macOS 11 (Big Sur) or newer. **Linux/NixOS**: Any recent Linux distribution (install tools via your system package manager)
 - An internet connection
 - About 20-30 minutes for initial setup
-- An Anthropic account for the Claude Code CLI
+- An Anthropic account for Claude Code CLI and/or OpenCode
 
 Every dependency section below follows the same three-step pattern: **Check if already installed**, **Install**, **Verify**. Run the detection command first; if it prints a version number, skip to the next section.
 
@@ -261,6 +261,15 @@ This step links your Anthropic account to the Claude Code thread inside Zed. It 
 1. Open the Agent Panel with **Ctrl+?**
 2. Start a new Claude Code thread (the thread picker shows both the built-in agent and the Claude Code bridge)
 3. Type `/login` in the thread and follow the prompts
+
+## Agent System Selection
+
+The install wizard includes an **agent-systems** group that lets you set up Claude Code, OpenCode, or both. If you are running the wizard, this is handled automatically. For manual installation:
+
+- **Claude Code**: Install via `brew install --cask claude-code` (macOS) or see [code.claude.com](https://code.claude.com/docs/en/setup) for other platforms. Authenticate with `claude` in your terminal.
+- **OpenCode**: On NixOS, the binary is typically available via your system configuration. Check `which opencode` to verify. See [docs/agent-system/opencode.md](../agent-system/opencode.md) for setup details.
+
+Both systems share the same `specs/` task management and `.memory/` vault. You can use either or both -- tasks created in one system are visible to the other.
 
 ## Install MCP Tools
 
