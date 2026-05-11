@@ -112,5 +112,5 @@ Note that OpenCode subagents cannot access project-scoped MCP servers. For subag
 - [extensions.md](extensions.md) -- Extension feature matrix with per-system availability
 - [commands.md](commands.md) -- Full command catalog
 - [context-and-memory.md](context-and-memory.md) -- Shared memory vault details
-- [`.opencode/README.md`](../../.opencode/README.md) -- OpenCode internal architecture hub
+- [`.opencode/README.md`](../../.opencode/docs/README.md) -- OpenCode internal architecture hub
 - [`.opencode/AGENTS.md`](../../.opencode/AGENTS.md) -- OpenCode quick reference (loaded every session)

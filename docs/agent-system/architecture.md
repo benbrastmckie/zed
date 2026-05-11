@@ -35,7 +35,7 @@ Both Claude Code and OpenCode use the same three-layer execution pipeline with c
           └───────────────────────────────┘
 ```
 
-Commands are thin routers; skills handle validation and context loading; agents do the actual work and write artifacts. Both Claude Code and OpenCode use this same pipeline pattern. See [`.claude/README.md`](../../.claude/docs/README.md) for the Claude Code architecture or [`.opencode/README.md`](../../.opencode/README.md) for the OpenCode architecture.
+Commands are thin routers; skills handle validation and context loading; agents do the actual work and write artifacts. Both Claude Code and OpenCode use this same pipeline pattern. See [`.claude/docs/README.md`](../../.claude/docs/README.md) for the Claude Code architecture or [`.opencode/docs/README.md`](../../.opencode/docs/README.md) for the OpenCode architecture.
 
 ## Three-layer pipeline
 
@@ -214,7 +214,7 @@ The trade-off: commands enforce the full checkpoint lifecycle with validation ga
 
 ## See also
 
-- [`.claude/README.md`](../../.claude/README.md) — Architecture navigation hub and component inventory
+- [`.claude/docs/README.md`](../../.claude/docs/README.md) — Architecture navigation hub and component inventory
 - [`.claude/docs/architecture/system-overview.md`](../../.claude/docs/architecture/system-overview.md) — Detailed architecture walkthrough
 - [`.claude/docs/architecture/extension-system.md`](../../.claude/docs/architecture/extension-system.md) — Extension loader pattern (portability reference)
 - [`.claude/docs/guides/component-selection.md`](../../.claude/docs/guides/component-selection.md) — Command vs skill vs agent decision tree

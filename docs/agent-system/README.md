@@ -77,6 +77,6 @@ This workspace adapts the upstream `.claude/` configuration with one intentional
 - [`.claude/docs/README.md`](../../.claude/docs/README.md) -- Architecture navigation hub for the Claude Code framework
 - [`.claude/CLAUDE.md`](../../.claude/CLAUDE.md) -- Always-loaded quick reference; canonical command list
 - [`.claude/docs/guides/user-guide.md`](../../.claude/docs/guides/user-guide.md) -- Comprehensive command reference with examples
-- [`.opencode/README.md`](../../.opencode/README.md) -- OpenCode architecture navigation hub
+- [`.opencode/README.md`](../../.opencode/docs/README.md) -- OpenCode architecture navigation hub
 - [`.opencode/AGENTS.md`](../../.opencode/AGENTS.md) -- OpenCode quick reference
 - [`.memory/README.md`](../../.memory/README.md) -- Shared AI memory vault (used by both systems)

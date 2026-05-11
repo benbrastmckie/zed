@@ -216,7 +216,7 @@ For the complete decision guide, see [docs/workflows/README.md](docs/workflows/R
 | [Agent System](docs/agent-system/README.md) | Claude Code + OpenCode overview, command catalog, extensions, memory, and architecture |
 | [Workflows](docs/workflows/README.md) | Agent task lifecycle for R/Python development, plus epidemiology, grant, and Office file workflows |
 | [Claude Code Config](.claude/docs/README.md) | Claude Code framework architecture, skills, agents, and extension system |
-| [OpenCode Config](.opencode/README.md) | OpenCode framework architecture, skills, agents, and extension system |
+| [OpenCode Config](.opencode/docs/README.md) | OpenCode framework architecture, skills, agents, and extension system |
 | [Memory Vault](.memory/README.md) | Shared AI memory vault for persistent knowledge across sessions |
 
 ## Custom Keybindings
