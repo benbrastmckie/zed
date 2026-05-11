@@ -94,7 +94,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Update Existing Agent System Documentation [NOT STARTED]
+### Phase 2: Update Existing Agent System Documentation [COMPLETED]
 
 **Goal**: Rewrite existing docs/agent-system/ pages to present Claude Code and OpenCode as equal peers, fix the "Two AI systems" framing, and add dual-system architecture.
 

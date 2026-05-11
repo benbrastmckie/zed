@@ -1,6 +1,6 @@
 # Architecture
 
-The Claude Code framework in this workspace is a three-layer execution pipeline with checkpoint-based command lifecycle, session-ID-linked git history, and task-type routing. This page is the advanced reference; for day-to-day usage, see [agent-lifecycle.md](../workflows/agent-lifecycle.md) and [commands.md](commands.md).
+Both Claude Code and OpenCode use the same three-layer execution pipeline with checkpoint-based command lifecycle, session-ID-linked git history, and task-type routing. The two systems share `specs/` (task state) and `.memory/` (knowledge vault) but maintain separate configuration trees. This page is the advanced reference; for day-to-day usage, see [agent-lifecycle.md](../workflows/agent-lifecycle.md) and [commands.md](commands.md).
 
 ## Summary
 
@@ -35,7 +35,7 @@ The Claude Code framework in this workspace is a three-layer execution pipeline 
           └───────────────────────────────┘
 ```
 
-Commands are thin routers; skills handle validation and context loading; agents do the actual work and write artifacts. See [`.claude/README.md`](../../.claude/README.md) for the full architecture diagram and component specifications, and [`.claude/docs/architecture/system-overview.md`](../../.claude/docs/architecture/system-overview.md) for the detailed walkthrough.
+Commands are thin routers; skills handle validation and context loading; agents do the actual work and write artifacts. Both Claude Code and OpenCode use this same pipeline pattern. See [`.claude/README.md`](../../.claude/docs/README.md) for the Claude Code architecture or [`.opencode/README.md`](../../.opencode/README.md) for the OpenCode architecture.
 
 ## Three-layer pipeline
 
@@ -93,25 +93,62 @@ Any commit, error log entry, or artifact can be traced back to the command invoc
 
 TODO.md and state.json must stay synchronized; both are updated atomically. See [`.claude/rules/state-management.md`](../../.claude/rules/state-management.md) for the sync protocol and vault schema (task renumbering when `next_project_number > 1000`).
 
+## Dual-system architecture
+
+Both Claude Code and OpenCode implement the same three-layer pipeline pattern independently. They share task state and memory but maintain separate configuration trees:
+
+```
+                    ┌────────────────────────────┐
+                    │     SHARED STATE            │
+                    │  specs/    (TODO.md,         │
+                    │            state.json,       │
+                    │            task dirs)         │
+                    │  .memory/  (knowledge vault) │
+                    └──────┬─────────┬─────────────┘
+                           │         │
+              ┌────────────┘         └────────────┐
+              │                                   │
+    ┌─────────┴─────────┐             ┌──────────┴──────────┐
+    │   CLAUDE CODE     │             │    OPENCODE         │
+    │   .claude/        │             │    .opencode/       │
+    │   commands/       │             │    commands/        │
+    │   skills/         │             │    skills/          │
+    │   agents/         │             │    agent/           │
+    │   extensions/     │             │    extensions/      │
+    └───────────────────┘             └─────────────────────┘
+```
+
+Task directories use prefixes to identify their origin: Claude Code creates `{NNN}_{SLUG}/`, OpenCode creates `OC_{NNN}_{SLUG}/`.
+
 ## Configuration tree
 
 ```
 .
-├── specs/                    # Task management
+├── specs/                    # Task management (shared)
 │   ├── TODO.md              # Human-readable task list
 │   ├── state.json           # Machine-readable state
 │   ├── errors.json          # Error tracking
-│   └── {NNN}_{SLUG}/        # Per-task artifacts
-└── .claude/
-    ├── CLAUDE.md            # Always-loaded quick reference
-    ├── README.md            # Architecture navigation hub
-    ├── commands/            # slash command definitions
-    ├── skills/              # 33 skill routers
-    ├── agents/              # 30 agent specifications
+│   ├── {NNN}_{SLUG}/        # Claude Code task artifacts
+│   └── OC_{NNN}_{SLUG}/     # OpenCode task artifacts
+├── .memory/                  # Knowledge vault (shared)
+├── .claude/                  # Claude Code configuration
+│   ├── CLAUDE.md            # Always-loaded quick reference
+│   ├── commands/            # Slash command definitions
+│   ├── skills/              # Skill routers
+│   ├── agents/              # Agent specifications
+│   ├── rules/               # Auto-applied behavioral rules
+│   ├── context/             # Core agent context (patterns, formats)
+│   ├── docs/                # Guides, examples, standards
+│   └── scripts/             # Utility scripts
+└── .opencode/                # OpenCode configuration
+    ├── AGENTS.md            # Always-loaded quick reference
+    ├── commands/            # Slash command definitions
+    ├── skills/              # Skill routers
+    ├── agent/               # Agent specifications
     ├── rules/               # Auto-applied behavioral rules
-    ├── context/             # Core agent context (patterns, formats)
+    ├── context/             # Core agent context
     ├── docs/                # Guides, examples, standards
-    └── scripts/             # Utility scripts (e.g., update-task-status.sh)
+    └── scripts/             # Utility scripts
 ```
 
 ## Extensions

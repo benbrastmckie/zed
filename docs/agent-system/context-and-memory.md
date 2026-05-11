@@ -1,12 +1,12 @@
 # Context and Memory
 
-Claude Code in this workspace pulls information from two distinct memory layers and five context layers. Keeping them straight matters: each has a different owner, lifetime, and sharing model.
+Both Claude Code and OpenCode pull information from memory layers and context layers. The project memory vault (`.memory/`) is fully shared between both systems. Each system also has its own context layer configuration. Keeping these layers straight matters: each has a different owner, lifetime, and sharing model.
 
 ## Summary
 
-- **Project memory vault** (`.memory/`) — agent-managed Obsidian vault. Shared with OpenCode. Write via `/learn`, maintain via `/distill`.
-- **Auto-memory** (`~/.claude/projects/...`) — harness-managed user preferences. Agents do not touch it.
-- **Five context layers** — agent context, extensions, project context, project memory, auto-memory. Each has a different purpose.
+- **Project memory vault** (`.memory/`) — agent-managed Obsidian vault. **Shared between Claude Code and OpenCode**. Both systems read and write the same vault using timestamped memory IDs for collision resistance. Write via `/learn`, maintain via `/distill` (Claude Code only).
+- **Auto-memory** (`~/.claude/projects/...`) — harness-managed user preferences for Claude Code. Agents do not touch it. OpenCode has its own auto-memory equivalent in `~/.opencode/`.
+- **Context layers** — each system has its own context layer configuration (agent context, extensions, project context, project memory, auto-memory), but they share the project memory layer.
 
 ## Two memory layers
 
@@ -143,9 +143,10 @@ Full architectural details: [`.claude/context/architecture/context-layers.md`](.
 ## See also
 
 - [`.memory/README.md`](../../.memory/README.md) — Vault structure, sharing protocol, MCP server details
-- [`.claude/context/architecture/context-layers.md`](../../.claude/context/architecture/context-layers.md) — Full five-layer architecture
+- [opencode.md](opencode.md) — OpenCode setup, shared state model, and MCP configuration
+- [`.claude/context/architecture/context-layers.md`](../../.claude/context/architecture/context-layers.md) — Full five-layer architecture (Claude Code)
 - [`.claude/commands/learn.md`](../../.claude/commands/learn.md) — `/learn` command reference
-- [`.claude/commands/distill.md`](../../.claude/commands/distill.md) — `/distill` command reference
+- [`.claude/commands/distill.md`](../../.claude/commands/distill.md) — `/distill` command reference (Claude Code only)
 - [`.claude/context/project/memory/distill-usage.md`](../../.claude/context/project/memory/distill-usage.md) — Full distill usage guide
 - [../workflows/memory-and-learning.md](../workflows/memory-and-learning.md) — Memory workflows and decision guide
 - [architecture.md](architecture.md) — How these layers are loaded and delivered to agents

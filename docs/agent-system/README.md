@@ -1,21 +1,22 @@
 # Agent System
 
-This project hosts two AI systems: Zed's built-in Agent Panel for quick, in-editor assistance, and a terminal-or-panel-based Claude Code framework with full research, planning, and implementation workflows. This directory is an orientation guide. For the authoritative power-user reference, see [`.claude/CLAUDE.md`](../../.claude/CLAUDE.md).
+This project hosts two AI agent systems -- **Claude Code** and **OpenCode** -- that share the same task management (`specs/`), memory vault (`.memory/`), and 9 domain extensions. A third access method, Zed's built-in **Agent Panel**, provides lightweight in-editor assistance. This directory is an orientation guide. For the authoritative power-user references, see [`.claude/CLAUDE.md`](../../.claude/CLAUDE.md) (Claude Code) and [`.opencode/AGENTS.md`](../../.opencode/AGENTS.md) (OpenCode).
 
-## Two AI systems
+## Three AI access methods
 
 | System | How to open | Strengths | When to use |
 |--------|-------------|-----------|-------------|
-| Zed Agent Panel | Ctrl+? | Fast, inline edits, knows open files | Quick questions, single-file tweaks, inline assist |
 | Claude Code | Ctrl+Shift+A (terminal task) or Agent Panel thread | Full task lifecycle, structured artifacts, multi-file refactors, grant & research workflows | Multi-step work, anything worth tracking in `specs/TODO.md` |
+| OpenCode | Terminal (`opencode`) | Same task lifecycle and extensions as Claude Code; alternative terminal interface | Same as Claude Code; use whichever interface you prefer |
+| Zed Agent Panel | Ctrl+? | Fast, inline edits, knows open files | Quick questions, single-file tweaks, inline assist |
 
-Both run on Claude models. They do **not** share conversation history. Use the panel for a 30-second question; use Claude Code when you want research, a plan, and a commit trail.
+Claude Code and OpenCode both run on Claude models and share the same `specs/` task list, `.memory/` vault, and 9 extensions. They do **not** share conversation history with each other or with the Agent Panel. Use the Agent Panel for a 30-second question; use Claude Code or OpenCode when you want research, a plan, and a commit trail. See [extensions.md](extensions.md) for the full feature matrix and [opencode.md](opencode.md) for OpenCode-specific setup.
 
 ## Quick start: your first task
 
-Assuming [installation](../general/installation.md) is complete and the Claude Code thread is authenticated:
+Assuming [installation](../general/installation.md) is complete and Claude Code or OpenCode is authenticated:
 
-1. Open Claude Code with Ctrl+Shift+A (or open a Claude Code thread in the Agent Panel with Ctrl+?).
+1. Open Claude Code with Ctrl+Shift+A (or open a Claude Code thread in the Agent Panel with Ctrl+?). Alternatively, run `opencode` in a terminal.
 2. Create a task:
    ```
    /task "Add a dark-mode toggle to the settings page"
@@ -73,7 +74,9 @@ This workspace adapts the upstream `.claude/` configuration with one intentional
 
 ## See also
 
-- [`.claude/README.md`](../../.claude/README.md) -- Architecture navigation hub for the Claude Code framework
+- [`.claude/docs/README.md`](../../.claude/docs/README.md) -- Architecture navigation hub for the Claude Code framework
 - [`.claude/CLAUDE.md`](../../.claude/CLAUDE.md) -- Always-loaded quick reference; canonical command list
 - [`.claude/docs/guides/user-guide.md`](../../.claude/docs/guides/user-guide.md) -- Comprehensive command reference with examples
-- [`.memory/README.md`](../../.memory/README.md) -- Shared AI memory vault
+- [`.opencode/README.md`](../../.opencode/README.md) -- OpenCode architecture navigation hub
+- [`.opencode/AGENTS.md`](../../.opencode/AGENTS.md) -- OpenCode quick reference
+- [`.memory/README.md`](../../.memory/README.md) -- Shared AI memory vault (used by both systems)

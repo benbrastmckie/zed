@@ -1,8 +1,8 @@
 # Command Catalog
 
-Quick-reference catalog of all 26 slash commands. For a workflow tutorial, see [agent-lifecycle.md](../workflows/agent-lifecycle.md). For full command reference with examples and edge cases, see [user-guide.md](../../.claude/docs/guides/user-guide.md). For how commands, skills, and agents connect, see [architecture.md](architecture.md).
+Quick-reference catalog of slash commands available across Claude Code and OpenCode. For a workflow tutorial, see [agent-lifecycle.md](../workflows/agent-lifecycle.md). For full command reference with examples and edge cases, see [user-guide.md](../../.claude/docs/guides/user-guide.md) (Claude Code) or [user-guide.md](../../.opencode/docs/guides/user-guide.md) (OpenCode). For how commands, skills, and agents connect, see [architecture.md](architecture.md).
 
-Each entry follows a standard template: 2-sentence explanation, up to 2 examples, flags, and source link.
+Each entry follows a standard template: 2-sentence explanation, up to 2 examples, flags, and source link. Commands marked with **(CC only)** or **(OC only)** are exclusive to one system; all others are available in both.
 
 ## Lifecycle
 
@@ -194,7 +194,7 @@ Add memories to the [`.memory/`](context-and-memory.md) vault using one of three
 
 See [`.claude/commands/learn.md`](../../.claude/commands/learn.md) · [context-and-memory.md](context-and-memory.md).
 
-### /distill
+### /distill (CC only)
 
 Maintain memory vault health through scoring, purging, merging, compressing, and garbage collection. Run bare for a read-only health report, or with a flag to perform a specific maintenance operation.
 
@@ -235,7 +235,7 @@ Convert spreadsheets to LaTeX or Typst tables. Use `--sheet` to select a specifi
 
 See [`.claude/commands/table.md`](../../.claude/commands/table.md).
 
-### /scrape
+### /scrape (CC only)
 
 Extract PDF annotations, highlights, and comments into Markdown or JSON. Useful for collecting reviewer feedback or reading notes from annotated papers.
 
@@ -248,7 +248,7 @@ Extract PDF annotations, highlights, and comments into Markdown or JSON. Useful 
 
 See [`.claude/commands/scrape.md`](../../.claude/commands/scrape.md).
 
-### /edit
+### /edit (CC only)
 
 Edit DOCX files in-place with tracked changes via the SuperDoc MCP, or create new documents. XLSX editing is not yet available.
 
@@ -332,7 +332,7 @@ See [`.claude/commands/slides.md`](../../.claude/commands/slides.md).
 
 ## Epidemiology
 
-### /epi
+### /epi (CC only)
 
 Create epidemiology study tasks with structured forcing questions that scope study design, data sources, and R analysis preferences before task creation. Accepts a description string, an existing task number, or a file path as study protocol input.
 
@@ -345,9 +345,26 @@ Three input modes: description string (runs 10 forcing questions, creates task a
 
 See [`.claude/commands/epi.md`](../../.claude/commands/epi.md) · [epidemiology workflow](../workflows/epidemiology-analysis.md).
 
+## OpenCode-Exclusive Commands (OC only)
+
+### /deck
+
+Generate a presentation deck from task research and plans. This command is unique to OpenCode.
+
+See [`.opencode/commands/deck.md`](../../.opencode/commands/deck.md).
+
+### /project-overview
+
+Generate comprehensive repository documentation (project-overview.md). This command is unique to OpenCode.
+
+See [`.opencode/commands/project-overview.md`](../../.opencode/commands/project-overview.md).
+
 ## See also
 
 - [agent-lifecycle.md](../workflows/agent-lifecycle.md) — State machine and the six lifecycle commands in narrative form
 - [architecture.md](architecture.md) — How commands, skills, and agents fit together
-- [user-guide.md](../../.claude/docs/guides/user-guide.md) — Comprehensive command reference with examples
-- [`.claude/commands/`](../../.claude/commands/) — Individual command source files
+- [extensions.md](extensions.md) — Extension feature matrix with per-system availability
+- [opencode.md](opencode.md) — OpenCode setup and configuration
+- [user-guide.md](../../.claude/docs/guides/user-guide.md) — Comprehensive Claude Code command reference with examples
+- [`.claude/commands/`](../../.claude/commands/) — Claude Code command source files
+- [`.opencode/commands/`](../../.opencode/commands/) — OpenCode command source files
