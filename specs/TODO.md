@@ -8,8 +8,9 @@ next_project_number: 83
 
 ### 82. Improve documentation and installation script for dual agent systems
 - **Effort**: large
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: general
+- **Research**: [082_improve_docs_and_install_script/reports/01_team-research.md]
 
 **Description**: Research all the extensions that have been included in .claude/ and .opencode/ in order to improve the documentation for this repo to more accurately present both agent systems and their common contents (what each extension provides). The aim of this task is to improve the documentation in /home/benjamin/.config/zed/docs/ and to update /home/benjamin/.config/zed/README.md with appropriate descriptions and links. Also improve the installation script to give users the option of installing Claude Code and its dependencies, or OpenCode and its dependencies, or both.
 
