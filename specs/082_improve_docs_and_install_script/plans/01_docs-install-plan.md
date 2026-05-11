@@ -1,7 +1,7 @@
 # Implementation Plan: Improve Docs and Install Script
 
 - **Task**: 82 - Improve documentation and installation script for dual agent systems
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 5 hours
 - **Dependencies**: None
 - **Research Inputs**: reports/01_team-research.md
@@ -69,7 +69,7 @@ No ROADMAP.md items found (roadmap is empty).
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Create New Documentation Pages [NOT STARTED]
+### Phase 1: Create New Documentation Pages [COMPLETED]
 
 **Goal**: Create the two new documentation pages that other phases will link to, establishing the foundation for dual-system coverage.
 

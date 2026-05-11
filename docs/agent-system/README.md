@@ -41,9 +41,11 @@ Files in this directory (`docs/agent-system/`):
 
 - **[zed-agent-panel.md](zed-agent-panel.md)** — Opening the panel, the built-in agent vs the Claude Code thread, how the `claude-acp` bridge works under the hood, authentication, inline assist, edit predictions, troubleshooting.
 - **[agent-lifecycle.md](../workflows/agent-lifecycle.md)** — Task lifecycle state machine and the seven main-workflow commands that drive it.
-- **[commands.md](commands.md)** — Full catalog of the Claude Code command catalog grouped by topic, each with a one-line summary, example, and link into `.claude/docs/`.
+- **[commands.md](commands.md)** — Full command catalog grouped by topic, each with a one-line summary, example, and per-system availability.
 - **[context-and-memory.md](context-and-memory.md)** — The two memory layers (`.memory/` vault vs auto-memory), the five context layers, and where new content belongs.
 - **[architecture.md](architecture.md)** — Three-layer execution pipeline, checkpoint execution, session IDs, state files, and routing.
+- **[extensions.md](extensions.md)** — Extension feature matrix covering all 9 shared extensions, per-system availability, and naming differences.
+- **[opencode.md](opencode.md)** — OpenCode setup, configuration, command comparison, shared state model, and unique capabilities.
 
 Companion files outside this directory:
 
