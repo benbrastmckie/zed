@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # install-base.sh - Base developer environment (macOS)
 #
-# Installs everything in docs/general/installation.md:
-#   Xcode Command Line Tools, Homebrew, Node.js, Zed (cask),
-#   Claude Code CLI (cask), SuperDoc + openpyxl MCP servers
+# Installs core build tools and the editor:
+#   Xcode Command Line Tools, Homebrew, Node.js, Zed (cask)
+#
+# Note: Claude Code CLI and MCP servers have moved to install-agent-systems.sh.
 #
 # Flags: --dry-run --check --help
 #
@@ -24,9 +25,8 @@ Installs:
   - Homebrew
   - Node.js
   - Zed editor
-  - Claude Code CLI
-  - SuperDoc MCP server (claude mcp add, user scope)
-  - openpyxl MCP server (claude mcp add, user scope)
+
+Note: Claude Code CLI and MCP servers are now in install-agent-systems.sh.
 EOF
   print_common_help_footer
 }
@@ -108,47 +108,12 @@ install_zed() {
   brew_install_cask zed
 }
 
-install_claude_cli() {
-  if check_command claude; then
-    log_ok "claude CLI already installed"
-    return 0
-  fi
-  brew_install_cask claude-code
-}
-
-install_mcp_superdoc() {
-  if ! check_command claude; then
-    log_warn "claude CLI not installed yet; skipping superdoc MCP"
-    return 0
-  fi
-  if claude_mcp_has superdoc; then
-    log_ok "superdoc MCP already registered"
-    return 0
-  fi
-  run_or_dry claude mcp add --scope user superdoc -- npx @superdoc-dev/mcp
-}
-
-install_mcp_openpyxl() {
-  if ! check_command claude; then
-    log_warn "claude CLI not installed yet; skipping openpyxl MCP"
-    return 0
-  fi
-  if claude_mcp_has openpyxl; then
-    log_ok "openpyxl MCP already registered"
-    return 0
-  fi
-  run_or_dry claude mcp add --scope user openpyxl -- npx @jonemo/openpyxl-mcp
-}
-
 run_check_mode() {
   local missing=0
   check_xcode_clt && log_ok "xcode-clt" || { log_warn "[missing] xcode-clt"; missing=1; }
   check_command brew && log_ok "brew" || { log_warn "[missing] brew"; missing=1; }
   check_command node   && log_ok "node"   || { log_warn "[missing] node"; missing=1; }
   check_command zed    && log_ok "zed"    || { check_app_bundle "Zed.app" && log_ok "zed" || { log_warn "[missing] zed"; missing=1; }; }
-  check_command claude && log_ok "claude" || { log_warn "[missing] claude"; missing=1; }
-  claude_mcp_has superdoc && log_ok "mcp:superdoc" || { log_warn "[missing] mcp:superdoc"; missing=1; }
-  claude_mcp_has openpyxl && log_ok "mcp:openpyxl" || { log_warn "[missing] mcp:openpyxl"; missing=1; }
   return "$missing"
 }
 
@@ -167,11 +132,8 @@ main() {
   install_pkg_manager
   install_node
   install_zed
-  install_claude_cli
-  install_mcp_superdoc
-  install_mcp_openpyxl
 
-  log_info "install-base finished. Run 'claude' in your terminal to authenticate."
+  log_info "install-base finished. Run install-agent-systems.sh next to set up Claude Code and/or OpenCode."
 }
 
 main "$@"

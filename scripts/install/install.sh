@@ -2,7 +2,7 @@
 # install.sh - Master installer wizard for .config/zed/ (macOS)
 #
 # Dispatches per-group installers in topological order:
-#   base -> shell-tools -> python -> r -> typesetting -> mcp-servers
+#   base -> agent-systems -> shell-tools -> python -> r -> typesetting -> mcp-servers
 #
 # Supported platform: macOS (Homebrew).
 #
@@ -26,11 +26,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 . "$SCRIPT_DIR/lib.sh"
 
 # Topological order. The wizard never deviates from this in interactive mode.
-ALL_GROUPS="base shell-tools python r typesetting mcp-servers"
+ALL_GROUPS="base agent-systems shell-tools python r typesetting mcp-servers"
 
 print_help() {
   cat >&2 <<'EOF'
-install.sh - Zed + Claude Code toolchain installer
+install.sh - Zed toolchain installer
 
 Supported platform: macOS (Homebrew)
 
@@ -40,12 +40,13 @@ Usage:
   bash scripts/install/install.sh --check      # health report only
 
 Groups (run in topological order):
-  base          Build tools, package manager, Node.js, Zed, Claude Code CLI, SuperDoc+openpyxl MCP
-  shell-tools   jq, gh, make (optional), fontconfig
-  python        python, uv, ruff (+ optional uv tools, filetypes packages)
-  r             R, languageserver/lintr/styler (+ optional renv, Quarto, epi bundle)
-  typesetting   LaTeX, Typst, Pandoc, markitdown, fonts
-  mcp-servers   rmcp, markitdown-mcp, mcp-pandoc (+ obsidian-memory pointer)
+  base            Build tools, package manager, Node.js, Zed
+  agent-systems   Claude Code CLI + MCP servers, OpenCode binary verification
+  shell-tools     jq, gh, make (optional), fontconfig
+  python          python, uv, ruff (+ optional uv tools, filetypes packages)
+  r               R, languageserver/lintr/styler (+ optional renv, Quarto, epi bundle)
+  typesetting     LaTeX, Typst, Pandoc, markitdown, fonts
+  mcp-servers     rmcp, markitdown-mcp, mcp-pandoc (+ obsidian-memory pointer)
 EOF
   print_common_help_footer
   cat >&2 <<'EOF'
@@ -65,7 +66,10 @@ EOF
 describe_group() {
   case "$1" in
     base)
-      printf '%s\n' "Build tools, package manager, Node.js, Zed, Claude Code CLI, SuperDoc + openpyxl MCP servers. This is the foundation -- run it first on any new machine."
+      printf '%s\n' "Build tools, package manager, Node.js, Zed. This is the foundation -- run it first on any new machine."
+      ;;
+    agent-systems)
+      printf '%s\n' "AI agent systems: Claude Code CLI (via Homebrew) with SuperDoc + openpyxl MCP servers, and OpenCode binary verification. Choose which agent system(s) to set up."
       ;;
     shell-tools)
       printf '%s\n' "Shell utilities used by .claude/ hooks and commands: jq (JSON), gh (GitHub CLI), fontconfig (font checks), optional GNU make."
@@ -201,8 +205,8 @@ main() {
     log_warn "If you have not cloned this repo with git yet, follow docs/general/installation.md."
   fi
 
-  print_section "Zed + Claude Code toolchain wizard ($DETECTED_OS)"
-  log_info "This wizard walks through 6 groups of installs. For each group you can"
+  print_section "Zed toolchain wizard ($DETECTED_OS)"
+  log_info "This wizard walks through 7 groups of installs. For each group you can"
   log_info "accept (a), skip (s), or cancel the wizard (c)."
   log_info "Use --dry-run to preview every action, or --check for a health report."
 

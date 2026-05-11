@@ -49,6 +49,8 @@ export HOMEBREW_NO_ENV_HINTS=1
 
 # ----- platform detection ---------------------------------------------------
 # DETECTED_OS is set once at source time. Valid value: macos
+# Note: Linux/NixOS users install OpenCode and other tools via their system
+# package manager. This wizard is macOS-only; Linux support is documentary.
 DETECTED_OS=""
 
 detect_os() {

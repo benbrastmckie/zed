@@ -122,7 +122,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Update Install Wizard for Agent System Selection [NOT STARTED]
+### Phase 3: Update Install Wizard for Agent System Selection [COMPLETED]
 
 **Goal**: Add an agent system selection prompt to the install wizard and factor Claude Code CLI out of the base group into a selectable agent system step.
 
