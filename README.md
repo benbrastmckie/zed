@@ -1,8 +1,8 @@
 # Zed IDE Configuration with AI Agent Systems
 
-A Zed editor configuration that pairs first-class **R** and **Python** language support with two **AI agent systems** -- **Claude Code** and **OpenCode** -- providing structured task lifecycles that turn research, planning, and implementation into tracked, resumable workflows. Both systems share the same 9 domain extensions for epidemiology, grant development, document conversion, and memory capture.
+A Zed editor configuration with two **AI agent systems** -- **Claude Code** and **OpenCode** -- providing structured task lifecycles that turn research, planning, and implementation into tracked, resumable workflows. Includes language support for **Python**, **R**, **LaTeX**, and **Typst**, plus 9 shared domain extensions for epidemiology, grant development, document conversion, presentations, and memory capture.
 
-**Platforms**: macOS 11+ (primary), Linux/NixOS (supported).
+**Platform**: macOS 11+.
 
 ## Quick Start
 
@@ -23,8 +23,8 @@ Prefer to install everything by hand?
 
 1. Install Zed: `brew install --cask zed`
 2. Open Zed from Applications or Spotlight
-3. Extensions install automatically on first launch (including `python`, `ruff`, `r`)
-4. Set up your languages: [Python](docs/toolchain/python.md) and [R](docs/toolchain/r.md)
+3. Extensions install automatically on first launch (including `python`, `ruff`, `r`, `typst`)
+4. Set up your languages: [Python](docs/toolchain/python.md), [R](docs/toolchain/r.md), [LaTeX/Typst](docs/toolchain/typesetting.md)
 5. Theme is One Dark; font is Fira Code
 
 See [docs/general/installation.md](docs/general/installation.md#installation-wizard-recommended) for the full walkthrough and [docs/toolchain/README.md](docs/toolchain/README.md) for per-group detail.
@@ -92,21 +92,14 @@ To see concretely what this configuration produces, two runnable end-to-end exam
 
 ## Languages
 
-This configuration is built around first-class R and Python development inside Zed, with Claude Code as your writing, testing, and refactoring partner.
+This configuration includes toolchain support for four languages, each with language servers and auto-formatting on save:
 
-### Python
-
-- **Language servers**: `pyright` (type checking) + `ruff` (lint + format)
-- **Package/env manager**: `uv` (recommended)
-- **Auto-formatting**: on save via ruff
-- **Setup guide**: [docs/toolchain/python.md](docs/toolchain/python.md)
-
-### R
-
-- **Language server**: `r-language-server` (diagnostics + rich documentation)
-- **Lint / style**: `lintr` + `styler`
-- **Auto-formatting**: on save via r-language-server
-- **Setup guide**: [docs/toolchain/r.md](docs/toolchain/r.md)
+| Language | Language Server | Formatter / Linter | Setup Guide |
+|----------|----------------|-------------------|-------------|
+| **Python** | pyright (type checking) | ruff (lint + format) | [docs/toolchain/python.md](docs/toolchain/python.md) |
+| **R** | r-language-server | lintr + styler | [docs/toolchain/r.md](docs/toolchain/r.md) |
+| **LaTeX** | texlab | latexindent | [docs/toolchain/typesetting.md](docs/toolchain/typesetting.md) |
+| **Typst** | tinymist | typstfmt | [docs/toolchain/typesetting.md](docs/toolchain/typesetting.md) |
 
 ## Agent Commands
 
@@ -197,7 +190,7 @@ For the complete decision guide, see [docs/workflows/README.md](docs/workflows/R
 ├── tasks.json              # Task runner (git, export)
 ├── themes/                 # Custom color themes
 ├── docs/                   # Documentation
-│   ├── general/            # Installation, keybindings, settings, R and Python setup
+│   ├── general/            # Installation, keybindings, settings
 │   ├── agent-system/       # AI systems overview, commands, architecture
 │   └── workflows/          # Agent lifecycle, epi, grants, Office file workflows
 ├── specs/                  # Task management (shared by both agent systems)
@@ -210,11 +203,10 @@ For the complete decision guide, see [docs/workflows/README.md](docs/workflows/R
 
 | Document | Description |
 |----------|-------------|
-| [General](docs/general/README.md) | Installation, keybindings, settings, and R/Python setup for this Zed configuration |
-| [Python Setup](docs/toolchain/python.md) | Python + uv + ruff + pyright configuration for Zed |
-| [R Setup](docs/toolchain/r.md) | R + languageserver + lintr + styler configuration for Zed |
+| [General](docs/general/README.md) | Installation, keybindings, and settings |
+| [Toolchain](docs/toolchain/README.md) | Python, R, LaTeX, Typst, and shell tool setup |
 | [Agent System](docs/agent-system/README.md) | Claude Code + OpenCode overview, command catalog, extensions, memory, and architecture |
-| [Workflows](docs/workflows/README.md) | Agent task lifecycle for R/Python development, plus epidemiology, grant, and Office file workflows |
+| [Workflows](docs/workflows/README.md) | Agent task lifecycle, epidemiology, grant, and Office file workflows |
 | [Claude Code Config](.claude/docs/README.md) | Claude Code framework architecture, skills, agents, and extension system |
 | [OpenCode Config](.opencode/docs/README.md) | OpenCode framework architecture, skills, agents, and extension system |
 | [Memory Vault](.memory/README.md) | Shared AI memory vault for persistent knowledge across sessions |
@@ -250,12 +242,11 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 
 ## Platform Notes
 
-- **macOS**: Install Zed via Homebrew (`brew install --cask zed`). Open from Applications or Spotlight. All shortcuts use Cmd; custom bindings use Opt for the Option key. Claude Code installs via `brew install --cask claude-code`.
-- **Linux/NixOS**: Install Zed via your system package manager or the official installer. OpenCode is typically available via NixOS system configuration or Nix profile. Claude Code may be installed via npm or the official installer.
 - **Config location**: `~/.config/zed/` -- standard for Zed on all platforms.
-- **Extensions**: Auto-installed on launch via `auto_install_extensions` in settings.json (`python`, `ruff`, `r`, and more).
-- **Language tooling**: Install Python and R via your package manager; see [docs/toolchain/python.md](docs/toolchain/python.md) and [docs/toolchain/r.md](docs/toolchain/r.md).
-- **Office editing**: Requires SuperDoc and openpyxl MCP tools. See [docs/general/installation.md](docs/general/installation.md#install-mcp-tools) for setup and [docs/workflows/](docs/workflows/README.md) for workflows.
+- **Package manager**: The install wizard uses Homebrew (macOS). Install Zed via `brew install --cask zed`.
+- **Extensions**: Auto-installed on launch via `auto_install_extensions` in settings.json (`python`, `ruff`, `r`, `typst`, and more).
+- **Language tooling**: See [docs/toolchain/README.md](docs/toolchain/README.md) for Python, R, LaTeX, and Typst setup.
+- **Office editing**: Requires SuperDoc and openpyxl MCP tools. See [docs/general/installation.md](docs/general/installation.md#install-mcp-tools) for setup.
 
 ## Related
 
