@@ -1,0 +1,29 @@
+{
+  "status": "implemented",
+  "artifacts": [
+    {
+      "type": "summary",
+      "path": "specs/082_improve_docs_and_install_script/summaries/01_docs-install-summary.md",
+      "summary": "Implementation summary covering all 5 phases: new extension and OpenCode docs, updated agent system pages, install wizard agent-systems group, README rewrite, and .opencode/docs/ cleanup."
+    }
+  ],
+  "completion_data": {
+    "completion_summary": "Rewrote all user-facing documentation (README.md, docs/, install wizard) to present Claude Code and OpenCode as equal peer agent systems. Created extensions.md feature matrix and opencode.md reference page, added agent-systems install group, fixed broken links, cleaned ghost extension references from .opencode/docs/."
+  },
+  "metadata": {
+    "session_id": "sess_1778522772_aedb81",
+    "agent_type": "general-implementation-agent",
+    "delegation_path": ["orchestrator", "implement", "general-implementation-agent"],
+    "phases_completed": 5,
+    "phases_total": 5
+  },
+  "memory_candidates": [
+    {
+      "content": "When referencing .opencode/README.md in documentation links, the actual navigation hub file is at .opencode/docs/README.md (not .opencode/README.md which does not exist). Similarly, .claude/README.md does not exist; the hub is at .claude/docs/README.md. The always-loaded quick references are .claude/CLAUDE.md and .opencode/AGENTS.md respectively.",
+      "category": "INSIGHT",
+      "source_artifact": "specs/082_improve_docs_and_install_script/summaries/01_docs-install-summary.md",
+      "confidence": 0.85,
+      "suggested_keywords": ["opencode", "claude", "readme", "docs", "broken-link", "navigation-hub"]
+    }
+  ]
+}
