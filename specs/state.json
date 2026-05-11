@@ -4,11 +4,11 @@
     {
       "project_number": 82,
       "project_name": "improve_docs_and_install_script",
-      "status": "planned",
+      "status": "completed",
       "task_type": "general",
       "created": "2026-05-11T17:41:12Z",
-      "last_updated": "2026-05-11T17:57:54Z",
-      "session_id": "sess_1778521988_57c868",
+      "last_updated": "2026-05-11T18:24:24Z",
+      "session_id": "sess_1778522772_aedb81",
       "researched": "2026-05-11T17:49:11Z",
       "next_artifact_number": 2,
       "artifacts": [
@@ -16,6 +16,28 @@
           "path": "specs/082_improve_docs_and_install_script/plans/01_docs-install-plan.md",
           "type": "plan",
           "summary": "5-phase implementation plan covering new extension/OpenCode docs, dual-system documentation rewrite, install wizard agent system selection, README updates, and cleanup"
+        },
+        {
+          "path": "specs/082_improve_docs_and_install_script/summaries/01_docs-install-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary covering all 5 phases: new extension and OpenCode docs, updated agent system pages, install wizard agent-systems group, README rewrite, and .opencode/docs/ cleanup."
+        }
+      ],
+      "completion_summary": "Rewrote all user-facing documentation (README.md, docs/, install wizard) to present Claude Code and OpenCode as equal peer agent systems. Created extensions.md feature matrix and opencode.md reference page, added agent-systems install group, fixed broken links, cleaned ghost extension references from .opencode/docs/.",
+      "memory_candidates": [
+        {
+          "content": "When referencing .opencode/README.md in documentation links, the actual navigation hub file is at .opencode/docs/README.md (not .opencode/README.md which does not exist). Similarly, .claude/README.md does not exist; the hub is at .claude/docs/README.md. The always-loaded quick references are .claude/CLAUDE.md and .opencode/AGENTS.md respectively.",
+          "category": "INSIGHT",
+          "source_artifact": "specs/082_improve_docs_and_install_script/summaries/01_docs-install-summary.md",
+          "confidence": 0.85,
+          "suggested_keywords": [
+            "opencode",
+            "claude",
+            "readme",
+            "docs",
+            "broken-link",
+            "navigation-hub"
+          ]
         }
       ]
     },

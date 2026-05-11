@@ -69,8 +69,8 @@
       "token_count": 387,
       "created": "2026-04-15",
       "modified": "2026-04-15",
-      "last_retrieved": null,
-      "retrieval_count": 0
+      "last_retrieved": "2026-05-11",
+      "retrieval_count": 1
     },
     {
       "id": "MEM-install-wizard-scripts",
@@ -137,8 +137,8 @@
       "token_count": 420,
       "created": "2026-04-15",
       "modified": "2026-04-15",
-      "last_retrieved": "2026-05-08",
-      "retrieval_count": 5
+      "last_retrieved": "2026-05-11",
+      "retrieval_count": 8
     },
     {
       "id": "MEM-zed-editor-settings",
@@ -160,8 +160,8 @@
       "token_count": 345,
       "created": "2026-04-15",
       "modified": "2026-04-15",
-      "last_retrieved": null,
-      "retrieval_count": 0
+      "last_retrieved": "2026-05-11",
+      "retrieval_count": 1
     },
     {
       "id": "MEM-zed-keybindings-scheme",
