@@ -4,13 +4,20 @@
     {
       "project_number": 82,
       "project_name": "improve_docs_and_install_script",
-      "status": "researched",
+      "status": "planned",
       "task_type": "general",
       "created": "2026-05-11T17:41:12Z",
-      "last_updated": "2026-05-11T17:49:11Z",
-      "session_id": "sess_1778521337_51df09",
+      "last_updated": "2026-05-11T17:57:54Z",
+      "session_id": "sess_1778521988_57c868",
       "researched": "2026-05-11T17:49:11Z",
-      "next_artifact_number": 2
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/082_improve_docs_and_install_script/plans/01_docs-install-plan.md",
+          "type": "plan",
+          "summary": "5-phase implementation plan covering new extension/OpenCode docs, dual-system documentation rewrite, install wizard agent system selection, README updates, and cleanup"
+        }
+      ]
     },
     {
       "project_number": 81,
