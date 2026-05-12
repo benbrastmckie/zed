@@ -1,6 +1,6 @@
 # Zed IDE Configuration with AI Agent Systems
 
-A Zed editor configuration with two AI agent systems — **Claude Code** and **OpenCode** — providing structured task lifecycles that turn research, planning, and implementation into tracked, resumable workflows. Includes language support for **Python**, **R**, **LaTeX**, and **Typst**, plus 10 shared domain extensions for web development (Astro/Tailwind), presentations (Slidev/Beamer), grant proposals and budgets, epidemiology studies, document conversion, and persistent memory. See [Choosing an Agent System](docs/ai_agent_systems.md) for a comparison.
+A Zed editor configuration with two AI agent systems — **Claude Code** and **OpenCode** — providing structured task lifecycles that turn research, planning, and implementation into tracked, resumable workflows. Includes language support for [Python](docs/toolchain/python.md), [R](docs/toolchain/r.md), [LaTeX](docs/toolchain/typesetting.md), and [Typst](docs/toolchain/typesetting.md), plus 10 shared [domain extensions](docs/agent-system/extensions.md) for [web development](docs/workflows/web-development.md) (Astro/Tailwind), [presentations](docs/workflows/grant-development.md) (Slidev/Beamer), [grant proposals and budgets](docs/workflows/grant-development.md), [epidemiology studies](docs/workflows/epidemiology-analysis.md), [document conversion](docs/workflows/convert-documents.md), and [persistent memory](docs/workflows/memory-and-learning.md). See [Choosing an Agent System](docs/ai_agent_systems.md) for a comparison.
 
 **Platform**: macOS 11+.
 
@@ -44,7 +44,7 @@ For the full shortcuts guide, see [docs/general/keybindings.md](docs/general/key
 
 ## How It Works
 
-The agent system provides an intuitive task management system with a predictable lifecycle.
+The agent system provides an intuitive [task management system](docs/workflows/agent-lifecycle.md) with a predictable lifecycle.
 You create a task with `/task` (which generates a task with a unique number `N`), investigate it with `/research N` (which produces a report), design a solution with `/plan N` (which produces a phased plan), and execute it with `/implement N` (which works through each phase, committing as it goes).
 When completed tasks pile up, `/todo` archives completed tasks.
 If something goes wrong, running `/implement N` resumes from the last incomplete phase of task `N`.
@@ -120,21 +120,21 @@ Commands that drive work through the research-plan-implement cycle:
 
 ### Domain Extensions
 
-Specialized commands that add domain-specific capabilities on top of the core lifecycle:
+Specialized commands that add domain-specific capabilities on top of the core lifecycle. See [extensions](docs/agent-system/extensions.md) for the full feature matrix.
 
-**Web Development** -- Build websites with Astro 5, Tailwind CSS v4, and TypeScript. Includes a starter template at `web/`:
+**[Web Development](docs/workflows/web-development.md)** -- Build websites with Astro 5, Tailwind CSS v4, and TypeScript. Includes a [starter template](web/README.md):
 
 | Command | What it does |
 |---------|-------------|
 | `/task --type web` | Create a web development task with specialized agent routing |
 
-**Epidemiology** -- Design and run R-based epidemiological studies with structured analysis phases:
+**[Epidemiology](docs/workflows/epidemiology-analysis.md)** -- Design and run R-based epidemiological studies with structured analysis phases:
 
 | Command | What it does |
 |---------|-------------|
 | `/epi` | Design and run epidemiology studies in R |
 
-**Grant Development** -- Research proposals, budgets, timelines, and funding analysis:
+**[Grant Development](docs/workflows/grant-development.md)** -- Research proposals, budgets, timelines, and funding analysis:
 
 | Command | What it does |
 |---------|-------------|
@@ -144,24 +144,24 @@ Specialized commands that add domain-specific capabilities on top of the core li
 | `/timeline` | Plan research project timelines |
 | `/slides` | Create research talks and presentations (`/plan` triggers interactive slide design; `--critic` for rubric-based critique) |
 
-**Document Tools** -- Convert, edit, and extract from Office and PDF files:
+**Document Tools** -- [Convert](docs/workflows/convert-documents.md), [edit](docs/workflows/edit-word-documents.md), and extract from Office and PDF files:
 
 | Command | What it does |
 |---------|-------------|
 | `/convert` | Convert between PDF, DOCX, Markdown, and other formats |
 | `/edit` | Edit Word documents with tracked changes |
-| `/sheet` | Create, edit, or analyze XLSX spreadsheets |
+| `/sheet` | Create, edit, or analyze [XLSX spreadsheets](docs/workflows/edit-spreadsheets.md) |
 | `/table` | Convert spreadsheets to LaTeX/Typst tables |
 | `/scrape` | Extract annotations from PDFs |
 
-**Memory** -- Persistent knowledge across sessions:
+**[Memory](docs/workflows/memory-and-learning.md)** -- Persistent knowledge across sessions:
 
 | Command | What it does |
 |---------|-------------|
 | `/learn` | Save knowledge to the memory vault for future sessions |
 | `/distill` | Maintain memory vault health (scoring, purging, merging, compressing) |
 
-### Housekeeping
+### [Housekeeping](docs/workflows/maintenance-and-meta.md)
 
 Commands for code quality, error tracking, and system maintenance:
 
@@ -174,7 +174,7 @@ Commands for code quality, error tracking, and system maintenance:
 | `/meta` | System builder for modifying the agent system itself |
 | `/merge` | Create a pull/merge request for the current branch |
 
-For the full command catalog, see [docs/agent-system/commands.md](docs/agent-system/commands.md).
+For the full command catalog, see [docs/agent-system/commands.md](docs/agent-system/commands.md). For tips, see [troubleshooting](docs/workflows/tips-and-troubleshooting.md).
 
 ## Common Scenarios
 
@@ -215,7 +215,7 @@ For the complete decision guide, see [docs/workflows/README.md](docs/workflows/R
 | [Toolchain](docs/toolchain/README.md) | Python, R, LaTeX, Typst, and shell tool setup |
 | [Agent System](docs/agent-system/README.md) | Claude Code + OpenCode overview, command catalog, extensions, memory, and architecture |
 | [AI Agent Systems](docs/ai_agent_systems.md) | Side-by-side comparison of Claude Code and OpenCode (cost, shared infrastructure, differences) |
-| [Workflows](docs/workflows/README.md) | Agent task lifecycle, epidemiology, grant, and Office file workflows |
+| [Workflows](docs/workflows/README.md) | Agent task lifecycle, web, epidemiology, grant, and Office file workflows |
 | [Claude Code Config](.claude/docs/README.md) | Claude Code framework architecture, skills, agents, and extension system |
 | [OpenCode Config](.opencode/docs/README.md) | OpenCode framework architecture, skills, agents, and extension system |
 | [Memory Vault](.memory/README.md) | Shared AI memory vault for persistent knowledge across sessions |
@@ -243,7 +243,7 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 
 ## AI Integration
 
-**Claude Code** (Ctrl+Shift+A): Terminal-based AI assistant with a structured task lifecycle (`/task`, `/research`, `/plan`, `/implement`) for tracked, resumable development work. Domain extensions add specialized capabilities for epidemiology (`/epi`), grant and research development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), document tools (`/edit`, `/convert`, `/table`, `/scrape`), and persistent memory (`/learn`, `/distill`).
+**Claude Code** (Ctrl+Shift+A): Terminal-based AI assistant with a structured [task lifecycle](docs/workflows/agent-lifecycle.md) (`/task`, `/research`, `/plan`, `/implement`) for tracked, resumable development work. Domain extensions add specialized capabilities for [epidemiology](docs/workflows/epidemiology-analysis.md) (`/epi`), [grant and research development](docs/workflows/grant-development.md) (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), [document tools](docs/workflows/convert-documents.md) (`/edit`, `/convert`, `/table`, `/scrape`), and [persistent memory](docs/workflows/memory-and-learning.md) (`/learn`, `/distill`).
 
 **OpenCode** (terminal: `opencode`): A parallel AI assistant sharing the same task management, memory vault, and 10 extensions as Claude Code. Provides its own command set with unique capabilities like `/deck`. See [docs/agent-system/opencode.md](docs/agent-system/opencode.md) and [docs/ai_agent_systems.md](docs/ai_agent_systems.md) for a detailed comparison.
 
