@@ -122,6 +122,12 @@ Commands that drive work through the research-plan-implement cycle:
 
 Specialized commands that add domain-specific capabilities on top of the core lifecycle:
 
+**Web Development** -- Build websites with Astro 5, Tailwind CSS v4, and TypeScript. Includes a starter template at `web/`:
+
+| Command | What it does |
+|---------|-------------|
+| `/task --type web` | Create a web development task with specialized agent routing |
+
 **Epidemiology** -- Design and run R-based epidemiological studies with structured analysis phases:
 
 | Command | What it does |
@@ -174,6 +180,7 @@ For the full command catalog, see [docs/agent-system/commands.md](docs/agent-sys
 
 | I want to... | Start here |
 |---|---|
+| Build a website with Astro and Tailwind | [Web development](docs/workflows/web-development.md) |
 | Design and run an epidemiology study in R | [Epidemiology workflow](docs/workflows/epidemiology-analysis.md) |
 | Develop a grant proposal or budget | [Grant development](docs/workflows/grant-development.md) |
 | Edit a collaborator's Word document | [Office file editing](docs/workflows/edit-word-documents.md) |

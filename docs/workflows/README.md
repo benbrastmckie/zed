@@ -32,6 +32,12 @@ For day-to-day R and Python development, the generic agent task lifecycle ([agen
 |---|---|
 | [grant-development.md](grant-development.md) | Research proposals, budgets, timelines, funding analysis, talks: `/grant`, `/budget`, `/timeline`, `/funds`, `/slides` *(requires `present` extension)* |
 
+### Web development
+
+| File | Description |
+|---|---|
+| [web-development.md](web-development.md) | Build websites with Astro 5, Tailwind CSS v4, and TypeScript: `/task --type web`, `/research`, `/plan`, `/implement` *(requires `web` extension)* |
+
 ### Memory
 
 | File | Description |
@@ -62,6 +68,8 @@ For day-to-day R and Python development, the generic agent task lifecycle ([agen
 | Plan a research timeline | [grant-development.md](grant-development.md#planning-a-research-timeline) |
 | Explore funding sources | [grant-development.md](grant-development.md#exploring-funding-sources) |
 | Prepare a research talk | [grant-development.md](grant-development.md#preparing-a-research-talk) |
+| Build a website with Astro and Tailwind | [web-development.md](web-development.md) |
+| Use the web starter template | [web-development.md](web-development.md#using-the-starter-template) |
 | Save or recall knowledge across sessions | [memory-and-learning.md](memory-and-learning.md) |
 | Edit a Word document with tracked changes | [edit-word-documents.md](edit-word-documents.md#edit-in-place-with-tracked-changes) |
 | Update many Word files at once | [edit-word-documents.md](edit-word-documents.md#batch-edit-a-folder) |
@@ -102,6 +110,14 @@ For day-to-day R and Python development, the generic agent task lifecycle ([agen
 1. Run `/table results.xlsx` to get formatted tables (see [convert-documents.md](convert-documents.md#table--spreadsheets-to-formatted-tables))
 2. Write the report in Markdown
 3. Run `/convert report.md` to produce a PDF
+
+### Building a website
+
+1. Copy the `web/` starter template to a new project directory
+2. Run `/task "Build landing page" --type web` to create a web task (see [web-development.md](web-development.md#starting-a-website-project))
+3. Use `/research N` to investigate component architecture, then `/plan N` and `/implement N`
+4. Run `pnpm dev` to preview, iterate with `/revise` and `/implement` as needed
+5. Use `/tag` to version and deploy when ready
 
 ### Editing a collaborator's Word document
 
