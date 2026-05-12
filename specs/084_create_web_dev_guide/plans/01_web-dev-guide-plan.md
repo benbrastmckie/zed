@@ -160,7 +160,7 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Write web/README.md [NOT STARTED]
+### Phase 3: Write web/README.md [COMPLETED]
 
 **Goal**: Create README for the web/ starter template explaining its structure, the 4-layer architecture pattern, and how to customize it.
 
