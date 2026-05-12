@@ -8,8 +8,8 @@ Build websites with Astro 5, Tailwind CSS v4, and TypeScript using the agent tas
 
 | I want to... | Use |
 |---|---|
-| Start a new website project | `/task "Build a landing page for my project" --type web` |
 | Port an existing website to Astro/Tailwind | [`/port`](port-website.md) |
+| Start a new website project | `/task "Build a landing page for my project" --type web` |
 | Research a web technology or pattern | `/research N` on a web-typed task |
 | Create a phased build plan | `/plan N` on a web-typed task |
 | Implement components and pages | `/implement N` on a web-typed task |
