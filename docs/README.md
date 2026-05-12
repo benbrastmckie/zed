@@ -20,7 +20,7 @@ Claude Code, OpenCode, and Zed Agent Panel: the three AI access methods, the com
 
 ### [Workflows](workflows/README.md)
 
-End-to-end usage narratives organized by domain. Covers the agent task lifecycle (`/task`, `/research`, `/plan`, `/implement`), web development (Astro 5 + Tailwind CSS v4), epidemiology analysis (`/epi`), grant development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), memory management (`/learn`, `/distill`), and Office document workflows (Word editing, spreadsheet updates, format conversions, PDF annotation extraction).
+End-to-end usage narratives organized by domain. Covers the agent task lifecycle (`/task`, `/research`, `/plan`, `/implement`), web development (Astro 5 + Tailwind CSS v4) and website porting (`/port`), epidemiology analysis (`/epi`), grant development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), memory management (`/learn`, `/distill`), and Office document workflows (Word editing, spreadsheet updates, format conversions, PDF annotation extraction).
 
 --
 

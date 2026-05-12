@@ -127,6 +127,7 @@ Specialized commands that add domain-specific capabilities on top of the core li
 | Command | What it does |
 |---------|-------------|
 | `/task --type web` | Create a web development task with specialized agent routing |
+| `/port` | Convert an existing website to Astro/Tailwind ([guide](docs/workflows/port-website.md)) |
 
 **[Epidemiology](docs/workflows/epidemiology-analysis.md)** -- Design and run R-based epidemiological studies with structured analysis phases:
 
@@ -181,6 +182,7 @@ For the full command catalog, see [docs/agent-system/commands.md](docs/agent-sys
 | I want to... | Start here |
 |---|---|
 | Build a website with Astro and Tailwind | [Web development](docs/workflows/web-development.md) |
+| Port an existing website to Astro/Tailwind | [Porting workflow](docs/workflows/port-website.md) |
 | Design and run an epidemiology study in R | [Epidemiology workflow](docs/workflows/epidemiology-analysis.md) |
 | Develop a grant proposal or budget | [Grant development](docs/workflows/grant-development.md) |
 | Edit a collaborator's Word document | [Office file editing](docs/workflows/edit-word-documents.md) |
