@@ -12,10 +12,13 @@
     {
       "project_number": 86,
       "project_name": "create_port_website_workflow_guide",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "markdown",
       "created": "2026-05-12T06:15:57Z",
-      "last_updated": "2026-05-12T06:15:57Z"
+      "last_updated": "2026-05-12T06:49:29Z",
+      "session_id": "sess_1778568413_a7e1c8",
+      "researched": "2026-05-12T06:49:29Z",
+      "next_artifact_number": 2
     },
     {
       "project_number": 85,
