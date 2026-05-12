@@ -1,6 +1,14 @@
 {
-  "next_project_number": 84,
+  "next_project_number": 85,
   "active_projects": [
+    {
+      "project_number": 84,
+      "project_name": "create_web_dev_guide",
+      "status": "not_started",
+      "task_type": "general",
+      "created": "2026-05-12T04:32:18Z",
+      "last_updated": "2026-05-12T04:32:18Z"
+    },
     {
       "project_number": 83,
       "project_name": "revise_docs_for_new_extensions",
