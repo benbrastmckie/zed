@@ -1,6 +1,30 @@
 {
-  "next_project_number": 85,
+  "next_project_number": 88,
   "active_projects": [
+    {
+      "project_number": 87,
+      "project_name": "update_web_manifest_port_crossrefs",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-05-12T06:15:57Z",
+      "last_updated": "2026-05-12T06:15:57Z"
+    },
+    {
+      "project_number": 86,
+      "project_name": "create_port_website_workflow_guide",
+      "status": "not_started",
+      "task_type": "markdown",
+      "created": "2026-05-12T06:15:57Z",
+      "last_updated": "2026-05-12T06:15:57Z"
+    },
+    {
+      "project_number": 85,
+      "project_name": "create_port_command_skill_agent",
+      "status": "not_started",
+      "task_type": "meta",
+      "created": "2026-05-12T06:15:57Z",
+      "last_updated": "2026-05-12T06:15:57Z"
+    },
     {
       "project_number": 84,
       "project_name": "create_web_dev_guide",

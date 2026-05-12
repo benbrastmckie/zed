@@ -1,10 +1,33 @@
 ---
-next_project_number: 85
+next_project_number: 88
 ---
 
 # Task List
 
 ## Tasks
+
+### 87. Update web extension manifest and cross-references for /port
+- **Effort**: small
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+- **Depends On**: 85, 86
+
+**Description**: Update web extension manifest.json to register port-agent, skill-port, and /port command in the provides section. Add /port command entry to the EXTENSION.md merge source. Update docs/workflows/web-development.md to link to the new port-website.md guide. Update index-entries.json if port-agent needs additional context entries.
+
+### 86. Create port-website workflow guide
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: markdown
+- **Depends On**: 85
+
+**Description**: Create docs/workflows/port-website.md explaining the full porting workflow. Cover: when to use /port vs manual task creation, the forcing-questions interview flow, how design/content/structure decisions affect output, example workflow (port -> research -> plan -> implement), tips for complex multi-page sites, integration with the web/ starter template.
+
+### 85. Create /port command, skill-port, and port-agent
+- **Effort**: large
+- **Status**: [NOT STARTED]
+- **Task Type**: meta
+
+**Description**: Create the three-layer architecture for website porting. (1) /port command (.claude/commands/port.md) with interactive forcing questions using AskUserQuestion -- accepts URL, local path, or task number; asks about pages/sections to migrate, design approach (keep existing vs fresh vs specific theme), content migration strategy, component structure, navigation changes, starter template usage. Creates task with type "web" and forcing_data. (2) skill-port thin wrapper (.claude/skills/skill-port/SKILL.md) following the thin-wrapper delegation pattern -- validates input, prepares delegation context, invokes port-agent via Task tool. (3) port-agent (.claude/agents/port-agent.md) -- the execution agent that handles source website analysis (fetch/read pages, extract structure, identify components), design decision application, content extraction and transformation, Astro component generation, Tailwind styling, and iterative conversion. Follow the patterns established by /epi (forcing questions), /slides (multi-mode operation), and skill-xlsx (thin wrapper + agent).
 
 ### 84. Create web development guide with example artifacts
 - **Effort**: medium
