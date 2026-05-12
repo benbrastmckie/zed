@@ -24,7 +24,8 @@ next_project_number: 88
 
 ### 85. Create /port command, skill-port, and port-agent
 - **Effort**: large
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
+- **Research**: [085_create_port_command_skill_agent/reports/01_port-command-research.md]
 - **Task Type**: meta
 
 **Description**: Create the three-layer architecture for website porting. (1) /port command (.claude/commands/port.md) with interactive forcing questions using AskUserQuestion -- accepts URL, local path, or task number; asks about pages/sections to migrate, design approach (keep existing vs fresh vs specific theme), content migration strategy, component structure, navigation changes, starter template usage. Creates task with type "web" and forcing_data. (2) skill-port thin wrapper (.claude/skills/skill-port/SKILL.md) following the thin-wrapper delegation pattern -- validates input, prepares delegation context, invokes port-agent via Task tool. (3) port-agent (.claude/agents/port-agent.md) -- the execution agent that handles source website analysis (fetch/read pages, extract structure, identify components), design decision application, content extraction and transformation, Astro component generation, Tailwind styling, and iterative conversion. Follow the patterns established by /epi (forcing questions), /slides (multi-mode operation), and skill-xlsx (thin wrapper + agent).
