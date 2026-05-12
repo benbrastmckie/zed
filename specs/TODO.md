@@ -8,9 +8,10 @@ next_project_number: 88
 
 ### 87. Update web extension manifest and cross-references for /port
 - **Effort**: small
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Task Type**: meta
 - **Depends On**: 85, 86
+- **Summary**: [087_update_web_manifest_port_crossrefs/summaries/01_manifest-crossrefs-summary.md]
 
 **Description**: Update web extension manifest.json to register port-agent, skill-port, and /port command in the provides section. Add /port command entry to the EXTENSION.md merge source. Update docs/workflows/web-development.md to link to the new port-website.md guide. Update index-entries.json if port-agent needs additional context entries.
 
