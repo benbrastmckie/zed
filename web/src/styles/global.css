@@ -1,0 +1,301 @@
+@import "tailwindcss";
+
+/* Dark mode enforced: applies only when .dark class is present on html element */
+@custom-variant dark {
+  &:where(.dark, .dark *) {
+    @slot;
+  }
+  /* NOTE: System preference detection disabled - dark mode enforced via .dark class */
+  /* To re-enable automatic detection, restore the media query below: */
+  /* @media (prefers-color-scheme: dark) {
+    &:where(:not(.light *)) {
+      @slot;
+    }
+  } */
+}
+
+@theme {
+  /* ===========================================
+     BRAND COLORS (Blue Family)
+     Replace these with your brand palette.
+     =========================================== */
+  --color-brand-50: oklch(0.97 0.02 250);
+  --color-brand-100: oklch(0.93 0.04 250);
+  --color-brand-200: oklch(0.88 0.06 250);
+  --color-brand-300: oklch(0.82 0.08 250);
+  --color-brand-400: oklch(0.74 0.1 250);
+  --color-brand-500: oklch(0.65 0.12 250);
+  --color-brand-600: oklch(0.57 0.1 250);
+  --color-brand-700: oklch(0.48 0.08 250);
+  --color-brand-800: oklch(0.4 0.06 250);
+  --color-brand-900: oklch(0.32 0.04 250);
+  --color-brand-950: oklch(0.22 0.02 250);
+
+  /* ===========================================
+     ACCENT COLORS (Teal Family)
+     Used for info callouts and links.
+     =========================================== */
+  --color-info-50: oklch(0.97 0.02 180);
+  --color-info-100: oklch(0.93 0.04 180);
+  --color-info-200: oklch(0.88 0.06 180);
+  --color-info-300: oklch(0.82 0.08 180);
+  --color-info-400: oklch(0.74 0.1 180);
+  --color-info-500: oklch(0.65 0.12 180);
+  --color-info-600: oklch(0.57 0.1 180);
+  --color-info-700: oklch(0.48 0.08 180);
+  --color-info-800: oklch(0.4 0.06 180);
+  --color-info-900: oklch(0.32 0.04 180);
+  --color-info-950: oklch(0.22 0.02 180);
+
+  /* ===========================================
+     WARM NEUTRALS (Stone/Brown Family)
+     Surface and text colors.
+     =========================================== */
+  --color-warm-50: oklch(0.982 0.004 70);
+  --color-warm-100: oklch(0.96 0.008 65);
+  --color-warm-200: oklch(0.915 0.012 60);
+  --color-warm-300: oklch(0.85 0.014 58);
+  --color-warm-400: oklch(0.7 0.014 56);
+  --color-warm-500: oklch(0.57 0.012 55);
+  --color-warm-600: oklch(0.45 0.012 55);
+  --color-warm-700: oklch(0.36 0.012 55);
+  --color-warm-800: oklch(0.27 0.01 50);
+  --color-warm-900: oklch(0.2 0.008 48);
+  --color-warm-950: oklch(0.12 0.005 45);
+
+  /* ===========================================
+     FONTS
+     =========================================== */
+  --font-heading: "Inter", "system-ui", sans-serif;
+  --font-body: "Inter", "system-ui", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* ===========================================
+     CUSTOM RADII
+     =========================================== */
+  --radius-card: 0.75rem;
+  --radius-button: 0.5rem;
+  --radius-badge: 1rem;
+
+  /* ===========================================
+     ENHANCED SPACING FOR MODERN LAYOUTS
+     =========================================== */
+  --spacing-section-sm: 4rem;
+  /* 64px - py-16 */
+  --spacing-section-md: 6rem;
+  /* 96px - py-24 */
+  --spacing-section-lg: 8rem;
+  /* 128px - py-32 */
+}
+
+/* ===========================================
+   SEMANTIC COLOR LAYER
+   Maps theme tokens to semantic roles.
+   =========================================== */
+:root {
+  /* Surfaces */
+  --surface-page: var(--color-warm-100);
+  --surface-card: var(--color-warm-50);
+  --surface-elevated: #ffffff;
+  --surface-muted: var(--color-warm-200);
+
+  /* Text */
+  --text-primary: var(--color-warm-700);
+  --text-secondary: var(--color-warm-500);
+  --text-heading: var(--color-warm-900);
+  --text-on-accent: #ffffff;
+
+  /* Accents */
+  --accent-primary: var(--color-brand-400);
+  --accent-hover: var(--color-brand-500);
+  --accent-active: var(--color-brand-600);
+  --accent-text: var(--color-brand-600);
+  --accent-subtle: var(--color-brand-50);
+
+  /* Links */
+  --link: var(--color-info-500);
+  --link-hover: var(--color-info-400);
+  --link-underline: var(--color-info-500);
+
+  /* Borders */
+  --border-default: var(--color-warm-200);
+  --border-strong: var(--color-warm-300);
+  --border-accent: var(--color-brand-300);
+
+  /* Focus */
+  --focus-ring: var(--color-brand-400);
+}
+
+.dark {
+  /* Surfaces */
+  --surface-page: var(--color-warm-900);
+  --surface-card: var(--color-warm-800);
+  --surface-elevated: var(--color-warm-800);
+  --surface-muted: var(--color-warm-950);
+
+  /* Text */
+  --text-primary: var(--color-warm-100);
+  --text-secondary: var(--color-warm-400);
+  --text-heading: var(--color-warm-50);
+  --text-on-accent: #ffffff;
+
+  /* Accents */
+  --accent-primary: var(--color-brand-300);
+  --accent-hover: var(--color-brand-400);
+  --accent-active: var(--color-brand-500);
+  --accent-text: var(--color-brand-300);
+  --accent-subtle: var(--color-brand-950);
+
+  /* Links */
+  --link: var(--color-info-400);
+  --link-hover: var(--color-info-300);
+  --link-underline: var(--color-info-400);
+
+  /* Borders */
+  --border-default: var(--color-warm-700);
+  --border-strong: var(--color-warm-600);
+  --border-accent: var(--color-brand-700);
+
+  /* Focus */
+  --focus-ring: var(--color-brand-400);
+}
+
+/* ===========================================
+   COMPONENT LAYER
+   Reusable component classes built on theme tokens.
+   =========================================== */
+@layer components {
+  /* Buttons with enhanced hover states */
+  .btn {
+    @apply rounded-button inline-flex items-center justify-center px-6 py-3 text-sm font-medium;
+    @apply transition-all duration-300 ease-out;
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2;
+    @apply hover:scale-[1.02];
+    @apply active:scale-[0.98];
+  }
+
+  .btn-primary {
+    background-color: var(--accent-active);
+    color: var(--text-on-accent);
+    @apply shadow-sm;
+    &:hover {
+      background-color: var(--color-brand-700);
+      @apply shadow-brand-500/25 shadow-lg;
+    }
+    &:focus-visible {
+      outline-color: var(--focus-ring);
+    }
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    border: 1px solid var(--border-default);
+    color: var(--text-primary);
+    &:hover {
+      background-color: var(--surface-muted);
+      border-color: var(--border-accent);
+    }
+    &:focus-visible {
+      outline-color: var(--focus-ring);
+    }
+  }
+
+  .btn-accent {
+    background-color: var(--accent-subtle);
+    color: var(--accent-text);
+    &:hover {
+      background-color: var(--color-brand-100);
+      @apply shadow-sm;
+    }
+    &:focus-visible {
+      outline-color: var(--focus-ring);
+    }
+  }
+
+  /* Cards */
+  .card {
+    background-color: var(--surface-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-card);
+    @apply transition-[box-shadow,transform] duration-300 ease-out;
+  }
+
+  /* Glassmorphism card variant */
+  .card-glass {
+    @apply relative rounded-2xl p-6;
+    @apply bg-white/[0.03] dark:bg-white/[0.03];
+    @apply backdrop-blur-sm;
+    @apply border border-white/10;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:-translate-y-1 hover:bg-white/[0.05];
+    @apply hover:shadow-brand-500/10 hover:shadow-xl;
+    @apply hover:border-white/20;
+  }
+
+  /* Animated link underline */
+  .link-animated {
+    @apply relative no-underline;
+    color: var(--link);
+    &::after {
+      content: "";
+      @apply absolute bottom-0 left-0 h-[2px] w-0 bg-current;
+      @apply transition-all duration-300 ease-out;
+    }
+    &:hover {
+      color: var(--link-hover);
+      &::after {
+        @apply w-full;
+      }
+    }
+  }
+}
+
+/* ===========================================
+   BASE STYLES
+   =========================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Ensure scroll-reveal content is visible immediately */
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Disable glass card hover transforms */
+  .card-glass:hover {
+    transform: none !important;
+  }
+
+  /* Disable button scale transforms */
+  .btn:hover,
+  .btn:active {
+    transform: none !important;
+  }
+
+  /* Disable card lift effects */
+  .card:hover {
+    transform: none !important;
+  }
+}
+
+body {
+  background-color: var(--surface-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}

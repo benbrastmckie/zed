@@ -1,0 +1,56 @@
+---
+import { siteConfig } from "@data/site-config";
+import NavLink from "./NavLink.astro";
+---
+
+<header class="sticky top-0 z-40 border-b border-[var(--border-default)] bg-[var(--surface-page)]">
+  <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+    <!-- Logo / site name -->
+    <a href="/" class="flex items-center gap-2.5" aria-label={`${siteConfig.title} home`}>
+      <span class="font-heading text-xl font-bold text-[var(--text-heading)]">{siteConfig.title}</span>
+    </a>
+
+    <!-- Desktop navigation -->
+    <div class="hidden items-center gap-4 md:flex">
+      <ul class="flex items-center gap-1" role="list">
+        {siteConfig.navItems.map((item) => (
+          <li>
+            <NavLink href={item.href}>{item.label}</NavLink>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Mobile menu (CSS-only) -->
+    <details class="group relative md:hidden">
+      <summary
+        class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-button text-[var(--text-primary)] hover:bg-[var(--surface-muted)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]"
+        aria-label="Toggle navigation menu"
+      >
+        <!-- Hamburger icon -->
+        <svg class="h-6 w-6 group-open:hidden" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <!-- Close icon -->
+        <svg class="hidden h-6 w-6 group-open:block" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </summary>
+      <ul
+        class="absolute right-0 top-full mt-2 w-48 rounded-card border border-[var(--border-default)] bg-[var(--surface-card)] py-2 shadow-lg"
+        role="list"
+      >
+        {siteConfig.navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="block px-4 py-2 text-sm text-[var(--text-primary)] hover:bg-[var(--surface-muted)]"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  </nav>
+</header>

@@ -1,0 +1,78 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  align?: "left" | "center" | "right";
+  decorative?: boolean;
+  class?: string;
+  subtitleClass?: string;
+}
+
+const { title, subtitle, align = "center", decorative = true, class: className, subtitleClass } = Astro.props;
+
+const isCenterAligned = align === "center";
+const isLeftAligned = align === "left";
+---
+
+<div class:list={[className]}>
+  {/* Heading with decorative lines */}
+  <div class:list={[
+    "flex items-center gap-4",
+    isCenterAligned && "justify-center"
+  ]}>
+    {/* Left decorative line - for left alignment */}
+    {isLeftAligned && decorative && (
+      <div
+        class="hidden h-px w-16 flex-shrink-0 bg-[var(--border-accent)] md:block"
+        aria-hidden="true"
+      />
+    )}
+
+    {/* Center decorative line for center alignment (left side) */}
+    {isCenterAligned && decorative && (
+      <div
+        class="hidden h-px w-16 bg-[var(--border-accent)] md:block"
+        aria-hidden="true"
+      />
+    )}
+
+    {/* Heading text */}
+    <div class:list={[
+      "flex-shrink-0",
+      isCenterAligned && "text-center",
+      isLeftAligned && "text-center md:text-left"
+    ]}>
+      <h2 class="font-heading text-2xl font-bold text-[var(--text-heading)] sm:text-3xl md:text-4xl">
+        {title}
+      </h2>
+    </div>
+
+    {/* Right decorative line - for left alignment */}
+    {isLeftAligned && decorative && (
+      <div
+        class="hidden h-px flex-1 bg-gradient-to-r from-[var(--border-accent)] via-[var(--border-accent)] to-transparent md:block"
+        aria-hidden="true"
+      />
+    )}
+
+    {/* Right decorative line for center alignment */}
+    {isCenterAligned && decorative && (
+      <div
+        class="hidden h-px w-16 bg-[var(--border-accent)] md:block"
+        aria-hidden="true"
+      />
+    )}
+  </div>
+
+  {/* Subtitle */}
+  {subtitle && (
+    <p class:list={[
+      "mt-4 text-lg text-[var(--text-secondary)]",
+      isCenterAligned && "mx-auto max-w-2xl text-center",
+      isLeftAligned && "mr-auto max-w-2xl text-center md:text-left",
+      subtitleClass
+    ]}>
+      {subtitle}
+    </p>
+  )}
+</div>

@@ -1,0 +1,51 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  class?: string;
+  glass?: boolean;
+  style?: string;
+}
+
+const { title, description, class: className, glass = false, style } = Astro.props;
+---
+
+<div
+  class:list={[
+    glass
+      ? "group relative rounded-2xl p-6 bg-white/[0.03] backdrop-blur-sm border border-white/10 transition-all duration-300 ease-out hover:-translate-y-1 hover:bg-white/[0.05] hover:shadow-brand-500/10 hover:shadow-xl hover:border-white/20 dark:bg-white/[0.03]"
+      : "card p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[var(--border-accent)] hover:shadow-lg",
+    className,
+  ]}
+  style={style}
+>
+  {Astro.slots.has("icon") && (
+    <div class:list={[
+      "mb-4 flex items-center justify-start",
+      glass ? "text-brand-400" : "text-[var(--accent-primary)]"
+    ]}>
+      <div class:list={[
+        "flex items-center justify-center rounded-xl px-3 py-2",
+        glass ? "bg-brand-500/20" : "bg-brand-500/10"
+      ]}>
+        <slot name="icon" />
+      </div>
+    </div>
+  )}
+  <h3 class="font-heading text-lg font-semibold text-[var(--text-heading)]">
+    {title}
+  </h3>
+  <p class="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+    {description}
+  </p>
+  <slot />
+</div>
+
+<style>
+  /* Fallback for browsers without backdrop-filter support */
+  @supports not (backdrop-filter: blur(10px)) {
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+</style>

@@ -1,0 +1,14 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Hero from "@components/sections/Hero.astro";
+import Features from "@components/sections/Features.astro";
+import ScrollReveal from "@components/ui/ScrollReveal.astro";
+import { siteConfig } from "@data/site-config";
+---
+
+<PageLayout title={siteConfig.title}>
+  <Hero />
+  <ScrollReveal delay={100}>
+    <Features />
+  </ScrollReveal>
+</PageLayout>

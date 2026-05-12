@@ -1,0 +1,35 @@
+---
+interface Props {
+  href: string;
+  class?: string;
+}
+
+const { href, class: className } = Astro.props;
+const isActive = Astro.url.pathname === href || Astro.url.pathname.startsWith(href + "/");
+---
+
+<a
+  href={href}
+  class:list={[
+    "relative px-3 py-2 text-sm font-medium transition-colors duration-200",
+    isActive
+      ? "text-[var(--accent-text)]"
+      : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]",
+    "group",
+    className,
+  ]}
+  aria-current={isActive ? "page" : undefined}
+>
+  <slot />
+  {/* Active indicator */}
+  {isActive && (
+    <span class="absolute inset-x-3 -bottom-px h-0.5 bg-brand-400" aria-hidden="true" />
+  )}
+  {/* Animated underline for non-active links */}
+  {!isActive && (
+    <span
+      class="absolute inset-x-3 -bottom-px h-0.5 bg-brand-400 transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
+      aria-hidden="true"
+    />
+  )}
+</a>

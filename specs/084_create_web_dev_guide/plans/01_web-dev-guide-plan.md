@@ -69,7 +69,7 @@ No ROADMAP.md found.
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Create web/ Starter Template [NOT STARTED]
+### Phase 1: Create web/ Starter Template [COMPLETED]
 
 **Goal**: Extract and generalize ~17-20 files from the Logos Website into a `web/` starter template directory at the repo root.
 
