@@ -8,9 +8,10 @@ next_project_number: 84
 
 ### 83. Revise documentation to reflect new extensions
 - **Effort**: medium
-- **Status**: [RESEARCHED]
+- **Status**: [PLANNED]
 - **Task Type**: markdown
 - **Research**: [083_revise_docs_for_new_extensions/reports/01_team-research.md]
+- **Plan**: [083_revise_docs_for_new_extensions/plans/01_docs-revision-plan.md]
 
 **Description**: Review new extensions loaded via `<leader>al` and revise all documentation (docs/ and README.md) for accuracy, clarity, and completeness. Ensure clear, accessible, well-balanced and representative documentation with basic usage guides and overview of functionality without repetition or verbosity.
 

@@ -4,13 +4,20 @@
     {
       "project_number": 83,
       "project_name": "revise_docs_for_new_extensions",
-      "status": "researched",
+      "status": "planned",
       "task_type": "markdown",
       "created": "2026-05-12T03:01:17Z",
-      "last_updated": "2026-05-12T03:09:11Z",
-      "session_id": "sess_1778554996_8d9745",
+      "last_updated": "2026-05-12T03:15:39Z",
+      "session_id": "sess_1778555468_341789",
       "researched": "2026-05-12T03:09:11Z",
-      "next_artifact_number": 2
+      "next_artifact_number": 2,
+      "artifacts": [
+        {
+          "path": "specs/083_revise_docs_for_new_extensions/plans/01_docs-revision-plan.md",
+          "type": "plan",
+          "summary": "5-phase implementation plan to revise all documentation for OpenCode removal, web extension addition, and factual corrections"
+        }
+      ]
     },
     {
       "project_number": 82,
