@@ -1,6 +1,6 @@
 # Zed IDE Configuration with AI Agent Systems
 
-A Zed editor configuration with two **AI agent systems** -- **Claude Code** and **OpenCode** -- providing structured task lifecycles that turn research, planning, and implementation into tracked, resumable workflows. Includes language support for **Python**, **R**, **LaTeX**, and **Typst**, plus 9 shared domain extensions for epidemiology, grant development, document conversion, presentations, and memory capture.
+A Zed editor configuration with an **AI agent system** powered by **Claude Code**, providing structured task lifecycles that turn research, planning, and implementation into tracked, resumable workflows. Includes language support for **Python**, **R**, **LaTeX**, and **Typst**, plus 10 domain extensions for epidemiology, grant development, web development, document conversion, presentations, and memory capture.
 
 **Platform**: macOS 11+.
 
@@ -14,7 +14,7 @@ cd ~/.config/zed
 bash scripts/install/install.sh
 ```
 
-The wizard walks through seven groups (base tools, agent systems, shell utilities, Python, R, typesetting, MCP servers) with accept/skip/cancel prompts. The agent systems group lets you choose between Claude Code, OpenCode, or both.
+The wizard walks through seven groups (base tools, agent systems, shell utilities, Python, R, typesetting, MCP servers) with accept/skip/cancel prompts. The agent systems group lets you choose between Claude Code, OpenCode, or both -- see [docs/ai_agent_systems.md](docs/ai_agent_systems.md) for a detailed comparison of the two systems.
 Add `--dry-run` following `bash scripts/install/install.sh` to preview every action without installing, or add `--check` to print a health report of which tools are present or missing.
 
 ### Manual Installation
@@ -206,6 +206,7 @@ For the complete decision guide, see [docs/workflows/README.md](docs/workflows/R
 | [General](docs/general/README.md) | Installation, keybindings, and settings |
 | [Toolchain](docs/toolchain/README.md) | Python, R, LaTeX, Typst, and shell tool setup |
 | [Agent System](docs/agent-system/README.md) | Claude Code + OpenCode overview, command catalog, extensions, memory, and architecture |
+| [AI Agent Systems](docs/ai_agent_systems.md) | Side-by-side comparison of Claude Code and OpenCode (cost, shared infrastructure, differences) |
 | [Workflows](docs/workflows/README.md) | Agent task lifecycle, epidemiology, grant, and Office file workflows |
 | [Claude Code Config](.claude/docs/README.md) | Claude Code framework architecture, skills, agents, and extension system |
 | [OpenCode Config](.opencode/docs/README.md) | OpenCode framework architecture, skills, agents, and extension system |
@@ -236,7 +237,7 @@ See [docs/general/settings.md](docs/general/settings.md) for the keymap file for
 
 **Claude Code** (Ctrl+Shift+A): Terminal-based AI assistant with a structured task lifecycle (`/task`, `/research`, `/plan`, `/implement`) for tracked, resumable development work. Domain extensions add specialized capabilities for epidemiology (`/epi`), grant and research development (`/grant`, `/budget`, `/funds`, `/timeline`, `/slides`), document tools (`/edit`, `/convert`, `/table`, `/scrape`), and persistent memory (`/learn`, `/distill`).
 
-**OpenCode** (terminal: `opencode`): A parallel AI assistant sharing the same task management, memory vault, and 9 extensions as Claude Code. Provides its own command set with unique capabilities like `/deck` and `/project-overview`. See [docs/agent-system/opencode.md](docs/agent-system/opencode.md).
+**OpenCode** (terminal: `opencode`): A parallel AI assistant sharing the same task management, memory vault, and 10 extensions as Claude Code. Provides its own command set with unique capabilities like `/deck`. See [docs/agent-system/opencode.md](docs/agent-system/opencode.md) and [docs/ai_agent_systems.md](docs/ai_agent_systems.md) for a detailed comparison.
 
 **Zed Agent Panel** (Ctrl+?): Built-in AI sidebar for quick questions and inline edits. See [docs/agent-system/zed-agent-panel.md](docs/agent-system/zed-agent-panel.md).
 

@@ -1,6 +1,6 @@
 # OpenCode
 
-OpenCode is the second AI agent system in this repository, running alongside Claude Code. Both systems share the same task management (`specs/`), memory vault (`.memory/`), and 9 extensions, but each has its own configuration tree, skill naming conventions, and access method.
+OpenCode is the second AI agent system in this repository, running alongside Claude Code. Both systems share the same task management (`specs/`), memory vault (`.memory/`), and 10 extensions, but each has its own configuration tree, skill naming conventions, and access method.
 
 ## What Is OpenCode?
 
@@ -80,12 +80,11 @@ Both systems share the core lifecycle commands:
 | `/edit` | Yes | -- | DOCX editing with SuperDoc |
 | `/scrape` | Yes | -- | PDF annotation extraction |
 | `/deck` | -- | Yes | Presentation deck generation |
-| `/project-overview` | -- | Yes | Repository documentation |
+| `/project-overview` | Yes | Yes | Repository documentation |
 
 ## Unique OpenCode Capabilities
 
 - **`/deck`** -- Generate presentation decks directly from task research and plans
-- **`/project-overview`** -- Generate comprehensive repository documentation (project-overview.md)
 
 ## Setup
 
@@ -96,7 +95,7 @@ Both systems share the core lifecycle commands:
 
 ### Configuration
 
-OpenCode reads its configuration from `.opencode/` in the repository root. The configuration is pre-populated in this repository with the same 9 extensions as Claude Code.
+OpenCode reads its configuration from `.opencode/` in the repository root. The configuration is pre-populated in this repository with the same 10 extensions as Claude Code.
 
 ### MCP Servers
 
@@ -109,6 +108,7 @@ Note that OpenCode subagents cannot access project-scoped MCP servers. For subag
 
 ## See also
 
+- [AI Agent Systems Comparison](../ai_agent_systems.md) -- Side-by-side comparison of Claude Code and OpenCode
 - [extensions.md](extensions.md) -- Extension feature matrix with per-system availability
 - [commands.md](commands.md) -- Full command catalog
 - [context-and-memory.md](context-and-memory.md) -- Shared memory vault details

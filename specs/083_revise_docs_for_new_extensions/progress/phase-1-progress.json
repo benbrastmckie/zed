@@ -1,0 +1,16 @@
+{
+  "phase": 1,
+  "phase_name": "Create AI Agent Systems Comparison Doc and Update README",
+  "started_at": "2026-05-11T00:01:00Z",
+  "last_updated": "2026-05-11T00:01:00Z",
+  "objectives": [
+    {"id": 1, "description": "Restore and update docs/agent-system/opencode.md", "status": "not_started"},
+    {"id": 2, "description": "Create docs/ai_agent_systems.md comparison doc", "status": "not_started"},
+    {"id": 3, "description": "Update README.md Quick Start with system choice mention", "status": "not_started"},
+    {"id": 4, "description": "Update README.md AI Integration section (fix count, add link)", "status": "not_started"},
+    {"id": 5, "description": "Update README.md Documentation table with ai_agent_systems.md entry", "status": "not_started"}
+  ],
+  "current_objective": 1,
+  "approaches_tried": [],
+  "handoff_count": 0
+}

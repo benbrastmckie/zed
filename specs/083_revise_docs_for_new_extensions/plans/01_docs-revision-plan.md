@@ -1,7 +1,7 @@
 # Implementation Plan: Revise Documentation for New Extensions
 
 - **Task**: 83 - revise_docs_for_new_extensions
-- **Status**: [NOT STARTED]
+- **Status**: [IMPLEMENTING]
 - **Effort**: 4 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/083_revise_docs_for_new_extensions/reports/01_team-research.md
@@ -73,22 +73,22 @@ No ROADMAP.md items to advance (roadmap is empty).
 
 Phases within the same wave can execute in parallel.
 
-### Phase 1: Create AI Agent Systems Comparison Doc and Update README [NOT STARTED]
+### Phase 1: Create AI Agent Systems Comparison Doc and Update README [COMPLETED]
 
 **Goal**: Create the new `docs/ai_agent_systems.md` comparison document and update `README.md` to mention system choice and link to it. Also restore `docs/agent-system/opencode.md`.
 
 **Tasks**:
-- [ ] Restore `docs/agent-system/opencode.md` from git (`git restore docs/agent-system/opencode.md`) and update it: change "9 extensions" to "10", add `/sheet` to the command comparison table, verify all links
-- [ ] Create `docs/ai_agent_systems.md` with the following sections:
+- [x] Restore `docs/agent-system/opencode.md` from git (`git restore docs/agent-system/opencode.md`) and update it: change "9 extensions" to "10", add `/sheet` to the command comparison table, verify all links *(completed)*
+- [x] Create `docs/ai_agent_systems.md` with the following sections *(completed)*
   - Overview of both systems (Claude Code and OpenCode) as parallel AI assistants
   - How to choose: the install script (`scripts/install/install.sh`) offers Claude Code, OpenCode, or both
   - Cost model comparison: Claude Code subscription (discounted if using Claude Code directly via Anthropic) vs OpenCode using API credits (pay-per-use)
   - Shared infrastructure: `specs/` task management, `.memory/` vault, 10 extensions, `docs/`
   - Differences: config directories (`.claude/` vs `.opencode/`), access methods (Ctrl+Shift+A vs terminal `opencode`), task prefix (`{NNN}_` vs `OC_{NNN}_`), exclusive commands
   - Link to detailed docs: `docs/agent-system/opencode.md`, `.claude/CLAUDE.md`, `.opencode/AGENTS.md`
-- [ ] Update `README.md` "Quick Start" section: add a sentence after the install script mention noting it lets you choose between Claude Code, OpenCode, or both, with a link to `docs/ai_agent_systems.md`
-- [ ] Update `README.md` "AI Integration" section: fix "9 extensions" to "10 extensions" in the OpenCode description, add link to `docs/ai_agent_systems.md` for detailed comparison
-- [ ] Update `README.md` "Documentation" table: add entry for `docs/ai_agent_systems.md`
+- [x] Update `README.md` "Quick Start" section: add a sentence after the install script mention noting it lets you choose between Claude Code, OpenCode, or both, with a link to `docs/ai_agent_systems.md` *(completed)*
+- [x] Update `README.md` "AI Integration" section: fix "9 extensions" to "10 extensions" in the OpenCode description, add link to `docs/ai_agent_systems.md` for detailed comparison *(completed)*
+- [x] Update `README.md` "Documentation" table: add entry for `docs/ai_agent_systems.md` *(completed)*
 
 **Timing**: 1.5 hours
 
