@@ -37,6 +37,7 @@ For day-to-day R and Python development, the generic agent task lifecycle ([agen
 | File | Description |
 |---|---|
 | [web-development.md](web-development.md) | Build websites with Astro 5, Tailwind CSS v4, and TypeScript: `/task --type web`, `/research`, `/plan`, `/implement` *(requires `web` extension)* |
+| [port-website.md](port-website.md) | Port existing websites to Astro/Tailwind: `/port` *(requires `web` extension)* |
 
 ### Memory
 
@@ -69,6 +70,7 @@ For day-to-day R and Python development, the generic agent task lifecycle ([agen
 | Explore funding sources | [grant-development.md](grant-development.md#exploring-funding-sources) |
 | Prepare a research talk | [grant-development.md](grant-development.md#preparing-a-research-talk) |
 | Build a website with Astro and Tailwind | [web-development.md](web-development.md) |
+| Port an existing website to Astro/Tailwind | [port-website.md](port-website.md) |
 | Use the web starter template | [web-development.md](web-development.md#using-the-starter-template) |
 | Save or recall knowledge across sessions | [memory-and-learning.md](memory-and-learning.md) |
 | Edit a Word document with tracked changes | [edit-word-documents.md](edit-word-documents.md#edit-in-place-with-tracked-changes) |
@@ -118,6 +120,13 @@ For day-to-day R and Python development, the generic agent task lifecycle ([agen
 3. Use `/research N` to investigate component architecture, then `/plan N` and `/implement N`
 4. Run `pnpm dev` to preview, iterate with `/revise` and `/implement` as needed
 5. Use `/tag` to version and deploy when ready
+
+### Porting an existing website
+
+1. Run `/port https://oldsite.example.com` and answer the 6 forcing questions (see [port-website.md](port-website.md))
+2. Use `/research N` to analyze site structure, design tokens, and content inventory
+3. Run `/plan N` and `/implement N` to build the new Astro/Tailwind site
+4. Use `/learn --task N` to save porting patterns for future projects
 
 ### Editing a collaborator's Word document
 

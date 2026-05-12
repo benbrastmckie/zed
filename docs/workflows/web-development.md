@@ -119,5 +119,6 @@ The web agents have access to context covering:
 
 - [agent-lifecycle.md](agent-lifecycle.md) -- The core task lifecycle that web tasks follow
 - [`../agent-system/commands.md`](../agent-system/commands.md) -- Full command reference with flags
+- [port-website.md](port-website.md) -- Port existing websites to Astro/Tailwind with `/port`
 - [web/README.md](../../web/README.md) -- Starter template structure and customization guide
 - [maintenance-and-meta.md](maintenance-and-meta.md) -- Code review, error tracking, and shipping changes
