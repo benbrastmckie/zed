@@ -1,6 +1,6 @@
 # Zed IDE Configuration with AI Agent Systems
 
-A Zed editor configuration with an **AI agent system** powered by **Claude Code**, providing structured task lifecycles that turn research, planning, and implementation into tracked, resumable workflows. Includes language support for **Python**, **R**, **LaTeX**, and **Typst**, plus 10 domain extensions for epidemiology, grant development, web development, document conversion, presentations, and memory capture.
+A Zed editor configuration with two AI agent systems — **Claude Code** and **OpenCode** — providing structured task lifecycles that turn research, planning, and implementation into tracked, resumable workflows. Includes language support for **Python**, **R**, **LaTeX**, and **Typst**, plus 10 shared domain extensions for web development (Astro/Tailwind), presentations (Slidev/Beamer), grant proposals and budgets, epidemiology studies, document conversion, and persistent memory. See [Choosing an Agent System](docs/ai_agent_systems.md) for a comparison.
 
 **Platform**: macOS 11+.
 
