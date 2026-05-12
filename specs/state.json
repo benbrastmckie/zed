@@ -4,10 +4,13 @@
     {
       "project_number": 83,
       "project_name": "revise_docs_for_new_extensions",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "markdown",
       "created": "2026-05-12T03:01:17Z",
-      "last_updated": "2026-05-12T03:01:17Z"
+      "last_updated": "2026-05-12T03:09:11Z",
+      "session_id": "sess_1778554996_8d9745",
+      "researched": "2026-05-12T03:09:11Z",
+      "next_artifact_number": 2
     },
     {
       "project_number": 82,
