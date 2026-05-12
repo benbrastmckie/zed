@@ -8,8 +8,9 @@ next_project_number: 85
 
 ### 84. Create web development guide with example artifacts
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [RESEARCHED]
 - **Task Type**: general
+- **Research**: [084_create_web_dev_guide/reports/01_team-research.md]
 
 **Description**: Create a web development guide in docs/. Examine /home/benjamin/Projects/Logos/Website/src/data/advantages.ts to extract a basic website form. Copy essential artifacts to a web/ directory. Write a comprehensive guide explaining how to use Claude Code or OpenCode with the web development extension to design, research, plan, and implement a website using the built-in task system. Add a link to the guide in /home/benjamin/.config/zed/README.md
 

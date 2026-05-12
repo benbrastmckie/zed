@@ -4,10 +4,13 @@
     {
       "project_number": 84,
       "project_name": "create_web_dev_guide",
-      "status": "not_started",
+      "status": "researched",
       "task_type": "general",
       "created": "2026-05-12T04:32:18Z",
-      "last_updated": "2026-05-12T04:32:18Z"
+      "last_updated": "2026-05-12T04:39:52Z",
+      "session_id": "sess_1747024400_a84b2f",
+      "researched": "2026-05-12T04:39:52Z",
+      "next_artifact_number": 2
     },
     {
       "project_number": 83,
