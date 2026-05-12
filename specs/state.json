@@ -20,13 +20,14 @@
     {
       "project_number": 85,
       "project_name": "create_port_command_skill_agent",
-      "status": "researched",
+      "status": "planned",
       "task_type": "meta",
       "created": "2026-05-12T06:15:57Z",
-      "last_updated": "2026-05-12T06:31:49Z",
+      "last_updated": "2026-05-12T06:36:12Z",
       "session_id": "sess_1778567191_7f8450",
       "researched": "2026-05-12T06:31:49Z",
-      "next_artifact_number": 2
+      "next_artifact_number": 2,
+      "planned": "2026-05-12T06:36:12Z"
     },
     {
       "project_number": 84,
