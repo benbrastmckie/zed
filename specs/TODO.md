@@ -16,9 +16,12 @@ next_project_number: 88
 
 ### 86. Create port-website workflow guide
 - **Effort**: medium
-- **Status**: [NOT STARTED]
+- **Status**: [COMPLETED]
 - **Task Type**: markdown
 - **Depends On**: 85
+- **Research**: [086_create_port_website_workflow_guide/reports/01_port-guide-research.md]
+- **Plan**: [086_create_port_website_workflow_guide/plans/01_port-guide-plan.md]
+- **Summary**: [086_create_port_website_workflow_guide/summaries/01_port-guide-summary.md]
 
 **Description**: Create docs/workflows/port-website.md explaining the full porting workflow. Cover: when to use /port vs manual task creation, the forcing-questions interview flow, how design/content/structure decisions affect output, example workflow (port -> research -> plan -> implement), tips for complex multi-page sites, integration with the web/ starter template.
 
