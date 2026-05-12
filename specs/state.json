@@ -4,11 +4,11 @@
     {
       "project_number": 84,
       "project_name": "create_web_dev_guide",
-      "status": "planned",
+      "status": "completed",
       "task_type": "general",
       "created": "2026-05-12T04:32:18Z",
-      "last_updated": "2026-05-12T05:00:32Z",
-      "session_id": "sess_1778561758_7e7608",
+      "last_updated": "2026-05-12T05:24:59Z",
+      "session_id": "sess_1778562900_c8f57b",
       "researched": "2026-05-12T04:39:52Z",
       "next_artifact_number": 2,
       "planned": "2026-05-12T05:00:32Z",
@@ -17,8 +17,15 @@
           "path": "specs/084_create_web_dev_guide/plans/01_web-dev-guide-plan.md",
           "type": "plan",
           "summary": "4-phase plan for web dev guide, starter template, and cross-references"
+        },
+        {
+          "path": "specs/084_create_web_dev_guide/summaries/01_web-dev-guide-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for web development guide"
         }
-      ]
+      ],
+      "completed": "2026-05-12T05:24:59Z",
+      "completion_summary": "Created web development documentation: 21-file starter template in web/ generalized from Logos Website, 123-line workflow guide at docs/workflows/web-development.md, and cross-reference updates to three README files."
     },
     {
       "project_number": 83,
