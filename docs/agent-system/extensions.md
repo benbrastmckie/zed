@@ -15,6 +15,7 @@ The agent system uses domain-specific extensions to provide specialized research
 | **python** | 1.0.0 | Python development with pytest, mypy, ruff; code style and testing patterns | `python` |
 | **slidev** | 1.0.0 | Shared Slidev animation patterns, CSS presets, config templates (dependency of `present`) | (no routing -- utility) |
 | **typst** | 1.0.0 | Typst document research and implementation, fletcher diagrams, single-pass compilation | `typst` |
+| **web** | 1.0.0 | Astro/Tailwind CSS v4/TypeScript web development, static and SSR sites, Cloudflare Pages deployment | `web` |
 
 **Version note**: "CC" = Claude Code, "OC" = OpenCode. Most extensions share the same version across both systems; `core` and `epidemiology` have different version numbers due to independent release cycles.
 

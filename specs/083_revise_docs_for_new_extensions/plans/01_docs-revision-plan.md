@@ -138,15 +138,15 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 3: Add Web Extension Documentation [NOT STARTED]
+### Phase 3: Add Web Extension Documentation [COMPLETED]
 
 **Goal**: Add the `web` extension to the feature matrix, README, and toolchain prerequisites so it has equivalent coverage to other extensions.
 
 **Tasks**:
-- [ ] Add `web` row to the extension feature matrix in `docs/agent-system/extensions.md` with: Astro/Tailwind/TypeScript, version 1.0.0, 2 agents (web-research-agent, web-implementation-agent), 2 skills, 1 rule (web-astro.md), rich context
-- [ ] Add web development mention to `README.md` extension capabilities -- it is already mentioned in the opening paragraph but should appear in the Document Tools or a new section if appropriate
-- [ ] Add `web` section to `docs/toolchain/extensions.md` covering prerequisites (pnpm, Node.js 18+) and build commands (pnpm dev, pnpm build, pnpm check)
-- [ ] Mention `web` extension alongside `python` in `docs/agent-system/README.md` extension list
+- [x] Add `web` row to the extension feature matrix in `docs/agent-system/extensions.md` *(completed)*
+- [x] Add web development mention to `README.md` extension capabilities *(completed: already mentioned in opening paragraph)*
+- [x] Add `web` section to `docs/toolchain/extensions.md` covering prerequisites (pnpm, Node.js 18+) and build commands *(completed: also added python section)*
+- [x] Mention `web` extension alongside `python` in `docs/agent-system/README.md` extension list *(completed)*
 
 **Timing**: 45 minutes
 

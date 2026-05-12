@@ -12,6 +12,8 @@ Active extensions (from `.claude/extensions.json`):
 - [filetypes](#filetypes)
 - [present](#present)
 - [memory](#memory)
+- [python](#python)
+- [web](#web)
 
 Each extension section lists: (1) what the extension does, (2) its hard prerequisites with cross-links to other toolchain docs, (3) any extension-specific extras not covered elsewhere, and (4) a one-line check command.
 
@@ -189,6 +191,55 @@ The `memory` extension backs `/learn`, memory search, and the `/research --remem
 ```
 ls .memory/ 2>/dev/null && echo "vault: OK"
 claude mcp list | grep -E "obsidian|memory"
+```
+
+## python
+
+The `python` extension provides research + implementation support for Python projects (pytest, mypy, ruff, uv).
+
+**Prerequisites**:
+
+- **Python 3.10+** (`python3`) — see [python.md](python.md).
+- **uv** (package management and virtual environments) — see [python.md#uv](python.md#uv).
+- **pyright** (type checking LSP) — installed automatically by Zed's Python extension.
+- **ruff** (linting + formatting) — see [python.md#ruff](python.md#ruff).
+
+**Extension-specific extras**: none beyond the Python toolchain.
+
+**Check**:
+
+```
+command -v python3 uv ruff
+python3 -c "import sys; print(f'Python {sys.version}')"
+```
+
+## web
+
+The `web` extension provides research + implementation support for web development with Astro, Tailwind CSS v4, and TypeScript, targeting Cloudflare Pages deployment.
+
+**Prerequisites**:
+
+- **Node.js 18+** (`node`) — see [docs/general/installation.md#install-nodejs](../general/installation.md#install-nodejs).
+- **pnpm** (package manager) — install with `npm install -g pnpm` or `corepack enable`.
+- **TypeScript** — installed as a project dependency via `pnpm install`.
+
+**Extension-specific extras**: none. Astro, Tailwind, and TypeScript are managed as project dependencies.
+
+**Build commands**:
+
+```bash
+pnpm dev      # Development server
+pnpm build    # Production build
+pnpm check    # TypeScript + Astro diagnostics
+pnpm preview  # Preview production build locally
+```
+
+**Check**:
+
+```
+command -v node pnpm
+node --version   # Should be 18+
+pnpm --version
 ```
 
 ## See also
