@@ -215,7 +215,7 @@ Context file metadata for agent discovery:
 
 Extensions that provide only shared context (no agents, skills, commands, or routing) are called resource-only extensions. They exist to share resources between other extensions.
 
-**Example**: The `slidev` extension provides Slidev animation patterns and CSS style presets consumed by `present` (and `founder` in the upstream nvim config):
+**Example**: The `slidev` extension provides Slidev animation patterns and CSS style presets consumed by `founder` and `present`:
 
 ```json
 {
@@ -234,7 +234,7 @@ Extensions that provide only shared context (no agents, skills, commands, or rou
 }
 ```
 
-Consuming extensions declare the dependency: `"dependencies": ["slidev"]`. When `present` is loaded, slidev is auto-loaded first if not already present.
+Consuming extensions declare the dependency: `"dependencies": ["slidev"]`. When founder or present is loaded, slidev is auto-loaded first if not already present.
 
 **Key characteristics**:
 - No `task_type` field (no routing)
@@ -698,8 +698,8 @@ The loader detected existing files that would be overwritten and showed a confir
 Refer to existing extensions for complete examples:
 
 - `.opencode/extensions/latex/` - LaTeX document development
+- `.opencode/extensions/lean/` - Lean theorem prover
 - `.opencode/extensions/typst/` - Typst document preparation
-- `.opencode/extensions/epidemiology/` - Epidemiology study design
 
 ---
 

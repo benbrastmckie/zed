@@ -4,11 +4,11 @@
     {
       "project_number": 83,
       "project_name": "revise_docs_for_new_extensions",
-      "status": "planned",
+      "status": "completed",
       "task_type": "markdown",
       "created": "2026-05-12T03:01:17Z",
-      "last_updated": "2026-05-12T03:30:00Z",
-      "session_id": "sess_1778556299_fd931d",
+      "last_updated": "2026-05-12T03:51:26Z",
+      "session_id": "sess_1778557146_cac1de",
       "researched": "2026-05-12T03:09:11Z",
       "next_artifact_number": 2,
       "artifacts": [
@@ -16,8 +16,14 @@
           "path": "specs/083_revise_docs_for_new_extensions/plans/01_docs-revision-plan.md",
           "type": "plan",
           "summary": "Revised plan: document both agent systems, create comparison doc, fix counts/paths/web extension/sheet command"
+        },
+        {
+          "path": "specs/083_revise_docs_for_new_extensions/summaries/01_docs-revision-summary.md",
+          "type": "summary",
+          "summary": "Implementation summary for documentation revision"
         }
-      ]
+      ],
+      "completion_summary": "Revised documentation across 10+ files to fix extension count (9->10), add web extension docs, add /sheet command to catalogs, fix broken Python/R paths, correct false .claude/extensions/ claim, and create new AI agent systems comparison document."
     },
     {
       "project_number": 82,

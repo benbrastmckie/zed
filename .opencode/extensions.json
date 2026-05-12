@@ -1,90 +1,8 @@
 {
   "extensions": {
-    "python": {
-      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/python",
-      "loaded_at": "2026-05-11T17:38:21Z",
-      "version": "1.0.0",
-      "merged_sections": {
-        "index": {
-          "paths": [
-            "project/python/standards/code-style.md",
-            "project/python/patterns/testing-patterns.md",
-            "project/python/domain/application-api-patterns.md",
-            "project/python/domain/library-patterns.md",
-            "project/python/patterns/semantic-evaluation.md",
-            "project/python/README.md"
-          ]
-        }
-      },
-      "installed_files": [
-        ".opencode/agent/subagents/python-research-agent.md",
-        ".opencode/agent/subagents/python-implementation-agent.md",
-        ".opencode/skills/skill-python-research/SKILL.md",
-        ".opencode/skills/skill-python-implementation/SKILL.md",
-        ".opencode/context/project/python/README.md",
-        ".opencode/context/project/python/domain/application-api-patterns.md",
-        ".opencode/context/project/python/domain/library-patterns.md",
-        ".opencode/context/project/python/patterns/semantic-evaluation.md",
-        ".opencode/context/project/python/patterns/testing-patterns.md",
-        ".opencode/context/project/python/standards/code-style.md",
-        ".opencode/extensions/python/manifest.json"
-      ],
-      "data_skeleton_files": [],
-      "installed_dirs": [
-        ".opencode/skills/skill-python-research",
-        ".opencode/skills/skill-python-implementation",
-        ".opencode/context/project/python",
-        ".opencode/extensions/python"
-      ],
-      "status": "active"
-    },
     "present": {
+      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/present",
       "status": "active",
-      "loaded_at": "2026-05-11T17:38:19Z",
-      "version": "1.0.0",
-      "merged_sections": {
-        "index": {
-          "paths": [
-            "project/present/README.md",
-            "project/present/domain/funder-types.md",
-            "project/present/domain/proposal-components.md",
-            "project/present/domain/grant-terminology.md",
-            "project/present/patterns/proposal-structure.md",
-            "project/present/patterns/budget-patterns.md",
-            "project/present/patterns/evaluation-patterns.md",
-            "project/present/patterns/narrative-patterns.md",
-            "project/present/standards/writing-standards.md",
-            "project/present/standards/character-limits.md",
-            "project/present/templates/executive-summary.md",
-            "project/present/templates/budget-justification.md",
-            "project/present/templates/evaluation-plan.md",
-            "project/present/templates/submission-checklist.md",
-            "project/present/tools/funder-research.md",
-            "project/present/domain/grant-workflow.md",
-            "project/present/tools/web-resources.md",
-            "project/present/domain/grant-budget-frameworks.md",
-            "project/present/patterns/budget-forcing-questions.md",
-            "project/present/domain/research-timelines.md",
-            "project/present/patterns/timeline-patterns.md",
-            "project/present/templates/timeline-template.md",
-            "project/present/domain/funding-analysis.md",
-            "project/present/patterns/funding-forcing-questions.md",
-            "project/present/domain/presentation-types.md",
-            "project/present/patterns/talk-structure.md",
-            "project/present/talk/patterns/slidev-pitfalls.md",
-            "project/present/talk/patterns/pptx-generation.md",
-            "project/present/talk/index.json",
-            "project/present/talk/templates/playwright-verify.mjs",
-            "project/present/talk/templates/pptx-project/theme_mappings.json",
-            "project/present/talk/templates/pptx-project/generate_deck.py",
-            "project/present/talk/templates/pptx-project/README.md",
-            "project/present/talk/templates/slidev-project/README.md",
-            "project/present/talk/themes/ucsf-institutional.json",
-            "project/present/talk/critique-rubric.md"
-          ]
-        }
-      },
-      "data_skeleton_files": [],
       "installed_files": [
         ".opencode/agent/subagents/grant-agent.md",
         ".opencode/agent/subagents/budget-agent.md",
@@ -177,6 +95,51 @@
         ".opencode/context/project/present/tools/web-resources.md",
         ".opencode/extensions/present/manifest.json"
       ],
+      "version": "1.0.0",
+      "data_skeleton_files": [],
+      "merged_sections": {
+        "index": {
+          "paths": [
+            "project/present/README.md",
+            "project/present/domain/funder-types.md",
+            "project/present/domain/proposal-components.md",
+            "project/present/domain/grant-terminology.md",
+            "project/present/patterns/proposal-structure.md",
+            "project/present/patterns/budget-patterns.md",
+            "project/present/patterns/evaluation-patterns.md",
+            "project/present/patterns/narrative-patterns.md",
+            "project/present/standards/writing-standards.md",
+            "project/present/standards/character-limits.md",
+            "project/present/templates/executive-summary.md",
+            "project/present/templates/budget-justification.md",
+            "project/present/templates/evaluation-plan.md",
+            "project/present/templates/submission-checklist.md",
+            "project/present/tools/funder-research.md",
+            "project/present/domain/grant-workflow.md",
+            "project/present/tools/web-resources.md",
+            "project/present/domain/grant-budget-frameworks.md",
+            "project/present/patterns/budget-forcing-questions.md",
+            "project/present/domain/research-timelines.md",
+            "project/present/patterns/timeline-patterns.md",
+            "project/present/templates/timeline-template.md",
+            "project/present/domain/funding-analysis.md",
+            "project/present/patterns/funding-forcing-questions.md",
+            "project/present/domain/presentation-types.md",
+            "project/present/patterns/talk-structure.md",
+            "project/present/talk/patterns/slidev-pitfalls.md",
+            "project/present/talk/patterns/pptx-generation.md",
+            "project/present/talk/index.json",
+            "project/present/talk/templates/playwright-verify.mjs",
+            "project/present/talk/templates/pptx-project/theme_mappings.json",
+            "project/present/talk/templates/pptx-project/generate_deck.py",
+            "project/present/talk/templates/pptx-project/README.md",
+            "project/present/talk/templates/slidev-project/README.md",
+            "project/present/talk/themes/ucsf-institutional.json",
+            "project/present/talk/critique-rubric.md"
+          ]
+        }
+      },
+      "loaded_at": "2026-05-12T03:21:16Z",
       "installed_dirs": [
         ".opencode/skills/skill-grant",
         ".opencode/skills/skill-budget",
@@ -187,60 +150,61 @@
         ".opencode/skills/skill-slide-critic",
         ".opencode/context/project/present",
         ".opencode/extensions/present"
-      ],
-      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/present"
+      ]
     },
-    "memory": {
+    "slidev": {
+      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/slidev",
       "status": "active",
-      "loaded_at": "2026-05-11T17:38:13Z",
+      "installed_files": [
+        ".opencode/context/project/slidev/animation/fade-in.md",
+        ".opencode/context/project/slidev/animation/metric-cascade.md",
+        ".opencode/context/project/slidev/animation/rough-marks.md",
+        ".opencode/context/project/slidev/animation/scale-in-pop.md",
+        ".opencode/context/project/slidev/animation/slide-in-below.md",
+        ".opencode/context/project/slidev/animation/staggered-list.md",
+        ".opencode/context/project/slidev/style/colors/dark-blue-navy.css",
+        ".opencode/context/project/slidev/style/colors/dark-gold-premium.css",
+        ".opencode/context/project/slidev/style/colors/light-blue-corp.css",
+        ".opencode/context/project/slidev/style/colors/light-green-growth.css",
+        ".opencode/context/project/slidev/style/textures/grid-overlay.css",
+        ".opencode/context/project/slidev/style/textures/noise-grain.css",
+        ".opencode/context/project/slidev/style/typography/inter-only.css",
+        ".opencode/context/project/slidev/style/typography/montserrat-inter.css",
+        ".opencode/context/project/slidev/style/typography/playfair-inter.css",
+        ".opencode/extensions/slidev/manifest.json"
+      ],
       "version": "1.0.0",
+      "loaded_at": "2026-05-12T03:21:15Z",
       "merged_sections": {
         "index": {
           "paths": [
-            "project/memory/learn-usage.md",
-            "project/memory/memory-setup.md",
-            "project/memory/memory-troubleshooting.md",
-            "project/memory/knowledge-capture-usage.md"
+            "project/slidev/animation/fade-in.md",
+            "project/slidev/animation/slide-in-below.md",
+            "project/slidev/animation/metric-cascade.md",
+            "project/slidev/animation/rough-marks.md",
+            "project/slidev/animation/staggered-list.md",
+            "project/slidev/animation/scale-in-pop.md",
+            "project/slidev/style/colors/light-blue-corp.css",
+            "project/slidev/style/colors/dark-blue-navy.css",
+            "project/slidev/style/colors/dark-gold-premium.css",
+            "project/slidev/style/colors/light-green-growth.css",
+            "project/slidev/style/typography/montserrat-inter.css",
+            "project/slidev/style/typography/playfair-inter.css",
+            "project/slidev/style/typography/inter-only.css",
+            "project/slidev/style/textures/grid-overlay.css",
+            "project/slidev/style/textures/noise-grain.css"
           ]
-        },
-        "settings": {
-          "mcpServers": {
-            "children": {
-              "obsidian-memory": {
-                "children": {
-                  "command": {
-                    "value": "npx",
-                    "type": "new_value"
-                  },
-                  "args": {
-                    "items": [
-                      "-y",
-                      "@dsebastien/obsidian-cli-rest-mcp@latest"
-                    ],
-                    "type": "new_array"
-                  },
-                  "env": {
-                    "children": {
-                      "OBSIDIAN_API_KEY": {
-                        "value": "${OBSIDIAN_API_KEY}",
-                        "type": "new_value"
-                      },
-                      "OBSIDIAN_PORT": {
-                        "value": "27124",
-                        "type": "new_value"
-                      }
-                    },
-                    "type": "new_object"
-                  }
-                },
-                "type": "new_object"
-              }
-            },
-            "type": "new_object"
-          }
         }
       },
       "data_skeleton_files": [],
+      "installed_dirs": [
+        ".opencode/context/project/slidev",
+        ".opencode/extensions/slidev"
+      ]
+    },
+    "memory": {
+      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/memory",
+      "status": "active",
       "installed_files": [
         ".opencode/commands/learn.md",
         ".opencode/skills/skill-memory/README.md",
@@ -252,179 +216,111 @@
         ".opencode/context/project/memory/memory-troubleshooting.md",
         ".opencode/extensions/memory/manifest.json"
       ],
+      "version": "1.0.0",
+      "data_skeleton_files": [],
+      "merged_sections": {
+        "index": {
+          "paths": [
+            "project/memory/learn-usage.md",
+            "project/memory/memory-setup.md",
+            "project/memory/memory-troubleshooting.md",
+            "project/memory/knowledge-capture-usage.md"
+          ]
+        },
+        "settings": {
+          "mcpServers": {
+            "type": "new_object",
+            "children": {
+              "obsidian-memory": {
+                "type": "new_object",
+                "children": {
+                  "env": {
+                    "type": "new_object",
+                    "children": {
+                      "OBSIDIAN_API_KEY": {
+                        "value": "${OBSIDIAN_API_KEY}",
+                        "type": "new_value"
+                      },
+                      "OBSIDIAN_PORT": {
+                        "value": "27124",
+                        "type": "new_value"
+                      }
+                    }
+                  },
+                  "command": {
+                    "value": "npx",
+                    "type": "new_value"
+                  },
+                  "args": {
+                    "items": [
+                      "-y",
+                      "@dsebastien/obsidian-cli-rest-mcp@latest"
+                    ],
+                    "type": "new_array"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "loaded_at": "2026-05-12T03:21:07Z",
       "installed_dirs": [
         ".opencode/skills/skill-memory",
         ".opencode/context/project/memory",
         ".opencode/extensions/memory"
-      ],
-      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/memory"
+      ]
     },
-    "filetypes": {
+    "latex": {
+      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/latex",
       "status": "active",
-      "loaded_at": "2026-05-11T17:37:46Z",
-      "version": "2.2.0",
+      "installed_files": [
+        ".opencode/agent/subagents/latex-implementation-agent.md",
+        ".opencode/agent/subagents/latex-research-agent.md",
+        ".opencode/rules/latex.md",
+        ".opencode/skills/skill-latex-implementation/SKILL.md",
+        ".opencode/skills/skill-latex-research/SKILL.md",
+        ".opencode/context/project/latex/README.md",
+        ".opencode/context/project/latex/patterns/cross-references.md",
+        ".opencode/context/project/latex/patterns/document-structure.md",
+        ".opencode/context/project/latex/patterns/theorem-environments.md",
+        ".opencode/context/project/latex/standards/custom-macros.md",
+        ".opencode/context/project/latex/standards/document-structure.md",
+        ".opencode/context/project/latex/standards/latex-style-guide.md",
+        ".opencode/context/project/latex/standards/notation-conventions.md",
+        ".opencode/context/project/latex/templates/subfile-template.md",
+        ".opencode/context/project/latex/tools/compilation-guide.md",
+        ".opencode/extensions/latex/manifest.json"
+      ],
+      "version": "1.0.0",
+      "loaded_at": "2026-05-12T03:21:03Z",
       "merged_sections": {
         "index": {
           "paths": [
-            "project/filetypes/tools/tool-detection.md",
-            "project/filetypes/tools/dependency-guide.md",
-            "project/filetypes/tools/mcp-integration.md",
-            "project/filetypes/patterns/spreadsheet-tables.md",
-            "project/filetypes/patterns/presentation-slides.md",
-            "project/filetypes/README.md",
-            "project/filetypes/patterns/pitch-deck-structure.md",
-            "project/filetypes/patterns/touying-pitch-deck-template.md"
+            "project/latex/patterns/document-structure.md",
+            "project/latex/patterns/theorem-environments.md",
+            "project/latex/patterns/cross-references.md",
+            "project/latex/standards/document-structure.md",
+            "project/latex/standards/latex-style-guide.md",
+            "project/latex/standards/notation-conventions.md",
+            "project/latex/standards/custom-macros.md",
+            "project/latex/templates/subfile-template.md",
+            "project/latex/tools/compilation-guide.md",
+            "project/latex/README.md"
           ]
         }
       },
       "data_skeleton_files": [],
-      "installed_files": [
-        ".opencode/agent/subagents/filetypes-router-agent.md",
-        ".opencode/agent/subagents/document-agent.md",
-        ".opencode/agent/subagents/spreadsheet-agent.md",
-        ".opencode/agent/subagents/presentation-agent.md",
-        ".opencode/agent/subagents/deck-agent.md",
-        ".opencode/agent/subagents/sheet-agent.md",
-        ".opencode/commands/convert.md",
-        ".opencode/commands/table.md",
-        ".opencode/commands/slides.md",
-        ".opencode/commands/deck.md",
-        ".opencode/commands/sheet.md",
-        ".opencode/skills/skill-filetypes/SKILL.md",
-        ".opencode/skills/skill-spreadsheet/SKILL.md",
-        ".opencode/skills/skill-presentation/SKILL.md",
-        ".opencode/skills/skill-deck/SKILL.md",
-        ".opencode/skills/skill-sheet/SKILL.md",
-        ".opencode/context/project/filetypes/README.md",
-        ".opencode/context/project/filetypes/patterns/pitch-deck-structure.md",
-        ".opencode/context/project/filetypes/patterns/presentation-slides.md",
-        ".opencode/context/project/filetypes/patterns/spreadsheet-tables.md",
-        ".opencode/context/project/filetypes/patterns/touying-pitch-deck-template.md",
-        ".opencode/context/project/filetypes/tools/dependency-guide.md",
-        ".opencode/context/project/filetypes/tools/mcp-integration.md",
-        ".opencode/context/project/filetypes/tools/tool-detection.md",
-        ".opencode/extensions/filetypes/manifest.json"
-      ],
       "installed_dirs": [
-        ".opencode/skills/skill-filetypes",
-        ".opencode/skills/skill-spreadsheet",
-        ".opencode/skills/skill-presentation",
-        ".opencode/skills/skill-deck",
-        ".opencode/skills/skill-sheet",
-        ".opencode/context/project/filetypes",
-        ".opencode/extensions/filetypes"
-      ],
-      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/filetypes"
+        ".opencode/skills/skill-latex-implementation",
+        ".opencode/skills/skill-latex-research",
+        ".opencode/context/project/latex",
+        ".opencode/extensions/latex"
+      ]
     },
     "core": {
+      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/core",
       "status": "active",
-      "loaded_at": "2026-05-11T17:37:31Z",
-      "version": "1.0.0",
-      "merged_sections": {
-        "index": {
-          "paths": [
-            "architecture/component-checklist.md",
-            "architecture/context-layers.md",
-            "architecture/generation-guidelines.md",
-            "architecture/system-overview.md",
-            "checkpoints/checkpoint-commit.md",
-            "checkpoints/checkpoint-gate-in.md",
-            "checkpoints/checkpoint-gate-out.md",
-            "checkpoints/README.md",
-            "formats/command-output.md",
-            "formats/command-structure.md",
-            "formats/frontmatter.md",
-            "formats/handoff-artifact.md",
-            "formats/plan-format.md",
-            "formats/progress-file.md",
-            "formats/report-format.md",
-            "formats/return-metadata-file.md",
-            "formats/roadmap-format.md",
-            "formats/subagent-return.md",
-            "formats/summary-format.md",
-            "formats/task-order-format.md",
-            "formats/team-metadata-extension.md",
-            "guides/extension-development.md",
-            "guides/loader-reference.md",
-            "meta/context-revision-guide.md",
-            "meta/domain-patterns.md",
-            "meta/meta-guide.md",
-            "orchestration/architecture.md",
-            "orchestration/delegation.md",
-            "orchestration/orchestration-core.md",
-            "orchestration/orchestration-reference.md",
-            "orchestration/orchestration-validation.md",
-            "orchestration/orchestrator.md",
-            "orchestration/postflight-pattern.md",
-            "orchestration/preflight-pattern.md",
-            "orchestration/sessions.md",
-            "orchestration/state-management.md",
-            "orchestration/subagent-validation.md",
-            "orchestration/validation.md",
-            "patterns/anti-stop-patterns.md",
-            "patterns/artifact-linking-todo.md",
-            "patterns/checkpoint-execution.md",
-            "patterns/context-discovery.md",
-            "patterns/early-metadata-pattern.md",
-            "patterns/file-metadata-exchange.md",
-            "patterns/inline-status-update.md",
-            "patterns/jq-escaping-workarounds.md",
-            "patterns/mcp-tool-recovery.md",
-            "patterns/metadata-file-return.md",
-            "patterns/multi-task-operations.md",
-            "patterns/postflight-control.md",
-            "patterns/roadmap-update.md",
-            "patterns/skill-lifecycle.md",
-            "patterns/team-orchestration.md",
-            "patterns/thin-wrapper-skill.md",
-            "processes/implementation-workflow.md",
-            "processes/planning-workflow.md",
-            "processes/research-workflow.md",
-            "README.md",
-            "reference/artifact-templates.md",
-            "reference/README.md",
-            "reference/skill-agent-mapping.md",
-            "reference/state-management-schema.md",
-            "reference/team-wave-helpers.md",
-            "reference/workflow-diagrams.md",
-            "repo/project-overview.md",
-            "repo/self-healing-implementation-details.md",
-            "repo/update-project.md",
-            "routing.md",
-            "schemas/frontmatter-schema.json",
-            "schemas/subagent-frontmatter.yaml",
-            "standards/analysis-framework.md",
-            "standards/ci-workflow.md",
-            "standards/code-patterns.md",
-            "standards/documentation-standards.md",
-            "standards/error-handling.md",
-            "standards/git-integration.md",
-            "standards/git-safety.md",
-            "standards/interactive-selection.md",
-            "standards/postflight-tool-restrictions.md",
-            "standards/status-markers.md",
-            "standards/task-management.md",
-            "standards/testing.md",
-            "standards/xml-structure.md",
-            "templates/agent-template.md",
-            "templates/command-template.md",
-            "templates/delegation-context.md",
-            "templates/orchestrator-template.md",
-            "templates/state-template.json",
-            "templates/subagent-template.md",
-            "templates/thin-wrapper-skill.md",
-            "troubleshooting/workflow-interruptions.md",
-            "validation.md",
-            "workflows/command-lifecycle.md",
-            "workflows/preflight-postflight.md",
-            "workflows/review-process.md",
-            "workflows/status-transitions.md",
-            "workflows/task-breakdown.md",
-            "index.schema.json"
-          ]
-        }
-      },
-      "data_skeleton_files": [],
       "installed_files": [
         ".opencode/agent/subagents/code-reviewer-agent.md",
         ".opencode/agent/subagents/general-implementation-agent.md",
@@ -640,6 +536,113 @@
         ".opencode/systemd/claude-refresh.timer",
         ".opencode/extensions/core/manifest.json"
       ],
+      "version": "1.0.0",
+      "data_skeleton_files": [],
+      "merged_sections": {
+        "index": {
+          "paths": [
+            "architecture/component-checklist.md",
+            "architecture/context-layers.md",
+            "architecture/generation-guidelines.md",
+            "architecture/system-overview.md",
+            "checkpoints/checkpoint-commit.md",
+            "checkpoints/checkpoint-gate-in.md",
+            "checkpoints/checkpoint-gate-out.md",
+            "checkpoints/README.md",
+            "formats/command-output.md",
+            "formats/command-structure.md",
+            "formats/frontmatter.md",
+            "formats/handoff-artifact.md",
+            "formats/plan-format.md",
+            "formats/progress-file.md",
+            "formats/report-format.md",
+            "formats/return-metadata-file.md",
+            "formats/roadmap-format.md",
+            "formats/subagent-return.md",
+            "formats/summary-format.md",
+            "formats/task-order-format.md",
+            "formats/team-metadata-extension.md",
+            "guides/extension-development.md",
+            "guides/loader-reference.md",
+            "meta/context-revision-guide.md",
+            "meta/domain-patterns.md",
+            "meta/meta-guide.md",
+            "orchestration/architecture.md",
+            "orchestration/delegation.md",
+            "orchestration/orchestration-core.md",
+            "orchestration/orchestration-reference.md",
+            "orchestration/orchestration-validation.md",
+            "orchestration/orchestrator.md",
+            "orchestration/postflight-pattern.md",
+            "orchestration/preflight-pattern.md",
+            "orchestration/sessions.md",
+            "orchestration/state-management.md",
+            "orchestration/subagent-validation.md",
+            "orchestration/validation.md",
+            "patterns/anti-stop-patterns.md",
+            "patterns/artifact-linking-todo.md",
+            "patterns/checkpoint-execution.md",
+            "patterns/context-discovery.md",
+            "patterns/early-metadata-pattern.md",
+            "patterns/file-metadata-exchange.md",
+            "patterns/inline-status-update.md",
+            "patterns/jq-escaping-workarounds.md",
+            "patterns/mcp-tool-recovery.md",
+            "patterns/metadata-file-return.md",
+            "patterns/multi-task-operations.md",
+            "patterns/postflight-control.md",
+            "patterns/roadmap-update.md",
+            "patterns/skill-lifecycle.md",
+            "patterns/team-orchestration.md",
+            "patterns/thin-wrapper-skill.md",
+            "processes/implementation-workflow.md",
+            "processes/planning-workflow.md",
+            "processes/research-workflow.md",
+            "README.md",
+            "reference/artifact-templates.md",
+            "reference/README.md",
+            "reference/skill-agent-mapping.md",
+            "reference/state-management-schema.md",
+            "reference/team-wave-helpers.md",
+            "reference/workflow-diagrams.md",
+            "repo/project-overview.md",
+            "repo/self-healing-implementation-details.md",
+            "repo/update-project.md",
+            "routing.md",
+            "schemas/frontmatter-schema.json",
+            "schemas/subagent-frontmatter.yaml",
+            "standards/analysis-framework.md",
+            "standards/ci-workflow.md",
+            "standards/code-patterns.md",
+            "standards/documentation-standards.md",
+            "standards/error-handling.md",
+            "standards/git-integration.md",
+            "standards/git-safety.md",
+            "standards/interactive-selection.md",
+            "standards/postflight-tool-restrictions.md",
+            "standards/status-markers.md",
+            "standards/task-management.md",
+            "standards/testing.md",
+            "standards/xml-structure.md",
+            "templates/agent-template.md",
+            "templates/command-template.md",
+            "templates/delegation-context.md",
+            "templates/orchestrator-template.md",
+            "templates/state-template.json",
+            "templates/subagent-template.md",
+            "templates/thin-wrapper-skill.md",
+            "troubleshooting/workflow-interruptions.md",
+            "validation.md",
+            "workflows/command-lifecycle.md",
+            "workflows/preflight-postflight.md",
+            "workflows/review-process.md",
+            "workflows/status-transitions.md",
+            "workflows/task-breakdown.md",
+            "index.schema.json"
+          ]
+        }
+      },
+      "loaded_at": "2026-05-12T03:20:45Z",
       "installed_dirs": [
         ".opencode/agent/subagents",
         ".opencode/commands",
@@ -689,46 +692,49 @@
         ".opencode/templates",
         ".opencode/systemd",
         ".opencode/extensions/core"
-      ],
-      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/core"
+      ]
     },
-    "typst": {
-      "version": "1.0.0",
-      "loaded_at": "2026-05-11T17:38:24Z",
+    "python": {
+      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/python",
       "status": "active",
+      "installed_files": [
+        ".opencode/agent/subagents/python-research-agent.md",
+        ".opencode/agent/subagents/python-implementation-agent.md",
+        ".opencode/skills/skill-python-research/SKILL.md",
+        ".opencode/skills/skill-python-implementation/SKILL.md",
+        ".opencode/context/project/python/README.md",
+        ".opencode/context/project/python/domain/application-api-patterns.md",
+        ".opencode/context/project/python/domain/library-patterns.md",
+        ".opencode/context/project/python/patterns/semantic-evaluation.md",
+        ".opencode/context/project/python/patterns/testing-patterns.md",
+        ".opencode/context/project/python/standards/code-style.md",
+        ".opencode/extensions/python/manifest.json"
+      ],
+      "version": "1.0.0",
+      "loaded_at": "2026-05-12T03:21:19Z",
       "merged_sections": {
         "index": {
           "paths": [
-            "project/typst/patterns/theorem-environments.md",
-            "project/typst/patterns/cross-references.md",
-            "project/typst/patterns/fletcher-diagrams.md",
-            "project/typst/patterns/rule-environments.md",
-            "project/typst/patterns/bibliography.md",
-            "project/typst/patterns/document-structure.md",
-            "project/typst/patterns/math-typesetting.md",
-            "project/typst/patterns/styling-patterns.md",
-            "project/typst/patterns/tables-and-figures.md",
-            "project/typst/standards/document-structure.md",
-            "project/typst/standards/notation-conventions.md",
-            "project/typst/standards/textbook-standards.md",
-            "project/typst/standards/typst-style-guide.md",
-            "project/typst/standards/type-theory-foundations.md",
-            "project/typst/standards/compilation-standards.md",
-            "project/typst/standards/package-usage.md",
-            "project/typst/templates/chapter-template.md",
-            "project/typst/templates/article-template.md",
-            "project/typst/templates/presentation-template.md",
-            "project/typst/templates/report-template.md",
-            "project/typst/templates/thesis-template.md",
-            "project/typst/tools/compilation-guide.md",
-            "project/typst/README.md",
-            "project/typst/typst-overview.md",
-            "project/typst/typst-packages.md",
-            "project/typst/typst-vs-latex.md"
+            "project/python/standards/code-style.md",
+            "project/python/patterns/testing-patterns.md",
+            "project/python/domain/application-api-patterns.md",
+            "project/python/domain/library-patterns.md",
+            "project/python/patterns/semantic-evaluation.md",
+            "project/python/README.md"
           ]
         }
       },
       "data_skeleton_files": [],
+      "installed_dirs": [
+        ".opencode/skills/skill-python-research",
+        ".opencode/skills/skill-python-implementation",
+        ".opencode/context/project/python",
+        ".opencode/extensions/python"
+      ]
+    },
+    "typst": {
+      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/typst",
+      "status": "active",
       "installed_files": [
         ".opencode/agent/subagents/typst-research-agent.md",
         ".opencode/agent/subagents/typst-implementation-agent.md",
@@ -762,147 +768,181 @@
         ".opencode/context/project/typst/typst-vs-latex.md",
         ".opencode/extensions/typst/manifest.json"
       ],
+      "version": "1.0.0",
+      "data_skeleton_files": [],
+      "merged_sections": {
+        "index": {
+          "paths": [
+            "project/typst/patterns/theorem-environments.md",
+            "project/typst/patterns/cross-references.md",
+            "project/typst/patterns/fletcher-diagrams.md",
+            "project/typst/patterns/rule-environments.md",
+            "project/typst/patterns/bibliography.md",
+            "project/typst/patterns/document-structure.md",
+            "project/typst/patterns/math-typesetting.md",
+            "project/typst/patterns/styling-patterns.md",
+            "project/typst/patterns/tables-and-figures.md",
+            "project/typst/standards/document-structure.md",
+            "project/typst/standards/notation-conventions.md",
+            "project/typst/standards/textbook-standards.md",
+            "project/typst/standards/typst-style-guide.md",
+            "project/typst/standards/type-theory-foundations.md",
+            "project/typst/standards/compilation-standards.md",
+            "project/typst/standards/package-usage.md",
+            "project/typst/templates/chapter-template.md",
+            "project/typst/templates/article-template.md",
+            "project/typst/templates/presentation-template.md",
+            "project/typst/templates/report-template.md",
+            "project/typst/templates/thesis-template.md",
+            "project/typst/tools/compilation-guide.md",
+            "project/typst/README.md",
+            "project/typst/typst-overview.md",
+            "project/typst/typst-packages.md",
+            "project/typst/typst-vs-latex.md"
+          ]
+        }
+      },
+      "loaded_at": "2026-05-12T03:21:21Z",
       "installed_dirs": [
         ".opencode/skills/skill-typst-research",
         ".opencode/skills/skill-typst-implementation",
         ".opencode/context/project/typst",
         ".opencode/extensions/typst"
-      ],
-      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/typst"
+      ]
     },
-    "slidev": {
-      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/slidev",
-      "loaded_at": "2026-05-11T17:38:18Z",
+    "web": {
+      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/web",
+      "status": "active",
+      "installed_files": [
+        ".opencode/agent/subagents/web-implementation-agent.md",
+        ".opencode/agent/subagents/web-research-agent.md",
+        ".opencode/commands/tag.md",
+        ".opencode/rules/web-astro.md",
+        ".opencode/skills/skill-web-implementation/SKILL.md",
+        ".opencode/skills/skill-web-research/SKILL.md",
+        ".opencode/skills/skill-tag/SKILL.md",
+        ".opencode/context/project/web/README.md",
+        ".opencode/context/project/web/astro-framework.md",
+        ".opencode/context/project/web/domain/astro-framework.md",
+        ".opencode/context/project/web/domain/cloudflare-pages.md",
+        ".opencode/context/project/web/domain/tailwind-v4.md",
+        ".opencode/context/project/web/domain/typescript-web.md",
+        ".opencode/context/project/web/patterns/accessibility-patterns.md",
+        ".opencode/context/project/web/patterns/astro-component.md",
+        ".opencode/context/project/web/patterns/astro-content-collections.md",
+        ".opencode/context/project/web/patterns/astro-layout.md",
+        ".opencode/context/project/web/patterns/tailwind-patterns.md",
+        ".opencode/context/project/web/standards/accessibility-standards.md",
+        ".opencode/context/project/web/standards/performance-standards.md",
+        ".opencode/context/project/web/standards/web-style-guide.md",
+        ".opencode/context/project/web/tailwind-v4.md",
+        ".opencode/context/project/web/templates/astro-component-template.md",
+        ".opencode/context/project/web/templates/astro-page-template.md",
+        ".opencode/context/project/web/tools/astro-cli-guide.md",
+        ".opencode/context/project/web/tools/cicd-pipeline-guide.md",
+        ".opencode/context/project/web/tools/cloudflare-deploy-guide.md",
+        ".opencode/context/project/web/tools/debugging-utilities.md",
+        ".opencode/context/project/web/tools/pnpm-guide.md",
+        ".opencode/extensions/web/manifest.json"
+      ],
       "version": "1.0.0",
+      "loaded_at": "2026-05-12T03:21:23Z",
       "merged_sections": {
         "index": {
           "paths": [
-            "project/slidev/animation/fade-in.md",
-            "project/slidev/animation/slide-in-below.md",
-            "project/slidev/animation/metric-cascade.md",
-            "project/slidev/animation/rough-marks.md",
-            "project/slidev/animation/staggered-list.md",
-            "project/slidev/animation/scale-in-pop.md",
-            "project/slidev/style/colors/light-blue-corp.css",
-            "project/slidev/style/colors/dark-blue-navy.css",
-            "project/slidev/style/colors/dark-gold-premium.css",
-            "project/slidev/style/colors/light-green-growth.css",
-            "project/slidev/style/typography/montserrat-inter.css",
-            "project/slidev/style/typography/playfair-inter.css",
-            "project/slidev/style/typography/inter-only.css",
-            "project/slidev/style/textures/grid-overlay.css",
-            "project/slidev/style/textures/noise-grain.css"
+            "project/web/README.md",
+            "project/web/domain/astro-framework.md",
+            "project/web/domain/tailwind-v4.md",
+            "project/web/domain/cloudflare-pages.md",
+            "project/web/domain/typescript-web.md",
+            "project/web/patterns/astro-component.md",
+            "project/web/patterns/astro-layout.md",
+            "project/web/patterns/astro-content-collections.md",
+            "project/web/patterns/tailwind-patterns.md",
+            "project/web/patterns/accessibility-patterns.md",
+            "project/web/standards/web-style-guide.md",
+            "project/web/standards/performance-standards.md",
+            "project/web/standards/accessibility-standards.md",
+            "project/web/tools/astro-cli-guide.md",
+            "project/web/tools/pnpm-guide.md",
+            "project/web/tools/cloudflare-deploy-guide.md",
+            "project/web/tools/cicd-pipeline-guide.md",
+            "project/web/tools/debugging-utilities.md",
+            "project/web/templates/astro-page-template.md",
+            "project/web/templates/astro-component-template.md",
+            "project/web/astro-framework.md",
+            "project/web/tailwind-v4.md"
           ]
         }
       },
-      "installed_files": [
-        ".opencode/context/project/slidev/animation/fade-in.md",
-        ".opencode/context/project/slidev/animation/metric-cascade.md",
-        ".opencode/context/project/slidev/animation/rough-marks.md",
-        ".opencode/context/project/slidev/animation/scale-in-pop.md",
-        ".opencode/context/project/slidev/animation/slide-in-below.md",
-        ".opencode/context/project/slidev/animation/staggered-list.md",
-        ".opencode/context/project/slidev/style/colors/dark-blue-navy.css",
-        ".opencode/context/project/slidev/style/colors/dark-gold-premium.css",
-        ".opencode/context/project/slidev/style/colors/light-blue-corp.css",
-        ".opencode/context/project/slidev/style/colors/light-green-growth.css",
-        ".opencode/context/project/slidev/style/textures/grid-overlay.css",
-        ".opencode/context/project/slidev/style/textures/noise-grain.css",
-        ".opencode/context/project/slidev/style/typography/inter-only.css",
-        ".opencode/context/project/slidev/style/typography/montserrat-inter.css",
-        ".opencode/context/project/slidev/style/typography/playfair-inter.css",
-        ".opencode/extensions/slidev/manifest.json"
-      ],
       "data_skeleton_files": [],
       "installed_dirs": [
-        ".opencode/context/project/slidev",
-        ".opencode/extensions/slidev"
-      ],
-      "status": "active"
+        ".opencode/skills/skill-web-implementation",
+        ".opencode/skills/skill-web-research",
+        ".opencode/context/project/web",
+        ".opencode/extensions/web"
+      ]
     },
-    "latex": {
-      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/latex",
-      "loaded_at": "2026-05-11T17:38:10Z",
-      "version": "1.0.0",
+    "filetypes": {
+      "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/filetypes",
+      "status": "active",
+      "installed_files": [
+        ".opencode/agent/subagents/filetypes-router-agent.md",
+        ".opencode/agent/subagents/document-agent.md",
+        ".opencode/agent/subagents/spreadsheet-agent.md",
+        ".opencode/agent/subagents/presentation-agent.md",
+        ".opencode/agent/subagents/deck-agent.md",
+        ".opencode/agent/subagents/sheet-agent.md",
+        ".opencode/commands/convert.md",
+        ".opencode/commands/table.md",
+        ".opencode/commands/slides.md",
+        ".opencode/commands/deck.md",
+        ".opencode/commands/sheet.md",
+        ".opencode/skills/skill-filetypes/SKILL.md",
+        ".opencode/skills/skill-spreadsheet/SKILL.md",
+        ".opencode/skills/skill-presentation/SKILL.md",
+        ".opencode/skills/skill-deck/SKILL.md",
+        ".opencode/skills/skill-sheet/SKILL.md",
+        ".opencode/context/project/filetypes/README.md",
+        ".opencode/context/project/filetypes/patterns/pitch-deck-structure.md",
+        ".opencode/context/project/filetypes/patterns/presentation-slides.md",
+        ".opencode/context/project/filetypes/patterns/spreadsheet-tables.md",
+        ".opencode/context/project/filetypes/patterns/touying-pitch-deck-template.md",
+        ".opencode/context/project/filetypes/tools/dependency-guide.md",
+        ".opencode/context/project/filetypes/tools/mcp-integration.md",
+        ".opencode/context/project/filetypes/tools/tool-detection.md",
+        ".opencode/extensions/filetypes/manifest.json"
+      ],
+      "version": "2.2.0",
+      "data_skeleton_files": [],
       "merged_sections": {
         "index": {
           "paths": [
-            "project/latex/patterns/document-structure.md",
-            "project/latex/patterns/theorem-environments.md",
-            "project/latex/patterns/cross-references.md",
-            "project/latex/standards/document-structure.md",
-            "project/latex/standards/latex-style-guide.md",
-            "project/latex/standards/notation-conventions.md",
-            "project/latex/standards/custom-macros.md",
-            "project/latex/templates/subfile-template.md",
-            "project/latex/tools/compilation-guide.md",
-            "project/latex/README.md"
+            "project/filetypes/tools/tool-detection.md",
+            "project/filetypes/tools/dependency-guide.md",
+            "project/filetypes/tools/mcp-integration.md",
+            "project/filetypes/patterns/spreadsheet-tables.md",
+            "project/filetypes/patterns/presentation-slides.md",
+            "project/filetypes/README.md",
+            "project/filetypes/patterns/pitch-deck-structure.md",
+            "project/filetypes/patterns/touying-pitch-deck-template.md"
           ]
         }
       },
-      "installed_files": [
-        ".opencode/agent/subagents/latex-implementation-agent.md",
-        ".opencode/agent/subagents/latex-research-agent.md",
-        ".opencode/rules/latex.md",
-        ".opencode/skills/skill-latex-implementation/SKILL.md",
-        ".opencode/skills/skill-latex-research/SKILL.md",
-        ".opencode/context/project/latex/README.md",
-        ".opencode/context/project/latex/patterns/cross-references.md",
-        ".opencode/context/project/latex/patterns/document-structure.md",
-        ".opencode/context/project/latex/patterns/theorem-environments.md",
-        ".opencode/context/project/latex/standards/custom-macros.md",
-        ".opencode/context/project/latex/standards/document-structure.md",
-        ".opencode/context/project/latex/standards/latex-style-guide.md",
-        ".opencode/context/project/latex/standards/notation-conventions.md",
-        ".opencode/context/project/latex/templates/subfile-template.md",
-        ".opencode/context/project/latex/tools/compilation-guide.md",
-        ".opencode/extensions/latex/manifest.json"
-      ],
-      "data_skeleton_files": [],
+      "loaded_at": "2026-05-12T03:20:58Z",
       "installed_dirs": [
-        ".opencode/skills/skill-latex-implementation",
-        ".opencode/skills/skill-latex-research",
-        ".opencode/context/project/latex",
-        ".opencode/extensions/latex"
-      ],
-      "status": "active"
+        ".opencode/skills/skill-filetypes",
+        ".opencode/skills/skill-spreadsheet",
+        ".opencode/skills/skill-presentation",
+        ".opencode/skills/skill-deck",
+        ".opencode/skills/skill-sheet",
+        ".opencode/context/project/filetypes",
+        ".opencode/extensions/filetypes"
+      ]
     },
     "epidemiology": {
       "source_dir": "/home/benjamin/.config/nvim/.opencode/extensions/epidemiology",
-      "loaded_at": "2026-05-11T17:37:43Z",
-      "version": "1.0.0",
-      "merged_sections": {
-        "settings": {
-          "mcp_servers": {
-            "type": "new_object",
-            "children": {
-              "rmcp": {
-                "type": "new_object",
-                "children": {
-                  "command": {
-                    "value": "uvx",
-                    "type": "new_value"
-                  },
-                  "args": {
-                    "type": "new_array",
-                    "items": [
-                      "rmcp"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "index": {
-          "paths": [
-            "project/epidemiology/README.md",
-            "project/epidemiology/tools/r-packages.md",
-            "project/epidemiology/patterns/statistical-modeling.md",
-            "project/epidemiology/tools/mcp-guide.md"
-          ]
-        }
-      },
+      "status": "active",
       "installed_files": [
         ".opencode/agent/subagents/epidemiology-research-agent.md",
         ".opencode/agent/subagents/epidemiology-implementation-agent.md",
@@ -914,14 +954,47 @@
         ".opencode/context/project/epidemiology/tools/r-packages.md",
         ".opencode/extensions/epidemiology/manifest.json"
       ],
+      "version": "1.0.0",
+      "loaded_at": "2026-05-12T03:20:47Z",
+      "merged_sections": {
+        "index": {
+          "paths": [
+            "project/epidemiology/README.md",
+            "project/epidemiology/tools/r-packages.md",
+            "project/epidemiology/patterns/statistical-modeling.md",
+            "project/epidemiology/tools/mcp-guide.md"
+          ]
+        },
+        "settings": {
+          "mcp_servers": {
+            "children": {
+              "rmcp": {
+                "children": {
+                  "args": {
+                    "items": [
+                      "rmcp"
+                    ],
+                    "type": "new_array"
+                  },
+                  "command": {
+                    "value": "uvx",
+                    "type": "new_value"
+                  }
+                },
+                "type": "new_object"
+              }
+            },
+            "type": "new_object"
+          }
+        }
+      },
       "data_skeleton_files": [],
       "installed_dirs": [
         ".opencode/skills/skill-epidemiology-research",
         ".opencode/skills/skill-epidemiology-implementation",
         ".opencode/context/project/epidemiology",
         ".opencode/extensions/epidemiology"
-      ],
-      "status": "active"
+      ]
     }
   },
   "version": "1.0.0"

@@ -62,7 +62,7 @@ project_name=$(echo "$task_data" | jq -r '.project_name')
 description=$(echo "$task_data" | jq -r '.description // ""')
 
 # Validate status (only block terminal states)
-if [ "$status" = "completed" ] || [ "$status" = "abandoned" ]; then
+if [ "$status" = "completed" ] || [ "$status" = "abandoned" ] || [ "$status" = "expanded" ]; then
   return error "Task is in terminal state [$status]"
 fi
 ```
@@ -190,6 +190,7 @@ Prepare delegation context for the subagent:
   "artifact_number": "{artifact_number from Stage 3a}",
   "effort_flag": "{effort_flag from command, null if not set}",
   "model_flag": "{model_flag from command, null if not set}",
+  "roadmap_flag": "{roadmap_flag from command, false if not set}",
   "research_path": "{path to research report if exists}",
   "prior_plan_path": "{path to latest prior plan if exists}",
   "roadmap_path": "specs/ROADMAP.md",

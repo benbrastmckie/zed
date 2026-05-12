@@ -34,7 +34,7 @@ Task management and agent orchestration for project development. For comprehensi
 
 **Project-specific structure**: See `.claude/context/repo/project-overview.md` for details about this repository's layout.
 
-**New repository setup**: If project-overview.md doesn't exist or contains the generic template notice (`<!-- GENERIC TEMPLATE`), run `/task "Generate project-overview.md for this repository"` to create a project-specific version. See `.claude/context/repo/update-project.md` for guidance.
+**New repository setup**: If project-overview.md doesn't exist or contains the generic template notice (`<!-- GENERIC TEMPLATE`), run `/project-overview` to interactively scan the repository and create a generation task. See `.claude/context/repo/update-project.md` for guidance.
 
 ## Task Management
 
@@ -98,6 +98,7 @@ All commands use checkpoint-based execution: GATE IN (preflight) -> DELEGATE (sk
 | `/implement` | `/implement N[,N-N] [--team] [--force] [--clean] [--fast\|--hard] [--haiku\|--sonnet\|--opus]` | Execute plan(s), resume from incomplete phase |
 | `/revise` | `/revise N` | Create new plan version |
 | `/review` | `/review` | Analyze codebase |
+| `/project-overview` | `/project-overview` | Interactive repo scan and project-overview.md generation |
 | `/todo` | `/todo` | Archive completed/abandoned tasks, sync repository metrics |
 | `/errors` | `/errors` | Analyze error patterns, create fix plans |
 | `/meta` | `/meta` | System builder for .claude/ changes |
@@ -139,7 +140,7 @@ TODO.md and state.json must stay synchronized. Update state.json first (machine 
 
 ### Completion Workflow
 - Non-meta tasks: `completion_summary` + optional `roadmap_items` -> /todo annotates ROADMAP.md
-- Meta tasks: `completion_summary` + `claudemd_suggestions` -> /todo displays for user review
+- Meta tasks: `completion_summary` only (CLAUDE.md is auto-generated from merge-sources)
 
 ### Vault Operation (Task Number Reset)
 
@@ -188,6 +189,7 @@ Standard actions: `create`, `complete research`, `create implementation plan`, `
 | skill-orchestrator | (direct execution) | - | Route commands to appropriate workflows |
 | skill-git-workflow | (direct execution) | - | Create scoped git commits for task operations |
 | skill-fix-it | (direct execution) | - | Scan for FIX:/TODO:/NOTE: tags and create tasks |
+| skill-project-overview | (direct execution) | - | Interactive repo scan and project-overview.md task creation |
 | /review | (direct execution) | - | Codebase analysis; code-reviewer-agent available for future skill integration |
 
 ### Agents
@@ -623,3 +625,29 @@ This project includes Typst document development support via the typst extension
 - Watch: `typst watch main.typ`
 - Format: Use consistent indentation for readability
 - Diagrams: Use `fletcher` package for commutative diagrams
+
+## Web Extension
+
+Web development support for Astro/Tailwind/TypeScript sites deployed to Cloudflare Pages.
+
+### Language Routing
+
+| Language | Research Tools | Implementation Tools |
+|----------|----------------|---------------------|
+| `web` | WebSearch, WebFetch, Read | Read, Write, Edit, Bash (pnpm build/check) |
+
+### Skill-Agent Mapping
+
+| Skill | Agent | Purpose |
+|-------|-------|---------|
+| skill-web-research | web-research-agent | Astro/Tailwind/Cloudflare research |
+| skill-web-implementation | web-implementation-agent | Web (Astro/Tailwind/TypeScript) implementation |
+
+**Note**: The `/tag` command is provided by the core agent system, not this extension.
+
+### Context
+
+- @context/project/web/domain/web-reference.md - Technologies, build commands, deployment tracking
+- @context/project/web/domain/astro-framework.md - Astro 5/6 framework reference
+- @context/project/web/domain/tailwind-v4.md - Tailwind CSS v4 configuration
+- @context/project/web/standards/web-style-guide.md - Naming conventions and coding standards

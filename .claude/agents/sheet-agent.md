@@ -62,7 +62,7 @@ Extract from input:
   "metadata": {
     "session_id": "sess_...",
     "delegation_depth": 2,
-    "delegation_path": ["orchestrator", "sheet", "skill-sheet"]
+    "delegation_path": ["orchestrator", "xlsx", "skill-sheet"]
   }
 }
 ```
@@ -369,7 +369,7 @@ for sheet_name in wb.sheetnames:
     "duration_seconds": 3,
     "agent_type": "sheet-agent",
     "delegation_depth": 2,
-    "delegation_path": ["orchestrator", "sheet", "skill-sheet", "sheet-agent"],
+    "delegation_path": ["orchestrator", "xlsx", "skill-sheet", "sheet-agent"],
     "tool_used": "openpyxl",
     "mode": "create",
     "sheets": 1,
@@ -398,7 +398,7 @@ for sheet_name in wb.sheetnames:
     "duration_seconds": 2,
     "agent_type": "sheet-agent",
     "delegation_depth": 2,
-    "delegation_path": ["orchestrator", "sheet", "skill-sheet", "sheet-agent"],
+    "delegation_path": ["orchestrator", "xlsx", "skill-sheet", "sheet-agent"],
     "tool_used": "openpyxl",
     "mode": "edit",
     "sheets": 1,
@@ -421,7 +421,7 @@ for sheet_name in wb.sheetnames:
     "duration_seconds": 1,
     "agent_type": "sheet-agent",
     "delegation_depth": 2,
-    "delegation_path": ["orchestrator", "sheet", "skill-sheet", "sheet-agent"],
+    "delegation_path": ["orchestrator", "xlsx", "skill-sheet", "sheet-agent"],
     "tool_used": "pandas",
     "mode": "analyze",
     "sheets": 3,

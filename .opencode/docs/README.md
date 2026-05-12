@@ -112,21 +112,24 @@ User-invocable operations with checkpoint-based execution:
 
 The extension system provides task-type-specific support. Extensions are loaded via the extension picker. The core agent system itself is packaged as a real extension (`core`) that installs all base commands, agents, rules, skills, scripts, hooks, context, docs, and templates into the target `.opencode/` directory.
 
-**Installed Extensions** (`.opencode/extensions/`):
+**Available Extensions** (`.opencode/extensions/`):
 
 | Extension | Domain | Provides |
 |-----------|--------|----------|
 | **core** | **Agent system foundation** | **All base commands, agents, rules, skills, scripts, hooks, context** |
-| epidemiology | Epidemiology | /epi command, epi-research-agent, epi-implement-agent |
-| filetypes | File conversion | Format conversion utilities |
+| lean | Theorem proving | lean4-research-agent, MCP integration |
 | latex | LaTeX documents | latex-research-agent |
-| memory | Knowledge management | Learning and memory patterns |
-| present | Grant writing | Grant proposal development |
-| python | Python development | Python patterns, tools |
-| slidev | Slide animations | Slidev patterns, CSS presets (dependency of present) |
 | typst | Typst documents | typst-research-agent |
-
-**Available from upstream** (not installed in this repo): lean, nix, web, z3, formal, founder. These exist in the upstream nvim config and can be loaded if needed.
+| python | Python development | Python patterns, tools |
+| nix | Nix expressions | Nix patterns |
+| web | Web development | Web standards |
+| z3 | SMT solving | Z3 patterns |
+| epidemiology | Epidemiology | /epi command, epi-research-agent, epi-implement-agent |
+| formal | Formal verification | Logic, math, physics domains |
+| filetypes | File conversion | Format conversion utilities |
+| founder | Business strategy | Market, analyze, strategy, legal, project, deck, finance, sheet |
+| present | Grant writing | Grant proposal development |
+| memory | Knowledge management | Learning and memory patterns |
 
 The `core` extension is the foundational layer. All other extensions declare `"dependencies": ["core"]` to ensure it is loaded first. Core files live in `.opencode/extensions/core/` and are installed to the standard `.opencode/` layout when loaded. Sync (`Load Core Agent System`) sources core artifacts from `extensions/core/` in the global repository.
 

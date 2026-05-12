@@ -110,7 +110,7 @@ Prepare delegation context:
   "metadata": {
     "session_id": "sess_{timestamp}_{random}",
     "delegation_depth": 1,
-    "delegation_path": ["orchestrator", "sheet", "skill-sheet"]
+    "delegation_path": ["orchestrator", "xlsx", "skill-sheet"]
   }
 }
 ```
@@ -180,7 +180,7 @@ Expected successful return:
     "session_id": "sess_...",
     "agent_type": "sheet-agent",
     "delegation_depth": 2,
-    "delegation_path": ["orchestrator", "sheet", "skill-sheet", "sheet-agent"],
+    "delegation_path": ["orchestrator", "xlsx", "skill-sheet", "sheet-agent"],
     "tool_used": "openpyxl",
     "mode": "create",
     "sheets": 1,

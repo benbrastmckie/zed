@@ -1,7 +1,7 @@
 # Implementation Plan: Revise Documentation for New Extensions
 
 - **Task**: 83 - revise_docs_for_new_extensions
-- **Status**: [IMPLEMENTING]
+- **Status**: [COMPLETED]
 - **Effort**: 4 hours
 - **Dependencies**: None
 - **Research Inputs**: specs/083_revise_docs_for_new_extensions/reports/01_team-research.md

@@ -508,11 +508,11 @@ The extension picker provides the user interface:
 3. Presents selection UI with status indicators
 4. Triggers load or unload based on current state
 
-**Display Format** (example from upstream -- not all extensions are installed in every repo):
+**Display Format**:
 ```
 [x] latex - LaTeX document development with latexmk/pdflatex toolchain
-[ ] lean - Lean theorem prover support (available from upstream)
-[x] formal - Formal verification tools (available from upstream)
+[ ] lean - Lean theorem prover support
+[x] formal - Formal verification tools
 ```
 
 ---
