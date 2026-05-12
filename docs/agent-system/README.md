@@ -47,6 +47,7 @@ Files in this directory (`docs/agent-system/`):
 - **[architecture.md](architecture.md)** — Three-layer execution pipeline, checkpoint execution, session IDs, state files, and routing.
 - **[extensions.md](extensions.md)** — Extension feature matrix covering all 10 shared extensions, per-system availability, and naming differences.
 - **[opencode.md](opencode.md)** — OpenCode setup, configuration, command comparison, shared state model, and unique capabilities.
+- **[AI Agent Systems Comparison](../ai_agent_systems.md)** — Side-by-side comparison of Claude Code and OpenCode (cost model, shared infrastructure, differences).
 
 Companion files outside this directory:
 

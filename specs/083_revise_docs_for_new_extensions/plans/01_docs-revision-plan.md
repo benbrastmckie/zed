@@ -193,20 +193,20 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 5: Final Validation and Polish [NOT STARTED]
+### Phase 5: Final Validation and Polish [COMPLETED]
 
 **Goal**: Comprehensive validation sweep across all modified files, verify link integrity, and polish for clarity and consistency.
 
 **Tasks**:
-- [ ] Run grep sweep: `grep -r "9 extension" docs/ README.md` -- should return zero
-- [ ] Run grep sweep: `grep -r "general/python\|general/R\|general/r\.md" docs/` -- should return zero
-- [ ] Run grep sweep: `grep "No.*\.claude/extensions" docs/agent-system/README.md` -- should return zero
-- [ ] Spot-check that the `web` extension appears alongside other extensions in docs where all extensions are enumerated
-- [ ] Verify all internal markdown links in modified files resolve to existing targets
-- [ ] Read through `docs/ai_agent_systems.md` for tone, accuracy, and usefulness
-- [ ] Review `README.md` for coherence between "AI Integration" and "Agent Commands" sections; consolidate if overlap is significant
-- [ ] Verify `docs/agent-system/opencode.md` links and command table are accurate
-- [ ] Check that `docs/agent-system/README.md` navigation list includes link to the new `ai_agent_systems.md` if appropriate (or update `docs/README.md` to link it)
+- [x] Run grep sweep: `grep -r "9 extension" docs/ README.md` -- returns zero *(completed)*
+- [x] Run grep sweep: `grep -r "general/python\|general/R\|general/r\.md" docs/` -- returns zero *(completed)*
+- [x] Run grep sweep: `grep "No.*\.claude/extensions" docs/agent-system/README.md` -- returns zero *(completed)*
+- [x] Spot-check web extension appears in all enumerated lists *(completed)*
+- [x] Verify all internal markdown links in modified files resolve to existing targets *(completed)*
+- [x] Read through `docs/ai_agent_systems.md` for tone, accuracy, and usefulness *(completed)*
+- [x] Review `README.md` for coherence *(completed: no significant overlap requiring consolidation)*
+- [x] Verify `docs/agent-system/opencode.md` links and command table are accurate *(completed)*
+- [x] Add link to `ai_agent_systems.md` in `docs/agent-system/README.md` navigation and `docs/README.md` *(completed)*
 
 **Timing**: 30 minutes
 
@@ -225,17 +225,17 @@ Phases within the same wave can execute in parallel.
 
 ## Testing & Validation
 
-- [ ] `grep -r "9 extension" docs/ README.md` returns zero matches
-- [ ] `grep -r "general/python\|general/R\|general/r\.md" docs/` returns zero matches
-- [ ] `grep "No.*\.claude/extensions" docs/agent-system/README.md` returns zero matches
-- [ ] `test -f docs/agent-system/opencode.md` succeeds (file exists)
-- [ ] `test -f docs/ai_agent_systems.md` succeeds (new file exists)
-- [ ] `grep "ai_agent_systems" README.md` returns match
-- [ ] `docs/agent-system/extensions.md` contains a `web` row in the feature matrix
-- [ ] `docs/agent-system/commands.md` contains `/sheet` entry
-- [ ] `docs/toolchain/extensions.md` contains web prerequisites section
-- [ ] Extension count reads "10" in all locations
-- [ ] All internal markdown links resolve to existing files
+- [x] `grep -r "9 extension" docs/ README.md` returns zero matches
+- [x] `grep -r "general/python\|general/R\|general/r\.md" docs/` returns zero matches
+- [x] `grep "No.*\.claude/extensions" docs/agent-system/README.md` returns zero matches
+- [x] `test -f docs/agent-system/opencode.md` succeeds (file exists)
+- [x] `test -f docs/ai_agent_systems.md` succeeds (new file exists)
+- [x] `grep "ai_agent_systems" README.md` returns match
+- [x] `docs/agent-system/extensions.md` contains a `web` row in the feature matrix
+- [x] `docs/agent-system/commands.md` contains `/sheet` entry
+- [x] `docs/toolchain/extensions.md` contains web prerequisites section
+- [x] Extension count reads "10" in all locations
+- [x] All internal markdown links resolve to existing files
 
 ## Artifacts & Outputs
 

@@ -16,7 +16,7 @@ Installation, keybindings, settings reference, and language setup. Start here if
 
 ### [Agent System](agent-system/README.md)
 
-Claude Code, OpenCode, and Zed Agent Panel: the three AI access methods, the command catalog, context and memory layers, and the three-layer execution architecture. Domain extensions (epidemiology, grant development, document tools, memory, LaTeX/Typst) are first-class capabilities shared by both agent systems, each providing specialized commands, agents, and context.
+Claude Code, OpenCode, and Zed Agent Panel: the three AI access methods, the command catalog, context and memory layers, and the three-layer execution architecture. Domain extensions (epidemiology, grant development, document tools, memory, LaTeX/Typst, Python, web) are first-class capabilities shared by both agent systems, each providing specialized commands, agents, and context.
 
 ### [Workflows](workflows/README.md)
 
@@ -27,6 +27,7 @@ End-to-end usage narratives organized by domain. Covers the agent task lifecycle
 ## See also
 
 - [Main README](../README.md) -- Repository overview, quick start, and directory layout
+- [AI Agent Systems Comparison](ai_agent_systems.md) -- Side-by-side comparison of Claude Code and OpenCode
 - [`.claude/docs/README.md`](../.claude/docs/README.md) -- Claude Code framework architecture (agent-facing)
 - [`.opencode/README.md`](../.opencode/docs/README.md) -- OpenCode framework architecture (agent-facing)
 - [`.memory/README.md`](../.memory/README.md) -- Shared AI memory vault (used by both systems)
