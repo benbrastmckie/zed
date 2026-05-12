@@ -144,6 +144,7 @@ Specialized commands that add domain-specific capabilities on top of the core li
 |---------|-------------|
 | `/convert` | Convert between PDF, DOCX, Markdown, and other formats |
 | `/edit` | Edit Word documents with tracked changes |
+| `/sheet` | Create, edit, or analyze XLSX spreadsheets |
 | `/table` | Convert spreadsheets to LaTeX/Typst tables |
 | `/scrape` | Extract annotations from PDFs |
 

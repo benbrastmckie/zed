@@ -165,16 +165,16 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 4: Fix Commands and Spreadsheet Docs [NOT STARTED]
+### Phase 4: Fix Commands and Spreadsheet Docs [COMPLETED]
 
 **Goal**: Add missing `/sheet` command documentation, fix `/project-overview` attribution, and update the spreadsheet workflow guide.
 
 **Tasks**:
-- [ ] Add `/sheet` to `docs/agent-system/commands.md` under the Documents section with usage, description, flags, and source link -- modeled on the `/edit` entry
-- [ ] Add `/sheet` to `README.md` Document Tools table
-- [ ] Update `docs/workflows/edit-spreadsheets.md` to feature `/sheet` as the primary structured interface for XLSX operations, with raw MCP as fallback
-- [ ] Fix `/project-overview` in `docs/agent-system/commands.md`: remove "(OC only)" label, note it is available in both systems, update link if pointing to `.opencode/`
-- [ ] Review `/deck` command entry in `docs/agent-system/commands.md`: keep it as OC-only since OpenCode is still active and `/deck` may be available there
+- [x] Add `/sheet` to `docs/agent-system/commands.md` under the Documents section *(completed)*
+- [x] Add `/sheet` to `README.md` Document Tools table *(completed)*
+- [x] Update `docs/workflows/edit-spreadsheets.md` to feature `/sheet` as the primary interface *(completed)*
+- [x] Fix `/project-overview` in `docs/agent-system/commands.md`: removed OC-only label, moved out of OC-only section, updated source link *(completed)*
+- [x] Review `/deck` command entry: kept as OC-only *(completed)*
 
 **Timing**: 30 minutes
 

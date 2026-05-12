@@ -41,7 +41,7 @@ Some capabilities exist in only one system:
 | Memory distillation (`/distill`) | Yes | -- | Vault health scoring and maintenance |
 | Epidemiology command (`/epi`) | Yes | -- | Stage 0 interactive routing |
 | Deck creation (`/deck`) | -- | Yes | Presentation deck generation |
-| Project overview (`/project-overview`) | -- | Yes | Repository documentation generation |
+| Project overview (`/project-overview`) | Yes | Yes | Repository documentation generation |
 
 ## Shared State
 

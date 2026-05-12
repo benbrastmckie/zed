@@ -248,9 +248,22 @@ Extract PDF annotations, highlights, and comments into Markdown or JSON. Useful 
 
 See [`.claude/commands/scrape.md`](../../.claude/commands/scrape.md).
 
+### /sheet
+
+Create, edit, or analyze XLSX spreadsheets via the openpyxl MCP tool. Use this as the primary structured interface for spreadsheet operations -- describe what you want changed using sheet names, row labels, or column headers.
+
+```
+/sheet budget.xlsx "Update the Marketing row to 7500 on the Q2 sheet"
+/sheet --new report.xlsx "Create a quarterly revenue summary"
+```
+
+**Flags**: `--new`
+
+See [`.claude/commands/sheet.md`](../../.claude/commands/sheet.md) · [edit-spreadsheets workflow](../workflows/edit-spreadsheets.md).
+
 ### /edit (CC only)
 
-Edit DOCX files in-place with tracked changes via the SuperDoc MCP, or create new documents. XLSX editing is not yet available.
+Edit DOCX files in-place with tracked changes via the SuperDoc MCP, or create new documents.
 
 ```
 /edit report.docx "Fix the methodology section"
@@ -345,19 +358,19 @@ Three input modes: description string (runs 10 forcing questions, creates task a
 
 See [`.claude/commands/epi.md`](../../.claude/commands/epi.md) · [epidemiology workflow](../workflows/epidemiology-analysis.md).
 
+### /project-overview
+
+Generate comprehensive repository documentation (project-overview.md). Interactively scans the repository and creates a task to generate or update the project overview. Available in both systems.
+
+See [`.claude/commands/project-overview.md`](../../.claude/commands/project-overview.md).
+
 ## OpenCode-Exclusive Commands (OC only)
 
-### /deck
+### /deck (OC only)
 
 Generate a presentation deck from task research and plans. This command is unique to OpenCode.
 
 See [`.opencode/commands/deck.md`](../../.opencode/commands/deck.md).
-
-### /project-overview
-
-Generate comprehensive repository documentation (project-overview.md). This command is unique to OpenCode.
-
-See [`.opencode/commands/project-overview.md`](../../.opencode/commands/project-overview.md).
 
 ## See also
 

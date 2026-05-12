@@ -43,7 +43,7 @@ For day-to-day R and Python development, the generic agent task lifecycle ([agen
 | File | Description |
 |---|---|
 | [edit-word-documents.md](edit-word-documents.md) | Edit .docx files with tracked changes, batch edit folders, create new documents |
-| [edit-spreadsheets.md](edit-spreadsheets.md) | Direct .xlsx editing via the openpyxl MCP tool |
+| [edit-spreadsheets.md](edit-spreadsheets.md) | XLSX creation, editing, and analysis via `/sheet` and the openpyxl MCP tool |
 | [convert-documents.md](convert-documents.md) | Convert between PDF, DOCX, Markdown, XLSX, PPTX; extract PDF annotations; generate LaTeX/Typst tables |
 | [tips-and-troubleshooting.md](tips-and-troubleshooting.md) | OneDrive sync pauses, first-time macOS permissions, common errors, tasks.json runners |
 
