@@ -1,10 +1,17 @@
 ---
-next_project_number: 83
+next_project_number: 84
 ---
 
 # Task List
 
 ## Tasks
+
+### 83. Revise documentation to reflect new extensions
+- **Effort**: medium
+- **Status**: [NOT STARTED]
+- **Task Type**: markdown
+
+**Description**: Review new extensions loaded via `<leader>al` and revise all documentation (docs/ and README.md) for accuracy, clarity, and completeness. Ensure clear, accessible, well-balanced and representative documentation with basic usage guides and overview of functionality without repetition or verbosity.
 
 ### 82. Improve documentation and installation script for dual agent systems
 - **Effort**: large

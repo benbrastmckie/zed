@@ -1,6 +1,14 @@
 {
-  "next_project_number": 83,
+  "next_project_number": 84,
   "active_projects": [
+    {
+      "project_number": 83,
+      "project_name": "revise_docs_for_new_extensions",
+      "status": "not_started",
+      "task_type": "markdown",
+      "created": "2026-05-12T03:01:17Z",
+      "last_updated": "2026-05-12T03:01:17Z"
+    },
     {
       "project_number": 82,
       "project_name": "improve_docs_and_install_script",
