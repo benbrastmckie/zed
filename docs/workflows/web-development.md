@@ -9,6 +9,7 @@ Build websites with Astro 5, Tailwind CSS v4, and TypeScript using the agent tas
 | I want to... | Use |
 |---|---|
 | Start a new website project | `/task "Build a landing page for my project" --type web` |
+| Port an existing website to Astro/Tailwind | [`/port`](port-website.md) |
 | Research a web technology or pattern | `/research N` on a web-typed task |
 | Create a phased build plan | `/plan N` on a web-typed task |
 | Implement components and pages | `/implement N` on a web-typed task |
@@ -24,7 +25,7 @@ Use task type `web` when your work involves building or modifying an Astro site 
 - Performance targets (Core Web Vitals, zero-JS defaults, image optimization)
 - Cloudflare Pages deployment
 
-If your task is a general coding task that happens to touch `.astro` files, the standard `general` task type works fine. Use `web` when you want the agents to have deep framework knowledge for design decisions and code review.
+If your task is a general coding task that happens to touch `.astro` files, the standard `general` task type works fine. Use `web` when you want the agents to have deep framework knowledge for design decisions and code review. To convert an existing website to Astro/Tailwind, use [`/port`](port-website.md) instead.
 
 ## Task type routing
 
