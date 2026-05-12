@@ -4,13 +4,21 @@
     {
       "project_number": 84,
       "project_name": "create_web_dev_guide",
-      "status": "researched",
+      "status": "planned",
       "task_type": "general",
       "created": "2026-05-12T04:32:18Z",
-      "last_updated": "2026-05-12T04:39:52Z",
-      "session_id": "sess_1747024400_a84b2f",
+      "last_updated": "2026-05-12T05:00:32Z",
+      "session_id": "sess_1778561758_7e7608",
       "researched": "2026-05-12T04:39:52Z",
-      "next_artifact_number": 2
+      "next_artifact_number": 2,
+      "planned": "2026-05-12T05:00:32Z",
+      "artifacts": [
+        {
+          "path": "specs/084_create_web_dev_guide/plans/01_web-dev-guide-plan.md",
+          "type": "plan",
+          "summary": "4-phase plan for web dev guide, starter template, and cross-references"
+        }
+      ]
     },
     {
       "project_number": 83,
