@@ -1,10 +1,10 @@
 # Documentation
 
-Human-readable documentation for this Zed configuration, focused on working in **R** and **Python** with two AI agent systems -- **Claude Code** and **OpenCode**. Both systems provide a structured task lifecycle for research, planning, and implementation, sharing the same 9 domain extensions for epidemiology, grant development, document tools, and more. These guides explain how to install, use, and extend the editor and its AI integrations. See the [main README](../README.md) for a quick-start overview.
+Human-readable documentation for this Zed configuration, focused on working in **R** and **Python** with two AI agent systems -- **Claude Code** and **OpenCode**. Both systems provide a structured task lifecycle for research, planning, and implementation, sharing the same 10 domain extensions for epidemiology, grant development, document tools, and more. These guides explain how to install, use, and extend the editor and its AI integrations. See the [main README](../README.md) for a quick-start overview.
 
 **Audience**: These docs are written for day-to-day users of this configuration. For the machine-facing agent system internals, see [`.claude/docs/README.md`](../.claude/docs/README.md) (Claude Code) or [`.opencode/README.md`](../.opencode/docs/README.md) (OpenCode). For persistent AI knowledge, see [`.memory/README.md`](../.memory/README.md).
 
-**For R/Python development**: Jump straight to [general/python.md](general/python.md) and [general/R.md](general/R.md) for language setup (pyright + ruff + uv for Python; r-language-server + lintr + styler for R).
+**For R/Python development**: Jump straight to [toolchain/python.md](toolchain/python.md) and [toolchain/r.md](toolchain/r.md) for language setup (pyright + ruff + uv for Python; r-language-server + lintr + styler for R).
 
 --
 
@@ -12,7 +12,7 @@ Human-readable documentation for this Zed configuration, focused on working in *
 
 ### [General](general/README.md)
 
-Installation, keybindings, settings reference, and language setup. Start here if you are setting up the editor for the first time. Covers Homebrew, Node.js, Zed, the Claude Code CLI, the `claude-acp` bridge, MCP tool installation, and per-language setup guides for [Python](general/python.md) and [R](general/R.md).
+Installation, keybindings, settings reference, and language setup. Start here if you are setting up the editor for the first time. Covers Homebrew, Node.js, Zed, the Claude Code CLI, the `claude-acp` bridge, MCP tool installation, and per-language setup guides for [Python](toolchain/python.md) and [R](toolchain/r.md).
 
 ### [Agent System](agent-system/README.md)
 

@@ -1,6 +1,6 @@
 # Extensions
 
-The agent system uses domain-specific extensions to provide specialized research, planning, and implementation capabilities. Both Claude Code and OpenCode share the same 9 extensions, sourced from a common upstream. Extensions are pre-merged into each system's active configuration -- there is no manual loading step.
+The agent system uses domain-specific extensions to provide specialized research, planning, and implementation capabilities. Both Claude Code and OpenCode share the same 10 extensions, sourced from a common upstream. Extensions are pre-merged into each system's active configuration -- there is no manual loading step.
 
 ## Extension Feature Matrix
 

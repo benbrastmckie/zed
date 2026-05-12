@@ -108,18 +108,18 @@ Phases within the same wave can execute in parallel.
 
 ---
 
-### Phase 2: Fix Counts, Broken Paths, and Factual Errors [NOT STARTED]
+### Phase 2: Fix Counts, Broken Paths, and Factual Errors [COMPLETED]
 
 **Goal**: Correct the extension count, fix broken doc paths, and correct factual claims across all docs.
 
 **Tasks**:
-- [ ] Change "9 extensions" to "10 extensions" in `docs/agent-system/extensions.md` (line 3)
-- [ ] Change "9 extensions" to "10 extensions" in `docs/agent-system/README.md` (line 13)
-- [ ] Fix Python/R doc paths in `docs/README.md`: `general/python.md` -> `toolchain/python.md`, `general/R.md` -> `toolchain/r.md`
-- [ ] Fix Python/R doc paths in `docs/workflows/README.md`: `../general/python.md` -> `../toolchain/python.md`, `../general/R.md` -> `../toolchain/r.md`
-- [ ] Fix R doc path in `docs/agent-system/README.md`: `../general/R.md` -> `../toolchain/r.md`
-- [ ] Fix factual error in `docs/agent-system/README.md` line ~73: correct "No `.claude/extensions/` directory" claim -- the directory exists with 10 extensions; rewrite to accurately describe the extension architecture
-- [ ] Fix Python/R reference in `docs/README.md` line ~15: `general/python.md` -> `toolchain/python.md`, `general/R.md` -> `toolchain/r.md`
+- [x] Change "9 extensions" to "10 extensions" in `docs/agent-system/extensions.md` (line 3) *(completed)*
+- [x] Change "9 extensions" to "10 extensions" in `docs/agent-system/README.md` (line 13) *(completed)*
+- [x] Fix Python/R doc paths in `docs/README.md`: `general/python.md` -> `toolchain/python.md`, `general/R.md` -> `toolchain/r.md` *(completed)*
+- [x] Fix Python/R doc paths in `docs/workflows/README.md`: `../general/python.md` -> `../toolchain/python.md`, `../general/R.md` -> `../toolchain/r.md` *(completed)*
+- [x] Fix R doc path in `docs/agent-system/README.md`: `../general/R.md` -> `../toolchain/r.md` *(completed)*
+- [x] Fix factual error in `docs/agent-system/README.md` line ~73: correct "No `.claude/extensions/` directory" claim *(completed: rewritten to accurately describe the 10-extension architecture)*
+- [x] Fix Python/R reference in `docs/README.md` line ~15: `general/python.md` -> `toolchain/python.md`, `general/R.md` -> `toolchain/r.md` *(completed)*
 
 **Timing**: 30 minutes
 

@@ -1,6 +1,6 @@
 # Agent System
 
-This project hosts two AI agent systems -- **Claude Code** and **OpenCode** -- that share the same task management (`specs/`), memory vault (`.memory/`), and 9 domain extensions. A third access method, Zed's built-in **Agent Panel**, provides lightweight in-editor assistance. This directory is an orientation guide. For the authoritative power-user references, see [`.claude/CLAUDE.md`](../../.claude/CLAUDE.md) (Claude Code) and [`.opencode/AGENTS.md`](../../.opencode/AGENTS.md) (OpenCode).
+This project hosts two AI agent systems -- **Claude Code** and **OpenCode** -- that share the same task management (`specs/`), memory vault (`.memory/`), and 10 domain extensions. A third access method, Zed's built-in **Agent Panel**, provides lightweight in-editor assistance. This directory is an orientation guide. For the authoritative power-user references, see [`.claude/CLAUDE.md`](../../.claude/CLAUDE.md) (Claude Code) and [`.opencode/AGENTS.md`](../../.opencode/AGENTS.md) (OpenCode).
 
 ## Three AI access methods
 
@@ -10,7 +10,7 @@ This project hosts two AI agent systems -- **Claude Code** and **OpenCode** -- t
 | OpenCode | Terminal (`opencode`) | Same task lifecycle and extensions as Claude Code; alternative terminal interface | Same as Claude Code; use whichever interface you prefer |
 | Zed Agent Panel | Ctrl+? | Fast, inline edits, knows open files | Quick questions, single-file tweaks, inline assist |
 
-Claude Code and OpenCode both run on Claude models and share the same `specs/` task list, `.memory/` vault, and 9 extensions. They do **not** share conversation history with each other or with the Agent Panel. Use the Agent Panel for a 30-second question; use Claude Code or OpenCode when you want research, a plan, and a commit trail. See [extensions.md](extensions.md) for the full feature matrix and [opencode.md](opencode.md) for OpenCode-specific setup.
+Claude Code and OpenCode both run on Claude models and share the same `specs/` task list, `.memory/` vault, and 10 extensions. They do **not** share conversation history with each other or with the Agent Panel. Use the Agent Panel for a 30-second question; use Claude Code or OpenCode when you want research, a plan, and a commit trail. See [extensions.md](extensions.md) for the full feature matrix and [opencode.md](opencode.md) for OpenCode-specific setup.
 
 ## Quick start: your first task
 
@@ -45,7 +45,7 @@ Files in this directory (`docs/agent-system/`):
 - **[commands.md](commands.md)** — Full command catalog grouped by topic, each with a one-line summary, example, and per-system availability.
 - **[context-and-memory.md](context-and-memory.md)** — The two memory layers (`.memory/` vault vs auto-memory), the five context layers, and where new content belongs.
 - **[architecture.md](architecture.md)** — Three-layer execution pipeline, checkpoint execution, session IDs, state files, and routing.
-- **[extensions.md](extensions.md)** — Extension feature matrix covering all 9 shared extensions, per-system availability, and naming differences.
+- **[extensions.md](extensions.md)** — Extension feature matrix covering all 10 shared extensions, per-system availability, and naming differences.
 - **[opencode.md](opencode.md)** — OpenCode setup, configuration, command comparison, shared state model, and unique capabilities.
 
 Companion files outside this directory:
@@ -58,7 +58,7 @@ Companion files outside this directory:
 
 The agent system includes domain-specific extensions that provide specialized research and implementation capabilities:
 
-- **Epidemiology** -- R-based study design, causal inference, statistical modeling, and reporting (STROBE, CONSORT). Use `/epi` to start a study. R language setup is covered in [../general/R.md](../general/R.md).
+- **Epidemiology** -- R-based study design, causal inference, statistical modeling, and reporting (STROBE, CONSORT). Use `/epi` to start a study. R language setup is covered in [../toolchain/r.md](../toolchain/r.md).
 - **Present** -- Grant proposals (`/grant`), budgets (`/budget`), timelines (`/timeline`), funding analysis (`/funds`), and research talks (`/slides`). Slide planning uses an interactive 5-stage design review via `skill-slide-planning`. Use `/slides N --critic` for interactive slide critique with rubric evaluation via `skill-slide-critic`.
 - **Memory** -- Persistent knowledge vault (`/learn`, `--remember` flag on `/research`).
 - **Filetypes** -- Office document conversion and editing (`/convert`, `/edit`, `/table`, `/scrape`).
@@ -66,11 +66,9 @@ The agent system includes domain-specific extensions that provide specialized re
 
 All extensions are pre-merged into the active configuration; there is no manual loading step.
 
-## Zed adaptations
+## Extension architecture
 
-This workspace adapts the upstream `.claude/` configuration with one intentional deviation:
-
-- **No `.claude/extensions/` directory** -- Extensions are tracked via the flat `.claude/extensions.json` file rather than a directory tree. References to `.claude/extensions/*/context/` in `.claude/CLAUDE.md` do not apply here.
+Extensions live in `.claude/extensions/` (and `.opencode/extensions/`), each with a `manifest.json`, domain context, and merge sources. The flat `.claude/extensions.json` file tracks which extensions are loaded and their merge state. Both systems share the same 10 extensions: core, epidemiology, filetypes, latex, memory, present, python, slidev, typst, and web. See [extensions.md](extensions.md) for the full feature matrix.
 
 ## See also
 

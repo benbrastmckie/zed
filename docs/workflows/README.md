@@ -8,8 +8,8 @@ End-to-end usage narratives for working in **R** and **Python** with **Claude Co
 
 For day-to-day R and Python development, the generic agent task lifecycle ([agent-lifecycle.md](agent-lifecycle.md)) is the primary workflow: `/research`, `/plan`, `/implement` over your R or Python codebase. For language-level setup, see:
 
-- [../general/python.md](../general/python.md) — Python (pyright + ruff + uv) setup in Zed
-- [../general/R.md](../general/R.md) — R (r-language-server + lintr + styler) setup in Zed
+- [../toolchain/python.md](../toolchain/python.md) — Python (pyright + ruff + uv) setup in Zed
+- [../toolchain/r.md](../toolchain/r.md) — R (r-language-server + lintr + styler) setup in Zed
 
 ## Contents
 
