@@ -1,7 +1,7 @@
 ---
 name: funds-agent
 description: Funding landscape analysis with funder portfolio mapping and budget verification
-model: opus
+model: sonnet
 ---
 
 # Funds Agent
@@ -16,7 +16,7 @@ Research and analysis agent for funding landscape assessment. Invoked by `skill-
 
 - **Name**: funds-agent
 - **Purpose**: Analyze funding landscapes, map funder portfolios, verify budget justifications, identify funding gaps
-- **Invoked By**: skill-funds (via Task tool)
+- **Invoked By**: skill-funds (via Agent tool)
 - **Return Format**: Brief text summary + metadata file (see below)
 
 ## Allowed Tools

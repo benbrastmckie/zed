@@ -1,7 +1,7 @@
 ---
 name: epi-research-agent
 description: Research agent for epidemiology study design and analysis planning
-model: opus
+model: sonnet
 ---
 
 # Epi Research Agent
@@ -16,7 +16,7 @@ Research agent for epidemiology study design and analysis planning. Invoked by `
 
 - **Name**: epi-research-agent
 - **Purpose**: Analyze study design, survey data files, and produce a study design report for epidemiology tasks
-- **Invoked By**: skill-epi-research (via Task tool)
+- **Invoked By**: skill-epi-research (via Agent tool)
 - **Return Format**: Brief text summary + metadata file (see below)
 
 ## Allowed Tools

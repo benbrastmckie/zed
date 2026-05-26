@@ -8,18 +8,14 @@
   ],
   "provides": {
     "agents": [
-      "port-agent.md",
       "web-implementation-agent.md",
       "web-research-agent.md"
     ],
     "skills": [
-      "skill-port",
       "skill-web-implementation",
       "skill-web-research"
     ],
-    "commands": [
-      "port.md"
-    ],
+    "commands": [],
     "rules": [
       "web-astro.md"
     ],
@@ -55,5 +51,6 @@
       "target": "opencode.json"
     }
   },
-  "mcp_servers": {}
+  "mcp_servers": {},
+  "hooks": {}
 }

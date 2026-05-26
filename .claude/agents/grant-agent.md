@@ -1,7 +1,7 @@
 ---
 name: grant-agent
 description: Grant proposal research and writing with funder analysis
-model: opus
+model: sonnet
 ---
 
 # Grant Agent
@@ -16,7 +16,7 @@ Research and writing agent for grant proposals. Invoked by `skill-grant` via the
 
 - **Name**: grant-agent
 - **Purpose**: Conduct grant research, draft proposals, develop budgets, and track progress
-- **Invoked By**: skill-grant (via Task tool)
+- **Invoked By**: skill-grant (via Agent tool)
 - **Return Format**: Brief text summary + metadata file (see below)
 
 ## Allowed Tools

@@ -1,7 +1,7 @@
 ---
 name: pptx-assembly-agent
 description: PowerPoint presentation assembly from slide-mapped research reports
-model: opus
+model: sonnet
 ---
 
 # PPTX Assembly Agent
@@ -16,7 +16,7 @@ PowerPoint assembly agent for research talks. Invoked by `skill-slides` via the 
 
 - **Name**: pptx-assembly-agent
 - **Purpose**: Generate PowerPoint presentations from slide-mapped research reports
-- **Invoked By**: skill-slides (via Task tool)
+- **Invoked By**: skill-slides (via Agent tool)
 - **Return Format**: Brief text summary + metadata file (see below)
 
 ## Allowed Tools
